@@ -62,7 +62,7 @@ function PhoneCard({ app, index }: { app: MobileApp; index: number }) {
             />
             <div
               aria-hidden="true"
-              className="absolute left-1/2 top-2.5 z-10 h-[22px] w-[78px] -translate-x-1/2 rounded-full bg-ink/95 shadow-inner ring-1 ring-white/5"
+              className="absolute left-1/2 top-1.5 z-10 h-[22px] w-[78px] -translate-x-1/2 rounded-full bg-ink/95 shadow-inner ring-1 ring-white/5"
             />
           </div>
           <div aria-hidden="true" className="absolute -left-[2px] top-[88px] h-9 w-[3px] rounded-full bg-ink/70" />
