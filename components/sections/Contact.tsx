@@ -1,0 +1,271 @@
+"use client";
+
+import { useState, type FormEvent, type ReactNode } from "react";
+import { Mail, MessageCircle, MapPin, Instagram, Linkedin, ArrowUpRight, type LucideIcon } from "lucide-react";
+import { Reveal } from "@/components/fx/Reveal";
+import Aurora from "@/components/fx/Aurora";
+import Magnetic from "@/components/fx/Magnetic";
+import { useLang } from "@/components/providers/LanguageProvider";
+
+type InfoRow = {
+  icon: LucideIcon;
+  label: string;
+  value: string;
+  href?: string;
+};
+
+type SocialLink = {
+  icon: LucideIcon;
+  name: string;
+};
+
+const FIELD_CLASS =
+  "w-full rounded-xl border border-line bg-white px-4 py-3 text-ink placeholder:text-ink-3 transition-shadow focus:outline-none focus:ring-2 focus:ring-cyan/40";
+
+export default function Contact() {
+  const { t } = useLang();
+  const c = t.contact;
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [service, setService] = useState(c.form.serviceOptions[0]);
+  const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const infoRows: InfoRow[] = [
+    {
+      icon: Mail,
+      label: c.info.emailLabel,
+      value: c.info.email,
+      href: `mailto:${c.info.email}`,
+    },
+    {
+      icon: MapPin,
+      label: c.info.locationLabel,
+      value: c.info.location,
+    },
+  ];
+
+  const socials: SocialLink[] = [
+    { icon: Instagram, name: "Instagram" },
+    { icon: Linkedin, name: "LinkedIn" },
+    { icon: MessageCircle, name: "WhatsApp" },
+    { icon: Mail, name: c.info.emailLabel },
+  ];
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!name.trim() || !email.trim() || !message.trim()) return;
+
+    const subject = `Forpus — ${name.trim()}`;
+    const bodyLines = [
+      `${c.form.name}: ${name.trim()}`,
+      `${c.form.email}: ${email.trim()}`,
+      `${c.form.company}: ${company.trim() || "—"}`,
+      `${c.form.service}: ${service}`,
+      "",
+      `${c.form.message}:`,
+      message.trim(),
+    ];
+    const url = `mailto:${c.info.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+      bodyLines.join("\n")
+    )}`;
+
+    setSubmitted(true);
+    window.location.href = url;
+  };
+
+  return (
+    <section id="contact" className="section relative overflow-hidden bg-bg-2/60">
+      <Aurora className="opacity-50" />
+
+      <div className="container-x relative z-10">
+        <div className="mx-auto max-w-2xl text-center">
+          <Reveal>
+            <span className="eyebrow">{c.eyebrow}</span>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h2 className="h-section mt-5 whitespace-pre-line">{c.title}</h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="lead mx-auto mt-5 max-w-xl">{c.subtitle}</p>
+          </Reveal>
+        </div>
+
+        <div className="mt-16 grid items-start gap-6 lg:grid-cols-2 lg:gap-10">
+          {/* LEFT — contact info */}
+          <Reveal>
+            <div className="flex h-full flex-col gap-4">
+              {infoRows.map((row) => {
+                const Icon = row.icon;
+                const inner: ReactNode = (
+                  <>
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-green via-cyan to-blue text-white shadow-[var(--shadow-glow)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      <Icon className="h-[22px] w-[22px]" strokeWidth={1.8} />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink-3">
+                        {row.label}
+                      </span>
+                      <span className="mt-1 block break-words text-[1.05rem] font-semibold text-ink">
+                        {row.value}
+                      </span>
+                    </span>
+                  </>
+                );
+
+                return (
+                  <div key={row.label} className="group">
+                    {row.href ? (
+                      <a
+                        href={row.href}
+                        className="glass-card border-gradient flex items-center gap-4 p-5 transition-transform duration-500 hover:-translate-y-1"
+                      >
+                        {inner}
+                        <ArrowUpRight className="ml-auto h-5 w-5 shrink-0 text-ink-3 transition-colors group-hover:text-cyan-deep" />
+                      </a>
+                    ) : (
+                      <div className="glass-card border-gradient flex items-center gap-4 p-5 transition-transform duration-500 hover:-translate-y-1">
+                        {inner}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+
+              {/* Social row */}
+              <div className="glass-card mt-auto flex flex-wrap items-center gap-4 p-5">
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink-3">
+                  {c.info.socialLabel}
+                </span>
+                <div className="flex flex-wrap gap-2.5">
+                  {socials.map((s) => {
+                    const Icon = s.icon;
+                    return (
+                      <a
+                        key={s.name}
+                        href="#"
+                        aria-label={s.name}
+                        className="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-ink-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-br hover:from-green hover:via-cyan hover:to-blue hover:text-white hover:shadow-[var(--shadow-glow)]"
+                      >
+                        <Icon className="h-[18px] w-[18px]" strokeWidth={1.8} />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* RIGHT — form */}
+          <Reveal delay={0.08}>
+            <form
+              onSubmit={handleSubmit}
+              noValidate
+              className="glass-card border-gradient relative overflow-hidden p-6 sm:p-9"
+            >
+              <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-gradient-to-br from-cyan/20 to-blue/10 blur-3xl" />
+
+              <div className="relative grid gap-5">
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="mb-2 block font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink-3">
+                      {c.form.name}
+                    </span>
+                    <input
+                      type="text"
+                      required
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder={c.form.name}
+                      autoComplete="name"
+                      className={FIELD_CLASS}
+                    />
+                  </label>
+
+                  <label className="block">
+                    <span className="mb-2 block font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink-3">
+                      {c.form.email}
+                    </span>
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder={c.form.email}
+                      autoComplete="email"
+                      className={FIELD_CLASS}
+                    />
+                  </label>
+                </div>
+
+                <label className="block">
+                  <span className="mb-2 block font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink-3">
+                    {c.form.company}
+                  </span>
+                  <input
+                    type="text"
+                    value={company}
+                    onChange={(e) => setCompany(e.target.value)}
+                    placeholder={c.form.company}
+                    autoComplete="organization"
+                    className={FIELD_CLASS}
+                  />
+                </label>
+
+                <label className="block">
+                  <span className="mb-2 block font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink-3">
+                    {c.form.service}
+                  </span>
+                  <select
+                    value={service}
+                    onChange={(e) => setService(e.target.value)}
+                    className={FIELD_CLASS}
+                  >
+                    {c.form.serviceOptions.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+
+                <label className="block">
+                  <span className="mb-2 block font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink-3">
+                    {c.form.message}
+                  </span>
+                  <textarea
+                    required
+                    rows={5}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder={c.form.message}
+                    className={`${FIELD_CLASS} resize-none`}
+                  />
+                </label>
+
+                <Magnetic className="mt-1 self-start" strength={0.25}>
+                  <button type="submit" className="btn btn-primary">
+                    {c.form.submit}
+                    <ArrowUpRight className="h-[18px] w-[18px]" />
+                  </button>
+                </Magnetic>
+
+                {submitted ? (
+                  <p
+                    role="status"
+                    className="flex items-start gap-2.5 rounded-xl border border-green/30 bg-green/5 px-4 py-3 text-[0.92rem] font-medium text-green-deep"
+                  >
+                    <Mail className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} />
+                    {c.form.success}
+                  </p>
+                ) : null}
+              </div>
+            </form>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
