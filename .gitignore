@@ -38,3 +38,7 @@ next-env.d.ts
 *.log
 /scripts/review/
 /scripts/preview-*.png
+
+# stray root copies (asset'ler public/brand içinde)
+/forpus-logo.png
+/forpus-yazi.png

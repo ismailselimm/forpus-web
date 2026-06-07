@@ -174,7 +174,7 @@ const tr = {
     },
     info: {
       emailLabel: "E-posta",
-      email: "info@forpus.com",
+      email: "info@forpusyazilim.com",
       phoneLabel: "Telefon / WhatsApp",
       phone: "+90 5xx xxx xx xx",
       socialLabel: "Sosyal Medya",
@@ -365,7 +365,7 @@ const en: typeof tr = {
     },
     info: {
       emailLabel: "Email",
-      email: "info@forpus.com",
+      email: "info@forpusyazilim.com",
       phoneLabel: "Phone / WhatsApp",
       phone: "+90 5xx xxx xx xx",
       socialLabel: "Social Media",

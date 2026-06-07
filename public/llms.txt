@@ -1,0 +1,30 @@
+# Forpus Yazılım
+
+> Forpus, fikirleri büyüyen dijital ürünlere dönüştüren bir yazılım stüdyosudur. Web, mobil uygulama, Meta & Google reklamları, sosyal medya ve tasarım — tek çatı altında. (Forpus is a software studio that turns ideas into digital products that grow: web, mobile apps, ads, social media and design — under one roof.)
+
+Forpus Yazılım, iki mühendis kurucu (biri mobil uygulama & sistem, diğeri web & arayüz odaklı) ve birlikte çalıştığı tasarımcı, reklam ve içerik ekibinden oluşur. Türkiye merkezlidir ve uzaktan çalışır. Markaları uçtan uca dijitale taşır: keşif/strateji, tasarım, geliştirme, lansman ve büyüme.
+
+## Hizmetler (Services)
+- Web Yazılım & Geliştirme: kurumsal web siteleri, web uygulamaları, e-ticaret, SEO & performans.
+- Mobil Uygulama: iOS & Android, Flutter, App Store & Google Play yayını, bildirim & analitik.
+- Reklam & Performans: Meta Ads, Google Ads, dönüşüm takibi, A/B test.
+- Sosyal Medya & Tasarım: sosyal medya yönetimi, marka kimliği, UI/UX ve grafik tasarım.
+
+## Seçili İşler (Selected work)
+- DoldurKabı — Türkiye'nin hayvanseverler platformu (sahiplendirme, kayıp ilanları, veteriner, harita); web + mobil uygulama: https://doldurkabi.com/
+- Temizlik Express — online temizlik pazaryeri; web sitesi + mobil uygulama: https://temizlikexpress.com/
+- Harman App — Türkiye'nin tarım pazaryeri; mobil uygulama: https://harmanapps.com/
+- Dr. Yasin Kurtboğan — kurumsal / sağlık tanıtım sitesi: https://dryasinkurtbogan.com.tr/
+- Çekiç Trans — lojistik / çekici hizmeti kurumsal sitesi: https://cekictrans.com/
+- Esen Kuruyemiş — kuruyemiş markası için e-ticaret.
+- Merak Et Öğren — podcast uygulaması (geliştiriliyor).
+
+## İletişim (Contact)
+- E-posta: info@forpusyazilim.com
+- Konum: Türkiye (uzaktan çalışır)
+- Web: https://forpusyazilim.com
+
+## Notlar (Notes)
+- Diller: Türkçe (varsayılan) ve İngilizce.
+- Teknoloji: Next.js, React, Flutter; modern, hızlı ve ölçeklenebilir çözümler.
+- Yeni proje teklifi için 48 saat içinde dönüş yapılır.

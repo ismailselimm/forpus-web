@@ -29,24 +29,115 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
+const SITE_URL = "https://forpusyazilim.com";
+const OG_DESC =
+  "Web, mobil uygulama, reklam ve tasarım — tek çatı altında. Fikrinizi büyüyen dijital ürünlere dönüştürüyoruz.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://forpus.com"),
-  title: "Forpus Yazılım — Web, Mobil, Reklam & Tasarım",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Forpus Yazılım — Web, Mobil, Reklam & Tasarım",
+    template: "%s | Forpus Yazılım",
+  },
   description:
     "Forpus, fikrinizi büyüyen dijital ürünlere dönüştüren bir yazılım stüdyosu. Web, mobil uygulama, Meta & Google reklamları, sosyal medya ve tasarım — tek çatı altında.",
+  applicationName: "Forpus Yazılım",
   keywords: [
-    "yazılım", "web tasarım", "mobil uygulama", "Meta reklam", "Google Ads",
-    "sosyal medya", "Next.js", "Flutter", "Forpus",
+    "Forpus", "Forpus Yazılım", "yazılım stüdyosu", "dijital ajans", "web yazılım",
+    "web tasarım", "kurumsal web sitesi", "e-ticaret", "mobil uygulama", "uygulama geliştirme",
+    "iOS Android uygulama", "Flutter", "Next.js", "Meta reklam", "Google Ads",
+    "performans pazarlama", "sosyal medya yönetimi", "UI/UX tasarım", "SEO",
   ],
-  authors: [{ name: "Forpus Yazılım" }],
-  icons: { icon: "/brand/forpus-logo.png", apple: "/brand/forpus-logo.png" },
+  authors: [{ name: "Forpus Yazılım", url: SITE_URL }],
+  creator: "Forpus Yazılım",
+  publisher: "Forpus Yazılım",
+  category: "technology",
+  alternates: { canonical: "/" },
+  icons: {
+    icon: [
+      { url: "/brand/forpus-logo.png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/icon-192.png",
+  },
   openGraph: {
-    title: "Forpus Yazılım — Dijital Ürün Stüdyosu",
-    description:
-      "Web, mobil uygulama, reklam ve tasarım — tek çatı altında. Fikrinizi büyüyen dijital ürünlere dönüştürüyoruz.",
     type: "website",
     locale: "tr_TR",
+    alternateLocale: "en_US",
+    url: SITE_URL,
+    siteName: "Forpus Yazılım",
+    title: "Forpus Yazılım — Dijital Ürün Stüdyosu",
+    description: OG_DESC,
+    images: [
+      { url: "/og.png", width: 1200, height: 630, alt: "Forpus Yazılım — Web, Mobil, Reklam & Tasarım" },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Forpus Yazılım — Dijital Ürün Stüdyosu",
+    description: OG_DESC,
+    images: ["/og.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Forpus Yazılım",
+      url: SITE_URL,
+      logo: `${SITE_URL}/brand/forpus-logo.png`,
+      image: `${SITE_URL}/og.png`,
+      email: "info@forpusyazilim.com",
+      description:
+        "Web, mobil uygulama, reklam ve tasarım sunan dijital ürün stüdyosu.",
+      areaServed: "TR",
+      knowsLanguage: ["tr", "en"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "Forpus Yazılım",
+      inLanguage: "tr",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${SITE_URL}/#service`,
+      name: "Forpus Yazılım",
+      url: SITE_URL,
+      image: `${SITE_URL}/og.png`,
+      email: "info@forpusyazilim.com",
+      areaServed: "TR",
+      priceRange: "₺₺",
+      parentOrganization: { "@id": `${SITE_URL}/#organization` },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Hizmetler",
+        itemListElement: [
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Yazılım & Geliştirme" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mobil Uygulama Geliştirme" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Reklam & Performans (Meta, Google)" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sosyal Medya & Tasarım" } },
+        ],
+      },
+    },
+  ],
 };
 
 export const viewport: Viewport = {
@@ -59,6 +150,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="tr" suppressHydrationWarning>
       <body className={`${montserrat.variable} ${manrope.variable} ${jetbrains.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <LanguageProvider>
           <Preloader />
           <SmoothScroll />
