@@ -13,7 +13,7 @@ Forpus Yazılım, iki mühendis kurucu (biri mobil uygulama & sistem, diğeri we
 ## Seçili İşler (Selected work)
 - DoldurKabı — Türkiye'nin hayvanseverler platformu (sahiplendirme, kayıp ilanları, veteriner, harita); web + mobil uygulama: https://doldurkabi.com/
 - Temizlik Express — online temizlik pazaryeri; web sitesi + mobil uygulama: https://temizlikexpress.com/
-- Harman App — Türkiye'nin tarım pazaryeri; mobil uygulama: https://harmanapps.com/
+- Harman App — Türkiye'nin tarım pazaryeri (çiftçiden alıcıya doğrudan); web + mobil uygulama: https://harmanapps.com/
 - Dr. Yasin Kurtboğan — kurumsal / sağlık tanıtım sitesi: https://dryasinkurtbogan.com.tr/
 - Çekiç Trans — lojistik / çekici hizmeti kurumsal sitesi: https://cekictrans.com/
 - Esen Kuruyemiş — kuruyemiş markası için e-ticaret.

@@ -117,14 +117,14 @@ const tr = {
       { value: 20, suffix: "+", label: "Tamamlanan Proje" },
       { value: 15, suffix: "+", label: "Mutlu Marka" },
       { value: 6, suffix: "+", label: "Yıl Deneyim" },
-      { value: 100, suffix: "%", label: "Teslim Sözü" },
+      { value: 100, suffix: "%", label: "Zamanında Teslim" },
     ],
   },
   team: {
     eyebrow: "Ekip",
     title: "İki mühendis kurucu,\ngenişleyen bir ekip.",
     subtitle:
-      "Forpus'u kuran iki mühendis ve birlikte çalıştığımız tasarımcı, reklam ve geliştirici ekibiyle, her işin altından kalkacak kadroyuz.",
+      "Forpus'u iki mühendis kurdu. Tasarımcı, reklam ve geliştirici ekibimizle; fikirden lansmana kadar her aşamayı tek çatı altında yürütüyoruz.",
     founders: [
       {        role: "Kurucu Ortak · Bilgisayar Mühendisi",
         focus: "Mobil Uygulama & Sistem",
@@ -310,14 +310,14 @@ const en: typeof tr = {
       { value: 20, suffix: "+", label: "Completed Projects" },
       { value: 15, suffix: "+", label: "Happy Brands" },
       { value: 6, suffix: "+", label: "Years of Experience" },
-      { value: 100, suffix: "%", label: "Delivery Promise" },
+      { value: 100, suffix: "%", label: "On-time Delivery" },
     ],
   },
   team: {
     eyebrow: "Team",
     title: "Two engineer founders,\na growing team.",
     subtitle:
-      "With the two engineers who founded Forpus and a team of designers, ad specialists and developers, we have the crew for any job.",
+      "Forpus was founded by two engineers. With our designers, ad specialists and developers, we run every stage — from idea to launch — under one roof.",
     founders: [
       {        role: "Co-Founder · Computer Engineer",
         focus: "Mobile Apps & Systems",

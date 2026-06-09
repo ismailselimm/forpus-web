@@ -65,8 +65,8 @@ export const webProjects: WebProject[] = [
     shot: "/work/harmanapps.png",
     category: { tr: "Web & Mobil", en: "Web & Mobile" },
     desc: {
-      tr: "Uygulama stüdyosu için kurumsal web sitesi ve mobil uygulama deneyimi; modern, hızlı, etkileyici.",
-      en: "Corporate website and mobile app experience for an app studio — modern, fast and striking.",
+      tr: "Türkiye'nin tarım pazaryeri — çiftçiden alıcıya doğrudan ticaret. Web ve mobil uygulamayla hızlı, geniş kapsamlı bir platform.",
+      en: "Turkey's agricultural marketplace — trade directly from farmer to buyer. A fast, far-reaching platform across web and mobile.",
     },
     tags: ["Web", "Mobil", "Tasarım"],
     accent: "green",

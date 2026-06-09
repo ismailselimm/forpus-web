@@ -87,9 +87,12 @@ export default function Contact() {
       fd.append("subject", `Forpus — Yeni mesaj: ${name.trim()}`);
       fd.append("from_name", name.trim());
       fd.append("replyto", email.trim());
+      // Alan adları BİLEREK ASCII: Web3Forms multipart alan İSİMLERİNDEKİ Türkçe
+      // karakterleri bozuyor (ş→Åž). i18n etiketleriyle (c.form.*) değiştirmeyin —
+      // bunlar dilden bağımsız, sabit kalmalı. (Değerler UTF-8, sorunsuz.)
       fd.append("Ad", name.trim());
       fd.append("E-posta", email.trim());
-      fd.append("Şirket / Marka", company.trim() || "—");
+      fd.append("Firma / Marka", company.trim() || "-");
       fd.append("Hizmet", service);
       fd.append("Mesaj", message.trim());
 
@@ -112,6 +115,14 @@ export default function Contact() {
       setStatus("error");
     }
   };
+
+  const SubmitIcon = status === "sending" ? Loader2 : ArrowUpRight;
+  const notice =
+    status === "success"
+      ? { role: "status" as const, Icon: CheckCircle2, cls: "border-green/30 bg-green/5 text-green-deep", msg: c.form.success }
+      : status === "error"
+        ? { role: "alert" as const, Icon: AlertCircle, cls: "border-red-400/40 bg-red-50 text-red-600", msg: c.form.error }
+        : null;
 
   return (
     <section id="contact" className="section relative overflow-hidden bg-bg-2/60">
@@ -299,39 +310,22 @@ export default function Contact() {
                     aria-busy={status === "sending"}
                     className="btn btn-primary disabled:cursor-not-allowed disabled:opacity-70"
                   >
-                    {status === "sending" ? (
-                      <>
-                        {c.form.sending}
-                        <Loader2 className="h-[18px] w-[18px] animate-spin" />
-                      </>
-                    ) : (
-                      <>
-                        {c.form.submit}
-                        <ArrowUpRight className="h-[18px] w-[18px]" />
-                      </>
-                    )}
+                    {status === "sending" ? c.form.sending : c.form.submit}
+                    <SubmitIcon
+                      className={`h-[18px] w-[18px] ${status === "sending" ? "animate-spin" : ""}`}
+                    />
                   </button>
                 </Magnetic>
 
-                {status === "success" ? (
+                {notice && (
                   <p
-                    role="status"
-                    className="flex items-start gap-2.5 rounded-xl border border-green/30 bg-green/5 px-4 py-3 text-[0.92rem] font-medium text-green-deep"
+                    role={notice.role}
+                    className={`flex items-start gap-2.5 rounded-xl border px-4 py-3 text-[0.92rem] font-medium ${notice.cls}`}
                   >
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} />
-                    {c.form.success}
+                    <notice.Icon className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} />
+                    {notice.msg}
                   </p>
-                ) : null}
-
-                {status === "error" ? (
-                  <p
-                    role="alert"
-                    className="flex items-start gap-2.5 rounded-xl border border-red-400/40 bg-red-50 px-4 py-3 text-[0.92rem] font-medium text-red-600"
-                  >
-                    <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} />
-                    {c.form.error}
-                  </p>
-                ) : null}
+                )}
               </div>
             </form>
           </Reveal>
