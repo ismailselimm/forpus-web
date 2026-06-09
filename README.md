@@ -49,7 +49,7 @@ scripts/            # ekran görüntüsü + görsel üretim araçları
 Aşağıdakiler örnek/yer tutucu olarak konuldu — gerçek bilgilerinizle değiştirin:
 
 1. **İletişim bilgileri** — `lib/i18n/dictionary.ts` → `contact.info`:
-   - `email` (şu an `info@forpusyazilim.com`)
+   - `email` (şu an `forpusyazilim@gmail.com`) — form gönderimleri Web3Forms ile bu adrese düşer (`NEXT_PUBLIC_WEB3FORMS_KEY`).
    - `phone` (şu an `+90 5xx xxx xx xx`)
    - `location`
 2. **Sosyal medya linkleri** — `components/layout/Footer.tsx` ve `components/sections/Contact.tsx` içindeki `href="#"` → gerçek Instagram/LinkedIn/WhatsApp adresleri.

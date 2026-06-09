@@ -20,7 +20,7 @@ Forpus Yazılım, iki mühendis kurucu (biri mobil uygulama & sistem, diğeri we
 - Merak Et Öğren — podcast uygulaması (geliştiriliyor).
 
 ## İletişim (Contact)
-- E-posta: info@forpusyazilim.com
+- E-posta: forpusyazilim@gmail.com
 - Konum: Türkiye (uzaktan çalışır)
 - Web: https://forpusyazilim.com
 

@@ -102,7 +102,7 @@ const jsonLd = {
       url: SITE_URL,
       logo: `${SITE_URL}/brand/forpus-logo.png`,
       image: `${SITE_URL}/og.png`,
-      email: "info@forpusyazilim.com",
+      email: "forpusyazilim@gmail.com",
       description:
         "Web, mobil uygulama, reklam ve tasarım sunan dijital ürün stüdyosu.",
       areaServed: "TR",
@@ -122,7 +122,7 @@ const jsonLd = {
       name: "Forpus Yazılım",
       url: SITE_URL,
       image: `${SITE_URL}/og.png`,
-      email: "info@forpusyazilim.com",
+      email: "forpusyazilim@gmail.com",
       areaServed: "TR",
       priceRange: "₺₺",
       parentOrganization: { "@id": `${SITE_URL}/#organization` },

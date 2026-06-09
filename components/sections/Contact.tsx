@@ -1,7 +1,18 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
-import { Mail, MessageCircle, MapPin, Instagram, Linkedin, ArrowUpRight, type LucideIcon } from "lucide-react";
+import {
+  Mail,
+  MessageCircle,
+  MapPin,
+  Instagram,
+  Linkedin,
+  ArrowUpRight,
+  Loader2,
+  CheckCircle2,
+  AlertCircle,
+  type LucideIcon,
+} from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
@@ -22,6 +33,11 @@ type SocialLink = {
 const FIELD_CLASS =
   "w-full rounded-xl border border-line bg-white px-4 py-3 text-ink placeholder:text-ink-3 transition-shadow focus:outline-none focus:ring-2 focus:ring-cyan/40";
 
+// Web3Forms erişim anahtarı — GİZLİ DEĞİLDİR, istemci tarafında açık olması normaldir
+// (e-posta adresinin takma adı gibi çalışır). web3forms.com'dan ücretsiz alınır.
+const WEB3FORMS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "162a3e34-5c74-4476-8ade-fd9e540e92fd";
+
 export default function Contact() {
   const { t } = useLang();
   const c = t.contact;
@@ -31,7 +47,7 @@ export default function Contact() {
   const [company, setCompany] = useState("");
   const [service, setService] = useState(c.form.serviceOptions[0]);
   const [message, setMessage] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const infoRows: InfoRow[] = [
     {
@@ -54,26 +70,47 @@ export default function Contact() {
     { icon: Mail, name: c.info.emailLabel },
   ];
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (status === "sending") return;
     if (!name.trim() || !email.trim() || !message.trim()) return;
 
-    const subject = `Forpus — ${name.trim()}`;
-    const bodyLines = [
-      `${c.form.name}: ${name.trim()}`,
-      `${c.form.email}: ${email.trim()}`,
-      `${c.form.company}: ${company.trim() || "—"}`,
-      `${c.form.service}: ${service}`,
-      "",
-      `${c.form.message}:`,
-      message.trim(),
-    ];
-    const url = `mailto:${c.info.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-      bodyLines.join("\n")
-    )}`;
+    // Honeypot: gerçek kullanıcı bu alanı görmez/doldurmaz; bot doldurursa sessizce iptal
+    const honeypot = (e.currentTarget.elements.namedItem("botcheck") as HTMLInputElement | null)?.checked;
+    if (honeypot) return;
 
-    setSubmitted(true);
-    window.location.href = url;
+    setStatus("sending");
+    try {
+      // FormData (multipart) → "basit istek", CORS preflight yok → en sağlam yöntem
+      const fd = new FormData();
+      fd.append("access_key", WEB3FORMS_KEY);
+      fd.append("subject", `Forpus — Yeni mesaj: ${name.trim()}`);
+      fd.append("from_name", name.trim());
+      fd.append("replyto", email.trim());
+      fd.append("Ad", name.trim());
+      fd.append("E-posta", email.trim());
+      fd.append("Şirket / Marka", company.trim() || "—");
+      fd.append("Hizmet", service);
+      fd.append("Mesaj", message.trim());
+
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: fd,
+      });
+      const data = (await res.json()) as { success?: boolean };
+      if (res.ok && data.success) {
+        setStatus("success");
+        setName("");
+        setEmail("");
+        setCompany("");
+        setService(c.form.serviceOptions[0]);
+        setMessage("");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -167,6 +204,16 @@ export default function Contact() {
             >
               <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-gradient-to-br from-cyan/20 to-blue/10 blur-3xl" />
 
+              {/* Honeypot — ekran dışı, botlar için tuzak */}
+              <input
+                type="checkbox"
+                name="botcheck"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute left-[-9999px] h-0 w-0 opacity-0"
+              />
+
               <div className="relative grid gap-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <label className="block">
@@ -246,19 +293,43 @@ export default function Contact() {
                 </label>
 
                 <Magnetic className="mt-1 self-start" strength={0.25}>
-                  <button type="submit" className="btn btn-primary">
-                    {c.form.submit}
-                    <ArrowUpRight className="h-[18px] w-[18px]" />
+                  <button
+                    type="submit"
+                    disabled={status === "sending"}
+                    aria-busy={status === "sending"}
+                    className="btn btn-primary disabled:cursor-not-allowed disabled:opacity-70"
+                  >
+                    {status === "sending" ? (
+                      <>
+                        {c.form.sending}
+                        <Loader2 className="h-[18px] w-[18px] animate-spin" />
+                      </>
+                    ) : (
+                      <>
+                        {c.form.submit}
+                        <ArrowUpRight className="h-[18px] w-[18px]" />
+                      </>
+                    )}
                   </button>
                 </Magnetic>
 
-                {submitted ? (
+                {status === "success" ? (
                   <p
                     role="status"
                     className="flex items-start gap-2.5 rounded-xl border border-green/30 bg-green/5 px-4 py-3 text-[0.92rem] font-medium text-green-deep"
                   >
-                    <Mail className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} />
                     {c.form.success}
+                  </p>
+                ) : null}
+
+                {status === "error" ? (
+                  <p
+                    role="alert"
+                    className="flex items-start gap-2.5 rounded-xl border border-red-400/40 bg-red-50 px-4 py-3 text-[0.92rem] font-medium text-red-600"
+                  >
+                    <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} />
+                    {c.form.error}
                   </p>
                 ) : null}
               </div>
