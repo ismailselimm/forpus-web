@@ -59,6 +59,32 @@ export const webProjects: WebProject[] = [
     accent: "blue",
   },
   {
+    slug: "esenkuruyemis",
+    name: "Esen Kuruyemiş",
+    url: "https://esenkuruyemis.com/",
+    shot: "/work/esenkuruyemis.png",
+    category: { tr: "E-Ticaret", en: "E-Commerce" },
+    desc: {
+      tr: "Kuruyemiş markası için e-ticaret sitesi: ürün kataloğu, sepet ve ödeme — taze lezzetleri akıcı bir alışveriş deneyimiyle online'a taşıdık.",
+      en: "An e-commerce site for a dried-nuts brand: product catalog, cart and checkout — fresh flavors brought online with a smooth shopping experience.",
+    },
+    tags: ["E-Ticaret", "Web", "UI/UX"],
+    accent: "cyan",
+  },
+  {
+    slug: "merak",
+    name: "Merak Et Öğren",
+    url: "https://meraketogren.com/",
+    shot: "/work/merak.png",
+    category: { tr: "Web & Mobil", en: "Web & Mobile" },
+    desc: {
+      tr: "Sesli mikro-öğrenme uygulaması için tanıtım sitesi: kategoriler, premium üyelik ve mağaza indirmeleri — günde 5 dakikalık öğrenmeyi akıcı bir deneyimle sunar.",
+      en: "A landing site for an audio micro-learning app: categories, premium membership and store links — presenting five-minutes-a-day learning in a smooth experience.",
+    },
+    tags: ["Web", "Mobil", "UI/UX"],
+    accent: "blue",
+  },
+  {
     slug: "harmanapps",
     name: "Harman Apps",
     url: "https://harmanapps.com/",
@@ -153,6 +179,6 @@ export const brandLogos: { name: string; src: string; url?: string }[] = [
   { name: "Harman Apps", src: "/logos/harman.png", url: "https://harmanapps.com/" },
   { name: "Esen Kuruyemiş", src: "/logos/esen.png", url: "https://esenkuruyemis.com/" },
   { name: "Dr. Yasin Kurtboğan", src: "/logos/dryasin.png", url: "https://dryasinkurtbogan.com.tr/" },
-  { name: "Merak Et Öğren", src: "/logos/merak.png" },
+  { name: "Merak Et Öğren", src: "/logos/merak.png", url: "https://meraketogren.com/" },
   { name: "Çekiç Trans", src: "/logos/cekictrans.png", url: "https://cekictrans.com/" },
 ];

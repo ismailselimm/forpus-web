@@ -55,10 +55,9 @@ Aşağıdakiler örnek/yer tutucu olarak konuldu — gerçek bilgilerinizle değ
 2. **Sosyal medya linkleri** — `components/layout/Footer.tsx` ve `components/sections/Contact.tsx` içindeki `href="#"` → gerçek Instagram/LinkedIn/WhatsApp adresleri.
 3. **İstatistikler** — `dictionary.ts` → `stats.items` (20+, 15+, 6+, 100%) gerçek rakamlarla.
 4. **Müşteri yorumları** — `dictionary.ts` → `testimonials.items` gerçek yorumlarla (isim/şirket).
-5. **Esen Kuruyemiş** — sitesi şu an erişilemez olduğu için (Cloudflare 522) "İşler" bölümüne eklenmedi. Site açılınca: `npm run shots` ile ekran görüntüsü alıp `lib/projects.ts` → `webProjects` dizisine ekleyin.
-6. **Ekip sosyal linkleri** — `components/sections/Team.tsx` içindeki LinkedIn/GitHub `href="#"`.
+5. **Ekip sosyal linkleri** — `components/sections/Team.tsx` içindeki LinkedIn/GitHub `href="#"`.
 
-İletişim formu, backend gerektirmeyecek şekilde **mailto** ile çalışır (form gönderilince e-posta uygulaması açılır). İleride form servisi (Formspree, Resend, vb.) bağlanabilir.
+İletişim formu **Web3Forms** ile çalışır — gönderimler `forpusyazilim@gmail.com` kutusuna düşer (anahtar: `NEXT_PUBLIC_WEB3FORMS_KEY`, public).
 
 ## Görselleri yeniden üretme
 
