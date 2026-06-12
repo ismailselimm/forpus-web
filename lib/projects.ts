@@ -86,7 +86,7 @@ export const webProjects: WebProject[] = [
   },
   {
     slug: "harmanapps",
-    name: "Harman Apps",
+    name: "Harman App",
     url: "https://harmanapps.com/",
     shot: "/work/harmanapps.png",
     category: { tr: "Web & Mobil", en: "Web & Mobile" },
@@ -165,7 +165,7 @@ export const mobileApps: MobileApp[] = [
 export const brandNames = [
   "DoldurKabı",
   "Temizlik Express",
-  "Harman Apps",
+  "Harman App",
   "Esen Kuruyemiş",
   "Dr. Yasin Kurtboğan",
   "Merak Et Öğren",
@@ -176,7 +176,7 @@ export const brandNames = [
 export const brandLogos: { name: string; src: string; url?: string }[] = [
   { name: "DoldurKabı", src: "/logos/doldurkabi.png", url: "https://doldurkabi.com/" },
   { name: "Temizlik Express", src: "/logos/temizlikexpress.png", url: "https://temizlikexpress.com/" },
-  { name: "Harman Apps", src: "/logos/harman.png", url: "https://harmanapps.com/" },
+  { name: "Harman App", src: "/logos/harman.png", url: "https://harmanapps.com/" },
   { name: "Esen Kuruyemiş", src: "/logos/esen.png", url: "https://esenkuruyemis.com/" },
   { name: "Dr. Yasin Kurtboğan", src: "/logos/dryasin.png", url: "https://dryasinkurtbogan.com.tr/" },
   { name: "Merak Et Öğren", src: "/logos/merak.png", url: "https://meraketogren.com/" },
