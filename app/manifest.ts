@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static"; // statik export (GitHub Pages) için
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Forpus Yazılım",
