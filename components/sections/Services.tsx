@@ -47,7 +47,7 @@ export default function Services() {
                   </div>
 
                   <h3 className="text-[1.05rem] font-bold leading-snug tracking-tight text-ink sm:text-[1.45rem]">{s.name}</h3>
-                  <p className="mt-2 line-clamp-3 max-w-md text-[0.86rem] leading-relaxed text-ink-2 sm:mt-3 sm:line-clamp-none sm:text-[0.98rem]">{s.desc}</p>
+                  <p className="mt-2 max-w-md text-[0.86rem] leading-relaxed text-ink-2 sm:mt-3 sm:text-[0.98rem]">{s.desc}</p>
 
                   <ul className="mt-5 hidden flex-wrap gap-2 sm:flex">
                     {s.features.map((f) => (
