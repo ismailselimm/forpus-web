@@ -85,19 +85,6 @@ export const webProjects: WebProject[] = [
     accent: "blue",
   },
   {
-    slug: "harmanapps",
-    name: "Harman App",
-    url: "https://harmanapps.com/",
-    shot: "/work/harmanapps.png",
-    category: { tr: "Web & Mobil", en: "Web & Mobile" },
-    desc: {
-      tr: "Türkiye'nin tarım pazaryeri — çiftçiden alıcıya doğrudan ticaret. Web ve mobil uygulamayla hızlı, geniş kapsamlı bir platform.",
-      en: "Turkey's agricultural marketplace — trade directly from farmer to buyer. A fast, far-reaching platform across web and mobile.",
-    },
-    tags: ["Web", "Mobil", "Tasarım"],
-    accent: "green",
-  },
-  {
     slug: "dryasin",
     name: "Dr. Yasin Kurtboğan",
     url: "https://dryasinkurtbogan.com.tr/",
@@ -144,14 +131,6 @@ export const mobileApps: MobileApp[] = [
     googlePlay: "https://play.google.com/store/apps/details?id=com.temizlikexpress.temizlik",
   },
   {
-    slug: "harmanapps",
-    name: "Harman App",
-    shot: "/work/apps/harman.png",
-    tagline: { tr: "Türkiye'nin tarım pazaryeri", en: "Turkey's agricultural marketplace" },
-    appStore: "https://apps.apple.com/tr/app/harmanapp/id6751776802?l=tr",
-    googlePlay: "https://play.google.com/store/apps/details?id=com.harmanwebview",
-  },
-  {
     slug: "merak",
     name: "Merak Et Öğren",
     shot: "/work/apps/merak.png",
@@ -165,7 +144,6 @@ export const mobileApps: MobileApp[] = [
 export const brandNames = [
   "DoldurKabı",
   "Temizlik Express",
-  "Harman App",
   "Esen Kuruyemiş",
   "Dr. Yasin Kurtboğan",
   "Merak Et Öğren",
@@ -176,7 +154,6 @@ export const brandNames = [
 export const brandLogos: { name: string; src: string; url?: string }[] = [
   { name: "DoldurKabı", src: "/logos/doldurkabi.png", url: "https://doldurkabi.com/" },
   { name: "Temizlik Express", src: "/logos/temizlikexpress.png", url: "https://temizlikexpress.com/" },
-  { name: "Harman App", src: "/logos/harman.png", url: "https://harmanapps.com/" },
   { name: "Esen Kuruyemiş", src: "/logos/esen.png", url: "https://esenkuruyemis.com/" },
   { name: "Dr. Yasin Kurtboğan", src: "/logos/dryasin.png", url: "https://dryasinkurtbogan.com.tr/" },
   { name: "Merak Et Öğren", src: "/logos/merak.png", url: "https://meraketogren.com/" },
