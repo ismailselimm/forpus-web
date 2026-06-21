@@ -118,9 +118,9 @@ export default function Mobile() {
           </Reveal>
         </div>
 
-        <div className="group/grid mt-20 grid place-items-start gap-y-20 sm:grid-cols-2 sm:gap-y-16 lg:grid-cols-4 lg:gap-x-6">
+        <div className="group/grid mt-20 flex flex-wrap justify-center gap-x-8 gap-y-20 sm:gap-y-16">
           {mobileApps.map((app, i) => (
-            <Reveal key={app.slug} delay={i * 0.1} className="mx-auto">
+            <Reveal key={app.slug} delay={i * 0.1} className="w-[240px] max-w-full">
               <PhoneCard app={app} index={i} />
             </Reveal>
           ))}

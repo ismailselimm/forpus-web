@@ -155,8 +155,14 @@ export default function Work() {
 
         {/* Grid of the remaining projects */}
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {rest.map((project, i) => (
-            <Reveal key={project.slug} delay={i * 0.08} className="h-full">
+          {rest.map((project, i) => {
+            const lonely = rest.length % 2 === 1 && i === rest.length - 1;
+            return (
+            <Reveal
+              key={project.slug}
+              delay={i * 0.08}
+              className={clsx("h-full", lonely && "md:col-span-2 md:mx-auto md:w-[calc(50%-0.75rem)]")}
+            >
               <article className="group glass-card border-gradient relative flex h-full flex-col overflow-hidden p-4 transition-transform duration-500 hover:-translate-y-2 sm:p-5">
                 {/* soft accent halo behind the frame, revealed on hover */}
                 <div
@@ -198,7 +204,8 @@ export default function Work() {
                 </div>
               </article>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
 
         {/* Closing CTA line */}
