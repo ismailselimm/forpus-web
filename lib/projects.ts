@@ -35,7 +35,7 @@ export const webProjects: WebProject[] = [
     slug: "doldurkabi",
     name: "DoldurKabı",
     url: "https://doldurkabi.com/",
-    shot: "/work/doldurkabi.png",
+    shot: "/work/doldurkabi.webp",
     category: { tr: "Mobil Uygulama & Web", en: "Mobile App & Web" },
     desc: {
       tr: "Türkiye'nin hayvanseverler platformu: sahiplendirme, kayıp ilanları, veteriner ve harita — web ve mobil uygulama.",
