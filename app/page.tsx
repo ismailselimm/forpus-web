@@ -1,6 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import Marquee from "@/components/sections/Marquee";
 import Services from "@/components/sections/Services";
+import Personas from "@/components/sections/Personas";
 import Process from "@/components/sections/Process";
 import Work from "@/components/sections/Work";
 import Mobile from "@/components/sections/Mobile";
@@ -17,6 +18,7 @@ export default function Page() {
       <Hero />
       <Marquee />
       <Services />
+      <Personas />
       <Process />
       <Work />
       <Mobile />

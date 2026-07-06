@@ -29,6 +29,7 @@ export default function Nav() {
 
   const links = [
     { href: "#services", label: t.nav.services },
+    { href: "#personas", label: t.nav.personas },
     { href: "#work", label: t.nav.work },
     { href: "#process", label: t.nav.process },
     { href: "#team", label: t.nav.team },

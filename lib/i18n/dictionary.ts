@@ -11,6 +11,7 @@ const tr = {
   },
   nav: {
     services: "Hizmetler",
+    personas: "Kime Göre",
     work: "İşler",
     process: "Süreç",
     team: "Ekip",
@@ -67,6 +68,110 @@ const tr = {
         features: ["Sosyal Medya Yönetimi", "Marka Kimliği", "UI/UX Tasarım", "İçerik Üretimi"],
       },
     ],
+  },
+  personas: {
+    eyebrow: "Kime Göre",
+    title: "Sektörünüze göre\nkonuşuyoruz.",
+    subtitle:
+      "Web, mobil, reklam, tasarım — sizin işinizde neyin işe yaradığını biliyoruz. İşte tam olarak ne kuruyoruz.",
+    deliverLabel: "Örnek teslim:",
+    items: [
+      {
+        key: "doktor",
+        label: "Doktora özel",
+        headline: "Hastalarınız sizi\nGoogle'da değil,\nkliniğinizde bulsun.",
+        pitch:
+          "Klinik web siteniz, online randevu ve hasta paneli. Siz hastaya bakarken; sistem sekreterliği, hatırlatmaları ve dijital görünürlüğü sizin yerinize halleder.",
+        deliver: "Web sitesi + online randevu sistemi",
+        cta: "Kliniğim için konuşalım",
+      },
+      {
+        key: "diyetisyen",
+        label: "Diyetisyene özel",
+        headline: "Danışanlarınız ilerlemesini\ncebinde görsün.",
+        pitch:
+          "Randevu ve danışan takibiyle ölçümler, beslenme planları ve mesajlaşma tek yerde — web siteniz de cabası.",
+        deliver: "Web sitesi + randevu & danışan takibi",
+        cta: "Diyetisyen paketini konuşalım",
+      },
+      {
+        key: "psikolog",
+        label: "Psikoloğa özel",
+        headline: "Seans yönetimini yazılıma bırakın,\ndinlemeye odaklanın.",
+        pitch:
+          "Online randevu, otomatik hatırlatmalar ve güven veren, sade bir web varlığı.",
+        deliver: "Web sitesi + online randevu",
+        cta: "Danışanlarım için konuşalım",
+      },
+      {
+        key: "eticaret",
+        label: "E-ticaret markasına özel",
+        headline: "Satan bir mağaza kurun,\nreklamla büyütün.",
+        pitch:
+          "Hızlı ve dönüşüm odaklı e-ticaret siteniz + Meta ve Google reklamlarıyla ölçülebilir satış. Kurulumdan büyümeye tek elden.",
+        deliver: "E-ticaret sitesi + performans reklamı yönetimi",
+        cta: "Markamı büyütelim",
+      },
+      {
+        key: "girisimci",
+        label: "Girişimciye özel",
+        headline: "Fikriniz var,\nyazılım yok mu?\nGerisi bizde.",
+        pitch:
+          "Fikrinizi konuşup MVP'ye çeviriyoruz: web + mobil uygulama, mağaza yayını, ilk kullanıcılar. Teknik ortağınız gibi çalışırız.",
+        deliver: "Fikirden yayına MVP",
+        cta: "Fikrimi hayata geçirelim",
+      },
+      {
+        key: "tekne",
+        label: "Tekne & turizme özel",
+        headline: "Tekneniz boş kalmasın,\nrezervasyon online gelsin.",
+        pitch:
+          "Tur ve tekne kiralama için rezervasyon ve online ödeme entegrasyonu; turistin gördüğü şık, çok dilli bir site.",
+        deliver: "Rezervasyon sistemi + online ödeme entegrasyonu",
+        cta: "Sezonu dolduralım",
+      },
+      {
+        key: "restoran",
+        label: "Restoran & kafeye özel",
+        headline: "Menünüz cepte,\nmasanız dolu.",
+        pitch:
+          "QR menü, online rezervasyon ve paket sipariş; sosyal medyada iştah açan bir marka görünümüyle.",
+        deliver: "QR menü + rezervasyon",
+        cta: "Mekanımı konuşalım",
+      },
+      {
+        key: "kisiselmarka",
+        label: "Kişisel markaya özel",
+        headline: "Adınız bir marka olsun,\nsizi ciddiye alsınlar.",
+        pitch:
+          "Kişisel web siteniz, içerik ve tutarlı bir sosyal medya kimliğiyle kendinizi profesyonelce konumlandırıyoruz.",
+        deliver: "Kişisel site + marka kimliği",
+        cta: "Markamı kuralım",
+      },
+      {
+        key: "avukat",
+        label: "Avukata özel",
+        headline: "Güven veren bir büro,\ndijitalde de öyle görünsün.",
+        pitch:
+          "Uzmanlık alanlarınızı anlatan kurumsal web siteniz, online randevu ve gizlilik odaklı iletişim.",
+        deliver: "Kurumsal site + online randevu",
+        cta: "Büromu konuşalım",
+      },
+      {
+        key: "emlak",
+        label: "Emlağa özel",
+        headline: "İlanlarınız şık dursun,\nalıcı sizi arasın.",
+        pitch:
+          "Filtrelenebilir portföy siteniz; harita, galeri ve her ilanda tek tık iletişim + WhatsApp.",
+        deliver: "Portföy sitesi + ilan yönetimi",
+        cta: "Portföyümü konuşalım",
+      },
+    ],
+    more: {
+      title: "Listede yok musunuz?",
+      pitch: "Sektörünüz ne olursa olsun, fikrinizi anlatın — size özel kuruyoruz.",
+      cta: "Yine de konuşalım",
+    },
   },
   process: {
     eyebrow: "Nasıl Çalışıyoruz",
@@ -204,6 +309,7 @@ const en: typeof tr = {
   },
   nav: {
     services: "Services",
+    personas: "Built for you",
     work: "Work",
     process: "Process",
     team: "Team",
@@ -260,6 +366,110 @@ const en: typeof tr = {
         features: ["Social Media Management", "Brand Identity", "UI/UX Design", "Content Creation"],
       },
     ],
+  },
+  personas: {
+    eyebrow: "Built for you",
+    title: "We speak your\nindustry's language.",
+    subtitle:
+      "Web, mobile, ads, design — we know what actually moves the needle in your line of work. Here's exactly what we build.",
+    deliverLabel: "Sample delivery:",
+    items: [
+      {
+        key: "doktor",
+        label: "For doctors",
+        headline: "Let patients find you\nin your clinic —\nnot lost on Google.",
+        pitch:
+          "A clinic website, online booking and a patient panel. While you focus on care, the system handles scheduling, reminders and your digital visibility.",
+        deliver: "Website + online booking system",
+        cta: "Let's talk about my clinic",
+      },
+      {
+        key: "diyetisyen",
+        label: "For dietitians",
+        headline: "Let clients track\ntheir progress\nfrom their pocket.",
+        pitch:
+          "Booking plus a client-tracking app: measurements, nutrition plans and messaging in one place — your website included.",
+        deliver: "Website + booking & client tracking",
+        cta: "Let's talk dietitian package",
+      },
+      {
+        key: "psikolog",
+        label: "For psychologists",
+        headline: "Leave session admin to software,\nfocus on listening.",
+        pitch:
+          "A reassuring, simple web presence with online booking and automatic reminders.",
+        deliver: "Website + online booking",
+        cta: "Let's talk about my practice",
+      },
+      {
+        key: "eticaret",
+        label: "For e-commerce brands",
+        headline: "Build a store that sells,\ngrow it with ads.",
+        pitch:
+          "A fast, conversion-focused store plus measurable sales from Meta and Google ads — from setup to growth, under one roof.",
+        deliver: "E-commerce site + performance ad management",
+        cta: "Let's grow my brand",
+      },
+      {
+        key: "girisimci",
+        label: "For founders",
+        headline: "Got the idea,\nnot the tech?\nWe bring the rest.",
+        pitch:
+          "We turn your idea into an MVP: web + mobile app, store launch, first users. We work like your technical co-founder.",
+        deliver: "MVP from idea to launch",
+        cta: "Let's build my idea",
+      },
+      {
+        key: "tekne",
+        label: "For boats & tourism",
+        headline: "Keep your boat booked,\ntake reservations online.",
+        pitch:
+          "A reservation and online-payment integration for tours and boat rentals, with a sleek, multilingual site tourists love.",
+        deliver: "Reservations + online-payment integration",
+        cta: "Let's fill the season",
+      },
+      {
+        key: "restoran",
+        label: "For restaurants & cafés",
+        headline: "Menu in every pocket,\ntables full.",
+        pitch:
+          "QR menu, online reservations and takeaway ordering — with an appetite-whetting brand look on social media.",
+        deliver: "QR menu + reservations",
+        cta: "Let's talk about my venue",
+      },
+      {
+        key: "kisiselmarka",
+        label: "For personal brands",
+        headline: "Make your name a brand\nthey take seriously.",
+        pitch:
+          "We position you professionally with a personal website, content and a consistent social-media identity.",
+        deliver: "Personal site + brand identity",
+        cta: "Let's build my brand",
+      },
+      {
+        key: "avukat",
+        label: "For lawyers",
+        headline: "A firm that inspires trust —\nlet it look that way online.",
+        pitch:
+          "A corporate website presenting your practice areas, online appointments and privacy-first contact.",
+        deliver: "Corporate site + online booking",
+        cta: "Let's talk about my firm",
+      },
+      {
+        key: "emlak",
+        label: "For real estate",
+        headline: "Make your listings shine,\nlet buyers call you.",
+        pitch:
+          "A filterable portfolio site with maps, galleries and one-tap contact + WhatsApp on every listing.",
+        deliver: "Portfolio site + listing management",
+        cta: "Let's talk about my portfolio",
+      },
+    ],
+    more: {
+      title: "Not on the list?",
+      pitch: "Whatever your field, tell us your idea — we build it for you.",
+      cta: "Let's talk anyway",
+    },
   },
   process: {
     eyebrow: "How We Work",

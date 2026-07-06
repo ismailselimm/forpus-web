@@ -10,6 +10,19 @@ Forpus Yazılım, iki mühendis kurucu (biri mobil uygulama & sistem, diğeri we
 - Reklam & Performans: Meta Ads, Google Ads, dönüşüm takibi, A/B test.
 - Sosyal Medya & Tasarım: sosyal medya yönetimi, marka kimliği, UI/UX ve grafik tasarım.
 
+## Kimler için (Who we build for)
+Forpus, sektöre özel çözümler kurar. Her satır: niş + tipik teslim.
+- Doktor / Klinik: web sitesi + online randevu sistemi ve hasta paneli. (Doctors/clinics: website + online booking and patient panel.)
+- Diyetisyen: danışan takip uygulaması (ölçüm, plan, mesajlaşma) + web. (Dietitians: client-tracking app + web.)
+- Psikolog / Terapist: online randevu + seans yönetim paneli. (Psychologists: online booking + session panel.)
+- E-ticaret markası: e-ticaret sitesi + Meta/Google performans reklamı. (E-commerce brands: online store + performance ads.)
+- Girişimci (yazılım bilmeyen): fikirden yayına MVP; web + mobil uygulama, mağaza yayını. (Founders without a tech background: idea-to-launch MVP.)
+- Tekne / Turizm işletmesi: rezervasyon ve online ödeme sistemi + çok dilli tanıtım sitesi. (Boat/tourism: reservations + online payment.)
+- Restoran / Kafe: QR menü, online rezervasyon ve paket sipariş. (Restaurants/cafés: QR menu + reservations.)
+- Kişisel marka / Koç: kişisel web sitesi + marka kimliği ve sosyal medya. (Personal brands/coaches: personal site + brand identity.)
+- Avukat / Hukuk: kurumsal web sitesi + online randevu. (Lawyers: corporate site + online booking.)
+- Emlak: filtrelenebilir portföy sitesi + ilan yönetimi. (Real estate: portfolio site + listing management.)
+
 ## Seçili İşler (Selected work)
 - DoldurKabı — Türkiye'nin hayvanseverler platformu (sahiplendirme, kayıp ilanları, veteriner, harita); web + mobil uygulama: https://doldurkabi.com/
 - Temizlik Express — online temizlik pazaryeri; web sitesi + mobil uygulama: https://temizlikexpress.com/

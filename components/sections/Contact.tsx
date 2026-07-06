@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import {
   Mail,
   MessageCircle,
@@ -17,6 +17,7 @@ import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
+import { PRESET_SERVICE_EVENT, SERVICE_KEYS, type ServiceKey } from "@/lib/services";
 
 type InfoRow = {
   icon: LucideIcon;
@@ -48,6 +49,17 @@ export default function Contact() {
   const [service, setService] = useState(c.form.serviceOptions[0]);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  // Persona cards deep-link here: preselect the matching "Hizmet" so the form arrives half-filled.
+  useEffect(() => {
+    const onPreset = (e: Event) => {
+      const key = (e as CustomEvent<ServiceKey>).detail;
+      const opt = c.form.serviceOptions[SERVICE_KEYS.indexOf(key)];
+      if (opt) setService(opt);
+    };
+    window.addEventListener(PRESET_SERVICE_EVENT, onPreset);
+    return () => window.removeEventListener(PRESET_SERVICE_EVENT, onPreset);
+  }, [c.form.serviceOptions]);
 
   const infoRows: InfoRow[] = [
     {
