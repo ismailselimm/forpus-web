@@ -116,7 +116,7 @@ export const mobileApps: MobileApp[] = [
   {
     slug: "doldurkabi",
     name: "DoldurKabı",
-    shot: "/work/apps/doldurkabi.png",
+    shot: "/work/apps/doldurkabi.webp",
     shot2: "/work/apps/doldurkabi-2.png",
     tagline: { tr: "Türkiye'nin hayvanseverler platformu", en: "Turkey's animal-lovers platform" },
     appStore: "https://apps.apple.com/tr/app/doldurkab%C4%B1/id6753592445?l=tr",
