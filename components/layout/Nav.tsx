@@ -31,6 +31,7 @@ export default function Nav() {
     { href: "#services", label: t.nav.services },
     { href: "#personas", label: t.nav.personas },
     { href: "#work", label: t.nav.work },
+    { href: "#packages", label: t.nav.packages },
     { href: "#process", label: t.nav.process },
     { href: "#team", label: t.nav.team },
     { href: "#contact", label: t.nav.contact },

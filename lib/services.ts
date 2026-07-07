@@ -8,3 +8,11 @@ export const PRESET_SERVICE_EVENT = "forpus:preset-service";
 export const SERVICE_KEYS = ["web", "mobile", "ads", "social", "all"] as const;
 
 export type ServiceKey = (typeof SERVICE_KEYS)[number];
+
+// Persona/package CTAs call this: scrolls to #contact (Lenis) via the plain anchor AND
+// tells the contact form which service to preselect (Contact.tsx listens for the event).
+export function presetService(service: ServiceKey) {
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent(PRESET_SERVICE_EVENT, { detail: service }));
+  }
+}

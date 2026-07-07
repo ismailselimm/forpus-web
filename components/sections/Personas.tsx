@@ -20,7 +20,7 @@ import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
-import { PRESET_SERVICE_EVENT, type ServiceKey } from "@/lib/services";
+import { presetService, type ServiceKey } from "@/lib/services";
 
 const ICONS: Record<string, LucideIcon> = {
   doktor: Stethoscope,
@@ -48,14 +48,6 @@ const SERVICE_FOR: Record<string, ServiceKey> = {
   avukat: "web",
   emlak: "web",
 };
-
-// The CTA scrolls to #contact (Lenis) AND tells the contact form which service to
-// preselect — so the visitor lands on the form already segmented + half-filled.
-function presetService(service: ServiceKey) {
-  if (typeof window !== "undefined") {
-    window.dispatchEvent(new CustomEvent(PRESET_SERVICE_EVENT, { detail: service }));
-  }
-}
 
 type Persona = {
   key: string;

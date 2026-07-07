@@ -8,6 +8,7 @@ import Mobile from "@/components/sections/Mobile";
 import Stats from "@/components/sections/Stats";
 import Team from "@/components/sections/Team";
 import Testimonials from "@/components/sections/Testimonials";
+import Packages from "@/components/sections/Packages";
 import CTA from "@/components/sections/CTA";
 import Contact from "@/components/sections/Contact";
 
@@ -25,6 +26,7 @@ export default function Page() {
       <Stats />
       <Team />
       <Testimonials />
+      <Packages />
       <CTA />
       <Contact />
     </>
