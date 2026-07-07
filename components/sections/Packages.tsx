@@ -78,7 +78,7 @@ function PackageCard({ pkg, badge }: { pkg: Package; badge: string }) {
           {pkg.timeline}
         </span>
 
-        <ul className="mt-6 flex-1 space-y-2.5 sm:mt-7 sm:space-y-3.5">
+        <ul className="mt-6 hidden space-y-2.5 sm:mt-7 sm:block sm:space-y-3.5">
           {pkg.features.map((f) => (
             <li key={f} className="flex items-start gap-2.5 text-[0.88rem] sm:text-[0.95rem]">
               <span
@@ -97,7 +97,7 @@ function PackageCard({ pkg, badge }: { pkg: Package; badge: string }) {
           ))}
         </ul>
 
-        <Magnetic className="mt-8 block" strength={0.2}>
+        <Magnetic className="mt-auto block pt-6" strength={0.2}>
           <a
             href="#contact"
             onClick={() => presetService(service)}
