@@ -180,11 +180,11 @@ const tr = {
     subtitle:
       "Net kapsam, şeffaf süreç. Kesin fiyatı ihtiyacınıza göre kısa bir görüşmede netleştiriyoruz — gizli kalem yok.",
     badge: "En Popüler",
-    swipeHint: "Kaydırın",
     items: [
       {
         key: "baslangic",
         name: "Başlangıç",
+        short: "Başlangıç",
         tagline: "Hızlı, şık bir dijital varlık.",
         timeline: "~1 hafta",
         features: [
@@ -199,6 +199,7 @@ const tr = {
       {
         key: "kurumsal",
         name: "Kurumsal",
+        short: "Kurumsal",
         tagline: "Markanızı büyüten özel tasarım.",
         timeline: "~2–4 hafta",
         features: [
@@ -214,6 +215,7 @@ const tr = {
       {
         key: "premium",
         name: "Premium / Uygulama",
+        short: "Premium",
         tagline: "Panel, uygulama, uçtan uca sistem.",
         timeline: "Projeye özel",
         features: [
@@ -533,11 +535,11 @@ const en: typeof tr = {
     subtitle:
       "Clear scope, transparent process. We settle the exact price to your needs on a quick call — no hidden line items.",
     badge: "Most Popular",
-    swipeHint: "Swipe",
     items: [
       {
         key: "baslangic",
         name: "Starter",
+        short: "Starter",
         tagline: "A fast, sharp digital presence.",
         timeline: "~1 week",
         features: [
@@ -552,6 +554,7 @@ const en: typeof tr = {
       {
         key: "kurumsal",
         name: "Corporate",
+        short: "Corporate",
         tagline: "A custom site that grows your brand.",
         timeline: "~2–4 weeks",
         features: [
@@ -567,6 +570,7 @@ const en: typeof tr = {
       {
         key: "premium",
         name: "Premium / App",
+        short: "Premium",
         tagline: "Panels, apps, end-to-end systems.",
         timeline: "Custom",
         features: [

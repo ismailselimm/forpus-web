@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { Check, Clock, ArrowUpRight } from "lucide-react";
 import { clsx } from "clsx";
 import { Reveal } from "@/components/fx/Reveal";
@@ -20,6 +22,7 @@ const PKG_SERVICE: Record<string, ServiceKey> = {
 type Package = {
   key: string;
   name: string;
+  short: string;
   tagline: string;
   timeline: string;
   features: string[];
@@ -120,6 +123,12 @@ function PackageCard({ pkg, badge }: { pkg: Package; badge: string }) {
 export default function Packages() {
   const { t } = useLang();
   const p = t.packages;
+  const items = p.items as Package[];
+  const featuredIndex = Math.max(
+    0,
+    items.findIndex((i) => i.key === FEATURED_KEY),
+  );
+  const [active, setActive] = useState(featuredIndex);
 
   return (
     <section id="packages" className="section relative overflow-hidden bg-bg-2/60">
@@ -138,21 +147,59 @@ export default function Packages() {
           </Reveal>
         </div>
 
-        {/* Mobile/tablet: horizontal snap carousel (full cards, compact vertically). Desktop: 3-up grid. */}
-        <div className="mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 sm:mt-16 sm:gap-5 lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:pb-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {(p.items as Package[]).map((pkg, i) => (
-            <Reveal
-              key={pkg.key}
-              delay={i * 0.08}
-              className="w-[86%] shrink-0 snap-center sm:w-[70%] lg:w-auto lg:shrink"
-            >
+        {/* Desktop: 3-up grid, all packages side by side. */}
+        <div className="mt-12 hidden gap-5 sm:mt-16 lg:grid lg:grid-cols-3">
+          {items.map((pkg, i) => (
+            <Reveal key={pkg.key} delay={i * 0.08} className="h-full">
               <PackageCard pkg={pkg} badge={p.badge} />
             </Reveal>
           ))}
         </div>
-        <p className="mt-4 text-center font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.18em] text-ink-3 lg:hidden">
-          ← {p.swipeHint} →
-        </p>
+
+        {/* Mobile/tablet: tab selector + one full card (no clipping, compact). */}
+        <div className="mx-auto mt-10 max-w-md lg:hidden">
+          <div className="flex items-stretch gap-1 rounded-2xl border border-line bg-white/70 p-1.5 shadow-[var(--shadow-soft)]">
+            {items.map((pkg, i) => {
+              const on = active === i;
+              return (
+                <button
+                  key={pkg.key}
+                  onClick={() => setActive(i)}
+                  aria-pressed={on}
+                  className={clsx(
+                    "relative flex-1 rounded-xl px-2 py-2.5 text-[0.82rem] font-semibold transition-colors duration-300",
+                    on ? "text-white" : "text-ink-2",
+                  )}
+                >
+                  {on && (
+                    <motion.span
+                      layoutId="pkg-tab"
+                      aria-hidden
+                      className="absolute inset-0 rounded-xl shadow-[var(--shadow-glow)]"
+                      style={{ background: "var(--grad-ink)" }}
+                      transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                    />
+                  )}
+                  <span className="relative z-10">{pkg.short}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-6">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={items[active].key}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <PackageCard pkg={items[active]} badge={p.badge} />
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
     </section>
   );
