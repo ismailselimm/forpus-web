@@ -78,7 +78,7 @@ function PackageCard({ pkg, badge }: { pkg: Package; badge: string }) {
           {pkg.timeline}
         </span>
 
-        <ul className="mt-6 hidden space-y-2.5 sm:mt-7 sm:block sm:space-y-3.5">
+        <ul className="mt-6 space-y-3 sm:mt-7 sm:space-y-3.5">
           {pkg.features.map((f) => (
             <li key={f} className="flex items-start gap-2.5 text-[0.88rem] sm:text-[0.95rem]">
               <span
@@ -138,17 +138,21 @@ export default function Packages() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-5 lg:grid-cols-3">
+        {/* Mobile/tablet: horizontal snap carousel (full cards, compact vertically). Desktop: 3-up grid. */}
+        <div className="mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 sm:mt-16 sm:gap-5 lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:pb-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {(p.items as Package[]).map((pkg, i) => (
             <Reveal
               key={pkg.key}
               delay={i * 0.08}
-              className={clsx("h-full", i === p.items.length - 1 && "col-span-2 lg:col-span-1")}
+              className="w-[86%] shrink-0 snap-center sm:w-[70%] lg:w-auto lg:shrink"
             >
               <PackageCard pkg={pkg} badge={p.badge} />
             </Reveal>
           ))}
         </div>
+        <p className="mt-4 text-center font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.18em] text-ink-3 lg:hidden">
+          ← {p.swipeHint} →
+        </p>
       </div>
     </section>
   );

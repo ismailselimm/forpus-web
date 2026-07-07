@@ -180,6 +180,7 @@ const tr = {
     subtitle:
       "Net kapsam, şeffaf süreç. Kesin fiyatı ihtiyacınıza göre kısa bir görüşmede netleştiriyoruz — gizli kalem yok.",
     badge: "En Popüler",
+    swipeHint: "Kaydırın",
     items: [
       {
         key: "baslangic",
@@ -532,6 +533,7 @@ const en: typeof tr = {
     subtitle:
       "Clear scope, transparent process. We settle the exact price to your needs on a quick call — no hidden line items.",
     badge: "Most Popular",
+    swipeHint: "Swipe",
     items: [
       {
         key: "baslangic",
