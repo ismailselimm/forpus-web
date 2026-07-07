@@ -33,7 +33,7 @@ function PackageCard({ pkg, badge }: { pkg: Package; badge: string }) {
   return (
     <article
       className={clsx(
-        "group relative flex h-full flex-col overflow-hidden rounded-[var(--r-lg)] p-7 shadow-[var(--shadow-card)] transition-transform duration-500 hover:-translate-y-1.5 motion-reduce:transform-none motion-reduce:transition-none sm:p-8",
+        "group relative flex h-full flex-col overflow-hidden rounded-[var(--r-lg)] p-5 shadow-[var(--shadow-card)] transition-transform duration-500 hover:-translate-y-1.5 motion-reduce:transform-none motion-reduce:transition-none sm:p-7 lg:p-8",
         featured
           ? "text-white ring-1 ring-cyan/30"
           : "glass-card border-gradient text-ink",
@@ -41,30 +41,30 @@ function PackageCard({ pkg, badge }: { pkg: Package; badge: string }) {
       style={featured ? { background: "var(--grad-ink)" } : undefined}
     >
       {featured && (
-        <>
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-12 -top-14 h-52 w-52 rounded-full bg-cyan/20 blur-3xl"
-          />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-12 -top-14 h-52 w-52 rounded-full bg-cyan/20 blur-3xl"
+        />
+      )}
+
+      <div className="relative flex h-full flex-col">
+        {featured && (
           <span
-            className="absolute right-6 top-6 inline-flex items-center rounded-full px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white shadow-[var(--shadow-glow)]"
+            className="mb-4 inline-flex w-fit items-center rounded-full px-3 py-1 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-white shadow-[var(--shadow-glow)]"
             style={{ background: "var(--grad-brand)" }}
           >
             {badge}
           </span>
-        </>
-      )}
-
-      <div className="relative flex h-full flex-col">
+        )}
         <h3
           className={clsx(
-            "font-[family-name:var(--font-display)] text-[1.6rem] font-extrabold tracking-tight",
+            "font-[family-name:var(--font-display)] text-[1.35rem] font-extrabold tracking-tight sm:text-[1.6rem]",
             featured ? "!text-white" : "text-ink",
           )}
         >
           {pkg.name}
         </h3>
-        <p className={clsx("mt-2 text-[0.98rem] leading-relaxed", featured ? "text-white/70" : "text-ink-2")}>
+        <p className={clsx("mt-2 text-[0.9rem] leading-relaxed sm:text-[0.98rem]", featured ? "text-white/70" : "text-ink-2")}>
           {pkg.tagline}
         </p>
 
@@ -78,9 +78,9 @@ function PackageCard({ pkg, badge }: { pkg: Package; badge: string }) {
           {pkg.timeline}
         </span>
 
-        <ul className="mt-7 flex-1 space-y-3.5">
+        <ul className="mt-6 flex-1 space-y-2.5 sm:mt-7 sm:space-y-3.5">
           {pkg.features.map((f) => (
-            <li key={f} className="flex items-start gap-2.5 text-[0.95rem]">
+            <li key={f} className="flex items-start gap-2.5 text-[0.88rem] sm:text-[0.95rem]">
               <span
                 className={clsx(
                   "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full",
@@ -138,9 +138,13 @@ export default function Packages() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:mt-16 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-5 lg:grid-cols-3">
           {(p.items as Package[]).map((pkg, i) => (
-            <Reveal key={pkg.key} delay={i * 0.08} className="h-full">
+            <Reveal
+              key={pkg.key}
+              delay={i * 0.08}
+              className={clsx("h-full", i === p.items.length - 1 && "col-span-2 lg:col-span-1")}
+            >
               <PackageCard pkg={pkg} badge={p.badge} />
             </Reveal>
           ))}
