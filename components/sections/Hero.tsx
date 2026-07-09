@@ -96,7 +96,7 @@ export default function Hero() {
           <div className="animate-float relative h-full w-full">
             <div className="absolute inset-[6%] rounded-[40px] bg-gradient-to-br from-cyan/20 to-blue/10 blur-2xl" />
             <Image
-              src="/generated/hero-device.png"
+              src="/generated/hero-device.webp"
               alt="Forpus — web ve mobil ürünler"
               fill
               priority

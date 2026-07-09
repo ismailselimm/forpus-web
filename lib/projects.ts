@@ -22,7 +22,6 @@ export type MobileApp = {
   slug: string;
   name: string;
   shot: string; // portrait/mobile screenshot
-  shot2?: string;
   tagline: LocalizedText;
   appStore?: string;
   googlePlay?: string;
@@ -49,7 +48,7 @@ export const webProjects: WebProject[] = [
     slug: "temizlikexpress",
     name: "Temizlik Express",
     url: "https://temizlikexpress.com/",
-    shot: "/work/temizlikexpress.png",
+    shot: "/work/temizlikexpress.webp",
     category: { tr: "Web & Mobil Platform", en: "Web & Mobile Platform" },
     desc: {
       tr: "Temizlik hizmetleri için web sitesi ve kullanıcı mobil uygulaması; sipariş ve yönetim akışıyla.",
@@ -62,7 +61,7 @@ export const webProjects: WebProject[] = [
     slug: "esenkuruyemis",
     name: "Esen Kuruyemiş",
     url: "https://esenkuruyemis.com/",
-    shot: "/work/esenkuruyemis.png",
+    shot: "/work/esenkuruyemis.webp",
     category: { tr: "E-Ticaret", en: "E-Commerce" },
     desc: {
       tr: "Kuruyemiş markası için e-ticaret sitesi: ürün kataloğu, sepet ve ödeme — taze lezzetleri akıcı bir alışveriş deneyimiyle online'a taşıdık.",
@@ -75,7 +74,7 @@ export const webProjects: WebProject[] = [
     slug: "merak",
     name: "Merak Et Öğren",
     url: "https://meraketogren.com/",
-    shot: "/work/merak.png",
+    shot: "/work/merak.webp",
     category: { tr: "Web & Mobil", en: "Web & Mobile" },
     desc: {
       tr: "Sesli mikro-öğrenme uygulaması için tanıtım sitesi: kategoriler, premium üyelik ve mağaza indirmeleri — günde 5 dakikalık öğrenmeyi akıcı bir deneyimle sunar.",
@@ -88,7 +87,7 @@ export const webProjects: WebProject[] = [
     slug: "dryasin",
     name: "Dr. Yasin Kurtboğan",
     url: "https://dryasinkurtbogan.com.tr/",
-    shot: "/work/dryasin.png",
+    shot: "/work/dryasin.webp",
     category: { tr: "Kurumsal · Sağlık", en: "Corporate · Health" },
     desc: {
       tr: "Doktor için güven veren kurumsal tanıtım sitesi; bilgilendirme ve iletişim odaklı.",
@@ -101,7 +100,7 @@ export const webProjects: WebProject[] = [
     slug: "cekictrans",
     name: "Çekiç Trans",
     url: "https://cekictrans.com/",
-    shot: "/work/cekictrans.png",
+    shot: "/work/cekictrans.webp",
     category: { tr: "Kurumsal Web", en: "Corporate Web" },
     desc: {
       tr: "Lojistik ve çekici hizmeti için hızlı, net ve mobil uyumlu kurumsal web sitesi.",
@@ -117,7 +116,6 @@ export const mobileApps: MobileApp[] = [
     slug: "doldurkabi",
     name: "DoldurKabı",
     shot: "/work/apps/doldurkabi.webp",
-    shot2: "/work/apps/doldurkabi-2.png",
     tagline: { tr: "Türkiye'nin hayvanseverler platformu", en: "Turkey's animal-lovers platform" },
     appStore: "https://apps.apple.com/tr/app/doldurkab%C4%B1/id6753592445?l=tr",
     googlePlay: "https://play.google.com/store/apps/details?id=com.ismailselim.doldurkabi&hl=tr",
@@ -125,7 +123,7 @@ export const mobileApps: MobileApp[] = [
   {
     slug: "temizlikexpress",
     name: "Temizlik Express",
-    shot: "/work/apps/temizlikexpress.png",
+    shot: "/work/apps/temizlikexpress.webp",
     tagline: { tr: "Tek dokunuşla temizlik", en: "Cleaning in one tap" },
     appStore: "https://apps.apple.com/tr/app/temizlik-express/id6445817029?l=tr",
     googlePlay: "https://play.google.com/store/apps/details?id=com.temizlikexpress.temizlik",
@@ -133,8 +131,7 @@ export const mobileApps: MobileApp[] = [
   {
     slug: "merak",
     name: "Merak Et Öğren",
-    shot: "/work/apps/merak.png",
-    shot2: "/work/apps/merak-2.png",
+    shot: "/work/apps/merak.webp",
     tagline: { tr: "Merak ettiğin her konuda podcast", en: "Podcasts on everything you're curious about" },
     comingSoon: true,
   },

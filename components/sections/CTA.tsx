@@ -19,7 +19,7 @@ export default function CTA() {
           >
             {/* AI image backdrop */}
             <Image
-              src="/generated/hero-flow.png"
+              src="/generated/hero-flow.webp"
               alt=""
               fill
               sizes="(max-width: 1260px) 92vw, 1156px"
