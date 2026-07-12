@@ -1,11 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowUp, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import { useLang } from "@/components/providers/LanguageProvider";
+import { solutions } from "@/lib/solutions";
 
 export default function Footer() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  const solBase = lang === "tr" ? "/cozumler" : "/en/solutions";
 
   const scrollTop = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -20,7 +23,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-line bg-bg-2/60">
       <div className="container-x relative z-10 pt-20 pb-10">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1.2fr_0.9fr_1fr_1.1fr]">
           {/* Brand */}
           <div>
             <div className="flex items-center">
@@ -43,16 +46,35 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Solutions — SEO landing pages */}
+          <div>
+            <h4 className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-3">
+              {lang === "tr" ? "Çözümler" : "Solutions"}
+            </h4>
+            <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
+              {solutions.map((s) => (
+                <li key={s.key}>
+                  <Link
+                    href={`${solBase}/${lang === "tr" ? s.slug.tr : s.slug.en}`}
+                    className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                  >
+                    {(lang === "tr" ? s.tr : s.en).h1}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Menu */}
           <div>
             <h4 className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-3">
               {t.footer.nav}
             </h4>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
-              <li><a href="#services" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.services}</a></li>
-              <li><a href="#work" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.work}</a></li>
-              <li><a href="#process" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.process}</a></li>
-              <li><a href="#team" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.team}</a></li>
+              <li><a href="/#services" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.services}</a></li>
+              <li><a href="/#work" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.work}</a></li>
+              <li><a href="/#process" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.process}</a></li>
+              <li><a href="/#team" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.team}</a></li>
             </ul>
           </div>
 
@@ -64,7 +86,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
               {t.services.items.map((s) => (
                 <li key={s.key}>
-                  <a href="#services" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">
+                  <a href="/#services" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">
                     {s.name}
                   </a>
                 </li>
