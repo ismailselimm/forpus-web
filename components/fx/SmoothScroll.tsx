@@ -3,6 +3,9 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 
+// Scroll landing offset so anchored sections clear the fixed navbar.
+const SCROLL_OFFSET = -80;
+
 export default function SmoothScroll() {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -35,43 +38,50 @@ export default function SmoothScroll() {
         const el = document.querySelector(id);
         if (!el) return;
         e.preventDefault();
-        lenis!.scrollTo(el as HTMLElement, { offset: -80, duration: 1.25 });
+        lenis!.scrollTo(el as HTMLElement, { offset: SCROLL_OFFSET, duration: 1.25 });
       };
       document.addEventListener("click", onClick);
     }
 
-    // Land on the right section when arriving from another page ("/#services" from a
-    // solution page). The browser can't honor the fragment while the preloader holds
-    // the scroll lock, so wait for the lock to release, then scroll (works with or
-    // without Lenis, so reduced-motion visitors land correctly too).
+    // Scroll to a section (works with or without Lenis, so reduced-motion visitors land too).
     const goTo = (el: HTMLElement) =>
-      lenis ? lenis.scrollTo(el, { offset: -80, duration: 1.0 }) : el.scrollIntoView();
+      lenis ? lenis.scrollTo(el, { offset: SCROLL_OFFSET, duration: 1.0 }) : el.scrollIntoView();
     const hashTarget = () => {
       const { hash } = window.location;
       return hash && hash !== "#" ? (document.querySelector(hash) as HTMLElement | null) : null;
     };
-    let tries = 0;
-    const hashTimer = window.setInterval(() => {
-      const el = hashTarget();
-      if (!el || tries++ > 40) {
-        window.clearInterval(hashTimer);
-        return;
-      }
-      if (document.body.style.overflow !== "hidden") {
-        goTo(el);
-        window.clearInterval(hashTimer);
-      }
-    }, 100);
+
+    // Same-page hash change (e.g. a "/#services" link clicked on the homepage).
     const onHashChange = () => {
       const el = hashTarget();
       if (el) goTo(el);
     };
     window.addEventListener("hashchange", onHashChange);
 
+    // Arriving from another page with a fragment ("/#services" from a solution page):
+    // the browser can't honor the fragment while the preloader holds the scroll lock,
+    // so poll until the lock releases, then land on the section. Only armed when a hash
+    // is actually present, so hashless loads (most visits) schedule nothing.
+    let hashTimer = 0;
+    if (hashTarget()) {
+      let tries = 0;
+      hashTimer = window.setInterval(() => {
+        const el = hashTarget();
+        if (!el || tries++ > 40) {
+          window.clearInterval(hashTimer);
+          return;
+        }
+        if (document.body.style.overflow !== "hidden") {
+          goTo(el);
+          window.clearInterval(hashTimer);
+        }
+      }, 100);
+    }
+
     return () => {
       if (raf) cancelAnimationFrame(raf);
       if (onClick) document.removeEventListener("click", onClick);
-      window.clearInterval(hashTimer);
+      if (hashTimer) window.clearInterval(hashTimer);
       window.removeEventListener("hashchange", onHashChange);
       lenis?.destroy();
     };
