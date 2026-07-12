@@ -4,9 +4,8 @@ import { Check, ArrowUpRight, ArrowRight, ChevronDown } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
-import { solutions, type Solution } from "@/lib/solutions";
-
-const SITE = "https://forpusyazilim.com";
+import { solutions, contentOf, slugOf, solutionUi, type Solution } from "@/lib/solutions";
+import { SITE_URL as SITE } from "@/lib/site";
 
 /** Server-rendered SEO landing page body (content is static HTML so Google indexes it). */
 export default function SolutionArticle({
@@ -16,25 +15,15 @@ export default function SolutionArticle({
   solution: Solution;
   lang: "tr" | "en";
 }) {
-  const isTr = lang === "tr";
-  const c = isTr ? solution.tr : solution.en;
+  const c = contentOf(solution, lang);
+  const L = solutionUi[lang];
 
   const contactHref = "/#contact";
   const homeHref = "/";
-  const base = isTr ? "/cozumler" : "/en/solutions";
-  const slugOf = (s: Solution) => (isTr ? s.slug.tr : s.slug.en);
-
-  const L = {
-    home: isTr ? "Ana Sayfa" : "Home",
-    more: isTr ? "Diğer çözümler" : "Other solutions",
-    moreLead: isTr
-      ? "Başka bir alanda mı çalışıyorsunuz? Size uygun çözümü birlikte bulalım."
-      : "Working in a different field? Let's find the right fit together.",
-    seeAll: isTr ? "Tüm hizmetleri gör" : "See all services",
-  };
+  const base = lang === "tr" ? "/cozumler" : "/en/solutions";
 
   const related = solutions.filter((s) => s.key !== solution.key);
-  const url = `${SITE}${base}/${slugOf(solution)}`;
+  const url = `${SITE}${base}/${slugOf(solution, lang)}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -45,7 +34,7 @@ export default function SolutionArticle({
         description: c.metaDescription,
         url,
         serviceType: c.h1,
-        areaServed: isTr ? "TR" : ["TR", "Worldwide"],
+        areaServed: lang === "tr" ? "TR" : ["TR", "Worldwide"],
         inLanguage: lang,
         provider: { "@id": `${SITE}/#organization` },
         offers: { "@type": "Offer", url: `${SITE}${contactHref}`, availability: "https://schema.org/InStock" },
@@ -234,10 +223,10 @@ export default function SolutionArticle({
             {related.map((s) => (
               <Link
                 key={s.key}
-                href={`${base}/${slugOf(s)}`}
+                href={`${base}/${slugOf(s, lang)}`}
                 className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-4 py-2 text-[0.9rem] font-medium text-ink-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-br hover:from-green hover:via-cyan hover:to-blue hover:text-white hover:shadow-[var(--shadow-glow)] motion-reduce:transform-none"
               >
-                {(isTr ? s.tr : s.en).h1}
+                {contentOf(s, lang).h1}
                 <ArrowRight className="h-4 w-4" />
               </Link>
             ))}

@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 import { solutions } from "@/lib/solutions";
+import { SITE_URL as SITE } from "@/lib/site";
 
 export const dynamic = "force-static"; // statik export (GitHub Pages) için
 
-const SITE = "https://forpusyazilim.com";
 const LASTMOD = new Date("2026-07-12");
 
 export default function sitemap(): MetadataRoute.Sitemap {

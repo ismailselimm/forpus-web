@@ -7,6 +7,7 @@ import Preloader from "@/components/fx/Preloader";
 import Grain from "@/components/fx/Grain";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
+import { SITE_URL } from "@/lib/site";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext"],
@@ -29,7 +30,6 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://forpusyazilim.com";
 const OG_DESC =
   "Web, mobil uygulama, reklam ve tasarım — tek çatı altında. Fikrinizi büyüyen dijital ürünlere dönüştürüyoruz.";
 

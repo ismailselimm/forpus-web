@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowUp, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import { useLang } from "@/components/providers/LanguageProvider";
-import { solutions } from "@/lib/solutions";
+import { solutions, contentOf, slugOf } from "@/lib/solutions";
 
 export default function Footer() {
   const { t, lang } = useLang();
@@ -49,16 +49,16 @@ export default function Footer() {
           {/* Solutions — SEO landing pages */}
           <div>
             <h4 className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-3">
-              {lang === "tr" ? "Çözümler" : "Solutions"}
+              {t.footer.solutions}
             </h4>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
               {solutions.map((s) => (
                 <li key={s.key}>
                   <Link
-                    href={`${solBase}/${lang === "tr" ? s.slug.tr : s.slug.en}`}
+                    href={`${solBase}/${slugOf(s, lang)}`}
                     className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
                   >
-                    {(lang === "tr" ? s.tr : s.en).h1}
+                    {contentOf(s, lang).h1}
                   </Link>
                 </li>
               ))}

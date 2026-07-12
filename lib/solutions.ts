@@ -661,12 +661,29 @@ export const solutions: Solution[] = [
   },
 ];
 
-export const solutionSlugsTr = solutions.map((s) => s.slug.tr);
-export const solutionSlugsEn = solutions.map((s) => s.slug.en);
-
 export function solutionByTrSlug(slug: string): Solution | undefined {
   return solutions.find((s) => s.slug.tr === slug);
 }
 export function solutionByEnSlug(slug: string): Solution | undefined {
   return solutions.find((s) => s.slug.en === slug);
 }
+
+// Language pickers shared by the landing pages, footer and SEO helpers.
+export const contentOf = (s: Solution, lang: "tr" | "en") => (lang === "tr" ? s.tr : s.en);
+export const slugOf = (s: Solution, lang: "tr" | "en") => (lang === "tr" ? s.slug.tr : s.slug.en);
+
+// Shared chrome strings for the solution pages (page content lives per-solution above).
+export const solutionUi: Record<"tr" | "en", { home: string; more: string; moreLead: string; seeAll: string }> = {
+  tr: {
+    home: "Ana Sayfa",
+    more: "Diğer çözümler",
+    moreLead: "Başka bir alanda mı çalışıyorsunuz? Size uygun çözümü birlikte bulalım.",
+    seeAll: "Tüm hizmetleri gör",
+  },
+  en: {
+    home: "Home",
+    more: "Other solutions",
+    moreLead: "Working in a different field? Let's find the right fit together.",
+    seeAll: "See all services",
+  },
+};
