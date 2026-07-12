@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { clsx } from "clsx";
@@ -12,6 +13,11 @@ export default function Nav() {
   const { t, lang, toggle } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  // Section anchors only exist on the homepage. Off-home (e.g. solution pages)
+  // prefix with "/" so the link navigates home first, then scrolls to the section.
+  const onHome = usePathname() === "/";
+  const to = (hash: string) => (onHome ? hash : `/${hash}`);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -54,7 +60,7 @@ export default function Nav() {
                 : "h-[60px] border border-transparent"
             )}
           >
-            <a href="#top" className="flex items-center" aria-label="Forpus">
+            <a href={onHome ? "#top" : "/"} className="flex items-center" aria-label="Forpus">
               <Logo variant="full" className="h-7 w-auto sm:h-8" priority />
             </a>
 
@@ -62,7 +68,7 @@ export default function Nav() {
               {links.map((l) => (
                 <a
                   key={l.href}
-                  href={l.href}
+                  href={to(l.href)}
                   className="rounded-full px-3.5 py-2 text-[0.93rem] font-medium text-ink-2 transition-colors hover:text-ink"
                 >
                   {l.label}
@@ -95,7 +101,7 @@ export default function Nav() {
               </button>
 
               <Magnetic className="hidden sm:block">
-                <a href="#contact" className="btn btn-primary h-10 px-5 text-sm">
+                <a href={to("#contact")} className="btn btn-primary h-10 px-5 text-sm">
                   {t.nav.cta}
                 </a>
               </Magnetic>
@@ -138,7 +144,7 @@ export default function Nav() {
               {links.map((l, i) => (
                 <motion.a
                   key={l.href}
-                  href={l.href}
+                  href={to(l.href)}
                   onClick={() => setOpen(false)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -152,7 +158,7 @@ export default function Nav() {
 
             <div className="px-8 pb-12">
               <a
-                href="#contact"
+                href={to("#contact")}
                 onClick={() => setOpen(false)}
                 className="btn btn-primary w-full"
               >
