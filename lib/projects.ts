@@ -156,6 +156,7 @@ export const mobileApps: MobileApp[] = [
 export const brandNames = [
   "DoldurKabı",
   "Temizlik Express",
+  "Sea Pleasure",
   "Esen Kuruyemiş",
   "Dr. Yasin Kurtboğan",
   "Merak Et Öğren",
@@ -166,6 +167,7 @@ export const brandNames = [
 export const brandLogos: { name: string; src: string; url?: string }[] = [
   { name: "DoldurKabı", src: "/logos/doldurkabi.png", url: "https://doldurkabi.com/" },
   { name: "Temizlik Express", src: "/logos/temizlikexpress.png", url: "https://temizlikexpress.com/" },
+  { name: "Sea Pleasure", src: "/logos/seapleasure.png", url: "https://seapleasure.com.tr/" },
   { name: "Esen Kuruyemiş", src: "/logos/esen.png", url: "https://esenkuruyemis.com/" },
   { name: "Dr. Yasin Kurtboğan", src: "/logos/dryasin.png", url: "https://dryasinkurtbogan.com.tr/" },
   { name: "Merak Et Öğren", src: "/logos/merak.png", url: "https://meraketogren.com/" },
