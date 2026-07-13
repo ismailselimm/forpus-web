@@ -9,7 +9,8 @@ export type WebProject = {
   slug: string;
   name: string;
   url: string;
-  shot: string; // desktop screenshot
+  shot: string; // desktop screenshot (also the video poster when `video` is set)
+  video?: string; // optional autoplay-muted-loop clip shown in the frame instead of the shot
   category: LocalizedText;
   desc: LocalizedText;
   tags: string[];
@@ -55,6 +56,20 @@ export const webProjects: WebProject[] = [
       en: "Website and a user mobile app for cleaning services, with ordering and management flows.",
     },
     tags: ["Web", "Mobil", "Reklam"],
+    accent: "blue",
+  },
+  {
+    slug: "seapleasure",
+    name: "Sea Pleasure",
+    url: "https://seapleasure.com.tr/",
+    shot: "/work/seapleasure.webp",
+    video: "/work/seapleasure.mp4",
+    category: { tr: "Kurumsal · Tekne & Turizm", en: "Corporate · Yachting & Tourism" },
+    desc: {
+      tr: "İstanbul Boğazı'nda özel tekne kiralama için videolu, sinematik bir tanıtım sitesi — turlar, WhatsApp rezervasyon ve mobil uyumlu tasarım.",
+      en: "A cinematic, video-rich site for private boat charters on the Bosphorus — tours, WhatsApp booking and a mobile-friendly design.",
+    },
+    tags: ["Web", "Video", "Kurumsal", "UI/UX"],
     accent: "blue",
   },
   {

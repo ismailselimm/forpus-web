@@ -7,6 +7,7 @@ import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
+import WorkVideo from "@/components/sections/WorkVideo";
 import { webProjects, type WebProject } from "@/lib/projects";
 
 const ACCENT_HEX: Record<WebProject["accent"], string> = {
@@ -64,14 +65,23 @@ function BrowserFrame({
     >
       <BrowserBar host={hostOf(project.url)} />
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-bg-2">
-        <Image
-          src={project.shot}
-          alt={project.name}
-          fill
-          sizes={sizes}
-          priority={priority}
-          className="object-cover object-top transition-transform duration-[1.1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-        />
+        {project.video ? (
+          <WorkVideo
+            src={project.video}
+            poster={project.shot}
+            label={project.name}
+            className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-[1.1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+          />
+        ) : (
+          <Image
+            src={project.shot}
+            alt={project.name}
+            fill
+            sizes={sizes}
+            priority={priority}
+            className="object-cover object-top transition-transform duration-[1.1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+          />
+        )}
         {/* subtle top sheen to anchor the shot in the frame */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/10 to-transparent" />
       </div>
