@@ -100,6 +100,76 @@ export const solutions: Solution[] = [
     },
   },
   {
+    key: "dishekimi",
+    image: "/generated/personas/doktor.webp",
+    service: "web",
+    slug: { tr: "dis-hekimi-web-sitesi", en: "dentist-website" },
+    tr: {
+      metaTitle: "Diş Hekimi & Klinik Web Sitesi",
+      metaDescription:
+        "Diş hekimi ve ağız-diş sağlığı kliniklerine özel web sitesi tasarımı. Online randevu, tedavi tanıtımı ve Google'da görünürlük. Ücretsiz teklif alın.",
+      eyebrow: "Diş Hekimine Özel",
+      h1: "Diş Hekimi Web Sitesi",
+      intro:
+        "Hastalar bir diş hekimi seçmeden önce Google'da arıyor, yorumlara ve kliniğin sitesine bakıyor. Güven veren, tedavilerinizi net anlatan ve randevuya yönlendiren bir site, koltuğunuzu doldurur. Forpus diş hekimlerine özel; implant, ortodonti ve estetik tedavileri öne çıkaran siteler tasarlıyor.",
+      benefits: [
+        { title: "İlk bakışta güven", body: "Steril, ferah ve profesyonel bir tasarım; hastanın koltuğa oturmadan önce içini rahatlatır." },
+        { title: "Online randevu", body: "Ziyaretçiyi tek tıkla randevu formuna veya WhatsApp'a yönlendirin; boş koltuk kalmasın." },
+        { title: "Tedavileriniz görünür", body: "İmplant, ortodonti, beyazlatma; her tedaviyi ayrı anlatarak doğru hastayla eşleşin." },
+      ],
+      featuresTitle: "Diş hekimi sitenizde neler olur?",
+      features: [
+        "Tedavi sayfaları (implant, ortodonti, estetik)",
+        "Online randevu / WhatsApp entegrasyonu",
+        "Öncesi-sonrası galerisi",
+        "Hasta yorumları ve bilgilendirme blogu",
+        "Mobil uyumlu, hızlı yüklenen tasarım",
+        "Google ve harita için SEO ayarları",
+      ],
+      faqTitle: "Sık sorulan sorular",
+      faq: [
+        { q: "Diş hekimi web sitesi ne kadar sürede hazır olur?", a: "İçerikleriniz hazırsa tanıtım siteniz genellikle 1 hafta içinde yayında olur. Online randevu gibi ek özellikler süreyi biraz uzatabilir." },
+        { q: "Öncesi-sonrası fotoğrafları ekleyebilir miyiz?", a: "Evet. Tedavi sonuçlarınızı gösteren şık bir öncesi-sonrası galerisi kurar, izin ve gizliliğe dikkat ederiz." },
+        { q: "Sitem Google'da diş hekimi aramalarında çıkar mı?", a: "Siteyi teknik SEO ayarlarıyla teslim ederiz; Google İşletme profili ve içerik desteğiyle bölgenizdeki aramalarda görünürlüğünüzü zamanla artırırız." },
+      ],
+      ctaTitle: "Kliniğiniz için web sitesi konuşalım",
+      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaButton: "Ücretsiz Teklif Al",
+    },
+    en: {
+      metaTitle: "Dentist & Dental Clinic Website Design",
+      metaDescription:
+        "Website design for dentists and dental clinics. Online booking, treatment pages and Google visibility. Trustworthy and mobile-friendly. Get a free quote.",
+      eyebrow: "For Dentists",
+      h1: "Dentist Website Design",
+      intro:
+        "Patients search on Google, read reviews and check the clinic's site before choosing a dentist. A trustworthy site that explains your treatments clearly and drives bookings fills your chair. Forpus builds dentist sites that highlight implants, orthodontics and aesthetic treatments.",
+      benefits: [
+        { title: "Trust at first glance", body: "A clean, calm, professional design puts patients at ease before they even sit in the chair." },
+        { title: "Online booking", body: "Send visitors to a booking form or WhatsApp in one tap so no slot goes empty." },
+        { title: "Treatments made visible", body: "Implants, orthodontics, whitening — explain each treatment separately to match the right patient." },
+      ],
+      featuresTitle: "What's included?",
+      features: [
+        "Treatment pages (implants, orthodontics, aesthetics)",
+        "Online booking / WhatsApp integration",
+        "Before-and-after gallery",
+        "Patient reviews and info blog",
+        "Fast, mobile-friendly design",
+        "SEO setup for Google and Maps",
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        { q: "How long does a dentist website take?", a: "If your content is ready, a presentation site is usually live within a week. Extras like online booking can add some time." },
+        { q: "Can we add before-and-after photos?", a: "Yes. We build a sharp before-and-after gallery showcasing your results, with attention to consent and privacy." },
+        { q: "Will my site show up for dentist searches on Google?", a: "We deliver the site with technical SEO in place and grow your local visibility over time with a Google Business profile and content." },
+      ],
+      ctaTitle: "Let's talk about your clinic's website",
+      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaButton: "Get a Free Quote",
+    },
+  },
+  {
     key: "diyetisyen",
     image: "/generated/personas/diyetisyen.webp",
     service: "web",

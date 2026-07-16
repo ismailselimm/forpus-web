@@ -143,7 +143,7 @@ const tr = {
       {
         key: "kisiselmarka",
         label: "Kişisel markaya özel",
-        headline: "Adınız bir marka olsun,\nsizi ciddiye alsınlar.",
+        headline: "Adınız bir marka olsun,\nönce sizi arasınlar.",
         pitch:
           "Kişisel web siteniz, içerik ve tutarlı bir sosyal medya kimliğiyle kendinizi profesyonelce konumlandırıyoruz.",
         deliver: "Kişisel site + marka kimliği",
@@ -499,7 +499,7 @@ const en: typeof tr = {
       {
         key: "kisiselmarka",
         label: "For personal brands",
-        headline: "Make your name a brand\nthey take seriously.",
+        headline: "Make your name a brand\nthey seek out first.",
         pitch:
           "We position you professionally with a personal website, content and a consistent social-media identity.",
         deliver: "Personal site + brand identity",
