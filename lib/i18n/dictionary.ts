@@ -173,6 +173,10 @@ const tr = {
       pitch: "Sektörünüz ne olursa olsun, fikrinizi anlatın — size özel kuruyoruz.",
       cta: "Yine de konuşalım",
     },
+    sectors: {
+      title: "Sektörünüze özel bir sayfa",
+      lead: "Aşağıdan alanınıza dokunun — her meslek için hazırladığımız çözümü görün.",
+    },
   },
   packages: {
     eyebrow: "Paketler",
@@ -528,6 +532,10 @@ const en: typeof tr = {
       title: "Not on the list?",
       pitch: "Whatever your field, tell us your idea — we build it for you.",
       cta: "Let's talk anyway",
+    },
+    sectors: {
+      title: "A page tailored to your field",
+      lead: "Tap your field below to see the solution we've prepared for it.",
     },
   },
   packages: {

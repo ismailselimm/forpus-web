@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowUp, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import { useLang } from "@/components/providers/LanguageProvider";
-import { solutions, contentOf, slugOf } from "@/lib/solutions";
+import { solutions, contentOf, slugOf, sectorName } from "@/lib/solutions";
 
 export default function Footer() {
   const { t, lang } = useLang();
@@ -52,16 +52,24 @@ export default function Footer() {
               {t.footer.solutions}
             </h4>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
-              {solutions.map((s) => (
+              {solutions.slice(0, 8).map((s) => (
                 <li key={s.key}>
                   <Link
                     href={`${solBase}/${slugOf(s, lang)}`}
                     className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
                   >
-                    {contentOf(s, lang).h1}
+                    {sectorName[s.key]?.[lang] ?? contentOf(s, lang).h1}
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/#personas"
+                  className="inline-block origin-left font-medium text-ink-3 transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                >
+                  {t.personas.sectors.title} →
+                </a>
+              </li>
             </ul>
           </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   Stethoscope,
   Salad,
@@ -21,6 +22,7 @@ import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
 import { presetService, type ServiceKey } from "@/lib/services";
+import { solutions, slugOf, contentOf, sectorName } from "@/lib/solutions";
 
 const ICONS: Record<string, LucideIcon> = {
   doktor: Stethoscope,
@@ -120,8 +122,9 @@ function PersonaCard({ persona, deliverLabel }: { persona: Persona; deliverLabel
 }
 
 export default function Personas() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const p = t.personas;
+  const solBase = lang === "tr" ? "/cozumler" : "/en/solutions";
 
   return (
     <section id="personas" className="section relative overflow-hidden">
@@ -177,6 +180,29 @@ export default function Personas() {
             </article>
           </Reveal>
         </div>
+
+        {/* Compact sector index — links to every SEO solution page without bloating the grid */}
+        <Reveal delay={0.1} className="mt-14 sm:mt-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <h3 className="font-[family-name:var(--font-display)] text-[1.25rem] font-bold tracking-tight text-ink sm:text-[1.4rem]">
+              {p.sectors.title}
+            </h3>
+            <p className="mx-auto mt-2.5 max-w-lg text-[0.95rem] text-ink-2">{p.sectors.lead}</p>
+          </div>
+          <ul className="mx-auto mt-7 flex max-w-4xl flex-wrap justify-center gap-2.5">
+            {solutions.map((s) => (
+              <li key={s.key}>
+                <Link
+                  href={`${solBase}/${slugOf(s, lang)}`}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-4 py-2 text-[0.9rem] font-medium text-ink-2 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan/50 hover:bg-white hover:text-ink hover:shadow-[var(--shadow-soft)] motion-reduce:transform-none"
+                >
+                  {sectorName[s.key]?.[lang] ?? contentOf(s, lang).h1}
+                  <ArrowUpRight className="h-3.5 w-3.5 text-ink-3" strokeWidth={2} />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );

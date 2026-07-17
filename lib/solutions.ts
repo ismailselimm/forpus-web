@@ -660,6 +660,496 @@ export const solutions: Solution[] = [
     },
   },
   {
+    key: "kuafor",
+    image: "/generated/personas/kisiselmarka.webp",
+    service: "web",
+    slug: { tr: "kuafor-web-sitesi", en: "hair-salon-website" },
+    tr: {
+      metaTitle: "Kuaför & Berber Web Sitesi",
+      metaDescription:
+        "Kuaför, berber ve güzellik salonlarına özel web sitesi ve online randevu. Mobil uyumlu, Google'da bulunan bir dijital vitrin. Ücretsiz teklif alın.",
+      eyebrow: "Kuaföre Özel",
+      h1: "Kuaför & Berber Web Sitesi",
+      intro:
+        "Müşteriniz yeni bir kuaför ararken telefonuna bakıyor: yorumlar, fotoğraflar ve 'randevu al'. Şık bir vitrin ve tek tıkla online randevu, koltuklarınızı boş bırakmaz. Forpus kuaför, berber ve güzellik salonlarına özel siteler tasarlıyor.",
+      benefits: [
+        { title: "Online randevu", body: "Müşteri istediği saati telefondan seçsin; siz çalışırken takviminiz kendiliğinden dolsun." },
+        { title: "Şık vitrin", body: "Model ve mekan fotoğraflarınızla tarzınızı gösterin, ilk izlenimi kazanın." },
+        { title: "Google'da bulunun", body: "'Yakınımdaki kuaför' aramalarında öne çıkacak yapı; harita ve yorumlarla." },
+      ],
+      featuresTitle: "Kuaför sitenizde neler olur?",
+      features: [
+        "Online randevu / WhatsApp entegrasyonu",
+        "Hizmet ve fiyat listesi",
+        "Model & mekan galerisi",
+        "Ekip / stilist tanıtımı",
+        "Google harita ve çalışma saatleri",
+        "Mobil uyumlu, hızlı tasarım",
+      ],
+      faqTitle: "Sık sorulan sorular",
+      faq: [
+        { q: "Online randevu sistemi kurar mısınız?", a: "Evet. Basit WhatsApp yönlendirmesinden saat seçmeli online takvime kadar ihtiyacınıza göre kurarız." },
+        { q: "Instagram'ımla bağlanır mı?", a: "Instagram akışınızı siteye entegre eder, takipçiyi randevuya çevirmenize yardımcı oluruz." },
+        { q: "Fiyat listesini kendim güncelleyebilir miyim?", a: "Evet. Hizmet ve fiyatları kolayca güncelleyebileceğiniz bir yapı kurarız." },
+      ],
+      ctaTitle: "Salonunuz için bir site kuralım",
+      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaButton: "Ücretsiz Teklif Al",
+    },
+    en: {
+      metaTitle: "Hair Salon & Barber Website",
+      metaDescription:
+        "Website design and online booking for hair salons, barbers and beauty studios. A mobile-friendly storefront that ranks on Google. Get a free quote.",
+      eyebrow: "For Hair Salons",
+      h1: "Hair Salon & Barber Website",
+      intro:
+        "People check their phone when looking for a new salon: reviews, photos and 'book now'. A sharp storefront and one-tap online booking keep your chairs full. Forpus builds sites for hair salons, barbers and beauty studios.",
+      benefits: [
+        { title: "Online booking", body: "Let clients pick a time from their phone; your calendar fills while you work." },
+        { title: "A sharp storefront", body: "Show your style with model and venue photos and win the first impression." },
+        { title: "Get found on Google", body: "A structure built to rank for 'hair salon near me', with map and reviews." },
+      ],
+      featuresTitle: "What's included?",
+      features: [
+        "Online booking / WhatsApp integration",
+        "Service and price list",
+        "Model & venue gallery",
+        "Team / stylist profiles",
+        "Google map and opening hours",
+        "Fast, mobile-friendly design",
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        { q: "Can you set up online booking?", a: "Yes. From a simple WhatsApp redirect to a time-slot booking calendar, we tailor it to you." },
+        { q: "Does it connect to Instagram?", a: "We integrate your Instagram feed and help you turn followers into bookings." },
+        { q: "Can I update the price list myself?", a: "Yes. We build a structure where you update services and prices easily." },
+      ],
+      ctaTitle: "Let's build a site for your salon",
+      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaButton: "Get a Free Quote",
+    },
+  },
+  {
+    key: "guzellik",
+    image: "/generated/personas/kisiselmarka.webp",
+    service: "web",
+    slug: { tr: "guzellik-merkezi-web-sitesi", en: "beauty-clinic-website" },
+    tr: {
+      metaTitle: "Güzellik & Estetik Merkezi Web Sitesi",
+      metaDescription:
+        "Güzellik salonu, cilt bakımı ve lazer merkezlerine özel web sitesi. Online randevu, öncesi-sonrası galerisi ve Google görünürlüğü. Ücretsiz teklif alın.",
+      eyebrow: "Güzellik Merkezine Özel",
+      h1: "Güzellik & Estetik Merkezi Web Sitesi",
+      intro:
+        "Estetik ve bakım hizmetlerinde güven her şeydir. Sonuçlarınızı gösteren şık bir site ve kolay randevu, tereddüt eden müşteriyi karar aşamasına taşır. Forpus güzellik, cilt bakımı ve lazer merkezlerine özel siteler tasarlıyor.",
+      benefits: [
+        { title: "Sonuç odaklı vitrin", body: "Öncesi-sonrası galerisiyle işinizin kalitesini kanıtlayın, güven oluşturun." },
+        { title: "Online randevu", body: "Hizmet ve saati müşteri kendi seçsin; telefon trafiği azalsın, takvim dolsun." },
+        { title: "Prestijli tasarım", body: "Markanıza yakışan şık ve modern bir görünümle rakiplerinizden ayrışın." },
+      ],
+      featuresTitle: "Güzellik merkezi sitenizde neler olur?",
+      features: [
+        "Hizmet ve paket sayfaları",
+        "Öncesi-sonrası galerisi",
+        "Online randevu / WhatsApp",
+        "Kampanya ve fiyat bölümü",
+        "Google harita ve yorumlar",
+        "Mobil uyumlu, hızlı tasarım",
+      ],
+      faqTitle: "Sık sorulan sorular",
+      faq: [
+        { q: "Öncesi-sonrası fotoğrafı ekler misiniz?", a: "Evet. İzin ve gizliliğe dikkat ederek sonuçlarınızı gösteren şık bir galeri kurarız." },
+        { q: "Kampanyaları kendim güncelleyebilir miyim?", a: "Evet. Kampanya ve fiyatları kolayca güncelleyebileceğiniz bir yapı kurarız." },
+        { q: "Online randevu alır mı?", a: "Hizmet ve saat seçmeli online randevuyu ya da WhatsApp yönlendirmesini kurarız." },
+      ],
+      ctaTitle: "Merkeziniz için bir site kuralım",
+      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaButton: "Ücretsiz Teklif Al",
+    },
+    en: {
+      metaTitle: "Beauty & Aesthetics Clinic Website",
+      metaDescription:
+        "Website for beauty salons, skincare and laser clinics. Online booking, before-and-after gallery and Google visibility. Get a free quote.",
+      eyebrow: "For Beauty Clinics",
+      h1: "Beauty & Aesthetics Clinic Website",
+      intro:
+        "In aesthetics and skincare, trust is everything. A sharp site that shows your results and easy booking moves a hesitant visitor toward a decision. Forpus builds sites for beauty, skincare and laser clinics.",
+      benefits: [
+        { title: "A results-driven storefront", body: "Prove the quality of your work with a before-and-after gallery and build trust." },
+        { title: "Online booking", body: "Let clients pick service and time themselves; cut phone traffic and fill the calendar." },
+        { title: "A premium design", body: "Stand out from competitors with a sharp, modern look worthy of your brand." },
+      ],
+      featuresTitle: "What's included?",
+      features: [
+        "Service and package pages",
+        "Before-and-after gallery",
+        "Online booking / WhatsApp",
+        "Campaign and price section",
+        "Google map and reviews",
+        "Fast, mobile-friendly design",
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        { q: "Can you add before-and-after photos?", a: "Yes. We build a sharp gallery showcasing your results, with attention to consent and privacy." },
+        { q: "Can I update campaigns myself?", a: "Yes. We build a structure where you update campaigns and prices easily." },
+        { q: "Does it take online bookings?", a: "We set up service-and-time online booking or a WhatsApp redirect." },
+      ],
+      ctaTitle: "Let's build a site for your clinic",
+      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaButton: "Get a Free Quote",
+    },
+  },
+  {
+    key: "veteriner",
+    image: "/generated/personas/doktor.webp",
+    service: "web",
+    slug: { tr: "veteriner-web-sitesi", en: "veterinary-website" },
+    tr: {
+      metaTitle: "Veteriner Klinik Web Sitesi",
+      metaDescription:
+        "Veteriner klinikleri ve pet sağlığı için web sitesi ve online randevu. Güven veren, mobil uyumlu, Google'da bulunan tasarım. Ücretsiz teklif alın.",
+      eyebrow: "Veterinere Özel",
+      h1: "Veteriner Klinik Web Sitesi",
+      intro:
+        "Dostlarının sağlığı söz konusu olunca sahipler aceleyle en yakın ve en güvenilir kliniği arıyor. Sıcak, güven veren ve randevuya yönlendiren bir site, kliniğinizi öne çıkarır. Forpus veteriner kliniklerine özel siteler tasarlıyor.",
+      benefits: [
+        { title: "Acil erişim", body: "Adres, telefon ve nöbet bilgisi tek dokunuşta; sahip vakit kaybetmeden ulaşsın." },
+        { title: "Güven veren vitrin", body: "Ekip, hizmet ve klinik tanıtımıyla sahibin içini rahatlatın." },
+        { title: "Google'da bulunun", body: "'Yakınımdaki veteriner' aramalarında ve haritada öne çıkın." },
+      ],
+      featuresTitle: "Veteriner sitenizde neler olur?",
+      features: [
+        "Hizmet sayfaları (aşı, cerrahi, check-up)",
+        "Online randevu / WhatsApp",
+        "Acil iletişim ve nöbet bilgisi",
+        "Ekip ve klinik tanıtımı",
+        "Google harita ve çalışma saatleri",
+        "Mobil uyumlu, hızlı tasarım",
+      ],
+      faqTitle: "Sık sorulan sorular",
+      faq: [
+        { q: "Online randevu kurar mısınız?", a: "Evet. WhatsApp veya saat seçmeli randevu akışını ihtiyacınıza göre kurarız." },
+        { q: "Acil durum bilgisini öne çıkarır mısınız?", a: "Evet. Telefon, adres ve nöbet bilgisini her sayfadan kolayca erişilir yaparız." },
+        { q: "Blog ekleyebilir miyiz?", a: "Evet. Pet sağlığı içerikleriyle Google'dan organik ziyaretçi kazanmanıza yardımcı oluruz." },
+      ],
+      ctaTitle: "Kliniğiniz için bir site kuralım",
+      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaButton: "Ücretsiz Teklif Al",
+    },
+    en: {
+      metaTitle: "Veterinary Clinic Website Design",
+      metaDescription:
+        "Website and online booking for veterinary clinics and pet health. Trustworthy, mobile-friendly design that ranks on Google. Get a free quote.",
+      eyebrow: "For Vets",
+      h1: "Veterinary Clinic Website",
+      intro:
+        "When a pet's health is on the line, owners urgently look for the nearest, most trustworthy clinic. A warm, reassuring site that drives bookings puts your clinic first. Forpus builds sites for veterinary clinics.",
+      benefits: [
+        { title: "Reachable in an emergency", body: "Address, phone and on-call info in one tap so owners reach you without losing time." },
+        { title: "A reassuring storefront", body: "Put owners at ease with your team, services and clinic showcase." },
+        { title: "Get found on Google", body: "Stand out in 'vet near me' searches and on the map." },
+      ],
+      featuresTitle: "What's included?",
+      features: [
+        "Service pages (vaccines, surgery, check-ups)",
+        "Online booking / WhatsApp",
+        "Emergency contact and on-call info",
+        "Team and clinic showcase",
+        "Google map and opening hours",
+        "Fast, mobile-friendly design",
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        { q: "Can you set up online booking?", a: "Yes. We build a WhatsApp or time-slot booking flow around your needs." },
+        { q: "Can you highlight emergency info?", a: "Yes. We make phone, address and on-call details reachable from every page." },
+        { q: "Can we add a blog?", a: "Yes. Pet-health content helps you earn organic visitors from Google." },
+      ],
+      ctaTitle: "Let's build a site for your clinic",
+      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaButton: "Get a Free Quote",
+    },
+  },
+  {
+    key: "mimar",
+    image: "/generated/personas/emlak.webp",
+    service: "web",
+    slug: { tr: "mimar-web-sitesi", en: "architect-website" },
+    tr: {
+      metaTitle: "Mimar & İç Mimar Web Sitesi (Portfolyo)",
+      metaDescription:
+        "Mimar ve iç mimarlar için portfolyo odaklı web sitesi. Projelerinizi etkileyici gösteren, mobil uyumlu, Google'da bulunan tasarım. Teklif alın.",
+      eyebrow: "Mimara Özel",
+      h1: "Mimar & İç Mimar Web Sitesi",
+      intro:
+        "Sizin işiniz görsel; siteniz de öyle olmalı. Projelerinizi büyük, etkileyici görsellerle sunan bir portfolyo sitesi, potansiyel müşteride 'bununla çalışmalıyım' hissi yaratır. Forpus mimar ve iç mimarlara özel portfolyo siteleri tasarlıyor.",
+      benefits: [
+        { title: "Etkileyici portfolyo", body: "Projelerinizi tam ekran, yüksek kaliteli görsellerle sunun; işiniz kendini anlatsın." },
+        { title: "Prestijli algı", body: "Sade ve şık bir tasarım, uzmanlığınızı ve seviyenizi ilk bakışta yansıtır." },
+        { title: "Doğru müşteri", body: "Proje türlerinizi anlatarak size uygun işleri çekin, Google'dan bulunun." },
+      ],
+      featuresTitle: "Mimar sitenizde neler olur?",
+      features: [
+        "Proje / portfolyo galerisi",
+        "Proje detay sayfaları",
+        "Hizmet ve süreç anlatımı",
+        "Hakkımda / ekip bölümü",
+        "İletişim ve teklif formu",
+        "Mobil uyumlu, hızlı galeri",
+      ],
+      faqTitle: "Sık sorulan sorular",
+      faq: [
+        { q: "Projelerimi kendim ekleyebilir miyim?", a: "Evet. Yeni projeleri görsel ve detaylarıyla kolayca ekleyebileceğiniz bir yapı kurarız." },
+        { q: "Yüksek kaliteli görseller siteyi yavaşlatır mı?", a: "Hayır. Görselleri optimize ederek kaliteden ödün vermeden hızlı bir galeri kurarız." },
+        { q: "3D / render koyabilir miyim?", a: "Elbette. Render ve çizimlerinizi tam ekran sunan bir düzen kurgularız." },
+      ],
+      ctaTitle: "Portfolyonuz için bir site kuralım",
+      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaButton: "Ücretsiz Teklif Al",
+    },
+    en: {
+      metaTitle: "Architect & Interior Designer Website",
+      metaDescription:
+        "Portfolio-focused website for architects and interior designers. Presents your projects impressively, mobile-friendly and ranks on Google. Get a quote.",
+      eyebrow: "For Architects",
+      h1: "Architect & Interior Designer Website",
+      intro:
+        "Your work is visual; your site should be too. A portfolio site that presents projects with large, striking imagery makes prospects feel 'I have to work with them'. Forpus builds portfolio sites for architects and interior designers.",
+      benefits: [
+        { title: "A striking portfolio", body: "Present projects with full-screen, high-quality imagery; let the work speak." },
+        { title: "A premium perception", body: "A clean, sharp design conveys your expertise and level at first glance." },
+        { title: "The right clients", body: "Explain your project types to attract the right work and get found on Google." },
+      ],
+      featuresTitle: "What's included?",
+      features: [
+        "Project / portfolio gallery",
+        "Project detail pages",
+        "Services and process pages",
+        "About / team section",
+        "Contact and quote form",
+        "Fast, mobile-friendly gallery",
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        { q: "Can I add projects myself?", a: "Yes. We build a structure where you add new projects with imagery and details easily." },
+        { q: "Will high-quality images slow the site?", a: "No. We optimize the imagery to keep the gallery fast without losing quality." },
+        { q: "Can I add 3D / renders?", a: "Of course. We design a layout that presents your renders and drawings full-screen." },
+      ],
+      ctaTitle: "Let's build a site for your portfolio",
+      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaButton: "Get a Free Quote",
+    },
+  },
+  {
+    key: "musavir",
+    image: "/generated/personas/avukat.webp",
+    service: "web",
+    slug: { tr: "mali-musavir-web-sitesi", en: "accountant-website" },
+    tr: {
+      metaTitle: "Mali Müşavir & Muhasebe Web Sitesi",
+      metaDescription:
+        "Mali müşavir ve muhasebe ofisleri için kurumsal, güven veren web sitesi. Hizmet tanıtımı ve mükellef çekme. Mobil uyumlu. Ücretsiz teklif alın.",
+      eyebrow: "Mali Müşavire Özel",
+      h1: "Mali Müşavir Web Sitesi",
+      intro:
+        "İşletmeler muhasebelerini emanet edecekleri kişide güven ve ciddiyet arar. Kurumsal, net ve profesyonel bir web sitesi, ofisinizin güvenilirliğini yansıtır ve yeni mükellef getirir. Forpus mali müşavir ve muhasebe ofislerine özel siteler tasarlıyor.",
+      benefits: [
+        { title: "Kurumsal güven", body: "Ciddi ve profesyonel bir tasarımla ofisinizin güvenilirliğini ilk bakışta hissettirin." },
+        { title: "Hizmetleriniz net", body: "Kuruluş, beyanname, danışmanlık; her hizmeti ayrı anlatarak doğru mükellefle eşleşin." },
+        { title: "Mükellef getiren yapı", body: "Google'da 'mali müşavir + şehir' aramalarında çıkacak şekilde optimize." },
+      ],
+      featuresTitle: "Mali müşavir sitenizde neler olur?",
+      features: [
+        "Hizmet sayfaları (kuruluş, danışmanlık, beyanname)",
+        "Sektörel çözümler bölümü",
+        "Ekip ve özgeçmiş",
+        "Randevu ve iletişim formu",
+        "Kurumsal, mobil uyumlu tasarım",
+        "Google ve yerel SEO ayarları",
+      ],
+      faqTitle: "Sık sorulan sorular",
+      faq: [
+        { q: "Uzaktan / online çalışmaya uygun mu?", a: "Evet. İletişim ve randevu akışını uzaktan çalışmaya uygun şekilde kurarız." },
+        { q: "Mevzuat / blog bölümü ekler misiniz?", a: "Evet. Güncel içeriklerle uzmanlığınızı gösterip Google'dan ziyaretçi kazanırsınız." },
+        { q: "Birden çok hizmet ekleyebilir miyim?", a: "Elbette. Her hizmet için ayrı, SEO'ya uygun sayfalar kurarız." },
+      ],
+      ctaTitle: "Ofisiniz için bir site kuralım",
+      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaButton: "Ücretsiz Teklif Al",
+    },
+    en: {
+      metaTitle: "Accountant & Bookkeeping Website",
+      metaDescription:
+        "Corporate, trustworthy website for accountants and bookkeeping firms. Service pages and client acquisition. Mobile-friendly. Get a free quote.",
+      eyebrow: "For Accountants",
+      h1: "Accountant Website Design",
+      intro:
+        "Businesses look for trust and seriousness in whoever they hand their books to. A corporate, clear, professional website reflects your firm's credibility and brings new clients. Forpus builds sites for accountants and bookkeeping firms.",
+      benefits: [
+        { title: "Corporate trust", body: "Convey your firm's credibility at first glance with a serious, professional design." },
+        { title: "Clear services", body: "Company setup, filings, advisory — explain each service separately to match the right client." },
+        { title: "A structure that converts", body: "Optimized to appear in 'accountant + city' searches on Google." },
+      ],
+      featuresTitle: "What's included?",
+      features: [
+        "Service pages (setup, advisory, filings)",
+        "Sector solutions section",
+        "Team and bio",
+        "Booking and contact form",
+        "Corporate, mobile-friendly design",
+        "Google and local SEO setup",
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        { q: "Does it suit remote / online work?", a: "Yes. We set up contact and booking flows suited to working remotely." },
+        { q: "Can you add a blog / updates section?", a: "Yes. Current content shows your expertise and earns visitors from Google." },
+        { q: "Can I add multiple services?", a: "Of course. We build separate, SEO-friendly pages for each service." },
+      ],
+      ctaTitle: "Let's build a site for your firm",
+      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaButton: "Get a Free Quote",
+    },
+  },
+  {
+    key: "fotografci",
+    image: "/generated/personas/kisiselmarka.webp",
+    service: "web",
+    slug: { tr: "fotografci-web-sitesi", en: "photographer-website" },
+    tr: {
+      metaTitle: "Fotoğrafçı Web Sitesi (Portfolyo)",
+      metaDescription:
+        "Düğün, bebek ve etkinlik fotoğrafçıları için portfolyo web sitesi. Çalışmalarınızı etkileyici gösteren, mobil uyumlu, Google'da bulunan tasarım.",
+      eyebrow: "Fotoğrafçıya Özel",
+      h1: "Fotoğrafçı Web Sitesi",
+      intro:
+        "İşiniz kareleri konuşuyor; siteniz de onları hak ettiği gibi göstermeli. Tam ekran, hızlı ve şık bir portfolyo, ziyaretçiyi hayran bırakır ve rezervasyona taşır. Forpus düğün, bebek ve etkinlik fotoğrafçılarına özel siteler tasarlıyor.",
+      benefits: [
+        { title: "Kareleriniz öne çıksın", body: "Tam ekran, yüksek kaliteli galerilerle çalışmalarınız tüm etkisiyle görünsün." },
+        { title: "Rezervasyona yönlendirin", body: "Beğenen ziyaretçiyi tek tıkla iletişim ve rezervasyon formuna taşıyın." },
+        { title: "Google'da bulunun", body: "'Düğün fotoğrafçısı + şehir' gibi aramalarda öne çıkacak yapı." },
+      ],
+      featuresTitle: "Fotoğrafçı sitenizde neler olur?",
+      features: [
+        "Kategorili portfolyo galerileri",
+        "Paket ve fiyat sayfaları",
+        "Rezervasyon / iletişim formu",
+        "Müşteri yorumları",
+        "Instagram entegrasyonu",
+        "Mobil uyumlu, hızlı galeri",
+      ],
+      faqTitle: "Sık sorulan sorular",
+      faq: [
+        { q: "Yüksek çözünürlüklü fotoğraflar siteyi yavaşlatır mı?", a: "Hayır. Görselleri optimize ederek kaliteden ödün vermeden hızlı bir galeri kurarız." },
+        { q: "Galerileri kendim güncelleyebilir miyim?", a: "Evet. Yeni çekimleri kolayca ekleyebileceğiniz bir yapı kurarız." },
+        { q: "Müşteriye özel galeri olur mu?", a: "İsterseniz şifreli, müşteriye özel teslim galerileri kurgularız." },
+      ],
+      ctaTitle: "Portfolyonuz için bir site kuralım",
+      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaButton: "Ücretsiz Teklif Al",
+    },
+    en: {
+      metaTitle: "Photographer Website (Portfolio)",
+      metaDescription:
+        "Portfolio website for wedding, newborn and event photographers. Presents your work impressively, mobile-friendly and ranks on Google.",
+      eyebrow: "For Photographers",
+      h1: "Photographer Website",
+      intro:
+        "Your work speaks in frames; your site should show them as they deserve. A full-screen, fast, sharp portfolio wows visitors and moves them to book. Forpus builds sites for wedding, newborn and event photographers.",
+      benefits: [
+        { title: "Let your frames shine", body: "Full-screen, high-quality galleries show your work in full effect." },
+        { title: "Drive bookings", body: "Move an impressed visitor to a contact and booking form in one tap." },
+        { title: "Get found on Google", body: "A structure built to rank for searches like 'wedding photographer + city'." },
+      ],
+      featuresTitle: "What's included?",
+      features: [
+        "Categorized portfolio galleries",
+        "Package and price pages",
+        "Booking / contact form",
+        "Client testimonials",
+        "Instagram integration",
+        "Fast, mobile-friendly gallery",
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        { q: "Will high-resolution photos slow the site?", a: "No. We optimize the imagery to keep the gallery fast without losing quality." },
+        { q: "Can I update the galleries myself?", a: "Yes. We build a structure where you add new shoots easily." },
+        { q: "Can there be client-only galleries?", a: "If you'd like, we set up password-protected delivery galleries per client." },
+      ],
+      ctaTitle: "Let's build a site for your portfolio",
+      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaButton: "Get a Free Quote",
+    },
+  },
+  {
+    key: "spor",
+    image: "/generated/personas/diyetisyen.webp",
+    service: "web",
+    slug: { tr: "spor-salonu-web-sitesi", en: "gym-website" },
+    tr: {
+      metaTitle: "Spor Salonu & Personal Trainer Web Sitesi",
+      metaDescription:
+        "Spor salonu, fitness ve personal trainer için web sitesi. Üyelik, ders programı ve online iletişim. Mobil uyumlu. Ücretsiz teklif alın.",
+      eyebrow: "Spor Salonuna Özel",
+      h1: "Spor Salonu & PT Web Sitesi",
+      intro:
+        "Yeni üyeler bir salon seçmeden önce ortamı, hocaları ve fiyatları internetten inceliyor. Enerjik, net ve üyeliğe yönlendiren bir site, deneme dersini üyeliğe çevirir. Forpus spor salonları ve personal trainer'lara özel siteler tasarlıyor.",
+      benefits: [
+        { title: "Üyeliğe yönlendirin", body: "Deneme dersi ve üyelik formuyla ilgilenen ziyaretçiyi hemen harekete geçirin." },
+        { title: "Ortamı gösterin", body: "Salon, ekipman ve antrenör fotoğraflarıyla enerjinizi ekrana taşıyın." },
+        { title: "Program & PT", body: "Ders programı ve personal trainer tanıtımıyla doğru üyeyle eşleşin." },
+      ],
+      featuresTitle: "Spor salonu sitenizde neler olur?",
+      features: [
+        "Üyelik ve paket sayfaları",
+        "Ders programı / takvim",
+        "Antrenör (PT) tanıtımı",
+        "Deneme dersi / iletişim formu",
+        "Galeri ve çalışma saatleri",
+        "Mobil uyumlu, hızlı tasarım",
+      ],
+      faqTitle: "Sık sorulan sorular",
+      faq: [
+        { q: "Ders programını kendim güncelleyebilir miyim?", a: "Evet. Programı kolayca güncelleyebileceğiniz bir yapı kurarız." },
+        { q: "Üyelik / ödeme alır mı?", a: "İhtiyaca göre üyelik formu ve online ödeme yönlendirmesini kurarız." },
+        { q: "PT'leri ayrı tanıtabilir miyiz?", a: "Evet. Her antrenör için tanıtım ve uzmanlık bölümü kurgularız." },
+      ],
+      ctaTitle: "Salonunuz için bir site kuralım",
+      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaButton: "Ücretsiz Teklif Al",
+    },
+    en: {
+      metaTitle: "Gym & Personal Trainer Website",
+      metaDescription:
+        "Website for gyms, fitness studios and personal trainers. Membership, class schedule and online contact. Mobile-friendly. Get a free quote.",
+      eyebrow: "For Gyms",
+      h1: "Gym & Personal Trainer Website",
+      intro:
+        "New members check the space, the trainers and the prices online before choosing a gym. An energetic, clear site that drives sign-ups turns a trial class into a membership. Forpus builds sites for gyms and personal trainers.",
+      benefits: [
+        { title: "Drive sign-ups", body: "Move interested visitors to act with a trial-class and membership form." },
+        { title: "Show the space", body: "Bring your energy to the screen with gym, equipment and trainer photos." },
+        { title: "Schedule & PT", body: "Match the right member with a class schedule and personal-trainer profiles." },
+      ],
+      featuresTitle: "What's included?",
+      features: [
+        "Membership and package pages",
+        "Class schedule / calendar",
+        "Trainer (PT) profiles",
+        "Trial-class / contact form",
+        "Gallery and opening hours",
+        "Fast, mobile-friendly design",
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        { q: "Can I update the class schedule myself?", a: "Yes. We build a structure where you update the schedule easily." },
+        { q: "Does it take membership / payments?", a: "We set up a membership form and online payment redirect as needed." },
+        { q: "Can we feature PTs separately?", a: "Yes. We design a profile and specialty section for each trainer." },
+      ],
+      ctaTitle: "Let's build a site for your gym",
+      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaButton: "Get a Free Quote",
+    },
+  },
+  {
     key: "mobil",
     image: "/generated/hero-device.webp",
     service: "mobile",
@@ -737,6 +1227,28 @@ export function solutionByTrSlug(slug: string): Solution | undefined {
 export function solutionByEnSlug(slug: string): Solution | undefined {
   return solutions.find((s) => s.slug.en === slug);
 }
+
+// Short sector labels for the compact link index (pills on the homepage). Keyed by
+// solution.key; falls back to the page h1 when a key is missing.
+export const sectorName: Record<string, { tr: string; en: string }> = {
+  doktor: { tr: "Doktor", en: "Doctor" },
+  dishekimi: { tr: "Diş Hekimi", en: "Dentist" },
+  diyetisyen: { tr: "Diyetisyen", en: "Dietitian" },
+  psikolog: { tr: "Psikolog", en: "Psychologist" },
+  avukat: { tr: "Avukat", en: "Lawyer" },
+  emlak: { tr: "Emlak", en: "Real Estate" },
+  eticaret: { tr: "E-Ticaret", en: "E-Commerce" },
+  restoran: { tr: "Restoran & Kafe", en: "Restaurant & Cafe" },
+  kisiselmarka: { tr: "Kişisel Marka", en: "Personal Brand" },
+  kuafor: { tr: "Kuaför & Berber", en: "Hair & Barber" },
+  guzellik: { tr: "Güzellik & Estetik", en: "Beauty & Aesthetics" },
+  veteriner: { tr: "Veteriner", en: "Veterinary" },
+  mimar: { tr: "Mimar & İç Mimar", en: "Architect" },
+  musavir: { tr: "Mali Müşavir", en: "Accountant" },
+  fotografci: { tr: "Fotoğrafçı", en: "Photographer" },
+  spor: { tr: "Spor Salonu", en: "Gym & Trainer" },
+  mobil: { tr: "Mobil Uygulama", en: "Mobile App" },
+};
 
 // Language pickers shared by the landing pages, footer and SEO helpers.
 export const contentOf = (s: Solution, lang: "tr" | "en") => (lang === "tr" ? s.tr : s.en);
