@@ -101,7 +101,7 @@ export const solutions: Solution[] = [
   },
   {
     key: "dishekimi",
-    image: "/generated/personas/doktor.webp",
+    image: "/generated/personas/dishekimi.webp",
     service: "web",
     slug: { tr: "dis-hekimi-web-sitesi", en: "dentist-website" },
     tr: {
@@ -661,7 +661,7 @@ export const solutions: Solution[] = [
   },
   {
     key: "kuafor",
-    image: "/generated/personas/kisiselmarka.webp",
+    image: "/generated/personas/kuafor.webp",
     service: "web",
     slug: { tr: "kuafor-web-sitesi", en: "hair-salon-website" },
     tr: {
@@ -731,7 +731,7 @@ export const solutions: Solution[] = [
   },
   {
     key: "guzellik",
-    image: "/generated/personas/kisiselmarka.webp",
+    image: "/generated/personas/guzellik.webp",
     service: "web",
     slug: { tr: "guzellik-merkezi-web-sitesi", en: "beauty-clinic-website" },
     tr: {
@@ -801,7 +801,7 @@ export const solutions: Solution[] = [
   },
   {
     key: "veteriner",
-    image: "/generated/personas/doktor.webp",
+    image: "/generated/personas/veteriner.webp",
     service: "web",
     slug: { tr: "veteriner-web-sitesi", en: "veterinary-website" },
     tr: {
@@ -871,7 +871,7 @@ export const solutions: Solution[] = [
   },
   {
     key: "mimar",
-    image: "/generated/personas/emlak.webp",
+    image: "/generated/personas/mimar.webp",
     service: "web",
     slug: { tr: "mimar-web-sitesi", en: "architect-website" },
     tr: {
@@ -941,7 +941,7 @@ export const solutions: Solution[] = [
   },
   {
     key: "musavir",
-    image: "/generated/personas/avukat.webp",
+    image: "/generated/personas/musavir.webp",
     service: "web",
     slug: { tr: "mali-musavir-web-sitesi", en: "accountant-website" },
     tr: {
@@ -1011,7 +1011,7 @@ export const solutions: Solution[] = [
   },
   {
     key: "fotografci",
-    image: "/generated/personas/kisiselmarka.webp",
+    image: "/generated/personas/fotografci.webp",
     service: "web",
     slug: { tr: "fotografci-web-sitesi", en: "photographer-website" },
     tr: {
@@ -1081,7 +1081,7 @@ export const solutions: Solution[] = [
   },
   {
     key: "spor",
-    image: "/generated/personas/diyetisyen.webp",
+    image: "/generated/personas/spor.webp",
     service: "web",
     slug: { tr: "spor-salonu-web-sitesi", en: "gym-website" },
     tr: {
