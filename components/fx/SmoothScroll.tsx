@@ -1,12 +1,18 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 // Scroll landing offset so anchored sections clear the fixed navbar.
 const SCROLL_OFFSET = -80;
 
 export default function SmoothScroll() {
+  const pathname = usePathname();
+  // Lenis persists across client navigations (layout never unmounts), so it also keeps its
+  // scroll offset — held here so the route-change effect can reset it to the top.
+  const lenisRef = useRef<Lenis | null>(null);
+
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -28,7 +34,10 @@ export default function SmoothScroll() {
         raf = requestAnimationFrame(loop);
       };
       raf = requestAnimationFrame(loop);
+    }
+    lenisRef.current = lenis;
 
+    if (!reduce && lenis) {
       // Smooth same-page anchor navigation (homepage sections)
       onClick = (e: MouseEvent) => {
         const link = (e.target as HTMLElement).closest('a[href^="#"]') as HTMLAnchorElement | null;
@@ -86,6 +95,16 @@ export default function SmoothScroll() {
       lenis?.destroy();
     };
   }, []);
+
+  // On client navigation to a new page, land at the top — Lenis keeps the previous page's
+  // scroll offset otherwise (e.g. clicking a sector pill low on the homepage would open the
+  // solution page scrolled down). Skipped when the URL carries a hash, so cross-page anchor
+  // links (e.g. "/#services") still land on their section.
+  useEffect(() => {
+    if (window.location.hash) return;
+    lenisRef.current?.scrollTo(0, { immediate: true });
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return null;
 }
