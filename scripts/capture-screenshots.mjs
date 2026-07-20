@@ -12,6 +12,7 @@ const SITES = [
   { slug: "temizlikexpress", url: "https://temizlikexpress.com/" },
   { slug: "harmanapps", url: "https://harmanapps.com/" },
   { slug: "esenkuruyemis", url: "https://esenkuruyemis.com/" },
+  { slug: "sagemakine", url: "https://sagemakine.com/" },
   { slug: "dryasin", url: "https://dryasinkurtbogan.com.tr/" },
   { slug: "merak", url: "http://meraketogren.com/" },
   { slug: "cekictrans", url: "https://cekictrans.com/" },
