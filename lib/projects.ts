@@ -137,19 +137,6 @@ export const webProjects: WebProject[] = [
     tags: ["Web", "Kurumsal"],
     accent: "green",
   },
-  {
-    slug: "hnyapi",
-    name: "H&N Yapı İnşaat",
-    url: "https://www.hnyapi.com/",
-    shot: "/work/hnyapi.webp",
-    category: { tr: "Kurumsal · İnşaat", en: "Corporate · Construction" },
-    desc: {
-      tr: "İnşaat firması için kurumsal tanıtım sitesi: hizmetler, proje galerisi ve teklif formu — güven veren, mobil uyumlu bir vitrin.",
-      en: "A corporate site for a construction company: services, a project gallery and a quote form — a trustworthy, mobile-friendly showcase.",
-    },
-    tags: ["Web", "Kurumsal"],
-    accent: "cyan",
-  },
 ];
 
 export const mobileApps: MobileApp[] = [
@@ -188,7 +175,6 @@ export const brandNames = [
   "Merak Et Öğren",
   "Esen Kuruyemiş",
   "Çekiç Trans",
-  "H&N Yapı İnşaat",
 ];
 
 // Brand logos for the trust marquee. `url` links to the brand's live site when available.
@@ -201,5 +187,4 @@ export const brandLogos: { name: string; src: string; url?: string }[] = [
   { name: "Merak Et Öğren", src: "/logos/merak.png", url: "https://meraketogren.com/" },
   { name: "Esen Kuruyemiş", src: "/logos/esen.png", url: "https://esenkuruyemis.com/" },
   { name: "Çekiç Trans", src: "/logos/cekictrans.png", url: "https://cekictrans.com/" },
-  { name: "H&N Yapı İnşaat", src: "/logos/hnyapi.png", url: "https://www.hnyapi.com/" },
 ];
