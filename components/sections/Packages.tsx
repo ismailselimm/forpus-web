@@ -24,6 +24,7 @@ type Package = {
   name: string;
   short: string;
   tagline: string;
+  price: string;
   timeline: string;
   features: string[];
   cta: string;
@@ -69,6 +70,15 @@ function PackageCard({ pkg, badge }: { pkg: Package; badge: string }) {
         </h3>
         <p className={clsx("mt-2 text-[0.9rem] leading-relaxed sm:text-[0.98rem]", featured ? "text-white/70" : "text-ink-2")}>
           {pkg.tagline}
+        </p>
+
+        <p
+          className={clsx(
+            "mt-4 font-[family-name:var(--font-display)] text-[1.2rem] font-extrabold tracking-tight sm:text-[1.35rem]",
+            featured ? "!text-white" : "text-ink",
+          )}
+        >
+          {pkg.price}
         </p>
 
         <span

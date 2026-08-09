@@ -190,6 +190,7 @@ const tr = {
         name: "Başlangıç",
         short: "Başlangıç",
         tagline: "Hızlı, şık bir dijital varlık.",
+        price: "₺50.000'den başlayan",
         timeline: "~1 hafta",
         features: [
           "Tek/az sayfalı tanıtım sitesi",
@@ -205,6 +206,7 @@ const tr = {
         name: "Kurumsal",
         short: "Kurumsal",
         tagline: "Markanızı büyüten özel tasarım.",
+        price: "₺100.000'den başlayan",
         timeline: "~2–4 hafta",
         features: [
           "Çok sayfalı özel tasarım",
@@ -221,6 +223,7 @@ const tr = {
         name: "Premium / Uygulama",
         short: "Premium",
         tagline: "Panel, uygulama, uçtan uca sistem.",
+        price: "₺250.000'den başlayan",
         timeline: "Projeye özel",
         features: [
           "Web + mobil uygulama",
@@ -550,6 +553,7 @@ const en: typeof tr = {
         name: "Starter",
         short: "Starter",
         tagline: "A fast, sharp digital presence.",
+        price: "from ₺50,000",
         timeline: "~1 week",
         features: [
           "One / few-page landing site",
@@ -565,6 +569,7 @@ const en: typeof tr = {
         name: "Corporate",
         short: "Corporate",
         tagline: "A custom site that grows your brand.",
+        price: "from ₺100,000",
         timeline: "~2–4 weeks",
         features: [
           "Multi-page custom design",
@@ -581,6 +586,7 @@ const en: typeof tr = {
         name: "Premium / App",
         short: "Premium",
         tagline: "Panels, apps, end-to-end systems.",
+        price: "from ₺250,000",
         timeline: "Custom",
         features: [
           "Web + mobile app",
