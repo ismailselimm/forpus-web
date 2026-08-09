@@ -10,6 +10,7 @@ const OUT = path.join(__dirname, "..", "public", "work");
 const SITES = [
   { slug: "doldurkabi", url: "https://doldurkabi.com/" },
   { slug: "temizlikexpress", url: "https://temizlikexpress.com/" },
+  { slug: "diyetisyenece", url: "https://diyetisyeneceozturk.com/" },
   { slug: "harmanapps", url: "https://harmanapps.com/" },
   { slug: "esenkuruyemis", url: "https://esenkuruyemis.com/" },
   { slug: "sagemakine", url: "https://sagemakine.com/" },

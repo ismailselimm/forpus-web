@@ -73,6 +73,19 @@ export const webProjects: WebProject[] = [
     accent: "blue",
   },
   {
+    slug: "diyetisyenece",
+    name: "Dyt. Ece Öztürk",
+    url: "https://diyetisyeneceozturk.com/",
+    shot: "/work/diyetisyenece.webp",
+    category: { tr: "Kurumsal · Sağlık & Diyet", en: "Corporate · Health & Nutrition" },
+    desc: {
+      tr: "Diyetisyen için kanıta dayalı, sıcak ve randevu odaklı tanıtım sitesi: hizmetler, hesaplama araçları, blog ve WhatsApp randevu.",
+      en: "A warm, booking-focused site for a dietitian: services, calculators, a blog and WhatsApp appointments.",
+    },
+    tags: ["Web", "Kurumsal", "UI/UX"],
+    accent: "green",
+  },
+  {
     slug: "sagemakine",
     name: "SAGE Makine",
     url: "https://sagemakine.com/",
@@ -99,19 +112,6 @@ export const webProjects: WebProject[] = [
     accent: "blue",
   },
   {
-    slug: "esenkuruyemis",
-    name: "Esen Kuruyemiş",
-    url: "https://esenkuruyemis.com/",
-    shot: "/work/esenkuruyemis.webp",
-    category: { tr: "E-Ticaret", en: "E-Commerce" },
-    desc: {
-      tr: "Kuruyemiş markası için e-ticaret sitesi: ürün kataloğu, sepet ve ödeme — taze lezzetleri akıcı bir alışveriş deneyimiyle online'a taşıdık.",
-      en: "An e-commerce site for a dried-nuts brand: product catalog, cart and checkout — fresh flavors brought online with a smooth shopping experience.",
-    },
-    tags: ["E-Ticaret", "Web", "UI/UX"],
-    accent: "cyan",
-  },
-  {
     slug: "dryasin",
     name: "Dr. Yasin Kurtboğan",
     url: "https://dryasinkurtbogan.com.tr/",
@@ -136,6 +136,19 @@ export const webProjects: WebProject[] = [
     },
     tags: ["Web", "Kurumsal"],
     accent: "green",
+  },
+  {
+    slug: "esenkuruyemis",
+    name: "Esen Kuruyemiş",
+    url: "https://esenkuruyemis.com/",
+    shot: "/work/esenkuruyemis.webp",
+    category: { tr: "E-Ticaret", en: "E-Commerce" },
+    desc: {
+      tr: "Kuruyemiş markası için e-ticaret sitesi: ürün kataloğu, sepet ve ödeme — taze lezzetleri akıcı bir alışveriş deneyimiyle online'a taşıdık.",
+      en: "An e-commerce site for a dried-nuts brand: product catalog, cart and checkout — fresh flavors brought online with a smooth shopping experience.",
+    },
+    tags: ["E-Ticaret", "Web", "UI/UX"],
+    accent: "cyan",
   },
 ];
 
