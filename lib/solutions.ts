@@ -2,6 +2,9 @@
 // search (e.g. "doktor web sitesi") in both TR and EN. Rendered as static HTML so Google can
 // index the copy. Routes: /cozumler/[slug] (tr) and /en/solutions/[slug] (en).
 import type { ServiceKey } from "./services";
+import { solutionIndex } from "./solution-index";
+import { webProjects } from "./projects";
+import { PRICE_FLOOR } from "./pricing";
 
 export type SolutionContent = {
   metaTitle: string;
@@ -1059,7 +1062,7 @@ export const solutions: Solution[] = [
         tiers: [
           {
             name: "Dijital menü & tanıtım",
-            price: "₺40.000 – 70.000",
+            price: "₺50.000 – 80.000",
             timeline: "~1 hafta",
             body: "Mekân tanıtımı, iştah açan galeri, QR ile açılan dijital menü, harita ve çalışma saatleri. Menüyü kendiniz güncellersiniz. Kafeler ve tek şubeli işletmeler için yeterli.",
           },
@@ -1191,7 +1194,7 @@ export const solutions: Solution[] = [
         tiers: [
           {
             name: "Kişisel site",
-            price: "₺40.000 – 70.000",
+            price: "₺50.000 – 80.000",
             timeline: "~1 hafta",
             body: "Tek sayfalık, sizi anlatan güçlü bir dijital varlık. Hakkımda, ne yaptığınız, öne çıkan işler ve iletişim. Adınızı Google'da temiz bir sayfayla karşılamak için yeterli.",
           },
@@ -1323,7 +1326,7 @@ export const solutions: Solution[] = [
         tiers: [
           {
             name: "Salon tanıtım sitesi",
-            price: "₺40.000 – 70.000",
+            price: "₺50.000 – 80.000",
             timeline: "~1 hafta",
             body: "Şık bir vitrin: hizmet ve fiyat listesi, galeri, ekip, harita, çalışma saatleri ve tek tık WhatsApp. Tek şubeli salonlar için yeterli.",
           },
@@ -1989,7 +1992,7 @@ export const solutions: Solution[] = [
         tiers: [
           {
             name: "Portfolyo sitesi",
-            price: "₺45.000 – 80.000",
+            price: "₺50.000 – 85.000",
             timeline: "~1–2 hafta",
             body: "Kategorili galeriler, hakkımda ve iletişim. Tam ekran, hızlı açılan bir vitrin. Portfolyoyu biz yükleriz. Yeni başlayanlar için yeterli.",
           },
@@ -2121,7 +2124,7 @@ export const solutions: Solution[] = [
         tiers: [
           {
             name: "Salon tanıtım sitesi",
-            price: "₺45.000 – 80.000",
+            price: "₺50.000 – 85.000",
             timeline: "~1–2 hafta",
             body: "Üyelik paketleri, galeri, antrenör tanıtımı, harita ve çalışma saatleri. Deneme dersi formu ve WhatsApp. Tek şubeli salonlar ve bireysel çalışan eğitmenler için yeterli.",
           },
@@ -2385,3 +2388,59 @@ export const solutionUi: Record<"tr" | "en", { home: string; more: string; moreL
     seeAll: "See all services",
   },
 };
+
+// ============================================================================
+// Build zamanı tutarlılık kontrolleri
+//
+// Bu repoda test koşucusu yok. Aşağıdaki kontroller modül yüklenirken çalışır,
+// yani `next build` sırasında. Bir şey tutmazsa build patlar — sessizce bozuk
+// bir sayfa yayına çıkmaz.
+// ============================================================================
+
+// 1) Hafif indeks (istemci tarafı) ile içerik burada senkron kalmalı.
+{
+  const idx = new Set(solutionIndex.map((r) => r.key));
+  const full = new Set(solutions.map((s) => s.key));
+  for (const k of full) {
+    if (!idx.has(k)) throw new Error(`solutions: "${k}" lib/solution-index.ts içinde yok`);
+  }
+  for (const k of idx) {
+    if (!full.has(k)) throw new Error(`solution-index: "${k}" lib/solutions.ts içinde yok`);
+  }
+  for (const r of solutionIndex) {
+    const s = solutions.find((x) => x.key === r.key)!;
+    if (s.slug.tr !== r.slug.tr || s.slug.en !== r.slug.en) {
+      throw new Error(`solutions: "${r.key}" slug'ı indeksle uyuşmuyor`);
+    }
+  }
+}
+
+// 2) caseRef gerçek bir projeye işaret etmeli. Proje silindiğinde (H&N Yapı'da
+//    olduğu gibi) ilgili bölüm sessizce kaybolmasın, build uyarsın.
+{
+  const known = new Set(webProjects.map((p) => p.slug));
+  for (const s of solutions) {
+    for (const c of [s.tr, s.en]) {
+      if (c.caseRef && !known.has(c.caseRef.projectSlug)) {
+        throw new Error(`solutions: "${s.key}" → bilinmeyen proje "${c.caseRef.projectSlug}"`);
+      }
+    }
+  }
+}
+
+// 3) Sektör fiyat bantları, sitede ilan edilen taban fiyatın altına düşmemeli.
+//    Ana sayfa meta açıklaması ve Paketler bölümü "₺50.000'den başlayan" diyor.
+{
+  for (const s of solutions) {
+    for (const c of [s.tr, s.en]) {
+      const first = c.pricing?.tiers[0]?.price;
+      if (!first) continue;
+      const n = Number(first.match(/[\d.]+/)?.[0].replace(/\./g, ""));
+      if (Number.isFinite(n) && n < PRICE_FLOOR) {
+        throw new Error(
+          `solutions: "${s.key}" fiyat bandı ₺${n} — ilan edilen taban ₺${PRICE_FLOOR} altında`,
+        );
+      }
+    }
+  }
+}

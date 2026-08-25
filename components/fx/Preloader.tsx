@@ -21,11 +21,11 @@ export default function Preloader() {
     >
       {/* marka ışıltıları */}
       <div
-        className="pointer-events-none absolute -left-20 -top-24 h-72 w-72 rounded-full blur-3xl"
+        className="absolute -left-20 -top-24 h-72 w-72 rounded-full blur-3xl"
         style={{ background: "radial-gradient(circle, rgba(95,190,46,0.18), transparent 70%)" }}
       />
       <div
-        className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full blur-3xl"
+        className="absolute -bottom-24 -right-16 h-80 w-80 rounded-full blur-3xl"
         style={{ background: "radial-gradient(circle, rgba(30,146,230,0.18), transparent 70%)" }}
       />
 
@@ -40,7 +40,6 @@ export default function Preloader() {
             alt=""
             width={96}
             height={96}
-            priority
             className="relative h-[84px] w-[84px] object-contain"
           />
         </div>

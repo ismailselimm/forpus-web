@@ -91,6 +91,9 @@ export default function Hero() {
               alt="Forpus — web ve mobil ürünler"
               fill
               priority
+              // next/image `priority` ile preload'u zaten üretiyor; eksik olan
+              // tek şey önceliğin yüksek işaretlenmesiydi.
+              fetchPriority="high"
               sizes="(max-width: 1024px) 60vw, 460px"
               className="rounded-[40px] object-cover shadow-[var(--shadow-card)]"
             />

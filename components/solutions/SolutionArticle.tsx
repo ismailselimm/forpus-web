@@ -27,13 +27,14 @@ export default function SolutionArticle({
   const url = `${SITE}${base}/${slugOf(solution, lang)}`;
 
   // Referans bloğu gerçek bir projeye bağlanır; proje bulunamazsa blok çizilmez.
-  const caseProject = c.caseRef ? webProjects.find((p) => p.slug === c.caseRef!.projectSlug) : undefined;
+  const caseProject = webProjects.find((p) => p.slug === c.caseRef?.projectSlug);
 
   // Sayfada fiyat bandı yazıyorsa aynı rakamı yapılandırılmış veriye de koyarız.
   // "₺50.000 – 90.000" → 50000 (TR binlik ayracı nokta olduğu için sadece rakamları alırız).
-  const lowPrice = c.pricing
-    ? Number((c.pricing.tiers[0]?.price.match(/[\d.]+/)?.[0] ?? "").replace(/\./g, "")) || undefined
-    : undefined;
+  const lowPrice = Number(c.pricing?.tiers[0]?.price.match(/[\d.]+/)?.[0].replace(/\./g, "")) || undefined;
+
+  // Bölüm başlığı varsa fayda kartları onun altına iner; yoksa kartlar bölümün kendisidir.
+  const CardHeading = c.benefitsTitle ? "h3" : "h2";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -140,13 +141,15 @@ export default function SolutionArticle({
               <Reveal>
                 <h2 className="h-section text-balance">{c.problem.title}</h2>
               </Reveal>
-              <div className="mt-8 flex flex-col gap-5">
-                {c.problem.body.map((p, i) => (
-                  <Reveal key={i} delay={i * 0.06}>
-                    <p className="text-[1.03rem] leading-relaxed text-ink-2">{p}</p>
-                  </Reveal>
-                ))}
-              </div>
+              {/* Paragraflar tek Reveal içinde: her birine ayrı IntersectionObserver
+                  açmanın görsel karşılığı yok, stagger sadece kartlarda anlamlı. */}
+              <Reveal>
+                <div className="mt-8 flex flex-col gap-5">
+                  {c.problem.body.map((p, i) => (
+                    <p key={i} className="text-[1.03rem] leading-relaxed text-ink-2">{p}</p>
+                  ))}
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -161,10 +164,7 @@ export default function SolutionArticle({
             </Reveal>
           )}
           <div className="grid gap-5 md:grid-cols-3">
-            {c.benefits.map((b, i) => {
-              // Bölüm başlığı varsa kartlar onun altına iner; yoksa kartlar bölümün kendisidir.
-              const CardHeading = c.benefitsTitle ? "h3" : "h2";
-              return (
+            {c.benefits.map((b, i) => (
                 <Reveal key={b.title} delay={i * 0.08} className="h-full">
                   <article className="glass-card border-gradient flex h-full flex-col rounded-[var(--r-lg)] p-6 shadow-[var(--shadow-card)] sm:p-7">
                     <span className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-green via-cyan to-blue text-white shadow-[var(--shadow-glow)]">
@@ -176,8 +176,7 @@ export default function SolutionArticle({
                     <p className="mt-2.5 text-[0.95rem] leading-relaxed text-ink-2">{b.body}</p>
                   </article>
                 </Reveal>
-              );
-            })}
+              ))}
           </div>
         </div>
       </section>
@@ -250,7 +249,6 @@ export default function SolutionArticle({
       {/* ── Gerçek referans ──────────────────────────────── */}
       {c.caseRef && caseProject && (
         <section className="section relative overflow-hidden bg-bg-2/50">
-          <Aurora className="opacity-40" />
           <div className="container-x relative z-10">
             <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
               <Reveal>
@@ -325,7 +323,6 @@ export default function SolutionArticle({
       {/* ── Nelere dikkat etmeli ─────────────────────────── */}
       {c.checklist && (
         <section className="section relative overflow-hidden bg-bg-2/50">
-          <Aurora className="opacity-40" />
           <div className="container-x relative z-10">
             <div className="mx-auto max-w-3xl">
               <Reveal>

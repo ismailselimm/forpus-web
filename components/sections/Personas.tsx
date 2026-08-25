@@ -22,7 +22,7 @@ import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
 import { presetService, type ServiceKey } from "@/lib/services";
-import { solutions, slugOf, contentOf, sectorName } from "@/lib/solutions";
+import { solutionIndex, slugOfRef } from "@/lib/solution-index";
 
 const ICONS: Record<string, LucideIcon> = {
   doktor: Stethoscope,
@@ -190,13 +190,13 @@ export default function Personas() {
             <p className="mx-auto mt-2.5 max-w-lg text-[0.95rem] text-ink-2">{p.sectors.lead}</p>
           </div>
           <ul className="mx-auto mt-7 flex max-w-4xl flex-wrap justify-center gap-2.5">
-            {solutions.map((s) => (
+            {solutionIndex.map((s) => (
               <li key={s.key}>
                 <Link
-                  href={`${solBase}/${slugOf(s, lang)}`}
+                  href={`${solBase}/${slugOfRef(s, lang)}`}
                   className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-4 py-2 text-[0.9rem] font-medium text-ink-2 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan/50 hover:bg-white hover:text-ink hover:shadow-[var(--shadow-soft)] motion-reduce:transform-none"
                 >
-                  {sectorName[s.key]?.[lang] ?? contentOf(s, lang).h1}
+                  {s.label[lang]}
                   <ArrowUpRight className="h-3.5 w-3.5 text-ink-3" strokeWidth={2} />
                 </Link>
               </li>
