@@ -55,7 +55,11 @@ export const metadata: Metadata = {
   creator: "Forpus Yazılım",
   publisher: "Forpus Yazılım",
   category: "technology",
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    // İngilizce ana sayfa /en'de; x-default Türkiye odağı nedeniyle TR.
+    languages: { "tr-TR": "/", "en-US": "/en", "x-default": "/" },
+  },
   icons: {
     icon: [
       { url: "/brand/forpus-logo.png" },
@@ -154,13 +158,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="tr" suppressHydrationWarning>
       <head>
         {/*
-          Açılış perdesi oturumda yalnızca bir kez görünsün. Bu script boyamadan
-          ÖNCE çalışmalı, yoksa perde bir an parlayıp kaybolur. Depolama kapalıysa
-          (gizli sekme vb.) sessizce perdeyi normal akışında gösteririz.
+          Boyama ÖNCESİ çalışan iki küçük iş:
+
+          1. html.lang'i adrese göre düzelt. Statik export'ta <html> yalnızca kök
+             layout'ta üretiliyor, yani route'a göre değiştirilemiyor — sunucudan
+             gelen HTML her sayfada "tr" diyor. /en altındaki sayfalar İngilizce
+             olduğu için burada düzeltiyoruz; ekran okuyucular ve DOM'u okuyan her
+             şey doğru değeri görüyor. (Google dili içerikten ve hreflang'den
+             belirliyor, lang özniteliğinden değil.)
+
+          2. Açılış perdesi oturumda bir kez görünsün. Bu da boyamadan önce
+             olmalı, yoksa perde bir an parlayıp kaybolur.
+
+          Depolama kapalıysa (gizli sekme vb.) sessizce eski davranışa düşer.
         */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(sessionStorage.getItem('forpus:acilis')){document.documentElement.setAttribute('data-acilis-goruldu','1')}else{sessionStorage.setItem('forpus:acilis','1')}}catch(e){}`,
+            __html:
+              `if(location.pathname==='/en'||location.pathname.indexOf('/en/')===0){document.documentElement.lang='en'}` +
+              `try{if(sessionStorage.getItem('forpus:acilis')){document.documentElement.setAttribute('data-acilis-goruldu','1')}else{sessionStorage.setItem('forpus:acilis','1')}}catch(e){}`,
           }}
         />
       </head>

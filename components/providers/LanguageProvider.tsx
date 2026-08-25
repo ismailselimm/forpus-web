@@ -3,7 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { dictionary, type Dict, type Lang } from "@/lib/i18n/dictionary";
-import { isBilingualRoute } from "@/lib/routes";
+import { routeLang } from "@/lib/routes";
 
 type LanguageContextValue = {
   lang: Lang;
@@ -16,27 +16,29 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 const STORAGE_KEY = "forpus-lang";
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("tr");
+  const pathname = usePathname();
+  // Route dili dayatıyorsa (/en/*, /blog, /isler) o kazanır. Bu, sunucuda
+  // üretilen HTML'de de geçerli: her route ayrı ayrı prerender edildiği için
+  // /en/solutions/* sayfaları menüsü ve footer'ı İngilizce çıkıyor.
+  const forced = routeLang(pathname);
+  const [preferred, setPreferred] = useState<Lang>("tr");
+  const lang = forced ?? preferred;
 
   useEffect(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY) as Lang | null;
-      if (stored === "tr" || stored === "en") setLangState(stored);
+      if (stored === "tr" || stored === "en") setPreferred(stored);
     } catch {
       /* ignore */
     }
   }, []);
 
-  // Tek dilli sayfalarda (blog, vakalar) gövde Türkçe kalıyor; html.lang'i
-  // "en" yapmak hem yanlış olur hem de sayfadaki JSON-LD `inLanguage: "tr"`
-  // ile çelişirdi.
-  const pathname = usePathname();
   useEffect(() => {
-    document.documentElement.lang = isBilingualRoute(pathname) ? lang : "tr";
-  }, [lang, pathname]);
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const setLang = useCallback((next: Lang) => {
-    setLangState(next);
+    setPreferred(next);
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {
@@ -44,17 +46,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  // Tercihi her zaman kaydediyoruz: ziyaretçi /en/solutions/* üzerinde EN'e
+  // basıp sonra ana sayfaya gittiğinde İngilizce kalsın.
   const toggle = useCallback(() => {
-    setLangState((prev) => {
-      const next = prev === "tr" ? "en" : "tr";
-      try {
-        localStorage.setItem(STORAGE_KEY, next);
-      } catch {
-        /* ignore */
-      }
-      return next;
-    });
-  }, []);
+    setLang(lang === "tr" ? "en" : "tr");
+  }, [lang, setLang]);
 
   return (
     <LanguageContext.Provider value={{ lang, t: dictionary[lang], setLang, toggle }}>

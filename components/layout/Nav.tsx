@@ -6,7 +6,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { clsx } from "clsx";
-import { isBilingualRoute } from "@/lib/routes";
+import { isBilingualRoute, hrefForLang, normalizePath } from "@/lib/routes";
+import { solutionIndex } from "@/lib/solution-index";
 import Logo from "@/components/ui/Logo";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
@@ -21,6 +22,14 @@ export default function Nav() {
   const pathname = usePathname();
   const onHome = pathname === "/";
   const bilingual = isBilingualRoute(pathname);
+
+  // Çözüm sayfalarında iki dilin ayrı URL'i var; dil değiştirici sayfada kalıp
+  // yalnızca menüyü çevirmemeli, karşı dildeki eşine gitmeli.
+  const here = normalizePath(pathname);
+  const pair = solutionIndex.find(
+    (s) => here === `/cozumler/${s.slug.tr}` || here === `/en/solutions/${s.slug.en}`,
+  )?.slug;
+  const otherLangHref = hrefForLang(pathname, lang === "tr" ? "en" : "tr", pair);
   // "#services" gibi bölüm bağlantıları ana sayfa dışındayken "/#services" olmalı.
   // "/blog", "/isler" gibi gerçek yollar olduğu gibi kalır.
   const to = (href: string) => (href.startsWith("/") ? href : onHome ? href : `/${href}`);
@@ -92,7 +101,19 @@ export default function Nav() {
             <div className="flex items-center gap-2">
               {/* Tek dilli sayfalarda (blog, vakalar) toggle gizli: aksi halde
                   menü İngilizce, gövde Türkçe kalan melez bir sayfa oluyordu. */}
-              {bilingual && (
+              {bilingual &&
+                // Karşı dilin ayrı bir adresi varsa gerçek bağlantı ver:
+                // hem tarayıcı hem Google iki sürümü bağlantılı görür.
+                (otherLangHref ? (
+                  <Link
+                    href={otherLangHref}
+                    aria-label={t.langToggle.switchTo}
+                    className="group flex h-9 items-center gap-1 rounded-full border border-line bg-white/60 px-1 text-xs font-semibold"
+                  >
+                    <span className={clsx("rounded-full px-2 py-1 transition-all", lang === "tr" ? "bg-ink text-white" : "text-ink-3")}>TR</span>
+                    <span className={clsx("rounded-full px-2 py-1 transition-all", lang === "en" ? "bg-ink text-white" : "text-ink-3")}>EN</span>
+                  </Link>
+                ) : (
               <button
                 onClick={toggle}
                 aria-label={t.langToggle.switchTo}
@@ -115,7 +136,7 @@ export default function Nav() {
                   EN
                 </span>
               </button>
-              )}
+                ))}
 
               <Magnetic className="hidden sm:block">
                 <a href={to("#contact")} className="btn btn-primary h-10 px-5 text-sm">

@@ -47,7 +47,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     new Date(dates.reduce((a, b) => (a > b ? a : b), dates[0]));
 
   return [
-    { url: SITE, lastModified: TR_LASTMOD, changeFrequency: "monthly", priority: 1 },
+    {
+      url: SITE,
+      lastModified: TR_LASTMOD,
+      changeFrequency: "monthly",
+      priority: 1,
+      alternates: { languages: { tr: SITE, en: `${SITE}/en` } },
+    },
+    {
+      url: `${SITE}/en`,
+      lastModified: TR_LASTMOD,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: { languages: { tr: SITE, en: `${SITE}/en` } },
+    },
     { url: `${SITE}/isler`, lastModified: newest(cases.map((c) => c.updated ?? c.published)), changeFrequency: "monthly", priority: 0.8 },
     ...casePages,
     { url: `${SITE}/blog`, lastModified: newest(postsByDate.map((p) => p.updated ?? p.published)), changeFrequency: "monthly", priority: 0.6 },
