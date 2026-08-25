@@ -59,15 +59,17 @@ const EPOSTA = "forpusyazilim@gmail.com";
 /**
  * Veri sorumlusunun kimliği.
  *
- * Kanun md.3/1-ı veri sorumlusunu "gerçek veya tüzel kişi" diye tanımlıyor.
- * "Forpus Yazılım (şahıs girişimi)" ikisi de değil: tescilli olmayan bir ad.
- * İlgili kişi md.11 başvurusunu Kurul'a taşımak istediğinde şikâyet formu
- * veri sorumlusunun kimliğini soruyor ve o kutu doldurulamıyordu. Uydurma bir
- * unvan eklemiyoruz — eksik olan tam tersi, gerçek kişi adları.
+ * Kurucuların ad-soyadları bu sayfadan KALDIRILDI ve geri eklenmeyecek:
+ * herkese açık bir sayfada gerçek kişi adı yayımlamak, kanunun istediğinden
+ * fazlasını yapıp kurucuların kendi kişisel verisini ifşa ediyordu.
+ *
+ * Yerine iletişim kanalı duruyor. Md.11 başvurusu için ilgili kişinin
+ * ihtiyacı olan şey ulaşılabilir bir adres; kimlik bilgisi başvuru üzerine
+ * doğrudan verilebilir. İşletme tescil edildiğinde buraya resmî unvan yazılır.
  */
 const VERI_SORUMLUSU =
-  `Veri sorumluları: İsmail Selim Garip ve Yusuf Şafak — “Forpus Yazılım” adıyla birlikte ` +
-  `hareket eden iki gerçek kişi. Başvuru adresi: ${EPOSTA}`;
+  `Veri sorumlusu: “Forpus Yazılım” adıyla hareket eden işletme. Her türlü başvuru, ` +
+  `soru ve talep için: ${EPOSTA}`;
 
 /** Üç sayfa da aynı gün yazıldı; içeriği değiştiren kişi burayı da günceller. */
 const SON_GUNCELLEME = "2026-08-25";
