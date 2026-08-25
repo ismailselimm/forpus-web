@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { solutions } from "@/lib/solutions";
 import { postsByDate } from "@/lib/blog";
+import { cases } from "@/lib/cases";
 import { SITE_URL as SITE } from "@/lib/site";
 
 export const dynamic = "force-static"; // statik export (GitHub Pages) için
@@ -34,8 +35,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // Vaka sayfaları: içerik projeyle birlikte değişir, TR turuyla aynı tarih.
+  const casePages: MetadataRoute.Sitemap = cases.map((c) => ({
+    url: `${SITE}/isler/${c.slug}`,
+    lastModified: TR_LASTMOD,
+    changeFrequency: "yearly",
+    priority: 0.7,
+  }));
+
   return [
     { url: SITE, lastModified: TR_LASTMOD, changeFrequency: "monthly", priority: 1 },
+    { url: `${SITE}/isler`, lastModified: TR_LASTMOD, changeFrequency: "monthly", priority: 0.8 },
+    ...casePages,
     { url: `${SITE}/blog`, lastModified: new Date(postsByDate[0].published), changeFrequency: "monthly", priority: 0.6 },
     ...blogPages,
     ...solutionPages,

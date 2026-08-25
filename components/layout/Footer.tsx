@@ -80,7 +80,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
               <li><a href="/#services" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.services}</a></li>
-              <li><a href="/#work" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.work}</a></li>
+              <li><a href="/isler" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.work}</a></li>
               <li><a href="/blog" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.footer.blog}</a></li>
               <li><a href="/#process" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.process}</a></li>
               <li><a href="/#team" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.team}</a></li>

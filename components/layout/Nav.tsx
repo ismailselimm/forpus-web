@@ -38,7 +38,7 @@ export default function Nav() {
   const links = [
     { href: "#services", label: t.nav.services },
     { href: "#personas", label: t.nav.personas },
-    { href: "#work", label: t.nav.work },
+    { href: "/isler", label: t.nav.work },
     { href: "/blog", label: t.nav.blog },
     { href: "#packages", label: t.nav.packages },
     { href: "#process", label: t.nav.process },
