@@ -17,7 +17,6 @@ Unutulursa build patlar (lib/projects.ts sonundaki kontrol).
 """
 import os
 import sys
-from PIL import Image
 
 WORK = os.path.join(os.path.dirname(__file__), "..", "public", "work")
 WIDTHS = (640, 1120)
@@ -32,7 +31,41 @@ def base_shots():
             yield name
 
 
+def eksik_turevler():
+    """Kaynagi olup henuz uretilmemis ya da bayat kalmis turevler."""
+    eksik = []
+    for name in base_shots():
+        src = os.path.join(WORK, name)
+        for w in WIDTHS:
+            dst = os.path.join(WORK, name.replace(".webp", f"-{w}.webp"))
+            if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src):
+                eksik.append(os.path.basename(dst))
+    return eksik
+
+
 def main():
+    # Turevler depoya commit ediliyor; CI'da yeniden uretmeye gerek yok.
+    # GitHub Actions makinesinde Pillow kurulu degil ve bu betik prebuild'e
+    # bagli oldugu icin TUM dagitimi patlatiyordu — site uc push boyunca
+    # eski surumde kaldi. Artik: yapacak is yoksa PIL hic import edilmiyor.
+    eksik = eksik_turevler()
+    if not eksik:
+        print("  turevler guncel, uretilecek bir sey yok")
+        return
+
+    try:
+        from PIL import Image
+    except ModuleNotFoundError:
+        # Burada sessiz gecmek yanlis olur: eksik turevle derlenen site
+        # bozuk gorsel adresleri uretir. Eksik varsa yuksek sesle dur.
+        print(
+            "HATA: uretilmesi gereken turev var ama Pillow kurulu degil.\n"
+            "  Eksik: " + ", ".join(eksik[:6]) + ("..." if len(eksik) > 6 else "") + "\n"
+            "  Cozum: pip install Pillow  (ya da turevleri yerelde uretip commit edin)",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
     made = skipped = 0
     for name in base_shots():
         src = os.path.join(WORK, name)
