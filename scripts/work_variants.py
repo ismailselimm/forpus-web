@@ -32,13 +32,19 @@ def base_shots():
 
 
 def eksik_turevler():
-    """Kaynagi olup henuz uretilmemis ya da bayat kalmis turevler."""
+    """Hic uretilmemis turevler.
+
+    Yalnizca VARLIGA bakiyor, tazelige degil. Sebebi: git dosya degisiklik
+    zamanlarini korumuyor — temiz bir klonda her dosya ayni ana damgalaniyor
+    ve turev kaynagindan "eski" gorunebiliyor. Tazelik kontrolu asagidaki
+    uretim dongusunde kaliyor; orasi yalniz Pillow varken, yani gelistiricinin
+    makinesinde calisiyor ve mtime orada anlamli.
+    """
     eksik = []
     for name in base_shots():
-        src = os.path.join(WORK, name)
         for w in WIDTHS:
             dst = os.path.join(WORK, name.replace(".webp", f"-{w}.webp"))
-            if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src):
+            if not os.path.exists(dst):
                 eksik.append(os.path.basename(dst))
     return eksik
 
@@ -50,7 +56,7 @@ def main():
     # eski surumde kaldi. Artik: yapacak is yoksa PIL hic import edilmiyor.
     eksik = eksik_turevler()
     if not eksik:
-        print("  turevler guncel, uretilecek bir sey yok")
+        print("  turevlerin hepsi yerinde, uretilecek bir sey yok")
         return
 
     try:
