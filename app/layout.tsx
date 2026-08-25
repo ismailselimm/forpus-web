@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   // 155 karakterin altında: Google bu uzunlukta kesmeden gösteriyor.
   description:
-    "Kurumsal web sitesi, e-ticaret ve mobil uygulama geliştiriyoruz. İki mühendis kurucu, gerçek referanslar, ₺50.000'den başlayan paketler. Ücretsiz teklif alın.",
+    "Kurumsal web sitesi, e-ticaret ve mobil uygulama geliştiriyoruz. Gerçek referanslar, ₺50.000'den başlayan paketler. Ücretsiz teklif alın.",
   applicationName: "Forpus Yazılım",
   keywords: [
     "Forpus", "Forpus Yazılım", "yazılım stüdyosu", "dijital ajans", "web yazılım",
