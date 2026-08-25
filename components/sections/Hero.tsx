@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import Aurora from "@/components/fx/Aurora";
 import ParticleField from "@/components/fx/ParticleField";
@@ -10,18 +9,12 @@ import { useLang } from "@/components/providers/LanguageProvider";
 
 export default function Hero() {
   const { t } = useLang();
-  const reduce = useReducedMotion();
 
-  const container = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
-  };
-  const item = reduce
-    ? { hidden: { opacity: 1 }, show: { opacity: 1 } }
-    : {
-        hidden: { opacity: 0, y: 22 },
-        show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
-      };
+  // Giriş animasyonu CSS'te (.hero-in). Eskiden framer-motion ile yapılıyordu,
+  // ama hero opacity:0 ile başladığı için içerik JS inene kadar görünmüyordu ve
+  // LCP'yi 7 saniye geciktiriyordu. Sıralamayı burada gecikmeyle veriyoruz;
+  // eski staggerChildren 0.09s + delayChildren 0.1s ile aynı ritim.
+  const stagger = (i: number) => ({ animationDelay: `${0.1 + i * 0.09}s` });
 
   return (
     <section
@@ -37,33 +30,33 @@ export default function Hero() {
 
       <div className="container-x relative z-10 grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr]">
         {/* Copy */}
-        <motion.div variants={container} initial="hidden" animate="show">
-          <motion.div variants={item} className="mb-7 inline-flex">
+        <div>
+          <div className="hero-in mb-7 inline-flex" style={stagger(0)}>
             <span className="chip border-gradient relative">
               <Sparkles className="h-3.5 w-3.5 text-cyan-deep" />
               {t.hero.eyebrow}
             </span>
-          </motion.div>
+          </div>
 
           <h1 className="display text-balance">
-            <motion.span variants={item} className="block">
+            <span className="hero-in block" style={stagger(1)}>
               {t.hero.titleLead}
-            </motion.span>
-            <motion.span variants={item} className="block text-gradient-anim">
+            </span>
+            <span className="hero-in block text-gradient-anim" style={stagger(2)}>
               {t.hero.titleHighlight}
-            </motion.span>
+            </span>
             {t.hero.titleTail ? (
-              <motion.span variants={item} className="block">
+              <span className="hero-in block" style={stagger(3)}>
                 {t.hero.titleTail}
-              </motion.span>
+              </span>
             ) : null}
           </h1>
 
-          <motion.p variants={item} className="lead mt-7 max-w-xl">
+          <p className="hero-in lead mt-7 max-w-xl" style={stagger(4)}>
             {t.hero.subtitle}
-          </motion.p>
+          </p>
 
-          <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-3">
+          <div className="hero-in mt-9 flex flex-wrap items-center gap-3" style={stagger(5)}>
             <Magnetic>
               <a href="#contact" className="btn btn-primary">
                 {t.hero.ctaPrimary}
@@ -73,9 +66,9 @@ export default function Hero() {
             <a href="#work" className="btn btn-ghost">
               {t.hero.ctaSecondary}
             </a>
-          </motion.div>
+          </div>
 
-          <motion.div variants={item} className="mt-10 flex flex-wrap gap-2.5">
+          <div className="hero-in mt-10 flex flex-wrap gap-2.5" style={stagger(6)}>
             {t.hero.chips.map((c) => (
               <div key={c.value} className="chip">
                 <span className="font-semibold text-ink">{c.value}</span>
@@ -83,15 +76,13 @@ export default function Hero() {
                 <span className="text-ink-3">{c.label}</span>
               </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Visual */}
-        <motion.div
-          initial={reduce ? { opacity: 1 } : { opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="relative mx-auto block aspect-square w-full max-w-[340px] sm:max-w-[420px] md:max-w-[460px]"
+        <div
+          className="hero-in relative mx-auto block aspect-square w-full max-w-[340px] sm:max-w-[420px] md:max-w-[460px]"
+          style={{ animationDelay: "0.2s" }}
         >
           <div className="animate-float relative h-full w-full">
             <div className="absolute inset-[6%] rounded-[40px] bg-gradient-to-br from-cyan/20 to-blue/10 blur-2xl" />
@@ -104,7 +95,7 @@ export default function Hero() {
               className="rounded-[40px] object-cover shadow-[var(--shadow-card)]"
             />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

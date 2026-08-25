@@ -43,7 +43,10 @@ export default function WorkVideo({
       muted
       loop
       playsInline
-      preload="metadata"
+      // "metadata" derken tarayıcı dosyanın tamamını çekiyordu (ölçüldü: 364KB,
+      // ilk yüklemenin en ağır tek dosyası). Video zaten görünür olunca
+      // oynatılıyor; o ana kadar poster görseli yeterli.
+      preload="none"
       aria-label={label}
     >
       <source src={src} type="video/mp4" />

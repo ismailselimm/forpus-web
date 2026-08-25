@@ -192,12 +192,12 @@ export const brandNames = [
 
 // Brand logos for the trust marquee. `url` links to the brand's live site when available.
 export const brandLogos: { name: string; src: string; url?: string }[] = [
-  { name: "DoldurKabı", src: "/logos/doldurkabi.png", url: "https://doldurkabi.com/" },
-  { name: "Temizlik Express", src: "/logos/temizlikexpress.png", url: "https://temizlikexpress.com/" },
-  { name: "Sea Pleasure", src: "/logos/seapleasure.png", url: "https://seapleasure.com.tr/" },
-  { name: "SAGE Makine", src: "/logos/sagemakine.png", url: "https://sagemakine.com/" },
-  { name: "Dr. Yasin Kurtboğan", src: "/logos/dryasin.png", url: "https://dryasinkurtbogan.com.tr/" },
-  { name: "Merak Et Öğren", src: "/logos/merak.png", url: "https://meraketogren.com/" },
-  { name: "Esen Kuruyemiş", src: "/logos/esen.png", url: "https://esenkuruyemis.com/" },
-  { name: "Çekiç Trans", src: "/logos/cekictrans.png", url: "https://cekictrans.com/" },
+  { name: "DoldurKabı", src: "/logos/doldurkabi.webp", url: "https://doldurkabi.com/" },
+  { name: "Temizlik Express", src: "/logos/temizlikexpress.webp", url: "https://temizlikexpress.com/" },
+  { name: "Sea Pleasure", src: "/logos/seapleasure.webp", url: "https://seapleasure.com.tr/" },
+  { name: "SAGE Makine", src: "/logos/sagemakine.webp", url: "https://sagemakine.com/" },
+  { name: "Dr. Yasin Kurtboğan", src: "/logos/dryasin.webp", url: "https://dryasinkurtbogan.com.tr/" },
+  { name: "Merak Et Öğren", src: "/logos/merak.webp", url: "https://meraketogren.com/" },
+  { name: "Esen Kuruyemiş", src: "/logos/esen.webp", url: "https://esenkuruyemis.com/" },
+  { name: "Çekiç Trans", src: "/logos/cekictrans.webp", url: "https://cekictrans.com/" },
 ];

@@ -36,11 +36,14 @@ const OG_DESC =
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Forpus Yazılım — Web, Mobil, Reklam & Tasarım",
+    // Aranan ifade önce, marka sonra. Adımızı bilmeyen kimse "Forpus" aramıyor;
+    // ana sayfanın hizmet aramalarında da yarışması için başlık böyle kuruldu.
+    default: "Web Sitesi ve Mobil Uygulama Ajansı | Forpus Yazılım",
     template: "%s | Forpus Yazılım",
   },
+  // 155 karakterin altında: Google bu uzunlukta kesmeden gösteriyor.
   description:
-    "Forpus, fikrinizi büyüyen dijital ürünlere dönüştüren bir yazılım stüdyosu. Web, mobil uygulama, Meta & Google reklamları, sosyal medya ve tasarım — tek çatı altında.",
+    "Kurumsal web sitesi, e-ticaret ve mobil uygulama geliştiriyoruz. İki mühendis kurucu, gerçek referanslar, ₺50.000'den başlayan paketler. Ücretsiz teklif alın.",
   applicationName: "Forpus Yazılım",
   keywords: [
     "Forpus", "Forpus Yazılım", "yazılım stüdyosu", "dijital ajans", "web yazılım",

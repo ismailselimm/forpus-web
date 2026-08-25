@@ -355,6 +355,29 @@ button { font-family: inherit; }
   animation: node-pulse 3.2s var(--ease-in-out-soft) infinite;
 }
 
+/* ------------------------------------------------------------------
+   Hero giriş animasyonu — CSS ile, bilerek.
+
+   Bu animasyon eskiden framer-motion ile yapılıyordu ve hero `opacity: 0`
+   ile başladığı için içerik ~790KB JavaScript inip çalışana kadar görünmez
+   kalıyordu. Ölçüm (yavaş 4G): hero görseli 2,0 sn'de iniyor ama LCP
+   9,5 sn'de gerçekleşiyordu — arada 7,4 saniye boşluk.
+
+   CSS animasyonu ilk boyamayla birlikte başlar, JS beklemez. Görsel sonuç
+   aynı: 22px aşağıdan yukarı, yumuşak yavaşlamayla. Sıralama (stagger)
+   için elemanlara satır içi `animation-delay` verilir.
+
+   Kaydırmayla tetiklenen alt bölüm animasyonları JS'te kalmaya devam
+   ediyor; onlar ekranın altında olduğu için LCP'yi etkilemiyor.
+------------------------------------------------------------------- */
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-in {
+  animation: hero-in 0.8s var(--ease-out-soft, cubic-bezier(0.16, 1, 0.3, 1)) both;
+}
+
 .animate-float { animation: float-y 7s var(--ease-in-out-soft) infinite; }
 .animate-marquee { animation: marquee 38s linear infinite; }
 .animate-spin-slow { animation: spin-slow 26s linear infinite; }
