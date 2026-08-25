@@ -271,6 +271,7 @@ const tr = {
     subtitle:
       "Freelance ve proje bazlı çalıştığımız markaların canlı siteleri. Hepsi şu an internette yayında.",
     visit: "Siteyi Ziyaret Et",
+    caseStudy: "Vakayı İncele",
     cta: "Daha fazla iş için bizimle konuşun",
   },
   mobile: {
@@ -636,6 +637,7 @@ const en: typeof tr = {
     subtitle:
       "Live sites of brands we work with on a freelance and project basis. All of them are online right now.",
     visit: "Visit Site",
+    caseStudy: "View Case Study",
     cta: "Talk to us about your project",
   },
   mobile: {

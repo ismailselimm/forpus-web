@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CaseArticle from "@/components/work/CaseArticle";
-import { cases, caseBySlug } from "@/lib/cases";
-import { webProjects } from "@/lib/projects";
+import { cases, caseCardBySlug } from "@/lib/cases";
+import { shotAt } from "@/lib/projects";
 import { SITE_URL } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -14,14 +14,15 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const c = caseBySlug(slug);
+  const c = caseCardBySlug(slug);
   if (!c) return {};
   const url = `${SITE_URL}/isler/${c.slug}`;
-  const shot = webProjects.find((p) => p.slug === c.slug)?.shot ?? "/og.png";
+  const shot = shotAt(c.project.shot, 1120);
   return {
     title: c.metaTitle,
     description: c.metaDescription,
-    alternates: { canonical: url },
+    // Yalnızca Türkçe: Google'a başka dil sürümü olmadığını bildiriyoruz.
+    alternates: { canonical: url, languages: { "tr-TR": url, "x-default": url } },
     openGraph: {
       type: "article",
       locale: "tr_TR",
@@ -35,10 +36,8 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const study = caseBySlug(slug);
-  const project = webProjects.find((p) => p.slug === slug);
-  // Build zamanı kontrol (lib/cases.ts sonu) ikisinin de var olduğunu garantiliyor;
-  // bu koruma yalnızca tip daraltması için.
-  if (!study || !project) notFound();
-  return <CaseArticle study={study} project={project} />;
+  const card = caseCardBySlug(slug);
+  // lib/cases.ts eşleşmeyi build'de garantiliyor; bu yalnızca tip daraltması.
+  if (!card) notFound();
+  return <CaseArticle study={card} project={card.project} />;
 }

@@ -4,6 +4,8 @@ import { Check, ArrowUpRight, ArrowRight, ChevronDown } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
+import CtaBand from "@/components/ui/CtaBand";
+import Breadcrumb, { breadcrumbLd } from "@/components/ui/Breadcrumb";
 import { solutions, contentOf, slugOf, solutionUi, type Solution } from "@/lib/solutions";
 import { webProjects } from "@/lib/projects";
 import { SITE_URL as SITE } from "@/lib/site";
@@ -36,6 +38,8 @@ export default function SolutionArticle({
   // Bölüm başlığı varsa fayda kartları onun altına iner; yoksa kartlar bölümün kendisidir.
   const CardHeading = c.benefitsTitle ? "h3" : "h2";
 
+  const crumbs = [{ label: L.home, href: "/" }, { label: c.h1 }];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -66,13 +70,7 @@ export default function SolutionArticle({
           acceptedAnswer: { "@type": "Answer", text: f.a },
         })),
       },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: L.home, item: SITE + "/" },
-          { "@type": "ListItem", position: 2, name: c.h1, item: url },
-        ],
-      },
+      breadcrumbLd(crumbs, SITE, url),
     ],
   };
 
@@ -84,12 +82,7 @@ export default function SolutionArticle({
       <section className="section relative overflow-hidden bg-bg-2/50 pt-32 sm:pt-40">
         <Aurora className="opacity-60" />
         <div className="container-x relative z-10">
-          {/* breadcrumb */}
-          <nav aria-label="breadcrumb" className="mb-8 flex items-center gap-2 font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.16em] text-ink-3">
-            <Link href={homeHref} className="transition-colors hover:text-ink">{L.home}</Link>
-            <span aria-hidden>/</span>
-            <span className="text-ink-2">{c.h1}</span>
-          </nav>
+          <Breadcrumb items={crumbs} />
 
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <Reveal>
@@ -106,7 +99,7 @@ export default function SolutionArticle({
                   </Magnetic>
                   <Link
                     href={homeHref}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-5 py-3 text-[0.95rem] font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-br hover:from-green hover:via-cyan hover:to-blue hover:text-white hover:shadow-[var(--shadow-glow)] motion-reduce:transform-none"
+                    className="pill-link pill-link-lg"
                   >
                     {L.seeAll}
                   </Link>
@@ -275,7 +268,7 @@ export default function SolutionArticle({
                   <p className="mt-6 text-[1.02rem] leading-relaxed text-ink-2">{c.caseRef.body}</p>
                   <Link
                     href={`${homeHref}#work`}
-                    className="mt-7 inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-5 py-3 text-[0.95rem] font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-br hover:from-green hover:via-cyan hover:to-blue hover:text-white hover:shadow-[var(--shadow-glow)] motion-reduce:transform-none"
+                    className="mt-7 pill-link pill-link-lg"
                   >
                     {c.caseRef.linkLabel}
                     <ArrowRight className="h-4 w-4" />
@@ -301,7 +294,7 @@ export default function SolutionArticle({
               <ol className="mt-12 flex flex-col gap-3">
                 {c.process.steps.map((s, i) => (
                   <Reveal key={s.name} delay={i * 0.06}>
-                    <li className="flex gap-5 rounded-2xl border border-line bg-white/70 p-5 shadow-[var(--shadow-soft)] sm:p-6">
+                    <li className="flex gap-5 soft-card p-5 sm:p-6">
                       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-green via-cyan to-blue font-[family-name:var(--font-mono)] text-[0.85rem] font-bold text-white shadow-[var(--shadow-glow)]">
                         {i + 1}
                       </span>
@@ -333,7 +326,7 @@ export default function SolutionArticle({
               <div className="mt-12 grid gap-4 sm:grid-cols-2">
                 {c.checklist.items.map((it, i) => (
                   <Reveal key={it.title} delay={i * 0.05} className="h-full">
-                    <article className="flex h-full flex-col rounded-2xl border border-line bg-white/70 p-5 shadow-[var(--shadow-soft)]">
+                    <article className="flex h-full flex-col soft-card p-5">
                       <h3 className="font-[family-name:var(--font-display)] text-[1.02rem] font-bold tracking-tight text-ink">
                         {it.title}
                       </h3>
@@ -357,7 +350,7 @@ export default function SolutionArticle({
             <div className="mt-12 flex flex-col gap-3">
               {c.faq.map((f, i) => (
                 <Reveal key={f.q} delay={i * 0.05}>
-                  <details className="group rounded-2xl border border-line bg-white/70 p-5 shadow-[var(--shadow-soft)] [&_summary::-webkit-details-marker]:hidden">
+                  <details className="group soft-card p-5 [&_summary::-webkit-details-marker]:hidden">
                     <summary className="flex cursor-pointer items-center justify-between gap-4 font-[family-name:var(--font-display)] text-[1.02rem] font-semibold text-ink">
                       {f.q}
                       <ChevronDown className="h-5 w-5 shrink-0 text-ink-3 transition-transform duration-300 group-open:rotate-180" />
@@ -371,34 +364,7 @@ export default function SolutionArticle({
         </div>
       </section>
 
-      {/* ── CTA band ─────────────────────────────────────── */}
-      <section className="section relative overflow-hidden">
-        <div className="container-x relative z-10">
-          <Reveal>
-            <div
-              className="relative overflow-hidden rounded-[var(--r-lg)] px-7 py-14 text-center shadow-[var(--shadow-card)] sm:px-12 sm:py-16"
-              style={{ background: "var(--grad-ink)" }}
-            >
-              <div aria-hidden className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-cyan/20 blur-3xl" />
-              <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-green/15 blur-3xl" />
-              <div className="relative mx-auto max-w-2xl">
-                <h2 className="font-[family-name:var(--font-display)] text-[1.7rem] font-extrabold tracking-tight !text-white sm:text-[2.2rem]">
-                  {c.ctaTitle}
-                </h2>
-                <p className="mx-auto mt-4 max-w-xl text-[1.02rem] leading-relaxed text-white/75">{c.ctaText}</p>
-                <div className="mt-8 flex justify-center">
-                  <Magnetic>
-                    <a href={contactHref} className="btn btn-primary">
-                      {c.ctaButton}
-                      <ArrowUpRight className="h-[18px] w-[18px]" />
-                    </a>
-                  </Magnetic>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <CtaBand title={c.ctaTitle} text={c.ctaText} button={c.ctaButton} />
 
       {/* ── Related solutions (internal links) ───────────── */}
       <section className="section relative overflow-hidden bg-bg-2/50 !pt-0">
@@ -414,7 +380,7 @@ export default function SolutionArticle({
               <Link
                 key={s.key}
                 href={`${base}/${slugOf(s, lang)}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-4 py-2 text-[0.9rem] font-medium text-ink-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-br hover:from-green hover:via-cyan hover:to-blue hover:text-white hover:shadow-[var(--shadow-glow)] motion-reduce:transform-none"
+                className="pill-link"
               >
                 {contentOf(s, lang).h1}
                 <ArrowRight className="h-4 w-4" />

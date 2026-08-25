@@ -19,7 +19,8 @@ export async function generateMetadata({
   return {
     title: p.metaTitle,
     description: p.metaDescription,
-    alternates: { canonical: url },
+    // Yalnızca Türkçe: Google'a başka dil sürümü olmadığını bildiriyoruz.
+    alternates: { canonical: url, languages: { "tr-TR": url, "x-default": url } },
     openGraph: {
       type: "article",
       locale: "tr_TR",

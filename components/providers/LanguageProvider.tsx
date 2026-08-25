@@ -1,7 +1,9 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { dictionary, type Dict, type Lang } from "@/lib/i18n/dictionary";
+import { isBilingualRoute } from "@/lib/routes";
 
 type LanguageContextValue = {
   lang: Lang;
@@ -25,9 +27,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  // Tek dilli sayfalarda (blog, vakalar) gövde Türkçe kalıyor; html.lang'i
+  // "en" yapmak hem yanlış olur hem de sayfadaki JSON-LD `inLanguage: "tr"`
+  // ile çelişirdi.
+  const pathname = usePathname();
   useEffect(() => {
-    document.documentElement.lang = lang;
-  }, [lang]);
+    document.documentElement.lang = isBilingualRoute(pathname) ? lang : "tr";
+  }, [lang, pathname]);
 
   const setLang = useCallback((next: Lang) => {
     setLangState(next);

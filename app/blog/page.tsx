@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import { postsByDate, blogUi } from "@/lib/blog";
 import { SITE_URL as SITE } from "@/lib/site";
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   title: "Blog — Fiyat ve Süreç Rehberleri",
   description:
     "Web sitesi ve mobil uygulama fiyatları, teklif alırken dikkat edilecekler, süreç rehberleri. Satış metni değil, işinize yarayacak bilgi.",
-  alternates: { canonical: "/blog" },
+  alternates: { canonical: "/blog", languages: { "tr-TR": "/blog", "x-default": "/blog" } },
 };
 
 export default function BlogIndex() {
@@ -37,14 +38,7 @@ export default function BlogIndex() {
       <section className="section relative overflow-hidden bg-bg-2/50 pt-32 !pb-14 sm:pt-40">
         <Aurora className="opacity-60" />
         <div className="container-x relative z-10">
-          <nav
-            aria-label="breadcrumb"
-            className="mb-8 flex items-center gap-2 font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.16em] text-ink-3"
-          >
-            <Link href="/" className="transition-colors hover:text-ink">{blogUi.home}</Link>
-            <span aria-hidden>/</span>
-            <span className="text-ink-2">{blogUi.title}</span>
-          </nav>
+          <Breadcrumb items={[{ label: blogUi.home, href: "/" }, { label: blogUi.title }]} />
           <Reveal>
             <span className="eyebrow">{blogUi.eyebrow}</span>
             <h1 className="h-section mt-5 text-balance">{blogUi.title}</h1>

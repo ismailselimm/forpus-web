@@ -11,6 +11,8 @@
 //
 // Şimdilik yalnızca Türkçe: gösterimlerin 68/81'i Türkiye'den geliyor.
 
+import { solutionIndex } from "./solution-index";
+
 export type BlogSection = {
   heading: string;
   body?: string[];
@@ -546,6 +548,19 @@ export const blogUi = {
   ctaTitle: "Projenizi konuşalım",
   ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
   ctaButton: "Ücretsiz Teklif Al",
-  allPosts: "Tüm yazılar",
   updatedPrefix: "Güncellendi",
 };
+
+// ============================================================================
+// Build zamanı kontrol: relatedSolutions gerçek bir çözüm anahtarı olmalı.
+// Yanlış anahtar sessizce çiziliyor değil — hiç çizilmiyordu; bir çözüm
+// yeniden adlandırıldığında blogdan giden iç bağlantılar izsiz kaybolurdu.
+// ============================================================================
+{
+  const keys = new Set(solutionIndex.map((r) => r.key));
+  for (const p of posts) {
+    for (const k of p.relatedSolutions ?? []) {
+      if (!keys.has(k)) throw new Error(`blog: "${p.slug}" → bilinmeyen çözüm "${k}"`);
+    }
+  }
+}

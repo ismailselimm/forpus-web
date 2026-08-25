@@ -26,8 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ];
   });
 
-  // Blog yazılarının tarihi kendi verisinde duruyor; yazıyı düzenleyen kişi
-  // aynı dosyada `updated` alanını da görür. Elle senkron tutulacak bir sabit yok.
   const blogPages: MetadataRoute.Sitemap = postsByDate.map((p) => ({
     url: `${SITE}/blog/${p.slug}`,
     lastModified: new Date(p.updated ?? p.published),
@@ -35,19 +33,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Vaka sayfaları: içerik projeyle birlikte değişir, TR turuyla aynı tarih.
+  // Vaka ve blog sayfalarının tarihi kendi verisinde duruyor; içeriği düzenleyen
+  // kişi aynı dosyada görüyor. Elle senkron tutulacak bir sabit yok.
   const casePages: MetadataRoute.Sitemap = cases.map((c) => ({
     url: `${SITE}/isler/${c.slug}`,
-    lastModified: TR_LASTMOD,
+    lastModified: new Date(c.updated ?? c.published),
     changeFrequency: "yearly",
     priority: 0.7,
   }));
 
+  /** Bir koleksiyonun en yeni tarihi — indeks sayfalarının lastmod'u. */
+  const newest = (dates: string[]) =>
+    new Date(dates.reduce((a, b) => (a > b ? a : b), dates[0]));
+
   return [
     { url: SITE, lastModified: TR_LASTMOD, changeFrequency: "monthly", priority: 1 },
-    { url: `${SITE}/isler`, lastModified: TR_LASTMOD, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE}/isler`, lastModified: newest(cases.map((c) => c.updated ?? c.published)), changeFrequency: "monthly", priority: 0.8 },
     ...casePages,
-    { url: `${SITE}/blog`, lastModified: new Date(postsByDate[0].published), changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE}/blog`, lastModified: newest(postsByDate.map((p) => p.updated ?? p.published)), changeFrequency: "monthly", priority: 0.6 },
     ...blogPages,
     ...solutionPages,
   ];

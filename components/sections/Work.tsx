@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight, ArrowRight, Globe } from "lucide-react";
 import { clsx } from "clsx";
 import { Reveal } from "@/components/fx/Reveal";
@@ -145,18 +146,24 @@ export default function Work() {
                 <div className="mt-6">
                   <TagChips tags={featured.tags} />
                 </div>
-                <div className="mt-8">
+                {/* Birincil eylem vaka sayfası: ziyaretçiyi siteden dışarı
+                    atmak yerine içeride tutuyor. Dış link vakada zaten var. */}
+                <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Magnetic>
-                    <a
-                      href={featured.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary"
-                    >
-                      {t.work.visit}
-                      <ArrowUpRight className="h-[18px] w-[18px]" />
-                    </a>
+                    <Link href={`/isler/${featured.slug}`} className="btn btn-primary">
+                      {t.work.caseStudy}
+                      <ArrowRight className="h-[18px] w-[18px]" />
+                    </Link>
                   </Magnetic>
+                  <a
+                    href={featured.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-ink-2 transition-colors hover:text-cyan-deep"
+                  >
+                    {t.work.visit}
+                    <ArrowUpRight className="h-[17px] w-[17px]" />
+                  </a>
                 </div>
               </div>
             </article>
@@ -202,15 +209,13 @@ export default function Work() {
                     <TagChips tags={project.tags} />
                   </div>
 
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href={`/isler/${project.slug}`}
                     className="mt-6 inline-flex items-center gap-1.5 self-start text-[0.92rem] font-semibold text-ink transition-colors hover:text-cyan-deep"
                   >
-                    {t.work.visit}
-                    <ArrowUpRight className="h-[17px] w-[17px] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </a>
+                    {t.work.caseStudy}
+                    <ArrowRight className="h-[17px] w-[17px] transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </Link>
                 </div>
               </article>
             </Reveal>

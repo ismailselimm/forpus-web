@@ -15,6 +15,7 @@
 // build'i patlatır (dosya sonundaki kontrol).
 
 import { webProjects } from "./projects";
+import { solutionIndex } from "./solution-index";
 
 export type CaseStudy = {
   /** lib/projects.ts içindeki webProjects[].slug ile aynı olmalı. */
@@ -25,19 +26,22 @@ export type CaseStudy = {
   metaDescription: string;
   /** Bir cümlede iş ne yapıyor. */
   summary: string;
+  /** ISO tarih. Sitemap bunu kullanır — TR_LASTMOD'a bağlı kalmaz. */
+  published: string;
+  updated?: string;
   /** "Neye ihtiyaç vardı" — 2-3 paragraf. */
   challenge: string[];
   /** Ne kurduk. */
   built: { title: string; body: string }[];
   /** Öne çıkan karar — bu işi diğerlerinden ayıran şey. */
-  highlight?: { title: string; body: string };
+  highlight: { title: string; body: string };
   /**
    * Bu işten çıkan, benzer durumdaki herkese yarayacak ders.
    * Uydurma sonuç yazmıyoruz; onun yerine genellenebilir bilgi veriyoruz.
    */
-  takeaway?: { title: string; body: string[] };
-  /** İlgili çözüm sayfası anahtarları (lib/solution-index.ts). */
-  relatedSolutions?: string[];
+  takeaway: { title: string; body: string[] };
+  /** İlgili çözüm sayfası anahtarları (lib/solution-index.ts). Build'de doğrulanır. */
+  relatedSolutions: string[];
 };
 
 export const cases: CaseStudy[] = [
@@ -47,6 +51,7 @@ export const cases: CaseStudy[] = [
     metaTitle: "DoldurKabı Vaka Çalışması — Platform ve Mobil Uygulama",
     metaDescription:
       "Sahiplendirme, kayıp ilanı, veteriner rehberi ve haritayı tek platformda toplayan DoldurKabı'nın web ve mobil uygulamasını nasıl kurduk.",
+    published: "2026-08-25",
     summary:
       "Sokak hayvanları için sahiplendirme, kayıp ilanları, veteriner rehberi ve topluluk forumunu tek çatı altında toplayan bir platform. Web ve mobil uygulamayı uçtan uca biz geliştirdik.",
     challenge: [
@@ -97,6 +102,7 @@ export const cases: CaseStudy[] = [
     metaTitle: "Temizlik Express Vaka Çalışması — Platform ve Mobil Uygulama",
     metaDescription:
       "Ev temizliği ve halı yıkama hizmetlerini firma karşılaştırma, randevu ve online ödemeyle birleştiren Temizlik Express platformunu nasıl kurduk.",
+    published: "2026-08-25",
     summary:
       "Ev temizliği, halı yıkama ve benzeri hizmetler için firma karşılaştırma, randevu ve online ödemeyi birleştiren bir platform. Web sitesi, mobil uygulama ve reklam tarafını birlikte yürüttük.",
     challenge: [
@@ -147,6 +153,7 @@ export const cases: CaseStudy[] = [
     metaTitle: "Sea Pleasure Vaka Çalışması — Tekne Kiralama Web Sitesi",
     metaDescription:
       "İstanbul Boğazı'nda özel tekne kiralama için videolu, rezervasyon odaklı bir tanıtım sitesi. Turizm sektöründe görselin nasıl satış yaptığını anlatıyoruz.",
+    published: "2026-08-25",
     summary:
       "İstanbul Boğazı'nda özel tekne ve yat kiralama hizmeti için sinematik bir tanıtım sitesi. Turlar, fiyata dahil olanlar ve tek tıkla WhatsApp rezervasyonu.",
     challenge: [
@@ -193,6 +200,7 @@ export const cases: CaseStudy[] = [
     metaTitle: "Diyetisyen Web Sitesi Vaka Çalışması — Dyt. Ece Öztürk",
     metaDescription:
       "Danışan getiren bir diyetisyen sitesi nasıl kurulur? Hesaplama araçları, hizmet sayfaları ve randevu akışıyla Dyt. Ece Öztürk sitesi.",
+    published: "2026-08-25",
     summary:
       "Beslenme danışmanlığı için sıcak, yargılamayan ve randevuya yönlendiren bir tanıtım sitesi. Hizmet sayfaları, hesaplama araçları, blog ve WhatsApp randevu.",
     challenge: [
@@ -243,6 +251,7 @@ export const cases: CaseStudy[] = [
     metaTitle: "SAGE Makine Vaka Çalışması — Endüstriyel Web Sitesi",
     metaDescription:
       "Renk ayırma ve X-Ray gıda kontrol makineleri için kurumsal site: ürün kataloğu, sektörel çözümler ve teklif akışı. B2B'de site nasıl satış yapar?",
+    published: "2026-08-25",
     summary:
       "Renk ayırma ve X-Ray gıda kontrol makineleri üreten bir firma için kurumsal site. Makine kataloğu, sektörel çözümler, ürün bazlı anlatım ve teklif akışı.",
     challenge: [
@@ -294,6 +303,7 @@ export const cases: CaseStudy[] = [
     metaTitle: "Merak Et Öğren Vaka Çalışması — Uygulama Tanıtım Sitesi",
     metaDescription:
       "Sesli mikro-öğrenme uygulaması için indirme odaklı tanıtım sitesi. Bir mobil uygulamanın web sitesi neyi başarmalı?",
+    published: "2026-08-25",
     summary:
       "Günde beş dakikalık sesli öğrenme uygulaması için tanıtım sitesi. Kategoriler, premium üyelik, blog ve mağaza yönlendirmeleri.",
     challenge: [
@@ -344,6 +354,7 @@ export const cases: CaseStudy[] = [
     metaTitle: "Doktor Web Sitesi Vaka Çalışması — Dr. Yasin Kurtboğan",
     metaDescription:
       "Medikal estetik hekimi için kurumsal tanıtım sitesi: uygulama sayfaları, galeri ve randevu talebi. Sağlıkta güven veren tasarım nasıl kurulur?",
+    published: "2026-08-25",
     summary:
       "Medikal estetik hekimi için kurumsal tanıtım sitesi. Uygulamaların ayrı ayrı anlatıldığı, hekimi öne çıkaran ve randevu talebine yönlendiren bir yapı.",
     challenge: [
@@ -395,6 +406,7 @@ export const cases: CaseStudy[] = [
     metaTitle: "Çekiç Trans Vaka Çalışması — Lojistik Web Sitesi",
     metaDescription:
       "Türkiye'den Balkanlara uluslararası karayolu taşımacılığı için kurumsal site. B2B lojistikte deneyimin nasıl anlatıldığını gösteren bir vaka.",
+    published: "2026-08-25",
     summary:
       "Türkiye'den Balkanlara uluslararası karayolu taşımacılığı yapan bir firma için kurumsal site. Hizmetler, rotalar, filo ve teklif akışı.",
     challenge: [
@@ -446,6 +458,7 @@ export const cases: CaseStudy[] = [
     metaTitle: "Kuruyemiş E-Ticaret Vaka Çalışması — Esen Kuruyemiş",
     metaDescription:
       "Kuruyemiş markası için e-ticaret sitesi: ürün kataloğu, ağırlık bazlı varyantlar, sepet ve ödeme. Gıda e-ticaretinin kendine özgü sorunları.",
+    published: "2026-08-25",
     summary:
       "Kuruyemiş markası için e-ticaret sitesi. Ürün kataloğu, ağırlık bazlı varyantlar, sepet ve ödeme akışı.",
     challenge: [
@@ -488,10 +501,23 @@ export const cases: CaseStudy[] = [
   },
 ];
 
-export const caseBySlug = (slug: string) => cases.find((c) => c.slug === slug);
+/**
+ * Vaka + projesi tek nesnede.
+ *
+ * Eşleşme daha önce dört ayrı çağrı noktasında tekrar aranıyordu ve her biri
+ * farklı bir sessiz fallback'e sahipti (`return null`, `?? "/og.png"`,
+ * `notFound()`). Aşağıdaki build kontrolü eşleşmeyi zaten garantiliyor;
+ * birleştirmeyi tek yerde yapıp fallback dallarını tamamen kaldırıyoruz.
+ */
+export const caseCards = cases.map((c) => {
+  const project = webProjects.find((p) => p.slug === c.slug);
+  if (!project) throw new Error(`cases: "${c.slug}" lib/projects.ts içinde yok`);
+  return { ...c, project };
+});
+
+export const caseCardBySlug = (slug: string) => caseCards.find((c) => c.slug === slug);
 
 export const caseUi = {
-  eyebrow: "Vaka Çalışması",
   home: "Ana Sayfa",
   work: "İşler",
   visit: "Siteyi Ziyaret Et",
@@ -505,14 +531,31 @@ export const caseUi = {
 };
 
 // ============================================================================
-// Build zamanı kontrol: her vaka gerçek bir projeye bağlı olmalı.
-// Proje silinirse (H&N Yapı'da olduğu gibi) vaka sayfası sessizce boş kalmasın.
+// Build zamanı kontroller
+//
+// Proje eşleşmesi caseCards türetmesinde zaten patlıyor. Burada kalan iki şey:
+// relatedSolutions anahtarları ve portföy listelerinin senkronu.
 // ============================================================================
+
+// 1) relatedSolutions gerçek bir çözüm anahtarına işaret etmeli. Aksi halde
+//    bir çözüm yeniden adlandırıldığında iç bağlantılar sessizce kayboluyor —
+//    bu sayfaların var olma sebebi tam olarak o iç bağlantı.
 {
-  const known = new Set(webProjects.map((p) => p.slug));
+  const keys = new Set(solutionIndex.map((r) => r.key));
   for (const c of cases) {
-    if (!known.has(c.slug)) {
-      throw new Error(`cases: "${c.slug}" lib/projects.ts içinde yok`);
+    for (const k of c.relatedSolutions) {
+      if (!keys.has(k)) throw new Error(`cases: "${c.slug}" → bilinmeyen çözüm "${k}"`);
+    }
+  }
+}
+
+// 2) Her web projesinin bir vakası olmalı. Aksi halde 10. proje eklendiğinde
+//    ana sayfada görünür ama /isler'de ve sitemap'te sessizce yok olur.
+{
+  const withCase = new Set(cases.map((c) => c.slug));
+  for (const p of webProjects) {
+    if (!withCase.has(p.slug)) {
+      throw new Error(`cases: "${p.slug}" projesinin vaka sayfası yok (lib/cases.ts)`);
     }
   }
 }

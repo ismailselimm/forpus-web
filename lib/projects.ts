@@ -30,6 +30,21 @@ export type MobileApp = {
 };
 
 // Live web projects (screenshots successfully captured from the live sites).
+/**
+ * Ekran görüntüsünün istenen genişlikteki türevi.
+ *
+ * `images.unoptimized: true` (statik export zorunluluğu) olduğu için next/image
+ * srcset üretmiyor ve `sizes` prop'u HTML'e hiç yazılmıyor — ham dosya iniyor.
+ * Ölçüldü: /isler listesi 9 tam boy görselle 779KB indiriyordu, hepsi ~460 CSS
+ * px'lik kartlarda. Türevler scripts/optimize_images.py ile üretiliyor.
+ *
+ * 640  → kart bağlamları (liste, "diğer işler")
+ * 1120 → vaka sayfası hero'su
+ * ham  → ana sayfadaki büyük öne çıkan görsel
+ */
+export const shotAt = (shot: string, width: 640 | 1120) =>
+  shot.replace(/\.webp$/, `-${width}.webp`);
+
 export const webProjects: WebProject[] = [
   {
     slug: "doldurkabi",

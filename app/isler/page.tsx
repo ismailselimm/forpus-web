@@ -4,15 +4,16 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
-import { cases, caseUi } from "@/lib/cases";
-import { webProjects } from "@/lib/projects";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import { caseCards, caseUi } from "@/lib/cases";
+import { shotAt } from "@/lib/projects";
 import { SITE_URL as SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "İşler — Gerçek Projeler ve Vaka Çalışmaları",
   description:
     "Yayında olan gerçek projeler: platform, e-ticaret, kurumsal site ve mobil uygulama. Her işin neye ihtiyaç duyduğunu ve ne kurduğumuzu anlattık.",
-  alternates: { canonical: "/isler" },
+  alternates: { canonical: "/isler", languages: { "tr-TR": "/isler", "x-default": "/isler" } },
 };
 
 export default function WorkIndex() {
@@ -23,7 +24,7 @@ export default function WorkIndex() {
     url: `${SITE}/isler`,
     inLanguage: "tr",
     about: { "@id": `${SITE}/#organization` },
-    hasPart: cases.map((c) => ({
+    hasPart: caseCards.map((c) => ({
       "@type": "CreativeWork",
       name: c.h1,
       url: `${SITE}/isler/${c.slug}`,
@@ -38,14 +39,7 @@ export default function WorkIndex() {
       <section className="section relative overflow-hidden bg-bg-2/50 pt-32 !pb-14 sm:pt-40">
         <Aurora className="opacity-60" />
         <div className="container-x relative z-10">
-          <nav
-            aria-label="breadcrumb"
-            className="mb-8 flex items-center gap-2 font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.16em] text-ink-3"
-          >
-            <Link href="/" className="transition-colors hover:text-ink">{caseUi.home}</Link>
-            <span aria-hidden>/</span>
-            <span className="text-ink-2">{caseUi.work}</span>
-          </nav>
+          <Breadcrumb items={[{ label: caseUi.home, href: "/" }, { label: caseUi.work }]} />
           <Reveal>
             <span className="eyebrow">Seçili İşler</span>
             <h1 className="h-section mt-5 text-balance">Yayında olan, gerçek projeler.</h1>
@@ -60,21 +54,20 @@ export default function WorkIndex() {
       <section className="section relative overflow-hidden !pt-16">
         <div className="container-x relative z-10">
           <div className="grid gap-6 md:grid-cols-2">
-            {cases.map((c, i) => {
-              const p = webProjects.find((w) => w.slug === c.slug);
-              if (!p) return null;
-              return (
+            {caseCards.map(({ project: p, ...c }, i) => (
                 <Reveal key={c.slug} delay={i * 0.05} className="h-full">
                   <Link
                     href={`/isler/${c.slug}`}
                     className="group flex h-full flex-col overflow-hidden rounded-[var(--r-lg)] border border-line bg-white/70 shadow-[var(--shadow-soft)] transition-transform duration-500 hover:-translate-y-1.5 motion-reduce:transform-none"
                   >
                     <Image
-                      src={p.shot}
+                      src={shotAt(p.shot, 640)}
                       alt={`${p.name} web sitesi`}
-                      width={1760}
-                      height={1100}
-                      sizes="(max-width: 768px) 92vw, 460px"
+                      width={640}
+                      height={400}
+                      // İlk kart büyük olasılıkla LCP adayı; keşfi HTML parse
+                      // sonrasına ertelenmesin.
+                      priority={i === 0}
                       className="h-auto w-full"
                     />
                     <div className="flex flex-1 flex-col p-6">
@@ -92,8 +85,7 @@ export default function WorkIndex() {
                     </div>
                   </Link>
                 </Reveal>
-              );
-            })}
+            ))}
           </div>
         </div>
       </section>

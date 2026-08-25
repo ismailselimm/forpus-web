@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { clsx } from "clsx";
+import { isBilingualRoute } from "@/lib/routes";
 import Logo from "@/components/ui/Logo";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
@@ -16,9 +18,11 @@ export default function Nav() {
 
   // Section anchors only exist on the homepage. Off-home (e.g. solution pages)
   // prefix with "/" so the link navigates home first, then scrolls to the section.
-  const onHome = usePathname() === "/";
-  // "#work" gibi bölüm bağlantıları ana sayfa dışındayken "/#work" olmalı.
-  // "/blog" gibi gerçek yollar olduğu gibi kalır.
+  const pathname = usePathname();
+  const onHome = pathname === "/";
+  const bilingual = isBilingualRoute(pathname);
+  // "#services" gibi bölüm bağlantıları ana sayfa dışındayken "/#services" olmalı.
+  // "/blog", "/isler" gibi gerçek yollar olduğu gibi kalır.
   const to = (href: string) => (href.startsWith("/") ? href : onHome ? href : `/${href}`);
 
   useEffect(() => {
@@ -68,18 +72,27 @@ export default function Nav() {
             </a>
 
             <nav className="hidden items-center gap-1 lg:flex">
-              {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={to(l.href)}
-                  className="rounded-full px-3.5 py-2 text-[0.93rem] font-medium text-ink-2 transition-colors hover:text-ink"
-                >
-                  {l.label}
-                </a>
-              ))}
+              {links.map((l) => {
+                // Gerçek yollar next/link ile: düz <a> tam sayfa yeniden yükleme
+                // yapıyor ve açılış perdesi tekrar çalışıyordu.
+                const cls =
+                  "rounded-full px-3.5 py-2 text-[0.93rem] font-medium text-ink-2 transition-colors hover:text-ink";
+                return l.href.startsWith("/") ? (
+                  <Link key={l.href} href={l.href} className={cls}>
+                    {l.label}
+                  </Link>
+                ) : (
+                  <a key={l.href} href={to(l.href)} className={cls}>
+                    {l.label}
+                  </a>
+                );
+              })}
             </nav>
 
             <div className="flex items-center gap-2">
+              {/* Tek dilli sayfalarda (blog, vakalar) toggle gizli: aksi halde
+                  menü İngilizce, gövde Türkçe kalan melez bir sayfa oluyordu. */}
+              {bilingual && (
               <button
                 onClick={toggle}
                 aria-label={t.langToggle.switchTo}
@@ -102,6 +115,7 @@ export default function Nav() {
                   EN
                 </span>
               </button>
+              )}
 
               <Magnetic className="hidden sm:block">
                 <a href={to("#contact")} className="btn btn-primary h-10 px-5 text-sm">
