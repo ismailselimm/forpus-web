@@ -17,7 +17,9 @@ export default function Nav() {
   // Section anchors only exist on the homepage. Off-home (e.g. solution pages)
   // prefix with "/" so the link navigates home first, then scrolls to the section.
   const onHome = usePathname() === "/";
-  const to = (hash: string) => (onHome ? hash : `/${hash}`);
+  // "#work" gibi bölüm bağlantıları ana sayfa dışındayken "/#work" olmalı.
+  // "/blog" gibi gerçek yollar olduğu gibi kalır.
+  const to = (href: string) => (href.startsWith("/") ? href : onHome ? href : `/${href}`);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -37,6 +39,7 @@ export default function Nav() {
     { href: "#services", label: t.nav.services },
     { href: "#personas", label: t.nav.personas },
     { href: "#work", label: t.nav.work },
+    { href: "/blog", label: t.nav.blog },
     { href: "#packages", label: t.nav.packages },
     { href: "#process", label: t.nav.process },
     { href: "#team", label: t.nav.team },

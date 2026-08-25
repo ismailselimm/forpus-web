@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { solutions } from "@/lib/solutions";
+import { postsByDate } from "@/lib/blog";
 import { SITE_URL as SITE } from "@/lib/site";
 
 export const dynamic = "force-static"; // statik export (GitHub Pages) için
@@ -24,8 +25,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ];
   });
 
+  // Blog yazılarının tarihi kendi verisinde duruyor; yazıyı düzenleyen kişi
+  // aynı dosyada `updated` alanını da görür. Elle senkron tutulacak bir sabit yok.
+  const blogPages: MetadataRoute.Sitemap = postsByDate.map((p) => ({
+    url: `${SITE}/blog/${p.slug}`,
+    lastModified: new Date(p.updated ?? p.published),
+    changeFrequency: "yearly",
+    priority: 0.7,
+  }));
+
   return [
     { url: SITE, lastModified: TR_LASTMOD, changeFrequency: "monthly", priority: 1 },
+    { url: `${SITE}/blog`, lastModified: new Date(postsByDate[0].published), changeFrequency: "monthly", priority: 0.6 },
+    ...blogPages,
     ...solutionPages,
   ];
 }
