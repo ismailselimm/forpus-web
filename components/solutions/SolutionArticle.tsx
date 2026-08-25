@@ -6,8 +6,8 @@ import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import CtaBand from "@/components/ui/CtaBand";
 import Breadcrumb, { breadcrumbLd } from "@/components/ui/Breadcrumb";
-import { solutions, contentOf, slugOf, solutionUi, type Solution } from "@/lib/solutions";
-import { webProjects } from "@/lib/projects";
+import { solutions, contentOf, slugOf, solutionUi, caseRefProject, type Solution } from "@/lib/solutions";
+import { shotAt } from "@/lib/projects";
 import { SITE_URL as SITE } from "@/lib/site";
 
 /** Server-rendered SEO landing page body (content is static HTML so Google indexes it). */
@@ -28,8 +28,8 @@ export default function SolutionArticle({
   const related = solutions.filter((s) => s.key !== solution.key);
   const url = `${SITE}${base}/${slugOf(solution, lang)}`;
 
-  // Referans bloğu gerçek bir projeye bağlanır; proje bulunamazsa blok çizilmez.
-  const caseProject = webProjects.find((p) => p.slug === c.caseRef?.projectSlug);
+  // Eşleşme lib/solutions.ts'te build zamanı garanti altında; burada arama yok.
+  const caseProject = caseRefProject(c);
 
   // Sayfada fiyat bandı yazıyorsa aynı rakamı yapılandırılmış veriye de koyarız.
   // "₺50.000 – 90.000" → 50000 (TR binlik ayracı nokta olduğu için sadece rakamları alırız).
@@ -185,7 +185,7 @@ export default function SolutionArticle({
             <ul className="mt-12 grid gap-4 sm:grid-cols-2">
               {c.features.map((f, i) => (
                 <Reveal key={f} delay={i * 0.05}>
-                  <li className="flex items-start gap-3 rounded-2xl border border-line bg-white/70 p-4 shadow-[var(--shadow-soft)]">
+                  <li className="flex items-start gap-3 soft-card p-4">
                     <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green/10">
                       <Check className="h-3.5 w-3.5 text-green-deep" strokeWidth={3} />
                     </span>
@@ -252,10 +252,10 @@ export default function SolutionArticle({
                   className="group relative block overflow-hidden rounded-[var(--r-lg)] shadow-[var(--shadow-card)] ring-1 ring-white/40"
                 >
                   <Image
-                    src={caseProject.shot}
+                    src={shotAt(caseProject.shot, 1120)}
                     alt={`${caseProject.name} web sitesi`}
-                    width={1760}
-                    height={1100}
+                    width={1120}
+                    height={700}
                     sizes="(max-width: 1024px) 90vw, 520px"
                     className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transform-none"
                   />

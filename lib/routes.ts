@@ -1,4 +1,5 @@
 import type { Lang } from "./i18n/dictionary";
+import { solutionIndex } from "./solution-index";
 
 /**
  * Route ↔ dil ilişkisi — tek kaynak.
@@ -44,8 +45,16 @@ export function routeLang(pathname: string): Lang | null {
 }
 
 /** Dil değiştirici gösterilmeli mi? Tek dilli bölümlerde anlamsız. */
-export const isBilingualRoute = (pathname: string) =>
-  !TR_ONLY_PREFIXES.some((p) => hasPrefix(pathname, p));
+export const isBilingualRoute = (pathname: string) => routeLang(pathname) !== "tr";
+
+/** O dilin ana sayfası. "Ana sayfa = /" varsayımı üç yerde sabit yazılıydı. */
+export const homeFor = (lang: Lang) => (lang === "en" ? "/en" : "/");
+
+/** Bu adres bir ana sayfa mı? Bölüm çıpalarının göreli kalması buna bağlı. */
+export const isHome = (pathname: string) => {
+  const n = normalizePath(pathname);
+  return n === "/" || n === "/en";
+};
 
 /**
  * Dil değiştirilince gidilecek adres.
@@ -54,15 +63,17 @@ export const isBilingualRoute = (pathname: string) =>
  * yalnızca menüyü çevirmesi yanlış olurdu — karşı dildeki eşine gitmeli.
  * Eşi yoksa (ana sayfa) aynı adreste kalır ve dil istemci tarafında değişir.
  */
-export function hrefForLang(
-  pathname: string,
-  next: Lang,
-  solutionPair?: { tr: string; en: string },
-): string | null {
-  if (solutionPair) {
-    return next === "en" ? `/en/solutions/${solutionPair.en}` : `/cozumler/${solutionPair.tr}`;
-  }
+export function hrefForLang(pathname: string, next: Lang): string | null {
+  if (isHome(pathname)) return homeFor(next);
+
+  // Çevrilmiş sayfa çiftleri burada aranıyor; çağıranın URL şekillerini
+  // bilmesi gerekmiyor. Blog/vaka İngilizce yayınlandığında yeni bir kayıt
+  // eklenecek, çağrı noktalarına dokunulmayacak.
   const n = normalizePath(pathname);
-  if (n === "/" || n === "/en") return next === "en" ? "/en" : "/";
+  const pair = solutionIndex.find(
+    (s) => n === `/cozumler/${s.slug.tr}` || n === `/en/solutions/${s.slug.en}`,
+  )?.slug;
+  if (pair) return next === "en" ? `/en/solutions/${pair.en}` : `/cozumler/${pair.tr}`;
+
   return null;
 }

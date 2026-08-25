@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
-import Aurora from "@/components/fx/Aurora";
-import Breadcrumb from "@/components/ui/Breadcrumb";
+import PageHero from "@/components/ui/PageHero";
 import { postsByDate, blogUi } from "@/lib/blog";
 import { SITE_URL as SITE } from "@/lib/site";
 
@@ -35,17 +34,13 @@ export default function BlogIndex() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="section relative overflow-hidden bg-bg-2/50 pt-32 !pb-14 sm:pt-40">
-        <Aurora className="opacity-60" />
-        <div className="container-x relative z-10">
-          <Breadcrumb items={[{ label: blogUi.home, href: "/" }, { label: blogUi.title }]} />
-          <Reveal>
-            <span className="eyebrow">{blogUi.eyebrow}</span>
-            <h1 className="h-section mt-5 text-balance">{blogUi.title}</h1>
-            <p className="lead mt-6 max-w-2xl">{blogUi.lead}</p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        className="!pb-14"
+        crumbs={[{ label: blogUi.home, href: "/" }, { label: blogUi.title }]}
+        eyebrow={blogUi.eyebrow}
+        title={blogUi.title}
+        lead={blogUi.lead}
+      />
 
       <section className="section relative overflow-hidden !pt-16">
         <div className="container-x relative z-10">

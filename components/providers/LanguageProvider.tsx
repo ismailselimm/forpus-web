@@ -8,7 +8,6 @@ import { routeLang } from "@/lib/routes";
 type LanguageContextValue = {
   lang: Lang;
   t: Dict;
-  setLang: (lang: Lang) => void;
   toggle: () => void;
 };
 
@@ -37,23 +36,20 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.lang = lang;
   }, [lang]);
 
-  const setLang = useCallback((next: Lang) => {
+  // Tercihi kaydediyoruz: ziyaretçi /en/solutions/* üzerinde EN'e basıp sonra
+  // ana sayfaya gittiğinde İngilizce kalsın.
+  const toggle = useCallback(() => {
+    const next = lang === "tr" ? "en" : "tr";
     setPreferred(next);
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {
       /* ignore */
     }
-  }, []);
-
-  // Tercihi her zaman kaydediyoruz: ziyaretçi /en/solutions/* üzerinde EN'e
-  // basıp sonra ana sayfaya gittiğinde İngilizce kalsın.
-  const toggle = useCallback(() => {
-    setLang(lang === "tr" ? "en" : "tr");
-  }, [lang, setLang]);
+  }, [lang]);
 
   return (
-    <LanguageContext.Provider value={{ lang, t: dictionary[lang], setLang, toggle }}>
+    <LanguageContext.Provider value={{ lang, t: dictionary[lang], toggle }}>
       {children}
     </LanguageContext.Provider>
   );

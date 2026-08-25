@@ -36,7 +36,7 @@ export type MobileApp = {
  * `images.unoptimized: true` (statik export zorunluluğu) olduğu için next/image
  * srcset üretmiyor ve `sizes` prop'u HTML'e hiç yazılmıyor — ham dosya iniyor.
  * Ölçüldü: /isler listesi 9 tam boy görselle 779KB indiriyordu, hepsi ~460 CSS
- * px'lik kartlarda. Türevler scripts/optimize_images.py ile üretiliyor.
+ * px'lik kartlarda. Türevleri scripts/work_variants.py üretiyor (npm run variants).
  *
  * 640  → kart bağlamları (liste, "diğer işler")
  * 1120 → vaka sayfası hero'su
@@ -216,3 +216,31 @@ export const brandLogos: { name: string; src: string; url?: string }[] = [
   { name: "Esen Kuruyemiş", src: "/logos/esen.webp", url: "https://esenkuruyemis.com/" },
   { name: "Çekiç Trans", src: "/logos/cekictrans.webp", url: "https://cekictrans.com/" },
 ];
+
+// ============================================================================
+// Build zamanı kontrol: shotAt() türevlerinin gerçekten var olduğunu doğrular.
+//
+// Türevler `npm run shots` (veya `npm run variants`) ile üretiliyor. Üretilmezse
+// shotAt() olmayan bir dosyayı adresler; sayfa hatasız çıkar ama görsel yerine
+// boşluk görünür. Sessiz bozulma yerine build'i patlatıyoruz.
+//
+// Bu modülü istemci bileşenleri de import ediyor (Work, Marquee, Mobile).
+// `typeof window === "undefined"` sayesinde blok istemci paketine girmiyor —
+// ölçüldü: chunk'larda existsSync izi yok, JS toplamı değişmiyor.
+// ============================================================================
+if (typeof window === "undefined") {
+  const fs = require("node:fs") as typeof import("node:fs");
+  const path = require("node:path") as typeof import("node:path");
+  const pub = path.join(process.cwd(), "public");
+  const missing = webProjects.flatMap((p) =>
+    ([640, 1120] as const)
+      .map((w) => shotAt(p.shot, w))
+      .filter((rel) => !fs.existsSync(path.join(pub, rel))),
+  );
+  if (missing.length > 0) {
+    throw new Error(
+      `projects: görsel türevleri eksik → ${missing.join(", ")}\n` +
+        `  Çözüm: npm run variants`,
+    );
+  }
+}

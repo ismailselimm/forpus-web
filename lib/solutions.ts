@@ -2444,3 +2444,14 @@ export const solutionUi: Record<"tr" | "en", { home: string; more: string; moreL
     }
   }
 }
+
+/**
+ * caseRef → proje birleşimi.
+ *
+ * Bileşen her render'da `webProjects.find()` yapıp sonucu koşullu çiziyordu
+ * (`{c.caseRef && caseProject && ...}`) — yani yukarıdaki kontrolün zaten
+ * imkânsız kıldığı bir duruma karşı ölü bir dal. Birleşimi kontrolün yanına
+ * alıyoruz; bileşenin arama yapması gerekmiyor.
+ */
+export const caseRefProject = (c: SolutionContent) =>
+  c.caseRef ? webProjects.find((p) => p.slug === c.caseRef!.projectSlug)! : undefined;

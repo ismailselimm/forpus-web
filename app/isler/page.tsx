@@ -3,8 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
-import Aurora from "@/components/fx/Aurora";
-import Breadcrumb from "@/components/ui/Breadcrumb";
+import PageHero from "@/components/ui/PageHero";
 import { caseCards, caseUi } from "@/lib/cases";
 import { shotAt } from "@/lib/projects";
 import { SITE_URL as SITE } from "@/lib/site";
@@ -36,20 +35,13 @@ export default function WorkIndex() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="section relative overflow-hidden bg-bg-2/50 pt-32 !pb-14 sm:pt-40">
-        <Aurora className="opacity-60" />
-        <div className="container-x relative z-10">
-          <Breadcrumb items={[{ label: caseUi.home, href: "/" }, { label: caseUi.work }]} />
-          <Reveal>
-            <span className="eyebrow">Seçili İşler</span>
-            <h1 className="h-section mt-5 text-balance">Yayında olan, gerçek projeler.</h1>
-            <p className="lead mt-6 max-w-2xl">
-              Hepsi şu an internette çalışıyor. Her iş için neye ihtiyaç duyulduğunu, ne kurduğumuzu ve
-              hangi kararı neden verdiğimizi yazdık.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        className="!pb-14"
+        crumbs={[{ label: caseUi.home, href: "/" }, { label: caseUi.work }]}
+        eyebrow="Seçili İşler"
+        title="Yayında olan, gerçek projeler."
+        lead="Hepsi şu an internette çalışıyor. Her iş için neye ihtiyaç duyulduğunu, ne kurduğumuzu ve hangi kararı neden verdiğimizi yazdık."
+      />
 
       <section className="section relative overflow-hidden !pt-16">
         <div className="container-x relative z-10">

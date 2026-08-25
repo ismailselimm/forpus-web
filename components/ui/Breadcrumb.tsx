@@ -38,7 +38,7 @@ export function breadcrumbLd(items: Crumb[], site: string, currentUrl: string) {
       "@type": "ListItem",
       position: i + 1,
       name: c.label,
-      item: c.href ? `${site}${c.href === "/" ? "/" : c.href}` : currentUrl,
+      item: c.href ? `${site}${c.href}` : currentUrl,
     })),
   };
 }

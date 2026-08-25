@@ -11,7 +11,7 @@
 //
 // Şimdilik yalnızca Türkçe: gösterimlerin 68/81'i Türkiye'den geliyor.
 
-import { solutionIndex } from "./solution-index";
+import { assertSolutionKeys } from "./solution-index";
 
 export type BlogSection = {
   heading: string;
@@ -821,11 +821,4 @@ export const blogUi = {
 // Yanlış anahtar sessizce çiziliyor değil — hiç çizilmiyordu; bir çözüm
 // yeniden adlandırıldığında blogdan giden iç bağlantılar izsiz kaybolurdu.
 // ============================================================================
-{
-  const keys = new Set(solutionIndex.map((r) => r.key));
-  for (const p of posts) {
-    for (const k of p.relatedSolutions ?? []) {
-      if (!keys.has(k)) throw new Error(`blog: "${p.slug}" → bilinmeyen çözüm "${k}"`);
-    }
-  }
-}
+assertSolutionKeys("blog", posts);

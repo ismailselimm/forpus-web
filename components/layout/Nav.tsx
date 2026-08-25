@@ -6,8 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { clsx } from "clsx";
-import { isBilingualRoute, hrefForLang, normalizePath } from "@/lib/routes";
-import { solutionIndex } from "@/lib/solution-index";
+import { isBilingualRoute, hrefForLang, homeFor, isHome, routeLang } from "@/lib/routes";
 import Logo from "@/components/ui/Logo";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
@@ -20,19 +19,28 @@ export default function Nav() {
   // Section anchors only exist on the homepage. Off-home (e.g. solution pages)
   // prefix with "/" so the link navigates home first, then scrolls to the section.
   const pathname = usePathname();
-  const onHome = pathname === "/";
+  const onHome = isHome(pathname);
   const bilingual = isBilingualRoute(pathname);
+  // Bu adreste hangi dildeyiz? Bölüm çıpaları ve logo o dilin ana sayfasına
+  // çözülmeli — /en'deyken "/#services" demek, sayfada zaten duran bir bölüme
+  // gitmek için Türkçe ana sayfaya atlamak demekti.
+  const home = homeFor(routeLang(pathname) ?? lang);
+  const otherLangHref = hrefForLang(pathname, lang === "tr" ? "en" : "tr");
 
-  // Çözüm sayfalarında iki dilin ayrı URL'i var; dil değiştirici sayfada kalıp
-  // yalnızca menüyü çevirmemeli, karşı dildeki eşine gitmeli.
-  const here = normalizePath(pathname);
-  const pair = solutionIndex.find(
-    (s) => here === `/cozumler/${s.slug.tr}` || here === `/en/solutions/${s.slug.en}`,
-  )?.slug;
-  const otherLangHref = hrefForLang(pathname, lang === "tr" ? "en" : "tr", pair);
+  // Rozetler ve kabuk sınıfı, link ve buton dallarında birebir aynıydı.
+  const langSwitchCls =
+    "flex h-9 items-center gap-1 rounded-full border border-line bg-white/60 px-1 text-xs font-semibold";
+  const langBadges = (["tr", "en"] as const).map((l) => (
+    <span
+      key={l}
+      className={clsx("rounded-full px-2 py-1 transition-all", lang === l ? "bg-ink text-white" : "text-ink-3")}
+    >
+      {l.toUpperCase()}
+    </span>
+  ));
   // "#services" gibi bölüm bağlantıları ana sayfa dışındayken "/#services" olmalı.
   // "/blog", "/isler" gibi gerçek yollar olduğu gibi kalır.
-  const to = (href: string) => (href.startsWith("/") ? href : onHome ? href : `/${href}`);
+  const to = (href: string) => (href.startsWith("/") ? href : onHome ? href : `${home === "/" ? "" : home}${href}`);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -51,8 +59,14 @@ export default function Nav() {
   const links = [
     { href: "#services", label: t.nav.services },
     { href: "#personas", label: t.nav.personas },
-    { href: "/isler", label: t.nav.work },
-    { href: "/blog", label: t.nav.blog },
+    // Blog ve vakalar yalnızca Türkçe; İngilizce ziyaretçiye var gibi gösterip
+    // Türkçe sayfaya düşürmek yerine gizliyoruz.
+    ...(lang === "tr"
+      ? [
+          { href: "/isler", label: t.nav.work },
+          { href: "/blog", label: t.nav.blog },
+        ]
+      : []),
     { href: "#packages", label: t.nav.packages },
     { href: "#process", label: t.nav.process },
     { href: "#team", label: t.nav.team },
@@ -76,7 +90,7 @@ export default function Nav() {
                 : "h-[60px] border border-transparent"
             )}
           >
-            <a href={onHome ? "#top" : "/"} className="flex items-center" aria-label="Forpus">
+            <a href={onHome ? "#top" : home} className="flex items-center" aria-label="Forpus">
               <Logo variant="full" className="h-7 w-auto sm:h-8" priority />
             </a>
 
@@ -102,40 +116,17 @@ export default function Nav() {
               {/* Tek dilli sayfalarda (blog, vakalar) toggle gizli: aksi halde
                   menü İngilizce, gövde Türkçe kalan melez bir sayfa oluyordu. */}
               {bilingual &&
-                // Karşı dilin ayrı bir adresi varsa gerçek bağlantı ver:
-                // hem tarayıcı hem Google iki sürümü bağlantılı görür.
+                // Karşı dilin ayrı bir adresi varsa gerçek bağlantı ver: hem
+                // tarayıcı hem Google iki sürümü bağlantılı görür. Yoksa (ana
+                // sayfa) dil istemci tarafında değişir.
                 (otherLangHref ? (
-                  <Link
-                    href={otherLangHref}
-                    aria-label={t.langToggle.switchTo}
-                    className="group flex h-9 items-center gap-1 rounded-full border border-line bg-white/60 px-1 text-xs font-semibold"
-                  >
-                    <span className={clsx("rounded-full px-2 py-1 transition-all", lang === "tr" ? "bg-ink text-white" : "text-ink-3")}>TR</span>
-                    <span className={clsx("rounded-full px-2 py-1 transition-all", lang === "en" ? "bg-ink text-white" : "text-ink-3")}>EN</span>
+                  <Link href={otherLangHref} aria-label={t.langToggle.switchTo} className={langSwitchCls}>
+                    {langBadges}
                   </Link>
                 ) : (
-              <button
-                onClick={toggle}
-                aria-label={t.langToggle.switchTo}
-                className="group flex h-9 items-center gap-1 rounded-full border border-line bg-white/60 px-1 text-xs font-semibold"
-              >
-                <span
-                  className={clsx(
-                    "rounded-full px-2 py-1 transition-all",
-                    lang === "tr" ? "bg-ink text-white" : "text-ink-3"
-                  )}
-                >
-                  TR
-                </span>
-                <span
-                  className={clsx(
-                    "rounded-full px-2 py-1 transition-all",
-                    lang === "en" ? "bg-ink text-white" : "text-ink-3"
-                  )}
-                >
-                  EN
-                </span>
-              </button>
+                  <button onClick={toggle} aria-label={t.langToggle.switchTo} className={langSwitchCls}>
+                    {langBadges}
+                  </button>
                 ))}
 
               <Magnetic className="hidden sm:block">

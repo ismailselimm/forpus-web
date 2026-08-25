@@ -75,3 +75,22 @@ export const solutionIndex: SolutionRef[] = [
 ];
 
 export const slugOfRef = (r: SolutionRef, lang: "tr" | "en") => (lang === "tr" ? r.slug.tr : r.slug.en);
+
+/**
+ * Bir koleksiyonun `relatedSolutions` anahtarlarını doğrular.
+ *
+ * Kontrol burada, çünkü anahtarların sahibi bu dosya. Blog ve vakalarda ayrı
+ * ayrı yazılmıştı; bir çözüm yeniden adlandırıldığında oradan giden iç
+ * bağlantılar sessizce kaybolduğu için build'i patlatmak doğru davranış.
+ */
+export function assertSolutionKeys(
+  label: string,
+  items: { slug: string; relatedSolutions?: string[] }[],
+) {
+  const keys = new Set(solutionIndex.map((r) => r.key));
+  for (const it of items) {
+    for (const k of it.relatedSolutions ?? []) {
+      if (!keys.has(k)) throw new Error(`${label}: "${it.slug}" → bilinmeyen çözüm "${k}"`);
+    }
+  }
+}

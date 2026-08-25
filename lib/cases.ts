@@ -15,7 +15,7 @@
 // build'i patlatır (dosya sonundaki kontrol).
 
 import { webProjects } from "./projects";
-import { solutionIndex } from "./solution-index";
+import { assertSolutionKeys } from "./solution-index";
 
 export type CaseStudy = {
   /** lib/projects.ts içindeki webProjects[].slug ile aynı olmalı. */
@@ -540,14 +540,7 @@ export const caseUi = {
 // 1) relatedSolutions gerçek bir çözüm anahtarına işaret etmeli. Aksi halde
 //    bir çözüm yeniden adlandırıldığında iç bağlantılar sessizce kayboluyor —
 //    bu sayfaların var olma sebebi tam olarak o iç bağlantı.
-{
-  const keys = new Set(solutionIndex.map((r) => r.key));
-  for (const c of cases) {
-    for (const k of c.relatedSolutions) {
-      if (!keys.has(k)) throw new Error(`cases: "${c.slug}" → bilinmeyen çözüm "${k}"`);
-    }
-  }
-}
+assertSolutionKeys("cases", cases);
 
 // 2) Her web projesinin bir vakası olmalı. Aksi halde 10. proje eklendiğinde
 //    ana sayfada görünür ama /isler'de ve sitemap'te sessizce yok olur.

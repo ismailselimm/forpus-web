@@ -168,7 +168,7 @@ export default function Packages() {
 
         {/* Mobile/tablet: tab selector + one full card (no clipping, compact). */}
         <div className="mx-auto mt-10 max-w-md lg:hidden">
-          <div className="flex items-stretch gap-1 rounded-2xl border border-line bg-white/70 p-1.5 shadow-[var(--shadow-soft)]">
+          <div className="flex items-stretch gap-1 soft-card p-1.5">
             {items.map((pkg, i) => {
               const on = active === i;
               return (

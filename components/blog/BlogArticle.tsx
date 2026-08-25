@@ -108,7 +108,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
                 {s.table && (
                   <Reveal>
                     {/* Geniş içerik kendi kutusunda kayar; sayfa gövdesi yana kaymaz. */}
-                    <div className="mt-8 overflow-x-auto rounded-2xl border border-line bg-white/70 shadow-[var(--shadow-soft)]">
+                    <div className="mt-8 overflow-x-auto soft-card">
                       <table className="w-full min-w-[560px] border-collapse text-left text-[0.92rem]">
                         {s.table.caption && (
                           <caption className="px-5 pt-5 text-left text-[0.85rem] text-ink-3">

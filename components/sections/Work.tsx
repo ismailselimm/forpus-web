@@ -9,7 +9,7 @@ import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
 import WorkVideo from "@/components/sections/WorkVideo";
-import { webProjects, type WebProject } from "@/lib/projects";
+import { webProjects, shotAt, type WebProject } from "@/lib/projects";
 
 const ACCENT_HEX: Record<WebProject["accent"], string> = {
   green: "#5fbe2e",
@@ -69,13 +69,16 @@ function BrowserFrame({
         {project.video ? (
           <WorkVideo
             src={project.video}
-            poster={project.shot}
+            poster={shotAt(project.shot, 1120)}
             label={project.name}
             className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-[1.1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
           />
         ) : (
           <Image
-            src={project.shot}
+            // `images.unoptimized` yüzünden srcset üretilmiyor ve `sizes` ölü;
+            // doğru boyutu elle seçiyoruz. Öne çıkan kart daha büyük gösterildiği
+            // için 1120, grid kartları 640.
+            src={shotAt(project.shot, priority ? 1120 : 640)}
             alt={project.name}
             fill
             sizes={sizes}
