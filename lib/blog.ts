@@ -365,6 +365,271 @@ export const posts: BlogPost[] = [
     relatedSolutions: ["mobil", "eticaret"],
   },
 
+  // ───────────────────────────────────────────────────────── AVUKAT
+  {
+    slug: "avukat-web-sitesi-rehberi",
+    title: "Avukat Web Sitesi: Reklam Yasağı ve Bilmeniz Gerekenler",
+    metaTitle: "Avukat Web Sitesi Rehberi — Reklam Yasağı ve İçerik",
+    metaDescription:
+      "Avukat web sitesi yaptırırken reklam yasağı nasıl işliyor, sitede ne yazılabilir, ne yazılamaz? Meslek kurallarına uygun site kurmanın çerçevesi.",
+    excerpt:
+      "Hukuk bürolarının en çok takıldığı konu meslek kuralları. Sitede ne yazabilirsiniz, ne yazamazsınız ve ajansınızın bunu bilmemesi sizi nasıl zor durumda bırakır?",
+    published: "2026-08-25",
+    tag: "Rehber",
+    readingMinutes: 8,
+    intro: [
+      "Avukatlar için web sitesi, diğer mesleklerden farklı bir iş. Sebep teknik değil: Avukatlık Kanunu ve meslek kuralları tanıtımı sınırlıyor ve bu sınırları bilmeyen bir ajans, farkında olmadan sizi baro nezdinde zor durumda bırakabiliyor.",
+      "Aşağıda çerçeveyi, pratikte neyin yazılıp neyin yazılamadığını ve yine de rekabetçi kalmanın yollarını yazdık. Şunu baştan söyleyelim: bu bir hukuki görüş değil, işin yazılım tarafından gördüğümüz pratik. Kesin sınırlar için bağlı olduğunuz baronun güncel düzenlemesine bakın.",
+    ],
+    sections: [
+      {
+        heading: "Çerçeve: bilgilendirme serbest, reklam değil",
+        body: [
+          "Mevzuatın kurduğu ayrım şu: avukat kendini ve çalışma alanlarını tanıtabilir, ama iş getirmeye yönelik reklam yapamaz. Uygulamada bu ayrım her zaman keskin olmuyor ve gri alanlar var; ama net olan bazı sınırlar var.",
+          "Sitenin varlığı sorun değil. Kurumsal bir web sitesi, çalışma alanlarını anlatmak, özgeçmiş paylaşmak ve iletişim bilgisi vermek meşru bilgilendirmedir. Sorun, anlatımın satış diline kaymasında başlıyor.",
+        ],
+        table: {
+          caption: "Pratikte sık karşılaşılan durumlar",
+          head: ["Unsur", "Durum", "Neden"],
+          rows: [
+            ["Çalışma alanları", "Serbest", "Hangi alanlarda hizmet verdiğinizi belirtmek bilgilendirmedir."],
+            ["Özgeçmiş, eğitim, yayınlar", "Serbest", "Mesleki geçmişin paylaşılması tanıtımın meşru parçası."],
+            ["Hukuki makale ve bilgi yazıları", "Serbest", "Bilgilendirme amaçlı içerik açıkça uygun; en çok işe yarayan yöntem de bu."],
+            ["Müvekkil yorumu / referans", "Sorunlu", "Tanıklığa dayalı tanıtım reklam sayılıyor; ayrıca müvekkil gizliliği riski var."],
+            ["Kazanılmış dava sayısı, başarı oranı", "Sorunlu", "İş vaadi ve sonuç garantisi izlenimi yaratıyor."],
+            ["\"Türkiye'nin en iyi...\" gibi ifadeler", "Sorunlu", "Karşılaştırmalı üstünlük iddiası mevzuatın açıkça sınırladığı alan."],
+            ["Ücret listesi", "Sorunlu", "Ücretin ilan yoluyla duyurulması genellikle uygun görülmüyor."],
+            ["Ücretsiz danışmanlık kampanyası", "Sorunlu", "İş getirmeye yönelik teşvik olarak değerlendiriliyor."],
+          ],
+        },
+        callout: {
+          title: "Ajansınıza sorun: bu konuyu biliyor mu?",
+          body: "Bu maddelerin çoğu genel web tasarımında tamamen normal — hatta önerilir. Müvekkil yorumu bölümü, başarı istatistiği ve kampanya duyurusu, sizi zor durumda bırakabilecek unsurlar. Teklif aldığınız ekibin bu ayrımı bilmesi, tasarım kalitesinden daha önemli.",
+        },
+      },
+      {
+        heading: "Peki nasıl rekabetçi olacaksınız?",
+        body: [
+          "Reklam yapamıyorsanız görünürlük nasıl artacak? Cevap, bu alanda en çok işe yarayan yöntemin zaten reklam olmaması: bilgilendirici içerik.",
+          "İnsanlar avukat aramadan önce sorunlarını aratıyor. \"İşten çıkarıldım tazminat alabilir miyim\", \"kira artış oranı ne kadar olabilir\", \"velayet davası ne kadar sürer\". Bu sorulara doğru ve anlaşılır yanıt veren bir yazı, sizi hem bulunur hem güvenilir kılıyor — ve tamamen mevzuata uygun.",
+          "Üstelik bu yöntem, reklam verenlere göre daha kalıcı. Reklam bütçesi bittiğinde trafik durur; iyi bir yazı yıllarca ziyaretçi getirmeye devam eder.",
+        ],
+        bullets: [
+          {
+            title: "Çalışma alanlarını ayrı ayrı anlatın",
+            body: "Boşanma davası arayan kişiyle iş davası arayan kişi farklı şeyler soruyor. Hepsi tek bir \"çalışma alanlarımız\" listesinde toplanırsa ne danışan aradığını bulur ne de arama motorları hangi alanda uzman olduğunuzu anlar.",
+          },
+          {
+            title: "Sık sorulan soruları yanıtlayın",
+            body: "Danışanların telefonda en çok sorduğu on soruyu düşünün ve yazılı yanıtlayın. Bu hem site içeriği hem de günlük iş yükünüzü azaltan bir kaynak.",
+          },
+          {
+            title: "Süreç ve beklenti anlatın",
+            body: "\"Dava ne kadar sürer\", \"hangi belgeler gerekli\", \"ilk görüşmede ne konuşulur\". Bu içerikler mevzuat açısından güvenli ve danışanın en çok ihtiyaç duyduğu bilgi.",
+          },
+          {
+            title: "Ekip ve özgeçmişi öne çıkarın",
+            body: "Eğitim, yayınlar, üyelikler, varsa akademik geçmiş. Bu alanda güven, iddiayla değil geçmişle kurulur.",
+          },
+        ],
+      },
+      {
+        heading: "Teknik tarafta dikkat edilecekler",
+        bullets: [
+          {
+            title: "İletişim formu güvenli mi?",
+            body: "Danışan formda dosyasıyla ilgili hassas bilgi paylaşabilir. Bağlantının şifreli olması, verinin nasıl saklandığının belirtilmesi ve gereksiz alan istenmemesi gerekir. \"Sorununuzu anlatın\" diye açık uçlu bir kutu koymak hem gizlilik riski hem de ulaşma oranını düşüren bir tercih.",
+          },
+          {
+            title: "KVKK metinleri",
+            body: "Aydınlatma metni ve açık rıza kutucuğu zorunlu. Hukuk bürosu sitesinde bunların eksik olması, ironik biçimde en sık gördüğümüz durumlardan biri.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının sizin veya büronuz adına kayıtlı olduğundan emin olun. Sözleşmeye alan adının ve kaynak kodun size ait olduğunu yazdırın.",
+          },
+          {
+            title: "Mobilde hızlı mı?",
+            body: "Ziyaretçilerin büyük kısmı telefondan geliyor ve hukuki destek arayan kişi genellikle acele ediyor. Teklif verenden mevcut bir işini isteyin, kendi telefonunuzdan açın.",
+          },
+        ],
+      },
+      {
+        heading: "Bir de şu var: yorumlar sizin kontrolünüzde değil",
+        body: [
+          "Sitede müvekkil yorumu yayınlamıyorsunuz, ama Google İşletme Profilinizde yorumlar birikiyor ve siz istemeseniz de görünüyor. Bu, mevzuatın kapsamadığı ama itibarınızı doğrudan etkileyen bir alan.",
+          "Yapılabilecek şey yorumları silmek değil — zaten mümkün de değil. Profilin size ait olduğundan emin olmak, bilgilerin doğru olmasını sağlamak ve yanıt hakkınızı kullanmak. Yanıt verirken de aynı çerçeve geçerli: dosya detayına girmeden, ölçülü bir dille.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Avukat web sitesi yaptırmak yasak mı?",
+        a: "Hayır. Kurumsal bir web sitesi kurmak, çalışma alanlarını anlatmak, özgeçmiş paylaşmak ve iletişim bilgisi vermek meşru bilgilendirmedir. Sınırlanan şey site kurmak değil, sitenin iş getirmeye yönelik reklam aracına dönüşmesi.",
+      },
+      {
+        q: "Sitemde müvekkil yorumu yayınlayabilir miyim?",
+        a: "Önermiyoruz. Tanıklığa dayalı tanıtım reklam kapsamında değerlendirilebiliyor ve ayrıca müvekkil gizliliği açısından risk taşıyor. Güveni yorumla değil; çalışma alanlarınızı net anlatarak, mesleki geçmişinizi göstererek ve bilgilendirici içerik üreterek kurmak hem daha güvenli hem daha kalıcı.",
+      },
+      {
+        q: "Google reklamı verebilir miyim?",
+        a: "Bu doğrudan mevzuat sorusu ve yanıtı bağlı olduğunuz baronun güncel düzenlemesine göre değişebiliyor. Genel eğilim, ücretli reklamın meslek kurallarıyla bağdaşmadığı yönünde. Karar vermeden önce baronuzla teyitleşmenizi öneririz; bu konuda ajansın sözüne güvenmeyin.",
+      },
+      {
+        q: "Hukuki makale yazmak için ne kadar zaman ayırmalıyım?",
+        a: "Ayda iki yazı bile fark yaratıyor. Önemli olan sıklık değil, sorulara gerçekten yanıt vermesi. Yazıların hukuki doğruluğu size ait olmak kaydıyla altyapıyı, yayın düzenini ve arama motoru tarafını biz kurarız.",
+      },
+      {
+        q: "Avukat web sitesi ne kadar tutar?",
+        a: "Az sayfalı bir tanıtım sitesi ₺50.000 bandında başlar. Çalışma alanlarının ayrı sayfalandığı, ekip ve makale bölümlü kurumsal bir büro sitesi ₺100.000–170.000 aralığındadır. Müvekkil portalı işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz.",
+      },
+    ],
+    relatedSolutions: ["avukat", "musavir"],
+  },
+
+  // ───────────────────────────────────────────────────────── YENİLEME
+  {
+    slug: "web-sitesi-yenileme",
+    title: "Web Sitesi Yenilerken Google Sıralamanızı Nasıl Korursunuz?",
+    metaTitle: "Web Sitesi Yenileme — Sıralama Kaybetmeden Nasıl Yapılır?",
+    metaDescription:
+      "Site yenilerken trafik kaybetmenin en yaygın sebebi yönlendirme eksikliği. Yenileme öncesi kontrol listesi ve sıralamanızı koruma adımları.",
+    excerpt:
+      "Yenilenen sitelerin trafiği neden düşer? Sebep tasarım değil, atlanan tek bir teknik adım. Yenileme öncesi yapılması gerekenler.",
+    published: "2026-08-25",
+    tag: "Rehber",
+    readingMinutes: 6,
+    intro: [
+      "Sitesini yenileten işletmelerin sık yaşadığı bir durum var: yeni site çok daha güzel ama Google'dan gelen ziyaretçi düşüyor. Bazen yarı yarıya.",
+      "Sebep neredeyse her zaman aynı ve tasarımla ilgisi yok. Aşağıda ne olduğunu, nasıl önleneceğini ve yenileme öncesi yapılması gereken hazırlığı yazdık.",
+    ],
+    sections: [
+      {
+        heading: "Ne oluyor: adresler değişiyor, yönlendirme kurulmuyor",
+        body: [
+          "Google sitenizi adres adres tanıyor. Yıllar içinde her sayfanız için bir itibar birikiyor ve bu itibar adrese bağlı — sayfanın kendisine değil.",
+          "Site yenilendiğinde adres yapısı genellikle değişiyor. Eski adres artık yok; ziyaretçi ve Google oraya gittiğinde 404 hatası alıyor. O sayfanın yıllarca biriktirdiği itibar hiçbir yere aktarılmıyor ve sıfırlanıyor.",
+          "Çözüm basit ve standart: eski her adresin yeni karşılığına kalıcı olarak yönlendirilmesi. Buna 301 yönlendirmesi deniyor ve itibarın büyük kısmını yeni adrese taşıyor. Basit olmasına rağmen en sık atlanan adım bu.",
+        ],
+        callout: {
+          title: "Teklif alırken sorun",
+          body: "\"Mevcut sayfalarımın adresleri değişecek mi? Değişecekse 301 yönlendirmeleri kuruluyor mu?\" Bu soruya net cevap veremeyen bir ekiple yenileme yapmayın. Sonradan kurtarmak, baştan yapmaktan çok daha zor ve aylar alıyor.",
+        },
+      },
+      {
+        heading: "Yenileme öncesi hazırlık",
+        body: [
+          "Yenilemeye başlamadan önce mevcut sitenizin bir envanterini çıkarmak gerekiyor. Bu iş bir günde biter ve projenin en değerli saatidir.",
+        ],
+        bullets: [
+          {
+            title: "1. Mevcut adres listesini çıkarın",
+            body: "Sitenizdeki tüm sayfaların adresini bir listeye alın. Google Search Console'a erişiminiz varsa hangi sayfaların gerçekten ziyaretçi aldığını da görebilirsiniz — öncelik onlarda.",
+          },
+          {
+            title: "2. En çok ziyaret alan 20 sayfayı işaretleyin",
+            body: "Trafiğin büyük kısmı genellikle az sayıda sayfadan geliyor. Bu sayfaların yeni sitede mutlaka bir karşılığı olmalı; içerikleri silinmemeli, sadece yeniden düzenlenmeli.",
+          },
+          {
+            title: "3. Eski → yeni eşleştirme tablosu yapın",
+            body: "Her eski adresin yeni karşılığını yazın. Karşılığı olmayan bir sayfa varsa en yakın konudaki sayfaya yönlendirin; ana sayfaya yönlendirmek işe yaramıyor, Google bunu \"içerik kayboldu\" olarak okuyor.",
+          },
+          {
+            title: "4. Mevcut trafiği kayıt altına alın",
+            body: "Yenileme öncesi aylık ziyaretçi sayınızı not edin. Sonrasında karşılaştırma yapabilmek için bu tek referansınız olacak. Ölçmediğiniz bir düşüşü fark edemezsiniz.",
+          },
+          {
+            title: "5. İçerikleri saklayın",
+            body: "Eski sitedeki metinleri silmeden önce bir kopyasını alın. Yeni tasarım hazır olduğunda içeriği yeniden yazmak isteyebilirsiniz ama elinizde eski hali olması her zaman işinize yarar.",
+          },
+        ],
+      },
+      {
+        heading: "Yayına aldıktan sonraki ilk hafta",
+        bullets: [
+          {
+            title: "Yönlendirmeleri elle test edin",
+            body: "Listenizdeki en önemli 20 eski adresi tarayıcıya tek tek yazın. Her biri doğru yeni sayfaya gitmeli. Bir tanesi 404 veriyorsa yönlendirme eksik demektir.",
+          },
+          {
+            title: "Yeni site haritasını gönderin",
+            body: "Google Search Console'dan yeni sitemap'i gönderin. Bu, yeni adreslerin taranmasını hızlandırıyor.",
+          },
+          {
+            title: "Kapsam raporunu izleyin",
+            body: "Search Console'daki hata sayısında artış varsa yönlendirmelerde eksik var demektir. İlk hafta bunu günlük kontrol edin.",
+          },
+          {
+            title: "Trafiği haftalık karşılaştırın",
+            body: "Küçük bir dalgalanma normal; yenileme sonrası Google'ın yeni yapıyı öğrenmesi birkaç hafta sürüyor. Ama belirgin ve süren bir düşüş varsa teknik bir sorun vardır ve beklemekle geçmez.",
+          },
+        ],
+      },
+      {
+        heading: "Önce şunu sorun: gerçekten yenilemeli misiniz?",
+        body: [
+          "Bu yazıyı yenileme hizmeti veren bir ekip yazıyor, o yüzden şunu söylemek biraz garip: sitelerin bir kısmının yenilenmesi gerekmiyor. Sorun tasarımda değil başka bir yerde olabilir ve o zaman yeni site parayı boşa harcamak olur.",
+          "Ziyaretçi geliyor ama kimse aramıyorsa sorun genellikle tasarım değil, ziyaretçinin ne yapacağını bilmemesi. İletişim yolunun görünür olması, tek bir düğmenin yeri veya telefon numarasının tıklanabilir olması bazen tüm farkı yaratıyor — bunlar mevcut sitede birkaç saatlik iş.",
+          "Ziyaretçi hiç gelmiyorsa sorun sitede değil görünürlükte. Yeni bir site kurmak, kimsenin bulamadığı bir sitenin yerine yine kimsenin bulamayacağı bir site koymak demek. Önce arama motorlarında neden görünmediğinize bakmak gerekiyor.",
+        ],
+        bullets: [
+          {
+            title: "Yenileme gerçekten gerekli olduğunda",
+            body: "Site mobilde bozuk görünüyorsa, açılması saniyeler sürüyorsa, içeriği kendiniz güncelleyemiyorsanız veya altyapı güvenlik güncellemesi almıyorsa — bunlar yamayla çözülmez, yenileme gerekir.",
+          },
+          {
+            title: "Yenileme gereksiz olduğunda",
+            body: "Site çalışıyor, hızlı ve mobil uyumlu ama \"biraz eski duruyor\" diyorsanız, önce içeriği ve dönüşüm yolunu iyileştirmeyi deneyin. Aynı bütçeyle çok daha fazla sonuç alabilirsiniz.",
+          },
+          {
+            title: "Kısmi yenileme de bir seçenek",
+            body: "Tüm siteyi değiştirmek yerine yalnızca ana sayfayı yenilemek veya yeni bir hizmet bölümü eklemek çoğu zaman yeterli oluyor. Adres yapısı korunduğu için sıralama riski de olmuyor.",
+          },
+        ],
+      },
+      {
+        heading: "Sıklıkla atlanan diğer şeyler",
+        bullets: [
+          {
+            title: "Görsel adresleri",
+            body: "Görsel arama üzerinden ziyaretçi alıyorsanız görsel adreslerinin de yönlendirilmesi gerekir. Küçük bir detay ama görsel trafiği olan sitelerde farkı hissediliyor.",
+          },
+          {
+            title: "Eski blog yazıları",
+            body: "\"Blogu zaten kullanmıyoruz, kaldıralım\" en pahalı kararlardan biri olabiliyor. O yazılar hâlâ ziyaretçi getiriyorsa silmek doğrudan trafik kaybı. Önce hangi yazıların ziyaret aldığını kontrol edin.",
+          },
+          {
+            title: "Site haritası ve robots dosyası",
+            body: "Yeni sitenin arama motorlarına açık olduğundan emin olun. Geliştirme sırasında siteyi kapatmak için konan bir ayarın yayında unutulması, gördüğümüz en sessiz ve en yıkıcı hata.",
+          },
+          {
+            title: "Analitik ve dönüşüm takibi",
+            body: "Yeni sitede ölçüm kodları yeniden kurulmalı. Aksi halde yenilemenin işe yarayıp yaramadığını hiç öğrenemezsiniz.",
+          },
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Site yenileyince Google'daki sıralamam sıfırlanır mı?",
+        a: "Yönlendirmeler doğru kurulursa hayır. Kısa süreli bir dalgalanma olabilir ama birkaç hafta içinde toparlar. Yönlendirmeler atlanırsa evet, o sayfaların birikimi büyük ölçüde kaybolur ve yeniden kazanmak aylar alır.",
+      },
+      {
+        q: "Adres yapısını hiç değiştirmesek olmaz mı?",
+        a: "En güvenlisi bu ve mümkünse öneririz. Eski adresler anlamlı ve düzgünse korumak, yönlendirme ihtiyacını tamamen ortadan kaldırır. Adres yapısını yalnızca gerçekten bozuksa değiştirin — \"daha güzel dursun\" diye değiştirmek gereksiz risk.",
+      },
+      {
+        q: "Yenileme ne kadar sürer?",
+        a: "Mevcut içerik korunuyorsa kurumsal bir site 2–4 hafta. Süreyi uzatan şey genellikle içeriğin yeniden yazılması ve karar değişiklikleri. Yönlendirme hazırlığı bu sürenin içinde, ayrı bir kalem değil.",
+      },
+      {
+        q: "Eski sitemi ne zaman kapatmalıyım?",
+        a: "Yeni site yayına girdikten sonra eski barındırmayı hemen iptal etmeyin. En az bir ay elinizde tutun; yönlendirmelerde eksik çıkarsa veya bir içeriğe ihtiyaç duyarsanız geri dönebilmelisiniz.",
+      },
+    ],
+    relatedSolutions: ["kisiselmarka", "eticaret", "avukat"],
+  },
+
   // ───────────────────────────────────────────────────────── DİKKAT
   {
     slug: "web-sitesi-yaptirirken-dikkat-edilecekler",
