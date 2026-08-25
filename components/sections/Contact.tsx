@@ -39,6 +39,44 @@ const FIELD_CLASS =
 const WEB3FORMS_KEY =
   process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "162a3e34-5c74-4476-8ade-fd9e540e92fd";
 
+// Lead paneli — form buraya da kayıt düşer.
+//
+// Web3Forms BİRİNCİL kanal olarak kalıyor ve dokunulmadı: panel çökse, sunucu
+// yeniden başlasa veya DNS bir sorun yaşasa bile mesaj e-posta olarak ulaşır.
+// Panel çağrısı "gönder ve unut" — başarısız olursa kullanıcı hiçbir şey
+// görmez, form yine başarıyla tamamlanır. Lead kaybetmek, panele kaydetmemekten
+// çok daha pahalı.
+const PANEL_INTAKE_URL =
+  process.env.NEXT_PUBLIC_PANEL_INTAKE_URL ?? "https://panel.forpusyazilim.com/api/intake/site";
+
+/** Panele kaydı düşer. Hata fırlatmaz — form akışını hiçbir koşulda bozmaz. */
+function panelKaydiGonder(veri: {
+  name: string;
+  email: string;
+  company: string;
+  service: string;
+  message: string;
+}): void {
+  // Seçilen hizmet mesajın başına yazılıyor: panelde ilk bakışta hangi hattın
+  // sorulduğu görünsün (web mi, reklam mı) — triyajın en çok işe yarayan bilgisi.
+  const govde = veri.service ? `İlgilendiği hizmet: ${veri.service}\n\n${veri.message}` : veri.message;
+
+  void fetch(PANEL_INTAKE_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: veri.name,
+      email: veri.email,
+      company: veri.company || undefined,
+      message: govde,
+    }),
+    // Sekme kapansa bile isteğin tamamlanma şansı olsun.
+    keepalive: true,
+  }).catch(() => {
+    /* panel erişilemezse sessiz geç — Web3Forms zaten mesajı iletti */
+  });
+}
+
 export default function Contact() {
   const { t } = useLang();
   const c = t.contact;
@@ -92,6 +130,19 @@ export default function Contact() {
     if (honeypot) return;
 
     setStatus("sending");
+
+    // Panele ÖNCE ve Web3Forms'tan BAĞIMSIZ gönderiyoruz. Başarı dalının içine
+    // koymak yanlıştı: Web3Forms bir sebeple hata verdiğinde (ağ, geçici kesinti,
+    // bot filtresi) lead panele hiç düşmüyordu — oysa panel bizim sistemimiz ve
+    // kaydı en çok orada tutmak istiyoruz. İkisi artık paralel gidiyor.
+    panelKaydiGonder({
+      name: name.trim(),
+      email: email.trim(),
+      company: company.trim(),
+      service,
+      message: message.trim(),
+    });
+
     try {
       // FormData (multipart) → "basit istek", CORS preflight yok → en sağlam yöntem
       const fd = new FormData();
