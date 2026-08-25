@@ -9,6 +9,8 @@ export type SolutionContent = {
   eyebrow: string;
   h1: string;
   intro: string;
+  /** Fayda kartlarının üstündeki bölüm başlığı. Verilirse kart başlıkları h3'e iner. */
+  benefitsTitle?: string;
   benefits: { title: string; body: string }[];
   featuresTitle: string;
   features: string[];
@@ -17,6 +19,31 @@ export type SolutionContent = {
   ctaTitle: string;
   ctaText: string;
   ctaButton: string;
+
+  // ── Derinlik blokları ────────────────────────────────────────────────
+  // Hepsi opsiyonel: bir sektöre eklendiğinde sayfada o bölüm belirir,
+  // eklenmediğinde sayfa eskisi gibi çalışır. Amaç dolgu değil "bilgi
+  // kazancı" — alıcının başka yerde bulamadığı fiyat, süre ve karar bilgisi.
+
+  /** "Şu an ne oluyor" — sektörün gerçek acısı, 2-3 paragraf. */
+  problem?: { title: string; body: string[] };
+
+  /** Fiyat bandı. Paketlerle (₺50k / 100k / 250k) tutarlı olmalı. */
+  pricing?: {
+    title: string;
+    lead: string;
+    tiers: { name: string; price: string; timeline: string; body: string }[];
+    note: string;
+  };
+
+  /** Gerçek referans işimiz. Yalnızca o sektörde GERÇEKTEN iş yaptıysak. */
+  caseRef?: { title: string; body: string; projectSlug: string; linkLabel: string };
+
+  /** Sektöre özel çalışma adımları. */
+  process?: { title: string; lead: string; steps: { name: string; body: string }[] };
+
+  /** "Nelere dikkat etmeli" — alıcıyı eğiten bölüm; AI'ın alıntıladığı tip. */
+  checklist?: { title: string; lead: string; items: { title: string; body: string }[] };
 };
 
 export type Solution = {
@@ -42,6 +69,7 @@ export const solutions: Solution[] = [
       h1: "Doktor Web Sitesi",
       intro:
         "Hastalarınız sizi kliniğinizden önce Google'da arıyor. Güven veren, hızlı ve mobil uyumlu bir web sitesi, gelen hasta sayısını doğrudan etkiler. Forpus olarak hekimlere özel; randevu, hizmet ve bilgilendirme odaklı siteler tasarlıyoruz.",
+      benefitsTitle: "Doktor web sitesi kliniğinize ne kazandırır?",
       benefits: [
         { title: "İlk saniyede güven", body: "Temiz ve profesyonel bir tasarım hastada güven oluşturur, klinik itibarınızı online'a taşır." },
         { title: "Online randevu", body: "Ziyaretçiyi tek tıkla randevu formuna veya WhatsApp'a yönlendirin; boş koltuk kalmasın." },
@@ -58,13 +86,84 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Doktor web sitesi ne kadar sürede hazır olur?", a: "İçerikleriniz hazırsa tanıtım siteniz genellikle 1 hafta içinde yayında olur. Randevu sistemi gibi ek özellikler süreyi biraz uzatabilir." },
-        { q: "Online randevu sistemi ekleyebilir misiniz?", a: "Evet. Basit WhatsApp/form yönlendirmesinden tam otomatik randevu takvimine kadar ihtiyacınıza göre kurgularız." },
-        { q: "Sitem Google'da çıkacak mı?", a: "Siteyi teknik SEO ayarlarıyla teslim ederiz; Google İşletme profili ve içerik desteğiyle görünürlüğünüzü zaman içinde artırırız." },
+        { q: "Doktor web sitesi ne kadar sürede hazır olur?", a: "İçerikleriniz hazırsa tanıtım siteniz genellikle 1 hafta içinde yayında olur. Çok sayfalı kurumsal bir yapı 2–4 hafta, online randevu ve hasta paneli gibi sistemler ise projeye göre 6–10 hafta sürer. Süreyi en çok uzatan şey teknik zorluk değil, içerik beklemesidir; özgeçmiş, hizmet açıklamaları ve fotoğraflar hazırsa süreç belirgin şekilde kısalır." },
+        { q: "Doktor web sitesi ne kadar tutar?", a: "Tek sayfalı, hızlı yayına alınan bir tanıtım sitesi ₺50.000 bandında başlar. Uzmanlık alanlarınızın ayrı sayfalandığı, SEO'ya hazırlanmış çok sayfalı bir klinik sitesi ₺100.000–180.000 aralığındadır. Online randevu, hasta paneli veya mobil uygulama işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz. Kesin rakam sayfa sayısı ve entegrasyonlara göre netleşir." },
+        { q: "Hekim reklam yasağı web sitesini nasıl etkiliyor?", a: "Türkiye'de hekimler ve sağlık kuruluşları için reklam ile bilgilendirme mevzuatta ayrı şeylerdir; site içeriği bilgilendirme tarafında kalmak zorundadır. Bu pratikte şu demek: abartılı iddialar, karşılaştırmalı üstünlük vurguları, hasta yorumları ve fiyat ilanı gibi unsurlardan kaçınmak gerekir. Siteyi bu çerçeveyi gözeterek kurgularız; branşınıza özel sınırlar için bağlı olduğunuz oda veya mevzuat danışmanınızla teyitleşmenizi öneririz." },
+        { q: "Online randevu sistemi ekleyebilir misiniz?", a: "Evet. En basit haliyle ziyaretçiyi WhatsApp'a veya bir forma yönlendiririz — hızlı ve ucuzdur, sekreteriniz varsa çoğu klinik için yeterlidir. Bir üst seviyede takvimli, çakışma kontrollü, SMS/e-posta hatırlatması gönderen tam otomatik bir randevu sistemi kurarız. Hangisinin size uygun olduğu hasta hacminize ve sekreterlik düzeninize bağlı; görüşmede bunu netleştiriyoruz." },
+        { q: "Sitem Google'da çıkacak mı?", a: "Siteyi teknik SEO ayarları tamamlanmış şekilde teslim ederiz: doğru başlık yapısı, hız optimizasyonu, mobil uyum, site haritası ve yapılandırılmış veri. Ama tek başına site kurmak sıralama getirmez. Bölgenizdeki aramalarda çıkmanın asıl yolu Google İşletme Profili ve düzenli içeriktir; isterseniz bu tarafı da birlikte yürütürüz." },
+        { q: "Mevcut sitemi yenileyebilir misiniz?", a: "Evet, sık yaptığımız iş. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız. Eski adresleri yenilerine yönlendirir, Google'daki mevcut sıralamanızın kaybolmamasını sağlarız. Bu yönlendirmeler atlanırsa yenileme sonrası trafik düşer; en sık gördüğümüz hata budur." },
+        { q: "Site sonrasında güncelleme yapabilecek miyim?", a: "İhtiyacınıza göre karar veriyoruz. Nadiren değişen bir tanıtım sitesinde yönetim paneli gereksiz maliyettir; küçük güncellemeleri biz yaparız. Düzenli yazı veya duyuru paylaşacaksanız içeriği kendiniz yönetebileceğiniz bir panel kurarız." },
+        { q: "KVKK açısından nelere dikkat ediyorsunuz?", a: "İletişim ve randevu formları hasta verisi topladığı için aydınlatma metni, açık rıza kutucuğu ve güvenli veri aktarımı standart olarak kurulur. Formdan gelen bilgiler şifreli bağlantı üzerinden iletilir. Sağlık verisi özel nitelikli kişisel veri sayıldığı için, hasta dosyası niteliğinde bilgi toplayan yapılarda kapsamı birlikte daraltır, gereksiz veri toplamaktan kaçınırız." },
       ],
       ctaTitle: "Kliniğiniz için web sitesi konuşalım",
       ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
+
+      problem: {
+        title: "Hastanız sizi seçmeden önce ne görüyor?",
+        body: [
+          "Bir hasta size gelmeden önce adınızı Google'a yazıyor. Karşısına çıkan şey çoğu zaman bir randevu sitesindeki eksik profiliniz, güncelliğini yitirmiş bir hastane sayfası veya hiç kontrol etmediğiniz yorumlar oluyor. Anlatmak istediğiniz hiçbir şeyin olmadığı bu sonuçlar, sizin yerinize konuşuyor.",
+          "Kendi siteniz olduğunda bu tablo değişiyor: uzmanlığınızı, yaklaşımınızı ve hangi durumlarda ne yaptığınızı kendi cümlelerinizle anlatıyorsunuz. Hasta muayeneye girmeden önce size dair bir fikir sahibi oluyor, bu da hem randevuya dönüşü hem de görüşmenin kalitesini yükseltiyor.",
+          "Pratikte en çok kaybettiren nokta ise şu: siteye giren hasta randevu almak istediğinde ne yapacağını bilemiyor. Telefon numarası sayfanın dibinde, form çalışmıyor, WhatsApp yok. Ziyaretçi vardır ama randevu yoktur. Kurduğumuz sitelerde bu yolu mümkün olan en kısa hale getiriyoruz.",
+        ],
+      },
+
+      pricing: {
+        title: "Doktor web sitesi fiyatları",
+        lead: "Fiyatı görüşmede söyleyen ajanslara alışkınsınız. Biz bandı baştan yazıyoruz ki vaktinizi boşa harcamayalım. Aşağıdaki aralıklar 2026 için geçerli başlangıç rakamlarıdır.",
+        tiers: [
+          {
+            name: "Tanıtım sitesi",
+            price: "₺50.000 – 90.000",
+            timeline: "~1–2 hafta",
+            body: "Tek veya az sayfalı, mobil uyumlu bir dijital kartvizit. Özgeçmiş, hizmetler, iletişim ve WhatsApp yönlendirmesi. Yeni muayenehane açanlar ve adını Google'da temiz bir sayfayla karşılamak isteyen hekimler için yeterli.",
+          },
+          {
+            name: "Klinik sitesi",
+            price: "₺100.000 – 180.000",
+            timeline: "~2–4 hafta",
+            body: "Her uzmanlık alanının ayrı sayfası olduğu, arama motorları için yapılandırılmış çok sayfalı site. Hasta bilgilendirme yazıları için blog altyapısı, ekip sayfası, çok dilli seçenek. Bölgesel aramalarda görünmek isteyen klinikler için doğru başlangıç.",
+          },
+          {
+            name: "Randevu sistemi & hasta paneli",
+            price: "₺250.000'den başlayan",
+            timeline: "Projeye özel",
+            body: "Takvimli online randevu, çakışma kontrolü, otomatik SMS hatırlatma, hasta kayıt paneli ve gerekirse mobil uygulama. Sekreterlik yükünü yazılıma devretmek isteyen çok hekimli klinikler için.",
+          },
+        ],
+        note: "Bu rakamlar başlangıç bandıdır; sayfa sayısı, içerik üretimi ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+      },
+
+      caseRef: {
+        title: "Sağlık alanında yaptığımız iş",
+        body: "Dr. Yasin Kurtboğan için kurduğumuz kurumsal site, hekim tanıtımını ve hizmet anlatımını sade bir yapıda topluyor. Aynı yaklaşımı Dyt. Ece Öztürk'ün sitesinde de uyguladık: güven veren bir görsel dil, net hizmet açıklamaları ve ziyaretçiyi tek adımda iletişime taşıyan bir kurgu. Sağlık alanında tasarımın işi etkilemesi, ferah ve abartısız durmasından geçiyor.",
+        projectSlug: "dryasin",
+        linkLabel: "Yaptığımız işlere bakın",
+      },
+
+      process: {
+        title: "Nasıl ilerliyoruz?",
+        lead: "Muayene programınızı aksatmayan bir düzen kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
+        steps: [
+          { name: "Tanışma görüşmesi", body: "30–45 dakikalık bir görüşmede branşınızı, hasta profilinizi ve sitenin asıl işini konuşuruz. Randevu mu alacak, bilgilendirme mi yapacak, ikisi birden mi? Buradan net bir kapsam ve sabit fiyat çıkar." },
+          { name: "İçerik toplama", body: "Size doldurması kolay bir şablon gönderiyoruz: özgeçmiş, hizmetler, sık sorulanlar, fotoğraflar. Yazmaya vaktiniz yoksa metinleri biz yazar, onayınıza sunarız — hekimlerin çoğu bu seçeneği tercih ediyor." },
+          { name: "Tasarım ve onay", body: "Önce ana sayfa tasarımını görürsünüz. Yön doğruysa diğer sayfalar aynı dille açılır. Değişiklikler bu aşamada ücretsizdir; geliştirmeye ancak siz onayladıktan sonra geçeriz." },
+          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Teslimde sitenin nasıl güncelleneceğini gösteren kısa bir kayıt bırakırız." },
+        ],
+      },
+
+      checklist: {
+        title: "Doktor web sitesi yaptırırken nelere dikkat etmeli?",
+        lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
+        items: [
+          { title: "Alan adı ve site kime ait?", body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun. Bazı ajanslar alan adını kendi hesabına alır; ayrılmak istediğinizde siteniz rehin kalır. Sözleşmeye alan adının ve kaynak kodun size ait olduğunu yazdırın." },
+          { title: "Hazır tema mı, size özel mi?", body: "Piyasadaki doktor sitelerinin çoğu aynı hazır temanın renkleri değiştirilmiş hali. Ucuz olması normaldir, ama benzer görünen yüzlerce siteden biri olursunuz ve tema güncellemeleri zamanla siteyi bozar. Farkı baştan sorun." },
+          { title: "Mobilde gerçekten hızlı mı?", body: "Hastaların büyük kısmı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın. Üç saniyede açılmıyorsa hasta beklemez, geri döner." },
+          { title: "Randevuya kaç tıkla gidiliyor?", body: "Ana sayfayı açtığınızda randevu veya iletişim eylemi ilk ekranda görünüyor mu? Görünmüyorsa site güzel olsa bile iş yapmaz. Bu, tasarımın en çok atlanan ve en çok kaybettiren detayıdır." },
+          { title: "Teslimden sonra ne oluyor?", body: "Bakım, güncelleme ve sorun çıktığında kime ulaşacağınız yazılı olsun. Sitenin yayına alınması işin sonu değil başıdır; destek verilmeyen siteler bir yıl içinde güncelliğini yitirir." },
+          { title: "KVKK metinleri hazır mı?", body: "Form varsa aydınlatma metni ve açık rıza zorunludur. Şaşırtıcı sayıda hekim sitesi bu metinler olmadan yayında duruyor. Teklif aşamasında bunun dahil olup olmadığını netleştirin." },
+        ],
+      },
     },
     en: {
       metaTitle: "Doctor Website Design",
