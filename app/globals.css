@@ -356,6 +356,42 @@ button { font-family: inherit; }
 }
 
 /* ------------------------------------------------------------------
+   Açılış perdesi — CSS ile, bilerek.
+
+   Perde eskiden React state'iyle yönetiliyordu. Sorun: perde sunucudan
+   gelip içeriği örtüyor, ama kalkması hydration'a bağlı olduğu için
+   ~790KB JS inene kadar ekranda kalıyordu. Ölçüm (yavaş 4G): başlık
+   ancak 8,6 saniyede görünüyordu.
+
+   Şimdi perde kendini CSS ile kaldırıyor: ilk boyamadan 1,1 sn sonra
+   yukarı kayıp kayboluyor, JS hiç çalışmasa bile. `forwards` ile son
+   durumda kalır, `pointer-events:none` tıklamaları engellemez.
+
+   Aynı oturumda tekrar görünmemesi için <html> üzerine konan
+   data-acilis-goruldu bayrağı yeterli (layout'taki satır içi script).
+------------------------------------------------------------------- */
+@keyframes preloader-out {
+  to { transform: translateY(-100%); visibility: hidden; }
+}
+.preloader {
+  animation: preloader-out 0.65s cubic-bezier(0.16, 1, 0.3, 1) 1.1s forwards;
+}
+.preloader__bar {
+  animation: preloader-bar 1.55s ease-out both;
+}
+@keyframes preloader-bar {
+  from { width: 10%; }
+  to   { width: 100%; }
+}
+/* Oturumda bir kez gösterildi → hiç çizme. */
+html[data-acilis-goruldu] .preloader { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Hareket istenmiyorsa perde hiç görünmesin. */
+  .preloader { display: none; }
+}
+
+/* ------------------------------------------------------------------
    Hero giriş animasyonu — CSS ile, bilerek.
 
    Bu animasyon eskiden framer-motion ile yapılıyordu ve hero `opacity: 0`

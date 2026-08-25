@@ -152,6 +152,18 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="tr" suppressHydrationWarning>
+      <head>
+        {/*
+          Açılış perdesi oturumda yalnızca bir kez görünsün. Bu script boyamadan
+          ÖNCE çalışmalı, yoksa perde bir an parlayıp kaybolur. Depolama kapalıysa
+          (gizli sekme vb.) sessizce perdeyi normal akışında gösteririz.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem('forpus:acilis')){document.documentElement.setAttribute('data-acilis-goruldu','1')}else{sessionStorage.setItem('forpus:acilis','1')}}catch(e){}`,
+          }}
+        />
+      </head>
       <body className={`${montserrat.variable} ${manrope.variable} ${jetbrains.variable}`}>
         <script
           type="application/ld+json"
