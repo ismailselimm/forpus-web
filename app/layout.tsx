@@ -3,6 +3,7 @@ import { Montserrat, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import SmoothScroll from "@/components/fx/SmoothScroll";
+import KaynakIzi from "@/components/fx/KaynakIzi";
 import Preloader from "@/components/fx/Preloader";
 import Grain from "@/components/fx/Grain";
 import Nav from "@/components/layout/Nav";
@@ -186,6 +187,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <LanguageProvider>
+          <KaynakIzi />
           <Preloader />
           <SmoothScroll />
           <Grain />

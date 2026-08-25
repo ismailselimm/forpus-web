@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+
+import { iziOzetle, kaynakIzi } from "@/lib/kaynak-izi";
 import {
   Mail,
   MessageCircle,
@@ -61,6 +63,12 @@ function panelKaydiGonder(veri: {
   // sorulduğu görünsün (web mi, reklam mı) — triyajın en çok işe yarayan bilgisi.
   const govde = veri.service ? `İlgilendiği hizmet: ${veri.service}\n\n${veri.message}` : veri.message;
 
+  // Ziyaretin kaynak izi. Panel bu alanları henüz tanımıyor olabilir —
+  // tanımıyorsa zod bilinmeyen anahtarları düşürüyor, istek yine geçiyor.
+  // Bu yüzden site tarafını önce yayına almak güvenli.
+  const iz = kaynakIzi();
+  const izOzeti = iziOzetle(iz);
+
   void fetch(PANEL_INTAKE_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -68,7 +76,10 @@ function panelKaydiGonder(veri: {
       name: veri.name,
       email: veri.email,
       company: veri.company || undefined,
-      message: govde,
+      // Özet mesaja da yazılıyor: yapısal alanlar bir yerde bozulsa bile
+      // atıf bilgisi lead'in gövdesinde kalıyor.
+      message: izOzeti ? `${govde}\n\n— geldiği yer: ${izOzeti}` : govde,
+      iz,
     }),
     // Sekme kapansa bile isteğin tamamlanma şansı olsun.
     keepalive: true,
