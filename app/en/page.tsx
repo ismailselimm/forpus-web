@@ -25,7 +25,9 @@ import { SITE_URL } from "@/lib/site";
  * bu adres sunucuda İngilizce olarak üretiliyor.
  */
 export const metadata: Metadata = {
-  title: "Web & Mobile App Agency | Forpus Software",
+  // absolute: kök layout'un "%s | Forpus Yazılım" şablonunu atlar. Aksi halde
+  // İngilizce sayfada "Forpus Software | Forpus Yazılım" gibi çift marka çıkıyor.
+  title: { absolute: "Web & Mobile App Agency | Forpus Software" },
   description:
     "We build corporate websites, e-commerce and mobile apps. Real references, packages starting from ₺50,000. Get a free quote.",
   alternates: {
