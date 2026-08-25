@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { solutions } from "@/lib/solutions";
 import { postsByDate } from "@/lib/blog";
 import { cases } from "@/lib/cases";
+import { hukukiSayfalar } from "@/lib/hukuki";
 import { SITE_URL as SITE } from "@/lib/site";
 
 export const dynamic = "force-static"; // statik export (GitHub Pages) için
@@ -42,6 +43,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // Hukuki sayfaların tarihi kendi içeriğinin yanında (lib/hukuki.ts) duruyor:
+  // metni değiştiren kişi lastmod'u da aynı dosyada görüyor. Öncelik düşük —
+  // bu sayfalar aramada yarışmıyor, yalnızca indekste bulunsunlar yeter.
+  const hukukiPages: MetadataRoute.Sitemap = hukukiSayfalar.map((h) => ({
+    url: `${SITE}/${h.slug}`,
+    lastModified: new Date(h.sonGuncelleme),
+    changeFrequency: "yearly",
+    priority: 0.3,
+  }));
+
   /** Bir koleksiyonun en yeni tarihi — indeks sayfalarının lastmod'u. */
   const newest = (dates: string[]) =>
     new Date(dates.reduce((a, b) => (a > b ? a : b), dates[0]));
@@ -66,5 +77,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/blog`, lastModified: newest(postsByDate.map((p) => p.updated ?? p.published)), changeFrequency: "monthly", priority: 0.6 },
     ...blogPages,
     ...solutionPages,
+    ...hukukiPages,
   ];
 }

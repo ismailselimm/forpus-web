@@ -49,7 +49,13 @@ const kirp = (deger: string) => deger.slice(0, 200);
 function oku(): KaynakIzi | null {
   try {
     const ham = sessionStorage.getItem(ANAHTAR);
-    return ham ? (JSON.parse(ham) as KaynakIzi) : null;
+    if (!ham) return null;
+    const cozulen: unknown = JSON.parse(ham);
+    // Tip iddiası yetmiyor: aynı anahtara başkası "[]" ya da "3" yazmışsa
+    // (eski bir sürüm, bir eklenti, elle kurcalama) o değer olduğu gibi
+    // panele gidiyordu. Nesne değilse iz yok sayılıyor.
+    if (!cozulen || typeof cozulen !== "object" || Array.isArray(cozulen)) return null;
+    return cozulen as KaynakIzi;
   } catch {
     // Gizli sekmede veya depolama kapalıyken sessizce vazgeç: atıf kaybolur
     // ama form çalışmaya devam eder. Lead kaybetmek atıf kaybetmekten pahalı.
@@ -61,8 +67,11 @@ function oku(): KaynakIzi | null {
  * İzi yakalar. Sayfa ilk yüklendiğinde bir kez çağrılıyor.
  *
  * Kural: ziyaretin ilk izi korunur, ama URL'de açık bir kampanya işareti
- * varsa üzerine yazılır. Sebebi: kullanıcı organik girip sonra reklama
- * tıkladıysa, o tıklama daha güçlü ve daha yeni bir sinyal.
+ * varsa KAYNAK alanlarının üzerine yazılır. Sebebi: kullanıcı organik girip
+ * sonra reklama tıkladıysa, o tıklama daha güçlü ve daha yeni bir sinyal.
+ *
+ * `girisSayfasi` ve `ilkGorulme` bu kuralın DIŞINDA: ikisi de "ilk" diyor ve
+ * ilk kalıyorlar. Kaynak değişebilir, ziyaretin başladığı yer değişmez.
  */
 export function iziYakala(): void {
   if (typeof window === "undefined") return;
@@ -90,8 +99,16 @@ export function iziYakala(): void {
       JSON.stringify({
         ...yeni,
         yonlendiren: disYonlendiren,
-        girisSayfasi: kirp(window.location.pathname),
-        ilkGorulme: new Date().toISOString(),
+        // "İlk" gerçekten ilk kalıyor. Kampanya işareti görüldüğünde iz
+        // baştan yazıldığı için bu iki alan da eziliyordu: organik olarak /
+        // üzerinden girip blog okuyan, sonra aynı sekmede bir reklama tıklayıp
+        // /cozumler/... adresine inen ziyaretçide giriş sayfası ikinci iniş
+        // olarak kaydediliyordu. "Hangi içerik lead getiriyor" sorusu yanlış
+        // cevaplanıyor, hukuki metindeki iki "ilk" iddiası da tutmuyordu.
+        // UTM ve tıklama kimlikleri üzerine yazılmaya devam ediyor: yeni
+        // tıklama daha güçlü bir kaynak sinyali, ama giriş noktası değil.
+        girisSayfasi: mevcut?.girisSayfasi ?? kirp(window.location.pathname),
+        ilkGorulme: mevcut?.ilkGorulme ?? new Date().toISOString(),
       } satisfies KaynakIzi),
     );
   } catch {

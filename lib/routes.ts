@@ -12,8 +12,25 @@ import { solutionIndex } from "./solution-index";
  *    EN'e basan ziyaretçi menüsü İngilizce, yazısı Türkçe bir sayfada kalıyordu.
  */
 
-/** Yalnızca Türkçe yayınlanan bölümler. */
-const TR_ONLY_PREFIXES = ["/blog", "/isler"] as const;
+/**
+ * Yalnızca Türkçe yayınlanan bölümler.
+ *
+ * Hukuki sayfalar da bu listede: metinleri Türk mevzuatına (6698) göre yazıldı
+ * ve İngilizce sürümleri yok. Listeye eklenmeselerdi dil değiştirici bu
+ * sayfalarda aktif kalır, EN'e basan ziyaretçi menüsü İngilizce, metni Türkçe
+ * bir sayfada kalırdı — /blog ve /isler için düzeltilen hatanın aynısı.
+ *
+ * Adresler lib/hukuki.ts'teki slug'larla aynı. Oradan türetmiyoruz: bu dosya
+ * istemci tarafında (LanguageProvider) kullanılıyor, hukuki metinlerin tamamı
+ * tarayıcıya inerdi.
+ */
+const TR_ONLY_PREFIXES = [
+  "/blog",
+  "/isler",
+  "/gizlilik",
+  "/kvkk",
+  "/kullanim-sartlari",
+] as const;
 
 /** İngilizce sürümü ayrı URL'de yayınlanan bölümler. */
 const EN_PREFIX = "/en";

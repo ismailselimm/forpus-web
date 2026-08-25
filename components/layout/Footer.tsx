@@ -13,6 +13,12 @@ export default function Footer() {
   const scrollTop = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
 
+  const yasalBaglantilar = [
+    { href: "/gizlilik", label: t.footer.gizlilik },
+    { href: "/kvkk", label: t.footer.kvkk },
+    { href: "/kullanim-sartlari", label: t.footer.kullanimSartlari },
+  ];
+
   const socials = [
     { icon: Instagram, href: "#", label: "Instagram" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
@@ -123,6 +129,23 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()} Forpus Yazılım. {t.footer.rights}
           </p>
+
+          {/*
+            Hukuki sayfalar. Alt şeritte duruyorlar çünkü aranan şey değiller;
+            aranınca bulunabilir olmaları yeterli. Meta uygulaması da yayın için
+            gizlilik politikası adresini burada arıyor.
+          */}
+          <nav aria-label={t.footer.yasal} className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {yasalBaglantilar.map((y) => (
+              <Link
+                key={y.href}
+                href={y.href}
+                className="inline-block origin-center transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+              >
+                {y.label}
+              </Link>
+            ))}
+          </nav>
           <button
             onClick={scrollTop}
             className="flex items-center gap-2 rounded-full border border-line bg-white/70 px-4 py-2 font-medium text-ink-2 transition-all hover:-translate-y-0.5 hover:text-ink"

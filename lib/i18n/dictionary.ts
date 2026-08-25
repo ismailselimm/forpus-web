@@ -344,6 +344,14 @@ const tr = {
       sending: "Gönderiliyor…",
       success: "Teşekkürler! Mesajınız bize ulaştı. En kısa sürede dönüş yapacağız.",
       error: "Bir sorun oluştu. Lütfen tekrar deneyin ya da doğrudan e-posta gönderin.",
+      // KVKK md.10 aydınlatmayı "verilerin elde edilmesi sırasında" şart
+      // koşuyor; footer bağlantısı bunu karşılamıyor. Metin gönder düğmesinin
+      // dibinde duruyor ki formu dolduran kişi göndermeden önce görsün.
+      aydinlatmaOnce: "Gönderdiğinizde verileriniz",
+      aydinlatmaKvkk: "KVKK Aydınlatma Metni",
+      aydinlatmaOrta: "ve",
+      aydinlatmaGizlilik: "Gizlilik Politikası",
+      aydinlatmaSonra: "kapsamında işlenir.",
     },
     info: {
       emailLabel: "E-posta",
@@ -365,6 +373,11 @@ const tr = {
     services: "Hizmetler",
     contact: "İletişim",
     backToTop: "Yukarı çık",
+    // Hukuki sayfalar yalnızca Türkçe yayınlanıyor (bkz. lib/hukuki.ts).
+    yasal: "Yasal",
+    gizlilik: "Gizlilik Politikası",
+    kvkk: "KVKK Aydınlatma Metni",
+    kullanimSartlari: "Kullanım Şartları",
   },
   langToggle: { tr: "TR", en: "EN", switchTo: "English" },
 };
@@ -710,6 +723,11 @@ const en: typeof tr = {
       sending: "Sending…",
       success: "Thank you! Your message has reached us. We'll get back to you shortly.",
       error: "Something went wrong. Please try again or email us directly.",
+      aydinlatmaOnce: "By submitting, your data is processed under our",
+      aydinlatmaKvkk: "KVKK Disclosure Notice",
+      aydinlatmaOrta: "and",
+      aydinlatmaGizlilik: "Privacy Policy",
+      aydinlatmaSonra: ".",
     },
     info: {
       emailLabel: "Email",
@@ -731,6 +749,12 @@ const en: typeof tr = {
     services: "Services",
     contact: "Contact",
     backToTop: "Back to top",
+    // Sayfaların gövdesi Türkçe; /blog ve /isler'de olduğu gibi etiket çevrili,
+    // içerik tek dilli.
+    yasal: "Legal",
+    gizlilik: "Privacy Policy",
+    kvkk: "KVKK Notice",
+    kullanimSartlari: "Terms of Use",
   },
   langToggle: { tr: "TR", en: "EN", switchTo: "Türkçe" },
 };

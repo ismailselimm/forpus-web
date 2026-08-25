@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import Link from "next/link";
 
 import { iziOzetle, kaynakIzi } from "@/lib/kaynak-izi";
 import {
@@ -390,6 +391,22 @@ export default function Contact() {
                     />
                   </button>
                 </Magnetic>
+
+                {/* KVKK md.10 aydınlatmayı verinin ELDE EDİLMESİ SIRASINDA
+                    istiyor. Bağlantılar yalnızca footer'daydı; hizmet
+                    sayfasından #contact'a atlayıp formu dolduran ziyaretçi
+                    metni hiç görmeden gönderiyordu. */}
+                <p className="text-[0.78rem] leading-relaxed text-ink-3">
+                  {c.form.aydinlatmaOnce}{" "}
+                  <Link href="/kvkk" className="underline underline-offset-2 hover:text-ink-2">
+                    {c.form.aydinlatmaKvkk}
+                  </Link>{" "}
+                  {c.form.aydinlatmaOrta}{" "}
+                  <Link href="/gizlilik" className="underline underline-offset-2 hover:text-ink-2">
+                    {c.form.aydinlatmaGizlilik}
+                  </Link>{" "}
+                  {c.form.aydinlatmaSonra}
+                </p>
 
                 {notice && (
                   <p
