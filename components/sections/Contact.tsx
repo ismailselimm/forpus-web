@@ -6,17 +6,14 @@ import Link from "next/link";
 import { iziOzetle, kaynakIzi } from "@/lib/kaynak-izi";
 import {
   Mail,
-  MessageCircle,
   MapPin,
-  Facebook,
-  Instagram,
-  Linkedin,
   ArrowUpRight,
   Loader2,
   CheckCircle2,
   AlertCircle,
   type LucideIcon,
 } from "lucide-react";
+import { SosyalIkonlar } from "@/components/ui/SosyalIkonlar";
 import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
@@ -30,20 +27,7 @@ type InfoRow = {
   href?: string;
 };
 
-import { aktifSosyal, type SosyalHesap } from "@/lib/site";
 
-/** Hesap adı → ikon. Liste `lib/site.ts`te; ikon eşlemesi görünüm kararı. */
-const SOSYAL_IKON: Record<SosyalHesap["ad"], typeof Instagram> = {
-  Instagram,
-  Facebook,
-  LinkedIn: Linkedin,
-  WhatsApp: MessageCircle,
-};
-
-type SocialLink = {
-  icon: LucideIcon;
-  name: string;
-};
 
 const FIELD_CLASS =
   "w-full rounded-xl border border-line bg-white px-4 py-3 text-ink placeholder:text-ink-3 transition-shadow focus:outline-none focus:ring-2 focus:ring-cyan/40";
@@ -136,12 +120,7 @@ export default function Contact() {
     },
   ];
 
-  // Footer ile AYNI listeden. İki ekran iki ayrı dizi taşıdığı sürece
-  // birine hesap eklenip diğerine eklenmemesi an meselesiydi.
-  const socials = [
-    ...aktifSosyal().map((h) => ({ icon: SOSYAL_IKON[h.ad], name: h.ad, href: h.href })),
-    { icon: Mail, name: c.info.emailLabel, href: `mailto:${c.info.email}` },
-  ];
+
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -273,24 +252,12 @@ export default function Contact() {
                 <span className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink-3">
                   {c.info.socialLabel}
                 </span>
-                <div className="flex flex-wrap gap-2.5">
-                  {socials.map((s) => {
-                    const Icon = s.icon;
-                    return (
-                      <a
-                        key={s.name}
-                        href={s.href}
-                        aria-label={s.name}
-                        {...(s.href.startsWith("http")
-                          ? { target: "_blank", rel: "noopener noreferrer" }
-                          : {})}
-                        className="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-ink-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-br hover:from-green hover:via-cyan hover:to-blue hover:text-white hover:shadow-[var(--shadow-glow)]"
-                      >
-                        <Icon className="h-[18px] w-[18px]" strokeWidth={1.8} />
-                      </a>
-                    );
-                  })}
-                </div>
+                <SosyalIkonlar
+                  eposta={c.info.email}
+                  epostaEtiketi={c.info.emailLabel}
+                  className="flex flex-wrap gap-2.5"
+                  ikonClassName="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-ink-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-br hover:from-green hover:via-cyan hover:to-blue hover:text-white hover:shadow-[var(--shadow-glow)]"
+                />
               </div>
             </div>
           </Reveal>

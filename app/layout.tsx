@@ -9,6 +9,7 @@ import Grain from "@/components/fx/Grain";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import { SITE_URL } from "@/lib/site";
+import { sameAs } from "@/lib/marka";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext"],
@@ -108,6 +109,10 @@ const jsonLd = {
       "@id": `${SITE_URL}/#organization`,
       name: "Forpus Yazılım",
       url: SITE_URL,
+      // Ekrandaki ikonlarla AYNI listeden. `sameAs` "bu site ile bu hesaplar
+      // aynı varlığa ait" demek: Google'ın marka bilgi panelini birleştirmesi
+      // buradan geçiyor. Ayrı yazılsaydı biri güncellenip diğeri unutulurdu.
+      sameAs,
       logo: `${SITE_URL}/brand/forpus-logo.png`,
       image: `${SITE_URL}/og.png`,
       email: "forpusyazilim@gmail.com",

@@ -1,19 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUp, Facebook, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import { useLang } from "@/components/providers/LanguageProvider";
 import { solutionIndex, slugOfRef } from "@/lib/solution-index";
-import { aktifSosyal, type SosyalHesap } from "@/lib/site";
-
-/** Hesap adı → ikon. Liste `lib/site.ts`te; ikon eşlemesi görünüm kararı. */
-const SOSYAL_IKON: Record<SosyalHesap["ad"], typeof Instagram> = {
-  Instagram,
-  Facebook,
-  LinkedIn: Linkedin,
-  WhatsApp: MessageCircle,
-};
+import { SosyalIkonlar } from "@/components/ui/SosyalIkonlar";
 
 export default function Footer() {
   const { t, lang } = useLang();
@@ -28,13 +20,6 @@ export default function Footer() {
     { href: "/kullanim-sartlari", label: t.footer.kullanimSartlari },
   ];
 
-  // Adresi tanımlı olmayan hesap hiç çizilmiyor: ikonu gösterip "#"e
-  // bağlamak, ziyaretçiye var olmayan bir hesap vaat etmek demekti.
-  const socials = [
-    ...aktifSosyal().map((h) => ({ icon: SOSYAL_IKON[h.ad], href: h.href, label: h.ad })),
-    { icon: Mail, href: `mailto:${t.contact.info.email}`, label: "E-posta" },
-  ];
-
   return (
     <footer className="relative overflow-hidden border-t border-line bg-bg-2/60">
       <div className="container-x relative z-10 pt-20 pb-10">
@@ -47,21 +32,12 @@ export default function Footer() {
             <p className="mt-5 max-w-xs text-[0.97rem] leading-relaxed text-ink-2">
               {t.footer.tagline}
             </p>
-            <div className="mt-6 flex gap-2.5">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  {...(s.href.startsWith("http")
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white/70 text-ink-2 transition-all hover:-translate-y-0.5 hover:border-cyan hover:text-cyan-deep"
-                >
-                  <s.icon className="h-[18px] w-[18px]" />
-                </a>
-              ))}
-            </div>
+            <SosyalIkonlar
+              eposta={t.contact.info.email}
+              epostaEtiketi={t.contact.info.emailLabel}
+              className="mt-6 flex gap-2.5"
+              ikonClassName="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white/70 text-ink-2 transition-all hover:-translate-y-0.5 hover:border-cyan hover:text-cyan-deep"
+            />
           </div>
 
           {/* Solutions — SEO landing pages */}
