@@ -8,6 +8,7 @@ import {
   Mail,
   MessageCircle,
   MapPin,
+  Facebook,
   Instagram,
   Linkedin,
   ArrowUpRight,
@@ -27,6 +28,16 @@ type InfoRow = {
   label: string;
   value: string;
   href?: string;
+};
+
+import { aktifSosyal, type SosyalHesap } from "@/lib/site";
+
+/** Hesap adı → ikon. Liste `lib/site.ts`te; ikon eşlemesi görünüm kararı. */
+const SOSYAL_IKON: Record<SosyalHesap["ad"], typeof Instagram> = {
+  Instagram,
+  Facebook,
+  LinkedIn: Linkedin,
+  WhatsApp: MessageCircle,
 };
 
 type SocialLink = {
@@ -125,11 +136,11 @@ export default function Contact() {
     },
   ];
 
-  const socials: SocialLink[] = [
-    { icon: Instagram, name: "Instagram" },
-    { icon: Linkedin, name: "LinkedIn" },
-    { icon: MessageCircle, name: "WhatsApp" },
-    { icon: Mail, name: c.info.emailLabel },
+  // Footer ile AYNI listeden. İki ekran iki ayrı dizi taşıdığı sürece
+  // birine hesap eklenip diğerine eklenmemesi an meselesiydi.
+  const socials = [
+    ...aktifSosyal().map((h) => ({ icon: SOSYAL_IKON[h.ad], name: h.ad, href: h.href })),
+    { icon: Mail, name: c.info.emailLabel, href: `mailto:${c.info.email}` },
   ];
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -268,8 +279,11 @@ export default function Contact() {
                     return (
                       <a
                         key={s.name}
-                        href="#"
+                        href={s.href}
                         aria-label={s.name}
+                        {...(s.href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
                         className="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-ink-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-br hover:from-green hover:via-cyan hover:to-blue hover:text-white hover:shadow-[var(--shadow-glow)]"
                       >
                         <Icon className="h-[18px] w-[18px]" strokeWidth={1.8} />

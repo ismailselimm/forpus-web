@@ -1,10 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUp, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { ArrowUp, Facebook, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import { useLang } from "@/components/providers/LanguageProvider";
 import { solutionIndex, slugOfRef } from "@/lib/solution-index";
+import { aktifSosyal, type SosyalHesap } from "@/lib/site";
+
+/** Hesap adı → ikon. Liste `lib/site.ts`te; ikon eşlemesi görünüm kararı. */
+const SOSYAL_IKON: Record<SosyalHesap["ad"], typeof Instagram> = {
+  Instagram,
+  Facebook,
+  LinkedIn: Linkedin,
+  WhatsApp: MessageCircle,
+};
 
 export default function Footer() {
   const { t, lang } = useLang();
@@ -19,11 +28,11 @@ export default function Footer() {
     { href: "/kullanim-sartlari", label: t.footer.kullanimSartlari },
   ];
 
+  // Adresi tanımlı olmayan hesap hiç çizilmiyor: ikonu gösterip "#"e
+  // bağlamak, ziyaretçiye var olmayan bir hesap vaat etmek demekti.
   const socials = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: MessageCircle, href: "#", label: "WhatsApp" },
-    { icon: Mail, href: `mailto:${t.contact.info.email}`, label: "Email" },
+    ...aktifSosyal().map((h) => ({ icon: SOSYAL_IKON[h.ad], href: h.href, label: h.ad })),
+    { icon: Mail, href: `mailto:${t.contact.info.email}`, label: "E-posta" },
   ];
 
   return (
@@ -44,6 +53,9 @@ export default function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
+                  {...(s.href.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white/70 text-ink-2 transition-all hover:-translate-y-0.5 hover:border-cyan hover:text-cyan-deep"
                 >
                   <s.icon className="h-[18px] w-[18px]" />
