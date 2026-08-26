@@ -1,4 +1,5 @@
 import { postsByDate } from "@/lib/blog";
+import { dictionary } from "@/lib/i18n/dictionary";
 import { cases } from "@/lib/cases";
 import { EPOSTA } from "@/lib/marka";
 import { SITE_URL as SITE } from "@/lib/site";
@@ -27,14 +28,21 @@ export function GET() {
 Forpus Yazılım, iki mühendis kurucu (biri mobil uygulama & sistem, diğeri web & arayüz odaklı) ve birlikte çalıştığı tasarımcı, reklam ve içerik ekibinden oluşur. Türkiye merkezlidir ve uzaktan çalışır. Markaları uçtan uca dijitale taşır: keşif/strateji, tasarım, geliştirme, lansman ve büyüme.
 
 ## Hizmetler (Services)
-- Web Yazılım & Geliştirme: kurumsal web siteleri, web uygulamaları, e-ticaret, SEO & performans.
-- Mobil Uygulama: iOS & Android, Flutter, App Store & Google Play yayını, bildirim & analitik.
-- Reklam & Performans: Meta Ads, Google Ads, dönüşüm takibi, A/B test.
-- Sosyal Medya & Tasarım: sosyal medya yönetimi, marka kimliği, UI/UX ve grafik tasarım.
+${dictionary.tr.services.items
+  .map(
+    (h, i) =>
+      `- ${h.name} / ${dictionary.en.services.items[i].name}: ${h.features.join(", ")}.`,
+  )
+  .join("\n")}
 
 ## Kimler için (Who we build for)
 Forpus sektöre özel çözümler kurar. Her satırda niş ve o niş için açılmış sayfa var.
-${solutions.map((c) => `- ${c.tr.h1}: ${SITE}/cozumler/${c.slug.tr}`).join("\n")}
+${solutions
+  .map(
+    (c) =>
+      `- ${c.tr.h1}: ${SITE}/cozumler/${c.slug.tr}\n  ${c.en.h1}: ${SITE}/en/solutions/${c.slug.en}`,
+  )
+  .join("\n")}
 
 ## Seçili İşler (Selected work)
 ${cases.map((v) => `- ${v.h1}: ${SITE}/isler/${v.slug}`).join("\n")}
@@ -45,7 +53,7 @@ ${postsByDate.map((y) => `- ${y.title} (${y.published}): ${SITE}/blog/${y.slug}`
 ## İletişim (Contact)
 - E-posta: ${EPOSTA}
 - Konum: Türkiye (uzaktan çalışır)
-- Web: ${SITE}
+- Web: ${SITE} (TR) · ${SITE}/en (EN)
 
 ## Notlar (Notes)
 - Diller: Türkçe (varsayılan) ve İngilizce.
