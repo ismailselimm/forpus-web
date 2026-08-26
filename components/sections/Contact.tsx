@@ -27,8 +27,6 @@ type InfoRow = {
   href?: string;
 };
 
-
-
 const FIELD_CLASS =
   "w-full rounded-xl border border-line bg-white px-4 py-3 text-ink placeholder:text-ink-3 transition-shadow focus:outline-none focus:ring-2 focus:ring-cyan/40";
 
@@ -119,8 +117,6 @@ export default function Contact() {
       value: c.info.location,
     },
   ];
-
-
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

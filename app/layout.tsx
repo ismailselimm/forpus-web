@@ -9,7 +9,7 @@ import Grain from "@/components/fx/Grain";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import { SITE_URL } from "@/lib/site";
-import { sameAs } from "@/lib/marka";
+import { EPOSTA, sameAs } from "@/lib/marka";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext"],
@@ -105,40 +105,25 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      // TEK VARLIK, İKİ TÜR. Ayrı bir `#service` düğümü vardı ve `name`,
+      // `url`, `image`, `email`, `areaServed` alanlarını buradan harfi
+      // harfine kopyalıyordu — üstelik `parentOrganization` ile kendini
+      // kendi ebeveyni ilan ediyordu. `sameAs` yalnız birine eklenince de
+      // aynı şirket, biri profilli biri profilsiz, iki varlık gibi
+      // görünüyordu. Birleştirildi.
+      "@type": ["Organization", "ProfessionalService"],
       "@id": `${SITE_URL}/#organization`,
       name: "Forpus Yazılım",
       url: SITE_URL,
-      // Ekrandaki ikonlarla AYNI listeden. `sameAs` "bu site ile bu hesaplar
-      // aynı varlığa ait" demek: Google'ın marka bilgi panelini birleştirmesi
-      // buradan geçiyor. Ayrı yazılsaydı biri güncellenip diğeri unutulurdu.
       sameAs,
       logo: `${SITE_URL}/brand/forpus-logo.png`,
       image: `${SITE_URL}/og.png`,
-      email: "forpusyazilim@gmail.com",
+      email: EPOSTA,
       description:
         "Web, mobil uygulama, reklam ve tasarım sunan dijital ürün stüdyosu.",
       areaServed: "TR",
       knowsLanguage: ["tr", "en"],
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      url: SITE_URL,
-      name: "Forpus Yazılım",
-      inLanguage: "tr",
-      publisher: { "@id": `${SITE_URL}/#organization` },
-    },
-    {
-      "@type": "ProfessionalService",
-      "@id": `${SITE_URL}/#service`,
-      name: "Forpus Yazılım",
-      url: SITE_URL,
-      image: `${SITE_URL}/og.png`,
-      email: "forpusyazilim@gmail.com",
-      areaServed: "TR",
       priceRange: "₺₺",
-      parentOrganization: { "@id": `${SITE_URL}/#organization` },
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Hizmetler",
@@ -149,6 +134,14 @@ const jsonLd = {
           { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sosyal Medya & Tasarım" } },
         ],
       },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "Forpus Yazılım",
+      inLanguage: "tr",
+      publisher: { "@id": `${SITE_URL}/#organization` },
     },
   ],
 };

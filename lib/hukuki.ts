@@ -1,3 +1,6 @@
+// Marka kimliğinden. Md.11 başvuru adresi burada ayrı yazılıydı;
+// adres değişirse sessizce ayrışacak kopya tam da buydu.
+import { EPOSTA } from "@/lib/marka";
 // Hukuki sayfalar: gizlilik, KVKK aydınlatma, kullanım şartları.
 //
 // Neden var: site iletişim formuyla ad, e-posta, şirket ve mesaj topluyor;
@@ -54,7 +57,6 @@ export type HukukiSayfa = {
   bolumler: HukukiBolum[];
 };
 
-const EPOSTA = "forpusyazilim@gmail.com";
 
 /**
  * Veri sorumlusunun kimliği.

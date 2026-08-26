@@ -1,3 +1,5 @@
+import { EPOSTA } from "@/lib/marka";
+
 // Forpus — bilingual content dictionary (TR default, EN secondary).
 // `en` is typed as `typeof tr` so both languages always stay in parity.
 
@@ -355,7 +357,7 @@ const tr = {
     },
     info: {
       emailLabel: "E-posta",
-      email: "forpusyazilim@gmail.com",
+      email: EPOSTA,
       phoneLabel: "Telefon / WhatsApp",
       phone: "+90 5xx xxx xx xx",
       socialLabel: "Sosyal Medya",
@@ -731,7 +733,7 @@ const en: typeof tr = {
     },
     info: {
       emailLabel: "Email",
-      email: "forpusyazilim@gmail.com",
+      email: EPOSTA,
       phoneLabel: "Phone / WhatsApp",
       phone: "+90 5xx xxx xx xx",
       socialLabel: "Social Media",

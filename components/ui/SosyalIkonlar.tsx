@@ -12,7 +12,7 @@ import { SOSYAL_PROFILLER, type SosyalProfil } from "@/lib/marka";
  * aynı çapa. Beşinci bir hesap eklemek üç dosyaya dokunmayı gerektiriyordu,
  * yani düzeltilen sorun kaldırılmamış, bir kat yukarı taşınmıştı.
  *
- * İki ekranın gerçek farkı yalnız boyut ve hover; ikisi de prop.
+ * İki ekranın gerçek farkı yalnız çapa görünümü; o da prop.
  */
 
 const IKON: Record<SosyalProfil["ad"], LucideIcon> = {
@@ -26,7 +26,6 @@ export function SosyalIkonlar({
   epostaEtiketi,
   className,
   ikonClassName,
-  ikonBoyutu = 18,
 }: {
   eposta: string;
   /** Diller arası değişiyor; sabitlenirse /en'de Türkçe okunur. */
@@ -35,11 +34,6 @@ export function SosyalIkonlar({
   className?: string;
   /** Yuvarlak çapa görünümü — iki ekranın gerçek farkı bu. */
   ikonClassName: string;
-  /**
-   * Tailwind dinamik sınıf üretmediği için (`h-[${n}px]` derlemede yok
-   * sayılır) boyut inline style ile veriliyor.
-   */
-  ikonBoyutu?: number;
 }) {
   return (
     <div className={className}>
@@ -55,14 +49,14 @@ export function SosyalIkonlar({
             rel="noopener noreferrer"
             className={ikonClassName}
           >
-            <Ikon style={{ width: ikonBoyutu, height: ikonBoyutu }} aria-hidden />
+            <Ikon className="h-[18px] w-[18px]" aria-hidden />
           </a>
         );
       })}
       {/* E-posta listenin parçası değil: bir profil değil, bir kanal — ve
           `mailto:` olduğu için yeni sekmede açılmamalı. */}
       <a href={`mailto:${eposta}`} aria-label={epostaEtiketi} className={ikonClassName}>
-        <Mail style={{ width: ikonBoyutu, height: ikonBoyutu }} aria-hidden />
+        <Mail className="h-[18px] w-[18px]" aria-hidden />
       </a>
     </div>
   );

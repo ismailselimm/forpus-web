@@ -16,10 +16,21 @@
  * giriyorlar. WhatsApp bu listede DEĞİL ve olmamalı — o bir kanal, bir kimlik
  * değil; `sameAs`a bir `wa.me` bağlantısı koymak yapısal veriyi kirletir.
  *
- * WhatsApp geldiğinde buraya değil, aşağıdaki `whatsappBaglantisi`ye
- * yazılacak: adresi sayfadan sayfaya değişiyor (ön doldurulmuş `?text=`),
- * yani sabit bir dize değil bir fonksiyon olmak zorunda.
+ * WhatsApp geldiğinde buraya YAZILMAYACAK: adresi sayfadan sayfaya değişiyor
+ * (ön doldurulmuş `?text=`), yani sabit bir dize değil bir fonksiyon olmak
+ * zorunda. Geldiğinde kendi yardımcısıyla bu dosyaya eklenecek.
  */
+/**
+ * İletişim adresi. Çevrilebilir bir içerik DEĞİL: sözlükte `emailLabel`
+ * ("E-posta" / "Email") çevriliyor ama adresin kendisi iki dilde de aynı.
+ * Yine de altı yerde ayrı ayrı yazılıydı — ikisi sözlüğün iki dilinde,
+ * ikisi JSON-LD'de, biri KVKK modülünde, biri llms.txt'te. Adresi
+ * değiştirmek altı dosyaya dokunmak demekti ve derleyici yardım etmiyordu;
+ * sessizce ayrışacak olan da KVKK md.11 başvuru adresiydi, yani yasal
+ * yükümlülük taşıyan kopya.
+ */
+export const EPOSTA = "forpusyazilim@gmail.com";
+
 export type SosyalProfil = {
   ad: "Instagram" | "Facebook" | "LinkedIn";
   href: string;
