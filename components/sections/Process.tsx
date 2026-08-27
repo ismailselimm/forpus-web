@@ -71,38 +71,41 @@ export default function Process() {
 
           <ol className="grid gap-12 md:grid-cols-4 md:gap-6">
             {t.process.steps.map((step, i) => (
-              <Reveal key={step.no} delay={i * 0.1}>
-                <li className="group relative flex gap-6 pl-2 md:block md:pl-0">
-                  {/* Node */}
-                  <div className="relative z-10 shrink-0">
-                    <span className="relative flex h-9 w-9 items-center justify-center">
-                      <span
-                        className="absolute inset-0 rounded-full opacity-50 blur-md transition-opacity duration-500 group-hover:opacity-90"
-                        style={{ background: "var(--grad-brand)" }}
-                        aria-hidden="true"
-                      />
-                      <span
-                        className="relative flex h-9 w-9 items-center justify-center rounded-full text-white shadow-[var(--shadow-glow)] ring-4 ring-bg-2/80 transition-transform duration-500 group-hover:scale-110"
-                        style={{ background: "var(--grad-brand)" }}
-                      >
-                        <span className="h-2 w-2 rounded-full bg-white/90" />
-                      </span>
+              <Reveal
+                key={step.no}
+                delay={i * 0.1}
+                as="li"
+                className="group relative flex gap-6 pl-2 md:block md:pl-0"
+              >
+                {/* Node */}
+                <div className="relative z-10 shrink-0">
+                  <span className="relative flex h-9 w-9 items-center justify-center">
+                    <span
+                      className="absolute inset-0 rounded-full opacity-50 blur-md transition-opacity duration-500 group-hover:opacity-90"
+                      style={{ background: "var(--grad-brand)" }}
+                      aria-hidden="true"
+                    />
+                    <span
+                      className="relative flex h-9 w-9 items-center justify-center rounded-full text-white shadow-[var(--shadow-glow)] ring-4 ring-bg-2/80 transition-transform duration-500 group-hover:scale-110"
+                      style={{ background: "var(--grad-brand)" }}
+                    >
+                      <span className="h-2 w-2 rounded-full bg-white/90" />
                     </span>
-                  </div>
+                  </span>
+                </div>
 
-                  {/* Body */}
-                  <div className="md:mt-7">
-                    <span className="block font-[family-name:var(--font-display)] text-5xl font-black leading-none tracking-tight text-gradient md:text-6xl">
-                      {step.no}
-                    </span>
-                    <h3 className="mt-4 text-[1.2rem] font-bold tracking-tight text-ink">
-                      {step.name}
-                    </h3>
-                    <p className="mt-2.5 text-[0.96rem] leading-relaxed text-ink-2 md:max-w-[15rem]">
-                      {step.desc}
-                    </p>
-                  </div>
-                </li>
+                {/* Body */}
+                <div className="md:mt-7">
+                  <span className="block font-[family-name:var(--font-display)] text-5xl font-black leading-none tracking-tight text-gradient md:text-6xl">
+                    {step.no}
+                  </span>
+                  <h3 className="mt-4 text-[1.2rem] font-bold tracking-tight text-ink">
+                    {step.name}
+                  </h3>
+                  <p className="mt-2.5 text-[0.96rem] leading-relaxed text-ink-2 md:max-w-[15rem]">
+                    {step.desc}
+                  </p>
+                </div>
               </Reveal>
             ))}
           </ol>

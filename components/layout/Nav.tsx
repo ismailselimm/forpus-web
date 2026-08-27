@@ -36,17 +36,36 @@ export default function Nav() {
   // Rozetler ve kabuk sınıfı, link ve buton dallarında birebir aynıydı.
   const langSwitchCls =
     "flex h-9 items-center gap-1 rounded-full border border-line bg-white/60 px-1 text-xs font-semibold";
-  const langBadges = (["tr", "en"] as const).map((l) => (
-    <span
-      key={l}
-      className={clsx(
-        "rounded-full px-2 py-1 transition-all",
-        lang === l ? "bg-ink text-white" : "text-ink-3",
-      )}
-    >
-      {l.toUpperCase()}
+  /**
+   * "TR | EN" rozetleri — GÖRÜNÜR DURUM GÖSTERGESİ, okunacak metin değil.
+   *
+   * `aria-hidden`: düğmenin erişilebilir adı "English" iken ekranda "TREN"
+   * yazıyordu. Lighthouse bunu `label-content-name-mismatch` diye işaretledi
+   * ve haklıydı — kural WCAG 2.5.3'ten geliyor, asıl mağduru da SESLE
+   * KOMUT VEREN kullanıcı: ekranda gördüğünü söylüyor ("TR EN'e bas"),
+   * tarayıcı o adda bir denetim bulamıyor.
+   *
+   * Hangisinin etkin olduğu bilgisi kaybolmuyor: sayfanın dili zaten
+   * `<html lang>` üzerinden yardımcı teknolojiye bildiriliyor. Rozetler o
+   * bilginin yalnızca görsel kopyası; adı taşıyan `aria-label` kalıyor ve
+   * hedef dilin kendi dilinde yazılı ("English" / "Türkçe"), çünkü onu
+   * arayan kişi o dili arıyor.
+   */
+  const langBadges = (
+    <span aria-hidden="true" className="contents">
+      {(["tr", "en"] as const).map((l) => (
+        <span
+          key={l}
+          className={clsx(
+            "rounded-full px-2 py-1 transition-all",
+            lang === l ? "bg-ink text-white" : "text-ink-3",
+          )}
+        >
+          {l.toUpperCase()}
+        </span>
+      ))}
     </span>
-  ));
+  );
   // "#services" gibi bölüm bağlantıları ana sayfa dışındayken "/#services" olmalı.
   // "/blog", "/isler" gibi gerçek yollar olduğu gibi kalır.
   const to = (href: string) =>

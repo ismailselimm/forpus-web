@@ -14,6 +14,26 @@ import { SosyalIkonlar } from "@/components/ui/SosyalIkonlar";
 const BAG =
   "inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink";
 
+/**
+ * Footer sütun başlıkları.
+ *
+ * `h2` — GÖRÜNÜŞÜNE RAĞMEN. Küçük, tek boşluklu, büyük harfli göründükleri
+ * için `h4` yazılmıştı; ama başlık düzeyi bir yazı tipi boyu değil, belgedeki
+ * derinlik. Lighthouse ölçtü: sayfanın son başlığı `h2` ya da `h3` iken
+ * footer birden `h4`e atlıyordu, yani araya hiç var olmayan bir düzey
+ * giriyordu (`heading-order`, 0 puan).
+ *
+ * Bunu okuyan yalnızca ekran okuyucu değil: bir sayfanın başlık ağacı,
+ * hangi metnin hangi bölüme ait olduğunu makineye anlatan asıl iskelet.
+ * Kırık bir iskelette footer'daki bağlantı listeleri, üstlerindeki içerik
+ * bölümünün ALT BAŞLIĞI gibi görünüyordu.
+ *
+ * `h2` her yerde güvenli: atlama yalnızca aşağı inerken sayılır, `h1`den de
+ * `h3`ten de sonra gelen bir `h2` düzey atlamaz. Boyut zaten sınıflarda.
+ */
+const SUTUN_BASLIK =
+  "mb-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-3";
+
 export default function Footer() {
   const { t, lang } = useLang();
   const solBase = lang === "tr" ? "/cozumler" : "/en/solutions";
@@ -48,9 +68,7 @@ export default function Footer() {
 
           {/* Solutions — SEO landing pages */}
           <div>
-            <h4 className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-3">
-              {t.footer.solutions}
-            </h4>
+            <h2 className={SUTUN_BASLIK}>{t.footer.solutions}</h2>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
               {ONE_CIKAN_SEKTORLER.map((s) => (
                 <li key={s.key}>
@@ -65,7 +83,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/#personas"
-                  className="inline-block origin-left font-medium text-ink-3 transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                  className={`${BAG} font-medium text-ink-3`}
                 >
                   {t.personas.sectors.title} →
                 </a>
@@ -75,9 +93,7 @@ export default function Footer() {
 
           {/* Menu */}
           <div>
-            <h4 className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-3">
-              {t.footer.nav}
-            </h4>
+            <h2 className={SUTUN_BASLIK}>{t.footer.nav}</h2>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
               <li>
                 <a href="/#services" className={BAG}>
@@ -109,9 +125,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-3">
-              {t.footer.services}
-            </h4>
+            <h2 className={SUTUN_BASLIK}>{t.footer.services}</h2>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
               {t.services.items.map((s) => (
                 <li key={s.key}>
@@ -125,9 +139,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="mb-4 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-3">
-              {t.footer.contact}
-            </h4>
+            <h2 className={SUTUN_BASLIK}>{t.footer.contact}</h2>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
               <li>
                 <a href={`mailto:${t.contact.info.email}`} className={BAG}>

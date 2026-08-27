@@ -215,18 +215,21 @@ export default function SolutionArticle({
             </Reveal>
             <ul className="mt-12 grid gap-4 sm:grid-cols-2">
               {c.features.map((f, i) => (
-                <Reveal key={f} delay={i * 0.05}>
-                  <li className="flex items-start gap-3 soft-card p-4">
-                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green/10">
-                      <Check
-                        className="h-3.5 w-3.5 text-green-deep"
-                        strokeWidth={3}
-                      />
-                    </span>
-                    <span className="text-[0.95rem] font-medium text-ink">
-                      {f}
-                    </span>
-                  </li>
+                <Reveal
+                  key={f}
+                  delay={i * 0.05}
+                  as="li"
+                  className="flex items-start gap-3 soft-card p-4"
+                >
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green/10">
+                    <Check
+                      className="h-3.5 w-3.5 text-green-deep"
+                      strokeWidth={3}
+                    />
+                  </span>
+                  <span className="text-[0.95rem] font-medium text-ink">
+                    {f}
+                  </span>
                 </Reveal>
               ))}
             </ul>
@@ -345,20 +348,23 @@ export default function SolutionArticle({
               {/* Numaralandırma burada bilgi taşıyor: adımlar gerçekten sıralı. */}
               <ol className="mt-12 flex flex-col gap-3">
                 {c.process.steps.map((s, i) => (
-                  <Reveal key={s.name} delay={i * 0.06}>
-                    <li className="flex gap-5 soft-card p-5 sm:p-6">
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-green via-cyan to-blue font-[family-name:var(--font-mono)] text-[0.85rem] font-bold text-white shadow-[var(--shadow-glow)]">
-                        {i + 1}
-                      </span>
-                      <div>
-                        <h3 className="font-[family-name:var(--font-display)] text-[1.05rem] font-bold tracking-tight text-ink">
-                          {s.name}
-                        </h3>
-                        <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-2">
-                          {s.body}
-                        </p>
-                      </div>
-                    </li>
+                  <Reveal
+                    key={s.name}
+                    delay={i * 0.06}
+                    as="li"
+                    className="flex gap-5 soft-card p-5 sm:p-6"
+                  >
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-green via-cyan to-blue font-[family-name:var(--font-mono)] text-[0.85rem] font-bold text-white shadow-[var(--shadow-glow)]">
+                      {i + 1}
+                    </span>
+                    <div>
+                      <h3 className="font-[family-name:var(--font-display)] text-[1.05rem] font-bold tracking-tight text-ink">
+                        {s.name}
+                      </h3>
+                      <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-2">
+                        {s.body}
+                      </p>
+                    </div>
                   </Reveal>
                 ))}
               </ol>
