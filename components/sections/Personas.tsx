@@ -22,7 +22,7 @@ import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
 import { presetService, type ServiceKey } from "@/lib/services";
-import { solutionIndex, slugOfRef } from "@/lib/solution-index";
+import { refByKey, slugOfRef, solutionIndex } from "@/lib/solution-index";
 
 const ICONS: Record<string, LucideIcon> = {
   doktor: Stethoscope,
@@ -37,19 +37,14 @@ const ICONS: Record<string, LucideIcon> = {
   emlak: Building2,
 };
 
-// Persona → service mapping (language-independent config, keyed by persona key like ICONS).
-const SERVICE_FOR: Record<string, ServiceKey> = {
-  doktor: "web",
-  diyetisyen: "mobile",
-  psikolog: "web",
-  eticaret: "web",
-  girisimci: "all",
-  tekne: "web",
-  restoran: "web",
-  kisiselmarka: "social",
-  avukat: "web",
-  emlak: "web",
-};
+// Çözüm sayfası OLMAYAN persona'lar için hizmet ön seçimi.
+//
+// Eskiden on persona'nın hepsi buradaydı; kartlar çözüm sayfasına bağlanınca
+// sekizi ulaşılmaz hâle geldi — `presetService` dalına yalnız sayfası olmayan
+// persona'lar düşüyor. Ölü satırları bırakmak, bir persona'ya sayfa açıldığı
+// gün burada bir şey yapılması gerektiği izlenimi verirdi. ("girisimci" de
+// yoktu: değeri zaten `?? "all"` fallback'iyle aynıydı.)
+const SERVICE_FOR: Record<string, ServiceKey> = { tekne: "web" };
 
 type Persona = {
   key: string;
@@ -75,7 +70,6 @@ function PersonaCard({
   cozumHref?: string;
   inceleMetni: string;
 }) {
-  const ctaSinifi = CTA_SINIFI;
   const Icon = ICONS[persona.key] ?? Sparkles;
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-[var(--r-lg)] p-5 text-white shadow-[var(--shadow-card)] transition-transform duration-500 hover:-translate-y-1.5 motion-reduce:transform-none motion-reduce:transition-none sm:p-6">
@@ -139,7 +133,7 @@ function PersonaCard({
               Çözüm sayfası yoksa (her persona'nın sayfası yok) eski davranış
               kalıyor: forma kaydır ve hizmeti seç. */}
           {cozumHref ? (
-            <Link href={cozumHref} className={ctaSinifi}>
+            <Link href={cozumHref} className={CTA_SINIFI}>
               {inceleMetni}
               <ArrowUpRight className="h-4 w-4" />
             </Link>
@@ -147,7 +141,7 @@ function PersonaCard({
             <a
               href="#contact"
               onClick={() => presetService(SERVICE_FOR[persona.key] ?? "all")}
-              className={ctaSinifi}
+              className={CTA_SINIFI}
             >
               {persona.cta}
               <ArrowUpRight className="h-4 w-4" />
@@ -167,7 +161,7 @@ export default function Personas() {
   /** Persona'nın çözüm sayfası. Her persona'nın sayfası YOK (ör. girişimci,
       tekne) — o zaman undefined dönüyor ve kart eski davranışta kalıyor. */
   const cozumHrefi = (anahtar: string) => {
-    const ref = solutionIndex.find((r) => r.key === anahtar);
+    const ref = refByKey(anahtar);
     return ref ? `${solBase}/${slugOfRef(ref, lang)}` : undefined;
   };
 

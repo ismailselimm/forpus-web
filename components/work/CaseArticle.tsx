@@ -12,7 +12,13 @@ import { shotAt, type WebProject } from "@/lib/projects";
 import { SITE_URL as SITE } from "@/lib/site";
 
 /** Sunucuda üretilen vaka sayfası gövdesi. */
-export default function CaseArticle({ study, project }: { study: CaseStudy; project: WebProject }) {
+export default function CaseArticle({
+  study,
+  project,
+}: {
+  study: CaseStudy;
+  project: WebProject;
+}) {
   const url = `${SITE}/isler/${study.slug}`;
   const crumbs = [
     { label: caseUi.home, href: "/" },
@@ -41,7 +47,10 @@ export default function CaseArticle({ study, project }: { study: CaseStudy; proj
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       {/* ── Başlık ───────────────────────────────────────── */}
       <section className="section relative overflow-hidden bg-bg-2/50 pt-32 !pb-16 sm:pt-40">
@@ -108,12 +117,19 @@ export default function CaseArticle({ study, project }: { study: CaseStudy; proj
         <div className="container-x relative z-10">
           <div className="mx-auto max-w-3xl">
             <Reveal>
-              <h2 className="h-section text-balance">{caseUi.challengeTitle}</h2>
+              <h2 className="h-section text-balance">
+                {caseUi.challengeTitle}
+              </h2>
             </Reveal>
             <Reveal>
               <div className="mt-8 flex flex-col gap-5">
                 {study.challenge.map((p, i) => (
-                  <p key={i} className="text-[1.03rem] leading-relaxed text-ink-2">{p}</p>
+                  <p
+                    key={i}
+                    className="text-[1.03rem] leading-relaxed text-ink-2"
+                  >
+                    {p}
+                  </p>
                 ))}
               </div>
             </Reveal>
@@ -139,7 +155,9 @@ export default function CaseArticle({ study, project }: { study: CaseStudy; proj
                       <h3 className="font-[family-name:var(--font-display)] text-[1.05rem] font-bold tracking-tight text-ink">
                         {b.title}
                       </h3>
-                      <p className="mt-2 text-[0.96rem] leading-relaxed text-ink-2">{b.body}</p>
+                      <p className="mt-2 text-[0.96rem] leading-relaxed text-ink-2">
+                        {b.body}
+                      </p>
                     </div>
                   </div>
                 </Reveal>
@@ -153,7 +171,9 @@ export default function CaseArticle({ study, project }: { study: CaseStudy; proj
                   <h3 className="mt-4 font-[family-name:var(--font-display)] text-[1.25rem] font-bold tracking-tight text-ink text-balance">
                     {study.highlight.title}
                   </h3>
-                  <p className="mt-3 text-[1rem] leading-relaxed text-ink-2">{study.highlight.body}</p>
+                  <p className="mt-3 text-[1rem] leading-relaxed text-ink-2">
+                    {study.highlight.body}
+                  </p>
                 </aside>
               </Reveal>
             )}
@@ -161,17 +181,27 @@ export default function CaseArticle({ study, project }: { study: CaseStudy; proj
             {study.takeaway && (
               <Reveal>
                 <div className="mt-14">
-                  <h2 className="h-section text-balance">{study.takeaway.title}</h2>
+                  <h2 className="h-section text-balance">
+                    {study.takeaway.title}
+                  </h2>
                   <div className="mt-7 flex flex-col gap-5">
                     {study.takeaway.body.map((p, i) => (
-                      <p key={i} className="text-[1.03rem] leading-relaxed text-ink-2">{p}</p>
+                      <p
+                        key={i}
+                        className="text-[1.03rem] leading-relaxed text-ink-2"
+                      >
+                        {p}
+                      </p>
                     ))}
                   </div>
                 </div>
               </Reveal>
             )}
 
-            <SolutionChips keys={study.relatedSolutions} title={caseUi.relatedTitle} />
+            <SolutionChips
+              keys={study.relatedSolutions}
+              title={caseUi.relatedTitle}
+            />
           </div>
         </div>
       </section>
@@ -180,38 +210,45 @@ export default function CaseArticle({ study, project }: { study: CaseStudy; proj
       <section className="section relative overflow-hidden bg-bg-2/50 !pt-0">
         <div className="container-x relative z-10">
           <Reveal>
-            <h2 className="h-section mb-10 text-center text-balance">{caseUi.otherTitle}</h2>
+            <h2 className="h-section mb-10 text-center text-balance">
+              {caseUi.otherTitle}
+            </h2>
           </Reveal>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {others.map(({ project: p, ...o }, i) => (
-                <Reveal key={o.slug} delay={i * 0.06} className="h-full">
-                  <Link
-                    href={`/isler/${o.slug}`}
-                    className="group flex h-full flex-col overflow-hidden rounded-[var(--r-lg)] border border-line bg-white/70 shadow-[var(--shadow-soft)] transition-transform duration-500 hover:-translate-y-1.5 motion-reduce:transform-none"
-                  >
-                    <Image
-                      src={shotAt(p.shot, 640)}
-                      alt={p.name}
-                      width={640}
-                      height={400}
-                      className="h-auto w-full"
-                    />
-                    <div className="flex flex-1 flex-col p-5">
-                      <h3 className="font-[family-name:var(--font-display)] text-[1rem] font-bold tracking-tight text-ink">
-                        {p.name}
-                      </h3>
-                      <p className="mt-1.5 font-[family-name:var(--font-mono)] text-[0.68rem] uppercase tracking-[0.12em] text-ink-3">
-                        {p.category.tr}
-                      </p>
-                    </div>
-                  </Link>
-                </Reveal>
+              <Reveal key={o.slug} delay={i * 0.06} className="h-full">
+                <Link
+                  href={`/isler/${o.slug}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-[var(--r-lg)] border border-line bg-white/70 shadow-[var(--shadow-soft)] transition-transform duration-500 hover:-translate-y-1.5 motion-reduce:transform-none"
+                >
+                  <Image
+                    src={shotAt(p.shot, 640)}
+                    alt={p.name}
+                    width={640}
+                    height={400}
+                    className="h-auto w-full"
+                  />
+                  <div className="flex flex-1 flex-col p-5">
+                    <h3 className="font-[family-name:var(--font-display)] text-[1rem] font-bold tracking-tight text-ink">
+                      {p.name}
+                    </h3>
+                    <p className="mt-1.5 font-[family-name:var(--font-mono)] text-[0.68rem] uppercase tracking-[0.12em] text-ink-3">
+                      {p.category.tr}
+                    </p>
+                  </div>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <CtaBand title={caseUi.ctaTitle} text={caseUi.ctaText} button={caseUi.ctaButton} className="!pt-0" />
+      <CtaBand
+        title={caseUi.ctaTitle}
+        text={caseUi.ctaText}
+        button={caseUi.ctaButton}
+        className="!pt-0"
+      />
     </>
   );
 }

@@ -3,6 +3,7 @@ import { solutions } from "@/lib/solutions";
 import { postsByDate } from "@/lib/blog";
 import { cases } from "@/lib/cases";
 import { hukukiSayfalar } from "@/lib/hukuki";
+import { CEVRILMIS_SAYFALAR } from "@/lib/routes";
 import { SITE_URL as SITE } from "@/lib/site";
 
 export const dynamic = "force-static"; // statik export (GitHub Pages) için
@@ -15,9 +16,6 @@ const TR_LASTMOD = new Date("2026-08-25");
 
 // EN sayfaları bu turda değişmedi; kendi tarihini koruyor.
 const EN_LASTMOD = new Date("2026-07-12");
-
-// İletişim sayfası bu tarihte yayına girdi.
-const ILETISIM_LASTMOD = new Date("2026-08-27");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const solutionPages: MetadataRoute.Sitemap = solutions.flatMap((s) => {
@@ -61,6 +59,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Hukuki sayfaların tarihi kendi içeriğinin yanında (lib/hukuki.ts) duruyor:
   // metni değiştiren kişi lastmod'u da aynı dosyada görüyor. Öncelik düşük —
   // bu sayfalar aramada yarışmıyor, yalnızca indekste bulunsunlar yeter.
+  // Çevrilmiş tekil sayfalar (bugün yalnız iletişim). Elle yazılmış iki giriş
+  // ve sayfaya özel bir LASTMOD sabiti vardı; dosyanın geri kalanı gibi artık
+  // koleksiyondan türüyor — ikinci bir çevrilmiş sayfa eklendiğinde burada
+  // hiçbir şey değişmiyor.
+  const cevrilmisPages: MetadataRoute.Sitemap = CEVRILMIS_SAYFALAR.flatMap(
+    (c) => {
+      const languages = { tr: `${SITE}${c.tr}`, en: `${SITE}${c.en}` };
+      const ortak = {
+        lastModified: new Date(c.yayin),
+        changeFrequency: "monthly" as const,
+        alternates: { languages },
+      };
+      return [
+        { url: languages.tr, ...ortak, priority: c.oncelik },
+        // EN sürümü bir tık altta: Türkiye odaklı bir işletmenin İngilizce
+        // sayfası, Türkçesinin önüne geçmemeli.
+        { url: languages.en, ...ortak, priority: c.oncelik - 0.2 },
+      ];
+    },
+  );
+
   const hukukiPages: MetadataRoute.Sitemap = hukukiSayfalar.map((h) => ({
     url: `${SITE}/${h.slug}`,
     lastModified: new Date(h.sonGuncelleme),
@@ -87,27 +106,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       alternates: { languages: { tr: SITE, en: `${SITE}/en` } },
     },
-    // İletişim sayfası: sitenin kimlik çıpası. Öncelik yüksek — marka
-    // sorgularında ("forpus", "forpus yazılım") ana sayfadan sonra çıkması
-    // gereken sayfa bu.
-    {
-      url: `${SITE}/iletisim`,
-      lastModified: ILETISIM_LASTMOD,
-      changeFrequency: "monthly",
-      priority: 0.9,
-      alternates: {
-        languages: { tr: `${SITE}/iletisim`, en: `${SITE}/en/contact` },
-      },
-    },
-    {
-      url: `${SITE}/en/contact`,
-      lastModified: ILETISIM_LASTMOD,
-      changeFrequency: "monthly",
-      priority: 0.7,
-      alternates: {
-        languages: { tr: `${SITE}/iletisim`, en: `${SITE}/en/contact` },
-      },
-    },
     {
       url: `${SITE}/isler`,
       lastModified: newest(cases.map((c) => c.updated ?? c.published)),
@@ -123,6 +121,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...blogPages,
     ...solutionPages,
+    ...cevrilmisPages,
     ...hukukiPages,
   ];
 }

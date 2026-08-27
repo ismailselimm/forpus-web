@@ -42,3 +42,24 @@ export function breadcrumbLd(items: Crumb[], site: string, currentUrl: string) {
     })),
   };
 }
+
+/**
+ * Soru-cevap listesinden FAQPage JSON-LD üretir.
+ *
+ * `breadcrumbLd`in kardeşi ve aynı gerekçeyle burada: aynı `mainEntity.map`
+ * bloğu çözüm sayfası, blog yazısı ve iletişim sayfasında üç kez yazılıydı.
+ */
+export function faqLd(
+  sorular: readonly { q: string; a: string }[],
+  id?: string,
+) {
+  return {
+    "@type": "FAQPage",
+    ...(id ? { "@id": id } : {}),
+    mainEntity: sorular.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}

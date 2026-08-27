@@ -32,7 +32,13 @@ const TEAM_POS = [
 ];
 const LINE_TARGETS = [...FOUNDER_POS, ...TEAM_POS];
 
-function CenterNode({ size = "h-28 w-28", logo = "h-16 w-16" }: { size?: string; logo?: string }) {
+function CenterNode({
+  size = "h-28 w-28",
+  logo = "h-16 w-16",
+}: {
+  size?: string;
+  logo?: string;
+}) {
   return (
     <div
       className={`relative grid ${size} place-items-center rounded-full border border-white/70 bg-white/85 shadow-[var(--shadow-card)] backdrop-blur`}
@@ -40,9 +46,18 @@ function CenterNode({ size = "h-28 w-28", logo = "h-16 w-16" }: { size?: string;
       <div
         aria-hidden="true"
         className="node-pulse absolute -inset-3 -z-10 rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(17,205,217,0.4), transparent 70%)" }}
+        style={{
+          background:
+            "radial-gradient(circle, rgba(17,205,217,0.4), transparent 70%)",
+        }}
       />
-      <Image src="/brand/forpus-logo.png" alt="Forpus" width={80} height={80} className={`${logo} object-contain`} />
+      <Image
+        src="/brand/forpus-logo.png"
+        alt="Forpus"
+        width={80}
+        height={80}
+        className={`${logo} object-contain`}
+      />
     </div>
   );
 }
@@ -68,7 +83,9 @@ function FounderCard({
           <Icon className="h-6 w-6" strokeWidth={1.8} />
         </div>
         <div className="min-w-0">
-          <h3 className="text-[1.08rem] font-bold leading-tight tracking-tight text-ink">{focus}</h3>
+          <h3 className="text-[1.08rem] font-bold leading-tight tracking-tight text-ink">
+            {focus}
+          </h3>
           <p className="text-xs font-medium text-ink-3">{role}</p>
         </div>
       </div>
@@ -138,7 +155,9 @@ export default function Team() {
             <span className="eyebrow">{t.team.eyebrow}</span>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="h-section mt-5 whitespace-pre-line">{t.team.title}</h2>
+            <h2 className="h-section mt-5 whitespace-pre-line">
+              {t.team.title}
+            </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="lead mx-auto mt-5 max-w-xl">{t.team.subtitle}</p>
@@ -151,9 +170,15 @@ export default function Team() {
             ref={wrapRef}
             className="relative mx-auto mt-12 hidden h-[600px] w-full max-w-5xl lg:block"
           >
-            <div ref={sceneRef} className="absolute inset-0 transition-transform duration-300 ease-out">
+            <div
+              ref={sceneRef}
+              className="absolute inset-0 transition-transform duration-300 ease-out"
+            >
               {/* connection lines */}
-              <svg className="absolute inset-0 h-full w-full" aria-hidden="true">
+              <svg
+                className="absolute inset-0 h-full w-full"
+                aria-hidden="true"
+              >
                 <defs>
                   <linearGradient id="teamLine" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stopColor="#5fbe2e" />
@@ -178,7 +203,10 @@ export default function Team() {
               </svg>
 
               {/* center */}
-              <div className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: "50%", top: "50%" }}>
+              <div
+                className="absolute -translate-x-1/2 -translate-y-1/2"
+                style={{ left: "50%", top: "50%" }}
+              >
                 <CenterNode />
               </div>
 
@@ -187,7 +215,10 @@ export default function Team() {
                 <div
                   key={i}
                   className="absolute w-[clamp(230px,23vw,290px)] -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: `${FOUNDER_POS[i].x}%`, top: `${FOUNDER_POS[i].y}%` }}
+                  style={{
+                    left: `${FOUNDER_POS[i].x}%`,
+                    top: `${FOUNDER_POS[i].y}%`,
+                  }}
                 >
                   <FounderCard
                     focus={f.focus}
@@ -203,9 +234,15 @@ export default function Team() {
                 <div
                   key={label}
                   className="absolute -translate-x-1/2 -translate-y-1/2"
-                  style={{ left: `${TEAM_POS[i % TEAM_POS.length].x}%`, top: `${TEAM_POS[i % TEAM_POS.length].y}%` }}
+                  style={{
+                    left: `${TEAM_POS[i % TEAM_POS.length].x}%`,
+                    top: `${TEAM_POS[i % TEAM_POS.length].y}%`,
+                  }}
                 >
-                  <TeamChip label={label} Icon={TEAM_ICONS[i % TEAM_ICONS.length]} />
+                  <TeamChip
+                    label={label}
+                    Icon={TEAM_ICONS[i % TEAM_ICONS.length]}
+                  />
                 </div>
               ))}
             </div>
@@ -238,7 +275,11 @@ export default function Team() {
               </h3>
               <div className="flex flex-wrap justify-center gap-2.5">
                 {extended.map((label, i) => (
-                  <TeamChip key={label} label={label} Icon={TEAM_ICONS[i % TEAM_ICONS.length]} />
+                  <TeamChip
+                    key={label}
+                    label={label}
+                    Icon={TEAM_ICONS[i % TEAM_ICONS.length]}
+                  />
                 ))}
               </div>
             </div>

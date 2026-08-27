@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
+
 import type { Lang } from "./i18n/dictionary";
+import { CEVRILMIS_SAYFALAR, cevrilmisYol } from "./routes";
 import { CALISMA, EPOSTA, SEHIR, ULKE } from "./marka";
 import { PRICE_FLOOR } from "./pricing";
 
@@ -27,19 +30,8 @@ import { PRICE_FLOOR } from "./pricing";
  * ayrışamaz.
  */
 
-/**
- * Vaat edilen dönüş süresi — tek kaynak.
- *
- * llms.txt "48 saat içinde dönüş yapılır" diyordu, bu sayfa "aynı gün, en geç
- * bir iş günü" diyor. İkisi de makinelerin okuduğu beyan ve birbiriyle
- * çelişiyordu; hangisinin doğru olduğunu okuyanın bilmesine imkân yoktu.
- */
-export const YANIT_SURESI = {
-  tr: "Mesajlara aynı gün, en geç bir iş günü içinde dönülür.",
-  en: "We reply the same day, and within one business day at the latest.",
-} as const;
-
-export type Soru = { soru: string; cevap: string };
+/** Deponun SSS şekli — `lib/solutions.ts` ve `lib/blog.ts` ile aynı. */
+export type Soru = { q: string; a: string };
 
 type IletisimIcerigi = {
   slug: string;
@@ -89,64 +81,64 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
     sssBasligi: "Sık sorulanlar",
     sss: [
       {
-        soru: "Forpus Yazılım nerede?",
-        cevap:
+        q: "Forpus Yazılım nerede?",
+        a:
           "Forpus Yazılım İstanbul, Türkiye merkezlidir. Ekip uzaktan çalışıyor; " +
           "bu yüzden İstanbul dışındaki illerden ve yurt dışından gelen projeler de " +
           "aynı şekilde yürütülüyor. Görüşmeler çevrimiçi yapılıyor, İstanbul içinde " +
           "istenirse yüz yüze de buluşuyoruz.",
       },
       {
-        soru: "Ne kadar sürede dönüş yapıyorsunuz?",
-        cevap:
+        q: "Ne kadar sürede dönüş yapıyorsunuz?",
+        a:
           "Formdan ya da e-postadan gelen mesajlara mesai saatleri içinde aynı gün, " +
           "en geç bir iş günü içinde dönüyoruz. İlk dönüşte projeyi anlamak için " +
           "birkaç soru sorup kapsam ve yaklaşık bütçe için 20 dakikalık bir görüşme " +
           "öneriyoruz.",
       },
       {
-        soru: "İlk görüşme ücretli mi?",
-        cevap:
+        q: "İlk görüşme ücretli mi?",
+        a:
           "Hayır. İlk görüşme ve sonrasında hazırladığımız kapsam-fiyat teklifi " +
           "ücretsizdir, herhangi bir bağlayıcılığı yoktur. Görüşmeden sonra teklifi " +
           "yazılı olarak gönderiyoruz; kalemler tek tek belli oluyor, sonradan " +
           "eklenen gizli bir maliyet olmuyor.",
       },
       {
-        soru: "Web sitesi ne kadar sürede teslim ediliyor?",
-        cevap:
+        q: "Web sitesi ne kadar sürede teslim ediliyor?",
+        a:
           "Tek ya da az sayfalı bir tanıtım sitesi yaklaşık bir hafta sürüyor. " +
           "Çok sayfalı, özel tasarımlı kurumsal siteler 2–4 hafta alıyor. Panel, " +
           "randevu, ödeme gibi sistem gerektiren projelerde süre kapsama göre " +
           "belirleniyor ve teklifte yazılı olarak veriliyor.",
       },
       {
-        soru: "Fiyatlar ne kadar?",
-        cevap:
+        q: "Fiyatlar ne kadar?",
+        a:
           `Web sitesi projeleri ₺${fiyat}'den başlıyor. Kesin fiyat sayfa sayısına, ` +
           "tasarımın özelleştirme derecesine ve panel, randevu, ödeme gibi ek " +
           "sistemlere göre değişiyor. Paket kapsamlarını ana sayfadaki Paketler " +
           "bölümünde kalem kalem görebilirsiniz.",
       },
       {
-        soru: "Hangi sektörlerle çalışıyorsunuz?",
-        cevap:
+        q: "Hangi sektörlerle çalışıyorsunuz?",
+        a:
           "Ağırlıklı olarak doktor, diş hekimi, diyetisyen, psikolog, avukat, mali " +
           "müşavir, mimar, veteriner gibi serbest meslek grupları ile restoran, " +
           "kuaför, güzellik merkezi, spor salonu, emlak ve e-ticaret işletmeleriyle " +
           "çalışıyoruz. Her biri için hazırlanmış ayrı bir çözüm sayfası var.",
       },
       {
-        soru: "Siteyi sonradan kendim güncelleyebilir miyim?",
-        cevap:
+        q: "Siteyi sonradan kendim güncelleyebilir miyim?",
+        a:
           "Evet. İsterseniz içeriği kendinizin düzenleyebileceği bir yönetim paneli " +
           "kuruyoruz; yazı, görsel ve fiyat gibi alanları teknik bilgi gerektirmeden " +
           "değiştirebiliyorsunuz. Panel istemeyen müşterilerde güncellemeleri bakım " +
           "kapsamında biz yapıyoruz.",
       },
       {
-        soru: "Sitenin alan adı ve hesapları kime ait oluyor?",
-        cevap:
+        q: "Sitenin alan adı ve hesapları kime ait oluyor?",
+        a:
           "Alan adı, hosting ve tüm hesaplar sizin adınıza açılıyor ve size ait " +
           "oluyor. Proje bittiğinde erişimlerin tamamı devredilir. Bizimle çalışmaya " +
           "devam etmek zorunda kalmazsınız; bu, kilitlenmeyi engellemek için bilinçli " +
@@ -172,68 +164,71 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
         deger: "Remote — across Türkiye and internationally",
       },
       { etiket: "Email", deger: EPOSTA, href: `mailto:${EPOSTA}` },
-      { etiket: "Hours", deger: "Monday–Friday, 09:00–18:00 (GMT+3)" },
+      {
+        etiket: "Hours",
+        deger: `Monday–Friday, ${CALISMA.acilis}–${CALISMA.kapanis} (GMT+3)`,
+      },
       { etiket: "Languages", deger: "Turkish, English" },
     ],
     sssBasligi: "Frequently asked",
     sss: [
       {
-        soru: "Where is Forpus Yazılım based?",
-        cevap:
+        q: "Where is Forpus Yazılım based?",
+        a:
           "Forpus Yazılım is based in Istanbul, Türkiye. The team works remotely, so " +
           "projects from other Turkish cities and from abroad run exactly the same way. " +
           "Meetings happen online, and we can meet in person within Istanbul if you " +
           "prefer.",
       },
       {
-        soru: "How quickly do you reply?",
-        cevap:
+        q: "How quickly do you reply?",
+        a:
           "We reply to form submissions and emails the same day during working hours, " +
           "and within one business day at the latest. In that first reply we ask a few " +
           "questions about the project and suggest a 20-minute call to settle scope and " +
           "a rough budget.",
       },
       {
-        soru: "Is the first call free?",
-        cevap:
+        q: "Is the first call free?",
+        a:
           "Yes. The first call and the scope-and-price proposal that follows are free " +
           "and carry no obligation. We send the proposal in writing with each line item " +
           "spelled out, so nothing is added to the bill later.",
       },
       {
-        soru: "How long does a website take?",
-        cevap:
+        q: "How long does a website take?",
+        a:
           "A single-page or small brochure site takes about a week. Multi-page custom " +
           "corporate sites take two to four weeks. Projects that need a dashboard, " +
           "booking, or payments are scoped individually and the timeline is written into " +
           "the proposal.",
       },
       {
-        soru: "What does it cost?",
-        cevap:
+        q: "What does it cost?",
+        a:
           `Website projects start at ₺${fiyat}. The final figure depends on the number of ` +
           "pages, how custom the design is, and whether the project needs extra systems " +
           "like a dashboard, booking, or payments. Package contents are listed line by " +
           "line on the home page.",
       },
       {
-        soru: "Which industries do you work with?",
-        cevap:
+        q: "Which industries do you work with?",
+        a:
           "Mostly independent professionals — doctors, dentists, dietitians, " +
           "psychologists, lawyers, accountants, architects, veterinarians — along with " +
           "restaurants, hair salons, beauty clinics, gyms, real-estate agencies and " +
           "e-commerce businesses. Each has its own solution page.",
       },
       {
-        soru: "Can I update the site myself afterwards?",
-        cevap:
+        q: "Can I update the site myself afterwards?",
+        a:
           "Yes. If you want it, we build an admin panel where you can edit text, images " +
           "and prices without any technical knowledge. For clients who would rather not " +
           "manage it, we handle updates as part of maintenance.",
       },
       {
-        soru: "Who owns the domain and the accounts?",
-        cevap:
+        q: "Who owns the domain and the accounts?",
+        a:
           "The domain, hosting and every account are registered in your name and belong " +
           "to you. When the project ends, all access is handed over. You are never " +
           "locked into working with us — that is a deliberate choice.",
@@ -241,3 +236,35 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
     ],
   },
 };
+
+/**
+ * İki iletişim route'unun metadata'sı — tek üretici.
+ *
+ * `lib/solution-seo.ts`teki `solutionMetadata` kalıbının aynısı. İki sayfa
+ * dosyası bloğu satır satır kopyalıyordu ve `title` alanı yukarıdaki
+ * `baslik`in elle yazılmış üçüncü kopyasıydı; hreflang kuralı değişince üç
+ * yer, başlık değişince dört yer güncellenmesi gerekiyordu.
+ */
+export function iletisimMetadata(lang: Lang): Metadata {
+  const c = iletisimIcerigi[lang];
+  const cift = CEVRILMIS_SAYFALAR[0];
+  const canonical = cevrilmisYol(cift, lang);
+
+  return {
+    // Kök layout'un `title.template`i markayı zaten ekliyor.
+    title: c.baslik,
+    description: c.aciklama,
+    alternates: {
+      canonical,
+      languages: { "tr-TR": cift.tr, "en-US": cift.en, "x-default": cift.tr },
+    },
+    openGraph: {
+      type: "website",
+      locale: lang === "tr" ? "tr_TR" : "en_US",
+      url: canonical,
+      title: c.baslik,
+      description: c.aciklama,
+      images: [{ url: "/og.png", width: 1200, height: 630 }],
+    },
+  };
+}

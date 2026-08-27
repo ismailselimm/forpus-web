@@ -54,7 +54,8 @@ function oku(): KaynakIzi | null {
     // Tip iddiası yetmiyor: aynı anahtara başkası "[]" ya da "3" yazmışsa
     // (eski bir sürüm, bir eklenti, elle kurcalama) o değer olduğu gibi
     // panele gidiyordu. Nesne değilse iz yok sayılıyor.
-    if (!cozulen || typeof cozulen !== "object" || Array.isArray(cozulen)) return null;
+    if (!cozulen || typeof cozulen !== "object" || Array.isArray(cozulen))
+      return null;
     return cozulen as KaynakIzi;
   } catch {
     // Gizli sekmede veya depolama kapalıyken sessizce vazgeç: atıf kaybolur
@@ -91,7 +92,9 @@ export function iziYakala(): void {
   // "yönlendiren" saymak yanıltıcı olur.
   const yonlendiren = document.referrer;
   const disYonlendiren =
-    yonlendiren && !yonlendiren.startsWith(window.location.origin) ? kirp(yonlendiren) : undefined;
+    yonlendiren && !yonlendiren.startsWith(window.location.origin)
+      ? kirp(yonlendiren)
+      : undefined;
 
   try {
     sessionStorage.setItem(

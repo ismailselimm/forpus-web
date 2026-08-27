@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { usePathname } from "next/navigation";
 import { dictionary, type Dict, type Lang } from "@/lib/i18n/dictionary";
 import { routeLang } from "@/lib/routes";

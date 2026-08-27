@@ -6,7 +6,7 @@ import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import SektorBrief from "@/components/solutions/SektorBrief";
 import YapilanIsler from "@/components/solutions/YapilanIsler";
-import Breadcrumb, { breadcrumbLd } from "@/components/ui/Breadcrumb";
+import Breadcrumb, { breadcrumbLd, faqLd } from "@/components/ui/Breadcrumb";
 import {
   solutions,
   contentOf,
@@ -15,7 +15,7 @@ import {
   caseRefProject,
   type Solution,
 } from "@/lib/solutions";
-import { solutionIndex } from "@/lib/solution-index";
+import { refByKey } from "@/lib/solution-index";
 import { shotAt } from "@/lib/projects";
 import { SITE_URL as SITE } from "@/lib/site";
 
@@ -37,8 +37,7 @@ export default function SolutionArticle({
 
   // Kısa sektör adı `solutionIndex`te kanonik ("Doktor", "Avukat"); burada
   // yeniden yazmak ikinci bir isim kaynağı olurdu.
-  const sektorEtiketi =
-    solutionIndex.find((r) => r.key === solution.key)?.label[lang] ?? c.eyebrow;
+  const sektorEtiketi = refByKey(solution.key)?.label[lang] ?? c.eyebrow;
   const homeHref = "/";
   const base = lang === "tr" ? "/cozumler" : "/en/solutions";
 
@@ -86,14 +85,7 @@ export default function SolutionArticle({
               availability: "https://schema.org/InStock",
             },
       },
-      {
-        "@type": "FAQPage",
-        mainEntity: c.faq.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
-        })),
-      },
+      faqLd(c.faq),
       breadcrumbLd(crumbs, SITE, url),
     ],
   };
@@ -432,13 +424,12 @@ export default function SolutionArticle({
       </section>
 
       {/* Kanıt, istekten önce: formun hemen üstünde bu alanda yaptığımız
-          işler. Vaka sayfaları tek dilli olduğu için yalnız TR'de. */}
-      {lang === "tr" && (
-        <YapilanIsler
-          sektorAnahtari={solution.key}
-          sektorEtiketi={sektorEtiketi}
-        />
-      )}
+          işler. Hangi dilde vaka olduğu kararı `casesForSolution`da. */}
+      <YapilanIsler
+        sektorAnahtari={solution.key}
+        sektorEtiketi={sektorEtiketi}
+        lang={lang}
+      />
 
       {/* Genel "konuşalım" bandı yerine sektöre özel brief formu. Bant,
           ziyaretçiyi ana sayfadaki boş metin kutusuna gönderiyordu; arama

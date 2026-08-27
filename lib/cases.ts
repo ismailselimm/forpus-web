@@ -532,9 +532,19 @@ export const caseCardBySlug = (slug: string) =>
  *
  * Tek yerde türetiliyor: elle ikinci bir liste tutulsaydı ilk yeniden
  * adlandırmada ayrışırdı.
+ *
+ * DİL KARARI BURADA. Vaka metinleri tek dilli (`lib/routes.ts`,
+ * TR_ONLY_PREFIXES) ve İngilizce bir sayfadan Türkçe bir vakaya bağlamak
+ * ziyaretçiyi anlamadığı bir sayfaya düşürür. Bu koşul önce çağıran tarafta
+ * `{lang === "tr" && <YapilanIsler .../>}` olarak duruyordu: bileşenin
+ * sözleşmesinin parçasıydı ama tipinde görünmüyordu ve ikinci bir çağrı
+ * yerinde tekrar yazılması gerekirdi. İngilizce vakalar yayınlandığında
+ * yalnız burası değişecek — hiçbir bileşen, hiçbir çağrı yeri.
  */
-export const casesForSolution = (solutionKey: string) =>
-  caseCards.filter((c) => c.relatedSolutions.includes(solutionKey));
+export const casesForSolution = (solutionKey: string, lang: "tr" | "en") =>
+  lang === "en"
+    ? []
+    : caseCards.filter((c) => c.relatedSolutions.includes(solutionKey));
 
 export const caseUi = {
   home: "Ana Sayfa",

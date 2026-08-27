@@ -20,7 +20,11 @@ export const metadata: Metadata = {
     "We build corporate websites, e-commerce and mobile apps. Real references, packages starting from ₺50,000. Get a free quote.",
   alternates: {
     canonical: `${SITE_URL}/en`,
-    languages: { "tr-TR": SITE_URL, "en-US": `${SITE_URL}/en`, "x-default": SITE_URL },
+    languages: {
+      "tr-TR": SITE_URL,
+      "en-US": `${SITE_URL}/en`,
+      "x-default": SITE_URL,
+    },
   },
   openGraph: {
     type: "website",
@@ -28,7 +32,8 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/en`,
     siteName: "Forpus Software",
     title: "Web & Mobile App Agency | Forpus Software",
-    description: "Corporate websites, e-commerce and mobile apps — one team, end to end.",
+    description:
+      "Corporate websites, e-commerce and mobile apps — one team, end to end.",
     images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
 };

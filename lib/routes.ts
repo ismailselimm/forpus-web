@@ -36,6 +36,41 @@ const TR_ONLY_PREFIXES = [
 const EN_PREFIX = "/en";
 
 /**
+ * ÇEVİRİLMİŞ TEKİL SAYFALAR — iki dilde ayrı adreste yayınlanan, koleksiyona
+ * ait olmayan sayfalar.
+ *
+ * Çözüm sayfaları `solutionIndex`ten çözülüyor; iletişim sayfası ise adresi
+ * altı yerde elle taşınan bir özel durum olarak eklenmişti (`hrefForLang`,
+ * footer, sitemap'te iki giriş, llms.txt, iki metadata dosyası). Slug
+ * değişirse derleyici hiçbirini yakalamaz ve dil değiştirici sessizce
+ * `null` döner.
+ *
+ * Yeni bir çevrilmiş sayfa buraya bir satırla ekleniyor; dil değiştirici,
+ * sitemap ve footer onu kendiliğinden görüyor.
+ *
+ * Bu dosya istemci tarafında (LanguageProvider) kullanılıyor, o yüzden burada
+ * yalnız adres ve yayın tarihi var — sayfa metni değil.
+ */
+export type CevrilmisSayfa = {
+  tr: string;
+  en: string;
+  /** Sitemap `lastModified`i. */
+  yayin: string;
+  /** Sitemap önceliği, TR sürümü için. EN sürümü bunun 0.2 altında. */
+  oncelik: number;
+};
+
+export const CEVRILMIS_SAYFALAR: readonly CevrilmisSayfa[] = [
+  // Sitenin kimlik çıpası: marka sorgularında ana sayfadan sonra çıkması
+  // gereken sayfa bu, o yüzden önceliği yüksek.
+  { tr: "/iletisim", en: "/en/contact", yayin: "2026-08-27", oncelik: 0.9 },
+];
+
+/** Bir dilin adresini verir. Footer ve metadata bunu çağırıyor. */
+export const cevrilmisYol = (sayfa: CevrilmisSayfa, lang: Lang) =>
+  lang === "en" ? sayfa.en : sayfa.tr;
+
+/**
  * Yolu karşılaştırılabilir hale getirir: sondaki eğik çizgi ve `.html` uzantısı
  * atılır. Statik export dosyaları `foo.html` olarak üretiyor; canlıda GitHub
  * Pages bunu `/foo` olarak sunuyor ama dosya doğrudan açıldığında (yerel test,
@@ -94,11 +129,8 @@ export function hrefForLang(pathname: string, next: Lang): string | null {
   if (pair)
     return next === "en" ? `/en/solutions/${pair.en}` : `/cozumler/${pair.tr}`;
 
-  // Çözüm sayfaları dışında çevrilmiş TEK sayfa çifti bu. Kendi tablosunu
-  // hak edecek kadar çoğaldığında (blog, vakalar) buraya bir liste gelecek.
-  if (n === "/iletisim" || n === "/en/contact") {
-    return next === "en" ? "/en/contact" : "/iletisim";
-  }
+  const cevrilmis = CEVRILMIS_SAYFALAR.find((c) => n === c.tr || n === c.en);
+  if (cevrilmis) return cevrilmisYol(cevrilmis, next);
 
   return null;
 }

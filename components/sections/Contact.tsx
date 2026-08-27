@@ -3,7 +3,7 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import Link from "next/link";
 
-import { leadGonder } from "@/lib/lead-gonder";
+import { leadGonder, tuzakDolu } from "@/lib/lead-gonder";
 import {
   Mail,
   MapPin,
@@ -30,9 +30,6 @@ type InfoRow = {
   value: string;
   href?: string;
 };
-
-const FIELD_CLASS =
-  "w-full rounded-xl border border-line bg-white px-4 py-3 text-ink placeholder:text-ink-3 transition-shadow focus:outline-none focus:ring-2 focus:ring-cyan/40";
 
 export default function Contact() {
   const { t } = useLang();
@@ -77,11 +74,7 @@ export default function Contact() {
     if (status === "sending") return;
     if (!name.trim() || !email.trim() || !message.trim()) return;
 
-    // Honeypot: gerçek kullanıcı bu alanı görmez/doldurmaz; bot doldurursa sessizce iptal
-    const honeypot = (
-      e.currentTarget.elements.namedItem("botcheck") as HTMLInputElement | null
-    )?.checked;
-    if (honeypot) return;
+    if (tuzakDolu(e.currentTarget)) return;
 
     setStatus("sending");
 
@@ -234,7 +227,7 @@ export default function Contact() {
                       onChange={(e) => setName(e.target.value)}
                       placeholder={c.form.name}
                       autoComplete="name"
-                      className={FIELD_CLASS}
+                      className="field"
                     />
                   </label>
 
@@ -249,7 +242,7 @@ export default function Contact() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder={c.form.email}
                       autoComplete="email"
-                      className={FIELD_CLASS}
+                      className="field"
                     />
                   </label>
                 </div>
@@ -264,7 +257,7 @@ export default function Contact() {
                     onChange={(e) => setCompany(e.target.value)}
                     placeholder={c.form.company}
                     autoComplete="organization"
-                    className={FIELD_CLASS}
+                    className="field"
                   />
                 </label>
 
@@ -275,7 +268,7 @@ export default function Contact() {
                   <select
                     value={service}
                     onChange={(e) => setService(e.target.value)}
-                    className={FIELD_CLASS}
+                    className="field"
                   >
                     {c.form.serviceOptions.map((opt) => (
                       <option key={opt} value={opt}>
@@ -295,7 +288,7 @@ export default function Contact() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder={c.form.message}
-                    className={`${FIELD_CLASS} resize-none`}
+                    className="field resize-none"
                   />
                 </label>
 

@@ -3,7 +3,11 @@ import { Info } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
 import PageHero from "@/components/ui/PageHero";
 import { breadcrumbLd, type Crumb } from "@/components/ui/Breadcrumb";
-import { HUKUKI_UI, HUKUKI_UYARI, type HukukiSayfa as Veri } from "@/lib/hukuki";
+import {
+  HUKUKI_UI,
+  HUKUKI_UYARI,
+  type HukukiSayfa as Veri,
+} from "@/lib/hukuki";
 import { SITE_URL as SITE } from "@/lib/site";
 
 /**
@@ -44,7 +48,10 @@ export default function HukukiSayfa({ veri }: { veri: Veri }) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <PageHero
         className="!pb-12"
@@ -55,7 +62,9 @@ export default function HukukiSayfa({ veri }: { veri: Veri }) {
       >
         <p className="mt-6 font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.14em] text-ink-3">
           {HUKUKI_UI.sonGuncelleme}:{" "}
-          <time dateTime={veri.sonGuncelleme}>{tarihMetni(veri.sonGuncelleme)}</time>
+          <time dateTime={veri.sonGuncelleme}>
+            {tarihMetni(veri.sonGuncelleme)}
+          </time>
         </p>
       </PageHero>
 
@@ -72,7 +81,9 @@ export default function HukukiSayfa({ veri }: { veri: Veri }) {
                   <h2 className="font-[family-name:var(--font-display)] text-[1.02rem] font-bold tracking-tight text-ink">
                     {HUKUKI_UI.uyariBasligi}
                   </h2>
-                  <p className="mt-2 text-[0.96rem] leading-relaxed text-ink-2">{HUKUKI_UYARI}</p>
+                  <p className="mt-2 text-[0.96rem] leading-relaxed text-ink-2">
+                    {HUKUKI_UYARI}
+                  </p>
                 </div>
               </aside>
             </Reveal>
@@ -89,7 +100,10 @@ export default function HukukiSayfa({ veri }: { veri: Veri }) {
                   <Reveal>
                     <div className="mt-5 flex flex-col gap-4">
                       {bolum.paragraflar.map((p) => (
-                        <p key={p} className="text-[1.02rem] leading-relaxed text-ink-2">
+                        <p
+                          key={p}
+                          className="text-[1.02rem] leading-relaxed text-ink-2"
+                        >
                           {p}
                         </p>
                       ))}
@@ -101,7 +115,10 @@ export default function HukukiSayfa({ veri }: { veri: Veri }) {
                   <Reveal>
                     <ul className="mt-6 flex flex-col gap-3">
                       {bolum.liste.map((madde) => (
-                        <li key={madde} className="flex gap-3 text-[1.02rem] leading-relaxed text-ink-2">
+                        <li
+                          key={madde}
+                          className="flex gap-3 text-[1.02rem] leading-relaxed text-ink-2"
+                        >
                           <span
                             aria-hidden
                             className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-green via-cyan to-blue"
@@ -116,7 +133,10 @@ export default function HukukiSayfa({ veri }: { veri: Veri }) {
                 {bolum.maddeler && (
                   <div className="mt-6 flex flex-col gap-4">
                     {bolum.maddeler.map((madde, i) => (
-                      <Reveal key={madde.baslik ?? madde.govde} delay={i * 0.04}>
+                      <Reveal
+                        key={madde.baslik ?? madde.govde}
+                        delay={i * 0.04}
+                      >
                         <div className="soft-card p-5 sm:p-6">
                           {madde.baslik && (
                             <h3 className="font-[family-name:var(--font-display)] text-[1.02rem] font-bold tracking-tight text-ink">
@@ -159,7 +179,10 @@ export default function HukukiSayfa({ veri }: { veri: Veri }) {
                         </thead>
                         <tbody>
                           {bolum.tablo.satirlar.map((satir) => (
-                            <tr key={satir[0]} className="border-b border-line last:border-b-0">
+                            <tr
+                              key={satir[0]}
+                              className="border-b border-line last:border-b-0"
+                            >
                               {satir.map((hucre, i) => (
                                 <td
                                   key={i}
@@ -184,7 +207,10 @@ export default function HukukiSayfa({ veri }: { veri: Veri }) {
                   <Reveal>
                     <div className="mt-5 flex flex-col gap-4">
                       {bolum.kapanis.map((p) => (
-                        <p key={p} className="text-[1.02rem] leading-relaxed text-ink-2">
+                        <p
+                          key={p}
+                          className="text-[1.02rem] leading-relaxed text-ink-2"
+                        >
                           {p}
                         </p>
                       ))}

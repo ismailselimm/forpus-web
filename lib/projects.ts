@@ -79,7 +79,10 @@ export const webProjects: WebProject[] = [
     url: "https://seapleasure.com.tr/",
     shot: "/work/seapleasure.webp",
     video: "/work/seapleasure.mp4",
-    category: { tr: "Kurumsal · Tekne & Turizm", en: "Corporate · Yachting & Tourism" },
+    category: {
+      tr: "Kurumsal · Tekne & Turizm",
+      en: "Corporate · Yachting & Tourism",
+    },
     desc: {
       tr: "İstanbul Boğazı'nda özel tekne kiralama için videolu, sinematik bir tanıtım sitesi — turlar, WhatsApp rezervasyon ve mobil uyumlu tasarım.",
       en: "A cinematic, video-rich site for private boat charters on the Bosphorus — tours, WhatsApp booking and a mobile-friendly design.",
@@ -92,7 +95,10 @@ export const webProjects: WebProject[] = [
     name: "Dyt. Ece Öztürk",
     url: "https://diyetisyeneceozturk.com/",
     shot: "/work/diyetisyenece.webp",
-    category: { tr: "Kurumsal · Sağlık & Diyet", en: "Corporate · Health & Nutrition" },
+    category: {
+      tr: "Kurumsal · Sağlık & Diyet",
+      en: "Corporate · Health & Nutrition",
+    },
     desc: {
       tr: "Diyetisyen için kanıta dayalı, sıcak ve randevu odaklı tanıtım sitesi: hizmetler, hesaplama araçları, blog ve WhatsApp randevu.",
       en: "A warm, booking-focused site for a dietitian: services, calculators, a blog and WhatsApp appointments.",
@@ -105,7 +111,10 @@ export const webProjects: WebProject[] = [
     name: "SAGE Makine",
     url: "https://sagemakine.com/",
     shot: "/work/sagemakine.webp",
-    category: { tr: "Kurumsal · Endüstriyel Makine", en: "Corporate · Industrial Machinery" },
+    category: {
+      tr: "Kurumsal · Endüstriyel Makine",
+      en: "Corporate · Industrial Machinery",
+    },
     desc: {
       tr: "Renk ayırma ve X-Ray gıda kontrol makineleri için kurumsal site: makine kataloğu, sektörel çözümler, canlı ayıklama simülasyonu ve teklif akışı.",
       en: "A corporate site for color sorting and X-Ray food inspection machines: machine catalog, industry solutions, a live sorting simulation and a quote flow.",
@@ -144,7 +153,10 @@ export const webProjects: WebProject[] = [
     name: "Çekiç Trans",
     url: "https://cekictrans.com/",
     shot: "/work/cekictrans.webp",
-    category: { tr: "Kurumsal · Uluslararası Lojistik", en: "Corporate · International Logistics" },
+    category: {
+      tr: "Kurumsal · Uluslararası Lojistik",
+      en: "Corporate · International Logistics",
+    },
     desc: {
       tr: "Türkiye'den Balkanlara uluslararası karayolu taşımacılığı için kurumsal site: komple yük, gümrük operasyonu, rotalar ve filo.",
       en: "A corporate site for international road freight from Türkiye to the Balkans: full loads, customs operations, routes and fleet.",
@@ -172,23 +184,32 @@ export const mobileApps: MobileApp[] = [
     slug: "doldurkabi",
     name: "DoldurKabı",
     shot: "/work/apps/doldurkabi.webp",
-    tagline: { tr: "Türkiye'nin hayvanseverler platformu", en: "Turkey's animal-lovers platform" },
+    tagline: {
+      tr: "Türkiye'nin hayvanseverler platformu",
+      en: "Turkey's animal-lovers platform",
+    },
     appStore: "https://apps.apple.com/tr/app/doldurkab%C4%B1/id6753592445?l=tr",
-    googlePlay: "https://play.google.com/store/apps/details?id=com.ismailselim.doldurkabi&hl=tr",
+    googlePlay:
+      "https://play.google.com/store/apps/details?id=com.ismailselim.doldurkabi&hl=tr",
   },
   {
     slug: "temizlikexpress",
     name: "Temizlik Express",
     shot: "/work/apps/temizlikexpress.webp",
     tagline: { tr: "Tek dokunuşla temizlik", en: "Cleaning in one tap" },
-    appStore: "https://apps.apple.com/tr/app/temizlik-express/id6445817029?l=tr",
-    googlePlay: "https://play.google.com/store/apps/details?id=com.temizlikexpress.temizlik",
+    appStore:
+      "https://apps.apple.com/tr/app/temizlik-express/id6445817029?l=tr",
+    googlePlay:
+      "https://play.google.com/store/apps/details?id=com.temizlikexpress.temizlik",
   },
   {
     slug: "merak",
     name: "Merak Et Öğren",
     shot: "/work/apps/merak.webp",
-    tagline: { tr: "Merak ettiğin her konuda podcast", en: "Podcasts on everything you're curious about" },
+    tagline: {
+      tr: "Merak ettiğin her konuda podcast",
+      en: "Podcasts on everything you're curious about",
+    },
     comingSoon: true,
   },
 ];
@@ -207,14 +228,46 @@ export const brandNames = [
 
 // Brand logos for the trust marquee. `url` links to the brand's live site when available.
 export const brandLogos: { name: string; src: string; url?: string }[] = [
-  { name: "DoldurKabı", src: "/logos/doldurkabi.webp", url: "https://doldurkabi.com/" },
-  { name: "Temizlik Express", src: "/logos/temizlikexpress.webp", url: "https://temizlikexpress.com/" },
-  { name: "Sea Pleasure", src: "/logos/seapleasure.webp", url: "https://seapleasure.com.tr/" },
-  { name: "SAGE Makine", src: "/logos/sagemakine.webp", url: "https://sagemakine.com/" },
-  { name: "Dr. Yasin Kurtboğan", src: "/logos/dryasin.webp", url: "https://dryasinkurtbogan.com.tr/" },
-  { name: "Merak Et Öğren", src: "/logos/merak.webp", url: "https://meraketogren.com/" },
-  { name: "Esen Kuruyemiş", src: "/logos/esen.webp", url: "https://esenkuruyemis.com/" },
-  { name: "Çekiç Trans", src: "/logos/cekictrans.webp", url: "https://cekictrans.com/" },
+  {
+    name: "DoldurKabı",
+    src: "/logos/doldurkabi.webp",
+    url: "https://doldurkabi.com/",
+  },
+  {
+    name: "Temizlik Express",
+    src: "/logos/temizlikexpress.webp",
+    url: "https://temizlikexpress.com/",
+  },
+  {
+    name: "Sea Pleasure",
+    src: "/logos/seapleasure.webp",
+    url: "https://seapleasure.com.tr/",
+  },
+  {
+    name: "SAGE Makine",
+    src: "/logos/sagemakine.webp",
+    url: "https://sagemakine.com/",
+  },
+  {
+    name: "Dr. Yasin Kurtboğan",
+    src: "/logos/dryasin.webp",
+    url: "https://dryasinkurtbogan.com.tr/",
+  },
+  {
+    name: "Merak Et Öğren",
+    src: "/logos/merak.webp",
+    url: "https://meraketogren.com/",
+  },
+  {
+    name: "Esen Kuruyemiş",
+    src: "/logos/esen.webp",
+    url: "https://esenkuruyemis.com/",
+  },
+  {
+    name: "Çekiç Trans",
+    src: "/logos/cekictrans.webp",
+    url: "https://cekictrans.com/",
+  },
 ];
 
 // ============================================================================

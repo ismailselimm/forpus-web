@@ -5,11 +5,16 @@ import { solutions, solutionByTrSlug, solutionByEnSlug } from "./solutions";
 type Lang = "tr" | "en";
 
 export function solutionStaticParams(lang: Lang) {
-  return solutions.map((s) => ({ slug: lang === "tr" ? s.slug.tr : s.slug.en }));
+  return solutions.map((s) => ({
+    slug: lang === "tr" ? s.slug.tr : s.slug.en,
+  }));
 }
 
 /** Per-page metadata for both the TR and EN solution routes (canonical + hreflang + OG). */
-export async function solutionMetadata(lang: Lang, params: Promise<{ slug: string }>): Promise<Metadata> {
+export async function solutionMetadata(
+  lang: Lang,
+  params: Promise<{ slug: string }>,
+): Promise<Metadata> {
   const { slug } = await params;
   const s = lang === "tr" ? solutionByTrSlug(slug) : solutionByEnSlug(slug);
   if (!s) return {};

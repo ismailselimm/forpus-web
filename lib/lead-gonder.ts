@@ -28,6 +28,19 @@ const PANEL_INTAKE_URL =
   process.env.NEXT_PUBLIC_PANEL_INTAKE_URL ??
   "https://panel.forpusyazilim.com/api/intake/site";
 
+/**
+ * Bal küpü dolu mu? Gerçek kullanıcı bu kutuyu görmez; bot doldurursa
+ * gönderim sessizce iptal edilir.
+ *
+ * Burada, çünkü iki form da aynı `botcheck` adını ve aynı sessiz-iptal
+ * kararını taşıyor; iki kopya hâlinde durduğunda birinde yapılan bir
+ * değişiklik diğerinde kalırdı — bu modülün var oluş sebebi tam olarak bu.
+ */
+export function tuzakDolu(form: HTMLFormElement): boolean {
+  const kutu = form.elements.namedItem("botcheck") as HTMLInputElement | null;
+  return Boolean(kutu?.checked);
+}
+
 export type LeadGirdisi = {
   ad: string;
   eposta?: string;
@@ -46,9 +59,13 @@ function panele(
   izOzeti: string,
   iz: ReturnType<typeof kaynakIzi>,
 ): void {
-  const govde = izOzeti
-    ? `${girdi.mesaj}\n\n— geldiği yer: ${izOzeti}`
-    : girdi.mesaj;
+  // Seçilen hizmet hattı panelde triyajın en çok işe yarayan bilgisi ve
+  // `intake` uç noktasının bunun için ayrı bir alanı yok — mesajın başına
+  // yazılıyor. Genel iletişim formunda bu bilgi, gönderim ortak yola
+  // taşınırken düşmüştü.
+  const bas = girdi.hizmet ? `Hizmet: ${girdi.hizmet}\n\n` : "";
+  const kuyruk = izOzeti ? `\n\n— geldiği yer: ${izOzeti}` : "";
+  const govde = `${bas}${girdi.mesaj}${kuyruk}`;
 
   void fetch(PANEL_INTAKE_URL, {
     method: "POST",

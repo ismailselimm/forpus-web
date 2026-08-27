@@ -6,7 +6,13 @@ import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { clsx } from "clsx";
-import { isBilingualRoute, hrefForLang, homeFor, isHome, routeLang } from "@/lib/routes";
+import {
+  isBilingualRoute,
+  hrefForLang,
+  homeFor,
+  isHome,
+  routeLang,
+} from "@/lib/routes";
 import Logo from "@/components/ui/Logo";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
@@ -33,14 +39,22 @@ export default function Nav() {
   const langBadges = (["tr", "en"] as const).map((l) => (
     <span
       key={l}
-      className={clsx("rounded-full px-2 py-1 transition-all", lang === l ? "bg-ink text-white" : "text-ink-3")}
+      className={clsx(
+        "rounded-full px-2 py-1 transition-all",
+        lang === l ? "bg-ink text-white" : "text-ink-3",
+      )}
     >
       {l.toUpperCase()}
     </span>
   ));
   // "#services" gibi bölüm bağlantıları ana sayfa dışındayken "/#services" olmalı.
   // "/blog", "/isler" gibi gerçek yollar olduğu gibi kalır.
-  const to = (href: string) => (href.startsWith("/") ? href : onHome ? href : `${home === "/" ? "" : home}${href}`);
+  const to = (href: string) =>
+    href.startsWith("/")
+      ? href
+      : onHome
+        ? href
+        : `${home === "/" ? "" : home}${href}`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -78,7 +92,7 @@ export default function Nav() {
       <header
         className={clsx(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-          scrolled ? "py-2.5" : "py-4"
+          scrolled ? "py-2.5" : "py-4",
         )}
       >
         <div className="container-x">
@@ -87,10 +101,14 @@ export default function Nav() {
               "flex items-center justify-between rounded-full px-4 transition-all duration-500 sm:px-5",
               scrolled
                 ? "glass h-[58px] shadow-[var(--shadow-soft)]"
-                : "h-[60px] border border-transparent"
+                : "h-[60px] border border-transparent",
             )}
           >
-            <a href={onHome ? "#top" : home} className="flex items-center" aria-label="Forpus">
+            <a
+              href={onHome ? "#top" : home}
+              className="flex items-center"
+              aria-label="Forpus"
+            >
               <Logo variant="full" className="h-7 w-auto sm:h-8" priority />
             </a>
 
@@ -120,17 +138,28 @@ export default function Nav() {
                 // tarayıcı hem Google iki sürümü bağlantılı görür. Yoksa (ana
                 // sayfa) dil istemci tarafında değişir.
                 (otherLangHref ? (
-                  <Link href={otherLangHref} aria-label={t.langToggle.switchTo} className={langSwitchCls}>
+                  <Link
+                    href={otherLangHref}
+                    aria-label={t.langToggle.switchTo}
+                    className={langSwitchCls}
+                  >
                     {langBadges}
                   </Link>
                 ) : (
-                  <button onClick={toggle} aria-label={t.langToggle.switchTo} className={langSwitchCls}>
+                  <button
+                    onClick={toggle}
+                    aria-label={t.langToggle.switchTo}
+                    className={langSwitchCls}
+                  >
                     {langBadges}
                   </button>
                 ))}
 
               <Magnetic className="hidden sm:block">
-                <a href={to("#contact")} className="btn btn-primary h-10 px-5 text-sm">
+                <a
+                  href={to("#contact")}
+                  className="btn btn-primary h-10 px-5 text-sm"
+                >
                   {t.nav.cta}
                 </a>
               </Magnetic>

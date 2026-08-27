@@ -18,11 +18,20 @@ export default function ParticleField({ className }: { className?: string }) {
     const parent = canvas.parentElement;
     if (!parent) return;
 
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const colors = ["#5fbe2e", "#11cdd9", "#1e92e6"];
 
-    type P = { x: number; y: number; vx: number; vy: number; r: number; c: string };
+    type P = {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      r: number;
+      c: string;
+    };
     let parts: P[] = [];
     let w = 0;
     let h = 0;
@@ -122,7 +131,7 @@ export default function ParticleField({ className }: { className?: string }) {
           cancelAnimationFrame(raf);
         }
       },
-      { threshold: 0 }
+      { threshold: 0 },
     );
     io.observe(canvas);
 

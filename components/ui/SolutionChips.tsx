@@ -31,7 +31,11 @@ export default function SolutionChips({
         </h2>
         <div className="mt-5 flex flex-wrap gap-2.5">
           {items.map((s) => (
-            <Link key={s.key} href={`${lang === "tr" ? "/cozumler" : "/en/solutions"}/${slugOfRef(s, lang)}`} className="pill-link">
+            <Link
+              key={s.key}
+              href={`${lang === "tr" ? "/cozumler" : "/en/solutions"}/${slugOfRef(s, lang)}`}
+              className="pill-link"
+            >
               {s.label[lang]}
               <ArrowRight className="h-4 w-4" />
             </Link>

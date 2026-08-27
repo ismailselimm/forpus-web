@@ -58,7 +58,7 @@ export const posts: BlogPost[] = [
     tag: "Fiyat Rehberi",
     readingMinutes: 7,
     intro: [
-      "Bu sorunun tek bir cevabı yok, ama \"duruma göre değişir\" demek de işe yaramıyor. Aşağıda 2026 için gerçek aralıkları, o aralıkları neyin belirlediğini ve hangi durumda fazla ödediğinizi yazdık.",
+      'Bu sorunun tek bir cevabı yok, ama "duruma göre değişir" demek de işe yaramıyor. Aşağıda 2026 için gerçek aralıkları, o aralıkları neyin belirlediğini ve hangi durumda fazla ödediğinizi yazdık.',
       "Rakamlar Türkiye piyasası için ve kurumsal iş yapan ekiplerin bandını yansıtıyor. Çok daha ucuz teklifler de göreceksiniz; onların neden ucuz olduğunu da açıklıyoruz — her zaman kötü değil, ama neyi almadığınızı bilmeniz gerekiyor.",
     ],
     sections: [
@@ -68,7 +68,8 @@ export const posts: BlogPost[] = [
           "Web sitesi denince çok farklı işler kastediliyor. Tek sayfalık bir tanıtım sitesiyle ödeme alan bir e-ticaret mağazası arasında on kat fark olması normal. Aşağıdaki tablo en yaygın dört tipi ve 2026 başlangıç bandlarını gösteriyor.",
         ],
         table: {
-          caption: "2026 başlangıç fiyatları — Türkiye, kurumsal iş yapan ekipler",
+          caption:
+            "2026 başlangıç fiyatları — Türkiye, kurumsal iş yapan ekipler",
           head: ["Site tipi", "Fiyat bandı", "Süre", "Kime uygun"],
           rows: [
             [
@@ -101,7 +102,7 @@ export const posts: BlogPost[] = [
       {
         heading: "Fiyatı asıl ne belirliyor?",
         body: [
-          "Çoğu insan \"kaç sayfa olacak\" diye soruyor. Sayfa sayısı maliyetin küçük bir parçası; asıl belirleyiciler şunlar:",
+          'Çoğu insan "kaç sayfa olacak" diye soruyor. Sayfa sayısı maliyetin küçük bir parçası; asıl belirleyiciler şunlar:',
         ],
         bullets: [
           {
@@ -114,7 +115,7 @@ export const posts: BlogPost[] = [
           },
           {
             title: "Sistem var mı?",
-            body: "Randevu takvimi, üyelik girişi, ödeme, stok takibi... Bunların her biri siteyi \"tanıtım\" olmaktan çıkarıp yazılıma dönüştürür. Fiyat bandı da ona göre sıçrar.",
+            body: 'Randevu takvimi, üyelik girişi, ödeme, stok takibi... Bunların her biri siteyi "tanıtım" olmaktan çıkarıp yazılıma dönüştürür. Fiyat bandı da ona göre sıçrar.',
           },
           {
             title: "İçeriği kendiniz güncelleyecek misiniz?",
@@ -155,7 +156,7 @@ export const posts: BlogPost[] = [
           },
           {
             title: "Mobil uyum",
-            body: "Ziyaretçilerin büyük kısmı telefondan geliyor. \"Mobil uyumlu\" bir ek özellik değil, asgari beklenti.",
+            body: 'Ziyaretçilerin büyük kısmı telefondan geliyor. "Mobil uyumlu" bir ek özellik değil, asgari beklenti.',
           },
           {
             title: "Temel SEO ayarları",
@@ -260,19 +261,47 @@ export const posts: BlogPost[] = [
       {
         heading: "Hangi özellik ne kadar ekliyor?",
         body: [
-          "Fiyatı asıl belirleyen, uygulamanın \"ne yaptığı\". Aşağıdaki tablo, temel bir uygulamaya eklendiğinde maliyeti ne kadar büyüttüklerine göre en yaygın özellikleri gösteriyor. Rakamlar mutlak değil, birbirine göre ağırlığı anlamanız için.",
+          'Fiyatı asıl belirleyen, uygulamanın "ne yaptığı". Aşağıdaki tablo, temel bir uygulamaya eklendiğinde maliyeti ne kadar büyüttüklerine göre en yaygın özellikleri gösteriyor. Rakamlar mutlak değil, birbirine göre ağırlığı anlamanız için.',
         ],
         table: {
           caption: "Özelliklerin maliyete etkisi — temel uygulamaya ek olarak",
           head: ["Özellik", "Ek maliyet", "Neden"],
           rows: [
-            ["Kullanıcı girişi", "Düşük", "Standart çözümlerle hızlı kurulur; e-posta, telefon veya sosyal hesapla giriş."],
-            ["Bildirim gönderme", "Düşük", "Altyapısı hazır; asıl iş hangi olayda kime gideceğinin kurgulanması."],
-            ["Harita ve konum", "Orta", "Gösterim kolay; rota, mesafe hesabı ve canlı takip işi büyütür."],
-            ["Ödeme alma", "Orta", "Entegrasyon standart, ama iade, fatura ve hata durumları ciddi test gerektirir."],
-            ["Sohbet / mesajlaşma", "Yüksek", "Gerçek zamanlı bağlantı, okundu bilgisi, geçmiş, bildirim — kendi başına bir proje."],
-            ["Çok rollü panel", "Yüksek", "Müşteri, kurye, yönetici gibi her rol ayrı ekranlar ve yetki kuralları demek."],
-            ["Çevrimdışı çalışma", "Yüksek", "Veriyi cihazda tutup sonra eşitlemek, yazılımın en zor konularından biri."],
+            [
+              "Kullanıcı girişi",
+              "Düşük",
+              "Standart çözümlerle hızlı kurulur; e-posta, telefon veya sosyal hesapla giriş.",
+            ],
+            [
+              "Bildirim gönderme",
+              "Düşük",
+              "Altyapısı hazır; asıl iş hangi olayda kime gideceğinin kurgulanması.",
+            ],
+            [
+              "Harita ve konum",
+              "Orta",
+              "Gösterim kolay; rota, mesafe hesabı ve canlı takip işi büyütür.",
+            ],
+            [
+              "Ödeme alma",
+              "Orta",
+              "Entegrasyon standart, ama iade, fatura ve hata durumları ciddi test gerektirir.",
+            ],
+            [
+              "Sohbet / mesajlaşma",
+              "Yüksek",
+              "Gerçek zamanlı bağlantı, okundu bilgisi, geçmiş, bildirim — kendi başına bir proje.",
+            ],
+            [
+              "Çok rollü panel",
+              "Yüksek",
+              "Müşteri, kurye, yönetici gibi her rol ayrı ekranlar ve yetki kuralları demek.",
+            ],
+            [
+              "Çevrimdışı çalışma",
+              "Yüksek",
+              "Veriyi cihazda tutup sonra eşitlemek, yazılımın en zor konularından biri.",
+            ],
           ],
         },
       },
@@ -392,14 +421,46 @@ export const posts: BlogPost[] = [
           caption: "Pratikte sık karşılaşılan durumlar",
           head: ["Unsur", "Durum", "Neden"],
           rows: [
-            ["Çalışma alanları", "Serbest", "Hangi alanlarda hizmet verdiğinizi belirtmek bilgilendirmedir."],
-            ["Özgeçmiş, eğitim, yayınlar", "Serbest", "Mesleki geçmişin paylaşılması tanıtımın meşru parçası."],
-            ["Hukuki makale ve bilgi yazıları", "Serbest", "Bilgilendirme amaçlı içerik açıkça uygun; en çok işe yarayan yöntem de bu."],
-            ["Müvekkil yorumu / referans", "Sorunlu", "Tanıklığa dayalı tanıtım reklam sayılıyor; ayrıca müvekkil gizliliği riski var."],
-            ["Kazanılmış dava sayısı, başarı oranı", "Sorunlu", "İş vaadi ve sonuç garantisi izlenimi yaratıyor."],
-            ["\"Türkiye'nin en iyi...\" gibi ifadeler", "Sorunlu", "Karşılaştırmalı üstünlük iddiası mevzuatın açıkça sınırladığı alan."],
-            ["Ücret listesi", "Sorunlu", "Ücretin ilan yoluyla duyurulması genellikle uygun görülmüyor."],
-            ["Ücretsiz danışmanlık kampanyası", "Sorunlu", "İş getirmeye yönelik teşvik olarak değerlendiriliyor."],
+            [
+              "Çalışma alanları",
+              "Serbest",
+              "Hangi alanlarda hizmet verdiğinizi belirtmek bilgilendirmedir.",
+            ],
+            [
+              "Özgeçmiş, eğitim, yayınlar",
+              "Serbest",
+              "Mesleki geçmişin paylaşılması tanıtımın meşru parçası.",
+            ],
+            [
+              "Hukuki makale ve bilgi yazıları",
+              "Serbest",
+              "Bilgilendirme amaçlı içerik açıkça uygun; en çok işe yarayan yöntem de bu.",
+            ],
+            [
+              "Müvekkil yorumu / referans",
+              "Sorunlu",
+              "Tanıklığa dayalı tanıtım reklam sayılıyor; ayrıca müvekkil gizliliği riski var.",
+            ],
+            [
+              "Kazanılmış dava sayısı, başarı oranı",
+              "Sorunlu",
+              "İş vaadi ve sonuç garantisi izlenimi yaratıyor.",
+            ],
+            [
+              '"Türkiye\'nin en iyi..." gibi ifadeler',
+              "Sorunlu",
+              "Karşılaştırmalı üstünlük iddiası mevzuatın açıkça sınırladığı alan.",
+            ],
+            [
+              "Ücret listesi",
+              "Sorunlu",
+              "Ücretin ilan yoluyla duyurulması genellikle uygun görülmüyor.",
+            ],
+            [
+              "Ücretsiz danışmanlık kampanyası",
+              "Sorunlu",
+              "İş getirmeye yönelik teşvik olarak değerlendiriliyor.",
+            ],
           ],
         },
         callout: {
@@ -411,13 +472,13 @@ export const posts: BlogPost[] = [
         heading: "Peki nasıl rekabetçi olacaksınız?",
         body: [
           "Reklam yapamıyorsanız görünürlük nasıl artacak? Cevap, bu alanda en çok işe yarayan yöntemin zaten reklam olmaması: bilgilendirici içerik.",
-          "İnsanlar avukat aramadan önce sorunlarını aratıyor. \"İşten çıkarıldım tazminat alabilir miyim\", \"kira artış oranı ne kadar olabilir\", \"velayet davası ne kadar sürer\". Bu sorulara doğru ve anlaşılır yanıt veren bir yazı, sizi hem bulunur hem güvenilir kılıyor — ve tamamen mevzuata uygun.",
+          'İnsanlar avukat aramadan önce sorunlarını aratıyor. "İşten çıkarıldım tazminat alabilir miyim", "kira artış oranı ne kadar olabilir", "velayet davası ne kadar sürer". Bu sorulara doğru ve anlaşılır yanıt veren bir yazı, sizi hem bulunur hem güvenilir kılıyor — ve tamamen mevzuata uygun.',
           "Üstelik bu yöntem, reklam verenlere göre daha kalıcı. Reklam bütçesi bittiğinde trafik durur; iyi bir yazı yıllarca ziyaretçi getirmeye devam eder.",
         ],
         bullets: [
           {
             title: "Çalışma alanlarını ayrı ayrı anlatın",
-            body: "Boşanma davası arayan kişiyle iş davası arayan kişi farklı şeyler soruyor. Hepsi tek bir \"çalışma alanlarımız\" listesinde toplanırsa ne danışan aradığını bulur ne de arama motorları hangi alanda uzman olduğunuzu anlar.",
+            body: 'Boşanma davası arayan kişiyle iş davası arayan kişi farklı şeyler soruyor. Hepsi tek bir "çalışma alanlarımız" listesinde toplanırsa ne danışan aradığını bulur ne de arama motorları hangi alanda uzman olduğunuzu anlar.',
           },
           {
             title: "Sık sorulan soruları yanıtlayın",
@@ -425,7 +486,7 @@ export const posts: BlogPost[] = [
           },
           {
             title: "Süreç ve beklenti anlatın",
-            body: "\"Dava ne kadar sürer\", \"hangi belgeler gerekli\", \"ilk görüşmede ne konuşulur\". Bu içerikler mevzuat açısından güvenli ve danışanın en çok ihtiyaç duyduğu bilgi.",
+            body: '"Dava ne kadar sürer", "hangi belgeler gerekli", "ilk görüşmede ne konuşulur". Bu içerikler mevzuat açısından güvenli ve danışanın en çok ihtiyaç duyduğu bilgi.',
           },
           {
             title: "Ekip ve özgeçmişi öne çıkarın",
@@ -438,7 +499,7 @@ export const posts: BlogPost[] = [
         bullets: [
           {
             title: "İletişim formu güvenli mi?",
-            body: "Danışan formda dosyasıyla ilgili hassas bilgi paylaşabilir. Bağlantının şifreli olması, verinin nasıl saklandığının belirtilmesi ve gereksiz alan istenmemesi gerekir. \"Sorununuzu anlatın\" diye açık uçlu bir kutu koymak hem gizlilik riski hem de ulaşma oranını düşüren bir tercih.",
+            body: 'Danışan formda dosyasıyla ilgili hassas bilgi paylaşabilir. Bağlantının şifreli olması, verinin nasıl saklandığının belirtilmesi ve gereksiz alan istenmemesi gerekir. "Sorununuzu anlatın" diye açık uçlu bir kutu koymak hem gizlilik riski hem de ulaşma oranını düşüren bir tercih.',
           },
           {
             title: "KVKK metinleri",
@@ -513,7 +574,7 @@ export const posts: BlogPost[] = [
         ],
         callout: {
           title: "Teklif alırken sorun",
-          body: "\"Mevcut sayfalarımın adresleri değişecek mi? Değişecekse 301 yönlendirmeleri kuruluyor mu?\" Bu soruya net cevap veremeyen bir ekiple yenileme yapmayın. Sonradan kurtarmak, baştan yapmaktan çok daha zor ve aylar alıyor.",
+          body: '"Mevcut sayfalarımın adresleri değişecek mi? Değişecekse 301 yönlendirmeleri kuruluyor mu?" Bu soruya net cevap veremeyen bir ekiple yenileme yapmayın. Sonradan kurtarmak, baştan yapmaktan çok daha zor ve aylar alıyor.',
         },
       },
       {
@@ -532,7 +593,7 @@ export const posts: BlogPost[] = [
           },
           {
             title: "3. Eski → yeni eşleştirme tablosu yapın",
-            body: "Her eski adresin yeni karşılığını yazın. Karşılığı olmayan bir sayfa varsa en yakın konudaki sayfaya yönlendirin; ana sayfaya yönlendirmek işe yaramıyor, Google bunu \"içerik kayboldu\" olarak okuyor.",
+            body: 'Her eski adresin yeni karşılığını yazın. Karşılığı olmayan bir sayfa varsa en yakın konudaki sayfaya yönlendirin; ana sayfaya yönlendirmek işe yaramıyor, Google bunu "içerik kayboldu" olarak okuyor.',
           },
           {
             title: "4. Mevcut trafiği kayıt altına alın",
@@ -579,7 +640,7 @@ export const posts: BlogPost[] = [
           },
           {
             title: "Yenileme gereksiz olduğunda",
-            body: "Site çalışıyor, hızlı ve mobil uyumlu ama \"biraz eski duruyor\" diyorsanız, önce içeriği ve dönüşüm yolunu iyileştirmeyi deneyin. Aynı bütçeyle çok daha fazla sonuç alabilirsiniz.",
+            body: 'Site çalışıyor, hızlı ve mobil uyumlu ama "biraz eski duruyor" diyorsanız, önce içeriği ve dönüşüm yolunu iyileştirmeyi deneyin. Aynı bütçeyle çok daha fazla sonuç alabilirsiniz.',
           },
           {
             title: "Kısmi yenileme de bir seçenek",
@@ -596,7 +657,7 @@ export const posts: BlogPost[] = [
           },
           {
             title: "Eski blog yazıları",
-            body: "\"Blogu zaten kullanmıyoruz, kaldıralım\" en pahalı kararlardan biri olabiliyor. O yazılar hâlâ ziyaretçi getiriyorsa silmek doğrudan trafik kaybı. Önce hangi yazıların ziyaret aldığını kontrol edin.",
+            body: '"Blogu zaten kullanmıyoruz, kaldıralım" en pahalı kararlardan biri olabiliyor. O yazılar hâlâ ziyaretçi getiriyorsa silmek doğrudan trafik kaybı. Önce hangi yazıların ziyaret aldığını kontrol edin.',
           },
           {
             title: "Site haritası ve robots dosyası",
@@ -616,7 +677,7 @@ export const posts: BlogPost[] = [
       },
       {
         q: "Adres yapısını hiç değiştirmesek olmaz mı?",
-        a: "En güvenlisi bu ve mümkünse öneririz. Eski adresler anlamlı ve düzgünse korumak, yönlendirme ihtiyacını tamamen ortadan kaldırır. Adres yapısını yalnızca gerçekten bozuksa değiştirin — \"daha güzel dursun\" diye değiştirmek gereksiz risk.",
+        a: 'En güvenlisi bu ve mümkünse öneririz. Eski adresler anlamlı ve düzgünse korumak, yönlendirme ihtiyacını tamamen ortadan kaldırır. Adres yapısını yalnızca gerçekten bozuksa değiştirin — "daha güzel dursun" diye değiştirmek gereksiz risk.',
       },
       {
         q: "Yenileme ne kadar sürer?",
@@ -660,7 +721,7 @@ export const posts: BlogPost[] = [
           },
           {
             title: "3. Hesaplara erişiminiz var mı?",
-            body: "Barındırma paneli, alan adı yönetimi, Google Search Console, analitik. Bunların tamamına erişiminiz olmalı. \"Biz hallederiz\" cevabı yeterli değil; erişim sizde olsun, yönetimi onlar yapsın.",
+            body: 'Barındırma paneli, alan adı yönetimi, Google Search Console, analitik. Bunların tamamına erişiminiz olmalı. "Biz hallederiz" cevabı yeterli değil; erişim sizde olsun, yönetimi onlar yapsın.',
           },
         ],
       },
@@ -719,7 +780,7 @@ export const posts: BlogPost[] = [
         bullets: [
           {
             title: "Sitenin asıl işi ne?",
-            body: "Telefon getirmesi mi, randevu alması mı, ürün satması mı, sadece güven vermesi mi? Tek cümleyle söyleyebiliyorsanız doğru teklifi alırsınız. \"Güzel bir site olsun\" cümlesi her ajansta farklı bir rakama dönüşür.",
+            body: 'Telefon getirmesi mi, randevu alması mı, ürün satması mı, sadece güven vermesi mi? Tek cümleyle söyleyebiliyorsanız doğru teklifi alırsınız. "Güzel bir site olsun" cümlesi her ajansta farklı bir rakama dönüşür.',
           },
           {
             title: "Beğendiğiniz 3 site",
@@ -738,7 +799,7 @@ export const posts: BlogPost[] = [
       {
         heading: "Uyarı işaretleri",
         body: [
-          "Bu maddelerin hiçbiri tek başına \"kaç\" demek değil, ama üst üste geldiklerinde durup düşünmek gerekir.",
+          'Bu maddelerin hiçbiri tek başına "kaç" demek değil, ama üst üste geldiklerinde durup düşünmek gerekir.',
         ],
         bullets: [
           {
@@ -747,7 +808,7 @@ export const posts: BlogPost[] = [
           },
           {
             title: "Kapsamı kalem kalem yazmaktan kaçınma",
-            body: "\"Her şey dahil\" cümlesi bir kapsam tanımı değil. Neyin dahil olduğunu yazılı isteyin; vermekten çekiniliyorsa teslimde de aynı belirsizlikle karşılaşırsınız.",
+            body: '"Her şey dahil" cümlesi bir kapsam tanımı değil. Neyin dahil olduğunu yazılı isteyin; vermekten çekiniliyorsa teslimde de aynı belirsizlikle karşılaşırsınız.',
           },
           {
             title: "Tamamı peşin ödeme talebi",
@@ -759,7 +820,7 @@ export const posts: BlogPost[] = [
           },
           {
             title: "Aşırı kısa süre vaadi",
-            body: "\"Yarın hazır\" demek, hazır bir şablona içerik yerleştirileceği anlamına gelir. Bu bir tercih olabilir, ama ne aldığınızı bilerek seçin.",
+            body: '"Yarın hazır" demek, hazır bir şablona içerik yerleştirileceği anlamına gelir. Bu bir tercih olabilir, ama ne aldığınızı bilerek seçin.',
           },
         ],
       },
@@ -800,7 +861,9 @@ export const posts: BlogPost[] = [
 export const postBySlug = (slug: string) => posts.find((p) => p.slug === slug);
 
 /** Yeniden en yeniye sıralı — liste sayfası ve sitemap için. */
-export const postsByDate = [...posts].sort((a, b) => b.published.localeCompare(a.published));
+export const postsByDate = [...posts].sort((a, b) =>
+  b.published.localeCompare(a.published),
+);
 
 export const blogUi = {
   eyebrow: "Blog",
@@ -811,7 +874,8 @@ export const blogUi = {
   faqTitle: "Sık sorulan sorular",
   relatedTitle: "İlgili çözümler",
   ctaTitle: "Projenizi konuşalım",
-  ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+  ctaText:
+    "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
   ctaButton: "Ücretsiz Teklif Al",
   updatedPrefix: "Güncellendi",
 };

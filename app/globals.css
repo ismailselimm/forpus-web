@@ -34,7 +34,12 @@
 }
 
 :root {
-  --grad-brand: linear-gradient(115deg, var(--color-green) 0%, var(--color-cyan) 48%, var(--color-blue) 100%);
+  --grad-brand: linear-gradient(
+    115deg,
+    var(--color-green) 0%,
+    var(--color-cyan) 48%,
+    var(--color-blue) 100%
+  );
   --grad-brand-soft: linear-gradient(
     115deg,
     color-mix(in oklab, var(--color-green) 18%, white),
@@ -84,9 +89,17 @@ body::before {
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(60% 50% at 78% -5%, rgba(30, 146, 230, 0.1), transparent 60%),
+    radial-gradient(
+      60% 50% at 78% -5%,
+      rgba(30, 146, 230, 0.1),
+      transparent 60%
+    ),
     radial-gradient(55% 45% at 0% 8%, rgba(95, 190, 46, 0.1), transparent 60%),
-    radial-gradient(50% 40% at 50% 100%, rgba(17, 205, 217, 0.08), transparent 60%),
+    radial-gradient(
+      50% 40% at 50% 100%,
+      rgba(17, 205, 217, 0.08),
+      transparent 60%
+    ),
     var(--color-bg);
   pointer-events: none;
 }
@@ -96,7 +109,11 @@ body::before {
   color: var(--color-ink);
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.04;
@@ -104,13 +121,25 @@ h1, h2, h3, h4, h5 {
   color: var(--color-ink);
 }
 
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
-button { font-family: inherit; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+button {
+  font-family: inherit;
+}
 
 /* Custom scrollbar (subtle) */
-::-webkit-scrollbar { width: 11px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(var(--color-cyan), var(--color-blue));
   border-radius: 99px;
@@ -198,8 +227,12 @@ button { font-family: inherit; }
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--color-ink-2);
-  transition: transform 0.3s var(--ease-out-expo), background 0.3s ease,
-    color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s var(--ease-out-expo),
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .pill-link:hover {
   transform: translateY(-2px);
@@ -208,6 +241,51 @@ button { font-family: inherit; }
   color: white;
   box-shadow: var(--shadow-glow);
 }
+/*
+ * Form alanı. İki form (genel iletişim ve sektör brief'i) sınıf dizisini
+ * ayrı ayrı yazıyordu ve şimdiden ayrışmıştı: biri rounded-xl/py-3/ring,
+ * diğeri rounded-2xl/py-3.5/border. Aynı sitede iki farklı input görünümü.
+ *
+ * CSS'te, bir TS sabitinde değil: sabit `Contact.tsx`te duruyordu ve oradan
+ * import etmek o istemci bileşeninin tamamını çözüm sayfası paketine
+ * sokardı. `.btn`, `.pill-link`, `.bar-track` da aynı sebeple burada.
+ */
+.field {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-line);
+  background: white;
+  padding: 0.75rem 1rem;
+  color: var(--color-ink);
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+.field::placeholder {
+  color: var(--color-ink-3);
+}
+.field:focus {
+  outline: none;
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-cyan) 25%, transparent);
+}
+
+/*
+ * Seçili pill — seçim kutucukları için.
+ *
+ * `.pill-link:hover`ın görünümünü KALICI hâle getiriyor: imleç üstündeyken
+ * görülen şey tıklayınca yerine oturuyor, affordans kendini öğretiyor.
+ * Ayrı bir sınıf olarak burada, çünkü SektorBrief bu iki hâli de Tailwind
+ * sınıf dizisi olarak elle yazıyordu — marka gradyanı değiştiğinde sitenin
+ * pill'leri dönüp o kutucuklar geride kalırdı.
+ */
+.pill-link[aria-pressed="true"] {
+  border-color: transparent;
+  background: var(--grad-brand);
+  color: white;
+  box-shadow: var(--shadow-glow);
+}
+
 .pill-link-lg {
   padding: 0.75rem 1.25rem;
   font-size: 0.95rem;
@@ -215,7 +293,9 @@ button { font-family: inherit; }
   color: var(--color-ink);
 }
 @media (prefers-reduced-motion: reduce) {
-  .pill-link:hover { transform: none; }
+  .pill-link:hover {
+    transform: none;
+  }
 }
 
 /* ============================================================
@@ -226,7 +306,9 @@ button { font-family: inherit; }
   -webkit-backdrop-filter: blur(16px) saturate(1.4);
   backdrop-filter: blur(16px) saturate(1.4);
   border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow:
+    var(--shadow-soft),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .glass-card {
@@ -254,14 +336,18 @@ button { font-family: inherit; }
   border-radius: inherit;
   padding: 1px;
   background: var(--grad-brand);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.45s var(--ease-out-expo);
   pointer-events: none;
 }
-.border-gradient:hover::after { opacity: 1; }
+.border-gradient:hover::after {
+  opacity: 1;
+}
 
 /* Hafif kart — .glass-card'ın blur'suz, ucuz kardeşi.
    Dokuz yerde aynı sınıf dizesi olarak tekrarlanıyordu. */
@@ -288,7 +374,9 @@ button { font-family: inherit; }
   letter-spacing: -0.01em;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo),
+  transition:
+    transform 0.4s var(--ease-out-expo),
+    box-shadow 0.4s var(--ease-out-expo),
     background 0.3s ease;
   will-change: transform;
 }
@@ -336,7 +424,13 @@ button { font-family: inherit; }
 .divider-flow {
   height: 1px;
   width: 100%;
-  background: linear-gradient(90deg, transparent, var(--color-line) 18%, var(--color-line) 82%, transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-line) 18%,
+    var(--color-line) 82%,
+    transparent
+  );
 }
 
 /* Grain overlay */
@@ -354,40 +448,80 @@ button { font-family: inherit; }
    Keyframes
    ============================================================ */
 @keyframes float-y {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-18px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
 }
 @keyframes blob-drift {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  33% { transform: translate3d(6%, -5%, 0) scale(1.08); }
-  66% { transform: translate3d(-5%, 4%, 0) scale(0.96); }
-  100% { transform: translate3d(0, 0, 0) scale(1); }
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(6%, -5%, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-5%, 4%, 0) scale(0.96);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
 }
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 @keyframes gradient-pan {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 @keyframes shimmer {
-  to { background-position: 200% center; }
+  to {
+    background-position: 200% center;
+  }
 }
 @keyframes spin-slow {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 @keyframes caret-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes dash-flow {
-  to { stroke-dashoffset: -40; }
+  to {
+    stroke-dashoffset: -40;
+  }
 }
 @keyframes node-pulse {
-  0%, 100% { opacity: 0.55; transform: scale(1); }
-  50% { opacity: 0.95; transform: scale(1.15); }
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.15);
+  }
 }
 
 .team-line {
@@ -414,7 +548,10 @@ button { font-family: inherit; }
    data-acilis-goruldu bayrağı yeterli (layout'taki satır içi script).
 ------------------------------------------------------------------- */
 @keyframes preloader-out {
-  to { transform: translateY(-100%); visibility: hidden; }
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
 }
 .preloader {
   animation: preloader-out 0.65s var(--ease-out-expo) 1.1s forwards;
@@ -426,11 +563,17 @@ button { font-family: inherit; }
   animation: preloader-bar 1.55s ease-out both;
 }
 @keyframes preloader-bar {
-  from { transform: scaleX(0.1); }
-  to   { transform: scaleX(1); }
+  from {
+    transform: scaleX(0.1);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 /* Oturumda bir kez gösterildi → hiç çizme. */
-html[data-acilis-goruldu] .preloader { display: none; }
+html[data-acilis-goruldu] .preloader {
+  display: none;
+}
 
 /* ------------------------------------------------------------------
    Hero giriş animasyonu — CSS ile, bilerek.
@@ -448,8 +591,14 @@ html[data-acilis-goruldu] .preloader { display: none; }
    ediyor; onlar ekranın altında olduğu için LCP'yi etkilemiyor.
 ------------------------------------------------------------------- */
 @keyframes hero-in {
-  from { opacity: 0; transform: translateY(22px); }
-  to   { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 /* Animasyon YALNIZCA perdenin gösterilmediği ziyaretlerde çalışır. İlk
    ziyarette perde 1,75sn'de kalkıyor, hero animasyonu ise 1,44sn'de bitiyordu
@@ -460,13 +609,26 @@ html[data-acilis-goruldu] .hero-in {
   animation: hero-in 0.8s var(--ease-out-expo) both;
 }
 
-.animate-float { animation: float-y 7s var(--ease-in-out-soft) infinite; }
-.animate-marquee { animation: marquee 38s linear infinite; }
-.animate-spin-slow { animation: spin-slow 26s linear infinite; }
+.animate-float {
+  animation: float-y 7s var(--ease-in-out-soft) infinite;
+}
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+.animate-spin-slow {
+  animation: spin-slow 26s linear infinite;
+}
 
 /* gradient animated text (for accents) */
 .text-gradient-anim {
-  background: linear-gradient(115deg, var(--color-green), var(--color-cyan), var(--color-blue), var(--color-cyan), var(--color-green));
+  background: linear-gradient(
+    115deg,
+    var(--color-green),
+    var(--color-cyan),
+    var(--color-blue),
+    var(--color-cyan),
+    var(--color-green)
+  );
   background-size: 250% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -478,13 +640,17 @@ html[data-acilis-goruldu] .hero-in {
    Cursor + interactions
    ============================================================ */
 @media (hover: hover) and (pointer: fine) {
-  .cursor-none-on-desktop { cursor: none; }
+  .cursor-none-on-desktop {
+    cursor: none;
+  }
 }
 
 /* ============================================================
    Reveal (used by JS-less fallback)
    ============================================================ */
-[data-reveal] { will-change: transform, opacity; }
+[data-reveal] {
+  will-change: transform, opacity;
+}
 
 /* ============================================================
    Lenis smooth scroll
@@ -522,18 +688,37 @@ html.lenis body {
   animation: blob-drift 22s var(--ease-in-out-soft) infinite;
 }
 .aurora-blob.b1 {
-  width: 46vw; height: 46vw; left: -8vw; top: -10vw;
+  width: 46vw;
+  height: 46vw;
+  left: -8vw;
+  top: -10vw;
   background: radial-gradient(circle, rgba(95, 190, 46, 0.5), transparent 68%);
 }
 .aurora-blob.b2 {
-  width: 52vw; height: 52vw; right: -12vw; top: -8vw;
-  background: radial-gradient(circle, rgba(30, 146, 230, 0.46), transparent 68%);
-  animation-duration: 26s; animation-delay: -6s;
+  width: 52vw;
+  height: 52vw;
+  right: -12vw;
+  top: -8vw;
+  background: radial-gradient(
+    circle,
+    rgba(30, 146, 230, 0.46),
+    transparent 68%
+  );
+  animation-duration: 26s;
+  animation-delay: -6s;
 }
 .aurora-blob.b3 {
-  width: 44vw; height: 44vw; left: 28vw; bottom: -20vw;
-  background: radial-gradient(circle, rgba(17, 205, 217, 0.46), transparent 68%);
-  animation-duration: 30s; animation-delay: -12s;
+  width: 44vw;
+  height: 44vw;
+  left: 28vw;
+  bottom: -20vw;
+  background: radial-gradient(
+    circle,
+    rgba(17, 205, 217, 0.46),
+    transparent 68%
+  );
+  animation-duration: 30s;
+  animation-delay: -12s;
 }
 
 /* ============================================================
@@ -550,5 +735,9 @@ html.lenis body {
   }
   /* Perde de gizlenir: global kurallar animation-delay'i sıfırlamadığı için
      aksi halde 1,1sn ekranda kalırdı. */
-  .grain, .aurora-blob, .preloader { display: none; }
+  .grain,
+  .aurora-blob,
+  .preloader {
+    display: none;
+  }
 }

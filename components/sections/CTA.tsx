@@ -36,11 +36,17 @@ export default function CTA() {
             {/* soft radial glows for atmosphere */}
             <div
               className="pointer-events-none absolute -left-20 -top-24 -z-10 h-72 w-72 rounded-full blur-3xl"
-              style={{ background: "radial-gradient(circle, rgba(17,205,217,0.45), transparent 70%)" }}
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(17,205,217,0.45), transparent 70%)",
+              }}
             />
             <div
               className="pointer-events-none absolute -bottom-28 -right-16 -z-10 h-80 w-80 rounded-full blur-3xl"
-              style={{ background: "radial-gradient(circle, rgba(95,190,46,0.4), transparent 70%)" }}
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(95,190,46,0.4), transparent 70%)",
+              }}
             />
 
             {/* hairline top sheen */}

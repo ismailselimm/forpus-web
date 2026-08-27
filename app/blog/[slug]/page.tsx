@@ -20,7 +20,10 @@ export async function generateMetadata({
     title: p.metaTitle,
     description: p.metaDescription,
     // Yalnızca Türkçe: Google'a başka dil sürümü olmadığını bildiriyoruz.
-    alternates: { canonical: url, languages: { "tr-TR": url, "x-default": url } },
+    alternates: {
+      canonical: url,
+      languages: { "tr-TR": url, "x-default": url },
+    },
     openGraph: {
       type: "article",
       locale: "tr_TR",
@@ -34,7 +37,11 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const post = postBySlug(slug);
   if (!post) notFound();

@@ -22,11 +22,17 @@ export default function Preloader() {
       {/* marka ışıltıları */}
       <div
         className="absolute -left-20 -top-24 h-72 w-72 rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(95,190,46,0.18), transparent 70%)" }}
+        style={{
+          background:
+            "radial-gradient(circle, rgba(95,190,46,0.18), transparent 70%)",
+        }}
       />
       <div
         className="absolute -bottom-24 -right-16 h-80 w-80 rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(30,146,230,0.18), transparent 70%)" }}
+        style={{
+          background:
+            "radial-gradient(circle, rgba(30,146,230,0.18), transparent 70%)",
+        }}
       />
 
       <div className="relative flex flex-col items-center gap-8">
@@ -45,7 +51,10 @@ export default function Preloader() {
         </div>
 
         <div className="h-[3px] w-44 overflow-hidden rounded-full bg-line">
-          <div className="preloader__bar h-full rounded-full" style={{ background: "var(--grad-brand)" }} />
+          <div
+            className="preloader__bar h-full rounded-full"
+            style={{ background: "var(--grad-brand)" }}
+          />
         </div>
       </div>
     </div>

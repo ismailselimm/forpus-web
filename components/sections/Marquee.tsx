@@ -51,8 +51,10 @@ export default function Marquee() {
       }, delay);
     };
 
-    const onEnter = (e: PointerEvent) => e.pointerType === "mouse" && pauseNow();
-    const onLeave = (e: PointerEvent) => e.pointerType === "mouse" && resumeSoon(150);
+    const onEnter = (e: PointerEvent) =>
+      e.pointerType === "mouse" && pauseNow();
+    const onLeave = (e: PointerEvent) =>
+      e.pointerType === "mouse" && resumeSoon(150);
     const onUp = () => resumeSoon(1600); // let touch momentum settle before resuming
     const onWheel = () => {
       pauseNow();

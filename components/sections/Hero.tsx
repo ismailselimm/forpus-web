@@ -42,7 +42,10 @@ export default function Hero() {
             <span className="hero-in block" style={stagger(1)}>
               {t.hero.titleLead}
             </span>
-            <span className="hero-in block text-gradient-anim" style={stagger(2)}>
+            <span
+              className="hero-in block text-gradient-anim"
+              style={stagger(2)}
+            >
               {t.hero.titleHighlight}
             </span>
             {t.hero.titleTail ? (
@@ -56,7 +59,10 @@ export default function Hero() {
             {t.hero.subtitle}
           </p>
 
-          <div className="hero-in mt-9 flex flex-wrap items-center gap-3" style={stagger(5)}>
+          <div
+            className="hero-in mt-9 flex flex-wrap items-center gap-3"
+            style={stagger(5)}
+          >
             <Magnetic>
               <a href="#contact" className="btn btn-primary">
                 {t.hero.ctaPrimary}
@@ -68,7 +74,10 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="hero-in mt-10 flex flex-wrap gap-2.5" style={stagger(6)}>
+          <div
+            className="hero-in mt-10 flex flex-wrap gap-2.5"
+            style={stagger(6)}
+          >
             {t.hero.chips.map((c) => (
               <div key={c.value} className="chip">
                 <span className="font-semibold text-ink">{c.value}</span>

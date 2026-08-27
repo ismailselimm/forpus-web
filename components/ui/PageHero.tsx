@@ -28,14 +28,19 @@ export default function PageHero({
 }) {
   return (
     <section
-      className={clsx("section relative overflow-hidden bg-bg-2/50 pt-32 sm:pt-40", className)}
+      className={clsx(
+        "section relative overflow-hidden bg-bg-2/50 pt-32 sm:pt-40",
+        className,
+      )}
     >
       <Aurora className="opacity-60" />
       <div className="container-x relative z-10">
         <Breadcrumb items={crumbs} />
         <Reveal>
           {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-          <h1 className={clsx("h-section text-balance", eyebrow && "mt-5")}>{title}</h1>
+          <h1 className={clsx("h-section text-balance", eyebrow && "mt-5")}>
+            {title}
+          </h1>
           {lead && <p className="lead mt-6 max-w-2xl">{lead}</p>}
           {children}
         </Reveal>

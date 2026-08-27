@@ -48,6 +48,30 @@ export const EPOSTA = "forpusyazilim@gmail.com";
 export const SEHIR = { tr: "İstanbul", en: "Istanbul" } as const;
 export const ULKE = { tr: "Türkiye", en: "Türkiye" } as const;
 
+/**
+ * DÖNÜŞ SÜRESİ VAADİ — tek kaynak.
+ *
+ * Aynı anda dört yerde farklı yazıyordu: llms.txt "48 saat", iletişim sayfası
+ * "aynı gün, en geç bir iş günü", brief formunun başarı mesajı yine "48 saat".
+ * Hepsi ziyaretçinin gördüğü ve makinelerin okuduğu beyan.
+ *
+ * `lib/iletisim.ts`te DEĞİL, burada: sözlük de bunu okuyor ve sözlük istemci
+ * tarafında; iletişim modülü ise 6 kB'lık SSS metni taşıyor. Oradan import
+ * etmek o metnin tamamını tarayıcıya indirirdi.
+ */
+export const YANIT_SURESI = {
+  /** Tam cümle: llms.txt, iletişim sayfası. */
+  tam: {
+    tr: "Mesajlara aynı gün, en geç bir iş günü içinde dönülür.",
+    en: "We reply the same day, and within one business day at the latest.",
+  },
+  /** Cümle içine giren biçim: "… teklifi aynı gün … hazırlayalım." */
+  kisa: {
+    tr: "aynı gün, en geç bir iş günü içinde",
+    en: "the same day, within one business day at the latest",
+  },
+} as const;
+
 /** Çalışma saatleri — hem iletişim künyesinde hem yapısal veride. */
 export const CALISMA = {
   gunler: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

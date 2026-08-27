@@ -1,11 +1,18 @@
 "use client";
 
 import Link from "next/link";
+
+import { CEVRILMIS_SAYFALAR, cevrilmisYol } from "@/lib/routes";
 import { ArrowUp } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import { useLang } from "@/components/providers/LanguageProvider";
 import { solutionIndex, slugOfRef } from "@/lib/solution-index";
 import { SosyalIkonlar } from "@/components/ui/SosyalIkonlar";
+
+// Footer bağlantılarının ortak görünümü. Aynı 92 karakterlik sınıf dizisi
+// dosyada 9 kez tekrar ediyordu; hover davranışını değiştirmek 9 dokunuştu.
+const BAG =
+  "inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink";
 
 export default function Footer() {
   const { t, lang } = useLang();
@@ -49,7 +56,7 @@ export default function Footer() {
                 <li key={s.key}>
                   <Link
                     href={`${solBase}/${slugOfRef(s, lang)}`}
-                    className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                    className={BAG}
                   >
                     {s.label[lang]}
                   </Link>
@@ -73,42 +80,27 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
               <li>
-                <a
-                  href="/#services"
-                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
-                >
+                <a href="/#services" className={BAG}>
                   {t.nav.services}
                 </a>
               </li>
               <li>
-                <a
-                  href="/isler"
-                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
-                >
+                <a href="/isler" className={BAG}>
                   {t.nav.work}
                 </a>
               </li>
               <li>
-                <a
-                  href="/blog"
-                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
-                >
+                <a href="/blog" className={BAG}>
                   {t.footer.blog}
                 </a>
               </li>
               <li>
-                <a
-                  href="/#process"
-                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
-                >
+                <a href="/#process" className={BAG}>
                   {t.nav.process}
                 </a>
               </li>
               <li>
-                <a
-                  href="/#team"
-                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
-                >
+                <a href="/#team" className={BAG}>
                   {t.nav.team}
                 </a>
               </li>
@@ -123,10 +115,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
               {t.services.items.map((s) => (
                 <li key={s.key}>
-                  <a
-                    href="/#services"
-                    className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
-                  >
+                  <a href="/#services" className={BAG}>
                     {s.name}
                   </a>
                 </li>
@@ -141,10 +130,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
               <li>
-                <a
-                  href={`mailto:${t.contact.info.email}`}
-                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
-                >
+                <a href={`mailto:${t.contact.info.email}`} className={BAG}>
                   {t.contact.info.email}
                 </a>
               </li>
@@ -155,8 +141,8 @@ export default function Footer() {
                   ana sayfada menüdeki "İletişim" formun kendisine kaymalı. */}
               <li>
                 <Link
-                  href={lang === "tr" ? "/iletisim" : "/en/contact"}
-                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                  href={cevrilmisYol(CEVRILMIS_SAYFALAR[0], lang)}
+                  className={BAG}
                 >
                   {t.footer.iletisimSayfasi}
                 </Link>

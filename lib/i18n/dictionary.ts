@@ -1,4 +1,4 @@
-import { EPOSTA } from "@/lib/marka";
+import { EPOSTA, SEHIR, ULKE, YANIT_SURESI } from "@/lib/marka";
 
 // Forpus — bilingual content dictionary (TR default, EN secondary).
 // `en` is typed as `typeof tr` so both languages always stay in parity.
@@ -384,8 +384,7 @@ const tr = {
   cta: {
     eyebrow: "Hadi Başlayalım",
     title: "Bir sonraki projeyi\nbirlikte yapalım.",
-    subtitle:
-      "Aklınızdaki fikri anlatın; size en uygun yol haritasını ve teklifi 48 saat içinde hazırlayalım.",
+    subtitle: `Aklınızdaki fikri anlatın; size en uygun yol haritasını ve teklifi ${YANIT_SURESI.kisa.tr} hazırlayalım.`,
     button: "Projeni Anlat",
   },
   contact: {
@@ -426,7 +425,11 @@ const tr = {
       email: EPOSTA,
       socialLabel: "Sosyal Medya",
       locationLabel: "Konum",
-      location: "İstanbul, Türkiye",
+      // Şehir/ülke `lib/marka.ts`ten: footer ve iletişim bloğu sitenin HER
+      // sayfasında bunu çiziyor, JSON-LD ile aynı kaynaktan gelmezse ofis
+      // değiştiğinde ikisi sessizce ayrışır. EN kopyası zaten ayrışmıştı:
+      // Türkçe İ ile "İstanbul" yazıyordu.
+      location: `${SEHIR.tr}, ${ULKE.tr}`,
     },
   },
   brief: {
@@ -444,11 +447,19 @@ const tr = {
     ],
     zamanSecenekleri: ["Bu ay", "1–3 ay içinde", "Araştırma aşamasındayım"],
     briefBasligi: "Bize ulaşacak brief",
+    // Brief kutusunun satır başları. Bileşende Türkçe sabit yazılıydı ve
+    // İngilizce çözüm sayfalarında "the brief we will receive" başlığının
+    // altında yarı Türkçe bir kayıt çiziliyordu.
+    satirEtiketleri: {
+      ihtiyac: "İhtiyaç",
+      durum: "Mevcut durum",
+      zaman: "Başlangıç",
+    },
     adEtiketi: "Adınız",
     iletisimEtiketi: "Telefon veya e-posta",
     gonder: "Brief'i gönder",
     gonderiliyor: "Gönderiliyor",
-    basarili: "Brief gönderildi. En geç 48 saat içinde dönüyoruz.",
+    basarili: `Brief gönderildi. ${YANIT_SURESI.tam.tr}`,
     hata: "Gönderilemedi. Tekrar deneyin ya da doğrudan e-posta yazın.",
     eksik: "Devam etmek için bir ihtiyaç seçin ve iletişim bilgisi bırakın.",
     baslangic: "Yukarıdan seçim yapın, brief burada oluşsun.",
@@ -853,8 +864,7 @@ const en: typeof tr = {
   cta: {
     eyebrow: "Let's Start",
     title: "Let's build your\nnext project together.",
-    subtitle:
-      "Tell us your idea and we'll prepare the best roadmap and a proposal for you within 48 hours.",
+    subtitle: `Tell us your idea and we'll prepare the best roadmap and a proposal for you ${YANIT_SURESI.kisa.en}.`,
     button: "Tell Us Your Project",
   },
   contact: {
@@ -891,7 +901,7 @@ const en: typeof tr = {
       email: EPOSTA,
       socialLabel: "Social Media",
       locationLabel: "Location",
-      location: "İstanbul, Türkiye",
+      location: `${SEHIR.en}, ${ULKE.en}`,
     },
   },
   brief: {
@@ -909,11 +919,16 @@ const en: typeof tr = {
     ],
     zamanSecenekleri: ["This month", "Within 1–3 months", "Still researching"],
     briefBasligi: "The brief we will receive",
+    satirEtiketleri: {
+      ihtiyac: "Needs",
+      durum: "Current state",
+      zaman: "Start",
+    },
     adEtiketi: "Your name",
     iletisimEtiketi: "Phone or email",
     gonder: "Send the brief",
     gonderiliyor: "Sending",
-    basarili: "Brief sent. We reply within 48 hours.",
+    basarili: `Brief sent. ${YANIT_SURESI.tam.en}`,
     hata: "Could not send. Try again or email us directly.",
     eksik: "Pick at least one need and leave a contact detail.",
     baslangic: "Make a selection above and the brief builds itself here.",

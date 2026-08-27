@@ -1,8 +1,7 @@
 import { postsByDate } from "@/lib/blog";
 import { dictionary } from "@/lib/i18n/dictionary";
 import { cases } from "@/lib/cases";
-import { YANIT_SURESI } from "@/lib/iletisim";
-import { EPOSTA, SEHIR, ULKE } from "@/lib/marka";
+import { EPOSTA, SEHIR, ULKE, YANIT_SURESI } from "@/lib/marka";
 import { SITE_URL as SITE } from "@/lib/site";
 import { solutions } from "@/lib/solutions";
 
@@ -60,7 +59,7 @@ ${postsByDate.map((y) => `- ${y.title} (${y.published}): ${SITE}/blog/${y.slug}`
 ## Notlar (Notes)
 - Diller: Türkçe (varsayılan) ve İngilizce.
 - Teknoloji: Next.js, React, Flutter; modern, hızlı ve ölçeklenebilir çözümler.
-- ${YANIT_SURESI.tr} (${YANIT_SURESI.en})
+- ${YANIT_SURESI.tam.tr} (${YANIT_SURESI.tam.en})
 `;
 
   return new Response(govde, {

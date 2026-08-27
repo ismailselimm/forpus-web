@@ -68,7 +68,12 @@ function PackageCard({ pkg, badge }: { pkg: Package; badge: string }) {
         >
           {pkg.name}
         </h3>
-        <p className={clsx("mt-2 text-[0.9rem] leading-relaxed sm:text-[0.98rem]", featured ? "text-white/70" : "text-ink-2")}>
+        <p
+          className={clsx(
+            "mt-2 text-[0.9rem] leading-relaxed sm:text-[0.98rem]",
+            featured ? "text-white/70" : "text-ink-2",
+          )}
+        >
           {pkg.tagline}
         </p>
 
@@ -84,7 +89,9 @@ function PackageCard({ pkg, badge }: { pkg: Package; badge: string }) {
         <span
           className={clsx(
             "mt-5 inline-flex w-fit items-center gap-1.5 rounded-full border px-3 py-1 font-[family-name:var(--font-mono)] text-[0.72rem] font-semibold uppercase tracking-[0.12em]",
-            featured ? "border-white/20 bg-white/10 text-cyan" : "border-line bg-white/60 text-ink-3",
+            featured
+              ? "border-white/20 bg-white/10 text-cyan"
+              : "border-line bg-white/60 text-ink-3",
           )}
         >
           <Clock className="h-3.5 w-3.5" strokeWidth={2} />
@@ -93,7 +100,10 @@ function PackageCard({ pkg, badge }: { pkg: Package; badge: string }) {
 
         <ul className="mt-6 space-y-3 sm:mt-7 sm:space-y-3.5">
           {pkg.features.map((f) => (
-            <li key={f} className="flex items-start gap-2.5 text-[0.88rem] sm:text-[0.95rem]">
+            <li
+              key={f}
+              className="flex items-start gap-2.5 text-[0.88rem] sm:text-[0.95rem]"
+            >
               <span
                 className={clsx(
                   "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full",
@@ -101,11 +111,16 @@ function PackageCard({ pkg, badge }: { pkg: Package; badge: string }) {
                 )}
               >
                 <Check
-                  className={clsx("h-3 w-3", featured ? "text-cyan" : "text-green-deep")}
+                  className={clsx(
+                    "h-3 w-3",
+                    featured ? "text-cyan" : "text-green-deep",
+                  )}
                   strokeWidth={3}
                 />
               </span>
-              <span className={featured ? "text-white/85" : "text-ink-2"}>{f}</span>
+              <span className={featured ? "text-white/85" : "text-ink-2"}>
+                {f}
+              </span>
             </li>
           ))}
         </ul>
@@ -141,7 +156,10 @@ export default function Packages() {
   const [active, setActive] = useState(featuredIndex);
 
   return (
-    <section id="packages" className="section relative overflow-hidden bg-bg-2/60">
+    <section
+      id="packages"
+      className="section relative overflow-hidden bg-bg-2/60"
+    >
       <Aurora className="opacity-50" />
 
       <div className="container-x relative z-10">
@@ -187,7 +205,11 @@ export default function Packages() {
                       aria-hidden
                       className="absolute inset-0 rounded-xl shadow-[var(--shadow-glow)]"
                       style={{ background: "var(--grad-ink)" }}
-                      transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 420,
+                        damping: 34,
+                      }}
                     />
                   )}
                   <span className="relative z-10">{pkg.short}</span>

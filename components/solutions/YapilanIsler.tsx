@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
 import { casesForSolution } from "@/lib/cases";
 import { shotAt } from "@/lib/projects";
+import { solutionUi } from "@/lib/solutions";
 
 /**
  * BU ALANDA YAPTIĞIMIZ İŞLER — brief formunun hemen üstündeki kanıt.
@@ -16,10 +17,10 @@ import { shotAt } from "@/lib/projects";
  *
  * FORMUN HEMEN ÜSTÜNDE, çünkü sıra önemli: önce kanıt, sonra istek.
  *
- * YALNIZCA TÜRKÇE SAYFALARDA. Vaka sayfaları tek dilli (`lib/routes.ts`,
- * TR_ONLY_PREFIXES); İngilizce bir sayfadan Türkçe metne bağlamak ziyaretçiyi
- * anlamadığı bir sayfaya düşürürdü. İngilizce vakalar yayınlandığında bu
- * koşul kalkacak.
+ * Hangi vakaların bu dilde gösterilebileceği kararı bu bileşende DEĞİL,
+ * `casesForSolution`da: bugün İngilizce vaka metni yok, o yüzden EN'de boş
+ * dönüyor ve bölüm zaten çizilmiyor. İngilizce vakalar yayınlandığında burada
+ * hiçbir şey değişmeyecek.
  *
  * Eşleşme `relatedSolutions`ten türetiliyor — vakaların zaten yazdığı ilişki.
  * Bu sektörün vakası yoksa bölüm hiç çizilmiyor: boş bir "işlerimiz" başlığı,
@@ -28,25 +29,26 @@ import { shotAt } from "@/lib/projects";
 export default function YapilanIsler({
   sektorAnahtari,
   sektorEtiketi,
+  lang,
 }: {
   sektorAnahtari: string;
   sektorEtiketi: string;
+  lang: "tr" | "en";
 }) {
-  const isler = casesForSolution(sektorAnahtari);
+  const isler = casesForSolution(sektorAnahtari, lang);
   if (isler.length === 0) return null;
+
+  const L = solutionUi[lang];
 
   return (
     <section className="section bg-bg-2/50">
       <div className="container-x">
         <Reveal>
-          <span className="eyebrow">Gerçek işler</span>
+          <span className="eyebrow">{L.islerEyebrow}</span>
           <h2 className="h-section mt-5 max-w-2xl text-balance">
-            {sektorEtiketi} tarafında yaptığımız işler
+            {L.islerBaslik.replace("%s", sektorEtiketi)}
           </h2>
-          <p className="lead mt-5 max-w-2xl">
-            Ekran görüntüsü değil, canlı siteler. Her birinin neye ihtiyaç
-            duyduğunu ve ne kurduğumuzu ayrı ayrı yazdık.
-          </p>
+          <p className="lead mt-5 max-w-2xl">{L.islerLead}</p>
         </Reveal>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -72,7 +74,7 @@ export default function YapilanIsler({
                     {is.summary}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-[0.88rem] font-semibold text-cyan-deep">
-                    İşi incele
+                    {L.isiIncele}
                     <ArrowUpRight className="h-4 w-4" />
                   </span>
                 </div>

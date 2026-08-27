@@ -124,7 +124,9 @@ export default function Work() {
             <span className="eyebrow">{t.work.eyebrow}</span>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="h-section mt-5 whitespace-pre-line">{t.work.title}</h2>
+            <h2 className="h-section mt-5 whitespace-pre-line">
+              {t.work.title}
+            </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="lead mt-5">{t.work.subtitle}</p>
@@ -153,7 +155,10 @@ export default function Work() {
                     atmak yerine içeride tutuyor. Dış link vakada zaten var. */}
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <Magnetic>
-                    <Link href={`/isler/${featured.slug}`} className="btn btn-primary">
+                    <Link
+                      href={`/isler/${featured.slug}`}
+                      className="btn btn-primary"
+                    >
                       {t.work.caseStudy}
                       <ArrowRight className="h-[18px] w-[18px]" />
                     </Link>
@@ -178,50 +183,53 @@ export default function Work() {
           {rest.map((project, i) => {
             const lonely = rest.length % 2 === 1 && i === rest.length - 1;
             return (
-            <Reveal
-              key={project.slug}
-              delay={i * 0.08}
-              className={clsx("h-full", lonely && "md:col-span-2 md:mx-auto md:w-[calc(50%-0.75rem)]")}
-            >
-              <article className="group glass-card border-gradient relative flex h-full flex-col overflow-hidden p-4 transition-transform duration-500 hover:-translate-y-2 sm:p-5">
-                {/* soft accent halo behind the frame, revealed on hover */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-x-6 top-2 -z-[1] h-40 rounded-[var(--r-lg)] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-30"
-                  style={{
-                    background: `radial-gradient(60% 60% at 50% 30%, ${ACCENT_HEX[project.accent]}, transparent 70%)`,
-                  }}
-                />
-                <BrowserFrame
-                  project={project}
-                  sizes="(max-width: 768px) 92vw, (max-width: 1260px) 46vw, 580px"
-                />
+              <Reveal
+                key={project.slug}
+                delay={i * 0.08}
+                className={clsx(
+                  "h-full",
+                  lonely && "md:col-span-2 md:mx-auto md:w-[calc(50%-0.75rem)]",
+                )}
+              >
+                <article className="group glass-card border-gradient relative flex h-full flex-col overflow-hidden p-4 transition-transform duration-500 hover:-translate-y-2 sm:p-5">
+                  {/* soft accent halo behind the frame, revealed on hover */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-6 top-2 -z-[1] h-40 rounded-[var(--r-lg)] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-30"
+                    style={{
+                      background: `radial-gradient(60% 60% at 50% 30%, ${ACCENT_HEX[project.accent]}, transparent 70%)`,
+                    }}
+                  />
+                  <BrowserFrame
+                    project={project}
+                    sizes="(max-width: 768px) 92vw, (max-width: 1260px) 46vw, 580px"
+                  />
 
-                <div className="flex flex-1 flex-col px-1.5 pb-1.5 pt-6">
-                  <span className="font-[family-name:var(--font-mono)] text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-cyan-deep">
-                    {project.category[lang]}
-                  </span>
-                  <h3 className="mt-2.5 font-[family-name:var(--font-display)] text-[1.3rem] font-bold tracking-tight text-ink">
-                    {project.name}
-                  </h3>
-                  <p className="mt-2.5 text-[0.95rem] leading-relaxed text-ink-2">
-                    {project.desc[lang]}
-                  </p>
+                  <div className="flex flex-1 flex-col px-1.5 pb-1.5 pt-6">
+                    <span className="font-[family-name:var(--font-mono)] text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-cyan-deep">
+                      {project.category[lang]}
+                    </span>
+                    <h3 className="mt-2.5 font-[family-name:var(--font-display)] text-[1.3rem] font-bold tracking-tight text-ink">
+                      {project.name}
+                    </h3>
+                    <p className="mt-2.5 text-[0.95rem] leading-relaxed text-ink-2">
+                      {project.desc[lang]}
+                    </p>
 
-                  <div className="mt-5">
-                    <TagChips tags={project.tags} />
+                    <div className="mt-5">
+                      <TagChips tags={project.tags} />
+                    </div>
+
+                    <Link
+                      href={`/isler/${project.slug}`}
+                      className="mt-6 inline-flex items-center gap-1.5 self-start text-[0.92rem] font-semibold text-ink transition-colors hover:text-cyan-deep"
+                    >
+                      {t.work.caseStudy}
+                      <ArrowRight className="h-[17px] w-[17px] transition-transform duration-300 group-hover:translate-x-0.5" />
+                    </Link>
                   </div>
-
-                  <Link
-                    href={`/isler/${project.slug}`}
-                    className="mt-6 inline-flex items-center gap-1.5 self-start text-[0.92rem] font-semibold text-ink transition-colors hover:text-cyan-deep"
-                  >
-                    {t.work.caseStudy}
-                    <ArrowRight className="h-[17px] w-[17px] transition-transform duration-300 group-hover:translate-x-0.5" />
-                  </Link>
-                </div>
-              </article>
-            </Reveal>
+                </article>
+              </Reveal>
             );
           })}
         </div>

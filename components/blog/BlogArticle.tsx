@@ -2,7 +2,7 @@ import { ChevronDown, Info } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
 import CtaBand from "@/components/ui/CtaBand";
-import Breadcrumb, { breadcrumbLd } from "@/components/ui/Breadcrumb";
+import Breadcrumb, { breadcrumbLd, faqLd } from "@/components/ui/Breadcrumb";
 import SolutionChips from "@/components/ui/SolutionChips";
 import { blogUi, type BlogPost } from "@/lib/blog";
 import { SITE_URL as SITE } from "@/lib/site";
@@ -32,21 +32,17 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
         author: { "@id": `${SITE}/#organization` },
         publisher: { "@id": `${SITE}/#organization` },
       },
-      post.faq && {
-        "@type": "FAQPage",
-        mainEntity: post.faq.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
-        })),
-      },
+      post.faq && faqLd(post.faq),
       breadcrumbLd(crumbs, SITE, url),
     ].filter(Boolean),
   };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       {/* ── Başlık ───────────────────────────────────────── */}
       <section className="section relative overflow-hidden bg-bg-2/50 pt-32 !pb-14 sm:pt-40">
@@ -82,7 +78,12 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
             <Reveal>
               <div className="flex flex-col gap-5">
                 {post.intro.map((p, i) => (
-                  <p key={i} className="text-[1.06rem] leading-relaxed text-ink-2">{p}</p>
+                  <p
+                    key={i}
+                    className="text-[1.06rem] leading-relaxed text-ink-2"
+                  >
+                    {p}
+                  </p>
                 ))}
               </div>
             </Reveal>
@@ -99,7 +100,12 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
                   <Reveal>
                     <div className="mt-6 flex flex-col gap-5">
                       {s.body.map((p, i) => (
-                        <p key={i} className="text-[1.03rem] leading-relaxed text-ink-2">{p}</p>
+                        <p
+                          key={i}
+                          className="text-[1.03rem] leading-relaxed text-ink-2"
+                        >
+                          {p}
+                        </p>
                       ))}
                     </div>
                   </Reveal>
@@ -130,7 +136,10 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
                         </thead>
                         <tbody>
                           {s.table.rows.map((row) => (
-                            <tr key={row[0]} className="border-b border-line last:border-b-0">
+                            <tr
+                              key={row[0]}
+                              className="border-b border-line last:border-b-0"
+                            >
                               {row.map((cell, i) => (
                                 <td
                                   key={i}
@@ -159,7 +168,9 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
                           <h3 className="font-[family-name:var(--font-display)] text-[1.05rem] font-bold tracking-tight text-ink">
                             {b.title}
                           </h3>
-                          <p className="mt-2 text-[0.96rem] leading-relaxed text-ink-2">{b.body}</p>
+                          <p className="mt-2 text-[0.96rem] leading-relaxed text-ink-2">
+                            {b.body}
+                          </p>
                         </div>
                       </Reveal>
                     ))}
@@ -176,7 +187,9 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
                         <h3 className="font-[family-name:var(--font-display)] text-[1.02rem] font-bold tracking-tight text-ink">
                           {s.callout.title}
                         </h3>
-                        <p className="mt-2 text-[0.96rem] leading-relaxed text-ink-2">{s.callout.body}</p>
+                        <p className="mt-2 text-[0.96rem] leading-relaxed text-ink-2">
+                          {s.callout.body}
+                        </p>
                       </div>
                     </aside>
                   </Reveal>
@@ -200,7 +213,9 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
                           {f.q}
                           <ChevronDown className="h-5 w-5 shrink-0 text-ink-3 transition-transform duration-300 group-open:rotate-180" />
                         </summary>
-                        <p className="mt-3 text-[0.96rem] leading-relaxed text-ink-2">{f.a}</p>
+                        <p className="mt-3 text-[0.96rem] leading-relaxed text-ink-2">
+                          {f.a}
+                        </p>
                       </details>
                     </Reveal>
                   ))}
@@ -209,12 +224,21 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
             )}
 
             {/* ── İlgili çözümler ──────────────────────────── */}
-            <SolutionChips keys={post.relatedSolutions ?? []} title={blogUi.relatedTitle} className="mt-20" />
+            <SolutionChips
+              keys={post.relatedSolutions ?? []}
+              title={blogUi.relatedTitle}
+              className="mt-20"
+            />
           </div>
         </div>
       </article>
 
-      <CtaBand title={blogUi.ctaTitle} text={blogUi.ctaText} button={blogUi.ctaButton} className="!pt-4" />
+      <CtaBand
+        title={blogUi.ctaTitle}
+        text={blogUi.ctaText}
+        button={blogUi.ctaButton}
+        className="!pt-4"
+      />
     </>
   );
 }
@@ -226,6 +250,9 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
  * sunucusunda tarih bir gün geri kayar.
  */
 const trDate = new Intl.DateTimeFormat("tr-TR", {
-  day: "numeric", month: "long", year: "numeric", timeZone: "UTC",
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
 });
 const formatDate = (iso: string) => trDate.format(new Date(iso));

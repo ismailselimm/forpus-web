@@ -1,6 +1,12 @@
 "use client";
 
-import { Facebook, Instagram, Linkedin, Mail, type LucideIcon } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  type LucideIcon,
+} from "lucide-react";
 
 import { SOSYAL_PROFILLER, type SosyalProfil } from "@/lib/marka";
 
@@ -55,7 +61,11 @@ export function SosyalIkonlar({
       })}
       {/* E-posta listenin parçası değil: bir profil değil, bir kanal — ve
           `mailto:` olduğu için yeni sekmede açılmamalı. */}
-      <a href={`mailto:${eposta}`} aria-label={epostaEtiketi} className={ikonClassName}>
+      <a
+        href={`mailto:${eposta}`}
+        aria-label={epostaEtiketi}
+        className={ikonClassName}
+      >
         <Mail className="h-[18px] w-[18px]" aria-hidden />
       </a>
     </div>

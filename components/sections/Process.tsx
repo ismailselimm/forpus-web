@@ -15,7 +15,10 @@ export default function Process() {
   const lineGrown = reduce || lineInView;
 
   return (
-    <section id="process" className="section relative overflow-hidden bg-bg-2/60">
+    <section
+      id="process"
+      className="section relative overflow-hidden bg-bg-2/60"
+    >
       <Aurora className="opacity-40" />
       <div className="container-x relative z-10">
         <div className="mx-auto max-w-2xl text-center">
@@ -23,7 +26,9 @@ export default function Process() {
             <span className="eyebrow">{t.process.eyebrow}</span>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="h-section mt-5 whitespace-pre-line">{t.process.title}</h2>
+            <h2 className="h-section mt-5 whitespace-pre-line">
+              {t.process.title}
+            </h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="lead mx-auto mt-5 max-w-xl">{t.process.subtitle}</p>

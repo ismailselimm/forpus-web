@@ -14,13 +14,20 @@ export default function Testimonials() {
 
   const container: Variants = {
     hidden: {},
-    show: { transition: { staggerChildren: reduce ? 0 : 0.5, delayChildren: 0.15 } },
+    show: {
+      transition: { staggerChildren: reduce ? 0 : 0.5, delayChildren: 0.15 },
+    },
   };
   const bubble: Variants = reduce
     ? { hidden: { opacity: 1 }, show: { opacity: 1 } }
     : {
         hidden: { opacity: 0, y: 16, scale: 0.96 },
-        show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
+        show: {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+        },
       };
 
   return (
@@ -32,7 +39,9 @@ export default function Testimonials() {
             <span className="eyebrow">{t.testimonials.eyebrow}</span>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="h-section mt-5 whitespace-pre-line">{t.testimonials.title}</h2>
+            <h2 className="h-section mt-5 whitespace-pre-line">
+              {t.testimonials.title}
+            </h2>
           </Reveal>
         </div>
 
@@ -42,7 +51,13 @@ export default function Testimonials() {
             {/* chat header */}
             <div className="flex items-center gap-3 border-b border-line bg-white/55 px-5 py-3.5">
               <div className="grid h-10 w-10 place-items-center rounded-full border border-line bg-white">
-                <Image src="/brand/forpus-logo.png" alt="Forpus" width={26} height={26} className="h-6 w-6 object-contain" />
+                <Image
+                  src="/brand/forpus-logo.png"
+                  alt="Forpus"
+                  width={26}
+                  height={26}
+                  className="h-6 w-6 object-contain"
+                />
               </div>
               <div className="leading-tight">
                 <div className="font-[family-name:var(--font-display)] text-[1.02rem] font-extrabold text-ink">
@@ -68,8 +83,10 @@ export default function Testimonials() {
                 const prev = messages[i - 1];
                 const author = "author" in m ? m.author : undefined;
                 const company = "company" in m ? m.company : undefined;
-                const prevAuthor = prev && "author" in prev ? prev.author : undefined;
-                const showMeta = !isForpus && author !== undefined && prevAuthor !== author;
+                const prevAuthor =
+                  prev && "author" in prev ? prev.author : undefined;
+                const showMeta =
+                  !isForpus && author !== undefined && prevAuthor !== author;
                 const initial = (author ?? "").trim().charAt(0).toUpperCase();
 
                 return (
@@ -83,7 +100,13 @@ export default function Testimonials() {
                     {/* avatar */}
                     {isForpus ? (
                       <div className="grid h-8 w-8 flex-none place-items-center rounded-full border border-line bg-white">
-                        <Image src="/brand/forpus-logo.png" alt="" width={18} height={18} className="h-[18px] w-[18px] object-contain" />
+                        <Image
+                          src="/brand/forpus-logo.png"
+                          alt=""
+                          width={18}
+                          height={18}
+                          className="h-[18px] w-[18px] object-contain"
+                        />
                       </div>
                     ) : (
                       <div
@@ -107,7 +130,11 @@ export default function Testimonials() {
                             ? "rounded-2xl rounded-br-md px-4 py-2.5 text-left text-[0.95rem] leading-relaxed text-white shadow-[var(--shadow-glow)]"
                             : "rounded-2xl rounded-bl-md border border-line bg-white px-4 py-2.5 text-left text-[0.95rem] leading-relaxed text-ink shadow-sm"
                         }
-                        style={isForpus ? { background: "var(--grad-brand)" } : undefined}
+                        style={
+                          isForpus
+                            ? { background: "var(--grad-brand)" }
+                            : undefined
+                        }
                       >
                         {m.text}
                         <span
@@ -118,7 +145,10 @@ export default function Testimonials() {
                           {m.time}
                           {isForpus && (
                             <span className="inline-flex" aria-hidden>
-                              <Check className="-mr-1.5 h-3 w-3" strokeWidth={3} />
+                              <Check
+                                className="-mr-1.5 h-3 w-3"
+                                strokeWidth={3}
+                              />
                               <Check className="h-3 w-3" strokeWidth={3} />
                             </span>
                           )}
@@ -130,7 +160,10 @@ export default function Testimonials() {
               })}
 
               {/* typing indicator */}
-              <motion.div variants={bubble} className="flex items-end gap-2.5 self-start">
+              <motion.div
+                variants={bubble}
+                className="flex items-end gap-2.5 self-start"
+              >
                 <div
                   className="h-8 w-8 flex-none rounded-full opacity-60"
                   style={{ background: "var(--grad-brand)" }}
@@ -142,7 +175,9 @@ export default function Testimonials() {
                       key={d}
                       className="h-1.5 w-1.5 rounded-full bg-ink-3"
                       style={{
-                        animation: reduce ? undefined : "node-pulse 1s ease-in-out infinite",
+                        animation: reduce
+                          ? undefined
+                          : "node-pulse 1s ease-in-out infinite",
                         animationDelay: `${d * 0.18}s`,
                       }}
                     />

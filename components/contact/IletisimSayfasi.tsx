@@ -1,11 +1,13 @@
 import { Reveal } from "@/components/fx/Reveal";
 import PageHero from "@/components/ui/PageHero";
-import { breadcrumbLd, type Crumb } from "@/components/ui/Breadcrumb";
+import { breadcrumbLd, faqLd, type Crumb } from "@/components/ui/Breadcrumb";
 import Contact from "@/components/sections/Contact";
 import { iletisimIcerigi } from "@/lib/iletisim";
 import type { Lang } from "@/lib/i18n/dictionary";
 import { SEHIR, ULKE } from "@/lib/marka";
+import { homeFor } from "@/lib/routes";
 import { SITE_URL as SITE } from "@/lib/site";
+import { solutionUi } from "@/lib/solutions";
 
 /**
  * İLETİŞİM SAYFASI — sitenin kimlik çıpası.
@@ -26,7 +28,9 @@ export default function IletisimSayfasi({ lang }: { lang: Lang }) {
   const tr = lang === "tr";
 
   const crumbs: Crumb[] = [
-    { label: tr ? "Ana sayfa" : "Home", href: tr ? "/" : "/en" },
+    // Etiket ve adres tek kaynaktan: sayfa "Ana sayfa" yazarak sitenin
+    // geri kalanındaki "Ana Sayfa"dan zaten ayrılmıştı.
+    { label: solutionUi[lang].home, href: homeFor(lang) },
     { label: c.h1 },
   ];
 
@@ -49,15 +53,7 @@ export default function IletisimSayfasi({ lang }: { lang: Lang }) {
        * varlığın "şu soruların cevabını biliyor" bilgisini taşıyor ve
        * yapay zekâ aramaları bunu okuyor.
        */
-      {
-        "@type": "FAQPage",
-        "@id": `${url}#sss`,
-        mainEntity: c.sss.map((s) => ({
-          "@type": "Question",
-          name: s.soru,
-          acceptedAnswer: { "@type": "Answer", text: s.cevap },
-        })),
-      },
+      faqLd(c.sss, `${url}#sss`),
       breadcrumbLd(crumbs, SITE, url),
     ],
   };
@@ -125,13 +121,13 @@ export default function IletisimSayfasi({ lang }: { lang: Lang }) {
                 Katlanmış metin hem ziyaretçiyi bir adım fazla yoruyor hem de
                 sayfanın asıl işini — cevabı sayfada bulundurmayı — zayıflatıyor. */}
             <div className="mt-10 space-y-8">
-              {c.sss.map((s) => (
-                <Reveal key={s.soru}>
+              {c.sss.map((f) => (
+                <Reveal key={f.q}>
                   <h3 className="font-display text-[1.15rem] font-bold leading-snug text-ink">
-                    {s.soru}
+                    {f.q}
                   </h3>
                   <p className="mt-2.5 max-w-2xl leading-relaxed text-ink-2">
-                    {s.cevap}
+                    {f.a}
                   </p>
                 </Reveal>
               ))}

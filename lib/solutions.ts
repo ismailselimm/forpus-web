@@ -40,13 +40,26 @@ export type SolutionContent = {
   };
 
   /** Gerçek referans işimiz. Yalnızca o sektörde GERÇEKTEN iş yaptıysak. */
-  caseRef?: { title: string; body: string; projectSlug: string; linkLabel: string };
+  caseRef?: {
+    title: string;
+    body: string;
+    projectSlug: string;
+    linkLabel: string;
+  };
 
   /** Sektöre özel çalışma adımları. */
-  process?: { title: string; lead: string; steps: { name: string; body: string }[] };
+  process?: {
+    title: string;
+    lead: string;
+    steps: { name: string; body: string }[];
+  };
 
   /** "Nelere dikkat etmeli" — alıcıyı eğiten bölüm; AI'ın alıntıladığı tip. */
-  checklist?: { title: string; lead: string; items: { title: string; body: string }[] };
+  checklist?: {
+    title: string;
+    lead: string;
+    items: { title: string; body: string }[];
+  };
 };
 
 export type Solution = {
@@ -74,9 +87,18 @@ export const solutions: Solution[] = [
         "Hastalarınız sizi kliniğinizden önce Google'da arıyor. Güven veren, hızlı ve mobil uyumlu bir web sitesi, gelen hasta sayısını doğrudan etkiler. Forpus olarak hekimlere özel; randevu, hizmet ve bilgilendirme odaklı siteler tasarlıyoruz.",
       benefitsTitle: "Doktor web sitesi kliniğinize ne kazandırır?",
       benefits: [
-        { title: "İlk saniyede güven", body: "Temiz ve profesyonel bir tasarım hastada güven oluşturur, klinik itibarınızı online'a taşır." },
-        { title: "Online randevu", body: "Ziyaretçiyi tek tıkla randevu formuna veya WhatsApp'a yönlendirin; boş koltuk kalmasın." },
-        { title: "Google'da bulunun", body: "Uzmanlığınız ve konumunuz için optimize edilmiş yapı ile bölgenizdeki aramalarda öne çıkın." },
+        {
+          title: "İlk saniyede güven",
+          body: "Temiz ve profesyonel bir tasarım hastada güven oluşturur, klinik itibarınızı online'a taşır.",
+        },
+        {
+          title: "Online randevu",
+          body: "Ziyaretçiyi tek tıkla randevu formuna veya WhatsApp'a yönlendirin; boş koltuk kalmasın.",
+        },
+        {
+          title: "Google'da bulunun",
+          body: "Uzmanlığınız ve konumunuz için optimize edilmiş yapı ile bölgenizdeki aramalarda öne çıkın.",
+        },
       ],
       featuresTitle: "Doktor sitenizde neler olur?",
       features: [
@@ -89,17 +111,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Doktor web sitesi ne kadar sürede hazır olur?", a: "İçerikleriniz hazırsa tanıtım siteniz genellikle 1 hafta içinde yayında olur. Çok sayfalı kurumsal bir yapı 2–4 hafta, online randevu ve hasta paneli gibi sistemler ise projeye göre 6–10 hafta sürer. Süreyi en çok uzatan şey teknik zorluk değil, içerik beklemesidir; özgeçmiş, hizmet açıklamaları ve fotoğraflar hazırsa süreç belirgin şekilde kısalır." },
-        { q: "Doktor web sitesi ne kadar tutar?", a: "Tek sayfalı, hızlı yayına alınan bir tanıtım sitesi ₺50.000 bandında başlar. Uzmanlık alanlarınızın ayrı sayfalandığı, SEO'ya hazırlanmış çok sayfalı bir klinik sitesi ₺100.000–180.000 aralığındadır. Online randevu, hasta paneli veya mobil uygulama işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz. Kesin rakam sayfa sayısı ve entegrasyonlara göre netleşir." },
-        { q: "Hekim reklam yasağı web sitesini nasıl etkiliyor?", a: "Türkiye'de hekimler ve sağlık kuruluşları için reklam ile bilgilendirme mevzuatta ayrı şeylerdir; site içeriği bilgilendirme tarafında kalmak zorundadır. Bu pratikte şu demek: abartılı iddialar, karşılaştırmalı üstünlük vurguları, hasta yorumları ve fiyat ilanı gibi unsurlardan kaçınmak gerekir. Siteyi bu çerçeveyi gözeterek kurgularız; branşınıza özel sınırlar için bağlı olduğunuz oda veya mevzuat danışmanınızla teyitleşmenizi öneririz." },
-        { q: "Online randevu sistemi ekleyebilir misiniz?", a: "Evet. En basit haliyle ziyaretçiyi WhatsApp'a veya bir forma yönlendiririz — hızlı ve ucuzdur, sekreteriniz varsa çoğu klinik için yeterlidir. Bir üst seviyede takvimli, çakışma kontrollü, SMS/e-posta hatırlatması gönderen tam otomatik bir randevu sistemi kurarız. Hangisinin size uygun olduğu hasta hacminize ve sekreterlik düzeninize bağlı; görüşmede bunu netleştiriyoruz." },
-        { q: "Sitem Google'da çıkacak mı?", a: "Siteyi teknik SEO ayarları tamamlanmış şekilde teslim ederiz: doğru başlık yapısı, hız optimizasyonu, mobil uyum, site haritası ve yapılandırılmış veri. Ama tek başına site kurmak sıralama getirmez. Bölgenizdeki aramalarda çıkmanın asıl yolu Google İşletme Profili ve düzenli içeriktir; isterseniz bu tarafı da birlikte yürütürüz." },
-        { q: "Mevcut sitemi yenileyebilir misiniz?", a: "Evet, sık yaptığımız iş. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız. Eski adresleri yenilerine yönlendirir, Google'daki mevcut sıralamanızın kaybolmamasını sağlarız. Bu yönlendirmeler atlanırsa yenileme sonrası trafik düşer; en sık gördüğümüz hata budur." },
-        { q: "Site sonrasında güncelleme yapabilecek miyim?", a: "İhtiyacınıza göre karar veriyoruz. Nadiren değişen bir tanıtım sitesinde yönetim paneli gereksiz maliyettir; küçük güncellemeleri biz yaparız. Düzenli yazı veya duyuru paylaşacaksanız içeriği kendiniz yönetebileceğiniz bir panel kurarız." },
-        { q: "KVKK açısından nelere dikkat ediyorsunuz?", a: "İletişim ve randevu formları hasta verisi topladığı için aydınlatma metni, açık rıza kutucuğu ve güvenli veri aktarımı standart olarak kurulur. Formdan gelen bilgiler şifreli bağlantı üzerinden iletilir. Sağlık verisi özel nitelikli kişisel veri sayıldığı için, hasta dosyası niteliğinde bilgi toplayan yapılarda kapsamı birlikte daraltır, gereksiz veri toplamaktan kaçınırız." },
+        {
+          q: "Doktor web sitesi ne kadar sürede hazır olur?",
+          a: "İçerikleriniz hazırsa tanıtım siteniz genellikle 1 hafta içinde yayında olur. Çok sayfalı kurumsal bir yapı 2–4 hafta, online randevu ve hasta paneli gibi sistemler ise projeye göre 6–10 hafta sürer. Süreyi en çok uzatan şey teknik zorluk değil, içerik beklemesidir; özgeçmiş, hizmet açıklamaları ve fotoğraflar hazırsa süreç belirgin şekilde kısalır.",
+        },
+        {
+          q: "Doktor web sitesi ne kadar tutar?",
+          a: "Tek sayfalı, hızlı yayına alınan bir tanıtım sitesi ₺50.000 bandında başlar. Uzmanlık alanlarınızın ayrı sayfalandığı, SEO'ya hazırlanmış çok sayfalı bir klinik sitesi ₺100.000–180.000 aralığındadır. Online randevu, hasta paneli veya mobil uygulama işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz. Kesin rakam sayfa sayısı ve entegrasyonlara göre netleşir.",
+        },
+        {
+          q: "Hekim reklam yasağı web sitesini nasıl etkiliyor?",
+          a: "Türkiye'de hekimler ve sağlık kuruluşları için reklam ile bilgilendirme mevzuatta ayrı şeylerdir; site içeriği bilgilendirme tarafında kalmak zorundadır. Bu pratikte şu demek: abartılı iddialar, karşılaştırmalı üstünlük vurguları, hasta yorumları ve fiyat ilanı gibi unsurlardan kaçınmak gerekir. Siteyi bu çerçeveyi gözeterek kurgularız; branşınıza özel sınırlar için bağlı olduğunuz oda veya mevzuat danışmanınızla teyitleşmenizi öneririz.",
+        },
+        {
+          q: "Online randevu sistemi ekleyebilir misiniz?",
+          a: "Evet. En basit haliyle ziyaretçiyi WhatsApp'a veya bir forma yönlendiririz — hızlı ve ucuzdur, sekreteriniz varsa çoğu klinik için yeterlidir. Bir üst seviyede takvimli, çakışma kontrollü, SMS/e-posta hatırlatması gönderen tam otomatik bir randevu sistemi kurarız. Hangisinin size uygun olduğu hasta hacminize ve sekreterlik düzeninize bağlı; görüşmede bunu netleştiriyoruz.",
+        },
+        {
+          q: "Sitem Google'da çıkacak mı?",
+          a: "Siteyi teknik SEO ayarları tamamlanmış şekilde teslim ederiz: doğru başlık yapısı, hız optimizasyonu, mobil uyum, site haritası ve yapılandırılmış veri. Ama tek başına site kurmak sıralama getirmez. Bölgenizdeki aramalarda çıkmanın asıl yolu Google İşletme Profili ve düzenli içeriktir; isterseniz bu tarafı da birlikte yürütürüz.",
+        },
+        {
+          q: "Mevcut sitemi yenileyebilir misiniz?",
+          a: "Evet, sık yaptığımız iş. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız. Eski adresleri yenilerine yönlendirir, Google'daki mevcut sıralamanızın kaybolmamasını sağlarız. Bu yönlendirmeler atlanırsa yenileme sonrası trafik düşer; en sık gördüğümüz hata budur.",
+        },
+        {
+          q: "Site sonrasında güncelleme yapabilecek miyim?",
+          a: "İhtiyacınıza göre karar veriyoruz. Nadiren değişen bir tanıtım sitesinde yönetim paneli gereksiz maliyettir; küçük güncellemeleri biz yaparız. Düzenli yazı veya duyuru paylaşacaksanız içeriği kendiniz yönetebileceğiniz bir panel kurarız.",
+        },
+        {
+          q: "KVKK açısından nelere dikkat ediyorsunuz?",
+          a: "İletişim ve randevu formları hasta verisi topladığı için aydınlatma metni, açık rıza kutucuğu ve güvenli veri aktarımı standart olarak kurulur. Formdan gelen bilgiler şifreli bağlantı üzerinden iletilir. Sağlık verisi özel nitelikli kişisel veri sayıldığı için, hasta dosyası niteliğinde bilgi toplayan yapılarda kapsamı birlikte daraltır, gereksiz veri toplamaktan kaçınırız.",
+        },
       ],
       ctaTitle: "Kliniğiniz için web sitesi konuşalım",
-      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaText:
+        "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -148,10 +195,22 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Muayene programınızı aksatmayan bir düzen kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "30–45 dakikalık bir görüşmede branşınızı, hasta profilinizi ve sitenin asıl işini konuşuruz. Randevu mu alacak, bilgilendirme mi yapacak, ikisi birden mi? Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "İçerik toplama", body: "Size doldurması kolay bir şablon gönderiyoruz: özgeçmiş, hizmetler, sık sorulanlar, fotoğraflar. Yazmaya vaktiniz yoksa metinleri biz yazar, onayınıza sunarız — hekimlerin çoğu bu seçeneği tercih ediyor." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfa tasarımını görürsünüz. Yön doğruysa diğer sayfalar aynı dille açılır. Değişiklikler bu aşamada ücretsizdir; geliştirmeye ancak siz onayladıktan sonra geçeriz." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Teslimde sitenin nasıl güncelleneceğini gösteren kısa bir kayıt bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "30–45 dakikalık bir görüşmede branşınızı, hasta profilinizi ve sitenin asıl işini konuşuruz. Randevu mu alacak, bilgilendirme mi yapacak, ikisi birden mi? Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "İçerik toplama",
+            body: "Size doldurması kolay bir şablon gönderiyoruz: özgeçmiş, hizmetler, sık sorulanlar, fotoğraflar. Yazmaya vaktiniz yoksa metinleri biz yazar, onayınıza sunarız — hekimlerin çoğu bu seçeneği tercih ediyor.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfa tasarımını görürsünüz. Yön doğruysa diğer sayfalar aynı dille açılır. Değişiklikler bu aşamada ücretsizdir; geliştirmeye ancak siz onayladıktan sonra geçeriz.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Teslimde sitenin nasıl güncelleneceğini gösteren kısa bir kayıt bırakırız.",
+          },
         ],
       },
 
@@ -159,12 +218,30 @@ export const solutions: Solution[] = [
         title: "Doktor web sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Alan adı ve site kime ait?", body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun. Bazı ajanslar alan adını kendi hesabına alır; ayrılmak istediğinizde siteniz rehin kalır. Sözleşmeye alan adının ve kaynak kodun size ait olduğunu yazdırın." },
-          { title: "Hazır tema mı, size özel mi?", body: "Piyasadaki doktor sitelerinin çoğu aynı hazır temanın renkleri değiştirilmiş hali. Ucuz olması normaldir, ama benzer görünen yüzlerce siteden biri olursunuz ve tema güncellemeleri zamanla siteyi bozar. Farkı baştan sorun." },
-          { title: "Mobilde gerçekten hızlı mı?", body: "Hastaların büyük kısmı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın. Üç saniyede açılmıyorsa hasta beklemez, geri döner." },
-          { title: "Randevuya kaç tıkla gidiliyor?", body: "Ana sayfayı açtığınızda randevu veya iletişim eylemi ilk ekranda görünüyor mu? Görünmüyorsa site güzel olsa bile iş yapmaz. Bu, tasarımın en çok atlanan ve en çok kaybettiren detayıdır." },
-          { title: "Teslimden sonra ne oluyor?", body: "Bakım, güncelleme ve sorun çıktığında kime ulaşacağınız yazılı olsun. Sitenin yayına alınması işin sonu değil başıdır; destek verilmeyen siteler bir yıl içinde güncelliğini yitirir." },
-          { title: "KVKK metinleri hazır mı?", body: "Form varsa aydınlatma metni ve açık rıza zorunludur. Şaşırtıcı sayıda hekim sitesi bu metinler olmadan yayında duruyor. Teklif aşamasında bunun dahil olup olmadığını netleştirin." },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun. Bazı ajanslar alan adını kendi hesabına alır; ayrılmak istediğinizde siteniz rehin kalır. Sözleşmeye alan adının ve kaynak kodun size ait olduğunu yazdırın.",
+          },
+          {
+            title: "Hazır tema mı, size özel mi?",
+            body: "Piyasadaki doktor sitelerinin çoğu aynı hazır temanın renkleri değiştirilmiş hali. Ucuz olması normaldir, ama benzer görünen yüzlerce siteden biri olursunuz ve tema güncellemeleri zamanla siteyi bozar. Farkı baştan sorun.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Hastaların büyük kısmı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın. Üç saniyede açılmıyorsa hasta beklemez, geri döner.",
+          },
+          {
+            title: "Randevuya kaç tıkla gidiliyor?",
+            body: "Ana sayfayı açtığınızda randevu veya iletişim eylemi ilk ekranda görünüyor mu? Görünmüyorsa site güzel olsa bile iş yapmaz. Bu, tasarımın en çok atlanan ve en çok kaybettiren detayıdır.",
+          },
+          {
+            title: "Teslimden sonra ne oluyor?",
+            body: "Bakım, güncelleme ve sorun çıktığında kime ulaşacağınız yazılı olsun. Sitenin yayına alınması işin sonu değil başıdır; destek verilmeyen siteler bir yıl içinde güncelliğini yitirir.",
+          },
+          {
+            title: "KVKK metinleri hazır mı?",
+            body: "Form varsa aydınlatma metni ve açık rıza zorunludur. Şaşırtıcı sayıda hekim sitesi bu metinler olmadan yayında duruyor. Teklif aşamasında bunun dahil olup olmadığını netleştirin.",
+          },
         ],
       },
     },
@@ -177,9 +254,18 @@ export const solutions: Solution[] = [
       intro:
         "Patients look you up on Google before they walk into your clinic. A fast, trustworthy, mobile-friendly website directly affects how many of them book. Forpus builds sites for physicians focused on appointments, services and clear information.",
       benefits: [
-        { title: "Trust on first sight", body: "A clean, professional design builds confidence and carries your clinic's reputation online." },
-        { title: "Online booking", body: "Send visitors to a booking form or WhatsApp in one tap so no slot goes empty." },
-        { title: "Get found on Google", body: "A structure optimized for your specialty and location helps you stand out in local searches." },
+        {
+          title: "Trust on first sight",
+          body: "A clean, professional design builds confidence and carries your clinic's reputation online.",
+        },
+        {
+          title: "Online booking",
+          body: "Send visitors to a booking form or WhatsApp in one tap so no slot goes empty.",
+        },
+        {
+          title: "Get found on Google",
+          body: "A structure optimized for your specialty and location helps you stand out in local searches.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -192,12 +278,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "How long does a doctor website take?", a: "If your content is ready, a presentation site is usually live within a week. Extras like a booking system can add some time." },
-        { q: "Can you add an online booking system?", a: "Yes. From a simple WhatsApp/form redirect to a fully automated booking calendar, we tailor it to your needs." },
-        { q: "Will my site show up on Google?", a: "We deliver the site with technical SEO in place and grow your visibility over time with a Google Business profile and content." },
+        {
+          q: "How long does a doctor website take?",
+          a: "If your content is ready, a presentation site is usually live within a week. Extras like a booking system can add some time.",
+        },
+        {
+          q: "Can you add an online booking system?",
+          a: "Yes. From a simple WhatsApp/form redirect to a fully automated booking calendar, we tailor it to your needs.",
+        },
+        {
+          q: "Will my site show up on Google?",
+          a: "We deliver the site with technical SEO in place and grow your visibility over time with a Google Business profile and content.",
+        },
       ],
       ctaTitle: "Let's talk about your clinic's website",
-      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaText:
+        "In a free call we'll clarify what you need and give you a clear quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -216,9 +312,18 @@ export const solutions: Solution[] = [
         "Hastalar bir diş hekimi seçmeden önce Google'da arıyor, yorumlara ve kliniğin sitesine bakıyor. Güven veren, tedavilerinizi net anlatan ve randevuya yönlendiren bir site, koltuğunuzu doldurur. Forpus diş hekimlerine özel; implant, ortodonti ve estetik tedavileri öne çıkaran siteler tasarlıyor.",
       benefitsTitle: "Diş hekimi web sitesi kliniğinize ne kazandırır?",
       benefits: [
-        { title: "İlk bakışta güven", body: "Steril, ferah ve profesyonel bir tasarım; hastanın koltuğa oturmadan önce içini rahatlatır." },
-        { title: "Online randevu", body: "Ziyaretçiyi tek tıkla randevu formuna veya WhatsApp'a yönlendirin; boş koltuk kalmasın." },
-        { title: "Tedavileriniz görünür", body: "İmplant, ortodonti, beyazlatma; her tedaviyi ayrı anlatarak doğru hastayla eşleşin." },
+        {
+          title: "İlk bakışta güven",
+          body: "Steril, ferah ve profesyonel bir tasarım; hastanın koltuğa oturmadan önce içini rahatlatır.",
+        },
+        {
+          title: "Online randevu",
+          body: "Ziyaretçiyi tek tıkla randevu formuna veya WhatsApp'a yönlendirin; boş koltuk kalmasın.",
+        },
+        {
+          title: "Tedavileriniz görünür",
+          body: "İmplant, ortodonti, beyazlatma; her tedaviyi ayrı anlatarak doğru hastayla eşleşin.",
+        },
       ],
       featuresTitle: "Diş hekimi sitenizde neler olur?",
       features: [
@@ -231,17 +336,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Diş hekimi web sitesi ne kadar sürede hazır olur?", a: "İçerikleriniz hazırsa tanıtım siteniz genellikle 1 hafta içinde yayında olur. Online randevu gibi ek özellikler süreyi biraz uzatabilir." },
-        { q: "Öncesi-sonrası fotoğrafları ekleyebilir miyiz?", a: "Evet. Tedavi sonuçlarınızı gösteren şık bir öncesi-sonrası galerisi kurar, izin ve gizliliğe dikkat ederiz." },
-        { q: "Sitem Google'da diş hekimi aramalarında çıkar mı?", a: "Siteyi teknik SEO ayarlarıyla teslim ederiz; Google İşletme profili ve içerik desteğiyle bölgenizdeki aramalarda görünürlüğünüzü zamanla artırırız." },
-        { q: "Diş hekimi web sitesi ne kadar tutar?", a: "Tek sayfalı bir tanıtım sitesi ₺50.000 bandında başlar. Her tedavinin ayrı sayfalandığı, öncesi-sonrası galerili ve SEO'ya hazırlanmış bir klinik sitesi ₺100.000–180.000 aralığındadır. Online randevu ve hasta paneli işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Öncesi-sonrası fotoğraflarını siteye koyabilir miyim?", a: "Teknik olarak evet, ama iki koşulla: hastadan yazılı açık rıza almanız ve sağlıkta tanıtım mevzuatının sınırları içinde kalmanız gerekir. Bu görseller bilgilendirme amacıyla, abartılı vaat içermeden sunulmalıdır. Galeriyi bu çerçeveye uygun kurgularız; branşınıza özel sınırlar için oda veya mevzuat danışmanınızla teyitleşmenizi öneririz." },
-        { q: "Sağlıkta tanıtım kuralları sitemi nasıl etkiliyor?", a: "Türkiye'de sağlık hizmetlerinde reklam ile bilgilendirme mevzuatta ayrı şeylerdir. Pratikte şu demek: kampanya ve indirim duyurusu, fiyat ilanı, karşılaştırmalı üstünlük iddiası ve hasta yorumu gibi unsurlardan kaçınmak gerekir. Siteyi bu çerçeveyi gözeterek kurgularız." },
-        { q: "Mevcut sitemi yenileyebilir misiniz?", a: "Evet, sık yaptığımız iş. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız. Eski adresleri yenilerine yönlendirir, Google'daki mevcut sıralamanızın kaybolmamasını sağlarız; bu adım atlanırsa yenileme sonrası trafik düşer." },
-        { q: "Birden fazla hekim varsa nasıl gösteriyoruz?", a: "Her hekim için ayrı bir profil sayfası kurarız: özgeçmiş, ilgilendiği tedaviler ve doğrudan o hekime randevu yönlendirmesi. Hasta belirli bir hekimi arıyorsa doğrudan onu bulur; bu hem hasta deneyimini hem de hekim adıyla yapılan aramalardaki görünürlüğü iyileştirir." },
+        {
+          q: "Diş hekimi web sitesi ne kadar sürede hazır olur?",
+          a: "İçerikleriniz hazırsa tanıtım siteniz genellikle 1 hafta içinde yayında olur. Online randevu gibi ek özellikler süreyi biraz uzatabilir.",
+        },
+        {
+          q: "Öncesi-sonrası fotoğrafları ekleyebilir miyiz?",
+          a: "Evet. Tedavi sonuçlarınızı gösteren şık bir öncesi-sonrası galerisi kurar, izin ve gizliliğe dikkat ederiz.",
+        },
+        {
+          q: "Sitem Google'da diş hekimi aramalarında çıkar mı?",
+          a: "Siteyi teknik SEO ayarlarıyla teslim ederiz; Google İşletme profili ve içerik desteğiyle bölgenizdeki aramalarda görünürlüğünüzü zamanla artırırız.",
+        },
+        {
+          q: "Diş hekimi web sitesi ne kadar tutar?",
+          a: "Tek sayfalı bir tanıtım sitesi ₺50.000 bandında başlar. Her tedavinin ayrı sayfalandığı, öncesi-sonrası galerili ve SEO'ya hazırlanmış bir klinik sitesi ₺100.000–180.000 aralığındadır. Online randevu ve hasta paneli işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Öncesi-sonrası fotoğraflarını siteye koyabilir miyim?",
+          a: "Teknik olarak evet, ama iki koşulla: hastadan yazılı açık rıza almanız ve sağlıkta tanıtım mevzuatının sınırları içinde kalmanız gerekir. Bu görseller bilgilendirme amacıyla, abartılı vaat içermeden sunulmalıdır. Galeriyi bu çerçeveye uygun kurgularız; branşınıza özel sınırlar için oda veya mevzuat danışmanınızla teyitleşmenizi öneririz.",
+        },
+        {
+          q: "Sağlıkta tanıtım kuralları sitemi nasıl etkiliyor?",
+          a: "Türkiye'de sağlık hizmetlerinde reklam ile bilgilendirme mevzuatta ayrı şeylerdir. Pratikte şu demek: kampanya ve indirim duyurusu, fiyat ilanı, karşılaştırmalı üstünlük iddiası ve hasta yorumu gibi unsurlardan kaçınmak gerekir. Siteyi bu çerçeveyi gözeterek kurgularız.",
+        },
+        {
+          q: "Mevcut sitemi yenileyebilir misiniz?",
+          a: "Evet, sık yaptığımız iş. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız. Eski adresleri yenilerine yönlendirir, Google'daki mevcut sıralamanızın kaybolmamasını sağlarız; bu adım atlanırsa yenileme sonrası trafik düşer.",
+        },
+        {
+          q: "Birden fazla hekim varsa nasıl gösteriyoruz?",
+          a: "Her hekim için ayrı bir profil sayfası kurarız: özgeçmiş, ilgilendiği tedaviler ve doğrudan o hekime randevu yönlendirmesi. Hasta belirli bir hekimi arıyorsa doğrudan onu bulur; bu hem hasta deneyimini hem de hekim adıyla yapılan aramalardaki görünürlüğü iyileştirir.",
+        },
       ],
       ctaTitle: "Kliniğiniz için web sitesi konuşalım",
-      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaText:
+        "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -281,22 +411,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Klinik programınızı aksatmayan bir düzen kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Hangi tedavilerde yoğunlaştığınızı ve hasta profilinizi konuşuruz. İmplant ağırlıklı bir klinikle ortodonti ağırlıklı bir kliniğin sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "İçerik ve görsel toplama", body: "Tedavi açıklamaları, hekim özgeçmişi ve klinik fotoğrafları için doldurması kolay bir şablon gönderiyoruz. Öncesi-sonrası görselleri kullanacaksanız hasta onayı konusunu bu aşamada netleştiririz." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfa tasarımını görürsünüz. Yön doğruysa tedavi sayfaları aynı dille açılır. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Teslimde sitenin nasıl güncelleneceğini gösteren kısa bir kayıt bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Hangi tedavilerde yoğunlaştığınızı ve hasta profilinizi konuşuruz. İmplant ağırlıklı bir klinikle ortodonti ağırlıklı bir kliniğin sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "İçerik ve görsel toplama",
+            body: "Tedavi açıklamaları, hekim özgeçmişi ve klinik fotoğrafları için doldurması kolay bir şablon gönderiyoruz. Öncesi-sonrası görselleri kullanacaksanız hasta onayı konusunu bu aşamada netleştiririz.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfa tasarımını görürsünüz. Yön doğruysa tedavi sayfaları aynı dille açılır. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Teslimde sitenin nasıl güncelleneceğini gösteren kısa bir kayıt bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Diş hekimi web sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Öncesi-sonrası görselleri kullanılabilir mi?", body: "Hasta görselleri kişisel veridir; yazılı onay olmadan yayınlanamaz. Ayrıca sağlıkta tanıtım mevzuatı bu görsellerin kullanımına sınır getirir. Ajansınız bunu biliyor mu, yoksa siteyi yayınlayıp riski size mi bırakıyor?" },
-          { title: "Tedaviler ayrı sayfa mı, tek listede mi?", body: "İmplant arayan hasta ile ortodonti arayan hasta farklı şeyler soruyor. Hepsi tek sayfada listelenmişse ne hasta aradığını bulur ne de Google hangi tedavide uzman olduğunuzu anlar." },
-          { title: "Alan adı ve site kime ait?", body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun. Bazı ajanslar alan adını kendi hesabına alır; ayrılmak istediğinizde siteniz rehin kalır. Sözleşmeye yazdırın." },
-          { title: "Mobilde gerçekten hızlı mı?", body: "Hastaların büyük kısmı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın. Üç saniyede açılmıyorsa hasta beklemez." },
-          { title: "Randevuya kaç tıkla gidiliyor?", body: "Ana sayfayı açtığınızda randevu veya iletişim eylemi ilk ekranda görünüyor mu? Görünmüyorsa site güzel olsa bile iş yapmaz." },
-          { title: "KVKK metinleri hazır mı?", body: "Form varsa aydınlatma metni ve açık rıza zorunludur. Şaşırtıcı sayıda klinik sitesi bu metinler olmadan yayında duruyor." },
+          {
+            title: "Öncesi-sonrası görselleri kullanılabilir mi?",
+            body: "Hasta görselleri kişisel veridir; yazılı onay olmadan yayınlanamaz. Ayrıca sağlıkta tanıtım mevzuatı bu görsellerin kullanımına sınır getirir. Ajansınız bunu biliyor mu, yoksa siteyi yayınlayıp riski size mi bırakıyor?",
+          },
+          {
+            title: "Tedaviler ayrı sayfa mı, tek listede mi?",
+            body: "İmplant arayan hasta ile ortodonti arayan hasta farklı şeyler soruyor. Hepsi tek sayfada listelenmişse ne hasta aradığını bulur ne de Google hangi tedavide uzman olduğunuzu anlar.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun. Bazı ajanslar alan adını kendi hesabına alır; ayrılmak istediğinizde siteniz rehin kalır. Sözleşmeye yazdırın.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Hastaların büyük kısmı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın. Üç saniyede açılmıyorsa hasta beklemez.",
+          },
+          {
+            title: "Randevuya kaç tıkla gidiliyor?",
+            body: "Ana sayfayı açtığınızda randevu veya iletişim eylemi ilk ekranda görünüyor mu? Görünmüyorsa site güzel olsa bile iş yapmaz.",
+          },
+          {
+            title: "KVKK metinleri hazır mı?",
+            body: "Form varsa aydınlatma metni ve açık rıza zorunludur. Şaşırtıcı sayıda klinik sitesi bu metinler olmadan yayında duruyor.",
+          },
         ],
       },
     },
@@ -309,9 +469,18 @@ export const solutions: Solution[] = [
       intro:
         "Patients search on Google, read reviews and check the clinic's site before choosing a dentist. A trustworthy site that explains your treatments clearly and drives bookings fills your chair. Forpus builds dentist sites that highlight implants, orthodontics and aesthetic treatments.",
       benefits: [
-        { title: "Trust at first glance", body: "A clean, calm, professional design puts patients at ease before they even sit in the chair." },
-        { title: "Online booking", body: "Send visitors to a booking form or WhatsApp in one tap so no slot goes empty." },
-        { title: "Treatments made visible", body: "Implants, orthodontics, whitening — explain each treatment separately to match the right patient." },
+        {
+          title: "Trust at first glance",
+          body: "A clean, calm, professional design puts patients at ease before they even sit in the chair.",
+        },
+        {
+          title: "Online booking",
+          body: "Send visitors to a booking form or WhatsApp in one tap so no slot goes empty.",
+        },
+        {
+          title: "Treatments made visible",
+          body: "Implants, orthodontics, whitening — explain each treatment separately to match the right patient.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -324,12 +493,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "How long does a dentist website take?", a: "If your content is ready, a presentation site is usually live within a week. Extras like online booking can add some time." },
-        { q: "Can we add before-and-after photos?", a: "Yes. We build a sharp before-and-after gallery showcasing your results, with attention to consent and privacy." },
-        { q: "Will my site show up for dentist searches on Google?", a: "We deliver the site with technical SEO in place and grow your local visibility over time with a Google Business profile and content." },
+        {
+          q: "How long does a dentist website take?",
+          a: "If your content is ready, a presentation site is usually live within a week. Extras like online booking can add some time.",
+        },
+        {
+          q: "Can we add before-and-after photos?",
+          a: "Yes. We build a sharp before-and-after gallery showcasing your results, with attention to consent and privacy.",
+        },
+        {
+          q: "Will my site show up for dentist searches on Google?",
+          a: "We deliver the site with technical SEO in place and grow your local visibility over time with a Google Business profile and content.",
+        },
       ],
       ctaTitle: "Let's talk about your clinic's website",
-      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaText:
+        "In a free call we'll clarify what you need and give you a clear quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -348,9 +527,18 @@ export const solutions: Solution[] = [
         "Danışanlar bir diyetisyen ararken önce internete bakıyor. Sıcak, güven veren ve randevuya yönlendiren bir site, danışan sayınızı artırır. Forpus diyetisyenlere özel; paket tanıtımı, online randevu ve içerik odaklı siteler tasarlıyor.",
       benefitsTitle: "Diyetisyen web sitesi pratiğinize ne kazandırır?",
       benefits: [
-        { title: "Danışan çeken vitrin", body: "Yaklaşımınızı ve sonuçlarınızı öne çıkaran bir tasarımla ilk izlenimi kazanın." },
-        { title: "Online randevu & ödeme", body: "Görüşmeleri online takvim ve ödeme ile alın; süreç sizin için otomatikleşsin." },
-        { title: "İçerikle güven", body: "Blog ve tarif altyapısıyla uzmanlığınızı gösterin, Google'dan organik danışan kazanın." },
+        {
+          title: "Danışan çeken vitrin",
+          body: "Yaklaşımınızı ve sonuçlarınızı öne çıkaran bir tasarımla ilk izlenimi kazanın.",
+        },
+        {
+          title: "Online randevu & ödeme",
+          body: "Görüşmeleri online takvim ve ödeme ile alın; süreç sizin için otomatikleşsin.",
+        },
+        {
+          title: "İçerikle güven",
+          body: "Blog ve tarif altyapısıyla uzmanlığınızı gösterin, Google'dan organik danışan kazanın.",
+        },
       ],
       featuresTitle: "Diyetisyen sitenizde neler olur?",
       features: [
@@ -363,17 +551,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Online danışmanlık için altyapı kurar mısınız?", a: "Evet. Randevu, online görüşme yönlendirmesi ve ödeme akışını ihtiyacınıza göre kurarız." },
-        { q: "İçerik yazımında destek olur musunuz?", a: "Metin ve görsel yönünde yön veririz; isterseniz temel içerikleri birlikte hazırlarız." },
-        { q: "Sosyal medyamla bağlanır mı?", a: "Instagram ve diğer hesaplarınızı siteye entegre eder, takipçiyi danışana çevirmenize yardımcı oluruz." },
-        { q: "Diyetisyen web sitesi ne kadar tutar?", a: "Tek sayfalı bir tanıtım sitesi ₺50.000 bandında başlar. Paketlerin ayrı sayfalandığı, blog altyapılı ve online randevu entegrasyonlu bir site ₺90.000–150.000 aralığındadır. Danışan takip uygulaması işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Danışan takip uygulaması da yapıyor musunuz?", a: "Evet, en çok talep gördüğümüz işlerden biri. Danışanın kilo ve ölçüm girişi yaptığı, beslenme planını gördüğü ve sizinle mesajlaştığı bir mobil uygulama; sizin tarafınızda ise tüm danışanları yönettiğiniz bir panel kurarız. Uygulama tarafı web sitesinden ayrı bir proje olarak ilerler." },
-        { q: "Sitede fiyat yazmalı mıyım?", a: "Deneyimimiz şu yönde: fiyat yazmak gelen danışan sayısını azaltır ama gelen danışanların kalitesini belirgin şekilde artırır. Bütçesi tutmayanlar sizi aramadan eleniyor, siz de aynı soruyu yüzlerce kez yanıtlamıyorsunuz. Karar sizin; ikisini de destekleyecek şekilde kurgulayabiliriz." },
-        { q: "Online ödeme alabilir miyim?", a: "Evet. Danışan paketi siteden seçip kredi kartıyla ödeyebilir, ardından randevu takvimine yönlenir. Türkiye'de yaygın ödeme altyapılarıyla çalışıyoruz; başvuru ve sözleşme süreci sizin adınıza ilerler, biz teknik entegrasyonu yaparız." },
-        { q: "Mevcut sitemi yenileyebilir misiniz?", a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız. Eski adresleri yenilerine yönlendirir, Google'daki mevcut sıralamanızın kaybolmamasını sağlarız." },
+        {
+          q: "Online danışmanlık için altyapı kurar mısınız?",
+          a: "Evet. Randevu, online görüşme yönlendirmesi ve ödeme akışını ihtiyacınıza göre kurarız.",
+        },
+        {
+          q: "İçerik yazımında destek olur musunuz?",
+          a: "Metin ve görsel yönünde yön veririz; isterseniz temel içerikleri birlikte hazırlarız.",
+        },
+        {
+          q: "Sosyal medyamla bağlanır mı?",
+          a: "Instagram ve diğer hesaplarınızı siteye entegre eder, takipçiyi danışana çevirmenize yardımcı oluruz.",
+        },
+        {
+          q: "Diyetisyen web sitesi ne kadar tutar?",
+          a: "Tek sayfalı bir tanıtım sitesi ₺50.000 bandında başlar. Paketlerin ayrı sayfalandığı, blog altyapılı ve online randevu entegrasyonlu bir site ₺90.000–150.000 aralığındadır. Danışan takip uygulaması işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Danışan takip uygulaması da yapıyor musunuz?",
+          a: "Evet, en çok talep gördüğümüz işlerden biri. Danışanın kilo ve ölçüm girişi yaptığı, beslenme planını gördüğü ve sizinle mesajlaştığı bir mobil uygulama; sizin tarafınızda ise tüm danışanları yönettiğiniz bir panel kurarız. Uygulama tarafı web sitesinden ayrı bir proje olarak ilerler.",
+        },
+        {
+          q: "Sitede fiyat yazmalı mıyım?",
+          a: "Deneyimimiz şu yönde: fiyat yazmak gelen danışan sayısını azaltır ama gelen danışanların kalitesini belirgin şekilde artırır. Bütçesi tutmayanlar sizi aramadan eleniyor, siz de aynı soruyu yüzlerce kez yanıtlamıyorsunuz. Karar sizin; ikisini de destekleyecek şekilde kurgulayabiliriz.",
+        },
+        {
+          q: "Online ödeme alabilir miyim?",
+          a: "Evet. Danışan paketi siteden seçip kredi kartıyla ödeyebilir, ardından randevu takvimine yönlenir. Türkiye'de yaygın ödeme altyapılarıyla çalışıyoruz; başvuru ve sözleşme süreci sizin adınıza ilerler, biz teknik entegrasyonu yaparız.",
+        },
+        {
+          q: "Mevcut sitemi yenileyebilir misiniz?",
+          a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız. Eski adresleri yenilerine yönlendirir, Google'daki mevcut sıralamanızın kaybolmamasını sağlarız.",
+        },
       ],
       ctaTitle: "Danışan getiren bir site kuralım",
-      ctaText: "İhtiyacınızı konuşalım, size uygun paketi ve net bir teklifi birlikte belirleyelim.",
+      ctaText:
+        "İhtiyacınızı konuşalım, size uygun paketi ve net bir teklifi birlikte belirleyelim.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -419,22 +632,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Danışan programınızı aksatmayan bir düzen kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Kimlerle çalıştığınızı ve nasıl bir yaklaşımınız olduğunu konuşuruz. Sporcu beslenmesiyle çalışan bir diyetisyenle klinik beslenmede uzmanlaşmış birinin sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "İçerik toplama", body: "Paket açıklamaları, çalışma yönteminiz ve sık sorulanlar için doldurması kolay bir şablon gönderiyoruz. Yazmaya vaktiniz yoksa metinleri biz yazar, onayınıza sunarız." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfa tasarımını görürsünüz. Yön doğruysa diğer sayfalar aynı dille açılır. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Blog yazısı ekleyebilmeniz için kısa bir kullanım kaydı bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Kimlerle çalıştığınızı ve nasıl bir yaklaşımınız olduğunu konuşuruz. Sporcu beslenmesiyle çalışan bir diyetisyenle klinik beslenmede uzmanlaşmış birinin sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "İçerik toplama",
+            body: "Paket açıklamaları, çalışma yönteminiz ve sık sorulanlar için doldurması kolay bir şablon gönderiyoruz. Yazmaya vaktiniz yoksa metinleri biz yazar, onayınıza sunarız.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfa tasarımını görürsünüz. Yön doğruysa diğer sayfalar aynı dille açılır. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Blog yazısı ekleyebilmeniz için kısa bir kullanım kaydı bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Diyetisyen web sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "İçeriği kendiniz ekleyebilecek misiniz?", body: "Blog ve tarif paylaşacaksanız her yazı için ajansa bağımlı kalmamalısınız. Yönetim paneli olmayan bir site, düzenli içerik üretmeyi imkânsız hale getirir." },
-          { title: "Online ödeme gerçekten gerekli mi?", body: "Paket satışını siteden yapacaksanız evet; ama danışanların çoğu sizinle önce konuşmak istiyorsa ödeme altyapısı gereksiz maliyet olur. Bu kararı hacminize göre verin." },
-          { title: "Instagram ile site birbirini besliyor mu?", body: "Sitenin işi takipçiyi danışana çevirmektir. Biyografideki link sitede doğru sayfaya düşüyor mu, paketler oradan görünüyor mu, randevu tek tıkla alınabiliyor mu?" },
-          { title: "Alan adı ve site kime ait?", body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun. Bazı ajanslar alan adını kendi hesabına alır; ayrılmak istediğinizde siteniz rehin kalır." },
-          { title: "Mobilde gerçekten hızlı mı?", body: "Danışanların neredeyse tamamı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın." },
-          { title: "KVKK metinleri hazır mı?", body: "Form varsa aydınlatma metni ve açık rıza zorunludur. Sağlık verisi niteliğinde bilgi topluyorsanız kapsamı daraltmak, gereksiz veri toplamamak gerekir." },
+          {
+            title: "İçeriği kendiniz ekleyebilecek misiniz?",
+            body: "Blog ve tarif paylaşacaksanız her yazı için ajansa bağımlı kalmamalısınız. Yönetim paneli olmayan bir site, düzenli içerik üretmeyi imkânsız hale getirir.",
+          },
+          {
+            title: "Online ödeme gerçekten gerekli mi?",
+            body: "Paket satışını siteden yapacaksanız evet; ama danışanların çoğu sizinle önce konuşmak istiyorsa ödeme altyapısı gereksiz maliyet olur. Bu kararı hacminize göre verin.",
+          },
+          {
+            title: "Instagram ile site birbirini besliyor mu?",
+            body: "Sitenin işi takipçiyi danışana çevirmektir. Biyografideki link sitede doğru sayfaya düşüyor mu, paketler oradan görünüyor mu, randevu tek tıkla alınabiliyor mu?",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun. Bazı ajanslar alan adını kendi hesabına alır; ayrılmak istediğinizde siteniz rehin kalır.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Danışanların neredeyse tamamı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın.",
+          },
+          {
+            title: "KVKK metinleri hazır mı?",
+            body: "Form varsa aydınlatma metni ve açık rıza zorunludur. Sağlık verisi niteliğinde bilgi topluyorsanız kapsamı daraltmak, gereksiz veri toplamamak gerekir.",
+          },
         ],
       },
     },
@@ -447,9 +690,18 @@ export const solutions: Solution[] = [
       intro:
         "People search online before choosing a dietitian. A warm, trustworthy site that drives bookings grows your client base. Forpus builds dietitian sites focused on packages, online booking and content.",
       benefits: [
-        { title: "A storefront that converts", body: "Win the first impression with a design that highlights your approach and results." },
-        { title: "Online booking & payments", body: "Take sessions with an online calendar and payments so the process runs itself." },
-        { title: "Trust through content", body: "Show your expertise with a blog and recipes, and earn organic clients from Google." },
+        {
+          title: "A storefront that converts",
+          body: "Win the first impression with a design that highlights your approach and results.",
+        },
+        {
+          title: "Online booking & payments",
+          body: "Take sessions with an online calendar and payments so the process runs itself.",
+        },
+        {
+          title: "Trust through content",
+          body: "Show your expertise with a blog and recipes, and earn organic clients from Google.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -462,12 +714,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Can you set up online consultations?", a: "Yes. We build booking, online-meeting redirects and payment flows around your needs." },
-        { q: "Do you help with content?", a: "We guide copy and visuals, and can prepare the core content together if you'd like." },
-        { q: "Does it connect to my social media?", a: "We integrate Instagram and other accounts so you can turn followers into clients." },
+        {
+          q: "Can you set up online consultations?",
+          a: "Yes. We build booking, online-meeting redirects and payment flows around your needs.",
+        },
+        {
+          q: "Do you help with content?",
+          a: "We guide copy and visuals, and can prepare the core content together if you'd like.",
+        },
+        {
+          q: "Does it connect to my social media?",
+          a: "We integrate Instagram and other accounts so you can turn followers into clients.",
+        },
       ],
       ctaTitle: "Let's build a site that brings clients",
-      ctaText: "Let's talk through your needs and pick the right package and a clear quote together.",
+      ctaText:
+        "Let's talk through your needs and pick the right package and a clear quote together.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -486,9 +748,18 @@ export const solutions: Solution[] = [
         "Terapi arayan biri için ilk adım cesaret ister; siteniz o an güven vermeli. Sakin, profesyonel ve mahremiyete saygılı bir tasarım, danışanın size ulaşmasını kolaylaştırır. Forpus psikologlara özel, ölçülü ve güven veren siteler tasarlıyor.",
       benefitsTitle: "Psikolog web sitesi pratiğinize ne kazandırır?",
       benefits: [
-        { title: "Güven ve mahremiyet", body: "Sakin renkler ve net bir dil ile danışana ilk temasta huzur ve güven verin." },
-        { title: "Kolay iletişim", body: "Randevu ve gizli iletişim yollarını netleştirin; danışan çekinmeden ulaşsın." },
-        { title: "Uzmanlığın görünür", body: "Çalışma alanlarınızı ve yaklaşımınızı anlatarak doğru danışanla eşleşin." },
+        {
+          title: "Güven ve mahremiyet",
+          body: "Sakin renkler ve net bir dil ile danışana ilk temasta huzur ve güven verin.",
+        },
+        {
+          title: "Kolay iletişim",
+          body: "Randevu ve gizli iletişim yollarını netleştirin; danışan çekinmeden ulaşsın.",
+        },
+        {
+          title: "Uzmanlığın görünür",
+          body: "Çalışma alanlarınızı ve yaklaşımınızı anlatarak doğru danışanla eşleşin.",
+        },
       ],
       featuresTitle: "Psikolog sitenizde neler olur?",
       features: [
@@ -501,17 +772,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Online terapi için uygun mu?", a: "Evet. Online görüşme yönlendirmesi ve randevu akışını gizlilik önceliğiyle kurarız." },
-        { q: "Tasarım fazla dikkat çekici olur mu?", a: "Hayır. Alanınıza uygun, sakin ve güven veren bir dil kullanırız; abartıdan kaçınırız." },
-        { q: "İçeriklerimi sonradan güncelleyebilir miyim?", a: "İsterseniz yönetilebilir içerik altyapısı kurarız; yazılarınızı kendiniz güncellersiniz." },
-        { q: "Psikolog web sitesi ne kadar tutar?", a: "Sade bir tanıtım sitesi ₺50.000 bandında başlar. Çalışma alanlarının ayrı sayfalandığı, blog altyapılı bir uzmanlık sitesi ₺90.000–140.000 aralığındadır. Randevu ve seans paneli işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Online terapi için altyapı kuruyor musunuz?", a: "Görüntülü görüşmeyi genellikle sıfırdan yazmak yerine mevcut ve güvenli bir platforma yönlendirmeyi öneriyoruz; hem daha ucuz hem daha güvenilir olur. Randevu, ödeme ve hatırlatma akışını ise sitenize entegre ederiz. İhtiyaç gerçekten özelse kendi sistemimizi de kurabiliriz." },
-        { q: "Danışan yorumu yayınlayabilir miyim?", a: "Bu alanda önermiyoruz. Danışan mahremiyeti açısından risklidir ve meslek etiği kuralları bakımından da sorun yaratabilir. Güveni yorumla değil; yaklaşımınızı net anlatarak, eğitim ve süpervizyon geçmişinizi göstererek ve bilgilendirici içerik üreterek kurmak hem daha güvenli hem daha kalıcıdır." },
-        { q: "Sitede ücret bilgisi olmalı mı?", a: "Çoğu uzman seans ücretini yazmamayı tercih ediyor, bu da savunulabilir bir tercih. Ancak ücret aralığı yazmak, ilk görüşmede yaşanan beklenti uyuşmazlığını azaltıyor. İkisini de destekleyecek şekilde kurgulayabiliriz." },
-        { q: "Mevcut sitemi yenileyebilir misiniz?", a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız. Eski adresleri yenilerine yönlendirir, Google'daki mevcut sıralamanızın kaybolmamasını sağlarız." },
+        {
+          q: "Online terapi için uygun mu?",
+          a: "Evet. Online görüşme yönlendirmesi ve randevu akışını gizlilik önceliğiyle kurarız.",
+        },
+        {
+          q: "Tasarım fazla dikkat çekici olur mu?",
+          a: "Hayır. Alanınıza uygun, sakin ve güven veren bir dil kullanırız; abartıdan kaçınırız.",
+        },
+        {
+          q: "İçeriklerimi sonradan güncelleyebilir miyim?",
+          a: "İsterseniz yönetilebilir içerik altyapısı kurarız; yazılarınızı kendiniz güncellersiniz.",
+        },
+        {
+          q: "Psikolog web sitesi ne kadar tutar?",
+          a: "Sade bir tanıtım sitesi ₺50.000 bandında başlar. Çalışma alanlarının ayrı sayfalandığı, blog altyapılı bir uzmanlık sitesi ₺90.000–140.000 aralığındadır. Randevu ve seans paneli işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Online terapi için altyapı kuruyor musunuz?",
+          a: "Görüntülü görüşmeyi genellikle sıfırdan yazmak yerine mevcut ve güvenli bir platforma yönlendirmeyi öneriyoruz; hem daha ucuz hem daha güvenilir olur. Randevu, ödeme ve hatırlatma akışını ise sitenize entegre ederiz. İhtiyaç gerçekten özelse kendi sistemimizi de kurabiliriz.",
+        },
+        {
+          q: "Danışan yorumu yayınlayabilir miyim?",
+          a: "Bu alanda önermiyoruz. Danışan mahremiyeti açısından risklidir ve meslek etiği kuralları bakımından da sorun yaratabilir. Güveni yorumla değil; yaklaşımınızı net anlatarak, eğitim ve süpervizyon geçmişinizi göstererek ve bilgilendirici içerik üreterek kurmak hem daha güvenli hem daha kalıcıdır.",
+        },
+        {
+          q: "Sitede ücret bilgisi olmalı mı?",
+          a: "Çoğu uzman seans ücretini yazmamayı tercih ediyor, bu da savunulabilir bir tercih. Ancak ücret aralığı yazmak, ilk görüşmede yaşanan beklenti uyuşmazlığını azaltıyor. İkisini de destekleyecek şekilde kurgulayabiliriz.",
+        },
+        {
+          q: "Mevcut sitemi yenileyebilir misiniz?",
+          a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız. Eski adresleri yenilerine yönlendirir, Google'daki mevcut sıralamanızın kaybolmamasını sağlarız.",
+        },
       ],
       ctaTitle: "Güven veren bir site kuralım",
-      ctaText: "Yaklaşımınıza uygun, ölçülü bir site için kısa bir görüşme yapalım.",
+      ctaText:
+        "Yaklaşımınıza uygun, ölçülü bir site için kısa bir görüşme yapalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -551,22 +847,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Seans programınızı aksatmayan bir düzen kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Çalışma alanlarınızı, yaklaşımınızı ve kimlerle çalıştığınızı konuşuruz. Çocuk ve ergenle çalışan bir uzmanla çift terapisi yapan birinin sitesi aynı tonda olmaz. Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "İçerik toplama", body: "Yaklaşımınız ve çalışma alanlarınız için doldurması kolay bir şablon gönderiyoruz. Bu alanda metnin tonu kritik olduğu için yazdıklarınızı sizinle birlikte gözden geçiriyoruz." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfa tasarımını görürsünüz. Renk ve tipografi seçimleri bu alanda sakinlik hissi üzerinden yapılır. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Teslimde sitenin nasıl güncelleneceğini gösteren kısa bir kayıt bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Çalışma alanlarınızı, yaklaşımınızı ve kimlerle çalıştığınızı konuşuruz. Çocuk ve ergenle çalışan bir uzmanla çift terapisi yapan birinin sitesi aynı tonda olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "İçerik toplama",
+            body: "Yaklaşımınız ve çalışma alanlarınız için doldurması kolay bir şablon gönderiyoruz. Bu alanda metnin tonu kritik olduğu için yazdıklarınızı sizinle birlikte gözden geçiriyoruz.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfa tasarımını görürsünüz. Renk ve tipografi seçimleri bu alanda sakinlik hissi üzerinden yapılır. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Teslimde sitenin nasıl güncelleneceğini gösteren kısa bir kayıt bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Psikolog web sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Form ne kadar bilgi istiyor?", body: "Danışan adayından yaşadığı sorunu formda anlatmasını istemek, ulaşma oranını düşürür. Ad ve iletişim bilgisi çoğu zaman yeterlidir; gerisi ilk görüşmede konuşulur." },
-          { title: "Sitenin tonu size benziyor mu?", body: "Hazır şablonlar bu alanda genellikle fazla kurumsal veya fazla neşeli duruyor. Ziyaretçi tonu sizinle eşleştiremezse ilk temas kurulmaz. Farkı baştan sorun." },
-          { title: "Gizlilik açıkça yazıyor mu?", body: "İletişim bilgisinin nasıl saklandığı ve kimseyle paylaşılmadığı sitede net görünmeli. Bu bir hukuki zorunluluk olduğu kadar güven unsurudur." },
-          { title: "Alan adı ve site kime ait?", body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun. Bazı ajanslar alan adını kendi hesabına alır; ayrılmak istediğinizde siteniz rehin kalır." },
-          { title: "Mobilde gerçekten hızlı mı?", body: "Ziyaretçilerin büyük kısmı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın." },
-          { title: "Teslimden sonra ne oluyor?", body: "Bakım, güncelleme ve sorun çıktığında kime ulaşacağınız yazılı olsun. Destek verilmeyen siteler bir yıl içinde güncelliğini yitirir." },
+          {
+            title: "Form ne kadar bilgi istiyor?",
+            body: "Danışan adayından yaşadığı sorunu formda anlatmasını istemek, ulaşma oranını düşürür. Ad ve iletişim bilgisi çoğu zaman yeterlidir; gerisi ilk görüşmede konuşulur.",
+          },
+          {
+            title: "Sitenin tonu size benziyor mu?",
+            body: "Hazır şablonlar bu alanda genellikle fazla kurumsal veya fazla neşeli duruyor. Ziyaretçi tonu sizinle eşleştiremezse ilk temas kurulmaz. Farkı baştan sorun.",
+          },
+          {
+            title: "Gizlilik açıkça yazıyor mu?",
+            body: "İletişim bilgisinin nasıl saklandığı ve kimseyle paylaşılmadığı sitede net görünmeli. Bu bir hukuki zorunluluk olduğu kadar güven unsurudur.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun. Bazı ajanslar alan adını kendi hesabına alır; ayrılmak istediğinizde siteniz rehin kalır.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Ziyaretçilerin büyük kısmı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın.",
+          },
+          {
+            title: "Teslimden sonra ne oluyor?",
+            body: "Bakım, güncelleme ve sorun çıktığında kime ulaşacağınız yazılı olsun. Destek verilmeyen siteler bir yıl içinde güncelliğini yitirir.",
+          },
         ],
       },
     },
@@ -579,9 +905,18 @@ export const solutions: Solution[] = [
       intro:
         "Reaching out for therapy takes courage; your site should reassure at that moment. A calm, professional, privacy-respecting design makes it easier for clients to contact you. Forpus builds measured, trustworthy sites for psychologists.",
       benefits: [
-        { title: "Trust and privacy", body: "Calm colors and clear language put clients at ease from the first touch." },
-        { title: "Easy to reach you", body: "Make booking and discreet contact options clear so clients reach out without hesitation." },
-        { title: "Your expertise, visible", body: "Explain your focus areas and approach to match with the right clients." },
+        {
+          title: "Trust and privacy",
+          body: "Calm colors and clear language put clients at ease from the first touch.",
+        },
+        {
+          title: "Easy to reach you",
+          body: "Make booking and discreet contact options clear so clients reach out without hesitation.",
+        },
+        {
+          title: "Your expertise, visible",
+          body: "Explain your focus areas and approach to match with the right clients.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -594,12 +929,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Does it work for online therapy?", a: "Yes. We set up online-meeting redirects and booking flows with privacy as a priority." },
-        { q: "Will the design feel too flashy?", a: "No. We use a calm, reassuring language suited to your field and avoid anything over the top." },
-        { q: "Can I update my content later?", a: "If you'd like, we set up editable content so you can update your posts yourself." },
+        {
+          q: "Does it work for online therapy?",
+          a: "Yes. We set up online-meeting redirects and booking flows with privacy as a priority.",
+        },
+        {
+          q: "Will the design feel too flashy?",
+          a: "No. We use a calm, reassuring language suited to your field and avoid anything over the top.",
+        },
+        {
+          q: "Can I update my content later?",
+          a: "If you'd like, we set up editable content so you can update your posts yourself.",
+        },
       ],
       ctaTitle: "Let's build a reassuring site",
-      ctaText: "Let's have a short call about a measured site that fits your approach.",
+      ctaText:
+        "Let's have a short call about a measured site that fits your approach.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -618,9 +963,18 @@ export const solutions: Solution[] = [
         "Hukuki destek arayan biri güven ve yetkinlik arar. Kurumsal, ciddi ve mobil uyumlu bir web sitesi, büronuzun itibarını yansıtır ve doğru danışanı getirir. Forpus avukat ve hukuk bürolarına özel siteler tasarlıyor.",
       benefitsTitle: "Avukat web sitesi büronuza ne kazandırır?",
       benefits: [
-        { title: "Kurumsal itibar", body: "Ciddi ve profesyonel bir tasarımla büronuzun güvenilirliğini ilk bakışta hissettirin." },
-        { title: "Çalışma alanlarınız net", body: "Uzmanlık alanlarınızı ayrı ayrı anlatarak doğru davayla eşleşin." },
-        { title: "Danışan getiren yapı", body: "Google'da çalışma alanı aramalarında çıkacak şekilde optimize edilmiş içerik." },
+        {
+          title: "Kurumsal itibar",
+          body: "Ciddi ve profesyonel bir tasarımla büronuzun güvenilirliğini ilk bakışta hissettirin.",
+        },
+        {
+          title: "Çalışma alanlarınız net",
+          body: "Uzmanlık alanlarınızı ayrı ayrı anlatarak doğru davayla eşleşin.",
+        },
+        {
+          title: "Danışan getiren yapı",
+          body: "Google'da çalışma alanı aramalarında çıkacak şekilde optimize edilmiş içerik.",
+        },
       ],
       featuresTitle: "Avukat sitenizde neler olur?",
       features: [
@@ -633,17 +987,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Reklam yasağına uygun mu?", a: "Evet. Baro ve meslek kurallarına uygun, bilgilendirme odaklı, ölçülü bir dille tasarlarız." },
-        { q: "Birden fazla çalışma alanı ekleyebilir miyim?", a: "Elbette. Her uzmanlık alanı için ayrı, SEO'ya uygun sayfalar oluştururuz." },
-        { q: "Makale yayınlayabilir miyim?", a: "Yönetilebilir bir bilgi bankası kurarız; makalelerinizi ekleyerek görünürlüğünüzü artırırsınız." },
-        { q: "Avukat web sitesi ne kadar tutar?", a: "Az sayfalı bir tanıtım sitesi ₺50.000 bandında başlar. Çalışma alanlarının ayrı sayfalandığı, ekip ve makale bölümlü kurumsal bir büro sitesi ₺100.000–170.000 aralığındadır. Müvekkil portalı işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Avukatlık reklam yasağı siteyi nasıl etkiliyor?", a: "Avukatlık Kanunu ve meslek kuralları tanıtımı sınırlar; site bilgilendirme sınırları içinde kalmalıdır. Pratikte iş vaadi, başarı oranı veya kazanılmış dava sayısı paylaşmak, müvekkil yorumu yayınlamak ve karşılaştırmalı üstünlük iddiasında bulunmak sorun yaratır. Siteyi bu çerçeveyi gözeterek kurgular, son onayı size bırakırız; bağlı olduğunuz baronun güncel düzenlemesiyle teyitleşmenizi öneririz." },
-        { q: "Makale yayınlamak işe yarar mı?", a: "Bu alanda en çok işe yarayan yöntem bu. İnsanlar avukat aramadan önce sorunlarını aratıyor; o soruya doğru yanıt veren bir yazı, sizi hem bulunur hem güvenilir kılıyor. Yazıların hukuki doğruluğu size ait olmak kaydıyla altyapıyı ve yayın düzenini biz kurarız." },
-        { q: "Müvekkil portalı gerçekten gerekli mi?", a: "Dosya sayınız az ve müvekkil iletişimi telefonla rahat yürüyorsa gereksiz maliyettir; dürüst yanıt budur. Ancak dosya durumu sorularının büro içinde ciddi vakit alması durumunda portal kendini kısa sürede amorti eder." },
-        { q: "Mevcut sitemi yenileyebilir misiniz?", a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız. Eski adresleri yenilerine yönlendirir, Google'daki mevcut sıralamanızın kaybolmamasını sağlarız." },
+        {
+          q: "Reklam yasağına uygun mu?",
+          a: "Evet. Baro ve meslek kurallarına uygun, bilgilendirme odaklı, ölçülü bir dille tasarlarız.",
+        },
+        {
+          q: "Birden fazla çalışma alanı ekleyebilir miyim?",
+          a: "Elbette. Her uzmanlık alanı için ayrı, SEO'ya uygun sayfalar oluştururuz.",
+        },
+        {
+          q: "Makale yayınlayabilir miyim?",
+          a: "Yönetilebilir bir bilgi bankası kurarız; makalelerinizi ekleyerek görünürlüğünüzü artırırsınız.",
+        },
+        {
+          q: "Avukat web sitesi ne kadar tutar?",
+          a: "Az sayfalı bir tanıtım sitesi ₺50.000 bandında başlar. Çalışma alanlarının ayrı sayfalandığı, ekip ve makale bölümlü kurumsal bir büro sitesi ₺100.000–170.000 aralığındadır. Müvekkil portalı işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Avukatlık reklam yasağı siteyi nasıl etkiliyor?",
+          a: "Avukatlık Kanunu ve meslek kuralları tanıtımı sınırlar; site bilgilendirme sınırları içinde kalmalıdır. Pratikte iş vaadi, başarı oranı veya kazanılmış dava sayısı paylaşmak, müvekkil yorumu yayınlamak ve karşılaştırmalı üstünlük iddiasında bulunmak sorun yaratır. Siteyi bu çerçeveyi gözeterek kurgular, son onayı size bırakırız; bağlı olduğunuz baronun güncel düzenlemesiyle teyitleşmenizi öneririz.",
+        },
+        {
+          q: "Makale yayınlamak işe yarar mı?",
+          a: "Bu alanda en çok işe yarayan yöntem bu. İnsanlar avukat aramadan önce sorunlarını aratıyor; o soruya doğru yanıt veren bir yazı, sizi hem bulunur hem güvenilir kılıyor. Yazıların hukuki doğruluğu size ait olmak kaydıyla altyapıyı ve yayın düzenini biz kurarız.",
+        },
+        {
+          q: "Müvekkil portalı gerçekten gerekli mi?",
+          a: "Dosya sayınız az ve müvekkil iletişimi telefonla rahat yürüyorsa gereksiz maliyettir; dürüst yanıt budur. Ancak dosya durumu sorularının büro içinde ciddi vakit alması durumunda portal kendini kısa sürede amorti eder.",
+        },
+        {
+          q: "Mevcut sitemi yenileyebilir misiniz?",
+          a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız. Eski adresleri yenilerine yönlendirir, Google'daki mevcut sıralamanızın kaybolmamasını sağlarız.",
+        },
       ],
       ctaTitle: "Büronuz için kurumsal bir site",
-      ctaText: "İhtiyacınızı konuşalım, meslek kurallarına uygun net bir teklif sunalım.",
+      ctaText:
+        "İhtiyacınızı konuşalım, meslek kurallarına uygun net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -683,22 +1062,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Duruşma programınızı aksatmayan bir düzen kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Çalışma alanlarınızı ve hedef danışan profilinizi konuşuruz. Şirketlere hizmet veren bir büroyla bireysel danışanla çalışan bir büronun sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "İçerik toplama", body: "Özgeçmiş, çalışma alanları ve sık sorulanlar için doldurması kolay bir şablon gönderiyoruz. Hukuki metinlerin doğruluğu size ait olduğu için son onay her zaman sizden geçer." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfa tasarımını görürsünüz. Bu alanda tasarım dili ciddiyeti ve kurumsallığı taşımalı. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Teslimde sitenin nasıl güncelleneceğini gösteren kısa bir kayıt bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Çalışma alanlarınızı ve hedef danışan profilinizi konuşuruz. Şirketlere hizmet veren bir büroyla bireysel danışanla çalışan bir büronun sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "İçerik toplama",
+            body: "Özgeçmiş, çalışma alanları ve sık sorulanlar için doldurması kolay bir şablon gönderiyoruz. Hukuki metinlerin doğruluğu size ait olduğu için son onay her zaman sizden geçer.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfa tasarımını görürsünüz. Bu alanda tasarım dili ciddiyeti ve kurumsallığı taşımalı. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Teslimde sitenin nasıl güncelleneceğini gösteren kısa bir kayıt bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Avukat web sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Ajans reklam yasağını biliyor mu?", body: "Avukatlık meslek kuralları tanıtımı sıkı biçimde sınırlar. İş vaadi, başarı oranı, karşılaştırmalı üstünlük ve müvekkil yorumu gibi unsurlar sorun yaratır. Bunu bilmeyen bir ajans sizi baro nezdinde zor durumda bırakabilir." },
-          { title: "Çalışma alanları ayrı sayfa mı?", body: "Boşanma davası arayan kişiyle iş davası arayan kişi farklı şeyler soruyor. Hepsi tek sayfada listelenmişse ne danışan aradığını bulur ne de Google hangi alanda uzman olduğunuzu anlar." },
-          { title: "Alan adı ve site kime ait?", body: "Alan adının sizin veya büronuz adına kayıtlı olduğundan emin olun. Sözleşmeye alan adının ve kaynak kodun size ait olduğunu yazdırın." },
-          { title: "İletişim formu güvenli mi?", body: "Danışan formda dosyasıyla ilgili bilgi paylaşabilir. Bağlantının şifreli olması ve bu bilgilerin nasıl saklandığının belirtilmesi gerekir." },
-          { title: "Mobilde gerçekten hızlı mı?", body: "Ziyaretçilerin büyük kısmı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın." },
-          { title: "Teslimden sonra ne oluyor?", body: "Bakım, güncelleme ve sorun çıktığında kime ulaşacağınız yazılı olsun. Destek verilmeyen siteler bir yıl içinde güncelliğini yitirir." },
+          {
+            title: "Ajans reklam yasağını biliyor mu?",
+            body: "Avukatlık meslek kuralları tanıtımı sıkı biçimde sınırlar. İş vaadi, başarı oranı, karşılaştırmalı üstünlük ve müvekkil yorumu gibi unsurlar sorun yaratır. Bunu bilmeyen bir ajans sizi baro nezdinde zor durumda bırakabilir.",
+          },
+          {
+            title: "Çalışma alanları ayrı sayfa mı?",
+            body: "Boşanma davası arayan kişiyle iş davası arayan kişi farklı şeyler soruyor. Hepsi tek sayfada listelenmişse ne danışan aradığını bulur ne de Google hangi alanda uzman olduğunuzu anlar.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının sizin veya büronuz adına kayıtlı olduğundan emin olun. Sözleşmeye alan adının ve kaynak kodun size ait olduğunu yazdırın.",
+          },
+          {
+            title: "İletişim formu güvenli mi?",
+            body: "Danışan formda dosyasıyla ilgili bilgi paylaşabilir. Bağlantının şifreli olması ve bu bilgilerin nasıl saklandığının belirtilmesi gerekir.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Ziyaretçilerin büyük kısmı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın.",
+          },
+          {
+            title: "Teslimden sonra ne oluyor?",
+            body: "Bakım, güncelleme ve sorun çıktığında kime ulaşacağınız yazılı olsun. Destek verilmeyen siteler bir yıl içinde güncelliğini yitirir.",
+          },
         ],
       },
     },
@@ -711,9 +1120,18 @@ export const solutions: Solution[] = [
       intro:
         "Someone seeking legal help looks for trust and competence. A corporate, serious, mobile-friendly website reflects your firm's reputation and brings the right clients. Forpus builds sites for lawyers and law firms.",
       benefits: [
-        { title: "Corporate reputation", body: "A serious, professional design conveys your firm's credibility at first glance." },
-        { title: "Clear practice areas", body: "Explain each area of expertise separately to match with the right cases." },
-        { title: "A structure that converts", body: "Content optimized to appear in Google searches for your practice areas." },
+        {
+          title: "Corporate reputation",
+          body: "A serious, professional design conveys your firm's credibility at first glance.",
+        },
+        {
+          title: "Clear practice areas",
+          body: "Explain each area of expertise separately to match with the right cases.",
+        },
+        {
+          title: "A structure that converts",
+          body: "Content optimized to appear in Google searches for your practice areas.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -726,12 +1144,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Is it compliant with advertising rules?", a: "Yes. We design with an informational, measured tone that respects bar and professional rules." },
-        { q: "Can I add multiple practice areas?", a: "Of course. We create separate, SEO-friendly pages for each area of expertise." },
-        { q: "Can I publish articles?", a: "We set up a manageable knowledge base so you can add articles and grow your visibility." },
+        {
+          q: "Is it compliant with advertising rules?",
+          a: "Yes. We design with an informational, measured tone that respects bar and professional rules.",
+        },
+        {
+          q: "Can I add multiple practice areas?",
+          a: "Of course. We create separate, SEO-friendly pages for each area of expertise.",
+        },
+        {
+          q: "Can I publish articles?",
+          a: "We set up a manageable knowledge base so you can add articles and grow your visibility.",
+        },
       ],
       ctaTitle: "A corporate site for your firm",
-      ctaText: "Let's talk through your needs and give you a clear, compliant quote.",
+      ctaText:
+        "Let's talk through your needs and give you a clear, compliant quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -750,9 +1178,18 @@ export const solutions: Solution[] = [
         "Alıcı ve kiracılar portföyünüzü artık vitrinde değil, telefonlarında geziyor. İlanları düzenli, filtrelenebilir ve harita üzerinde sunan bir site, portföyünüzü satışa çevirir. Forpus emlak ofislerine özel portföy yönetimli siteler kuruyor.",
       benefitsTitle: "Emlak web sitesi ofisinize ne kazandırır?",
       benefits: [
-        { title: "Portföyünüz düzenli", body: "İlanları kolayca ekleyin, güncelleyin; her mülk şık bir ilan sayfasıyla öne çıksın." },
-        { title: "Filtre ve harita", body: "Konum, fiyat ve tipe göre filtreleme ile ziyaretçi aradığını saniyede bulsun." },
-        { title: "Doğru alıcıyı çekin", body: "Google ve sosyal medya için optimize; ilanlarınız daha çok kişiye ulaşsın." },
+        {
+          title: "Portföyünüz düzenli",
+          body: "İlanları kolayca ekleyin, güncelleyin; her mülk şık bir ilan sayfasıyla öne çıksın.",
+        },
+        {
+          title: "Filtre ve harita",
+          body: "Konum, fiyat ve tipe göre filtreleme ile ziyaretçi aradığını saniyede bulsun.",
+        },
+        {
+          title: "Doğru alıcıyı çekin",
+          body: "Google ve sosyal medya için optimize; ilanlarınız daha çok kişiye ulaşsın.",
+        },
       ],
       featuresTitle: "Emlak sitenizde neler olur?",
       features: [
@@ -765,17 +1202,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "İlanları kendim ekleyebilir miyim?", a: "Evet. Kolay bir yönetim paneliyle ilanlarınızı fotoğraf ve detaylarıyla kendiniz eklersiniz." },
-        { q: "sahibinden gibi sitelerle entegre olur mu?", a: "İhtiyaca göre dış portallarla bağlantı veya paylaşım akışları kurabiliriz." },
-        { q: "Harita özelliği zor mu?", a: "Hayır. İlanları harita üzerinde göstermek standart olarak kurabildiğimiz bir özelliktir." },
-        { q: "Emlak web sitesi ne kadar tutar?", a: "Ofis tanıtımı odaklı, ilanları elle güncellediğimiz bir site ₺60.000 bandında başlar. İlanları kendinizin eklediği, filtreli ve haritalı portföy yönetimli bir site ₺120.000–200.000 aralığındadır. Danışman yetkilendirmesi ve mobil uygulama işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "İlanlarımı ilan sitelerinden aktarabilir miyiz?", a: "Çoğu durumda evet. Portföyünüzü dışa aktarabildiğiniz bir formatta alabiliyorsak toplu içe aktarım yaparız; böylece yüzlerce ilanı elle girmek zorunda kalmazsınız. Aktarımın mümkün olup olmadığı kullandığınız platforma bağlı, ilk görüşmede birlikte kontrol ediyoruz." },
-        { q: "Sitem ilan sitelerinin yerini tutar mı?", a: "Hayır ve bunu net söylemek isteriz. İlan siteleri arama hacmini elinde tutuyor, oradan çıkmanızı önermeyiz. Kendi siteniz farklı bir iş yapar: markanızı kurar, tekrar eden müşteriyi tutar, tavsiyeyle gelen kişinin sizi ciddi bulmasını sağlar ve komisyon ödemediğiniz doğrudan başvurular getirir. İkisi birbirinin alternatifi değil, tamamlayıcısıdır." },
-        { q: "Harita gösterimi ek ücret mi?", a: "Standart harita gösterimi paketin içindedir. Çok yüksek trafikli sitelerde harita servisleri kullanım üzerinden ücretlendirme yapabilir; böyle bir durum söz konusuysa ilk görüşmede açıkça söyleriz." },
-        { q: "Mevcut sitemi yenileyebilir misiniz?", a: "Evet. Portföyünüzü yeni sisteme aktarır, mevcut adreslerinizi yenilerine yönlendirir ve Google'daki birikiminizin kaybolmamasını sağlarız." },
+        {
+          q: "İlanları kendim ekleyebilir miyim?",
+          a: "Evet. Kolay bir yönetim paneliyle ilanlarınızı fotoğraf ve detaylarıyla kendiniz eklersiniz.",
+        },
+        {
+          q: "sahibinden gibi sitelerle entegre olur mu?",
+          a: "İhtiyaca göre dış portallarla bağlantı veya paylaşım akışları kurabiliriz.",
+        },
+        {
+          q: "Harita özelliği zor mu?",
+          a: "Hayır. İlanları harita üzerinde göstermek standart olarak kurabildiğimiz bir özelliktir.",
+        },
+        {
+          q: "Emlak web sitesi ne kadar tutar?",
+          a: "Ofis tanıtımı odaklı, ilanları elle güncellediğimiz bir site ₺60.000 bandında başlar. İlanları kendinizin eklediği, filtreli ve haritalı portföy yönetimli bir site ₺120.000–200.000 aralığındadır. Danışman yetkilendirmesi ve mobil uygulama işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "İlanlarımı ilan sitelerinden aktarabilir miyiz?",
+          a: "Çoğu durumda evet. Portföyünüzü dışa aktarabildiğiniz bir formatta alabiliyorsak toplu içe aktarım yaparız; böylece yüzlerce ilanı elle girmek zorunda kalmazsınız. Aktarımın mümkün olup olmadığı kullandığınız platforma bağlı, ilk görüşmede birlikte kontrol ediyoruz.",
+        },
+        {
+          q: "Sitem ilan sitelerinin yerini tutar mı?",
+          a: "Hayır ve bunu net söylemek isteriz. İlan siteleri arama hacmini elinde tutuyor, oradan çıkmanızı önermeyiz. Kendi siteniz farklı bir iş yapar: markanızı kurar, tekrar eden müşteriyi tutar, tavsiyeyle gelen kişinin sizi ciddi bulmasını sağlar ve komisyon ödemediğiniz doğrudan başvurular getirir. İkisi birbirinin alternatifi değil, tamamlayıcısıdır.",
+        },
+        {
+          q: "Harita gösterimi ek ücret mi?",
+          a: "Standart harita gösterimi paketin içindedir. Çok yüksek trafikli sitelerde harita servisleri kullanım üzerinden ücretlendirme yapabilir; böyle bir durum söz konusuysa ilk görüşmede açıkça söyleriz.",
+        },
+        {
+          q: "Mevcut sitemi yenileyebilir misiniz?",
+          a: "Evet. Portföyünüzü yeni sisteme aktarır, mevcut adreslerinizi yenilerine yönlendirir ve Google'daki birikiminizin kaybolmamasını sağlarız.",
+        },
       ],
       ctaTitle: "Portföyünüzü satışa çeviren bir site",
-      ctaText: "İhtiyacınızı konuşalım, portföy sisteminiz için net bir teklif sunalım.",
+      ctaText:
+        "İhtiyacınızı konuşalım, portföy sisteminiz için net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -815,22 +1277,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Saha programınızı aksatmayan bir düzen kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Portföy büyüklüğünüzü, çalışma bölgenizi ve kaç danışmanla çalıştığınızı konuşuruz. Konut satışıyla ticari gayrimenkulün sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "Portföy ve içerik", body: "İlan verilerinizi hangi formatta tuttuğunuza bakarız. Mevcut bir listeniz varsa toplu aktarım yapar, elle girişten kurtarırız. Fotoğraf kalitesi bu işte belirleyici olduğu için çekim konusunu da burada konuşuruz." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfa ve ilan detay sayfasını görürsünüz. İlan kartının nasıl göründüğü bu işin kalbi olduğu için üzerinde birlikte çalışırız. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Paneli kullanmayı gösteren kısa bir kayıt bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Portföy büyüklüğünüzü, çalışma bölgenizi ve kaç danışmanla çalıştığınızı konuşuruz. Konut satışıyla ticari gayrimenkulün sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "Portföy ve içerik",
+            body: "İlan verilerinizi hangi formatta tuttuğunuza bakarız. Mevcut bir listeniz varsa toplu aktarım yapar, elle girişten kurtarırız. Fotoğraf kalitesi bu işte belirleyici olduğu için çekim konusunu da burada konuşuruz.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfa ve ilan detay sayfasını görürsünüz. İlan kartının nasıl göründüğü bu işin kalbi olduğu için üzerinde birlikte çalışırız. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası, Google Search Console ve İşletme Profili bağlantısı dahil yayına alırız. Paneli kullanmayı gösteren kısa bir kayıt bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Emlak web sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "İlanı kendiniz ekleyebilecek misiniz?", body: "Portföy sürekli değişir. Her ilan için ajansa haber vermek zorundaysanız site bir ayda güncelliğini yitirir. Yönetim paneli olmayan emlak sitesi işe yaramaz." },
-          { title: "Fotoğraflar hızlı açılıyor mu?", body: "Emlak sitesi fotoğrafla satar ama işlenmemiş fotoğraflar siteyi yavaşlatır. Görsellerin otomatik küçültülüp küçültülmediğini sorun; aksi halde mobilde kimse galeriye kadar inmez." },
-          { title: "Satılan ilan ne oluyor?", body: "Satılan ilanın adresi bir anda kaybolursa Google'da ölü bağlantı birikir. Arşivlenmesi veya benzer ilanlara yönlendirilmesi gerekir; bunu düşünmeyen bir yapı zamanla puan kaybettirir." },
-          { title: "Alan adı ve site kime ait?", body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun. Bazı ajanslar alan adını kendi hesabına alır; ayrılmak istediğinizde siteniz rehin kalır." },
-          { title: "Mobilde gerçekten hızlı mı?", body: "Alıcıların neredeyse tamamı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın." },
-          { title: "Veri girişi ne kadar sürüyor?", body: "Bir ilanı sisteme girmek on dakika sürüyorsa danışmanlar kullanmaz. Panel demosunu görmeden karar vermeyin." },
+          {
+            title: "İlanı kendiniz ekleyebilecek misiniz?",
+            body: "Portföy sürekli değişir. Her ilan için ajansa haber vermek zorundaysanız site bir ayda güncelliğini yitirir. Yönetim paneli olmayan emlak sitesi işe yaramaz.",
+          },
+          {
+            title: "Fotoğraflar hızlı açılıyor mu?",
+            body: "Emlak sitesi fotoğrafla satar ama işlenmemiş fotoğraflar siteyi yavaşlatır. Görsellerin otomatik küçültülüp küçültülmediğini sorun; aksi halde mobilde kimse galeriye kadar inmez.",
+          },
+          {
+            title: "Satılan ilan ne oluyor?",
+            body: "Satılan ilanın adresi bir anda kaybolursa Google'da ölü bağlantı birikir. Arşivlenmesi veya benzer ilanlara yönlendirilmesi gerekir; bunu düşünmeyen bir yapı zamanla puan kaybettirir.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun. Bazı ajanslar alan adını kendi hesabına alır; ayrılmak istediğinizde siteniz rehin kalır.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Alıcıların neredeyse tamamı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın.",
+          },
+          {
+            title: "Veri girişi ne kadar sürüyor?",
+            body: "Bir ilanı sisteme girmek on dakika sürüyorsa danışmanlar kullanmaz. Panel demosunu görmeden karar vermeyin.",
+          },
         ],
       },
     },
@@ -843,9 +1335,18 @@ export const solutions: Solution[] = [
       intro:
         "Buyers and renters browse your portfolio on their phones, not in a window. A site that presents listings cleanly, filterable and on a map turns your portfolio into sales. Forpus builds real estate sites with listing management.",
       benefits: [
-        { title: "An organized portfolio", body: "Add and update listings easily; every property stands out with a sharp listing page." },
-        { title: "Filters and map", body: "With filtering by location, price and type, visitors find what they want in seconds." },
-        { title: "Attract the right buyer", body: "Optimized for Google and social media so your listings reach more people." },
+        {
+          title: "An organized portfolio",
+          body: "Add and update listings easily; every property stands out with a sharp listing page.",
+        },
+        {
+          title: "Filters and map",
+          body: "With filtering by location, price and type, visitors find what they want in seconds.",
+        },
+        {
+          title: "Attract the right buyer",
+          body: "Optimized for Google and social media so your listings reach more people.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -858,12 +1359,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Can I add listings myself?", a: "Yes. With an easy admin panel you add your listings with photos and details yourself." },
-        { q: "Can it integrate with property portals?", a: "Depending on your needs, we can set up connections or sharing flows with external portals." },
-        { q: "Is the map feature complex?", a: "No. Showing listings on a map is a feature we set up as standard." },
+        {
+          q: "Can I add listings myself?",
+          a: "Yes. With an easy admin panel you add your listings with photos and details yourself.",
+        },
+        {
+          q: "Can it integrate with property portals?",
+          a: "Depending on your needs, we can set up connections or sharing flows with external portals.",
+        },
+        {
+          q: "Is the map feature complex?",
+          a: "No. Showing listings on a map is a feature we set up as standard.",
+        },
       ],
       ctaTitle: "A site that turns your portfolio into sales",
-      ctaText: "Let's talk through your needs and give you a clear quote for your listing system.",
+      ctaText:
+        "Let's talk through your needs and give you a clear quote for your listing system.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -882,9 +1393,18 @@ export const solutions: Solution[] = [
         "Ürünlerinizi satmak için pazaryerlerinin komisyonuna mahkûm değilsiniz. Markanıza ait, hızlı ve satışa odaklı bir e-ticaret sitesi hem kârınızı hem müşteri sadakatinizi büyütür. Forpus, ödeme ve kargo entegrasyonuyla uçtan uca e-ticaret siteleri kuruyor.",
       benefitsTitle: "Kendi e-ticaret siteniz markanıza ne kazandırır?",
       benefits: [
-        { title: "Kendi markanız", body: "Pazaryeri komisyonu ve kalabalığı olmadan, tamamen size ait bir satış kanalı." },
-        { title: "Satışa odaklı tasarım", body: "Hızlı yüklenen sayfalar, net ürün akışı ve kolay ödeme ile sepeti terk azalır." },
-        { title: "Kolay yönetim", body: "Ürün, stok ve siparişleri tek panelden yönetin; işiniz büyüdükçe site de büyüsün." },
+        {
+          title: "Kendi markanız",
+          body: "Pazaryeri komisyonu ve kalabalığı olmadan, tamamen size ait bir satış kanalı.",
+        },
+        {
+          title: "Satışa odaklı tasarım",
+          body: "Hızlı yüklenen sayfalar, net ürün akışı ve kolay ödeme ile sepeti terk azalır.",
+        },
+        {
+          title: "Kolay yönetim",
+          body: "Ürün, stok ve siparişleri tek panelden yönetin; işiniz büyüdükçe site de büyüsün.",
+        },
       ],
       featuresTitle: "E-ticaret sitenizde neler olur?",
       features: [
@@ -897,17 +1417,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Hangi ödeme altyapılarını destekliyorsunuz?", a: "iyzico, PayTR gibi yaygın Türk ödeme altyapılarını ve sanal POS'ları entegre ederiz." },
-        { q: "Siparişleri kolayca yönetebilir miyim?", a: "Evet. Ürün, stok ve siparişleri tek bir yönetim panelinden rahatça yönetirsiniz." },
-        { q: "Mevcut ürünlerimi aktarır mısınız?", a: "Ürünlerinizi toplu olarak aktarır, kataloğu düzenli bir şekilde kurarız." },
-        { q: "E-ticaret sitesi kurmak ne kadar tutar?", a: "Yaygın bir altyapı üzerine markanıza uyarlanmış bir mağaza ₺80.000 bandında başlar. Tamamen size özel tasarlanmış, kampanya ve varyant yapısı kurgulanmış bir e-ticaret sitesi ₺150.000–280.000 aralığındadır. ERP entegrasyonu, bayi fiyatlandırması veya mobil uygulama işin içine girdiğinde ₺350.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Hazır altyapı mı özel yazılım mı önerirsiniz?", a: "Dürüst yanıt: çoğu marka için hazır altyapı doğru seçimdir. Daha ucuzdur, güvenlik ve ödeme tarafı hazır çalışır, siz de bütçeyi ürün ve reklama ayırırsınız. Özel yazılımı ancak operasyonunuz standart altyapılara sığmadığında öneririz; gerekmediği halde özel yazılım satmak bu sektörün en yaygın kötü alışkanlığıdır." },
-        { q: "Ödeme ve kargo entegrasyonu dahil mi?", a: "Evet, teknik entegrasyon fiyata dahildir. Sanal POS başvurusu ve kargo anlaşması sizin şirketiniz adına yapılır; komisyon oranları doğrudan sizinle banka ve kargo firması arasındadır. Biz süreçte yönlendirir, kurulumu yaparız." },
-        { q: "Pazaryerinden kendi siteme geçmeli miyim?", a: "Geçmek değil, eklemek. Pazaryerleri arama hacmini elinde tutuyor ve orada satmaya devam etmenizi öneririz. Kendi siteniz farklı bir işi görür: müşteri verisi, tekrar satış, komisyonsuz kâr ve reklam trafiğini boşa harcamamak. İkisi birlikte çalıştığında sonuç çok daha iyi olur." },
-        { q: "Reklam yönetimini de yapıyor musunuz?", a: "Evet, ekibimizin ayrı bir uzmanlık alanı. Mağazayı kuran ekiple reklamı yürüten ekibin aynı olması pratikte büyük fark yaratır; dönüşüm düşükse sorunun reklamda mı sitede mi olduğunu tartışmadan çözeriz." },
+        {
+          q: "Hangi ödeme altyapılarını destekliyorsunuz?",
+          a: "iyzico, PayTR gibi yaygın Türk ödeme altyapılarını ve sanal POS'ları entegre ederiz.",
+        },
+        {
+          q: "Siparişleri kolayca yönetebilir miyim?",
+          a: "Evet. Ürün, stok ve siparişleri tek bir yönetim panelinden rahatça yönetirsiniz.",
+        },
+        {
+          q: "Mevcut ürünlerimi aktarır mısınız?",
+          a: "Ürünlerinizi toplu olarak aktarır, kataloğu düzenli bir şekilde kurarız.",
+        },
+        {
+          q: "E-ticaret sitesi kurmak ne kadar tutar?",
+          a: "Yaygın bir altyapı üzerine markanıza uyarlanmış bir mağaza ₺80.000 bandında başlar. Tamamen size özel tasarlanmış, kampanya ve varyant yapısı kurgulanmış bir e-ticaret sitesi ₺150.000–280.000 aralığındadır. ERP entegrasyonu, bayi fiyatlandırması veya mobil uygulama işin içine girdiğinde ₺350.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Hazır altyapı mı özel yazılım mı önerirsiniz?",
+          a: "Dürüst yanıt: çoğu marka için hazır altyapı doğru seçimdir. Daha ucuzdur, güvenlik ve ödeme tarafı hazır çalışır, siz de bütçeyi ürün ve reklama ayırırsınız. Özel yazılımı ancak operasyonunuz standart altyapılara sığmadığında öneririz; gerekmediği halde özel yazılım satmak bu sektörün en yaygın kötü alışkanlığıdır.",
+        },
+        {
+          q: "Ödeme ve kargo entegrasyonu dahil mi?",
+          a: "Evet, teknik entegrasyon fiyata dahildir. Sanal POS başvurusu ve kargo anlaşması sizin şirketiniz adına yapılır; komisyon oranları doğrudan sizinle banka ve kargo firması arasındadır. Biz süreçte yönlendirir, kurulumu yaparız.",
+        },
+        {
+          q: "Pazaryerinden kendi siteme geçmeli miyim?",
+          a: "Geçmek değil, eklemek. Pazaryerleri arama hacmini elinde tutuyor ve orada satmaya devam etmenizi öneririz. Kendi siteniz farklı bir işi görür: müşteri verisi, tekrar satış, komisyonsuz kâr ve reklam trafiğini boşa harcamamak. İkisi birlikte çalıştığında sonuç çok daha iyi olur.",
+        },
+        {
+          q: "Reklam yönetimini de yapıyor musunuz?",
+          a: "Evet, ekibimizin ayrı bir uzmanlık alanı. Mağazayı kuran ekiple reklamı yürüten ekibin aynı olması pratikte büyük fark yaratır; dönüşüm düşükse sorunun reklamda mı sitede mi olduğunu tartışmadan çözeriz.",
+        },
       ],
       ctaTitle: "Markanıza özel e-ticaret kuralım",
-      ctaText: "İhtiyacınızı konuşalım, ürün sayınıza ve hedefinize uygun net bir teklif sunalım.",
+      ctaText:
+        "İhtiyacınızı konuşalım, ürün sayınıza ve hedefinize uygun net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -953,22 +1498,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "E-ticaret projeleri diğerlerinden farklı ilerler; operasyonunuzu anlamadan tasarıma başlamayız.",
         steps: [
-          { name: "Keşif ve altyapı kararı", body: "Ürün sayınızı, varyant yapınızı, kargo ve fatura akışınızı konuşuruz. Buradan çıkan en önemli karar hazır altyapı mı özel yazılım mı olduğudur; bu kararı doğru vermek projenin toplam maliyetini belirler." },
-          { name: "Ürün ve içerik hazırlığı", body: "Ürün verilerini hangi formatta tuttuğunuza bakar, mümkünse toplu aktarım yaparız. Ürün fotoğrafları e-ticarette dönüşümü en çok etkileyen unsur olduğu için çekim ve düzenleme konusunu da burada netleştiririz." },
-          { name: "Tasarım, entegrasyon, test", body: "Vitrin ve ürün sayfası tasarımını onaylarsınız; ardından ödeme ve kargo entegrasyonlarını kurar, gerçek bir sipariş akışıyla baştan sona test ederiz. Test siparişi geçmeden yayına almayız." },
-          { name: "Yayın ve büyüme", body: "Alan adı, güvenlik sertifikası, Search Console ve dönüşüm takibi kurulu halde yayına alırız. Reklam yürütecekseniz piksel ve ölçüm altyapısı ilk günden doğru kurulur." },
+          {
+            name: "Keşif ve altyapı kararı",
+            body: "Ürün sayınızı, varyant yapınızı, kargo ve fatura akışınızı konuşuruz. Buradan çıkan en önemli karar hazır altyapı mı özel yazılım mı olduğudur; bu kararı doğru vermek projenin toplam maliyetini belirler.",
+          },
+          {
+            name: "Ürün ve içerik hazırlığı",
+            body: "Ürün verilerini hangi formatta tuttuğunuza bakar, mümkünse toplu aktarım yaparız. Ürün fotoğrafları e-ticarette dönüşümü en çok etkileyen unsur olduğu için çekim ve düzenleme konusunu da burada netleştiririz.",
+          },
+          {
+            name: "Tasarım, entegrasyon, test",
+            body: "Vitrin ve ürün sayfası tasarımını onaylarsınız; ardından ödeme ve kargo entegrasyonlarını kurar, gerçek bir sipariş akışıyla baştan sona test ederiz. Test siparişi geçmeden yayına almayız.",
+          },
+          {
+            name: "Yayın ve büyüme",
+            body: "Alan adı, güvenlik sertifikası, Search Console ve dönüşüm takibi kurulu halde yayına alırız. Reklam yürütecekseniz piksel ve ölçüm altyapısı ilk günden doğru kurulur.",
+          },
         ],
       },
       checklist: {
         title: "E-ticaret sitesi kurarken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Hazır altyapı mı özel yazılım mı?", body: "Ürün sayınız ve operasyonunuz standartsa hazır altyapı çok daha ucuz ve güvenlidir; özel yazılım öneren ajansa neden gerektiğini sorun. Tersi de doğru: operasyonunuz özelse hazır altyapıya sıkışmak sonradan çok pahalıya patlar." },
-          { title: "Ödeme altyapısı kimin adına?", body: "Sanal POS başvurusu sizin şirketiniz adına yapılır ve komisyon oranları bankayla sizin aranızdadır. Ajansın kendi hesabı üzerinden tahsilat önermesi ciddi bir uyarı işaretidir." },
-          { title: "Ürün girişi ne kadar sürüyor?", body: "Yüz ürünü elle girmek günler alır. Toplu aktarım imkânı var mı, varyantlı ürün girişi pratik mi? Panel demosunu görmeden karar vermeyin." },
-          { title: "Site hızı ölçüldü mü?", body: "E-ticarette her saniye gecikme dönüşüm kaybıdır. Teklif verenden mevcut bir mağazasının adresini isteyin, kendi telefonunuzdan açın ve sepete kadar gidin." },
-          { title: "Mesafeli satış metinleri hazır mı?", body: "Mesafeli satış sözleşmesi, iade ve teslimat koşulları, KVKK aydınlatma metni yasal zorunluluktur. Bunlar olmadan yayına alınan mağaza sizi riske atar." },
-          { title: "Reklam ölçümü kurulu mu?", body: "Meta ve Google reklamı vereceksek dönüşüm takibi ilk günden doğru kurulmalı. Sonradan eklenen ölçüm, o güne kadarki reklam harcamasını körlemesine yapmış olmanız demektir." },
+          {
+            title: "Hazır altyapı mı özel yazılım mı?",
+            body: "Ürün sayınız ve operasyonunuz standartsa hazır altyapı çok daha ucuz ve güvenlidir; özel yazılım öneren ajansa neden gerektiğini sorun. Tersi de doğru: operasyonunuz özelse hazır altyapıya sıkışmak sonradan çok pahalıya patlar.",
+          },
+          {
+            title: "Ödeme altyapısı kimin adına?",
+            body: "Sanal POS başvurusu sizin şirketiniz adına yapılır ve komisyon oranları bankayla sizin aranızdadır. Ajansın kendi hesabı üzerinden tahsilat önermesi ciddi bir uyarı işaretidir.",
+          },
+          {
+            title: "Ürün girişi ne kadar sürüyor?",
+            body: "Yüz ürünü elle girmek günler alır. Toplu aktarım imkânı var mı, varyantlı ürün girişi pratik mi? Panel demosunu görmeden karar vermeyin.",
+          },
+          {
+            title: "Site hızı ölçüldü mü?",
+            body: "E-ticarette her saniye gecikme dönüşüm kaybıdır. Teklif verenden mevcut bir mağazasının adresini isteyin, kendi telefonunuzdan açın ve sepete kadar gidin.",
+          },
+          {
+            title: "Mesafeli satış metinleri hazır mı?",
+            body: "Mesafeli satış sözleşmesi, iade ve teslimat koşulları, KVKK aydınlatma metni yasal zorunluluktur. Bunlar olmadan yayına alınan mağaza sizi riske atar.",
+          },
+          {
+            title: "Reklam ölçümü kurulu mu?",
+            body: "Meta ve Google reklamı vereceksek dönüşüm takibi ilk günden doğru kurulmalı. Sonradan eklenen ölçüm, o güne kadarki reklam harcamasını körlemesine yapmış olmanız demektir.",
+          },
         ],
       },
     },
@@ -981,9 +1556,18 @@ export const solutions: Solution[] = [
       intro:
         "You don't have to be locked into marketplace commissions to sell your products. A fast, sales-focused store under your own brand grows both your margin and customer loyalty. Forpus builds end-to-end e-commerce sites with payment and shipping integration.",
       benefits: [
-        { title: "Your own brand", body: "A sales channel that's entirely yours, without marketplace commissions and crowds." },
-        { title: "Sales-focused design", body: "Fast pages, a clear product flow and easy checkout reduce cart abandonment." },
-        { title: "Easy to manage", body: "Manage products, stock and orders from one panel; the site scales as you grow." },
+        {
+          title: "Your own brand",
+          body: "A sales channel that's entirely yours, without marketplace commissions and crowds.",
+        },
+        {
+          title: "Sales-focused design",
+          body: "Fast pages, a clear product flow and easy checkout reduce cart abandonment.",
+        },
+        {
+          title: "Easy to manage",
+          body: "Manage products, stock and orders from one panel; the site scales as you grow.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -996,12 +1580,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Which payment providers do you support?", a: "We integrate common providers and virtual POS such as iyzico and PayTR, plus international options on request." },
-        { q: "Can I manage orders easily?", a: "Yes. You manage products, stock and orders comfortably from a single admin panel." },
-        { q: "Can you migrate my existing products?", a: "We bulk-import your products and set up the catalog cleanly." },
+        {
+          q: "Which payment providers do you support?",
+          a: "We integrate common providers and virtual POS such as iyzico and PayTR, plus international options on request.",
+        },
+        {
+          q: "Can I manage orders easily?",
+          a: "Yes. You manage products, stock and orders comfortably from a single admin panel.",
+        },
+        {
+          q: "Can you migrate my existing products?",
+          a: "We bulk-import your products and set up the catalog cleanly.",
+        },
       ],
       ctaTitle: "Let's build your branded store",
-      ctaText: "Let's talk through your needs and give you a clear quote for your catalog and goals.",
+      ctaText:
+        "Let's talk through your needs and give you a clear quote for your catalog and goals.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -1020,9 +1614,18 @@ export const solutions: Solution[] = [
         "Misafirleriniz gelmeden önce menünüze ve mekânınıza telefonlarından bakıyor. İştah açan görseller, güncel bir dijital menü ve kolay rezervasyon, masalarınızı doldurur. Forpus restoran ve kafelere özel siteler tasarlıyor.",
       benefitsTitle: "Restoran web sitesi işletmenize ne kazandırır?",
       benefits: [
-        { title: "İştah açan vitrin", body: "Kaliteli görseller ve şık bir tasarımla mekânınızın atmosferini ekrana taşıyın." },
-        { title: "Dijital menü", body: "QR ile güncellenebilir menü; fiyat değişince baskı derdi olmadan anında güncelleyin." },
-        { title: "Rezervasyon & sipariş", body: "Online rezervasyon ve sipariş yönlendirmesiyle telefon trafiğini azaltın." },
+        {
+          title: "İştah açan vitrin",
+          body: "Kaliteli görseller ve şık bir tasarımla mekânınızın atmosferini ekrana taşıyın.",
+        },
+        {
+          title: "Dijital menü",
+          body: "QR ile güncellenebilir menü; fiyat değişince baskı derdi olmadan anında güncelleyin.",
+        },
+        {
+          title: "Rezervasyon & sipariş",
+          body: "Online rezervasyon ve sipariş yönlendirmesiyle telefon trafiğini azaltın.",
+        },
       ],
       featuresTitle: "Restoran sitenizde neler olur?",
       features: [
@@ -1035,17 +1638,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Menümü kendim güncelleyebilir miyim?", a: "Evet. Dijital menüyü kolayca güncelleyebileceğiniz bir yapı kurarız; fiyat değişimleri anında yansır." },
-        { q: "Yemeksepeti / Getir'e yönlendirir mi?", a: "İsterseniz sipariş butonlarını bu platformlara ya da kendi paket servis akışınıza yönlendiririz." },
-        { q: "QR menü dahil mi?", a: "Evet. Masaya koyabileceğiniz QR ile açılan dijital menüyü birlikte kurarız." },
-        { q: "Restoran web sitesi ne kadar tutar?", a: "Dijital menü ve mekân tanıtımı odaklı bir site ₺40.000 bandında başlar. Online rezervasyon, çok dilli menü ve kampanya bölümü olan bir site ₺80.000–140.000 aralığındadır. Kendi sipariş ve teslimat sisteminiz işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "QR menü de yapıyor musunuz?", a: "Evet, dijital menü paketin standart parçası. Masalara koyacağınız QR kodları sitenizin menü sayfasına açılır; fiyat değiştiğinde panelden güncellersiniz, basılı menüyü yeniden bastırmanız gerekmez. QR görsellerini baskıya hazır şekilde teslim ederiz." },
-        { q: "Yemek sepeti gibi platformlardan çıkmalı mıyım?", a: "Hayır, çıkmanızı önermeyiz. O platformlar sizi hiç tanımayan müşteriye ulaştırıyor ve bu değerli. Kendi sipariş sisteminiz farklı bir işi görür: düzenli müşteriniz komisyonsuz sipariş verir, müşteri verisi sizde kalır. Pratikte en iyi sonuç ikisini birlikte yürütmekten çıkıyor." },
-        { q: "Birden fazla şubem var, nasıl gösteriyoruz?", a: "Her şube için ayrı bir sayfa kurarız: kendi adresi, çalışma saatleri, haritası ve rezervasyon yönlendirmesi. Bu hem misafirin doğru şubeyi bulmasını sağlar hem de şubenin bulunduğu semtte yapılan aramalarda görünmenize yardımcı olur." },
-        { q: "Menü çok dilli olabilir mi?", a: "Evet. Turistik bölgedeki işletmeler için İngilizce menü standart olarak öneriliyor; ihtiyaca göre başka diller de eklenebilir. Menü yapısı bir kez kurulduktan sonra dil eklemek kolaydır." },
+        {
+          q: "Menümü kendim güncelleyebilir miyim?",
+          a: "Evet. Dijital menüyü kolayca güncelleyebileceğiniz bir yapı kurarız; fiyat değişimleri anında yansır.",
+        },
+        {
+          q: "Yemeksepeti / Getir'e yönlendirir mi?",
+          a: "İsterseniz sipariş butonlarını bu platformlara ya da kendi paket servis akışınıza yönlendiririz.",
+        },
+        {
+          q: "QR menü dahil mi?",
+          a: "Evet. Masaya koyabileceğiniz QR ile açılan dijital menüyü birlikte kurarız.",
+        },
+        {
+          q: "Restoran web sitesi ne kadar tutar?",
+          a: "Dijital menü ve mekân tanıtımı odaklı bir site ₺40.000 bandında başlar. Online rezervasyon, çok dilli menü ve kampanya bölümü olan bir site ₺80.000–140.000 aralığındadır. Kendi sipariş ve teslimat sisteminiz işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "QR menü de yapıyor musunuz?",
+          a: "Evet, dijital menü paketin standart parçası. Masalara koyacağınız QR kodları sitenizin menü sayfasına açılır; fiyat değiştiğinde panelden güncellersiniz, basılı menüyü yeniden bastırmanız gerekmez. QR görsellerini baskıya hazır şekilde teslim ederiz.",
+        },
+        {
+          q: "Yemek sepeti gibi platformlardan çıkmalı mıyım?",
+          a: "Hayır, çıkmanızı önermeyiz. O platformlar sizi hiç tanımayan müşteriye ulaştırıyor ve bu değerli. Kendi sipariş sisteminiz farklı bir işi görür: düzenli müşteriniz komisyonsuz sipariş verir, müşteri verisi sizde kalır. Pratikte en iyi sonuç ikisini birlikte yürütmekten çıkıyor.",
+        },
+        {
+          q: "Birden fazla şubem var, nasıl gösteriyoruz?",
+          a: "Her şube için ayrı bir sayfa kurarız: kendi adresi, çalışma saatleri, haritası ve rezervasyon yönlendirmesi. Bu hem misafirin doğru şubeyi bulmasını sağlar hem de şubenin bulunduğu semtte yapılan aramalarda görünmenize yardımcı olur.",
+        },
+        {
+          q: "Menü çok dilli olabilir mi?",
+          a: "Evet. Turistik bölgedeki işletmeler için İngilizce menü standart olarak öneriliyor; ihtiyaca göre başka diller de eklenebilir. Menü yapısı bir kez kurulduktan sonra dil eklemek kolaydır.",
+        },
       ],
       ctaTitle: "Masalarınızı dolduran bir site",
-      ctaText: "Mekânınıza uygun bir site için kısa bir görüşme yapalım, net bir teklif sunalım.",
+      ctaText:
+        "Mekânınıza uygun bir site için kısa bir görüşme yapalım, net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -1085,22 +1713,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Servis düzeninizi aksatmayan bir akış kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Konseptinizi, misafir profilinizi ve sitenin asıl işini konuşuruz. Rezervasyon mu alacak, paket servis mi yönlendirecek, sadece menü mü gösterecek? Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "Menü ve görsel hazırlığı", body: "Menüyü dijital formata çeviririz. Yemek fotoğrafları bu işte en belirleyici unsur olduğu için mevcut görsellerinizi değerlendirir, gerekiyorsa çekim önerisinde bulunuruz." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfayı görürsünüz. Bu alanda tasarımın işi mekânın atmosferini ekrana taşımaktır. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası ve Google İşletme Profili bağlantısı dahil yayına alırız. Menüyü kendiniz güncelleyebilmeniz için kısa bir kullanım kaydı bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Konseptinizi, misafir profilinizi ve sitenin asıl işini konuşuruz. Rezervasyon mu alacak, paket servis mi yönlendirecek, sadece menü mü gösterecek? Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "Menü ve görsel hazırlığı",
+            body: "Menüyü dijital formata çeviririz. Yemek fotoğrafları bu işte en belirleyici unsur olduğu için mevcut görsellerinizi değerlendirir, gerekiyorsa çekim önerisinde bulunuruz.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfayı görürsünüz. Bu alanda tasarımın işi mekânın atmosferini ekrana taşımaktır. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası ve Google İşletme Profili bağlantısı dahil yayına alırız. Menüyü kendiniz güncelleyebilmeniz için kısa bir kullanım kaydı bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Restoran web sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Menüyü kendiniz güncelleyebilecek misiniz?", body: "Fiyatlar sık değişiyor. Her güncelleme için ajansa haber vermek zorundaysanız menü bir ay içinde yanlış hale gelir. Bu, restoran sitelerinde en sık gördüğümüz sorun." },
-          { title: "Menü PDF mi, gerçek sayfa mı?", body: "PDF menü telefonda okunmaz, yakınlaştırma gerektirir ve Google içeriğini göremez. Menünün sitenin kendi sayfası olarak kurulması hem misafir hem arama görünürlüğü için gerekli." },
-          { title: "Fotoğraflar iştah açıyor mu?", body: "Bu sektörde site fotoğraf kadar iyidir. Kötü ışıkta çekilmiş yemek fotoğrafları, iyi bir tasarımın etkisini tamamen siler. Görsel bütçesini baştan ayırın." },
-          { title: "Google İşletme Profili bağlı mı?", body: "Restoran aramalarının çoğu haritadan geliyor. Site ile İşletme Profilinin bağlantılı olması, çalışma saatleri ve menü bilgisinin haritada da görünmesi gerekir." },
-          { title: "Rezervasyona kaç tıkla gidiliyor?", body: "Misafir karar verdiği anda eylem ilk ekranda görünmeli. Görünmüyorsa site güzel olsa bile masayı doldurmaz." },
-          { title: "Alan adı ve site kime ait?", body: "Alan adının işletmeniz adına kayıtlı olduğundan emin olun ve sözleşmeye yazdırın." },
+          {
+            title: "Menüyü kendiniz güncelleyebilecek misiniz?",
+            body: "Fiyatlar sık değişiyor. Her güncelleme için ajansa haber vermek zorundaysanız menü bir ay içinde yanlış hale gelir. Bu, restoran sitelerinde en sık gördüğümüz sorun.",
+          },
+          {
+            title: "Menü PDF mi, gerçek sayfa mı?",
+            body: "PDF menü telefonda okunmaz, yakınlaştırma gerektirir ve Google içeriğini göremez. Menünün sitenin kendi sayfası olarak kurulması hem misafir hem arama görünürlüğü için gerekli.",
+          },
+          {
+            title: "Fotoğraflar iştah açıyor mu?",
+            body: "Bu sektörde site fotoğraf kadar iyidir. Kötü ışıkta çekilmiş yemek fotoğrafları, iyi bir tasarımın etkisini tamamen siler. Görsel bütçesini baştan ayırın.",
+          },
+          {
+            title: "Google İşletme Profili bağlı mı?",
+            body: "Restoran aramalarının çoğu haritadan geliyor. Site ile İşletme Profilinin bağlantılı olması, çalışma saatleri ve menü bilgisinin haritada da görünmesi gerekir.",
+          },
+          {
+            title: "Rezervasyona kaç tıkla gidiliyor?",
+            body: "Misafir karar verdiği anda eylem ilk ekranda görünmeli. Görünmüyorsa site güzel olsa bile masayı doldurmaz.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının işletmeniz adına kayıtlı olduğundan emin olun ve sözleşmeye yazdırın.",
+          },
         ],
       },
     },
@@ -1113,9 +1771,18 @@ export const solutions: Solution[] = [
       intro:
         "Guests check your menu and space on their phones before they arrive. Appetizing photos, an up-to-date digital menu and easy reservations fill your tables. Forpus builds sites for restaurants and cafes.",
       benefits: [
-        { title: "An appetizing storefront", body: "Bring your atmosphere to the screen with quality photos and a sharp design." },
-        { title: "Digital menu", body: "A QR-updatable menu; when prices change, update instantly with no reprinting." },
-        { title: "Reservations & orders", body: "Cut phone traffic with online reservations and order redirects." },
+        {
+          title: "An appetizing storefront",
+          body: "Bring your atmosphere to the screen with quality photos and a sharp design.",
+        },
+        {
+          title: "Digital menu",
+          body: "A QR-updatable menu; when prices change, update instantly with no reprinting.",
+        },
+        {
+          title: "Reservations & orders",
+          body: "Cut phone traffic with online reservations and order redirects.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -1128,12 +1795,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Can I update the menu myself?", a: "Yes. We build a structure where you update the digital menu easily; price changes reflect instantly." },
-        { q: "Can it link to delivery apps?", a: "If you'd like, we point order buttons to those platforms or your own delivery flow." },
-        { q: "Is a QR menu included?", a: "Yes. We set up a digital menu that opens via a QR code you can place on tables." },
+        {
+          q: "Can I update the menu myself?",
+          a: "Yes. We build a structure where you update the digital menu easily; price changes reflect instantly.",
+        },
+        {
+          q: "Can it link to delivery apps?",
+          a: "If you'd like, we point order buttons to those platforms or your own delivery flow.",
+        },
+        {
+          q: "Is a QR menu included?",
+          a: "Yes. We set up a digital menu that opens via a QR code you can place on tables.",
+        },
       ],
       ctaTitle: "A site that fills your tables",
-      ctaText: "Let's have a short call about a site that fits your venue and give you a clear quote.",
+      ctaText:
+        "Let's have a short call about a site that fits your venue and give you a clear quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -1152,9 +1829,18 @@ export const solutions: Solution[] = [
         "Sosyal medya hesabınız sizin değil; algoritmanın. Kendi adınıza bir web sitesi, işinizi ve itibarınızı kalıcı bir yere taşır. Danışman, eğitmen, koç veya içerik üreticisi olun; Forpus size özel, sizi anlatan siteler tasarlıyor.",
       benefitsTitle: "Kişisel marka siteniz size ne kazandırır?",
       benefits: [
-        { title: "Sahibi siz olun", body: "Takipçinizi platformdan bağımsız, kendi alan adınızda buluşturun; kontrol sizde olsun." },
-        { title: "Profesyonel algı", body: "Kişisel bir site, sizi amatörden ayırır ve işbirliği/danışan tekliflerini artırır." },
-        { title: "Hepsi tek yerde", body: "Portfolyo, hizmet, blog ve iletişim; tüm dijital varlığınız tek adreste toplansın." },
+        {
+          title: "Sahibi siz olun",
+          body: "Takipçinizi platformdan bağımsız, kendi alan adınızda buluşturun; kontrol sizde olsun.",
+        },
+        {
+          title: "Profesyonel algı",
+          body: "Kişisel bir site, sizi amatörden ayırır ve işbirliği/danışan tekliflerini artırır.",
+        },
+        {
+          title: "Hepsi tek yerde",
+          body: "Portfolyo, hizmet, blog ve iletişim; tüm dijital varlığınız tek adreste toplansın.",
+        },
       ],
       featuresTitle: "Kişisel markanızda neler olur?",
       features: [
@@ -1167,17 +1853,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Tek sayfa mı olmalı, çok sayfa mı?", a: "İşinize göre öneririz: hızlı bir başlangıç için tek sayfa, büyüyen içerik için çok sayfalı yapı." },
-        { q: "Bülten / e-posta listesi kurar mısınız?", a: "Evet. Ziyaretçileri e-posta listenize dönüştüren formlar ve entegrasyonları kurarız." },
-        { q: "Kendi içeriğimi ekleyebilir miyim?", a: "Yönetilebilir bir altyapıyla yazı ve projelerinizi kolayca kendiniz eklersiniz." },
-        { q: "Kişisel marka web sitesi ne kadar tutar?", a: "Tek sayfalık, sizi anlatan güçlü bir site ₺40.000 bandında başlar. Hizmetlerin ayrı sayfalandığı, blog ve bülten altyapılı bir marka sitesi ₺80.000–130.000 aralığındadır. Kurs veya üyelik satışı işin içine girdiğinde ₺180.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Sosyal medyam varken siteye gerek var mı?", a: "Sosyal medya sizi tanıtır, site sizi ciddiye aldırır ve size ait olan tek yerdir. Hesabınız kapansa, erişiminiz düşse veya platform kurallarını değiştirse siteniz yerinde durur. Kurumsal bir iş görüşmesinde de karşınızdakinin baktığı yer sosyal medya değil, adınıza kayıtlı bir adrestir." },
-        { q: "Kurs satmak istersem altyapı kuruyor musunuz?", a: "Evet. Basit bir kurs için hazır platformlara yönlendirmek çoğu zaman daha akıllıcadır; kendi üyelik sisteminizi kurmak ancak içerik hacminiz ve öğrenci sayınız arttığında mantıklı olur. Hangisinin size uygun olduğunu ilk görüşmede netleştiriyoruz." },
-        { q: "Blog yazmak zorunda mıyım?", a: "Hayır. Blog, arama motorlarından düzenli ziyaretçi getirmenin en etkili yolu; ama düzenli yazamayacaksanız boş bir blog bölümü sitenin terk edilmiş görünmesine yol açar, olmaması daha iyidir. Altyapıyı kurar, kullanıp kullanmamayı size bırakırız." },
-        { q: "Mevcut sitemi yenileyebilir misiniz?", a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız; eski adresleri yenilerine yönlendiririz." },
+        {
+          q: "Tek sayfa mı olmalı, çok sayfa mı?",
+          a: "İşinize göre öneririz: hızlı bir başlangıç için tek sayfa, büyüyen içerik için çok sayfalı yapı.",
+        },
+        {
+          q: "Bülten / e-posta listesi kurar mısınız?",
+          a: "Evet. Ziyaretçileri e-posta listenize dönüştüren formlar ve entegrasyonları kurarız.",
+        },
+        {
+          q: "Kendi içeriğimi ekleyebilir miyim?",
+          a: "Yönetilebilir bir altyapıyla yazı ve projelerinizi kolayca kendiniz eklersiniz.",
+        },
+        {
+          q: "Kişisel marka web sitesi ne kadar tutar?",
+          a: "Tek sayfalık, sizi anlatan güçlü bir site ₺40.000 bandında başlar. Hizmetlerin ayrı sayfalandığı, blog ve bülten altyapılı bir marka sitesi ₺80.000–130.000 aralığındadır. Kurs veya üyelik satışı işin içine girdiğinde ₺180.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Sosyal medyam varken siteye gerek var mı?",
+          a: "Sosyal medya sizi tanıtır, site sizi ciddiye aldırır ve size ait olan tek yerdir. Hesabınız kapansa, erişiminiz düşse veya platform kurallarını değiştirse siteniz yerinde durur. Kurumsal bir iş görüşmesinde de karşınızdakinin baktığı yer sosyal medya değil, adınıza kayıtlı bir adrestir.",
+        },
+        {
+          q: "Kurs satmak istersem altyapı kuruyor musunuz?",
+          a: "Evet. Basit bir kurs için hazır platformlara yönlendirmek çoğu zaman daha akıllıcadır; kendi üyelik sisteminizi kurmak ancak içerik hacminiz ve öğrenci sayınız arttığında mantıklı olur. Hangisinin size uygun olduğunu ilk görüşmede netleştiriyoruz.",
+        },
+        {
+          q: "Blog yazmak zorunda mıyım?",
+          a: "Hayır. Blog, arama motorlarından düzenli ziyaretçi getirmenin en etkili yolu; ama düzenli yazamayacaksanız boş bir blog bölümü sitenin terk edilmiş görünmesine yol açar, olmaması daha iyidir. Altyapıyı kurar, kullanıp kullanmamayı size bırakırız.",
+        },
+        {
+          q: "Mevcut sitemi yenileyebilir misiniz?",
+          a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız; eski adresleri yenilerine yönlendiririz.",
+        },
       ],
       ctaTitle: "Sizi anlatan bir site kuralım",
-      ctaText: "Kişisel markanız için kısa bir görüşme yapalım, size uygun net bir teklif sunalım.",
+      ctaText:
+        "Kişisel markanız için kısa bir görüşme yapalım, size uygun net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -1217,22 +1928,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Programınızı aksatmayan bir düzen kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Konumlandırma görüşmesi", body: "Bu projede en kritik adım budur. Kimsiniz, kime hitap ediyorsunuz ve sizden ne isteniyor? Sitenin başarısı tasarımdan çok bu sorulara verdiğiniz yanıtın netliğine bağlı." },
-          { name: "İçerik ve görsel", body: "Hakkımda metni, hizmet açıklamaları ve öne çıkan işler için şablon gönderiyoruz. Kişisel markada portre fotoğrafı belirleyici olduğu için mevcut görsellerinizi değerlendirir, gerekiyorsa çekim önerisinde bulunuruz." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfayı görürsünüz. Buradaki hedef sizin gibi görünmesi; şablon hissi veren hiçbir şey bırakmayız. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası ve Search Console bağlantısı dahil yayına alırız. İçerik ekleyebilmeniz için kısa bir kullanım kaydı bırakırız." },
+          {
+            name: "Konumlandırma görüşmesi",
+            body: "Bu projede en kritik adım budur. Kimsiniz, kime hitap ediyorsunuz ve sizden ne isteniyor? Sitenin başarısı tasarımdan çok bu sorulara verdiğiniz yanıtın netliğine bağlı.",
+          },
+          {
+            name: "İçerik ve görsel",
+            body: "Hakkımda metni, hizmet açıklamaları ve öne çıkan işler için şablon gönderiyoruz. Kişisel markada portre fotoğrafı belirleyici olduğu için mevcut görsellerinizi değerlendirir, gerekiyorsa çekim önerisinde bulunuruz.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfayı görürsünüz. Buradaki hedef sizin gibi görünmesi; şablon hissi veren hiçbir şey bırakmayız. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası ve Search Console bağlantısı dahil yayına alırız. İçerik ekleyebilmeniz için kısa bir kullanım kaydı bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Kişisel marka sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Alan adı kendi adınız mı?", body: "Mümkünse adsoyad.com alın; yıllar içinde en değerli dijital varlığınız o olacak. Alan adının sizin adınıza kayıtlı olduğundan da emin olun." },
-          { title: "Site sizin gibi mi görünüyor?", body: "Kişisel markada şablon hissi en büyük kayıptır. Ziyaretçi sitenizde sizi hissetmiyorsa site amacını görmez. Farkı baştan sorun." },
-          { title: "İçeriği kendiniz ekleyebilecek misiniz?", body: "Yazı, konuşma veya iş ekleyeceksiniz. Her seferinde ajansa bağımlı kalmak siteyi zamanla ölü bir kartvizite çevirir." },
-          { title: "E-posta listesi toplanıyor mu?", body: "Takipçi platformun, e-posta listesi sizin. Site kuruluyorsa bülten toplama en baştan düşünülmeli; sonradan eklemek çok daha zahmetli olur." },
-          { title: "Sosyal medya siteye bağlanıyor mu?", body: "Biyografideki tek link sitede doğru yere düşmeli. Bu bağlantı kopuksa sosyal medyadaki emeğin karşılığını alamazsınız." },
-          { title: "Mobilde gerçekten hızlı mı?", body: "Ziyaretçilerin çoğu telefondan geliyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın." },
+          {
+            title: "Alan adı kendi adınız mı?",
+            body: "Mümkünse adsoyad.com alın; yıllar içinde en değerli dijital varlığınız o olacak. Alan adının sizin adınıza kayıtlı olduğundan da emin olun.",
+          },
+          {
+            title: "Site sizin gibi mi görünüyor?",
+            body: "Kişisel markada şablon hissi en büyük kayıptır. Ziyaretçi sitenizde sizi hissetmiyorsa site amacını görmez. Farkı baştan sorun.",
+          },
+          {
+            title: "İçeriği kendiniz ekleyebilecek misiniz?",
+            body: "Yazı, konuşma veya iş ekleyeceksiniz. Her seferinde ajansa bağımlı kalmak siteyi zamanla ölü bir kartvizite çevirir.",
+          },
+          {
+            title: "E-posta listesi toplanıyor mu?",
+            body: "Takipçi platformun, e-posta listesi sizin. Site kuruluyorsa bülten toplama en baştan düşünülmeli; sonradan eklemek çok daha zahmetli olur.",
+          },
+          {
+            title: "Sosyal medya siteye bağlanıyor mu?",
+            body: "Biyografideki tek link sitede doğru yere düşmeli. Bu bağlantı kopuksa sosyal medyadaki emeğin karşılığını alamazsınız.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Ziyaretçilerin çoğu telefondan geliyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın.",
+          },
         ],
       },
     },
@@ -1245,9 +1986,18 @@ export const solutions: Solution[] = [
       intro:
         "Your social account isn't yours; it's the algorithm's. A website under your own name moves your work and reputation somewhere permanent. Consultant, coach, educator or creator — Forpus builds sites that tell your story.",
       benefits: [
-        { title: "You own it", body: "Meet your audience on your own domain, independent of any platform; you stay in control." },
-        { title: "Professional perception", body: "A personal site sets you apart from amateurs and increases collaboration and client offers." },
-        { title: "All in one place", body: "Portfolio, services, blog and contact — your whole digital presence at one address." },
+        {
+          title: "You own it",
+          body: "Meet your audience on your own domain, independent of any platform; you stay in control.",
+        },
+        {
+          title: "Professional perception",
+          body: "A personal site sets you apart from amateurs and increases collaboration and client offers.",
+        },
+        {
+          title: "All in one place",
+          body: "Portfolio, services, blog and contact — your whole digital presence at one address.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -1260,12 +2010,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Should it be one page or many?", a: "We advise based on your work: a single page for a quick start, a multi-page structure for growing content." },
-        { q: "Can you set up a newsletter?", a: "Yes. We build forms and integrations that turn visitors into email subscribers." },
-        { q: "Can I add my own content?", a: "With an editable foundation, you add posts and projects yourself easily." },
+        {
+          q: "Should it be one page or many?",
+          a: "We advise based on your work: a single page for a quick start, a multi-page structure for growing content.",
+        },
+        {
+          q: "Can you set up a newsletter?",
+          a: "Yes. We build forms and integrations that turn visitors into email subscribers.",
+        },
+        {
+          q: "Can I add my own content?",
+          a: "With an editable foundation, you add posts and projects yourself easily.",
+        },
       ],
       ctaTitle: "Let's build a site that tells your story",
-      ctaText: "Let's have a short call about your personal brand and give you a clear quote.",
+      ctaText:
+        "Let's have a short call about your personal brand and give you a clear quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -1284,9 +2044,18 @@ export const solutions: Solution[] = [
         "Müşteriniz yeni bir kuaför ararken telefonuna bakıyor: yorumlar, fotoğraflar ve 'randevu al'. Şık bir vitrin ve tek tıkla online randevu, koltuklarınızı boş bırakmaz. Forpus kuaför, berber ve güzellik salonlarına özel siteler tasarlıyor.",
       benefitsTitle: "Kuaför web sitesi salonunuza ne kazandırır?",
       benefits: [
-        { title: "Online randevu", body: "Müşteri istediği saati telefondan seçsin; siz çalışırken takviminiz kendiliğinden dolsun." },
-        { title: "Şık vitrin", body: "Model ve mekan fotoğraflarınızla tarzınızı gösterin, ilk izlenimi kazanın." },
-        { title: "Google'da bulunun", body: "'Yakınımdaki kuaför' aramalarında öne çıkacak yapı; harita ve yorumlarla." },
+        {
+          title: "Online randevu",
+          body: "Müşteri istediği saati telefondan seçsin; siz çalışırken takviminiz kendiliğinden dolsun.",
+        },
+        {
+          title: "Şık vitrin",
+          body: "Model ve mekan fotoğraflarınızla tarzınızı gösterin, ilk izlenimi kazanın.",
+        },
+        {
+          title: "Google'da bulunun",
+          body: "'Yakınımdaki kuaför' aramalarında öne çıkacak yapı; harita ve yorumlarla.",
+        },
       ],
       featuresTitle: "Kuaför sitenizde neler olur?",
       features: [
@@ -1299,17 +2068,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Online randevu sistemi kurar mısınız?", a: "Evet. Basit WhatsApp yönlendirmesinden saat seçmeli online takvime kadar ihtiyacınıza göre kurarız." },
-        { q: "Instagram'ımla bağlanır mı?", a: "Instagram akışınızı siteye entegre eder, takipçiyi randevuya çevirmenize yardımcı oluruz." },
-        { q: "Fiyat listesini kendim güncelleyebilir miyim?", a: "Evet. Hizmet ve fiyatları kolayca güncelleyebileceğiniz bir yapı kurarız." },
-        { q: "Kuaför web sitesi ne kadar tutar?", a: "Hizmet listesi, galeri ve WhatsApp yönlendirmeli bir tanıtım sitesi ₺40.000 bandında başlar. Online randevu formu ve stilist yönlendirmeli bir site ₺80.000–130.000 aralığındadır. Takvimli randevu yönetimi ve mobil uygulama işin içine girdiğinde ₺180.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Instagram'ım var, siteye gerek var mı?", a: "Instagram işinizi gösterir ama üç şeyi yapamaz: haritada çıkmak, fiyat listesini düzenli tutmak ve tek tıkla randevuya götürmek. Yeni müşterinin sizi bulduğu yer çoğunlukla Google Haritalar oluyor ve orada güçlü görünmek için bir siteye ihtiyacınız var. İkisi birlikte çalışır." },
-        { q: "Google Haritalar'da öne çıkmama yardım eder misiniz?", a: "Evet, bu sektörde en çok işe yarayan iş bu. Google İşletme Profilinizi kurar veya düzenler, kategori ve hizmet bilgilerini doğru girer, siteyle bağlantısını sağlarız. Profil sizin sahipliğinizde kalır; doğrulama kodu adresinize geldiği için o adımı sizin tamamlamanız gerekir." },
-        { q: "Online randevu sistemi gerçekten gerekli mi?", a: "Salonunuz WhatsApp'la rahat yönetiliyorsa gerekmez, dürüst yanıt budur. Ancak günde onlarca mesajı elle yönetmek vakit alıyorsa ve unutulan randevular yüzünden boş koltuk kalıyorsa, takvimli sistem kendini kısa sürede amorti eder." },
-        { q: "Birden fazla şubem var, nasıl gösteriyoruz?", a: "Her şube için ayrı bir sayfa kurarız: kendi adresi, ekibi, çalışma saatleri ve randevu yönlendirmesi. Bu, şubenin bulunduğu semtte yapılan aramalarda görünmenize de yardımcı olur." },
+        {
+          q: "Online randevu sistemi kurar mısınız?",
+          a: "Evet. Basit WhatsApp yönlendirmesinden saat seçmeli online takvime kadar ihtiyacınıza göre kurarız.",
+        },
+        {
+          q: "Instagram'ımla bağlanır mı?",
+          a: "Instagram akışınızı siteye entegre eder, takipçiyi randevuya çevirmenize yardımcı oluruz.",
+        },
+        {
+          q: "Fiyat listesini kendim güncelleyebilir miyim?",
+          a: "Evet. Hizmet ve fiyatları kolayca güncelleyebileceğiniz bir yapı kurarız.",
+        },
+        {
+          q: "Kuaför web sitesi ne kadar tutar?",
+          a: "Hizmet listesi, galeri ve WhatsApp yönlendirmeli bir tanıtım sitesi ₺40.000 bandında başlar. Online randevu formu ve stilist yönlendirmeli bir site ₺80.000–130.000 aralığındadır. Takvimli randevu yönetimi ve mobil uygulama işin içine girdiğinde ₺180.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Instagram'ım var, siteye gerek var mı?",
+          a: "Instagram işinizi gösterir ama üç şeyi yapamaz: haritada çıkmak, fiyat listesini düzenli tutmak ve tek tıkla randevuya götürmek. Yeni müşterinin sizi bulduğu yer çoğunlukla Google Haritalar oluyor ve orada güçlü görünmek için bir siteye ihtiyacınız var. İkisi birlikte çalışır.",
+        },
+        {
+          q: "Google Haritalar'da öne çıkmama yardım eder misiniz?",
+          a: "Evet, bu sektörde en çok işe yarayan iş bu. Google İşletme Profilinizi kurar veya düzenler, kategori ve hizmet bilgilerini doğru girer, siteyle bağlantısını sağlarız. Profil sizin sahipliğinizde kalır; doğrulama kodu adresinize geldiği için o adımı sizin tamamlamanız gerekir.",
+        },
+        {
+          q: "Online randevu sistemi gerçekten gerekli mi?",
+          a: "Salonunuz WhatsApp'la rahat yönetiliyorsa gerekmez, dürüst yanıt budur. Ancak günde onlarca mesajı elle yönetmek vakit alıyorsa ve unutulan randevular yüzünden boş koltuk kalıyorsa, takvimli sistem kendini kısa sürede amorti eder.",
+        },
+        {
+          q: "Birden fazla şubem var, nasıl gösteriyoruz?",
+          a: "Her şube için ayrı bir sayfa kurarız: kendi adresi, ekibi, çalışma saatleri ve randevu yönlendirmesi. Bu, şubenin bulunduğu semtte yapılan aramalarda görünmenize de yardımcı olur.",
+        },
       ],
       ctaTitle: "Salonunuz için bir site kuralım",
-      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaText:
+        "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -1349,22 +2143,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Salon düzeninizi aksatmayan bir akış kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Salonunuzun konumlandırmasını ve müşteri profilinizi konuşuruz. Semt kuaförüyle butik bir saç tasarım stüdyosunun sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "Görsel ve içerik", body: "Hizmet ve fiyat listesini alırız. Bu işte galeri belirleyici olduğu için mevcut çalışma fotoğraflarınızı değerlendirir, gerekiyorsa çekim önerisinde bulunuruz." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfayı görürsünüz. Tasarımın işi salonun havasını ekrana taşımak. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası ve Google İşletme Profili bağlantısı dahil yayına alırız. Fiyat listesini güncelleyebilmeniz için kısa bir kullanım kaydı bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Salonunuzun konumlandırmasını ve müşteri profilinizi konuşuruz. Semt kuaförüyle butik bir saç tasarım stüdyosunun sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "Görsel ve içerik",
+            body: "Hizmet ve fiyat listesini alırız. Bu işte galeri belirleyici olduğu için mevcut çalışma fotoğraflarınızı değerlendirir, gerekiyorsa çekim önerisinde bulunuruz.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfayı görürsünüz. Tasarımın işi salonun havasını ekrana taşımak. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası ve Google İşletme Profili bağlantısı dahil yayına alırız. Fiyat listesini güncelleyebilmeniz için kısa bir kullanım kaydı bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Kuaför web sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Google İşletme Profili kurulu mu?", body: "Kuaför aramalarının büyük kısmı haritadan geliyor. İşletme Profili olmadan sadece site kurmak, bu sektörde eksik bir iştir. Teklife dahil mi, sorun." },
-          { title: "Fiyat listesini kendiniz güncelleyebiliyor musunuz?", body: "Fiyatlar sık değişir. Her güncelleme için ajansa haber vermek zorundaysanız liste kısa sürede yanlış hale gelir ve müşteriyle sorun yaşarsınız." },
-          { title: "Galeri gerçek işleriniz mi?", body: "Stok fotoğraf kullanılan salon siteleri anında belli oluyor ve güven kaybettiriyor. Kendi çalışmalarınızın fotoğraflanması bu işin en değerli yatırımıdır." },
-          { title: "WhatsApp tek tıkla açılıyor mu?", body: "Türkiye'de bu sektörde randevunun büyük kısmı WhatsApp'tan alınıyor. Numaranın yazılı olması yetmez; tıklanınca doğrudan sohbeti açması gerekir." },
-          { title: "Mobilde gerçekten hızlı mı?", body: "Müşterilerin neredeyse tamamı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın." },
-          { title: "Alan adı ve site kime ait?", body: "Alan adının salonunuz adına kayıtlı olduğundan emin olun ve sözleşmeye yazdırın." },
+          {
+            title: "Google İşletme Profili kurulu mu?",
+            body: "Kuaför aramalarının büyük kısmı haritadan geliyor. İşletme Profili olmadan sadece site kurmak, bu sektörde eksik bir iştir. Teklife dahil mi, sorun.",
+          },
+          {
+            title: "Fiyat listesini kendiniz güncelleyebiliyor musunuz?",
+            body: "Fiyatlar sık değişir. Her güncelleme için ajansa haber vermek zorundaysanız liste kısa sürede yanlış hale gelir ve müşteriyle sorun yaşarsınız.",
+          },
+          {
+            title: "Galeri gerçek işleriniz mi?",
+            body: "Stok fotoğraf kullanılan salon siteleri anında belli oluyor ve güven kaybettiriyor. Kendi çalışmalarınızın fotoğraflanması bu işin en değerli yatırımıdır.",
+          },
+          {
+            title: "WhatsApp tek tıkla açılıyor mu?",
+            body: "Türkiye'de bu sektörde randevunun büyük kısmı WhatsApp'tan alınıyor. Numaranın yazılı olması yetmez; tıklanınca doğrudan sohbeti açması gerekir.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Müşterilerin neredeyse tamamı siteye telefondan giriyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının salonunuz adına kayıtlı olduğundan emin olun ve sözleşmeye yazdırın.",
+          },
         ],
       },
     },
@@ -1377,9 +2201,18 @@ export const solutions: Solution[] = [
       intro:
         "People check their phone when looking for a new salon: reviews, photos and 'book now'. A sharp storefront and one-tap online booking keep your chairs full. Forpus builds sites for hair salons, barbers and beauty studios.",
       benefits: [
-        { title: "Online booking", body: "Let clients pick a time from their phone; your calendar fills while you work." },
-        { title: "A sharp storefront", body: "Show your style with model and venue photos and win the first impression." },
-        { title: "Get found on Google", body: "A structure built to rank for 'hair salon near me', with map and reviews." },
+        {
+          title: "Online booking",
+          body: "Let clients pick a time from their phone; your calendar fills while you work.",
+        },
+        {
+          title: "A sharp storefront",
+          body: "Show your style with model and venue photos and win the first impression.",
+        },
+        {
+          title: "Get found on Google",
+          body: "A structure built to rank for 'hair salon near me', with map and reviews.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -1392,12 +2225,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Can you set up online booking?", a: "Yes. From a simple WhatsApp redirect to a time-slot booking calendar, we tailor it to you." },
-        { q: "Does it connect to Instagram?", a: "We integrate your Instagram feed and help you turn followers into bookings." },
-        { q: "Can I update the price list myself?", a: "Yes. We build a structure where you update services and prices easily." },
+        {
+          q: "Can you set up online booking?",
+          a: "Yes. From a simple WhatsApp redirect to a time-slot booking calendar, we tailor it to you.",
+        },
+        {
+          q: "Does it connect to Instagram?",
+          a: "We integrate your Instagram feed and help you turn followers into bookings.",
+        },
+        {
+          q: "Can I update the price list myself?",
+          a: "Yes. We build a structure where you update services and prices easily.",
+        },
       ],
       ctaTitle: "Let's build a site for your salon",
-      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaText:
+        "In a free call we'll clarify what you need and give you a clear quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -1416,9 +2259,18 @@ export const solutions: Solution[] = [
         "Estetik ve bakım hizmetlerinde güven her şeydir. Sonuçlarınızı gösteren şık bir site ve kolay randevu, tereddüt eden müşteriyi karar aşamasına taşır. Forpus güzellik, cilt bakımı ve lazer merkezlerine özel siteler tasarlıyor.",
       benefitsTitle: "Güzellik merkezi web sitesi işletmenize ne kazandırır?",
       benefits: [
-        { title: "Sonuç odaklı vitrin", body: "Öncesi-sonrası galerisiyle işinizin kalitesini kanıtlayın, güven oluşturun." },
-        { title: "Online randevu", body: "Hizmet ve saati müşteri kendi seçsin; telefon trafiği azalsın, takvim dolsun." },
-        { title: "Prestijli tasarım", body: "Markanıza yakışan şık ve modern bir görünümle rakiplerinizden ayrışın." },
+        {
+          title: "Sonuç odaklı vitrin",
+          body: "Öncesi-sonrası galerisiyle işinizin kalitesini kanıtlayın, güven oluşturun.",
+        },
+        {
+          title: "Online randevu",
+          body: "Hizmet ve saati müşteri kendi seçsin; telefon trafiği azalsın, takvim dolsun.",
+        },
+        {
+          title: "Prestijli tasarım",
+          body: "Markanıza yakışan şık ve modern bir görünümle rakiplerinizden ayrışın.",
+        },
       ],
       featuresTitle: "Güzellik merkezi sitenizde neler olur?",
       features: [
@@ -1431,17 +2283,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Öncesi-sonrası fotoğrafı ekler misiniz?", a: "Evet. İzin ve gizliliğe dikkat ederek sonuçlarınızı gösteren şık bir galeri kurarız." },
-        { q: "Kampanyaları kendim güncelleyebilir miyim?", a: "Evet. Kampanya ve fiyatları kolayca güncelleyebileceğiniz bir yapı kurarız." },
-        { q: "Online randevu alır mı?", a: "Hizmet ve saat seçmeli online randevuyu ya da WhatsApp yönlendirmesini kurarız." },
-        { q: "Güzellik merkezi web sitesi ne kadar tutar?", a: "Hizmet listesi ve galeri odaklı bir tanıtım sitesi ₺50.000 bandında başlar. Her işlemin ayrı sayfalandığı, online randevu ve kampanya bölümlü bir merkez sitesi ₺90.000–160.000 aralığındadır. Takvimli randevu, seans takibi ve mobil uygulama işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Öncesi-sonrası fotoğrafı koyabilir miyim?", a: "Müşteriden yazılı açık rıza almanız şart. Ayrıca yaptığınız işlem sağlık hizmeti kapsamındaysa tanıtım mevzuatının sınırları geçerli olur ve bu görsellerin kullanımı daha da kısıtlıdır. Galeriyi bu çerçeveye uygun kurgularız; hangi işlemlerinizin bu kapsama girdiğini mevzuat danışmanınızla teyitleşmenizi öneririz." },
-        { q: "Kampanya ve indirim duyurusu yapabilir miyim?", a: "Kozmetik bakım hizmetlerinde genellikle mümkün, medikal estetik kapsamındaki işlemlerde ise ciddi sınırlar var. İkisini aynı sitede sunuyorsanız ayrımı doğru kurmak gerekir; bunu birlikte netleştiriyoruz." },
-        { q: "Online randevu sistemi gerekli mi?", a: "Seans bazlı çalışıyorsanız ve paket satıyorsanız çok işe yarar; müşterinin kaç seansı kaldığını takip etmek elle zordur. Tek kabinli, WhatsApp'la rahat yönetilen bir merkezseniz gereksiz maliyettir." },
-        { q: "Google Haritalar'da öne çıkmama yardım eder misiniz?", a: "Evet. İşletme Profilinizi kurar veya düzenler, kategori ve hizmet bilgilerini doğru girer, siteyle bağlantısını sağlarız. Profil sizin sahipliğinizde kalır; doğrulama adımını adres sizin olduğu için sizin tamamlamanız gerekir." },
+        {
+          q: "Öncesi-sonrası fotoğrafı ekler misiniz?",
+          a: "Evet. İzin ve gizliliğe dikkat ederek sonuçlarınızı gösteren şık bir galeri kurarız.",
+        },
+        {
+          q: "Kampanyaları kendim güncelleyebilir miyim?",
+          a: "Evet. Kampanya ve fiyatları kolayca güncelleyebileceğiniz bir yapı kurarız.",
+        },
+        {
+          q: "Online randevu alır mı?",
+          a: "Hizmet ve saat seçmeli online randevuyu ya da WhatsApp yönlendirmesini kurarız.",
+        },
+        {
+          q: "Güzellik merkezi web sitesi ne kadar tutar?",
+          a: "Hizmet listesi ve galeri odaklı bir tanıtım sitesi ₺50.000 bandında başlar. Her işlemin ayrı sayfalandığı, online randevu ve kampanya bölümlü bir merkez sitesi ₺90.000–160.000 aralığındadır. Takvimli randevu, seans takibi ve mobil uygulama işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Öncesi-sonrası fotoğrafı koyabilir miyim?",
+          a: "Müşteriden yazılı açık rıza almanız şart. Ayrıca yaptığınız işlem sağlık hizmeti kapsamındaysa tanıtım mevzuatının sınırları geçerli olur ve bu görsellerin kullanımı daha da kısıtlıdır. Galeriyi bu çerçeveye uygun kurgularız; hangi işlemlerinizin bu kapsama girdiğini mevzuat danışmanınızla teyitleşmenizi öneririz.",
+        },
+        {
+          q: "Kampanya ve indirim duyurusu yapabilir miyim?",
+          a: "Kozmetik bakım hizmetlerinde genellikle mümkün, medikal estetik kapsamındaki işlemlerde ise ciddi sınırlar var. İkisini aynı sitede sunuyorsanız ayrımı doğru kurmak gerekir; bunu birlikte netleştiriyoruz.",
+        },
+        {
+          q: "Online randevu sistemi gerekli mi?",
+          a: "Seans bazlı çalışıyorsanız ve paket satıyorsanız çok işe yarar; müşterinin kaç seansı kaldığını takip etmek elle zordur. Tek kabinli, WhatsApp'la rahat yönetilen bir merkezseniz gereksiz maliyettir.",
+        },
+        {
+          q: "Google Haritalar'da öne çıkmama yardım eder misiniz?",
+          a: "Evet. İşletme Profilinizi kurar veya düzenler, kategori ve hizmet bilgilerini doğru girer, siteyle bağlantısını sağlarız. Profil sizin sahipliğinizde kalır; doğrulama adımını adres sizin olduğu için sizin tamamlamanız gerekir.",
+        },
       ],
       ctaTitle: "Merkeziniz için bir site kuralım",
-      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaText:
+        "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -1487,22 +2364,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Randevu düzeninizi aksatmayan bir akış kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Hangi işlemlerde yoğunlaştığınızı ve müşteri profilinizi konuşuruz. Lazer epilasyon ağırlıklı bir merkezle cilt bakımı ağırlıklı bir merkezin sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "İçerik ve görsel", body: "İşlem açıklamaları ve ekip bilgileri için şablon gönderiyoruz. Öncesi-sonrası görseli kullanacaksanız müşteri onayı konusunu bu aşamada netleştiririz." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfayı görürsünüz. Bu alanda tasarımın görevi prestij hissi kurmaktır; renk ve tipografi seçimleri buna göre yapılır. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası ve Google İşletme Profili bağlantısı dahil yayına alırız. Kampanya ve fiyat güncellemesi için kısa bir kullanım kaydı bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Hangi işlemlerde yoğunlaştığınızı ve müşteri profilinizi konuşuruz. Lazer epilasyon ağırlıklı bir merkezle cilt bakımı ağırlıklı bir merkezin sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "İçerik ve görsel",
+            body: "İşlem açıklamaları ve ekip bilgileri için şablon gönderiyoruz. Öncesi-sonrası görseli kullanacaksanız müşteri onayı konusunu bu aşamada netleştiririz.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfayı görürsünüz. Bu alanda tasarımın görevi prestij hissi kurmaktır; renk ve tipografi seçimleri buna göre yapılır. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası ve Google İşletme Profili bağlantısı dahil yayına alırız. Kampanya ve fiyat güncellemesi için kısa bir kullanım kaydı bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Güzellik merkezi sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Sağlık tanıtım kuralları biliniyor mu?", body: "Medikal estetik ve bazı cilt işlemleri sağlık hizmeti kapsamındadır; bu alanda kampanya, indirim ve karşılaştırmalı üstünlük iddiası ciddi sorun yaratabilir. Ajansınızın bu ayrımı bilmesi gerekir." },
-          { title: "Öncesi-sonrası görseli kullanılabilir mi?", body: "Müşteri görselleri kişisel veridir, yazılı onay olmadan yayınlanamaz. Sağlık hizmeti kapsamındaki işlemlerde ayrıca mevzuat sınırı vardır. Bu riski ajans mı üstleniyor, siz mi?" },
-          { title: "İşlemler ayrı sayfa mı?", body: "Lazer arayan kişiyle cilt bakımı arayan kişi farklı şeyler soruyor. Hepsi tek sayfada listelenmişse ne müşteri aradığını bulur ne de Google hangi işlemde uzman olduğunuzu anlar." },
-          { title: "Site prestijli duruyor mu?", body: "Bu sektörde algı fiyatı doğrudan etkiler. Hazır tema kullanılmış, herkesin sitesine benzeyen bir vitrin hizmetinizi de sıradanlaştırır." },
-          { title: "Mobilde gerçekten hızlı mı?", body: "Müşterilerin neredeyse tamamı siteye telefondan giriyor. Galeri ağırlıklı sitelerde hız en çok ihmal edilen konudur; teklif verenin mevcut bir işini kendi telefonunuzdan açın." },
-          { title: "Alan adı ve site kime ait?", body: "Alan adının işletmeniz adına kayıtlı olduğundan emin olun ve sözleşmeye yazdırın." },
+          {
+            title: "Sağlık tanıtım kuralları biliniyor mu?",
+            body: "Medikal estetik ve bazı cilt işlemleri sağlık hizmeti kapsamındadır; bu alanda kampanya, indirim ve karşılaştırmalı üstünlük iddiası ciddi sorun yaratabilir. Ajansınızın bu ayrımı bilmesi gerekir.",
+          },
+          {
+            title: "Öncesi-sonrası görseli kullanılabilir mi?",
+            body: "Müşteri görselleri kişisel veridir, yazılı onay olmadan yayınlanamaz. Sağlık hizmeti kapsamındaki işlemlerde ayrıca mevzuat sınırı vardır. Bu riski ajans mı üstleniyor, siz mi?",
+          },
+          {
+            title: "İşlemler ayrı sayfa mı?",
+            body: "Lazer arayan kişiyle cilt bakımı arayan kişi farklı şeyler soruyor. Hepsi tek sayfada listelenmişse ne müşteri aradığını bulur ne de Google hangi işlemde uzman olduğunuzu anlar.",
+          },
+          {
+            title: "Site prestijli duruyor mu?",
+            body: "Bu sektörde algı fiyatı doğrudan etkiler. Hazır tema kullanılmış, herkesin sitesine benzeyen bir vitrin hizmetinizi de sıradanlaştırır.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Müşterilerin neredeyse tamamı siteye telefondan giriyor. Galeri ağırlıklı sitelerde hız en çok ihmal edilen konudur; teklif verenin mevcut bir işini kendi telefonunuzdan açın.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının işletmeniz adına kayıtlı olduğundan emin olun ve sözleşmeye yazdırın.",
+          },
         ],
       },
     },
@@ -1515,9 +2422,18 @@ export const solutions: Solution[] = [
       intro:
         "In aesthetics and skincare, trust is everything. A sharp site that shows your results and easy booking moves a hesitant visitor toward a decision. Forpus builds sites for beauty, skincare and laser clinics.",
       benefits: [
-        { title: "A results-driven storefront", body: "Prove the quality of your work with a before-and-after gallery and build trust." },
-        { title: "Online booking", body: "Let clients pick service and time themselves; cut phone traffic and fill the calendar." },
-        { title: "A premium design", body: "Stand out from competitors with a sharp, modern look worthy of your brand." },
+        {
+          title: "A results-driven storefront",
+          body: "Prove the quality of your work with a before-and-after gallery and build trust.",
+        },
+        {
+          title: "Online booking",
+          body: "Let clients pick service and time themselves; cut phone traffic and fill the calendar.",
+        },
+        {
+          title: "A premium design",
+          body: "Stand out from competitors with a sharp, modern look worthy of your brand.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -1530,12 +2446,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Can you add before-and-after photos?", a: "Yes. We build a sharp gallery showcasing your results, with attention to consent and privacy." },
-        { q: "Can I update campaigns myself?", a: "Yes. We build a structure where you update campaigns and prices easily." },
-        { q: "Does it take online bookings?", a: "We set up service-and-time online booking or a WhatsApp redirect." },
+        {
+          q: "Can you add before-and-after photos?",
+          a: "Yes. We build a sharp gallery showcasing your results, with attention to consent and privacy.",
+        },
+        {
+          q: "Can I update campaigns myself?",
+          a: "Yes. We build a structure where you update campaigns and prices easily.",
+        },
+        {
+          q: "Does it take online bookings?",
+          a: "We set up service-and-time online booking or a WhatsApp redirect.",
+        },
       ],
       ctaTitle: "Let's build a site for your clinic",
-      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaText:
+        "In a free call we'll clarify what you need and give you a clear quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -1554,9 +2480,18 @@ export const solutions: Solution[] = [
         "Dostlarının sağlığı söz konusu olunca sahipler aceleyle en yakın ve en güvenilir kliniği arıyor. Sıcak, güven veren ve randevuya yönlendiren bir site, kliniğinizi öne çıkarır. Forpus veteriner kliniklerine özel siteler tasarlıyor.",
       benefitsTitle: "Veteriner web sitesi kliniğinize ne kazandırır?",
       benefits: [
-        { title: "Acil erişim", body: "Adres, telefon ve nöbet bilgisi tek dokunuşta; sahip vakit kaybetmeden ulaşsın." },
-        { title: "Güven veren vitrin", body: "Ekip, hizmet ve klinik tanıtımıyla sahibin içini rahatlatın." },
-        { title: "Google'da bulunun", body: "'Yakınımdaki veteriner' aramalarında ve haritada öne çıkın." },
+        {
+          title: "Acil erişim",
+          body: "Adres, telefon ve nöbet bilgisi tek dokunuşta; sahip vakit kaybetmeden ulaşsın.",
+        },
+        {
+          title: "Güven veren vitrin",
+          body: "Ekip, hizmet ve klinik tanıtımıyla sahibin içini rahatlatın.",
+        },
+        {
+          title: "Google'da bulunun",
+          body: "'Yakınımdaki veteriner' aramalarında ve haritada öne çıkın.",
+        },
       ],
       featuresTitle: "Veteriner sitenizde neler olur?",
       features: [
@@ -1569,17 +2504,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Online randevu kurar mısınız?", a: "Evet. WhatsApp veya saat seçmeli randevu akışını ihtiyacınıza göre kurarız." },
-        { q: "Acil durum bilgisini öne çıkarır mısınız?", a: "Evet. Telefon, adres ve nöbet bilgisini her sayfadan kolayca erişilir yaparız." },
-        { q: "Blog ekleyebilir miyiz?", a: "Evet. Pet sağlığı içerikleriyle Google'dan organik ziyaretçi kazanmanıza yardımcı oluruz." },
-        { q: "Veteriner web sitesi ne kadar tutar?", a: "Hizmet, ekip ve acil iletişim odaklı bir tanıtım sitesi ₺50.000 bandında başlar. Her hizmetin ayrı sayfalandığı, bilgilendirme blogu ve randevu yönlendirmeli bir klinik sitesi ₺90.000–150.000 aralığındadır. Takvimli randevu ve hasta kayıt sistemi işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Aşı hatırlatma sistemi kurabilir misiniz?", a: "Evet, kliniklerin en çok fayda gördüğü özelliklerden biri. Hayvanın aşı tarihini sisteme girdiğinizde, zamanı geldiğinde sahibe otomatik SMS veya e-posta gider. Bu hem hayvan sağlığı için iyi hem de kliniğe düzenli hasta dönüşü sağlar. Hasta kayıt sistemi kapsamında kurulur." },
-        { q: "Google Haritalar'da öne çıkmama yardım eder misiniz?", a: "Evet, bu sektörde en çok işe yarayan iş bu. İşletme Profilinizi kurar veya düzenler, kategori ve hizmet bilgilerini doğru girer, siteyle bağlantısını sağlarız. Profil sizin sahipliğinizde kalır; doğrulama kodu adresinize geldiği için o adımı sizin tamamlamanız gerekir." },
-        { q: "Nöbetçi olduğum günleri sitede gösterebilir miyim?", a: "Evet, panelden güncelleyebileceğiniz bir nöbet bilgisi alanı kurarız. Bu bilgi hem sitede öne çıkar hem de Google İşletme Profilindeki özel çalışma saatleriyle uyumlu tutulabilir." },
-        { q: "Mevcut sitemi yenileyebilir misiniz?", a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız; eski adresleri yenilerine yönlendiririz." },
+        {
+          q: "Online randevu kurar mısınız?",
+          a: "Evet. WhatsApp veya saat seçmeli randevu akışını ihtiyacınıza göre kurarız.",
+        },
+        {
+          q: "Acil durum bilgisini öne çıkarır mısınız?",
+          a: "Evet. Telefon, adres ve nöbet bilgisini her sayfadan kolayca erişilir yaparız.",
+        },
+        {
+          q: "Blog ekleyebilir miyiz?",
+          a: "Evet. Pet sağlığı içerikleriyle Google'dan organik ziyaretçi kazanmanıza yardımcı oluruz.",
+        },
+        {
+          q: "Veteriner web sitesi ne kadar tutar?",
+          a: "Hizmet, ekip ve acil iletişim odaklı bir tanıtım sitesi ₺50.000 bandında başlar. Her hizmetin ayrı sayfalandığı, bilgilendirme blogu ve randevu yönlendirmeli bir klinik sitesi ₺90.000–150.000 aralığındadır. Takvimli randevu ve hasta kayıt sistemi işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Aşı hatırlatma sistemi kurabilir misiniz?",
+          a: "Evet, kliniklerin en çok fayda gördüğü özelliklerden biri. Hayvanın aşı tarihini sisteme girdiğinizde, zamanı geldiğinde sahibe otomatik SMS veya e-posta gider. Bu hem hayvan sağlığı için iyi hem de kliniğe düzenli hasta dönüşü sağlar. Hasta kayıt sistemi kapsamında kurulur.",
+        },
+        {
+          q: "Google Haritalar'da öne çıkmama yardım eder misiniz?",
+          a: "Evet, bu sektörde en çok işe yarayan iş bu. İşletme Profilinizi kurar veya düzenler, kategori ve hizmet bilgilerini doğru girer, siteyle bağlantısını sağlarız. Profil sizin sahipliğinizde kalır; doğrulama kodu adresinize geldiği için o adımı sizin tamamlamanız gerekir.",
+        },
+        {
+          q: "Nöbetçi olduğum günleri sitede gösterebilir miyim?",
+          a: "Evet, panelden güncelleyebileceğiniz bir nöbet bilgisi alanı kurarız. Bu bilgi hem sitede öne çıkar hem de Google İşletme Profilindeki özel çalışma saatleriyle uyumlu tutulabilir.",
+        },
+        {
+          q: "Mevcut sitemi yenileyebilir misiniz?",
+          a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız; eski adresleri yenilerine yönlendiririz.",
+        },
       ],
       ctaTitle: "Kliniğiniz için bir site kuralım",
-      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaText:
+        "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -1619,22 +2579,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Klinik düzeninizi aksatmayan bir akış kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Hizmet kapsamınızı, nöbet düzeninizi ve hasta profilinizi konuşuruz. Sadece kedi-köpekle çalışan bir klinikle egzotik hayvana da bakan bir kliniğin sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "İçerik ve görsel", body: "Hizmet açıklamaları ve ekip bilgileri için şablon gönderiyoruz. Klinik fotoğrafları bu alanda güveni doğrudan etkilediği için mevcut görsellerinizi birlikte değerlendiririz." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfayı görürsünüz. Tasarımın işi hem tıbbi ciddiyeti hem hayvan sevgisini aynı anda hissettirmek. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası ve Google İşletme Profili bağlantısı dahil yayına alırız. Nöbet ve çalışma saati güncellemesi için kısa bir kullanım kaydı bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Hizmet kapsamınızı, nöbet düzeninizi ve hasta profilinizi konuşuruz. Sadece kedi-köpekle çalışan bir klinikle egzotik hayvana da bakan bir kliniğin sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "İçerik ve görsel",
+            body: "Hizmet açıklamaları ve ekip bilgileri için şablon gönderiyoruz. Klinik fotoğrafları bu alanda güveni doğrudan etkilediği için mevcut görsellerinizi birlikte değerlendiririz.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfayı görürsünüz. Tasarımın işi hem tıbbi ciddiyeti hem hayvan sevgisini aynı anda hissettirmek. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası ve Google İşletme Profili bağlantısı dahil yayına alırız. Nöbet ve çalışma saati güncellemesi için kısa bir kullanım kaydı bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Veteriner web sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Acil iletişim ilk ekranda mı?", body: "Panik halindeki sahip menüde gezinmez. Telefon numarası ve nöbet bilgisi ilk ekranda, tıklanınca doğrudan arama başlatacak şekilde olmalı." },
-          { title: "Google İşletme Profili kurulu mu?", body: "Veteriner aramalarının büyük kısmı 'yakınımdaki' şeklinde ve haritadan geliyor. İşletme Profili olmadan sadece site kurmak eksik bir iştir." },
-          { title: "Çalışma saatlerini güncelleyebiliyor musunuz?", body: "Nöbet ve tatil günleri değişir. Her değişiklik için ajansa haber vermek zorundaysanız bilgi yanlış kalır ve sahipler boşuna gelir." },
-          { title: "Hizmetler ayrı sayfa mı?", body: "Kısırlaştırma arayan sahiple aşı arayan sahip farklı şeyler soruyor. Tek sayfada listelenmişse ne sahip aradığını bulur ne Google konuyu anlar." },
-          { title: "Mobilde gerçekten hızlı mı?", body: "Acil arayan kişi üç saniye bekler. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın." },
-          { title: "Alan adı ve site kime ait?", body: "Alan adının kliniğiniz adına kayıtlı olduğundan emin olun ve sözleşmeye yazdırın." },
+          {
+            title: "Acil iletişim ilk ekranda mı?",
+            body: "Panik halindeki sahip menüde gezinmez. Telefon numarası ve nöbet bilgisi ilk ekranda, tıklanınca doğrudan arama başlatacak şekilde olmalı.",
+          },
+          {
+            title: "Google İşletme Profili kurulu mu?",
+            body: "Veteriner aramalarının büyük kısmı 'yakınımdaki' şeklinde ve haritadan geliyor. İşletme Profili olmadan sadece site kurmak eksik bir iştir.",
+          },
+          {
+            title: "Çalışma saatlerini güncelleyebiliyor musunuz?",
+            body: "Nöbet ve tatil günleri değişir. Her değişiklik için ajansa haber vermek zorundaysanız bilgi yanlış kalır ve sahipler boşuna gelir.",
+          },
+          {
+            title: "Hizmetler ayrı sayfa mı?",
+            body: "Kısırlaştırma arayan sahiple aşı arayan sahip farklı şeyler soruyor. Tek sayfada listelenmişse ne sahip aradığını bulur ne Google konuyu anlar.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Acil arayan kişi üç saniye bekler. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının kliniğiniz adına kayıtlı olduğundan emin olun ve sözleşmeye yazdırın.",
+          },
         ],
       },
     },
@@ -1647,9 +2637,18 @@ export const solutions: Solution[] = [
       intro:
         "When a pet's health is on the line, owners urgently look for the nearest, most trustworthy clinic. A warm, reassuring site that drives bookings puts your clinic first. Forpus builds sites for veterinary clinics.",
       benefits: [
-        { title: "Reachable in an emergency", body: "Address, phone and on-call info in one tap so owners reach you without losing time." },
-        { title: "A reassuring storefront", body: "Put owners at ease with your team, services and clinic showcase." },
-        { title: "Get found on Google", body: "Stand out in 'vet near me' searches and on the map." },
+        {
+          title: "Reachable in an emergency",
+          body: "Address, phone and on-call info in one tap so owners reach you without losing time.",
+        },
+        {
+          title: "A reassuring storefront",
+          body: "Put owners at ease with your team, services and clinic showcase.",
+        },
+        {
+          title: "Get found on Google",
+          body: "Stand out in 'vet near me' searches and on the map.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -1662,12 +2661,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Can you set up online booking?", a: "Yes. We build a WhatsApp or time-slot booking flow around your needs." },
-        { q: "Can you highlight emergency info?", a: "Yes. We make phone, address and on-call details reachable from every page." },
-        { q: "Can we add a blog?", a: "Yes. Pet-health content helps you earn organic visitors from Google." },
+        {
+          q: "Can you set up online booking?",
+          a: "Yes. We build a WhatsApp or time-slot booking flow around your needs.",
+        },
+        {
+          q: "Can you highlight emergency info?",
+          a: "Yes. We make phone, address and on-call details reachable from every page.",
+        },
+        {
+          q: "Can we add a blog?",
+          a: "Yes. Pet-health content helps you earn organic visitors from Google.",
+        },
       ],
       ctaTitle: "Let's build a site for your clinic",
-      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaText:
+        "In a free call we'll clarify what you need and give you a clear quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -1686,9 +2695,18 @@ export const solutions: Solution[] = [
         "Sizin işiniz görsel; siteniz de öyle olmalı. Projelerinizi büyük, etkileyici görsellerle sunan bir portfolyo sitesi, potansiyel müşteride 'bununla çalışmalıyım' hissi yaratır. Forpus mimar ve iç mimarlara özel portfolyo siteleri tasarlıyor.",
       benefitsTitle: "Portfolyo siteniz büronuza ne kazandırır?",
       benefits: [
-        { title: "Etkileyici portfolyo", body: "Projelerinizi tam ekran, yüksek kaliteli görsellerle sunun; işiniz kendini anlatsın." },
-        { title: "Prestijli algı", body: "Sade ve şık bir tasarım, uzmanlığınızı ve seviyenizi ilk bakışta yansıtır." },
-        { title: "Doğru müşteri", body: "Proje türlerinizi anlatarak size uygun işleri çekin, Google'dan bulunun." },
+        {
+          title: "Etkileyici portfolyo",
+          body: "Projelerinizi tam ekran, yüksek kaliteli görsellerle sunun; işiniz kendini anlatsın.",
+        },
+        {
+          title: "Prestijli algı",
+          body: "Sade ve şık bir tasarım, uzmanlığınızı ve seviyenizi ilk bakışta yansıtır.",
+        },
+        {
+          title: "Doğru müşteri",
+          body: "Proje türlerinizi anlatarak size uygun işleri çekin, Google'dan bulunun.",
+        },
       ],
       featuresTitle: "Mimar sitenizde neler olur?",
       features: [
@@ -1701,17 +2719,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Projelerimi kendim ekleyebilir miyim?", a: "Evet. Yeni projeleri görsel ve detaylarıyla kolayca ekleyebileceğiniz bir yapı kurarız." },
-        { q: "Yüksek kaliteli görseller siteyi yavaşlatır mı?", a: "Hayır. Görselleri optimize ederek kaliteden ödün vermeden hızlı bir galeri kurarız." },
-        { q: "3D / render koyabilir miyim?", a: "Elbette. Render ve çizimlerinizi tam ekran sunan bir düzen kurgularız." },
-        { q: "Mimar web sitesi ne kadar tutar?", a: "Seçili projelerin galeri halinde sunulduğu bir portfolyo sitesi ₺60.000 bandında başlar. Her projenin künyeli detay sayfası olduğu, kendi yönetebildiğiniz bir büro sitesi ₺110.000–190.000 aralığındadır. Sanal tur ve etkileşimli sunum işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Projelerimi kendim ekleyebilir miyim?", a: "Büro sitesi paketinde evet. Proje adı, künye, konum ve görselleri panelden girer, sıralamayı sürükleyerek değiştirirsiniz. Portfolyo sitesi paketinde projeleri biz yükleriz; yılda birkaç kez güncelleme yapan bürolar için bu daha ekonomik oluyor." },
-        { q: "Render'larım siteyi yavaşlatır mı?", a: "Doğru kurulmazsa evet, bu en sık gördüğümüz sorun. Biz görselleri birden fazla boyutta üretir, ziyaretçinin ekranına uygun olanı göndeririz; kalite kaybı olmadan sayfa hızlı açılır. Orijinal dosyalarınızı da saklarız." },
-        { q: "Sanal tur ekleyebilir misiniz?", a: "Evet. Mevcut bir 360° çekiminiz veya 3D modeliniz varsa siteye gömeriz. Sıfırdan üretim gerekiyorsa bu ayrı bir kalem olur ve kapsamı birlikte belirleriz." },
-        { q: "Mevcut sitemi yenileyebilir misiniz?", a: "Evet. Projelerinizi yeni yapıya aktarır, mevcut adreslerinizi yenilerine yönlendirir ve arama motorlarındaki birikiminizin kaybolmamasını sağlarız." },
+        {
+          q: "Projelerimi kendim ekleyebilir miyim?",
+          a: "Evet. Yeni projeleri görsel ve detaylarıyla kolayca ekleyebileceğiniz bir yapı kurarız.",
+        },
+        {
+          q: "Yüksek kaliteli görseller siteyi yavaşlatır mı?",
+          a: "Hayır. Görselleri optimize ederek kaliteden ödün vermeden hızlı bir galeri kurarız.",
+        },
+        {
+          q: "3D / render koyabilir miyim?",
+          a: "Elbette. Render ve çizimlerinizi tam ekran sunan bir düzen kurgularız.",
+        },
+        {
+          q: "Mimar web sitesi ne kadar tutar?",
+          a: "Seçili projelerin galeri halinde sunulduğu bir portfolyo sitesi ₺60.000 bandında başlar. Her projenin künyeli detay sayfası olduğu, kendi yönetebildiğiniz bir büro sitesi ₺110.000–190.000 aralığındadır. Sanal tur ve etkileşimli sunum işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Projelerimi kendim ekleyebilir miyim?",
+          a: "Büro sitesi paketinde evet. Proje adı, künye, konum ve görselleri panelden girer, sıralamayı sürükleyerek değiştirirsiniz. Portfolyo sitesi paketinde projeleri biz yükleriz; yılda birkaç kez güncelleme yapan bürolar için bu daha ekonomik oluyor.",
+        },
+        {
+          q: "Render'larım siteyi yavaşlatır mı?",
+          a: "Doğru kurulmazsa evet, bu en sık gördüğümüz sorun. Biz görselleri birden fazla boyutta üretir, ziyaretçinin ekranına uygun olanı göndeririz; kalite kaybı olmadan sayfa hızlı açılır. Orijinal dosyalarınızı da saklarız.",
+        },
+        {
+          q: "Sanal tur ekleyebilir misiniz?",
+          a: "Evet. Mevcut bir 360° çekiminiz veya 3D modeliniz varsa siteye gömeriz. Sıfırdan üretim gerekiyorsa bu ayrı bir kalem olur ve kapsamı birlikte belirleriz.",
+        },
+        {
+          q: "Mevcut sitemi yenileyebilir misiniz?",
+          a: "Evet. Projelerinizi yeni yapıya aktarır, mevcut adreslerinizi yenilerine yönlendirir ve arama motorlarındaki birikiminizin kaybolmamasını sağlarız.",
+        },
       ],
       ctaTitle: "Portfolyonuz için bir site kuralım",
-      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaText:
+        "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -1751,22 +2794,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Proje teslim programınızı aksatmayan bir akış kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Çalışma alanınızı ve hedef müşterinizi konuşuruz. Konut projeleri yapan bir büroyla ticari iç mimarlık yapan birinin sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "Proje seçimi ve görseller", body: "Hangi projelerin öne çıkacağını birlikte seçeriz. Bu aşama kritik: az sayıda güçlü proje, çok sayıda vasat projeden daha iyi sonuç verir. Render ve fotoğrafları web için optimize ederiz." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfa ve bir proje detay sayfasını görürsünüz. Bu işte tasarımın görevi görünmez olmaktır; sayfa değil proje konuşmalı. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası ve Search Console bağlantısı dahil yayına alırız. Yeni proje ekleyebilmeniz için kısa bir kullanım kaydı bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Çalışma alanınızı ve hedef müşterinizi konuşuruz. Konut projeleri yapan bir büroyla ticari iç mimarlık yapan birinin sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "Proje seçimi ve görseller",
+            body: "Hangi projelerin öne çıkacağını birlikte seçeriz. Bu aşama kritik: az sayıda güçlü proje, çok sayıda vasat projeden daha iyi sonuç verir. Render ve fotoğrafları web için optimize ederiz.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfa ve bir proje detay sayfasını görürsünüz. Bu işte tasarımın görevi görünmez olmaktır; sayfa değil proje konuşmalı. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası ve Search Console bağlantısı dahil yayına alırız. Yeni proje ekleyebilmeniz için kısa bir kullanım kaydı bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Mimar web sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Görseller hem net hem hızlı mı?", body: "Mimarlık sitelerinin klasik sorunu budur: yüksek çözünürlüklü render'lar siteyi yavaşlatır, sıkıştırılınca iş kalitesiz görünür. Görsellerin otomatik olarak ekrana göre boyutlandırılması gerekir; bunu sorun." },
-          { title: "Yeni proje ekleyebilecek misiniz?", body: "Her yeni proje için ajansa bağımlı kalmak, portfolyonun yıllarca güncellenmemesine yol açar. Panel demosunu görmeden karar vermeyin." },
-          { title: "Proje detay sayfası var mı?", body: "Sadece galeri yeterli değil. Her projenin künyesi, konumu ve anlatımıyla kendi sayfası olmalı; hem müşteri için hem arama görünürlüğü için." },
-          { title: "Tasarım işi gölgeliyor mu?", body: "Fazla iddialı bir arayüz, mimarlık sitesinde projenin önüne geçer. Sayfanın sade olması bu işte bir eksiklik değil, gerekliliktir." },
-          { title: "Mobilde nasıl görünüyor?", body: "Yatay render'lar dar ekranda okunmaz hale gelebilir. Teklif verenden mevcut bir işini isteyin ve kendi telefonunuzdan projelere bakın." },
-          { title: "Alan adı ve site kime ait?", body: "Alan adının büronuz adına kayıtlı olduğundan emin olun ve sözleşmeye yazdırın." },
+          {
+            title: "Görseller hem net hem hızlı mı?",
+            body: "Mimarlık sitelerinin klasik sorunu budur: yüksek çözünürlüklü render'lar siteyi yavaşlatır, sıkıştırılınca iş kalitesiz görünür. Görsellerin otomatik olarak ekrana göre boyutlandırılması gerekir; bunu sorun.",
+          },
+          {
+            title: "Yeni proje ekleyebilecek misiniz?",
+            body: "Her yeni proje için ajansa bağımlı kalmak, portfolyonun yıllarca güncellenmemesine yol açar. Panel demosunu görmeden karar vermeyin.",
+          },
+          {
+            title: "Proje detay sayfası var mı?",
+            body: "Sadece galeri yeterli değil. Her projenin künyesi, konumu ve anlatımıyla kendi sayfası olmalı; hem müşteri için hem arama görünürlüğü için.",
+          },
+          {
+            title: "Tasarım işi gölgeliyor mu?",
+            body: "Fazla iddialı bir arayüz, mimarlık sitesinde projenin önüne geçer. Sayfanın sade olması bu işte bir eksiklik değil, gerekliliktir.",
+          },
+          {
+            title: "Mobilde nasıl görünüyor?",
+            body: "Yatay render'lar dar ekranda okunmaz hale gelebilir. Teklif verenden mevcut bir işini isteyin ve kendi telefonunuzdan projelere bakın.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının büronuz adına kayıtlı olduğundan emin olun ve sözleşmeye yazdırın.",
+          },
         ],
       },
     },
@@ -1779,9 +2852,18 @@ export const solutions: Solution[] = [
       intro:
         "Your work is visual; your site should be too. A portfolio site that presents projects with large, striking imagery makes prospects feel 'I have to work with them'. Forpus builds portfolio sites for architects and interior designers.",
       benefits: [
-        { title: "A striking portfolio", body: "Present projects with full-screen, high-quality imagery; let the work speak." },
-        { title: "A premium perception", body: "A clean, sharp design conveys your expertise and level at first glance." },
-        { title: "The right clients", body: "Explain your project types to attract the right work and get found on Google." },
+        {
+          title: "A striking portfolio",
+          body: "Present projects with full-screen, high-quality imagery; let the work speak.",
+        },
+        {
+          title: "A premium perception",
+          body: "A clean, sharp design conveys your expertise and level at first glance.",
+        },
+        {
+          title: "The right clients",
+          body: "Explain your project types to attract the right work and get found on Google.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -1794,12 +2876,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Can I add projects myself?", a: "Yes. We build a structure where you add new projects with imagery and details easily." },
-        { q: "Will high-quality images slow the site?", a: "No. We optimize the imagery to keep the gallery fast without losing quality." },
-        { q: "Can I add 3D / renders?", a: "Of course. We design a layout that presents your renders and drawings full-screen." },
+        {
+          q: "Can I add projects myself?",
+          a: "Yes. We build a structure where you add new projects with imagery and details easily.",
+        },
+        {
+          q: "Will high-quality images slow the site?",
+          a: "No. We optimize the imagery to keep the gallery fast without losing quality.",
+        },
+        {
+          q: "Can I add 3D / renders?",
+          a: "Of course. We design a layout that presents your renders and drawings full-screen.",
+        },
       ],
       ctaTitle: "Let's build a site for your portfolio",
-      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaText:
+        "In a free call we'll clarify what you need and give you a clear quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -1818,9 +2910,18 @@ export const solutions: Solution[] = [
         "İşletmeler muhasebelerini emanet edecekleri kişide güven ve ciddiyet arar. Kurumsal, net ve profesyonel bir web sitesi, ofisinizin güvenilirliğini yansıtır ve yeni mükellef getirir. Forpus mali müşavir ve muhasebe ofislerine özel siteler tasarlıyor.",
       benefitsTitle: "Mali müşavir web sitesi ofisinize ne kazandırır?",
       benefits: [
-        { title: "Kurumsal güven", body: "Ciddi ve profesyonel bir tasarımla ofisinizin güvenilirliğini ilk bakışta hissettirin." },
-        { title: "Hizmetleriniz net", body: "Kuruluş, beyanname, danışmanlık; her hizmeti ayrı anlatarak doğru mükellefle eşleşin." },
-        { title: "Mükellef getiren yapı", body: "Google'da 'mali müşavir + şehir' aramalarında çıkacak şekilde optimize." },
+        {
+          title: "Kurumsal güven",
+          body: "Ciddi ve profesyonel bir tasarımla ofisinizin güvenilirliğini ilk bakışta hissettirin.",
+        },
+        {
+          title: "Hizmetleriniz net",
+          body: "Kuruluş, beyanname, danışmanlık; her hizmeti ayrı anlatarak doğru mükellefle eşleşin.",
+        },
+        {
+          title: "Mükellef getiren yapı",
+          body: "Google'da 'mali müşavir + şehir' aramalarında çıkacak şekilde optimize.",
+        },
       ],
       featuresTitle: "Mali müşavir sitenizde neler olur?",
       features: [
@@ -1833,17 +2934,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Uzaktan / online çalışmaya uygun mu?", a: "Evet. İletişim ve randevu akışını uzaktan çalışmaya uygun şekilde kurarız." },
-        { q: "Mevzuat / blog bölümü ekler misiniz?", a: "Evet. Güncel içeriklerle uzmanlığınızı gösterip Google'dan ziyaretçi kazanırsınız." },
-        { q: "Birden çok hizmet ekleyebilir miyim?", a: "Elbette. Her hizmet için ayrı, SEO'ya uygun sayfalar kurarız." },
-        { q: "Mali müşavir web sitesi ne kadar tutar?", a: "Hizmet ve özgeçmiş odaklı kurumsal bir tanıtım sitesi ₺50.000 bandında başlar. Her hizmetin ayrı sayfalandığı, sektörel çözümler ve mevzuat blogu olan bir ofis sitesi ₺90.000–160.000 aralığındadır. Mükellef portalı işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Meslek mevzuatı sitemi nasıl etkiliyor?", a: "Serbest muhasebeci mali müşavirlik mevzuatı tanıtımı sınırlar; site bilgilendirme çerçevesinde kalmalıdır. Pratikte ücret ilanı vermek, iş vaadinde bulunmak ve meslektaşlarla karşılaştırmalı üstünlük iddia etmek sorun yaratır. Siteyi bu çerçeveyi gözeterek kurgular, son onayı size bırakırız; bağlı olduğunuz odanın güncel düzenlemesiyle teyitleşmenizi öneririz." },
-        { q: "Mevzuat yazısı yayınlamak işe yarar mı?", a: "Bu alanda en çok işe yarayan yöntem bu. İşletme sahipleri müşavir aramadan önce sorunlarını aratıyor; o soruya doğru yanıt veren bir yazı sizi hem bulunur hem güvenilir kılıyor. Yazıların doğruluğu size ait olmak kaydıyla altyapıyı ve yayın düzenini biz kurarız." },
-        { q: "Mükellef portalı gerçekten gerekli mi?", a: "Mükellef sayınız az ve belge alışverişi e-postayla rahat yürüyorsa gereksiz maliyettir; dürüst yanıt budur. Ancak belge takibi ofis içinde ciddi vakit alıyorsa ve beyanname dönemlerinde kaos yaşanıyorsa portal kendini kısa sürede amorti eder." },
-        { q: "Mevcut sitemi yenileyebilir misiniz?", a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız; eski adresleri yenilerine yönlendiririz." },
+        {
+          q: "Uzaktan / online çalışmaya uygun mu?",
+          a: "Evet. İletişim ve randevu akışını uzaktan çalışmaya uygun şekilde kurarız.",
+        },
+        {
+          q: "Mevzuat / blog bölümü ekler misiniz?",
+          a: "Evet. Güncel içeriklerle uzmanlığınızı gösterip Google'dan ziyaretçi kazanırsınız.",
+        },
+        {
+          q: "Birden çok hizmet ekleyebilir miyim?",
+          a: "Elbette. Her hizmet için ayrı, SEO'ya uygun sayfalar kurarız.",
+        },
+        {
+          q: "Mali müşavir web sitesi ne kadar tutar?",
+          a: "Hizmet ve özgeçmiş odaklı kurumsal bir tanıtım sitesi ₺50.000 bandında başlar. Her hizmetin ayrı sayfalandığı, sektörel çözümler ve mevzuat blogu olan bir ofis sitesi ₺90.000–160.000 aralığındadır. Mükellef portalı işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Meslek mevzuatı sitemi nasıl etkiliyor?",
+          a: "Serbest muhasebeci mali müşavirlik mevzuatı tanıtımı sınırlar; site bilgilendirme çerçevesinde kalmalıdır. Pratikte ücret ilanı vermek, iş vaadinde bulunmak ve meslektaşlarla karşılaştırmalı üstünlük iddia etmek sorun yaratır. Siteyi bu çerçeveyi gözeterek kurgular, son onayı size bırakırız; bağlı olduğunuz odanın güncel düzenlemesiyle teyitleşmenizi öneririz.",
+        },
+        {
+          q: "Mevzuat yazısı yayınlamak işe yarar mı?",
+          a: "Bu alanda en çok işe yarayan yöntem bu. İşletme sahipleri müşavir aramadan önce sorunlarını aratıyor; o soruya doğru yanıt veren bir yazı sizi hem bulunur hem güvenilir kılıyor. Yazıların doğruluğu size ait olmak kaydıyla altyapıyı ve yayın düzenini biz kurarız.",
+        },
+        {
+          q: "Mükellef portalı gerçekten gerekli mi?",
+          a: "Mükellef sayınız az ve belge alışverişi e-postayla rahat yürüyorsa gereksiz maliyettir; dürüst yanıt budur. Ancak belge takibi ofis içinde ciddi vakit alıyorsa ve beyanname dönemlerinde kaos yaşanıyorsa portal kendini kısa sürede amorti eder.",
+        },
+        {
+          q: "Mevcut sitemi yenileyebilir misiniz?",
+          a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurarız; eski adresleri yenilerine yönlendiririz.",
+        },
       ],
       ctaTitle: "Ofisiniz için bir site kuralım",
-      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaText:
+        "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -1883,22 +3009,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Beyanname dönemlerinizi aksatmayan bir akış kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Hizmet kapsamınızı ve hedef mükellef profilinizi konuşuruz. Şahıs işletmeleriyle çalışan bir ofisle kurumsal şirketlere hizmet veren birinin sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "İçerik toplama", body: "Hizmet açıklamaları, özgeçmiş ve sık sorulanlar için şablon gönderiyoruz. Mevzuat içeriğinin doğruluğu size ait olduğu için son onay her zaman sizden geçer." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfayı görürsünüz. Bu alanda tasarımın işi güven ve kurumsallık hissi kurmaktır. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası, Search Console ve İşletme Profili bağlantısı dahil yayına alırız. İçerik ekleyebilmeniz için kısa bir kullanım kaydı bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Hizmet kapsamınızı ve hedef mükellef profilinizi konuşuruz. Şahıs işletmeleriyle çalışan bir ofisle kurumsal şirketlere hizmet veren birinin sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "İçerik toplama",
+            body: "Hizmet açıklamaları, özgeçmiş ve sık sorulanlar için şablon gönderiyoruz. Mevzuat içeriğinin doğruluğu size ait olduğu için son onay her zaman sizden geçer.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfayı görürsünüz. Bu alanda tasarımın işi güven ve kurumsallık hissi kurmaktır. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası, Search Console ve İşletme Profili bağlantısı dahil yayına alırız. İçerik ekleyebilmeniz için kısa bir kullanım kaydı bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Mali müşavir web sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Meslek mevzuatı biliniyor mu?", body: "Serbest muhasebeci mali müşavirlik mevzuatı reklam ve tanıtımı sınırlar. Ücret ilanı, iş vaadi ve karşılaştırmalı üstünlük iddiası sorun yaratabilir. Bunu bilmeyen bir ajans sizi odanız nezdinde zor durumda bırakabilir." },
-          { title: "Mükellef tipine göre ayrım var mı?", body: "Şahıs işletmesi, limited şirket ve e-ticaret mükellefi tamamen farklı şeyler arıyor. Sitenin hepsini tek torbada 'muhasebe hizmetleri' diye sunması, hem ziyaretçiyi hem Google'ı kaybettirir." },
-          { title: "e-Dönüşüm hizmetleri görünüyor mu?", body: "e-Fatura, e-Defter ve e-Arşiv geçişi bugün en çok aranan konulardan biri. Bu hizmetleri veriyorsanız ayrı ayrı yazılmalı; 'danışmanlık' başlığı altında kaybolursa o aramalara hiç girmezsiniz." },
-          { title: "Beyanname takvimi içeriği var mı?", body: "Mükellefler tarih arar: KDV ne zaman, muhtasar ne zaman. Güncel bir beyanname takvimi sayfası, hem mevcut mükellefinizin işini kolaylaştırır hem de düzenli ziyaretçi getiren en pratik içeriktir." },
-          { title: "İçeriği kendiniz ekleyebilecek misiniz?", body: "Mevzuat sürekli değişiyor ve bu alanda güncel yazan kazanıyor. Her yazı için ajansa bağımlı kalırsanız blog bir yıl içinde ölür." },
-          { title: "Belge paylaşımı nasıl olacak?", body: "Mükellef siteden belge göndermek isteyecek. Bunun için WhatsApp yeterli mi, yoksa güvenli bir yükleme alanı mı gerekiyor? Kararı baştan verin; sonradan eklemek daha pahalı." },
+          {
+            title: "Meslek mevzuatı biliniyor mu?",
+            body: "Serbest muhasebeci mali müşavirlik mevzuatı reklam ve tanıtımı sınırlar. Ücret ilanı, iş vaadi ve karşılaştırmalı üstünlük iddiası sorun yaratabilir. Bunu bilmeyen bir ajans sizi odanız nezdinde zor durumda bırakabilir.",
+          },
+          {
+            title: "Mükellef tipine göre ayrım var mı?",
+            body: "Şahıs işletmesi, limited şirket ve e-ticaret mükellefi tamamen farklı şeyler arıyor. Sitenin hepsini tek torbada 'muhasebe hizmetleri' diye sunması, hem ziyaretçiyi hem Google'ı kaybettirir.",
+          },
+          {
+            title: "e-Dönüşüm hizmetleri görünüyor mu?",
+            body: "e-Fatura, e-Defter ve e-Arşiv geçişi bugün en çok aranan konulardan biri. Bu hizmetleri veriyorsanız ayrı ayrı yazılmalı; 'danışmanlık' başlığı altında kaybolursa o aramalara hiç girmezsiniz.",
+          },
+          {
+            title: "Beyanname takvimi içeriği var mı?",
+            body: "Mükellefler tarih arar: KDV ne zaman, muhtasar ne zaman. Güncel bir beyanname takvimi sayfası, hem mevcut mükellefinizin işini kolaylaştırır hem de düzenli ziyaretçi getiren en pratik içeriktir.",
+          },
+          {
+            title: "İçeriği kendiniz ekleyebilecek misiniz?",
+            body: "Mevzuat sürekli değişiyor ve bu alanda güncel yazan kazanıyor. Her yazı için ajansa bağımlı kalırsanız blog bir yıl içinde ölür.",
+          },
+          {
+            title: "Belge paylaşımı nasıl olacak?",
+            body: "Mükellef siteden belge göndermek isteyecek. Bunun için WhatsApp yeterli mi, yoksa güvenli bir yükleme alanı mı gerekiyor? Kararı baştan verin; sonradan eklemek daha pahalı.",
+          },
         ],
       },
     },
@@ -1911,9 +3067,18 @@ export const solutions: Solution[] = [
       intro:
         "Businesses look for trust and seriousness in whoever they hand their books to. A corporate, clear, professional website reflects your firm's credibility and brings new clients. Forpus builds sites for accountants and bookkeeping firms.",
       benefits: [
-        { title: "Corporate trust", body: "Convey your firm's credibility at first glance with a serious, professional design." },
-        { title: "Clear services", body: "Company setup, filings, advisory — explain each service separately to match the right client." },
-        { title: "A structure that converts", body: "Optimized to appear in 'accountant + city' searches on Google." },
+        {
+          title: "Corporate trust",
+          body: "Convey your firm's credibility at first glance with a serious, professional design.",
+        },
+        {
+          title: "Clear services",
+          body: "Company setup, filings, advisory — explain each service separately to match the right client.",
+        },
+        {
+          title: "A structure that converts",
+          body: "Optimized to appear in 'accountant + city' searches on Google.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -1926,12 +3091,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Does it suit remote / online work?", a: "Yes. We set up contact and booking flows suited to working remotely." },
-        { q: "Can you add a blog / updates section?", a: "Yes. Current content shows your expertise and earns visitors from Google." },
-        { q: "Can I add multiple services?", a: "Of course. We build separate, SEO-friendly pages for each service." },
+        {
+          q: "Does it suit remote / online work?",
+          a: "Yes. We set up contact and booking flows suited to working remotely.",
+        },
+        {
+          q: "Can you add a blog / updates section?",
+          a: "Yes. Current content shows your expertise and earns visitors from Google.",
+        },
+        {
+          q: "Can I add multiple services?",
+          a: "Of course. We build separate, SEO-friendly pages for each service.",
+        },
       ],
       ctaTitle: "Let's build a site for your firm",
-      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaText:
+        "In a free call we'll clarify what you need and give you a clear quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -1950,9 +3125,18 @@ export const solutions: Solution[] = [
         "İşiniz kareleri konuşuyor; siteniz de onları hak ettiği gibi göstermeli. Tam ekran, hızlı ve şık bir portfolyo, ziyaretçiyi hayran bırakır ve rezervasyona taşır. Forpus düğün, bebek ve etkinlik fotoğrafçılarına özel siteler tasarlıyor.",
       benefitsTitle: "Portfolyo siteniz işinize ne kazandırır?",
       benefits: [
-        { title: "Kareleriniz öne çıksın", body: "Tam ekran, yüksek kaliteli galerilerle çalışmalarınız tüm etkisiyle görünsün." },
-        { title: "Rezervasyona yönlendirin", body: "Beğenen ziyaretçiyi tek tıkla iletişim ve rezervasyon formuna taşıyın." },
-        { title: "Google'da bulunun", body: "'Düğün fotoğrafçısı + şehir' gibi aramalarda öne çıkacak yapı." },
+        {
+          title: "Kareleriniz öne çıksın",
+          body: "Tam ekran, yüksek kaliteli galerilerle çalışmalarınız tüm etkisiyle görünsün.",
+        },
+        {
+          title: "Rezervasyona yönlendirin",
+          body: "Beğenen ziyaretçiyi tek tıkla iletişim ve rezervasyon formuna taşıyın.",
+        },
+        {
+          title: "Google'da bulunun",
+          body: "'Düğün fotoğrafçısı + şehir' gibi aramalarda öne çıkacak yapı.",
+        },
       ],
       featuresTitle: "Fotoğrafçı sitenizde neler olur?",
       features: [
@@ -1965,17 +3149,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Yüksek çözünürlüklü fotoğraflar siteyi yavaşlatır mı?", a: "Hayır. Görselleri optimize ederek kaliteden ödün vermeden hızlı bir galeri kurarız." },
-        { q: "Galerileri kendim güncelleyebilir miyim?", a: "Evet. Yeni çekimleri kolayca ekleyebileceğiniz bir yapı kurarız." },
-        { q: "Müşteriye özel galeri olur mu?", a: "İsterseniz şifreli, müşteriye özel teslim galerileri kurgularız." },
-        { q: "Fotoğrafçı web sitesi ne kadar tutar?", a: "Kategorili galeriler ve iletişim odaklı bir portfolyo sitesi ₺45.000 bandında başlar. Her çekimin kendi seri sayfası olduğu, paket ve rezervasyon formu bulunan bir site ₺85.000–150.000 aralığındadır. Müşteri galerisi ve teslim sistemi işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Müşteri galerisi de yapıyor musunuz?", a: "Evet. Müşteri kendisine verdiğiniz bağlantı ve şifreyle girer, fotoğraflarını görür, seçim yapar ve indirir. Baskı siparişi akışı da eklenebilir. Bu sistem teslim sürecindeki e-posta trafiğini neredeyse tamamen ortadan kaldırıyor." },
-        { q: "Fotoğraflarım siteyi yavaşlatır mı?", a: "Doğru kurulmazsa evet. Biz her görseli birden fazla boyutta üretir, ziyaretçinin ekranına uygun olanı gönderir ve aşağı kaydırdıkça yüklenmesini sağlarız; galeri hem net hem hızlı açılır." },
-        { q: "Sitede fiyat yazmalı mıyım?", a: "Deneyimimiz şu yönde: en azından bir başlangıç fiyatı yazmak, bütçesi uymayan görüşmeleri baştan eler ve size vakit kazandırır. Tam liste vermek istemiyorsanız 'şu bandan başlayan' formatı iyi çalışıyor." },
-        { q: "Instagram'ım var, siteye gerek var mı?", a: "Instagram sizi keşfettirir, site işi bağlar. Bir düğünü baştan sona anlatan seri, paket bilgisi ve rezervasyon formu Instagram'da olmaz. Ayrıca hesabınız kapansa veya erişiminiz düşse portfolyonuz sitenizde durmaya devam eder." },
+        {
+          q: "Yüksek çözünürlüklü fotoğraflar siteyi yavaşlatır mı?",
+          a: "Hayır. Görselleri optimize ederek kaliteden ödün vermeden hızlı bir galeri kurarız.",
+        },
+        {
+          q: "Galerileri kendim güncelleyebilir miyim?",
+          a: "Evet. Yeni çekimleri kolayca ekleyebileceğiniz bir yapı kurarız.",
+        },
+        {
+          q: "Müşteriye özel galeri olur mu?",
+          a: "İsterseniz şifreli, müşteriye özel teslim galerileri kurgularız.",
+        },
+        {
+          q: "Fotoğrafçı web sitesi ne kadar tutar?",
+          a: "Kategorili galeriler ve iletişim odaklı bir portfolyo sitesi ₺45.000 bandında başlar. Her çekimin kendi seri sayfası olduğu, paket ve rezervasyon formu bulunan bir site ₺85.000–150.000 aralığındadır. Müşteri galerisi ve teslim sistemi işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Müşteri galerisi de yapıyor musunuz?",
+          a: "Evet. Müşteri kendisine verdiğiniz bağlantı ve şifreyle girer, fotoğraflarını görür, seçim yapar ve indirir. Baskı siparişi akışı da eklenebilir. Bu sistem teslim sürecindeki e-posta trafiğini neredeyse tamamen ortadan kaldırıyor.",
+        },
+        {
+          q: "Fotoğraflarım siteyi yavaşlatır mı?",
+          a: "Doğru kurulmazsa evet. Biz her görseli birden fazla boyutta üretir, ziyaretçinin ekranına uygun olanı gönderir ve aşağı kaydırdıkça yüklenmesini sağlarız; galeri hem net hem hızlı açılır.",
+        },
+        {
+          q: "Sitede fiyat yazmalı mıyım?",
+          a: "Deneyimimiz şu yönde: en azından bir başlangıç fiyatı yazmak, bütçesi uymayan görüşmeleri baştan eler ve size vakit kazandırır. Tam liste vermek istemiyorsanız 'şu bandan başlayan' formatı iyi çalışıyor.",
+        },
+        {
+          q: "Instagram'ım var, siteye gerek var mı?",
+          a: "Instagram sizi keşfettirir, site işi bağlar. Bir düğünü baştan sona anlatan seri, paket bilgisi ve rezervasyon formu Instagram'da olmaz. Ayrıca hesabınız kapansa veya erişiminiz düşse portfolyonuz sitenizde durmaya devam eder.",
+        },
       ],
       ctaTitle: "Portfolyonuz için bir site kuralım",
-      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaText:
+        "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -2015,22 +3224,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Çekim programınızı aksatmayan bir akış kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Çekim türlerinizi ve hedef müşterinizi konuşuruz. Düğün fotoğrafçılığıyla ürün fotoğrafçılığının sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "Seri seçimi", body: "Hangi işlerin öne çıkacağını birlikte seçeriz. Bu aşama kritik: baştan sona anlatılmış üç güçlü seri, dağınık iki yüz fotoğraftan daha çok iş getirir." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfa ve bir seri sayfasını görürsünüz. Bu işte tasarım görünmez olmalı; sayfa değil fotoğraf konuşmalı. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası ve Search Console bağlantısı dahil yayına alırız. Yeni seri ekleyebilmeniz için kısa bir kullanım kaydı bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Çekim türlerinizi ve hedef müşterinizi konuşuruz. Düğün fotoğrafçılığıyla ürün fotoğrafçılığının sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "Seri seçimi",
+            body: "Hangi işlerin öne çıkacağını birlikte seçeriz. Bu aşama kritik: baştan sona anlatılmış üç güçlü seri, dağınık iki yüz fotoğraftan daha çok iş getirir.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfa ve bir seri sayfasını görürsünüz. Bu işte tasarım görünmez olmalı; sayfa değil fotoğraf konuşmalı. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası ve Search Console bağlantısı dahil yayına alırız. Yeni seri ekleyebilmeniz için kısa bir kullanım kaydı bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Fotoğrafçı web sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Fotoğraflar hem net hem hızlı mı?", body: "Bu işin klasik ikilemi: kaliteli göstermek için büyük dosya gerekir, ama büyük dosya siteyi yavaşlatır. Görsellerin ekrana göre otomatik boyutlandırılması şart; bunu sorun." },
-          { title: "Yeni seri ekleyebilecek misiniz?", body: "Her çekim sonrası ajansa bağımlı kalmak, portfolyonun aylarca güncellenmemesine yol açar. Panel demosunu görmeden karar vermeyin." },
-          { title: "Fiyat ve müsaitlik görünüyor mu?", body: "Fiyat yazmak gelen mesaj sayısını azaltır ama gelenlerin kalitesini belirgin artırır. En azından paket aralığı olması, ikinizin de vaktini kurtarır." },
-          { title: "Fotoğraflarınız korunuyor mu?", body: "Sağ tık engeli ciddi bir koruma değildir. Gerçek koruma web'e koyduğunuz görselin çözünürlüğünü sınırlamak ve gerekiyorsa filigran kullanmaktır." },
-          { title: "Mobilde nasıl görünüyor?", body: "Yatay kareler dar ekranda küçülür. Teklif verenden mevcut bir işini isteyin ve kendi telefonunuzdan galeriye bakın." },
-          { title: "Alan adı ve site kime ait?", body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun ve sözleşmeye yazdırın." },
+          {
+            title: "Fotoğraflar hem net hem hızlı mı?",
+            body: "Bu işin klasik ikilemi: kaliteli göstermek için büyük dosya gerekir, ama büyük dosya siteyi yavaşlatır. Görsellerin ekrana göre otomatik boyutlandırılması şart; bunu sorun.",
+          },
+          {
+            title: "Yeni seri ekleyebilecek misiniz?",
+            body: "Her çekim sonrası ajansa bağımlı kalmak, portfolyonun aylarca güncellenmemesine yol açar. Panel demosunu görmeden karar vermeyin.",
+          },
+          {
+            title: "Fiyat ve müsaitlik görünüyor mu?",
+            body: "Fiyat yazmak gelen mesaj sayısını azaltır ama gelenlerin kalitesini belirgin artırır. En azından paket aralığı olması, ikinizin de vaktini kurtarır.",
+          },
+          {
+            title: "Fotoğraflarınız korunuyor mu?",
+            body: "Sağ tık engeli ciddi bir koruma değildir. Gerçek koruma web'e koyduğunuz görselin çözünürlüğünü sınırlamak ve gerekiyorsa filigran kullanmaktır.",
+          },
+          {
+            title: "Mobilde nasıl görünüyor?",
+            body: "Yatay kareler dar ekranda küçülür. Teklif verenden mevcut bir işini isteyin ve kendi telefonunuzdan galeriye bakın.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının sizin adınıza kayıtlı olduğundan emin olun ve sözleşmeye yazdırın.",
+          },
         ],
       },
     },
@@ -2043,9 +3282,18 @@ export const solutions: Solution[] = [
       intro:
         "Your work speaks in frames; your site should show them as they deserve. A full-screen, fast, sharp portfolio wows visitors and moves them to book. Forpus builds sites for wedding, newborn and event photographers.",
       benefits: [
-        { title: "Let your frames shine", body: "Full-screen, high-quality galleries show your work in full effect." },
-        { title: "Drive bookings", body: "Move an impressed visitor to a contact and booking form in one tap." },
-        { title: "Get found on Google", body: "A structure built to rank for searches like 'wedding photographer + city'." },
+        {
+          title: "Let your frames shine",
+          body: "Full-screen, high-quality galleries show your work in full effect.",
+        },
+        {
+          title: "Drive bookings",
+          body: "Move an impressed visitor to a contact and booking form in one tap.",
+        },
+        {
+          title: "Get found on Google",
+          body: "A structure built to rank for searches like 'wedding photographer + city'.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -2058,12 +3306,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Will high-resolution photos slow the site?", a: "No. We optimize the imagery to keep the gallery fast without losing quality." },
-        { q: "Can I update the galleries myself?", a: "Yes. We build a structure where you add new shoots easily." },
-        { q: "Can there be client-only galleries?", a: "If you'd like, we set up password-protected delivery galleries per client." },
+        {
+          q: "Will high-resolution photos slow the site?",
+          a: "No. We optimize the imagery to keep the gallery fast without losing quality.",
+        },
+        {
+          q: "Can I update the galleries myself?",
+          a: "Yes. We build a structure where you add new shoots easily.",
+        },
+        {
+          q: "Can there be client-only galleries?",
+          a: "If you'd like, we set up password-protected delivery galleries per client.",
+        },
       ],
       ctaTitle: "Let's build a site for your portfolio",
-      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaText:
+        "In a free call we'll clarify what you need and give you a clear quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -2082,9 +3340,18 @@ export const solutions: Solution[] = [
         "Yeni üyeler bir salon seçmeden önce ortamı, hocaları ve fiyatları internetten inceliyor. Enerjik, net ve üyeliğe yönlendiren bir site, deneme dersini üyeliğe çevirir. Forpus spor salonları ve personal trainer'lara özel siteler tasarlıyor.",
       benefitsTitle: "Spor salonu web sitesi işletmenize ne kazandırır?",
       benefits: [
-        { title: "Üyeliğe yönlendirin", body: "Deneme dersi ve üyelik formuyla ilgilenen ziyaretçiyi hemen harekete geçirin." },
-        { title: "Ortamı gösterin", body: "Salon, ekipman ve antrenör fotoğraflarıyla enerjinizi ekrana taşıyın." },
-        { title: "Program & PT", body: "Ders programı ve personal trainer tanıtımıyla doğru üyeyle eşleşin." },
+        {
+          title: "Üyeliğe yönlendirin",
+          body: "Deneme dersi ve üyelik formuyla ilgilenen ziyaretçiyi hemen harekete geçirin.",
+        },
+        {
+          title: "Ortamı gösterin",
+          body: "Salon, ekipman ve antrenör fotoğraflarıyla enerjinizi ekrana taşıyın.",
+        },
+        {
+          title: "Program & PT",
+          body: "Ders programı ve personal trainer tanıtımıyla doğru üyeyle eşleşin.",
+        },
       ],
       featuresTitle: "Spor salonu sitenizde neler olur?",
       features: [
@@ -2097,17 +3364,42 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Ders programını kendim güncelleyebilir miyim?", a: "Evet. Programı kolayca güncelleyebileceğiniz bir yapı kurarız." },
-        { q: "Üyelik / ödeme alır mı?", a: "İhtiyaca göre üyelik formu ve online ödeme yönlendirmesini kurarız." },
-        { q: "PT'leri ayrı tanıtabilir miyiz?", a: "Evet. Her antrenör için tanıtım ve uzmanlık bölümü kurgularız." },
-        { q: "Spor salonu web sitesi ne kadar tutar?", a: "Paket, galeri ve deneme dersi formu olan bir tanıtım sitesi ₺45.000 bandında başlar. Ders programı takvimi ve antrenör profilleri bulunan bir site ₺90.000–150.000 aralığındadır. Online üyelik satışı, ders rezervasyonu ve mobil uygulama işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz." },
-        { q: "Online üyelik satışı kurabilir misiniz?", a: "Evet. Üye paketi seçer, kredi kartıyla öder ve üyeliği otomatik başlar; aylık yenilenen abonelik modeli de kurulabilir. Sanal POS başvurusu sizin şirketiniz adına yapılır, biz teknik entegrasyonu yaparız." },
-        { q: "Ders rezervasyon sistemi nasıl çalışıyor?", a: "Üye uygulamadan veya siteden derse kayıt olur, kontenjan dolduğunda sistem kapatır, gelmeyenler için iptal kuralı tanımlanır. Grup dersi veren stüdyolarda bu sistem hem kontenjan karmaşasını hem de telefon trafiğini bitiriyor." },
-        { q: "Sitede fiyat yazmalı mıyım?", a: "Bu sektörde evet, net tavsiyemiz bu yönde. Fiyat gizleyen salonlar ziyaretçinin büyük kısmını daha ilk ekranda kaybediyor. Kampanyalı fiyat vermek istemiyorsanız 'şu bandan başlayan' formatı iyi çalışıyor." },
-        { q: "Google Haritalar'da öne çıkmama yardım eder misiniz?", a: "Evet. İşletme Profilinizi kurar veya düzenler, kategori ve hizmet bilgilerini doğru girer, siteyle bağlantısını sağlarız. Profil sizin sahipliğinizde kalır; doğrulama adımını sizin tamamlamanız gerekir." },
+        {
+          q: "Ders programını kendim güncelleyebilir miyim?",
+          a: "Evet. Programı kolayca güncelleyebileceğiniz bir yapı kurarız.",
+        },
+        {
+          q: "Üyelik / ödeme alır mı?",
+          a: "İhtiyaca göre üyelik formu ve online ödeme yönlendirmesini kurarız.",
+        },
+        {
+          q: "PT'leri ayrı tanıtabilir miyiz?",
+          a: "Evet. Her antrenör için tanıtım ve uzmanlık bölümü kurgularız.",
+        },
+        {
+          q: "Spor salonu web sitesi ne kadar tutar?",
+          a: "Paket, galeri ve deneme dersi formu olan bir tanıtım sitesi ₺45.000 bandında başlar. Ders programı takvimi ve antrenör profilleri bulunan bir site ₺90.000–150.000 aralığındadır. Online üyelik satışı, ders rezervasyonu ve mobil uygulama işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz.",
+        },
+        {
+          q: "Online üyelik satışı kurabilir misiniz?",
+          a: "Evet. Üye paketi seçer, kredi kartıyla öder ve üyeliği otomatik başlar; aylık yenilenen abonelik modeli de kurulabilir. Sanal POS başvurusu sizin şirketiniz adına yapılır, biz teknik entegrasyonu yaparız.",
+        },
+        {
+          q: "Ders rezervasyon sistemi nasıl çalışıyor?",
+          a: "Üye uygulamadan veya siteden derse kayıt olur, kontenjan dolduğunda sistem kapatır, gelmeyenler için iptal kuralı tanımlanır. Grup dersi veren stüdyolarda bu sistem hem kontenjan karmaşasını hem de telefon trafiğini bitiriyor.",
+        },
+        {
+          q: "Sitede fiyat yazmalı mıyım?",
+          a: "Bu sektörde evet, net tavsiyemiz bu yönde. Fiyat gizleyen salonlar ziyaretçinin büyük kısmını daha ilk ekranda kaybediyor. Kampanyalı fiyat vermek istemiyorsanız 'şu bandan başlayan' formatı iyi çalışıyor.",
+        },
+        {
+          q: "Google Haritalar'da öne çıkmama yardım eder misiniz?",
+          a: "Evet. İşletme Profilinizi kurar veya düzenler, kategori ve hizmet bilgilerini doğru girer, siteyle bağlantısını sağlarız. Profil sizin sahipliğinizde kalır; doğrulama adımını sizin tamamlamanız gerekir.",
+        },
       ],
       ctaTitle: "Salonunuz için bir site kuralım",
-      ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaText:
+        "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -2147,22 +3439,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Salon düzeninizi aksatmayan bir akış kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
         steps: [
-          { name: "Tanışma görüşmesi", body: "Salonunuzun konumlandırmasını ve üye profilinizi konuşuruz. Klasik bir fitness salonuyla butik bir pilates stüdyosunun sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar." },
-          { name: "İçerik ve görsel", body: "Paket bilgileri, ders programı ve antrenör tanıtımlarını alırız. Bu işte salon fotoğrafları belirleyici olduğu için mevcut görselleri değerlendirir, gerekiyorsa çekim önerisinde bulunuruz." },
-          { name: "Tasarım ve onay", body: "Önce ana sayfayı görürsünüz. Tasarımın işi salonun enerjisini ekrana taşımak. Değişiklikler bu aşamada ücretsizdir." },
-          { name: "Yayın ve teslim", body: "Alan adı, güvenlik sertifikası ve Google İşletme Profili bağlantısı dahil yayına alırız. Program ve fiyat güncellemesi için kısa bir kullanım kaydı bırakırız." },
+          {
+            name: "Tanışma görüşmesi",
+            body: "Salonunuzun konumlandırmasını ve üye profilinizi konuşuruz. Klasik bir fitness salonuyla butik bir pilates stüdyosunun sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "İçerik ve görsel",
+            body: "Paket bilgileri, ders programı ve antrenör tanıtımlarını alırız. Bu işte salon fotoğrafları belirleyici olduğu için mevcut görselleri değerlendirir, gerekiyorsa çekim önerisinde bulunuruz.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfayı görürsünüz. Tasarımın işi salonun enerjisini ekrana taşımak. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası ve Google İşletme Profili bağlantısı dahil yayına alırız. Program ve fiyat güncellemesi için kısa bir kullanım kaydı bırakırız.",
+          },
         ],
       },
       checklist: {
         title: "Spor salonu sitesi yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Fiyat görünüyor mu?", body: "Bu sektörde fiyat gizlemek en çok kaybettiren tercih. Ziyaretçinin çoğu 'sormak' istemez, pahalı varsayıp çıkar. En azından paket aralığı yazın." },
-          { title: "Programı kendiniz güncelleyebiliyor musunuz?", body: "Ders programı sık değişir. Her değişiklik için ajansa haber vermek zorundaysanız program yanlış kalır ve üyeler boşuna gelir." },
-          { title: "Deneme dersi daveti net mi?", body: "Üyelik satmak yerine tek bir denemeye davet etmek çok daha kolay dönüşür. Bu davet ilk ekranda görünmeli." },
-          { title: "Fotoğraflar gerçek salonunuz mu?", body: "Stok fotoğraf kullanılan salon siteleri anında belli oluyor ve güven kaybettiriyor. Kendi salonunuzun iyi ışıkta çekilmesi en değerli yatırımdır." },
-          { title: "Google İşletme Profili kurulu mu?", body: "Salon aramalarının büyük kısmı 'yakınımdaki' şeklinde ve haritadan geliyor. İşletme Profili olmadan sadece site kurmak eksik bir iştir." },
-          { title: "Mobilde gerçekten hızlı mı?", body: "Üyelerin neredeyse tamamı telefondan giriyor. Teklif verenden mevcut bir işini isteyin ve kendi telefonunuzdan açın." },
+          {
+            title: "Fiyat görünüyor mu?",
+            body: "Bu sektörde fiyat gizlemek en çok kaybettiren tercih. Ziyaretçinin çoğu 'sormak' istemez, pahalı varsayıp çıkar. En azından paket aralığı yazın.",
+          },
+          {
+            title: "Programı kendiniz güncelleyebiliyor musunuz?",
+            body: "Ders programı sık değişir. Her değişiklik için ajansa haber vermek zorundaysanız program yanlış kalır ve üyeler boşuna gelir.",
+          },
+          {
+            title: "Deneme dersi daveti net mi?",
+            body: "Üyelik satmak yerine tek bir denemeye davet etmek çok daha kolay dönüşür. Bu davet ilk ekranda görünmeli.",
+          },
+          {
+            title: "Fotoğraflar gerçek salonunuz mu?",
+            body: "Stok fotoğraf kullanılan salon siteleri anında belli oluyor ve güven kaybettiriyor. Kendi salonunuzun iyi ışıkta çekilmesi en değerli yatırımdır.",
+          },
+          {
+            title: "Google İşletme Profili kurulu mu?",
+            body: "Salon aramalarının büyük kısmı 'yakınımdaki' şeklinde ve haritadan geliyor. İşletme Profili olmadan sadece site kurmak eksik bir iştir.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Üyelerin neredeyse tamamı telefondan giriyor. Teklif verenden mevcut bir işini isteyin ve kendi telefonunuzdan açın.",
+          },
         ],
       },
     },
@@ -2175,9 +3497,18 @@ export const solutions: Solution[] = [
       intro:
         "New members check the space, the trainers and the prices online before choosing a gym. An energetic, clear site that drives sign-ups turns a trial class into a membership. Forpus builds sites for gyms and personal trainers.",
       benefits: [
-        { title: "Drive sign-ups", body: "Move interested visitors to act with a trial-class and membership form." },
-        { title: "Show the space", body: "Bring your energy to the screen with gym, equipment and trainer photos." },
-        { title: "Schedule & PT", body: "Match the right member with a class schedule and personal-trainer profiles." },
+        {
+          title: "Drive sign-ups",
+          body: "Move interested visitors to act with a trial-class and membership form.",
+        },
+        {
+          title: "Show the space",
+          body: "Bring your energy to the screen with gym, equipment and trainer photos.",
+        },
+        {
+          title: "Schedule & PT",
+          body: "Match the right member with a class schedule and personal-trainer profiles.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -2190,12 +3521,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Can I update the class schedule myself?", a: "Yes. We build a structure where you update the schedule easily." },
-        { q: "Does it take membership / payments?", a: "We set up a membership form and online payment redirect as needed." },
-        { q: "Can we feature PTs separately?", a: "Yes. We design a profile and specialty section for each trainer." },
+        {
+          q: "Can I update the class schedule myself?",
+          a: "Yes. We build a structure where you update the schedule easily.",
+        },
+        {
+          q: "Does it take membership / payments?",
+          a: "We set up a membership form and online payment redirect as needed.",
+        },
+        {
+          q: "Can we feature PTs separately?",
+          a: "Yes. We design a profile and specialty section for each trainer.",
+        },
       ],
       ctaTitle: "Let's build a site for your gym",
-      ctaText: "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaText:
+        "In a free call we'll clarify what you need and give you a clear quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -2214,9 +3555,18 @@ export const solutions: Solution[] = [
         "İyi bir fikir, kullanıcının cebinde yaşadığında değer kazanır. iOS ve Android için tek kod tabanıyla hızlı, akıcı uygulamalar geliştiriyoruz; tasarımdan mağaza yayınına kadar her adımı üstleniyoruz. DoldurKabı ve Temizlik Express gibi gerçek ürünleri hayata geçirdik.",
       benefitsTitle: "Mobil uygulama işinize ne kazandırır?",
       benefits: [
-        { title: "iOS + Android tek seferde", body: "Modern teknolojiyle iki platforma birden yayın; maliyet ve süre yarı yarıya." },
-        { title: "Fikirden mağazaya", body: "Tasarım, geliştirme, test ve App Store / Google Play yayını — hepsi tek ekipte." },
-        { title: "Panelli, ölçeklenir sistem", body: "Kullanıcı yönetimi, bildirim ve yönetim paneliyle büyümeye hazır bir altyapı." },
+        {
+          title: "iOS + Android tek seferde",
+          body: "Modern teknolojiyle iki platforma birden yayın; maliyet ve süre yarı yarıya.",
+        },
+        {
+          title: "Fikirden mağazaya",
+          body: "Tasarım, geliştirme, test ve App Store / Google Play yayını — hepsi tek ekipte.",
+        },
+        {
+          title: "Panelli, ölçeklenir sistem",
+          body: "Kullanıcı yönetimi, bildirim ve yönetim paneliyle büyümeye hazır bir altyapı.",
+        },
       ],
       featuresTitle: "Uygulama sürecinde neler var?",
       features: [
@@ -2229,18 +3579,46 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
-        { q: "Hem iOS hem Android çıkar mı?", a: "Evet. Tek kod tabanıyla her iki platforma birden yayınlar, süre ve maliyetten tasarruf ederiz." },
-        { q: "Uygulamayı mağazada siz mi yayınlıyorsunuz?", a: "Evet. App Store ve Google Play hesap kurulumundan yayına kadar süreci biz yönetiriz." },
-        { q: "Fikrim var ama teknik bilmiyorum, olur mu?", a: "Tam da bunun için varız. Fikri birlikte netleştirir, uçtan uca hayata geçiririz." },
-        { q: "Mobil uygulama yaptırmak ne kadar tutar?", a: "Fikrin en sade çalışan hali olan bir ilk sürüm ₺250.000–400.000 aralığında, yaklaşık 6–10 haftada yayına çıkar. Ödeme, harita, bildirim ve çok rollü kullanıcı sistemi olan tam kapsamlı bir uygulama ₺450.000–800.000 bandındadır. Pazaryeri gibi karmaşık platformlar ₺800.000'den başlar. Kesin rakam özellik listesi netleştiğinde belli olur." },
-        { q: "iOS ve Android için ayrı ayrı mı ödeyeceğim?", a: "Hayır. Tek kod tabanıyla geliştiriyoruz; aynı geliştirmeden iki platform da çıkıyor. Bu yaklaşım maliyeti neredeyse yarıya indiriyor ve iki platformun aynı anda güncellenmesini sağlıyor. Yalnızca çok özel donanım gereksinimleri olan projelerde ayrı geliştirme gerekir." },
-        { q: "Uygulamayı mağazada yayınlamayı da siz mi yapıyorsunuz?", a: "Evet, uçtan uca. Mağaza metinleri, ekran görüntüleri, gizlilik formları ve başvuru sürecinin tamamını biz yürütürüz. Apple veya Google ret verirse gerekçeyi çözer, düzeltip yeniden göndeririz. Hesaplar sizin adınıza açılır, sahiplik her zaman sizde kalır." },
-        { q: "Ne kadar sürede yayına çıkarım?", a: "İlk sürüm için 6–10 hafta gerçekçi bir süredir. Kapsam büyüdükçe bu 3–5 aya çıkar. Süreyi en çok uzatan şey teknik zorluk değil, karar değişiklikleridir; bu yüzden kapsamı baştan netleştirmeye bu kadar önem veriyoruz." },
-        { q: "Yayından sonra destek veriyor musunuz?", a: "Evet. İşletim sistemi güncellemeleri ve mağaza kuralları değiştikçe uygulamanın bakımı gerekir; bakımsız bir uygulama bir yıl içinde çalışmaz hale gelebilir. Bakım ve destek koşullarını sözleşmede net yazarız." },
-        { q: "Yazılım bilmiyorum, süreci takip edebilir miyim?", a: "Evet, müşterilerimizin çoğu yazılımcı değil. Teknik terimlerle konuşmuyoruz; her aşamada telefonunuzda gezebileceğiniz somut bir çıktı veriyoruz. Prototipi ilk haftalarda elinize alıyorsunuz." },
+        {
+          q: "Hem iOS hem Android çıkar mı?",
+          a: "Evet. Tek kod tabanıyla her iki platforma birden yayınlar, süre ve maliyetten tasarruf ederiz.",
+        },
+        {
+          q: "Uygulamayı mağazada siz mi yayınlıyorsunuz?",
+          a: "Evet. App Store ve Google Play hesap kurulumundan yayına kadar süreci biz yönetiriz.",
+        },
+        {
+          q: "Fikrim var ama teknik bilmiyorum, olur mu?",
+          a: "Tam da bunun için varız. Fikri birlikte netleştirir, uçtan uca hayata geçiririz.",
+        },
+        {
+          q: "Mobil uygulama yaptırmak ne kadar tutar?",
+          a: "Fikrin en sade çalışan hali olan bir ilk sürüm ₺250.000–400.000 aralığında, yaklaşık 6–10 haftada yayına çıkar. Ödeme, harita, bildirim ve çok rollü kullanıcı sistemi olan tam kapsamlı bir uygulama ₺450.000–800.000 bandındadır. Pazaryeri gibi karmaşık platformlar ₺800.000'den başlar. Kesin rakam özellik listesi netleştiğinde belli olur.",
+        },
+        {
+          q: "iOS ve Android için ayrı ayrı mı ödeyeceğim?",
+          a: "Hayır. Tek kod tabanıyla geliştiriyoruz; aynı geliştirmeden iki platform da çıkıyor. Bu yaklaşım maliyeti neredeyse yarıya indiriyor ve iki platformun aynı anda güncellenmesini sağlıyor. Yalnızca çok özel donanım gereksinimleri olan projelerde ayrı geliştirme gerekir.",
+        },
+        {
+          q: "Uygulamayı mağazada yayınlamayı da siz mi yapıyorsunuz?",
+          a: "Evet, uçtan uca. Mağaza metinleri, ekran görüntüleri, gizlilik formları ve başvuru sürecinin tamamını biz yürütürüz. Apple veya Google ret verirse gerekçeyi çözer, düzeltip yeniden göndeririz. Hesaplar sizin adınıza açılır, sahiplik her zaman sizde kalır.",
+        },
+        {
+          q: "Ne kadar sürede yayına çıkarım?",
+          a: "İlk sürüm için 6–10 hafta gerçekçi bir süredir. Kapsam büyüdükçe bu 3–5 aya çıkar. Süreyi en çok uzatan şey teknik zorluk değil, karar değişiklikleridir; bu yüzden kapsamı baştan netleştirmeye bu kadar önem veriyoruz.",
+        },
+        {
+          q: "Yayından sonra destek veriyor musunuz?",
+          a: "Evet. İşletim sistemi güncellemeleri ve mağaza kuralları değiştikçe uygulamanın bakımı gerekir; bakımsız bir uygulama bir yıl içinde çalışmaz hale gelebilir. Bakım ve destek koşullarını sözleşmede net yazarız.",
+        },
+        {
+          q: "Yazılım bilmiyorum, süreci takip edebilir miyim?",
+          a: "Evet, müşterilerimizin çoğu yazılımcı değil. Teknik terimlerle konuşmuyoruz; her aşamada telefonunuzda gezebileceğiniz somut bir çıktı veriyoruz. Prototipi ilk haftalarda elinize alıyorsunuz.",
+        },
       ],
       ctaTitle: "Uygulama fikrinizi konuşalım",
-      ctaText: "Fikrinizi kısa bir görüşmede netleştirip yol haritası ve net bir teklif sunalım.",
+      ctaText:
+        "Fikrinizi kısa bir görüşmede netleştirip yol haritası ve net bir teklif sunalım.",
       ctaButton: "Ücretsiz Teklif Al",
 
       problem: {
@@ -2286,22 +3664,52 @@ export const solutions: Solution[] = [
         title: "Nasıl ilerliyoruz?",
         lead: "Uygulama projeleri diğer işlerden farklı yürür; her aşamada çalışan bir şey görürsünüz.",
         steps: [
-          { name: "Keşif ve kapsam", body: "Fikri, hedef kullanıcıyı ve asıl çözülecek problemi konuşuruz. Buradaki en değerli iş, ilk sürüme neyin girmeyeceğine karar vermektir. Çıktı: net özellik listesi ve sabit fiyat." },
-          { name: "Tasarım ve prototip", body: "Ekranları tasarlar, tıklanabilir bir prototip veririz. Uygulamayı kod yazılmadan önce telefonunuzda gezersiniz; değişiklik yapmanın en ucuz olduğu an burasıdır." },
-          { name: "Geliştirme", body: "iOS ve Android'i tek kod tabanıyla geliştiririz; iki ayrı ekip maliyeti ödemezsiniz. Süreç boyunca düzenli olarak test sürümü yükler, ilerlemeyi kendi telefonunuzdan takip edersiniz." },
-          { name: "Mağaza yayını ve sonrası", body: "App Store ve Google Play başvurularını, gerekli metin ve görselleri biz hazırlarız; ret gelirse düzeltmeleri de biz yaparız. Yayından sonra hata takibi ve güncelleme desteği devam eder." },
+          {
+            name: "Keşif ve kapsam",
+            body: "Fikri, hedef kullanıcıyı ve asıl çözülecek problemi konuşuruz. Buradaki en değerli iş, ilk sürüme neyin girmeyeceğine karar vermektir. Çıktı: net özellik listesi ve sabit fiyat.",
+          },
+          {
+            name: "Tasarım ve prototip",
+            body: "Ekranları tasarlar, tıklanabilir bir prototip veririz. Uygulamayı kod yazılmadan önce telefonunuzda gezersiniz; değişiklik yapmanın en ucuz olduğu an burasıdır.",
+          },
+          {
+            name: "Geliştirme",
+            body: "iOS ve Android'i tek kod tabanıyla geliştiririz; iki ayrı ekip maliyeti ödemezsiniz. Süreç boyunca düzenli olarak test sürümü yükler, ilerlemeyi kendi telefonunuzdan takip edersiniz.",
+          },
+          {
+            name: "Mağaza yayını ve sonrası",
+            body: "App Store ve Google Play başvurularını, gerekli metin ve görselleri biz hazırlarız; ret gelirse düzeltmeleri de biz yaparız. Yayından sonra hata takibi ve güncelleme desteği devam eder.",
+          },
         ],
       },
       checklist: {
         title: "Mobil uygulama yaptırırken nelere dikkat etmeli?",
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
-          { title: "Kaynak kod kime ait?", body: "Sözleşmede kaynak kodun ve tüm hesapların size ait olduğu yazmalı. Aksi halde ajans değiştirmek istediğinizde uygulamanız rehin kalır; bu sektörde en çok yaşanan mağduriyet budur." },
-          { title: "Mağaza hesapları sizin adınıza mı?", body: "Apple Developer ve Google Play hesapları sizin veya şirketiniz adına açılmalı. Ajansın hesabından yayınlanan uygulamayı taşımak zahmetli, bazen imkânsızdır." },
-          { title: "İlk sürümde ne yok?", body: "İyi bir ajans neyi yapmayacağını da söyler. Aklınızdaki her özelliği ilk sürüme koymayı kabul eden bir teklif, ya maliyeti şişirir ya da lansmanı sürüncemede bırakır." },
-          { title: "Yayın sonrası ne oluyor?", body: "Uygulama yayınlanınca iş bitmez: işletim sistemi güncellemeleri, hata düzeltmeleri ve mağaza kuralları sürekli bakım gerektirir. Destek koşulları yazılı olsun." },
-          { title: "Tek kod tabanı mı, iki ayrı mı?", body: "Çoğu iş için tek kod tabanıyla iki platforma çıkmak hem daha ucuz hem daha hızlıdır. İki ayrı native uygulama öneriliyorsa neden gerektiğini sorun." },
-          { title: "Test sürümünü görebiliyor musunuz?", body: "Süreç boyunca uygulamayı kendi telefonunuzda deneyemiyorsanız, teslimde sürprizle karşılaşırsınız. Düzenli test sürümü verilmesini şart koşun." },
+          {
+            title: "Kaynak kod kime ait?",
+            body: "Sözleşmede kaynak kodun ve tüm hesapların size ait olduğu yazmalı. Aksi halde ajans değiştirmek istediğinizde uygulamanız rehin kalır; bu sektörde en çok yaşanan mağduriyet budur.",
+          },
+          {
+            title: "Mağaza hesapları sizin adınıza mı?",
+            body: "Apple Developer ve Google Play hesapları sizin veya şirketiniz adına açılmalı. Ajansın hesabından yayınlanan uygulamayı taşımak zahmetli, bazen imkânsızdır.",
+          },
+          {
+            title: "İlk sürümde ne yok?",
+            body: "İyi bir ajans neyi yapmayacağını da söyler. Aklınızdaki her özelliği ilk sürüme koymayı kabul eden bir teklif, ya maliyeti şişirir ya da lansmanı sürüncemede bırakır.",
+          },
+          {
+            title: "Yayın sonrası ne oluyor?",
+            body: "Uygulama yayınlanınca iş bitmez: işletim sistemi güncellemeleri, hata düzeltmeleri ve mağaza kuralları sürekli bakım gerektirir. Destek koşulları yazılı olsun.",
+          },
+          {
+            title: "Tek kod tabanı mı, iki ayrı mı?",
+            body: "Çoğu iş için tek kod tabanıyla iki platforma çıkmak hem daha ucuz hem daha hızlıdır. İki ayrı native uygulama öneriliyorsa neden gerektiğini sorun.",
+          },
+          {
+            title: "Test sürümünü görebiliyor musunuz?",
+            body: "Süreç boyunca uygulamayı kendi telefonunuzda deneyemiyorsanız, teslimde sürprizle karşılaşırsınız. Düzenli test sürümü verilmesini şart koşun.",
+          },
         ],
       },
     },
@@ -2314,9 +3722,18 @@ export const solutions: Solution[] = [
       intro:
         "A good idea gains value when it lives in the user's pocket. We build fast, smooth apps for iOS and Android from a single codebase, handling everything from design to store release. We've shipped real products like DoldurKabı and Temizlik Express.",
       benefits: [
-        { title: "iOS + Android at once", body: "Ship to both platforms with modern tech; cost and time cut roughly in half." },
-        { title: "From idea to store", body: "Design, development, testing and App Store / Google Play release — all in one team." },
-        { title: "Scalable, panel-driven", body: "A foundation ready to grow with user management, notifications and an admin panel." },
+        {
+          title: "iOS + Android at once",
+          body: "Ship to both platforms with modern tech; cost and time cut roughly in half.",
+        },
+        {
+          title: "From idea to store",
+          body: "Design, development, testing and App Store / Google Play release — all in one team.",
+        },
+        {
+          title: "Scalable, panel-driven",
+          body: "A foundation ready to grow with user management, notifications and an admin panel.",
+        },
       ],
       featuresTitle: "What's included?",
       features: [
@@ -2329,12 +3746,22 @@ export const solutions: Solution[] = [
       ],
       faqTitle: "Frequently asked questions",
       faq: [
-        { q: "Do you ship both iOS and Android?", a: "Yes. With a single codebase we release to both platforms, saving time and cost." },
-        { q: "Do you publish the app to the stores?", a: "Yes. We manage the process from App Store and Google Play account setup to release." },
-        { q: "I have an idea but no technical background — is that ok?", a: "That's exactly what we're here for. We clarify the idea together and build it end to end." },
+        {
+          q: "Do you ship both iOS and Android?",
+          a: "Yes. With a single codebase we release to both platforms, saving time and cost.",
+        },
+        {
+          q: "Do you publish the app to the stores?",
+          a: "Yes. We manage the process from App Store and Google Play account setup to release.",
+        },
+        {
+          q: "I have an idea but no technical background — is that ok?",
+          a: "That's exactly what we're here for. We clarify the idea together and build it end to end.",
+        },
       ],
       ctaTitle: "Let's talk about your app idea",
-      ctaText: "In a short call we'll clarify your idea and give you a roadmap and a clear quote.",
+      ctaText:
+        "In a short call we'll clarify your idea and give you a roadmap and a clear quote.",
       ctaButton: "Get a Free Quote",
     },
   },
@@ -2370,22 +3797,49 @@ export const sectorName: Record<string, { tr: string; en: string }> = {
 };
 
 // Language pickers shared by the landing pages, footer and SEO helpers.
-export const contentOf = (s: Solution, lang: "tr" | "en") => (lang === "tr" ? s.tr : s.en);
-export const slugOf = (s: Solution, lang: "tr" | "en") => (lang === "tr" ? s.slug.tr : s.slug.en);
+export const contentOf = (s: Solution, lang: "tr" | "en") =>
+  lang === "tr" ? s.tr : s.en;
+export const slugOf = (s: Solution, lang: "tr" | "en") =>
+  lang === "tr" ? s.slug.tr : s.slug.en;
 
 // Shared chrome strings for the solution pages (page content lives per-solution above).
-export const solutionUi: Record<"tr" | "en", { home: string; more: string; moreLead: string; seeAll: string }> = {
+export const solutionUi: Record<
+  "tr" | "en",
+  {
+    home: string;
+    more: string;
+    moreLead: string;
+    seeAll: string;
+    islerEyebrow: string;
+    /** "%s" sektör etiketiyle değişiyor. */
+    islerBaslik: string;
+    islerLead: string;
+    isiIncele: string;
+  }
+> = {
   tr: {
     home: "Ana Sayfa",
     more: "Diğer çözümler",
-    moreLead: "Başka bir alanda mı çalışıyorsunuz? Size uygun çözümü birlikte bulalım.",
+    moreLead:
+      "Başka bir alanda mı çalışıyorsunuz? Size uygun çözümü birlikte bulalım.",
     seeAll: "Tüm hizmetleri gör",
+    islerEyebrow: "Gerçek işler",
+    islerBaslik: "%s tarafında yaptığımız işler",
+    islerLead:
+      "Ekran görüntüsü değil, canlı siteler. Her birinin neye ihtiyaç duyduğunu ve ne kurduğumuzu ayrı ayrı yazdık.",
+    isiIncele: "İşi incele",
   },
   en: {
     home: "Home",
     more: "Other solutions",
-    moreLead: "Working in a different field? Let's find the right fit together.",
+    moreLead:
+      "Working in a different field? Let's find the right fit together.",
     seeAll: "See all services",
+    islerEyebrow: "Real work",
+    islerBaslik: "What we built for %s clients",
+    islerLead:
+      "Live sites, not mockups. We wrote up what each one needed and what we built.",
+    isiIncele: "See the project",
   },
 };
 
@@ -2402,10 +3856,12 @@ export const solutionUi: Record<"tr" | "en", { home: string; more: string; moreL
   const idx = new Set(solutionIndex.map((r) => r.key));
   const full = new Set(solutions.map((s) => s.key));
   for (const k of full) {
-    if (!idx.has(k)) throw new Error(`solutions: "${k}" lib/solution-index.ts içinde yok`);
+    if (!idx.has(k))
+      throw new Error(`solutions: "${k}" lib/solution-index.ts içinde yok`);
   }
   for (const k of idx) {
-    if (!full.has(k)) throw new Error(`solution-index: "${k}" lib/solutions.ts içinde yok`);
+    if (!full.has(k))
+      throw new Error(`solution-index: "${k}" lib/solutions.ts içinde yok`);
   }
   for (const r of solutionIndex) {
     const s = solutions.find((x) => x.key === r.key)!;
@@ -2422,7 +3878,9 @@ export const solutionUi: Record<"tr" | "en", { home: string; more: string; moreL
   for (const s of solutions) {
     for (const c of [s.tr, s.en]) {
       if (c.caseRef && !known.has(c.caseRef.projectSlug)) {
-        throw new Error(`solutions: "${s.key}" → bilinmeyen proje "${c.caseRef.projectSlug}"`);
+        throw new Error(
+          `solutions: "${s.key}" → bilinmeyen proje "${c.caseRef.projectSlug}"`,
+        );
       }
     }
   }
@@ -2454,4 +3912,6 @@ export const solutionUi: Record<"tr" | "en", { home: string; more: string; moreL
  * alıyoruz; bileşenin arama yapması gerekmiyor.
  */
 export const caseRefProject = (c: SolutionContent) =>
-  c.caseRef ? webProjects.find((p) => p.slug === c.caseRef!.projectSlug)! : undefined;
+  c.caseRef
+    ? webProjects.find((p) => p.slug === c.caseRef!.projectSlug)!
+    : undefined;

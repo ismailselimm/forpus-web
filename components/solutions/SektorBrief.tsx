@@ -1,10 +1,10 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { ArrowUpRight, Check, Loader2 } from "lucide-react";
 
 import { useLang } from "@/components/providers/LanguageProvider";
-import { leadGonder } from "@/lib/lead-gonder";
+import { leadGonder, tuzakDolu } from "@/lib/lead-gonder";
 
 /**
  * SEKTÖR BRIEF'İ — çözüm sayfasının dönüşüm motoru.
@@ -62,21 +62,23 @@ export default function SektorBrief({
         : [...onceki, secenek],
     );
 
-  /** Ekranda görünen brief ile panele giden metin AYNI — ikisi ayrışmasın. */
-  const brief = useMemo(() => {
-    const satirlar: string[] = [
-      `${sektorEtiketi} — ${b.eyebrow.toLowerCase()}`,
-    ];
-    if (ihtiyaclar.length) satirlar.push(`İhtiyaç: ${ihtiyaclar.join(", ")}`);
-    if (durum) satirlar.push(`Mevcut durum: ${durum}`);
-    if (zaman) satirlar.push(`Başlangıç: ${zaman}`);
-    return satirlar.join("\n");
-  }, [sektorEtiketi, b.eyebrow, ihtiyaclar, durum, zaman]);
+  /**
+   * Ekranda görünen brief ile panele giden metin AYNI — ikisi ayrışmasın.
+   * Dizi olarak duruyor: önce `\n` ile birleştirilip JSX'te tekrar
+   * `split("\n")` ile açılıyordu, yani aynı veri iki kez dönüştürülüyordu.
+   * Birleştirme yalnız gönderim anında, tek yerde.
+   */
+  const briefSatirlari = [`${sektorEtiketi} — ${b.eyebrow.toLowerCase()}`];
+  const E = b.satirEtiketleri;
+  if (ihtiyaclar.length)
+    briefSatirlari.push(`${E.ihtiyac}: ${ihtiyaclar.join(", ")}`);
+  if (durum) briefSatirlari.push(`${E.durum}: ${durum}`);
+  if (zaman) briefSatirlari.push(`${E.zaman}: ${zaman}`);
 
   const hazir =
     ihtiyaclar.length > 0 && ad.trim() !== "" && iletisim.trim() !== "";
-  const birSeySecildi =
-    ihtiyaclar.length > 0 || durum !== null || zaman !== null;
+  // İlk satır her zaman var (sektör adı); ikincisi ancak bir seçim yapılınca.
+  const birSeySecildi = briefSatirlari.length > 1;
 
   const gonder = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -86,11 +88,7 @@ export default function SektorBrief({
       return;
     }
 
-    // Honeypot: gerçek kullanıcı görmez; bot doldurursa sessizce iptal.
-    const tuzak = (
-      e.currentTarget.elements.namedItem("botcheck") as HTMLInputElement | null
-    )?.checked;
-    if (tuzak) return;
+    if (tuzakDolu(e.currentTarget)) return;
 
     setHal("gonderiliyor");
 
@@ -103,7 +101,7 @@ export default function SektorBrief({
       eposta: epostaMi ? iletisim.trim() : undefined,
       telefon: epostaMi ? undefined : iletisim.trim(),
       sektor: sektorAnahtari,
-      mesaj: brief,
+      mesaj: briefSatirlari.join("\n"),
     });
 
     setHal(basarili ? "basarili" : "hata");
@@ -119,133 +117,131 @@ export default function SektorBrief({
   const GonderIkonu = hal === "gonderiliyor" ? Loader2 : ArrowUpRight;
 
   return (
-    <section id="brief" className="container-x scroll-mt-24 py-16 md:py-24">
-      <div className="mx-auto max-w-3xl rounded-[2rem] border border-line bg-white/70 p-6 shadow-[var(--shadow-soft)] backdrop-blur-xl md:p-10">
-        <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-cyan-deep">
-          {sektorEtiketi} · {b.eyebrow}
-        </p>
-        <h2 className="mt-3 font-display text-2xl font-bold leading-tight text-ink md:text-3xl">
-          {b.baslik}
-        </h2>
-        <p className="mt-3 max-w-xl text-[0.97rem] leading-relaxed text-ink-2">
-          {b.altBaslik}
-        </p>
+    <section id="brief" className="section scroll-mt-24">
+      <div className="container-x">
+        <div className="mx-auto max-w-3xl rounded-[2rem] border border-line bg-white/70 p-6 shadow-[var(--shadow-soft)] backdrop-blur-xl md:p-10">
+          <span className="eyebrow">
+            {sektorEtiketi} · {b.eyebrow}
+          </span>
+          <h2 className="h-section mt-5 text-balance">{b.baslik}</h2>
+          <p className="lead mt-5 max-w-xl">{b.altBaslik}</p>
 
-        <form onSubmit={gonder} className="mt-8 space-y-7">
-          <input
-            type="checkbox"
-            name="botcheck"
-            className="hidden"
-            tabIndex={-1}
-            aria-hidden
-          />
+          <form onSubmit={gonder} className="mt-8 space-y-7">
+            <input
+              type="checkbox"
+              name="botcheck"
+              className="hidden"
+              tabIndex={-1}
+              aria-hidden
+            />
 
-          <SecimGrubu baslik={b.ihtiyacBasligi}>
-            {secenekler.map((secenek) => (
-              <Kutucuk
-                key={secenek}
-                secili={ihtiyaclar.includes(secenek)}
-                onSelect={() => ihtiyacDegistir(secenek)}
-              >
-                {secenek}
-              </Kutucuk>
-            ))}
-          </SecimGrubu>
+            <SecimGrubu baslik={b.ihtiyacBasligi}>
+              {secenekler.map((secenek) => (
+                <Kutucuk
+                  key={secenek}
+                  secili={ihtiyaclar.includes(secenek)}
+                  onSelect={() => ihtiyacDegistir(secenek)}
+                >
+                  {secenek}
+                </Kutucuk>
+              ))}
+            </SecimGrubu>
 
-          <SecimGrubu baslik={b.durumBasligi}>
-            {b.durumSecenekleri.map((secenek) => (
-              <Kutucuk
-                key={secenek}
-                secili={durum === secenek}
-                onSelect={() => setDurum(durum === secenek ? null : secenek)}
-              >
-                {secenek}
-              </Kutucuk>
-            ))}
-          </SecimGrubu>
+            <SecimGrubu baslik={b.durumBasligi}>
+              {b.durumSecenekleri.map((secenek) => (
+                <Kutucuk
+                  key={secenek}
+                  secili={durum === secenek}
+                  onSelect={() => setDurum(durum === secenek ? null : secenek)}
+                >
+                  {secenek}
+                </Kutucuk>
+              ))}
+            </SecimGrubu>
 
-          <SecimGrubu baslik={b.zamanBasligi}>
-            {b.zamanSecenekleri.map((secenek) => (
-              <Kutucuk
-                key={secenek}
-                secili={zaman === secenek}
-                onSelect={() => setZaman(zaman === secenek ? null : secenek)}
-              >
-                {secenek}
-              </Kutucuk>
-            ))}
-          </SecimGrubu>
+            <SecimGrubu baslik={b.zamanBasligi}>
+              {b.zamanSecenekleri.map((secenek) => (
+                <Kutucuk
+                  key={secenek}
+                  secili={zaman === secenek}
+                  onSelect={() => setZaman(zaman === secenek ? null : secenek)}
+                >
+                  {secenek}
+                </Kutucuk>
+              ))}
+            </SecimGrubu>
 
-          {/* İMZA: kendi kendine yazılan brief. Mono yazı tipi bilinçli — bu
+            {/* İMZA: kendi kendine yazılan brief. Mono yazı tipi bilinçli — bu
               bir pazarlama cümlesi değil, oluşturulmakta olan bir KAYIT. */}
-          <div>
-            <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink-3">
-              {b.briefBasligi}
-            </p>
-            <div
-              aria-live="polite"
-              className="mt-2 min-h-[104px] rounded-2xl border border-line bg-bg-2/60 p-4 font-mono text-[0.83rem] leading-relaxed text-ink-2"
-            >
-              {birSeySecildi ? (
-                brief.split("\n").map((satir, i) => (
-                  <p
-                    key={satir}
-                    className={i === 0 ? "font-semibold text-ink" : "mt-1"}
-                  >
-                    {satir}
-                  </p>
-                ))
-              ) : (
-                <p className="text-ink-3">{b.baslangic}</p>
+            <div>
+              <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink-3">
+                {b.briefBasligi}
+              </p>
+              <div
+                aria-live="polite"
+                className="mt-2 min-h-[104px] rounded-2xl border border-line bg-bg-2/60 p-4 font-mono text-[0.83rem] leading-relaxed text-ink-2"
+              >
+                {birSeySecildi ? (
+                  briefSatirlari.map((satir, i) => (
+                    <p
+                      key={satir}
+                      className={i === 0 ? "font-semibold text-ink" : "mt-1"}
+                    >
+                      {satir}
+                    </p>
+                  ))
+                ) : (
+                  <p className="text-ink-3">{b.baslangic}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              <input
+                value={ad}
+                onChange={(e) => setAd(e.target.value)}
+                placeholder={b.adEtiketi}
+                aria-label={b.adEtiketi}
+                autoComplete="name"
+                className="field"
+              />
+              <input
+                value={iletisim}
+                onChange={(e) => setIletisim(e.target.value)}
+                placeholder={b.iletisimEtiketi}
+                aria-label={b.iletisimEtiketi}
+                autoComplete="tel"
+                className="field"
+              />
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                disabled={hal === "gonderiliyor"}
+              >
+                {hal === "gonderiliyor" ? b.gonderiliyor : b.gonder}
+                <GonderIkonu
+                  className={`h-[18px] w-[18px] ${hal === "gonderiliyor" ? "animate-spin" : ""}`}
+                />
+              </button>
+
+              {hal === "basarili" && (
+                <p className="flex items-center gap-2 text-[0.92rem] font-medium text-green-deep">
+                  <Check className="h-4 w-4" />
+                  {b.basarili}
+                </p>
+              )}
+              {hal === "hata" && (
+                <p className="text-[0.92rem] text-ink-2">{b.hata}</p>
+              )}
+              {hal === "eksik" && (
+                <p className="text-[0.92rem] text-ink-2">{b.eksik}</p>
               )}
             </div>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            <input
-              value={ad}
-              onChange={(e) => setAd(e.target.value)}
-              placeholder={b.adEtiketi}
-              aria-label={b.adEtiketi}
-              autoComplete="name"
-              className="w-full rounded-2xl border border-line bg-white px-4 py-3.5 text-[0.97rem] text-ink outline-none transition-colors placeholder:text-ink-3 focus-visible:border-cyan"
-            />
-            <input
-              value={iletisim}
-              onChange={(e) => setIletisim(e.target.value)}
-              placeholder={b.iletisimEtiketi}
-              aria-label={b.iletisimEtiketi}
-              autoComplete="tel"
-              className="w-full rounded-2xl border border-line bg-white px-4 py-3.5 text-[0.97rem] text-ink outline-none transition-colors placeholder:text-ink-3 focus-visible:border-cyan"
-            />
-          </div>
-
-          <div className="flex flex-wrap items-center gap-4">
-            <button
-              type="submit"
-              className="btn btn-primary"
-              disabled={hal === "gonderiliyor"}
-            >
-              {hal === "gonderiliyor" ? b.gonderiliyor : b.gonder}
-              <GonderIkonu
-                className={`h-[18px] w-[18px] ${hal === "gonderiliyor" ? "animate-spin" : ""}`}
-              />
-            </button>
-
-            {hal === "basarili" && (
-              <p className="flex items-center gap-2 text-[0.92rem] font-medium text-green-deep">
-                <Check className="h-4 w-4" />
-                {b.basarili}
-              </p>
-            )}
-            {hal === "hata" && (
-              <p className="text-[0.92rem] text-ink-2">{b.hata}</p>
-            )}
-            {hal === "eksik" && (
-              <p className="text-[0.92rem] text-ink-2">{b.eksik}</p>
-            )}
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </section>
   );
@@ -269,9 +265,11 @@ function SecimGrubu({
 /**
  * Seçim kutucuğu.
  *
- * Seçili hâli `.pill-link:hover` ile aynı marka gradyanını kullanıyor: imleç
- * üstündeyken gördüğün şey tıklayınca yerine oturuyor. Affordans kendini
- * öğretiyor, ayrıca sayfadaki diğer pill'lerle aynı dili konuşuyor.
+ * Sitenin `.pill-link` sınıfını kullanıyor; seçili hâli CSS'te
+ * `[aria-pressed="true"]` ile `.pill-link:hover`ın görünümünü kalıcılaştırıyor.
+ * İmleç üstündeyken gördüğün şey tıklayınca yerine oturuyor — affordans
+ * kendini öğretiyor — ve kutucuklar sayfadaki diğer pill'lerle aynı dili
+ * konuşuyor. Görünüm iki hâl için de tek yerde: `app/globals.css`.
  */
 function Kutucuk({
   secili,
@@ -287,11 +285,7 @@ function Kutucuk({
       type="button"
       onClick={onSelect}
       aria-pressed={secili}
-      className={
-        secili
-          ? "inline-flex items-center gap-1.5 rounded-full border border-transparent bg-[image:var(--grad-brand)] px-4 py-2 text-[0.9rem] font-medium text-white shadow-[var(--shadow-glow)] transition-all"
-          : "inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-4 py-2 text-[0.9rem] font-medium text-ink-2 transition-all hover:border-cyan hover:text-ink"
-      }
+      className="pill-link"
     >
       {secili && <Check className="h-3.5 w-3.5" strokeWidth={3} />}
       {children}

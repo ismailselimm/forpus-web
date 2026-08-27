@@ -69,7 +69,9 @@ export default function Stats() {
             <span className="eyebrow">{t.stats.eyebrow}</span>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="h-section mt-5 whitespace-pre-line">{t.stats.title}</h2>
+            <h2 className="h-section mt-5 whitespace-pre-line">
+              {t.stats.title}
+            </h2>
           </Reveal>
         </div>
 

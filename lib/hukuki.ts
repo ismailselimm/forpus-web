@@ -57,7 +57,6 @@ export type HukukiSayfa = {
   bolumler: HukukiBolum[];
 };
 
-
 /**
  * Veri sorumlusunun kimliği.
  *
@@ -97,8 +96,7 @@ const gizlilik: HukukiSayfa = {
   metaBaslik: "Gizlilik Politikası",
   metaAciklama:
     "Forpus Yazılım sitesinde hangi bilgileri topluyoruz, neyi toplamıyoruz ve topladığımız az sayıda bilgiye ne oluyor. Çerez yok, Google Analytics yok, reklam pikseli yok.",
-  ozet:
-    "Bu sitede ne topluyoruz, neyi toplamıyoruz ve topladığımız az sayıda bilgiye ne oluyor — hepsi tek sayfada, süslemesiz.",
+  ozet: "Bu sitede ne topluyoruz, neyi toplamıyoruz ve topladığımız az sayıda bilgiye ne oluyor — hepsi tek sayfada, süslemesiz.",
   sonGuncelleme: SON_GUNCELLEME,
   bolumler: [
     {
@@ -130,8 +128,16 @@ const gizlilik: HukukiSayfa = {
         satirlar: [
           ["Adınız", "Zorunlu", "Size nasıl hitap edeceğimizi bilmek için"],
           ["E-posta", "Zorunlu", "Dönüş yapabilmek için"],
-          ["Şirket / Marka", "İsteğe bağlı", "İşinizi görüşmeden önce anlamak için"],
-          ["İlgilendiğiniz hizmet", "Listeden seçilir", "Talebi doğru kişiye yönlendirmek için"],
+          [
+            "Şirket / Marka",
+            "İsteğe bağlı",
+            "İşinizi görüşmeden önce anlamak için",
+          ],
+          [
+            "İlgilendiğiniz hizmet",
+            "Listeden seçilir",
+            "Talebi doğru kişiye yönlendirmek için",
+          ],
           ["Mesajınız", "Zorunlu", "Ne istediğinizi anlatmanız için"],
         ],
       },
@@ -273,8 +279,7 @@ const kvkk: HukukiSayfa = {
   metaBaslik: "KVKK Aydınlatma Metni",
   metaAciklama:
     "6698 sayılı Kanun kapsamında Forpus Yazılım aydınlatma metni: işlenen veri kategorileri, işleme amacı, hukuki sebep, aktarım, saklama süresi ve madde 11 hakları.",
-  ozet:
-    "6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 10. maddesi uyarınca, iletişim formuyla topladığımız kişisel verilere dair aydınlatma.",
+  ozet: "6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 10. maddesi uyarınca, iletişim formuyla topladığımız kişisel verilere dair aydınlatma.",
   sonGuncelleme: SON_GUNCELLEME,
   bolumler: [
     {
@@ -298,7 +303,10 @@ const kvkk: HukukiSayfa = {
             "Müşteri işlem",
             "Şirket / marka adı, ilgilendiğiniz hizmet seçimi, mesaj içeriği, başvurunun durumu ve panelde tarafımızca eklenen notlar",
           ],
-          ["İşlem güvenliği", "IP adresi — yalnızca gönderim sayacı için, anlık olarak"],
+          [
+            "İşlem güvenliği",
+            "IP adresi — yalnızca gönderim sayacı için, anlık olarak",
+          ],
           [
             "Pazarlama / kaynak",
             "Kampanya etiketleri (utm_source, utm_medium, utm_campaign, utm_content, utm_term), reklam tıklama kimlikleri (fbclid, gclid), dış yönlendiren adres, siteye ilk girdiğiniz sayfa",
@@ -332,10 +340,13 @@ const kvkk: HukukiSayfa = {
     },
     {
       baslik: "Hukuki sebep",
-      paragraflar: ["Kanun'un 5. maddesinin 2. fıkrasındaki şu sebeplere dayanıyoruz:"],
+      paragraflar: [
+        "Kanun'un 5. maddesinin 2. fıkrasındaki şu sebeplere dayanıyoruz:",
+      ],
       maddeler: [
         {
-          baslik: "5/2-c — Sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması",
+          baslik:
+            "5/2-c — Sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması",
           govde:
             "Ad, e-posta, şirket adı, hizmet seçimi ve mesaj içeriği: teklif hazırlamak ve iş ilişkisini kurmak için gerekli veriler.",
         },
@@ -351,7 +362,9 @@ const kvkk: HukukiSayfa = {
     },
     {
       baslik: "Aktarım",
-      paragraflar: ["Verileriniz aşağıdaki üç yer dışında kimseye aktarılmıyor:"],
+      paragraflar: [
+        "Verileriniz aşağıdaki üç yer dışında kimseye aktarılmıyor:",
+      ],
       tablo: {
         basliklar: ["Kime", "Ne aktarılıyor", "Neden", "Yurt dışı mı"],
         satirlar: [
@@ -442,8 +455,7 @@ const kullanimSartlari: HukukiSayfa = {
   metaBaslik: "Kullanım Şartları",
   metaAciklama:
     "Forpus Yazılım sitesini kullanırken geçerli kurallar: içeriğin niteliği, fiyat bilgilerinin bağlayıcılığı, fikri mülkiyet ve iletişim formunun kullanımı.",
-  ozet:
-    "Bu siteyi kullanırken geçerli olan kurallar: içeriğin niteliği, fiyatların bağlayıcılığı ve formu kullanırken beklediklerimiz.",
+  ozet: "Bu siteyi kullanırken geçerli olan kurallar: içeriğin niteliği, fiyatların bağlayıcılığı ve formu kullanırken beklediklerimiz.",
   sonGuncelleme: SON_GUNCELLEME,
   bolumler: [
     {
@@ -562,7 +574,10 @@ export function hukukiMetadata(slug: string): Metadata {
     title: s.metaBaslik,
     description: s.metaAciklama,
     // Sayfalar yalnızca Türkçe yayınlanıyor; x-default de TR'ye bakıyor.
-    alternates: { canonical: yol, languages: { "tr-TR": yol, "x-default": yol } },
+    alternates: {
+      canonical: yol,
+      languages: { "tr-TR": yol, "x-default": yol },
+    },
   };
 }
 

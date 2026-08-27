@@ -14,7 +14,9 @@ export default function SmoothScroll() {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     let lenis: Lenis | null = null;
     let raf = 0;
@@ -40,24 +42,33 @@ export default function SmoothScroll() {
     if (!reduce && lenis) {
       // Smooth same-page anchor navigation (homepage sections)
       onClick = (e: MouseEvent) => {
-        const link = (e.target as HTMLElement).closest('a[href^="#"]') as HTMLAnchorElement | null;
+        const link = (e.target as HTMLElement).closest(
+          'a[href^="#"]',
+        ) as HTMLAnchorElement | null;
         if (!link) return;
         const id = link.getAttribute("href");
         if (!id || id === "#") return;
         const el = document.querySelector(id);
         if (!el) return;
         e.preventDefault();
-        lenis!.scrollTo(el as HTMLElement, { offset: SCROLL_OFFSET, duration: 1.25 });
+        lenis!.scrollTo(el as HTMLElement, {
+          offset: SCROLL_OFFSET,
+          duration: 1.25,
+        });
       };
       document.addEventListener("click", onClick);
     }
 
     // Scroll to a section (works with or without Lenis, so reduced-motion visitors land too).
     const goTo = (el: HTMLElement) =>
-      lenis ? lenis.scrollTo(el, { offset: SCROLL_OFFSET, duration: 1.0 }) : el.scrollIntoView();
+      lenis
+        ? lenis.scrollTo(el, { offset: SCROLL_OFFSET, duration: 1.0 })
+        : el.scrollIntoView();
     const hashTarget = () => {
       const { hash } = window.location;
-      return hash && hash !== "#" ? (document.querySelector(hash) as HTMLElement | null) : null;
+      return hash && hash !== "#"
+        ? (document.querySelector(hash) as HTMLElement | null)
+        : null;
     };
 
     // Same-page hash change (e.g. a "/#services" link clicked on the homepage).

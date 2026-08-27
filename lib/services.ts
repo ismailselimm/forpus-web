@@ -13,6 +13,8 @@ export type ServiceKey = (typeof SERVICE_KEYS)[number];
 // tells the contact form which service to preselect (Contact.tsx listens for the event).
 export function presetService(service: ServiceKey) {
   if (typeof window !== "undefined") {
-    window.dispatchEvent(new CustomEvent(PRESET_SERVICE_EVENT, { detail: service }));
+    window.dispatchEvent(
+      new CustomEvent(PRESET_SERVICE_EVENT, { detail: service }),
+    );
   }
 }
