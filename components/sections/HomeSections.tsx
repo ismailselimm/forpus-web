@@ -1,5 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import Marquee from "@/components/sections/Marquee";
+import KisaTanim from "@/components/sections/KisaTanim";
 import Services from "@/components/sections/Services";
 import Personas from "@/components/sections/Personas";
 import Process from "@/components/sections/Process";
@@ -28,6 +29,7 @@ export default function HomeSections() {
       <span id="top" className="absolute top-0" aria-hidden="true" />
       <Hero />
       <Marquee />
+      <KisaTanim />
       <Services />
       <Personas />
       <Process />

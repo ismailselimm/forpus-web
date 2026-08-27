@@ -99,6 +99,35 @@ export const CALISMA = {
   kapanis: "18:00",
 } as const;
 
+/**
+ * VARLIK TANIMI — "Forpus Yazılım ne yapar?" sorusunun tek pasajlık cevabı.
+ *
+ * NEDEN BURADA: bu metin iki yerde birden okunuyor. Ana sayfada ekranda
+ * görünüyor, `app/layout.tsx`te `Organization.description` olarak yapısal
+ * veriye giriyor. Orada daha önce dokuz kelimelik bir cümle duruyordu —
+ * "İstanbul merkezli web, mobil uygulama, reklam ve tasarım stüdyosu" —
+ * ve bir varlığın makineye anlattığı şeyin tamamı oydu.
+ *
+ * Marka anmaları, yapay zekâ aramalarında görünürlükle backlink'lerden ÜÇ KAT
+ * güçlü ilişkileniyor. Bir motorun markayı anabilmesi için önce ne olduğunu
+ * bilmesi gerekiyor; o bilgiyi verecek tek yer bu paragraf.
+ *
+ * SİTEYLE ÇELİŞMEMEK ZORUNDA: "iki mühendis kurdu", tek çatı altındaki ekip
+ * ve ₺50.000 / ₺100.000 / ₺250.000 bandları, ana sayfadaki Ekip ve Paketler
+ * bölümlerinin zaten söylediği şeyler. Buradaki rakam değişirse sözlükteki
+ * `packages` da değişmeli — ikisi aynı beyanı veriyor.
+ */
+export const TANIM = {
+  baslik: {
+    tr: "Forpus Yazılım ne yapar?",
+    en: "What does Forpus Yazılım do?",
+  },
+  govde: {
+    tr: "Forpus Yazılım, İstanbul merkezli bir yazılım stüdyosudur. Küçük ve orta ölçekli işletmeler için web sitesi ve e-ticaret altyapısı kurar, iOS ile Android için mobil uygulama geliştirir, marka tasarımı ve reklam yönetimi yapar. Şirketi iki mühendis kurdu; tasarım, geliştirme ve reklam tarafı tek çatı altında yürütülüyor. Fiyatlar görüşmede değil baştan yazılı: tanıtım sitesi ₺50.000 bandında başlar ve içerikler hazırsa yaklaşık bir haftada yayına girer, hizmetlerin ayrı ayrı sayfalandığı kurumsal bir site ₺100.000'den başlar ve iki ila dört haftada tamamlanır, mobil uygulamanın ilk sürümü ₺250.000'den başlar ve altı ila on haftada mağazaya çıkar. Her projede alan adı, barındırma hesabı ve kaynak kod müşterinin adına kaydedilir; teslimden sonra içerikleri müşteri kendisi günceller. En sık çalışılan alanlar sağlık, hukuk, e-ticaret, lojistik ve yeme-içme; bu sektörlerin her biri için ayrı bir çözüm sayfası ve gerçek bir referans işi var. Sitede yazan her fiyat 2026 için geçerli başlangıç rakamıdır ve kapsam netleştikçe teklifte sabitlenir. Mesajlara aynı gün, en geç bir iş günü içinde dönülür.",
+    en: "Forpus Yazılım is a software studio based in Istanbul, Türkiye. It builds websites and e-commerce platforms for small and mid-sized businesses, develops mobile apps for iOS and Android, and handles brand design and ad management. The company was founded by two engineers, and design, development and advertising are run under one roof. Prices are published rather than saved for a call: a brochure site starts around ₺50,000 and goes live in about a week once content is ready, a corporate site with a separate page per service starts at ₺100,000 and takes two to four weeks, and the first version of a mobile app starts at ₺250,000 and reaches the stores in six to ten weeks. On every project the domain, the hosting account and the source code are registered in the client's name, and the client updates the content after handover. Most work comes from healthcare, law, e-commerce, logistics and hospitality. We reply the same day, within one business day at the latest.",
+  },
+} as const;
+
 export type SosyalProfil = {
   ad: "Instagram" | "Facebook" | "LinkedIn";
   href: string;
