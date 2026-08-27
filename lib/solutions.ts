@@ -6,6 +6,14 @@ import { solutionIndex } from "./solution-index";
 import { webProjects } from "./projects";
 import { PRICE_FLOOR } from "./pricing";
 
+/**
+ * Kısa cevap bloğunun içeriği. Blog yazıları da aynı bloğu kullandığı için
+ * tip burada dışa açık: `lib/blog.ts` bunu `import type` ile alıyor, yani
+ * çalışma zamanında hiçbir şey taşınmıyor — bu dosya sektör başına 900+
+ * kelime içeriyor ve istemci paketine asla girmemeli.
+ */
+export type KisaCevapIcerigi = { title: string; body: string };
+
 export type SolutionContent = {
   metaTitle: string;
   metaDescription: string;
@@ -48,7 +56,7 @@ export type SolutionContent = {
    * SSS'i TEKRARLAMAZ: oradaki cevaplar tek tek sorulara ait; buradaki
    * pasaj bütünü veriyor. Aynı rakamlar geçer, aynı cümleler geçmez.
    */
-  shortAnswer?: { title: string; body: string };
+  shortAnswer?: KisaCevapIcerigi;
 
   /** "Şu an ne oluyor" — sektörün gerçek acısı, 2-3 paragraf. */
   problem?: { title: string; body: string[] };

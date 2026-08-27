@@ -12,6 +12,9 @@
 // Şimdilik yalnızca Türkçe: gösterimlerin 68/81'i Türkiye'den geliyor.
 
 import { assertSolutionKeys } from "./solution-index";
+// Yalnızca tip: `import type` derlemede siliniyor, `lib/solutions.ts`in
+// içeriği buraya taşınmıyor.
+import type { KisaCevapIcerigi } from "./solutions";
 
 export type BlogSection = {
   heading: string;
@@ -38,6 +41,13 @@ export type BlogPost = {
   tag: string;
   readingMinutes: number;
   intro: string[];
+  /**
+   * Girişten hemen sonraki alıntılanabilir pasaj — sektör sayfalarındakiyle
+   * aynı blok. Yazıların ikisinde zaten "Kısa cevap" başlıklı bir bölüm
+   * vardı ama içi TABLOYDU: tablo taranır, alıntılanmaz. Tablo duruyor,
+   * yanına düzyazı cevabı geldi.
+   */
+  shortAnswer?: KisaCevapIcerigi;
   sections: BlogSection[];
   faq?: { q: string; a: string }[];
   /** İlgili çözüm sayfalarının anahtarları — iç bağlantı için. */
@@ -62,9 +72,13 @@ export const posts: BlogPost[] = [
       'Bu sorunun tek bir cevabı yok, ama "duruma göre değişir" demek de işe yaramıyor. Aşağıda 2026 için gerçek aralıkları, o aralıkları neyin belirlediğini ve hangi durumda fazla ödediğinizi yazdık.',
       "Rakamlar Türkiye piyasası için ve kurumsal iş yapan ekiplerin bandını yansıtıyor. Çok daha ucuz teklifler de göreceksiniz; onların neden ucuz olduğunu da açıklıyoruz — her zaman kötü değil, ama neyi almadığınızı bilmeniz gerekiyor.",
     ],
+    shortAnswer: {
+      title: "Kısa cevap: web sitesi ne kadar tutar?",
+      body: "Türkiye'de 2026 için web sitesi fiyatları, sitenin tipine göre dört banda ayrılıyor. Tek veya az sayfalı bir tanıtım sitesi ₺50.000–90.000 arasında ve bir ila iki haftada teslim edilir. Hizmetlerin ayrı ayrı sayfalandığı, arama motorlarına hazırlanmış kurumsal bir site ₺100.000–180.000 arasında ve iki ila dört hafta sürer. E-ticaret, hazır altyapı üzerine kurulumdan markaya özel tasarıma göre ₺80.000–280.000 arasında değişir ve iki ila yedi haftada tamamlanır. Randevu sistemi, müşteri paneli ya da özel yazılım gerektiren işler ₺250.000'den başlar ve süresi kapsama göre belirlenir. Fiyatı asıl belirleyen sayfa sayısı değil, dört şey: tasarımın size özel mi hazır tema mı olduğu, içeriği kimin yazdığı, arkada yönetilecek bir sistem olup olmadığı ve kaç dil desteklendiği. Çok daha ucuz teklifler de görürsünüz; sorun ucuz olmaları değil, neyin dahil olmadığının yazılı olmaması. Bir de çoğu teklifte hiç konuşulmayan gizli maliyet var: birkaç yıl sonraki yenileme. Adres yapısı korunmadan yenilenen bir site, arama motorlarındaki birikimini de birlikte götürüyor ve o birikimi yeniden kurmak ilk kurulumdan pahalıya geliyor.",
+    },
     sections: [
       {
-        heading: "Kısa cevap: site tipine göre bandlar",
+        heading: "Site tipine göre fiyat bandları",
         body: [
           "Web sitesi denince çok farklı işler kastediliyor. Tek sayfalık bir tanıtım sitesiyle ödeme alan bir e-ticaret mağazası arasında on kat fark olması normal. Aşağıdaki tablo en yaygın dört tipi ve 2026 başlangıç bandlarını gösteriyor.",
         ],
@@ -224,9 +238,13 @@ export const posts: BlogPost[] = [
       "Uygulama fikri olan çoğu kişinin takıldığı yer teknik değil, belirsizlik. Ne kadar tutacağı bilinmediği için karar verilemiyor ve iyi fikirler yıllarca beklemede kalıyor.",
       "Aşağıda 2026 için gerçek bandları, o bandları neyin belirlediğini ve bütçeyi en çok şişiren hatayı yazdık.",
     ],
+    shortAnswer: {
+      title: "Kısa cevap: mobil uygulama ne kadar tutar?",
+      body: "Türkiye'de 2026 için mobil uygulama maliyeti, kapsama göre üç banda ayrılıyor. Fikri doğrulayacak kadar özellik taşıyan bir ilk sürüm — MVP — ₺250.000–400.000 arasında ve altı ila on haftada mağazaya çıkar. Ödeme, harita ve bildirim gibi entegrasyonların bulunduğu tam kapsamlı bir uygulama ₺450.000–800.000 arasında ve üç ila beş ay sürer. Çok taraflı bir pazaryeri ya da uzun soluklu bir platform ₺800.000'den başlar ve süresi kapsama göre belirlenir. Bütçeyi ikiye katlayan en yaygın hata, her özelliği ilk sürüme koymaya çalışmak: kapsam yol boyunca büyüdükçe hem maliyet hem takvim katlanıyor. iOS ve Android için ayrı ayrı ödeme yapmanız gerekmez; tek kod tabanıyla çalışan ekipler iki platformu birlikte çıkarır. Fiyata mağaza yayını, yönetim paneli ve yayın sonrası bakımın dahil olup olmadığını mutlaka yazılı olarak sorun. Uygulama mağazaya çıktığında iş bitmiyor: işletim sistemi güncellemeleri, değişen mağaza kuralları ve hata düzeltmeleri için yıllık bir bakım kalemi ayırmanız gerekiyor. Mağaza hesaplarının ve kaynak kodun kime ait olacağını da sözleşmede yazılı isteyin.",
+    },
     sections: [
       {
-        heading: "Kısa cevap: kapsama göre bandlar",
+        heading: "Kapsama göre fiyat bandları",
         table: {
           caption: "2026 başlangıç fiyatları — iOS + Android, tek kod tabanı",
           head: ["Kapsam", "Fiyat bandı", "Süre", "Ne içerir"],
@@ -413,6 +431,10 @@ export const posts: BlogPost[] = [
       "Avukatlar için web sitesi, diğer mesleklerden farklı bir iş. Sebep teknik değil: Avukatlık Kanunu ve meslek kuralları tanıtımı sınırlıyor ve bu sınırları bilmeyen bir ajans, farkında olmadan sizi baro nezdinde zor durumda bırakabiliyor.",
       "Aşağıda çerçeveyi, pratikte neyin yazılıp neyin yazılamadığını ve yine de rekabetçi kalmanın yollarını yazdık. Şunu baştan söyleyelim: bu bir hukuki görüş değil, işin yazılım tarafından gördüğümüz pratik. Kesin sınırlar için bağlı olduğunuz baronun güncel düzenlemesine bakın.",
     ],
+    shortAnswer: {
+      title: "Kısa cevap: sitede ne yazılabilir, ne yazılamaz?",
+      body: "Avukatlık Kanunu ve meslek kuralları, hukuk bürolarının tanıtımını sınırlıyor; ama sınır bilgilendirmeye değil reklama konuyor. Serbest olanlar: hangi çalışma alanlarında hizmet verdiğinizi belirtmek, avukatların özgeçmişini, eğitimini ve yayınlarını paylaşmak, bilgilendirme amaçlı hukuki makale yayınlamak, iletişim ve konum bilgisi vermek. Sorunlu olanlar: müvekkil yorumu ve referans — tanıklığa dayalı tanıtım reklam sayılıyor — başarı oranı ya da kazanılmış dava sayısı iddiası, karşılaştırmalı üstünlük ifadeleri ve iş getirmeye yönelik çağrılar. Bu çerçevede rekabetçi kalmanın yolu makale yayınlamaktan geçiyor: çalışma alanınızla ilgili gerçek soruları yanıtlayan içerik, hem yasağa takılmaz hem de arama sonuçlarında görünmenin en sağlam yoludur. Ajansınızın bu çerçeveyi bilip bilmediğini teklif aşamasında sorun — bilmeyen bir ekip, farkında olmadan sizi baro nezdinde zor durumda bırakabilir. Bu bir hukuki görüş değil; kesin sınırlar için baronuzun güncel düzenlemesine bakın. Teknik tarafta iki asgari şart var: iletişim formundan gelen mesajların güvenli iletilmesi ve KVKK aydınlatma metinlerinin sitede bulunması. Bir de kontrolünüz dışında bir alan var — üçüncü taraf rehber sitelerdeki yorumlar; onları kaldıramazsınız ama kendi sitenizle o aramaların önüne geçebilirsiniz.",
+    },
     sections: [
       {
         heading: "Çerçeve: bilgilendirme serbest, reklam değil",
@@ -568,6 +590,10 @@ export const posts: BlogPost[] = [
       "Sitesini yenileten işletmelerin sık yaşadığı bir durum var: yeni site çok daha güzel ama Google'dan gelen ziyaretçi düşüyor. Bazen yarı yarıya.",
       "Sebep neredeyse her zaman aynı ve tasarımla ilgisi yok. Aşağıda ne olduğunu, nasıl önleneceğini ve yenileme öncesi yapılması gereken hazırlığı yazdık.",
     ],
+    shortAnswer: {
+      title: "Kısa cevap: sıralama neden düşer, nasıl korunur?",
+      body: "Yenilenen sitelerin trafiği, tasarım değiştiği için değil, sayfa adresleri değişip eski adreslerden yenilerine yönlendirme kurulmadığı için düşer. Google sıralamayı alan adına değil tek tek sayfalara verir; eski adres 404 dönmeye başladığında o sayfanın yıllar içinde biriktirdiği değer kaybolur. Korunması gereken şey içerik değil, adres haritasıdır. Yenilemeden önce mevcut bütün adreslerin listesini çıkarın — sitemap'ten, Search Console'dan ve sunucu kayıtlarından — hangi sayfaların gerçekten trafik aldığını not edin ve her eski adresi yeni karşılığına eşleyen bir tablo hazırlayın. Yayına aldıktan sonra ilk hafta Search Console'da tarama hatalarını, 404 sayısını ve sıralama değişimlerini günlük takip edin. Kalıcı taşımalarda 301 yönlendirme kullanılır; 302 geçici demektir ve değeri aktarmaz. Yönlendirme zinciri kurmayın: eski adres doğrudan nihai adrese gitmeli. Yenilemeden önce şu soruyu da sorun: gerçekten yenilemeli misiniz? Trafiği yerinde olan bir sitede sorun çoğu zaman tasarım değil, eksik içerik ve yavaş açılan sayfalardır; ikisi de siteyi baştan kurmadan düzeltilebilir ve hiçbir adres değişmediği için hiçbir risk taşımaz.",
+    },
     sections: [
       {
         heading: "Ne oluyor: adresler değişiyor, yönlendirme kurulmuyor",
@@ -712,6 +738,10 @@ export const posts: BlogPost[] = [
       "Web sitesi yaptırmak çoğu işletme için birkaç yılda bir yapılan bir iş. Bu yüzden neyin sorulacağı bilinmiyor ve aynı hatalar tekrarlanıyor.",
       "Aşağıdaki maddeleri bizden iş almasanız da kullanabilirsiniz. Teklif aldığınız her ajansa aynı soruları sorun; cevapların netliği, ekibin ciddiyeti hakkında fiyattan daha çok şey söyler.",
     ],
+    shortAnswer: {
+      title: "Kısa cevap: neyi yazılı olarak isteyin?",
+      body: "Web sitesi yaptırırken en pahalıya patlayan hatalar teknik değil, sahiplikle ilgili olanlardır. Teklif almadan önce üç şeyi yazılı olarak netleştirin: alan adı kimin hesabında kayıtlı olacak, barındırma kimin adına açılacak ve teslimden sonra içeriği kim güncelleyebilecek. Ajansın hesabında duran bir alan adı, ilişki bittiği gün sitenizin rehin kalması demektir. Kalite tarafında sorulacak sorular şunlar: tasarım size özel mi yoksa satın alınmış bir tema mı, içeriği kim yazıyor, site telefonda gerçekten hızlı açılıyor mu ve teslim edilen sitede temel SEO ayarları ile KVKK metinleri hazır mı. Uyarı işaretleri: fiyatı yazmayan, neyin dahil olmadığını söylemeyen, referans sitelerini gösteremeyen ve teslimden sonrasını konuşmayan teklifler. Teklifleri karşılaştırırken toplam rakama değil, aynı kapsamın karşılığına bakın. Teklif istemeden önce hazırlayacağınız üç şey süreci kısaltır: kaç sayfa istediğiniz, elinizde hangi metin ve görsellerin hazır olduğu, beğendiğiniz üç örnek site. Bu üçü olmadan gelen teklifler tahmine dayanır ve yol boyunca değişir — fiyat da onunla birlikte.",
+    },
     sections: [
       {
         heading: "Sahiplik: sitenin gerçekten sizin olduğundan emin olun",

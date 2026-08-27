@@ -8,6 +8,7 @@ import SektorBrief from "@/components/solutions/SektorBrief";
 import YapilanIsler from "@/components/solutions/YapilanIsler";
 import IlgiliYazilar from "@/components/solutions/IlgiliYazilar";
 import Breadcrumb, { breadcrumbLd, faqLd } from "@/components/ui/Breadcrumb";
+import KisaCevap from "@/components/ui/KisaCevap";
 import {
   solutions,
   contentOf,
@@ -152,41 +153,9 @@ export default function SolutionArticle({
         </div>
       </section>
 
-      {/* ── Kısa cevap ───────────────────────────────────── */}
-      {/*
-        Sayfanın ilk ekranından hemen sonra, her şeyden önce. Konum tesadüf
-        değil: yapay zekâ aramalarında alıntıların %44'ü sayfanın ilk %30'undan
-        çıkıyor, ve buradan aşağısı zaten uzun. Aramadan gelen kişi de kapsamı,
-        süreyi ve fiyatı ilk 20 saniyede görüyor.
-
-        Kutu değil: başlık bir SORU, altında tek bir paragraf. Etiketli bir
-        "özet kutusu" okuyucuya "burayı atla" der; sorusu sorulmuş bir cevap
-        okutur. Soldaki ince marka çizgisi, süreç zaman çizelgesindeki aynı
-        `--grad-brand` — yeni bir görsel dil değil, evin kendi dili.
-      */}
-      {c.shortAnswer && (
-        <section className="section !pb-0">
-          <div className="container-x">
-            <div className="mx-auto max-w-3xl">
-              <Reveal>
-                <div className="relative pl-6 sm:pl-8">
-                  <span
-                    aria-hidden
-                    className="absolute inset-y-1 left-0 w-[3px] rounded-full"
-                    style={{ background: "var(--grad-brand)" }}
-                  />
-                  <h2 className="font-display text-[1.35rem] font-bold tracking-tight text-balance text-ink sm:text-[1.5rem]">
-                    {c.shortAnswer.title}
-                  </h2>
-                  <p className="mt-4 text-[1.02rem] leading-[1.75] text-ink-2">
-                    {c.shortAnswer.body}
-                  </p>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Sayfanın ilk ekranından hemen sonra, her şeyden önce: konum tesadüf
+          değil, gerekçesi bileşenin kendisinde yazılı. */}
+      {c.shortAnswer && <KisaCevap icerik={c.shortAnswer} />}
 
       {/* ── Problem ──────────────────────────────────────── */}
       {c.problem && (

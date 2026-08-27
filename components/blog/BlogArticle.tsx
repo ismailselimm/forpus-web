@@ -1,5 +1,6 @@
 import { ChevronDown, Info } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
+import KisaCevap from "@/components/ui/KisaCevap";
 import Aurora from "@/components/fx/Aurora";
 import CtaBand from "@/components/ui/CtaBand";
 import Breadcrumb, { breadcrumbLd, faqLd } from "@/components/ui/Breadcrumb";
@@ -23,6 +24,12 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
         "@type": "BlogPosting",
         headline: post.title,
         description: post.metaDescription,
+        // `description` arama sonucundaki snippet'le aynı kalıyor — meta
+        // etiketiyle çelişmesin. Pasajın yeri `abstract`: schema.org'da
+        // tam olarak "bir eseri özetleyen kısa metin" için var ve yalnızca
+        // CreativeWork'lerde bulunuyor. (Sektör sayfalarındaki `Service`
+        // bir CreativeWork olmadığı için orada pasaj `description`a giriyor.)
+        abstract: post.shortAnswer?.body,
         url,
         mainEntityOfPage: url,
         datePublished: post.published,
@@ -70,6 +77,14 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
           </div>
         </div>
       </section>
+
+      {/* Cevap önce, açıklama sonra. Sayfa şöyle okunuyor: başlık (soru) →
+          özet (vaat) → kısa cevap (cevabın kendisi) → giriş (bağlam) →
+          bölümler. Yazının ikisinde zaten "Kısa cevap" başlıklı bir bölüm
+          vardı ama içi tabloydu ve sayfanın ortasındaydı. */}
+      {post.shortAnswer && (
+        <KisaCevap icerik={post.shortAnswer} className="!pt-0 !pb-0" />
+      )}
 
       {/* ── Gövde ────────────────────────────────────────── */}
       <article className="section relative overflow-hidden !pt-16">
