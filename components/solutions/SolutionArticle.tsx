@@ -69,11 +69,16 @@ export default function SolutionArticle({
         "@type": "Service",
         dateModified: SOLUTIONS_LASTMOD,
         name: c.h1,
-        // `metaDescription` arama sonucunda görünsün diye 155 karaktere
-        // sığdırılmış bir davet cümlesi; hizmetin TARİFİ değil. Kısa cevap
-        // ise tam da o: kapsam, süre ve fiyat bandı tek pasajda. Varsa onu
-        // veriyoruz — makinenin okuduğu açıklama, insanın okuduğuyla aynı olsun.
-        description: c.shortAnswer.body,
+        // Kısa hâl, bilerek. Bir ara buraya kısa cevabın tamamı konmuştu:
+        // "makinenin okuduğu, insanın okuduğuyla aynı olsun" diye. Ölçünce
+        // bunun bedeli çıktı — aynı 1,2 KB pasaj sayfada DÖRT kez duruyordu:
+        // görünür paragraf, bu alan ve RSC yükünün iki kopyası. 79 sayfada
+        // ~7,4 KB ham / ~2 KB gzip fazladan.
+        //
+        // Kazanç sıfırdı: pasaj zaten sayfanın ilk %5'inde, görünür metin
+        // olarak duruyor. Tarayıcı da, yapay zekâ da onu okuyor. Aynı dizeyi
+        // yapısal veriye ikinci kez yazmak yeni bir şey söylemiyor.
+        description: c.metaDescription,
         url,
         serviceType: c.h1,
         areaServed: lang === "tr" ? "TR" : ["TR", "Worldwide"],

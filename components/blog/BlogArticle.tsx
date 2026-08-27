@@ -24,12 +24,11 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
         "@type": "BlogPosting",
         headline: post.title,
         description: post.metaDescription,
-        // `description` arama sonucundaki snippet'le aynı kalıyor — meta
-        // etiketiyle çelişmesin. Pasajın yeri `abstract`: schema.org'da
-        // tam olarak "bir eseri özetleyen kısa metin" için var ve yalnızca
-        // CreativeWork'lerde bulunuyor. (Sektör sayfalarındaki `Service`
-        // bir CreativeWork olmadığı için orada pasaj `description`a giriyor.)
-        abstract: post.shortAnswer.body,
+        // `abstract` (schema.org'da "bir eseri özetleyen kısa metin",
+        // yalnızca CreativeWork'lerde var) burada kısa cevabı taşıyordu.
+        // Kaldırıldı: pasaj yazının ilk %5'inde görünür metin olarak zaten
+        // duruyor, buradaki kopya sayfaya ~8 KB ham / ~2,3 KB gzip
+        // ekliyordu — RSC yükü onu ayrıca iki kez daha yazıyor.
         url,
         mainEntityOfPage: url,
         datePublished: post.published,

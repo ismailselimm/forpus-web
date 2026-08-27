@@ -154,7 +154,7 @@ const jsonLd = {
       // Burada dokuz kelimelik bir cümle duruyordu ve bir varlığın makineye
       // anlattığı şeyin TAMAMI oydu. Artık ana sayfada ekranda yazan paragrafın
       // aynısı: gerekçe `lib/marka.ts`te, TANIM'ın üstünde.
-      description: TANIM.govde.tr,
+      description: TANIM.ozet.tr,
       /*
        * KONUM. Sitenin her sayfasında, TEK düğümde.
        *
