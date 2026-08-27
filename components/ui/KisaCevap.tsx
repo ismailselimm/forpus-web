@@ -1,5 +1,7 @@
+import { clsx } from "clsx";
+
 import { Reveal } from "@/components/fx/Reveal";
-import type { KisaCevapIcerigi } from "@/lib/solutions";
+import type { KisaCevapIcerigi } from "@/lib/kisa-cevap";
 
 /**
  * KISA CEVAP — sayfanın tepesinde duran, tek başına ayakta kalan pasaj.
@@ -19,16 +21,24 @@ import type { KisaCevapIcerigi } from "@/lib/solutions";
  * İkisine ayrı ayrı yazılsaydı ilk düzenlemede ayrışırdı; oysa bu blok bir
  * bölüm değil, bir SÖZLEŞME — "bu sayfanın cevabı burada" demenin tek yolu
  * her yerde aynı görünmek zorunda.
+ *
  */
 export default function KisaCevap({
   icerik,
   className,
 }: {
   icerik: KisaCevapIcerigi;
+  /**
+   * Bölüm boşluğunu AYARLAR, sıfırlamaz. Önce `className ?? "section …"`
+   * yazılmıştı ve verildiği an `.section`ı tamamen düşürüyordu: blog
+   * çağıranı `!pt-0 !pb-0` verince `.section`ın kendi dolgusu da gidiyor,
+   * geriye hiçbir şeyi ezmeyen iki ölü bayrak kalıyordu. `PageHero` ve
+   * `SolutionChips` bu birleştirmeyi zaten `clsx` ile yapıyor.
+   */
   className?: string;
 }) {
   return (
-    <section className={className ?? "section !pb-0"}>
+    <section className={clsx("section", className)}>
       <div className="container-x">
         <div className="mx-auto max-w-3xl">
           <Reveal>
@@ -38,7 +48,11 @@ export default function KisaCevap({
                 className="absolute inset-y-1 left-0 w-[3px] rounded-full"
                 style={{ background: "var(--grad-brand)" }}
               />
-              <h2 className="font-display text-[1.35rem] font-bold tracking-tight text-balance text-ink sm:text-[1.5rem]">
+              <h2
+                className={
+                  "font-display text-[1.35rem] font-bold tracking-tight text-balance text-ink sm:text-[1.5rem]"
+                }
+              >
                 {icerik.title}
               </h2>
               <p className="mt-4 text-[1.02rem] leading-[1.75] text-ink-2">

@@ -2,17 +2,10 @@
 // search (e.g. "doktor web sitesi") in both TR and EN. Rendered as static HTML so Google can
 // index the copy. Routes: /cozumler/[slug] (tr) and /en/solutions/[slug] (en).
 import type { ServiceKey } from "./services";
+import type { KisaCevapIcerigi } from "./kisa-cevap";
 import { solutionIndex } from "./solution-index";
 import { webProjects } from "./projects";
 import { PRICE_FLOOR } from "./pricing";
-
-/**
- * Kısa cevap bloğunun içeriği. Blog yazıları da aynı bloğu kullandığı için
- * tip burada dışa açık: `lib/blog.ts` bunu `import type` ile alıyor, yani
- * çalışma zamanında hiçbir şey taşınmıyor — bu dosya sektör başına 900+
- * kelime içeriyor ve istemci paketine asla girmemeli.
- */
-export type KisaCevapIcerigi = { title: string; body: string };
 
 export type SolutionContent = {
   metaTitle: string;
@@ -55,8 +48,16 @@ export type SolutionContent = {
    *
    * SSS'i TEKRARLAMAZ: oradaki cevaplar tek tek sorulara ait; buradaki
    * pasaj bütünü veriyor. Aynı rakamlar geçer, aynı cümleler geçmez.
+   *
+   * ZORUNLU, opsiyonel değil. Kardeş derinlik blokları (`problem`, `pricing`,
+   * `process`) gerçekten kısmi — 17'si var, 17'si yok. Bu değil: her sektörün
+   * her dilde bir tane taşıması kuralın kendisi. Opsiyonel bırakılınca dört
+   * ayrı korunma dalı doğdu ve hiçbiri çalışmadı; `Service.description` için
+   * yazılan `?? metaDescription` yedeği, var olmamış bir duruma ait ikinci
+   * bir açıklamayı sessizce kodda tutuyordu. Yeni bir sektör pasajsız
+   * eklenirse derleyici söylesin.
    */
-  shortAnswer?: KisaCevapIcerigi;
+  shortAnswer: KisaCevapIcerigi;
 
   /** "Şu an ne oluyor" — sektörün gerçek acısı, 2-3 paragraf. */
   problem?: { title: string; body: string[] };

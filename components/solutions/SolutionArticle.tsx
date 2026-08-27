@@ -73,7 +73,7 @@ export default function SolutionArticle({
         // sığdırılmış bir davet cümlesi; hizmetin TARİFİ değil. Kısa cevap
         // ise tam da o: kapsam, süre ve fiyat bandı tek pasajda. Varsa onu
         // veriyoruz — makinenin okuduğu açıklama, insanın okuduğuyla aynı olsun.
-        description: c.shortAnswer?.body ?? c.metaDescription,
+        description: c.shortAnswer.body,
         url,
         serviceType: c.h1,
         areaServed: lang === "tr" ? "TR" : ["TR", "Worldwide"],
@@ -155,7 +155,7 @@ export default function SolutionArticle({
 
       {/* Sayfanın ilk ekranından hemen sonra, her şeyden önce: konum tesadüf
           değil, gerekçesi bileşenin kendisinde yazılı. */}
-      {c.shortAnswer && <KisaCevap icerik={c.shortAnswer} />}
+      <KisaCevap icerik={c.shortAnswer} />
 
       {/* ── Problem ──────────────────────────────────────── */}
       {c.problem && (

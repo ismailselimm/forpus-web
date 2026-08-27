@@ -12,9 +12,7 @@
 // Şimdilik yalnızca Türkçe: gösterimlerin 68/81'i Türkiye'den geliyor.
 
 import { assertSolutionKeys } from "./solution-index";
-// Yalnızca tip: `import type` derlemede siliniyor, `lib/solutions.ts`in
-// içeriği buraya taşınmıyor.
-import type { KisaCevapIcerigi } from "./solutions";
+import type { KisaCevapIcerigi } from "./kisa-cevap";
 
 export type BlogSection = {
   heading: string;
@@ -47,7 +45,7 @@ export type BlogPost = {
    * vardı ama içi TABLOYDU: tablo taranır, alıntılanmaz. Tablo duruyor,
    * yanına düzyazı cevabı geldi.
    */
-  shortAnswer?: KisaCevapIcerigi;
+  shortAnswer: KisaCevapIcerigi;
   sections: BlogSection[];
   faq?: { q: string; a: string }[];
   /** İlgili çözüm sayfalarının anahtarları — iç bağlantı için. */

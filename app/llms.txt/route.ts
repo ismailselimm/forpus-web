@@ -1,7 +1,7 @@
 import { postsByDate } from "@/lib/blog";
 import { dictionary } from "@/lib/i18n/dictionary";
 import { cases } from "@/lib/cases";
-import { EPOSTA, SEHIR, ULKE, YANIT_SURESI } from "@/lib/marka";
+import { EPOSTA, SEHIR, TANIM, ULKE, YANIT_SURESI } from "@/lib/marka";
 import { SITE_URL as SITE } from "@/lib/site";
 import { solutions } from "@/lib/solutions";
 
@@ -17,6 +17,15 @@ import { solutions } from "@/lib/solutions";
  *
  * `robots.ts`, `sitemap.ts` ve `manifest.ts` zaten bu deseni kullanıyor;
  * llms.txt tek istisnaydı.
+ *
+ * Marka paragrafı da artık `TANIM`dan geliyor; dosyadaki son elle yazılmış
+ * metin oydu ve çoktan ayrışmıştı — hizmetler arasında sosyal medyayı
+ * sayıyor, fiyat bandından hiç söz etmiyor, kurucuları sitedekinden farklı
+ * tarif ediyordu. Aynı soruyu ("Forpus ne yapar?") cevaplayan iki metin
+ * vardı ve biri kimsenin bakmadığı yerdeydi.
+ *
+ * Aşağıdaki Konum satırı ayrı bir beyan: şehir + hizmet alanı. O, iletişim
+ * sayfasındaki ifadeyle (`lib/iletisim.ts`) aynı şeyi söylüyor ve doğru.
  */
 export const dynamic = "force-static";
 
@@ -25,7 +34,9 @@ export function GET() {
 
 > Forpus, fikirleri büyüyen dijital ürünlere dönüştüren bir yazılım stüdyosudur. Web, mobil uygulama, Meta & Google reklamları, sosyal medya ve tasarım — tek çatı altında. (Forpus is a software studio that turns ideas into digital products that grow: web, mobile apps, ads, social media and design — under one roof.)
 
-Forpus Yazılım, iki mühendis kurucu (biri mobil uygulama & sistem, diğeri web & arayüz odaklı) ve birlikte çalıştığı tasarımcı, reklam ve içerik ekibinden oluşur. İstanbul, Türkiye merkezlidir ve Türkiye geneli ile yurt dışında uzaktan çalışır. Markaları uçtan uca dijitale taşır: keşif/strateji, tasarım, geliştirme, lansman ve büyüme.
+${TANIM.govde.tr}
+
+${TANIM.govde.en}
 
 ## Hizmetler (Services)
 ${dictionary.tr.services.items

@@ -17,6 +17,9 @@ import Logo from "@/components/ui/Logo";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
 
+/** Dil değiştiricinin tek kaynağı: hem rozetler hem erişilebilir ad. */
+const DILLER = ["tr", "en"] as const;
+
 export default function Nav() {
   const { t, lang, toggle } = useLang();
   const [scrolled, setScrolled] = useState(false);
@@ -56,8 +59,12 @@ export default function Nav() {
    * Hedef dil kendi dilinde yazılı ("English" / "Türkçe") — çünkü onu arayan
    * kişi o dili arıyor, Türkçe okuyamıyor olabilir.
    */
-  const langLabel = `TR EN — ${t.langToggle.switchTo}`;
-  const langBadges = (["tr", "en"] as const).map((l, i) => (
+  // Ad ile rozetler AYNI diziden türüyor. Elle yazılmış "TR EN" ile
+  // `.map` iki ayrı kaynaktı; diziye üçüncü dil eklendiği ya da sıra
+  // değiştiği gün ad ekrandakini kapsamayı bırakır ve düzeltilen WCAG
+  // 2.5.3 hatası derleyici hiçbir şey demeden geri gelirdi.
+  const langLabel = `${DILLER.map((l) => l.toUpperCase()).join(" ")} — ${t.langToggle.switchTo}`;
+  const langBadges = DILLER.map((l, i) => (
     // `Fragment` DOM'a düğüm eklemiyor: rozetler flex kabuğunun DOĞRUDAN
     // çocuğu kalıyor. Aradaki boşluk düğümü CSS'te hiçbir şey yapmıyor —
     // flex, yalnızca boşluktan oluşan metni öğe saymaz — ama metin

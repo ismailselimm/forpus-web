@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import type { ReactNode } from "react";
-import { clsx } from "clsx";
 
 const variants: Variants = {
   hidden: { opacity: 0, y: 26 },
@@ -39,7 +38,7 @@ export function Reveal({
   children,
   delay = 0,
   className,
-  as: etiket = "div",
+  as: Etiketi = "div",
 }: {
   children: ReactNode;
   delay?: number;
@@ -47,14 +46,12 @@ export function Reveal({
   as?: Etiket;
 }) {
   const reduce = useReducedMotion();
-  if (reduce) {
-    const Sade = etiket;
-    return <Sade className={className}>{children}</Sade>;
-  }
-  const Hareketli = motion[etiket];
+  if (reduce) return <Etiketi className={className}>{children}</Etiketi>;
+
+  const Hareketli = motion[Etiketi];
   return (
     <Hareketli
-      className={clsx(className)}
+      className={className}
       variants={variants}
       custom={delay}
       initial="hidden"

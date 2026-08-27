@@ -54,9 +54,13 @@ export default function IlgiliYazilar({
             <p className="mt-2 text-[0.95rem] text-ink-2">{L.yazilarLead}</p>
           </Reveal>
 
-          <div className="mt-6 divide-y divide-line border-t border-line">
+          {/* Gerçek liste: bunlar sıralı olmayan ama bir arada anlamı olan
+              öğeler ve makinenin onları liste olarak görmesi gerekiyor.
+              Daha önce `<div className="divide-y">` idi — `Reveal`ın `as`
+              alabilmesinden önce başka türlü yazılamıyordu. */}
+          <ul className="mt-6 divide-y divide-line border-t border-line">
             {yazilar.map((y, i) => (
-              <Reveal key={y.slug} delay={i * 0.05}>
+              <Reveal key={y.slug} delay={i * 0.05} as="li">
                 <Link
                   href={`/blog/${y.slug}`}
                   className="group flex items-baseline justify-between gap-6 py-4 transition-colors hover:text-ink"
@@ -66,7 +70,7 @@ export default function IlgiliYazilar({
                 </Link>
               </Reveal>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </section>
