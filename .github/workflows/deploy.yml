@@ -46,3 +46,29 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Yayın BİTTİKTEN sonra: "şu adresler değişti" bildirimi.
+      # Bing ve Yandex protokolü destekliyor; Bing indeksi Copilot'un
+      # yapay zekâ cevaplarını da besliyor. Google IndexNow kullanmıyor.
+      # `continue-on-error`: bildirim başarısız olursa yayın yeşil kalmalı —
+      # site zaten canlıda, bu yalnızca bir hızlandırıcı.
+      - name: IndexNow bildirimi
+        continue-on-error: true
+        uses: actions/checkout@v4
+      - name: IndexNow gönder
+        continue-on-error: true
+        run: |
+          curl -sS --max-time 30 -X POST https://api.indexnow.org/IndexNow \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$(node -e '
+              const https=require("https");
+              fetch("https://forpusyazilim.com/sitemap.xml").then(r=>r.text()).then(x=>{
+                const u=[...x.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
+                console.log(JSON.stringify({
+                  host:"forpusyazilim.com",
+                  key:"582a77f8b203e10e277985f95ae73b7b",
+                  keyLocation:"https://forpusyazilim.com/582a77f8b203e10e277985f95ae73b7b.txt",
+                  urlList:u
+                }));
+              });
+            ')" -w "\n  IndexNow HTTP %{http_code}\n"
