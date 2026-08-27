@@ -5,6 +5,7 @@ import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import SektorBrief from "@/components/solutions/SektorBrief";
+import YapilanIsler from "@/components/solutions/YapilanIsler";
 import Breadcrumb, { breadcrumbLd } from "@/components/ui/Breadcrumb";
 import {
   solutions,
@@ -429,6 +430,15 @@ export default function SolutionArticle({
           </div>
         </div>
       </section>
+
+      {/* Kanıt, istekten önce: formun hemen üstünde bu alanda yaptığımız
+          işler. Vaka sayfaları tek dilli olduğu için yalnız TR'de. */}
+      {lang === "tr" && (
+        <YapilanIsler
+          sektorAnahtari={solution.key}
+          sektorEtiketi={sektorEtiketi}
+        />
+      )}
 
       {/* Genel "konuşalım" bandı yerine sektöre özel brief formu. Bant,
           ziyaretçiyi ana sayfadaki boş metin kutusuna gönderiyordu; arama

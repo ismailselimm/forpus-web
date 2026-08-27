@@ -129,7 +129,7 @@ export const cases: CaseStudy[] = [
       },
       {
         title: "Fiyat şeffaflığı ve SSS",
-        body: "\"Temizlik fiyatları nasıl belirlenir\" gibi bölümler, arama motorlarından gelen bilgi amaçlı trafiği yakalıyor ve aynı zamanda müşterinin en çok takıldığı soruyu baştan yanıtlıyor.",
+        body: '"Temizlik fiyatları nasıl belirlenir" gibi bölümler, arama motorlarından gelen bilgi amaçlı trafiği yakalıyor ve aynı zamanda müşterinin en çok takıldığı soruyu baştan yanıtlıyor.',
       },
     ],
     highlight: {
@@ -140,7 +140,7 @@ export const cases: CaseStudy[] = [
       title: "Pazaryeri modeli düşünenlere",
       body: [
         "Hizmet pazaryerlerinde asıl zorluk yazılım değil, arz-talep dengesi. Kullanıcı geldiğinde bölgesinde firma yoksa bir daha gelmiyor; firma geldiğinde iş gelmiyorsa platformdan çıkıyor. Bu yüzden bölge bazlı eşleştirmenin doğruluğu, sistemin en kritik parçası oldu.",
-        "İkinci ders akışın uzunluğu. Sipariş akışındaki her adım, tamamlama oranını düşürüyor. Adres, karşılaştırma, randevu ve ödemeyi üç ekrana sığdırmak tasarım tercihi değil, zorunluluktu. Akış tasarlarken \"bu adım gerçekten gerekli mi\" sorusunu her ekran için ayrı sorun.",
+        'İkinci ders akışın uzunluğu. Sipariş akışındaki her adım, tamamlama oranını düşürüyor. Adres, karşılaştırma, randevu ve ödemeyi üç ekrana sığdırmak tasarım tercihi değil, zorunluluktu. Akış tasarlarken "bu adım gerçekten gerekli mi" sorusunu her ekran için ayrı sorun.',
         "Üçüncüsü, ürünü kuran ekiple reklamı yürüten ekibin aynı olmasının pratik faydası. Reklamdan gelen kullanıcı akışın üçüncü adımında düşüyorsa, bunu görmek ve düzeltmek iki ayrı firmayla haftalar sürebilecek bir iş; aynı ekipteyken aynı gün çözülüyor.",
       ],
     },
@@ -168,7 +168,7 @@ export const cases: CaseStudy[] = [
       },
       {
         title: "Tur kartları ve fiyata dahil olanlar",
-        body: "Boğaz turu, gün batımı turu gibi seçeneklerin ayrı ayrı anlatıldığı bölüm. \"Fiyata neler dahil\" başlığı, bu sektörde en çok sorulan soruyu baştan kapatıyor.",
+        body: 'Boğaz turu, gün batımı turu gibi seçeneklerin ayrı ayrı anlatıldığı bölüm. "Fiyata neler dahil" başlığı, bu sektörde en çok sorulan soruyu baştan kapatıyor.',
       },
       {
         title: "Tek tıkla WhatsApp rezervasyonu",
@@ -204,14 +204,14 @@ export const cases: CaseStudy[] = [
     summary:
       "Beslenme danışmanlığı için sıcak, yargılamayan ve randevuya yönlendiren bir tanıtım sitesi. Hizmet sayfaları, hesaplama araçları, blog ve WhatsApp randevu.",
     challenge: [
-      "Beslenme danışmanlığında tonun kendisi bir tasarım problemi. Danışan adayı çoğu zaman tereddütlü geliyor ve iddialı, \"şu kadar kiloyu şu sürede verin\" diyen bir dil onu yaklaştırmak yerine uzaklaştırıyor.",
+      'Beslenme danışmanlığında tonun kendisi bir tasarım problemi. Danışan adayı çoğu zaman tereddütlü geliyor ve iddialı, "şu kadar kiloyu şu sürede verin" diyen bir dil onu yaklaştırmak yerine uzaklaştırıyor.',
       "İkinci mesele, ziyaretçiyi sayfada tutmak. Bir diyetisyen sitesine giren kişi genellikle birkaç saniye bakıp çıkıyor. Ona sayfada kalmak için bir sebep vermek gerekiyordu.",
-      "Üçüncüsü doğru danışanla eşleşmek. Sporcu beslenmesi arayan biriyle klinik beslenme desteği arayan biri farklı şeyler soruyor; hepsi tek bir \"hizmetler\" listesinde kaybolursa ne danışan aradığını buluyor ne de arama motorları uzmanlık alanını anlıyor.",
+      'Üçüncüsü doğru danışanla eşleşmek. Sporcu beslenmesi arayan biriyle klinik beslenme desteği arayan biri farklı şeyler soruyor; hepsi tek bir "hizmetler" listesinde kaybolursa ne danışan aradığını buluyor ne de arama motorları uzmanlık alanını anlıyor.',
     ],
     built: [
       {
         title: "Sürdürülebilirlik vurgulu anlatım",
-        body: "Sitenin ana mesajı bilinçli olarak iddia değil düzen üzerine kuruldu: \"Diyet değil, sürdürebileceğiniz bir düzen.\" Bu tercih, tereddütlü ziyaretçinin kendini yargılanmış hissetmemesini sağlıyor.",
+        body: 'Sitenin ana mesajı bilinçli olarak iddia değil düzen üzerine kuruldu: "Diyet değil, sürdürebileceğiniz bir düzen." Bu tercih, tereddütlü ziyaretçinin kendini yargılanmış hissetmemesini sağlıyor.',
       },
       {
         title: "Altı ayrı hizmet sayfası",
@@ -232,14 +232,14 @@ export const cases: CaseStudy[] = [
     ],
     highlight: {
       title: "Araç koymak, metin yazmaktan daha çok işe yarıyor",
-      body: "Bu sitede en çok fark yaratan bölüm hesaplama araçları oldu. Ziyaretçi bir şey okumak yerine bir şey yapıyor; kendi durumunu görüyor ve o andan itibaren konuşma \"acaba gerekli mi\" olmaktan çıkıp \"nasıl ilerleriz\" oluyor.",
+      body: 'Bu sitede en çok fark yaratan bölüm hesaplama araçları oldu. Ziyaretçi bir şey okumak yerine bir şey yapıyor; kendi durumunu görüyor ve o andan itibaren konuşma "acaba gerekli mi" olmaktan çıkıp "nasıl ilerleriz" oluyor.',
     },
     takeaway: {
       title: "Danışan getiren site kurmak isteyenlere",
       body: [
-        "Sağlık ve danışmanlık alanlarında sitenin tonu, içeriğinden daha belirleyici olabiliyor. Tereddütlü bir ziyaretçi iddialı bir dil gördüğünde yaklaşmıyor. \"Şu sürede şu kadar\" vaadi yerine sürdürülebilirlik vurgusu, bu alanda çok daha iyi çalışıyor.",
-        "İkinci ders: ziyaretçiye okuyacak bir şey değil, yapacak bir şey verin. Hesaplama araçları bu sitede en çok fark yaratan bölüm oldu; ziyaretçi kendi durumunu görüyor ve konuşma \"acaba gerekli mi\"den \"nasıl ilerleriz\"e geçiyor. Bu prensip diyetisyenlik dışında da geçerli — bir hesaplayıcı, bir test, bir kontrol listesi.",
-        "Üçüncüsü uzmanlık alanlarını ayırmak. Tek bir \"hizmetler\" listesi hem ziyaretçiyi kaybettiriyor hem de arama motorlarının hangi konuda uzman olduğunuzu anlamasını engelliyor. Her alanın kendi sayfası olması, bu iki sorunu birden çözüyor.",
+        'Sağlık ve danışmanlık alanlarında sitenin tonu, içeriğinden daha belirleyici olabiliyor. Tereddütlü bir ziyaretçi iddialı bir dil gördüğünde yaklaşmıyor. "Şu sürede şu kadar" vaadi yerine sürdürülebilirlik vurgusu, bu alanda çok daha iyi çalışıyor.',
+        'İkinci ders: ziyaretçiye okuyacak bir şey değil, yapacak bir şey verin. Hesaplama araçları bu sitede en çok fark yaratan bölüm oldu; ziyaretçi kendi durumunu görüyor ve konuşma "acaba gerekli mi"den "nasıl ilerleriz"e geçiyor. Bu prensip diyetisyenlik dışında da geçerli — bir hesaplayıcı, bir test, bir kontrol listesi.',
+        'Üçüncüsü uzmanlık alanlarını ayırmak. Tek bir "hizmetler" listesi hem ziyaretçiyi kaybettiriyor hem de arama motorlarının hangi konuda uzman olduğunuzu anlamasını engelliyor. Her alanın kendi sayfası olması, bu iki sorunu birden çözüyor.',
       ],
     },
     relatedSolutions: ["diyetisyen", "psikolog"],
@@ -256,7 +256,7 @@ export const cases: CaseStudy[] = [
       "Renk ayırma ve X-Ray gıda kontrol makineleri üreten bir firma için kurumsal site. Makine kataloğu, sektörel çözümler, ürün bazlı anlatım ve teklif akışı.",
     challenge: [
       "Endüstriyel makine satışı, web sitesinin doğrudan satış yapmadığı bir alan. Kimse siteden sepete atıp makine almıyor. Sitenin işi farklı: teknik alıcının doğru makineyi bulmasını sağlamak ve firmanın ciddiyetini göstermek.",
-      "Zorluk, iki farklı okuyucuya aynı anda hitap etmek. Bir tarafta \"kuru meyvemdeki taşı ayıklamak istiyorum\" diyen üretici var; diğer tarafta modelin teknik özelliklerini karşılaştıran mühendis. İkisi aynı sayfada kaybolmamalı.",
+      'Zorluk, iki farklı okuyucuya aynı anda hitap etmek. Bir tarafta "kuru meyvemdeki taşı ayıklamak istiyorum" diyen üretici var; diğer tarafta modelin teknik özelliklerini karşılaştıran mühendis. İkisi aynı sayfada kaybolmamalı.',
       "Bir de şu var: bu makineler pahalı ve alıcı riski somut olarak hissetmeli. Tek bir yabancı maddenin bir konteyner ürünü geri getirebileceği gerçeği, teknik özelliklerden daha ikna edici bir argüman.",
     ],
     built: [
@@ -273,24 +273,24 @@ export const cases: CaseStudy[] = [
         body: "DMAX, IDS, VALOR gibi modeller kendi sayfalarında. Teknik alıcı doğrudan modele gidebiliyor, karşılaştırma yapabiliyor.",
       },
       {
-        title: "\"Dört adımda doğru makine\" akışı",
+        title: '"Dört adımda doğru makine" akışı',
         body: "Ne aradığını bilmeyen ziyaretçiyi doğru modele götüren rehberli bir yol. B2B'de en çok işe yarayan yapı, alıcıyı eğiten yapı.",
       },
       {
         title: "Satış sonrası vurgusu",
-        body: "\"Sadece makine satmıyoruz, hattınızı ayakta tutuyoruz\" bölümü. Bu fiyat segmentinde alıcının en büyük endişesi arıza anında yalnız kalmak; site bunu doğrudan karşılıyor.",
+        body: '"Sadece makine satmıyoruz, hattınızı ayakta tutuyoruz" bölümü. Bu fiyat segmentinde alıcının en büyük endişesi arıza anında yalnız kalmak; site bunu doğrudan karşılıyor.',
       },
     ],
     highlight: {
       title: "Riski somutlaştırmak, özellik saymaktan daha ikna edici",
-      body: "Sitenin en güçlü cümlesi bir teknik özellik değil: \"Tek bir yabancı madde, bir konteynerinize mal olabilir.\" B2B satışta alıcı, kazancı değil kaybı hesaplıyor. Anlatımı bu gerçeğin üzerine kurduk.",
+      body: 'Sitenin en güçlü cümlesi bir teknik özellik değil: "Tek bir yabancı madde, bir konteynerinize mal olabilir." B2B satışta alıcı, kazancı değil kaybı hesaplıyor. Anlatımı bu gerçeğin üzerine kurduk.',
     },
     takeaway: {
       title: "B2B site yaptıracaklara",
       body: [
-        "Endüstriyel satışta web sitesi doğrudan satış yapmaz; işi, doğru alıcıyı doğru ürüne götürmek ve firmanın ciddiyetini göstermektir. Bu yüzden B2B sitelerinde \"sepete ekle\" değil, \"teklif al\" akışı kurulur ve asıl yatırım ürün anlatımına yapılır.",
-        "En önemli ders: ziyaretçiyi kendi probleminden başlatın, sizin ürün kataloğunuzdan değil. \"Kuru meyvemdeki taşı ayıklamak istiyorum\" diyen üretici, model numaralarından oluşan bir listeye girdiğinde kayboluyor. Ürün bazlı giriş, teknik katalogdan çok daha iyi çalışıyor.",
-        "İkinci ders: bu fiyat segmentinde alıcı kazancı değil kaybı hesaplıyor. \"Şu özelliklere sahip\" cümlesi, \"tek bir yabancı madde bir konteynerinize mal olabilir\" cümlesi kadar ikna edici olmuyor. Riski somutlaştırmak, özellik saymaktan daha etkili.",
+        'Endüstriyel satışta web sitesi doğrudan satış yapmaz; işi, doğru alıcıyı doğru ürüne götürmek ve firmanın ciddiyetini göstermektir. Bu yüzden B2B sitelerinde "sepete ekle" değil, "teklif al" akışı kurulur ve asıl yatırım ürün anlatımına yapılır.',
+        'En önemli ders: ziyaretçiyi kendi probleminden başlatın, sizin ürün kataloğunuzdan değil. "Kuru meyvemdeki taşı ayıklamak istiyorum" diyen üretici, model numaralarından oluşan bir listeye girdiğinde kayboluyor. Ürün bazlı giriş, teknik katalogdan çok daha iyi çalışıyor.',
+        'İkinci ders: bu fiyat segmentinde alıcı kazancı değil kaybı hesaplıyor. "Şu özelliklere sahip" cümlesi, "tek bir yabancı madde bir konteynerinize mal olabilir" cümlesi kadar ikna edici olmuyor. Riski somutlaştırmak, özellik saymaktan daha etkili.',
         "Üçüncüsü satış sonrası. Pahalı ekipman alan kişinin en büyük endişesi arıza anında yalnız kalmak. Bu endişeyi sitede açıkça karşılamak, teklif alma kararını doğrudan etkiliyor.",
       ],
     },
@@ -308,7 +308,7 @@ export const cases: CaseStudy[] = [
       "Günde beş dakikalık sesli öğrenme uygulaması için tanıtım sitesi. Kategoriler, premium üyelik, blog ve mağaza yönlendirmeleri.",
     challenge: [
       "Bir mobil uygulamanın tanıtım sitesinin tek bir işi var: ziyaretçiyi indirmeye ikna etmek. Bu, kurumsal bir siteden tamamen farklı bir tasarım problemi — okutmak değil, harekete geçirmek gerekiyor.",
-      "Zorluk, uygulamanın ne yaptığını indirmeden anlatabilmek. \"Sesli öğrenme uygulaması\" cümlesi kimseyi ikna etmiyor; insanın kafasında bir kullanım anı canlanması gerekiyor.",
+      'Zorluk, uygulamanın ne yaptığını indirmeden anlatabilmek. "Sesli öğrenme uygulaması" cümlesi kimseyi ikna etmiyor; insanın kafasında bir kullanım anı canlanması gerekiyor.',
       "Ayrıca uygulamanın mağaza sayfası zaten var. Sitenin mağaza sayfasının tekrarı olmaması, ondan fazlasını yapması lazımdı.",
     ],
     built: [
@@ -318,7 +318,7 @@ export const cases: CaseStudy[] = [
       },
       {
         title: "Kullanım anını anlatan bölümler",
-        body: "\"5 dakikada akıllı içerikler\", \"sohbette anlatacak şeyler\", \"çevrimdışı dinle\" — özellik listesi değil, uygulamanın hayatta nereye oturduğunu anlatan başlıklar.",
+        body: '"5 dakikada akıllı içerikler", "sohbette anlatacak şeyler", "çevrimdışı dinle" — özellik listesi değil, uygulamanın hayatta nereye oturduğunu anlatan başlıklar.',
       },
       {
         title: "Kategori ve içerik vitrini",
@@ -342,7 +342,7 @@ export const cases: CaseStudy[] = [
       body: [
         "Bir mobil uygulamanın sitesinin en sık düştüğü tuzak, mağaza sayfasının kopyası olmak. Mağaza sayfası zaten uygulamayı tanıtıyor ve o işi sizden iyi yapıyor. Sitenin değeri, mağazada yapılamayanı yapmakta: arama motorlarından bulunmak ve uygulamayı hiç duymamış kişiye ulaşmak.",
         "Bu yüzden blog ve sözlük gibi bölümler süs değil, sitenin asıl işi. Uygulamanızın adını bilen kişi zaten mağazaya gidiyor; siteye ihtiyacı yok. Siteye ihtiyaç duyan kişi, çözdüğünüz problemi arayan ama sizi bilmeyen kişi.",
-        "İkinci ders anlatım biçimi. \"Sesli öğrenme uygulaması\" cümlesi kimseyi ikna etmiyor. Somut bir içerik başlığı göstermek veya \"sohbette anlatacak şeyler\" gibi kullanım anını tarif etmek, özellik listesinden çok daha iyi çalışıyor. İnsanlar özellik değil, kendi hayatlarında bir an satın alıyor.",
+        'İkinci ders anlatım biçimi. "Sesli öğrenme uygulaması" cümlesi kimseyi ikna etmiyor. Somut bir içerik başlığı göstermek veya "sohbette anlatacak şeyler" gibi kullanım anını tarif etmek, özellik listesinden çok daha iyi çalışıyor. İnsanlar özellik değil, kendi hayatlarında bir an satın alıyor.',
       ],
     },
     relatedSolutions: ["mobil", "kisiselmarka"],
@@ -359,7 +359,7 @@ export const cases: CaseStudy[] = [
       "Medikal estetik hekimi için kurumsal tanıtım sitesi. Uygulamaların ayrı ayrı anlatıldığı, hekimi öne çıkaran ve randevu talebine yönlendiren bir yapı.",
     challenge: [
       "Medikal estetikte tasarımın en zor işi bir dengeyi kurmak: hizmeti çekici göstermek ile tıbbi ciddiyeti korumak. Fazla ticari duran bir site güven kaybettiriyor, fazla klinik duran bir site ise ilgi çekmiyor.",
-      "İkinci mesele uygulamaların çeşitliliği. Botoks arayan kişiyle PRP arayan kişi farklı şeyler soruyor; hepsi tek bir \"hizmetlerimiz\" listesinde toplanırsa ne hasta aradığını buluyor ne de arama motorları hangi uygulamada uzmanlık olduğunu anlıyor.",
+      'İkinci mesele uygulamaların çeşitliliği. Botoks arayan kişiyle PRP arayan kişi farklı şeyler soruyor; hepsi tek bir "hizmetlerimiz" listesinde toplanırsa ne hasta aradığını buluyor ne de arama motorları hangi uygulamada uzmanlık olduğunu anlıyor.',
       "Üçüncüsü mevzuat. Sağlık hizmetlerinde tanıtım ile bilgilendirme ayrı şeyler; kampanya duyurusu, fiyat ilanı ve karşılaştırmalı üstünlük iddiası sorun yaratabiliyor. Site bu çerçeveyi gözeterek kurgulanmalıydı.",
     ],
     built: [
@@ -386,7 +386,7 @@ export const cases: CaseStudy[] = [
     ],
     highlight: {
       title: "Sağlıkta mevzuat, tasarımın parçası",
-      body: "Bu alanda \"güzel site\" yetmiyor; kampanya duyurusu veya karşılaştırmalı üstünlük iddiası gibi unsurlar hekimi zor durumda bırakabiliyor. Siteyi bu çerçeveyi bilerek kurguluyoruz — bunu bilmeyen bir ajans, riski farkında olmadan hekime bırakıyor.",
+      body: 'Bu alanda "güzel site" yetmiyor; kampanya duyurusu veya karşılaştırmalı üstünlük iddiası gibi unsurlar hekimi zor durumda bırakabiliyor. Siteyi bu çerçeveyi bilerek kurguluyoruz — bunu bilmeyen bir ajans, riski farkında olmadan hekime bırakıyor.',
     },
     takeaway: {
       title: "Sağlık alanında site yaptıracaklara",
@@ -411,13 +411,13 @@ export const cases: CaseStudy[] = [
       "Türkiye'den Balkanlara uluslararası karayolu taşımacılığı yapan bir firma için kurumsal site. Hizmetler, rotalar, filo ve teklif akışı.",
     challenge: [
       "Uluslararası nakliyede müşteri bir hizmet değil, bir güvence satın alıyor. Yükü sınırda takılmayacak, gümrükte beklemeyecek, zamanında varacak. Bu güvenceyi bir web sitesinde anlatmak, hizmet listesi yazmaktan çok farklı bir iş.",
-      "Bu sektörde herkes aynı şeyleri yazıyor: \"güvenilir\", \"hızlı\", \"müşteri odaklı\". Bu kelimeler hiçbir şey ifade etmiyor ve firmayı diğerlerinden ayırmıyor.",
+      'Bu sektörde herkes aynı şeyleri yazıyor: "güvenilir", "hızlı", "müşteri odaklı". Bu kelimeler hiçbir şey ifade etmiyor ve firmayı diğerlerinden ayırmıyor.',
       "Firmanın asıl gücü ise somut ve anlatılabilir bir şeydi: yılların getirdiği rota ve sınır kapısı deneyimi. Anlatımı bunun üzerine kurmak gerekiyordu.",
     ],
     built: [
       {
         title: "Deneyimi somutlaştıran anlatım",
-        body: "Genel geçer sıfatlar yerine gerçek detaylar: bir hat üzerinde altı ülke, yılların getirdiği sınır kapısı bilgisi, aynı yolu yıllardır bilen şoförler. Bu tür somutluk, \"güvenilir firmayız\" cümlesinden çok daha ikna edici.",
+        body: 'Genel geçer sıfatlar yerine gerçek detaylar: bir hat üzerinde altı ülke, yılların getirdiği sınır kapısı bilgisi, aynı yolu yıllardır bilen şoförler. Bu tür somutluk, "güvenilir firmayız" cümlesinden çok daha ikna edici.',
       },
       {
         title: "Hizmetlerin ayrı ayrı anlatımı",
@@ -429,7 +429,7 @@ export const cases: CaseStudy[] = [
       },
       {
         title: "Teklif akışı",
-        body: "Sitenin her yerinden ulaşılabilen teklif talebi. Lojistikte fiyat yüke göre değiştiği için akış \"fiyat gör\" değil \"teklif al\" üzerine kurgulandı.",
+        body: 'Sitenin her yerinden ulaşılabilen teklif talebi. Lojistikte fiyat yüke göre değiştiği için akış "fiyat gör" değil "teklif al" üzerine kurgulandı.',
       },
       {
         title: "7/24 operasyon vurgusu",
@@ -444,9 +444,9 @@ export const cases: CaseStudy[] = [
       title: "Lojistik ve B2B hizmet siteleri için",
       body: [
         "Bu sektörün sitelerinin çoğu birbirinin aynısı çünkü hepsi aynı sıfatları kullanıyor: güvenilir, hızlı, müşteri odaklı. Bu kelimeler hiçbir şey ifade etmiyor ve firmayı diğerlerinden ayırmıyor. Alıcı da zaten hepsinde aynı şeyi okuduğu için fiyata bakmak zorunda kalıyor.",
-        "Ayrışmanın yolu somutluk. \"Otuz yıllık deneyim\" cümlesi yerine bir hat üzerinde altı ülke, aynı yolu yıllardır bilen şoförler ve sınır kapısı deneyimi gibi detaylar yazmak — bunlar doğrulanabilir, hatırlanabilir ve rakibin kopyalayamayacağı şeyler.",
+        'Ayrışmanın yolu somutluk. "Otuz yıllık deneyim" cümlesi yerine bir hat üzerinde altı ülke, aynı yolu yıllardır bilen şoförler ve sınır kapısı deneyimi gibi detaylar yazmak — bunlar doğrulanabilir, hatırlanabilir ve rakibin kopyalayamayacağı şeyler.',
         "İkinci ders: bu tür projelerde en çok emeği tasarım değil metin istiyor. Firmanın gerçekten neyi farklı yaptığını bulmak, onu somut cümlelere çevirmekten daha zor. Ama bulunduğunda, sıradan bir tasarımla bile fark yaratıyor.",
-        "Üçüncüsü akışın doğru kurgulanması. Lojistikte fiyat yüke göre değişir; \"fiyat listesi\" göstermeye çalışmak yanlış olur. Akış \"teklif al\" üzerine kurulmalı ve her sayfadan ulaşılabilmeli.",
+        'Üçüncüsü akışın doğru kurgulanması. Lojistikte fiyat yüke göre değişir; "fiyat listesi" göstermeye çalışmak yanlış olur. Akış "teklif al" üzerine kurulmalı ve her sayfadan ulaşılabilmeli.',
       ],
     },
     relatedSolutions: ["musavir", "emlak"],
@@ -511,11 +511,30 @@ export const cases: CaseStudy[] = [
  */
 export const caseCards = cases.map((c) => {
   const project = webProjects.find((p) => p.slug === c.slug);
-  if (!project) throw new Error(`cases: "${c.slug}" lib/projects.ts içinde yok`);
+  if (!project)
+    throw new Error(`cases: "${c.slug}" lib/projects.ts içinde yok`);
   return { ...c, project };
 });
 
-export const caseCardBySlug = (slug: string) => caseCards.find((c) => c.slug === slug);
+export const caseCardBySlug = (slug: string) =>
+  caseCards.find((c) => c.slug === slug);
+
+/**
+ * Bir çözüm sayfasının gösterebileceği işler — `relatedSolutions`in TERSİ.
+ *
+ * Eşleşme zaten vaka dosyasında yazılıydı ama yalnızca tek yönde okunuyordu:
+ * vaka sayfasından çözüme gidiliyor, çözüm sayfasından vakaya gidilmiyordu.
+ * Bunun iki bedeli vardı. Aramada: dokuz vaka sayfasına yalnız /isler
+ * listesinden ve footer'dan bağlanılıyordu, yani sitenin en özgün içeriğine
+ * bağlam içinden hiç bağlantı yoktu. Ekranda: "avukat web sitesi" arayıp gelen
+ * bir avukat, o sayfada gerçekten yaptığımız bir işi göremiyordu — hemen
+ * altındaki brief formu ona bir şey soruyor ama karşılığında kanıt vermiyordu.
+ *
+ * Tek yerde türetiliyor: elle ikinci bir liste tutulsaydı ilk yeniden
+ * adlandırmada ayrışırdı.
+ */
+export const casesForSolution = (solutionKey: string) =>
+  caseCards.filter((c) => c.relatedSolutions.includes(solutionKey));
 
 export const caseUi = {
   home: "Ana Sayfa",
@@ -526,7 +545,8 @@ export const caseUi = {
   relatedTitle: "İlgili çözümler",
   otherTitle: "Diğer işler",
   ctaTitle: "Sıradaki proje sizinki olsun",
-  ctaText: "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+  ctaText:
+    "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
   ctaButton: "Ücretsiz Teklif Al",
 };
 
@@ -548,7 +568,9 @@ assertSolutionKeys("cases", cases);
   const withCase = new Set(cases.map((c) => c.slug));
   for (const p of webProjects) {
     if (!withCase.has(p.slug)) {
-      throw new Error(`cases: "${p.slug}" projesinin vaka sayfası yok (lib/cases.ts)`);
+      throw new Error(
+        `cases: "${p.slug}" projesinin vaka sayfası yok (lib/cases.ts)`,
+      );
     }
   }
 }
