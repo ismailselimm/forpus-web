@@ -28,6 +28,28 @@ export type SolutionContent = {
   // eklenmediğinde sayfa eskisi gibi çalışır. Amaç dolgu değil "bilgi
   // kazancı" — alıcının başka yerde bulamadığı fiyat, süre ve karar bilgisi.
 
+  /**
+   * KISA CEVAP — sayfanın en tepesinde duran, tek başına ayakta kalan pasaj.
+   *
+   * NEDEN: sayfalar 980 kelimeye çıkarıldı ama bilgi bölüm bölüm dağılmıştı;
+   * fiyat bir yerde, süre başka yerde, kapsam üçüncü bir yerde. Ölçüldü:
+   * ortalama paragraf 29 kelime, en uzun blok bile 60'ı geçmiyordu. Yapay
+   * zekâ aramaları bir sayfadan cümle değil PASAJ alıntılıyor — ölçülen
+   * en verimli uzunluk 134-167 kelime — ve alıntıların %44'ü sayfanın ilk
+   * %30'undan çıkıyor. Böyle bir blok sitede hiç yoktu.
+   *
+   * KURAL: tek başına okunduğunda anlamlı olmalı. "Yukarıda anlatıldığı
+   * gibi" ya da "aşağıdaki paketlerde" diye bir gönderme, pasaj sayfadan
+   * koparıldığı anda onu anlamsız kılar.
+   *
+   * ZİYARETÇİ İÇİN DE DOĞRU: aramadan gelen kişi ilk 20 saniyede kapsamı,
+   * süreyi ve fiyat bandını görüyor. Bunu bulamayan zaten geri dönüyordu.
+   *
+   * SSS'i TEKRARLAMAZ: oradaki cevaplar tek tek sorulara ait; buradaki
+   * pasaj bütünü veriyor. Aynı rakamlar geçer, aynı cümleler geçmez.
+   */
+  shortAnswer?: { title: string; body: string };
+
   /** "Şu an ne oluyor" — sektörün gerçek acısı, 2-3 paragraf. */
   problem?: { title: string; body: string[] };
 
@@ -85,6 +107,10 @@ export const solutions: Solution[] = [
       h1: "Doktor Web Sitesi",
       intro:
         "Hastalarınız sizi kliniğinizden önce Google'da arıyor. Güven veren, hızlı ve mobil uyumlu bir web sitesi, gelen hasta sayısını doğrudan etkiler. Forpus olarak hekimlere özel; randevu, hizmet ve bilgilendirme odaklı siteler tasarlıyoruz.",
+      shortAnswer: {
+        title: "Doktor web sitesi ne içerir, ne kadar tutar?",
+        body: "Doktor web sitesi, bir hekimin uzmanlık alanlarını kendi anlatımıyla açıkladığı ve hastayı randevuya yönlendirdiği kendi adresidir. Forpus'un kurduğu tipik bir hekim sitesinde her uzmanlık alanı için ayrı bir sayfa, WhatsApp veya form üzerinden randevu yönlendirmesi, hasta bilgilendirme yazıları için blog altyapısı, KVKK'ya uygun bir iletişim formu, mobil uyumlu hızlı bir tasarım ve Google Haritalar için hazırlanmış teknik SEO ayarları bulunur. Tek sayfalık bir tanıtım sitesi ₺50.000 bandında başlar ve içerikleriniz hazırsa yaklaşık bir hafta içinde yayına girer. Uzmanlıkların ayrı ayrı sayfalandığı, arama motorlarına hazırlanmış tam bir klinik sitesi ₺100.000–180.000 aralığında ve iki ila dört haftada tamamlanır. Online randevu ile hasta paneli işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz. Sağlıkta tanıtım mevzuatı gereği fiyat ilanı, kampanya duyurusu, karşılaştırmalı üstünlük iddiası ve hasta yorumu kullanılmaz; site bilgilendirme çerçevesinde kurgulanır. Alan adı ve site sizin adınıza kaydedilir, teslimden sonra içerikleri panelden kendiniz güncellersiniz. Mevcut bir siteniz varsa eski adresler yenilerine yönlendirilir ve Google'daki birikiminiz korunur.",
+      },
       benefitsTitle: "Doktor web sitesi kliniğinize ne kazandırır?",
       benefits: [
         {
@@ -310,6 +336,10 @@ export const solutions: Solution[] = [
       h1: "Diş Hekimi Web Sitesi",
       intro:
         "Hastalar bir diş hekimi seçmeden önce Google'da arıyor, yorumlara ve kliniğin sitesine bakıyor. Güven veren, tedavilerinizi net anlatan ve randevuya yönlendiren bir site, koltuğunuzu doldurur. Forpus diş hekimlerine özel; implant, ortodonti ve estetik tedavileri öne çıkaran siteler tasarlıyor.",
+      shortAnswer: {
+        title: "Diş hekimi web sitesi ne içerir, ne kadar tutar?",
+        body: "Diş hekimi web sitesi, kliniğin implant, ortodonti ve estetik gibi tedavilerini kendi anlatımıyla açıkladığı ve hastayı randevuya yönlendirdiği kendi adresidir. Forpus'un kurduğu tipik bir klinik sitesinde her tedavi için ayrı bir sayfa, hastadan yazılı rıza alınmış bir öncesi-sonrası galerisi, WhatsApp veya form üzerinden randevu yönlendirmesi, birden fazla hekim varsa kişiye özel profil sayfaları, mobil uyumlu hızlı bir tasarım ve Google Haritalar için hazırlanmış teknik SEO ayarları bulunur. Tek sayfalık bir tanıtım sitesi ₺50.000 bandında başlar ve içerikleriniz hazırsa yaklaşık bir hafta içinde yayına girer. Tedavilerin ayrı ayrı sayfalandığı tam bir klinik sitesi ₺100.000–180.000 aralığında ve iki ila dört haftada tamamlanır. Online randevu ile hasta paneli işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz. Sağlıkta tanıtım mevzuatı gereği fiyat ilanı, kampanya duyurusu ve hasta yorumu kullanılmaz. Alan adı sizin adınıza alınır, site size ait olur. Birden fazla hekim çalışıyorsa her biri için ayrı profil sayfası kurulur; hasta belirli bir hekimi arıyorsa doğrudan ona ulaşır.",
+      },
       benefitsTitle: "Diş hekimi web sitesi kliniğinize ne kazandırır?",
       benefits: [
         {
@@ -525,6 +555,10 @@ export const solutions: Solution[] = [
       h1: "Diyetisyen Web Sitesi",
       intro:
         "Danışanlar bir diyetisyen ararken önce internete bakıyor. Sıcak, güven veren ve randevuya yönlendiren bir site, danışan sayınızı artırır. Forpus diyetisyenlere özel; paket tanıtımı, online randevu ve içerik odaklı siteler tasarlıyor.",
+      shortAnswer: {
+        title: "Diyetisyen web sitesi ne içerir, ne kadar tutar?",
+        body: "Diyetisyen web sitesi, bir beslenme uzmanının yaklaşımını ve paketlerini anlattığı, danışanı doğrudan randevuya taşıdığı kendi adresidir. Forpus'un kurduğu tipik bir diyetisyen sitesinde hizmet ve paket sayfaları, online randevu ile ödeme entegrasyonu, tarif ve bilgilendirme yazıları için blog altyapısı, danışan yorumları bölümü, sosyal medya bağlantıları ve mobil uyumlu hızlı bir tasarım bulunur. Tek sayfalık bir tanıtım sitesi ₺50.000 bandında başlar ve içerikleriniz hazırsa yaklaşık bir hafta içinde yayına girer. Paketlerin ayrı ayrı anlatıldığı, arama motorlarına hazırlanmış danışan çeken bir site ₺90.000–150.000 aralığında ve iki ila dört haftada tamamlanır. Danışanın ölçümlerini, programını ve ilerlemesini takip ettiğiniz bir mobil uygulama işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz. Online danışmanlık veriyorsanız görüntülü görüşme ve ödeme akışı en baştan kurgulanır. Site ve alan adı mülkiyeti sizde kalır, içerikleri teslimden sonra kendiniz güncellersiniz. Tarif ve bilgilendirme yazıları, danışan aramalarında görünmenin en ucuz yolu; blog altyapısı bu yüzden standart gelir. Sitede ücret yazıp yazmayacağınıza birlikte karar veririz.",
+      },
       benefitsTitle: "Diyetisyen web sitesi pratiğinize ne kazandırır?",
       benefits: [
         {
@@ -746,6 +780,10 @@ export const solutions: Solution[] = [
       h1: "Psikolog Web Sitesi",
       intro:
         "Terapi arayan biri için ilk adım cesaret ister; siteniz o an güven vermeli. Sakin, profesyonel ve mahremiyete saygılı bir tasarım, danışanın size ulaşmasını kolaylaştırır. Forpus psikologlara özel, ölçülü ve güven veren siteler tasarlıyor.",
+      shortAnswer: {
+        title: "Psikolog web sitesi ne içerir, ne kadar tutar?",
+        body: "Psikolog web sitesi, bir uzmanın çalışma alanlarını ve terapi yaklaşımını anlattığı, danışanın ilk adımı atmasını kolaylaştıran kendi adresidir. Forpus'un kurduğu tipik bir psikolog sitesinde çalışma alanı ve yaklaşım sayfaları, online ya da yüz yüze seans yönlendirmesi, bilgilendirme yazıları için blog altyapısı, mahremiyeti gözeten bir iletişim formu, sade ve sakin bir tasarım ile arama görünürlüğü ayarları bulunur. Tek sayfalık bir tanıtım sitesi ₺50.000 bandında başlar ve içerikleriniz hazırsa yaklaşık bir hafta içinde yayına girer. Çalışma alanlarının ayrı ayrı sayfalandığı bir uzmanlık sitesi ₺90.000–140.000 aralığında ve iki ila dört haftada tamamlanır. Randevu ve seans paneli işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz. Tasarım bilerek dikkat çekmez: terapi arayan biri için sakinlik, gösterişten daha ikna edicidir. Alan adı ve site sizin adınıza kaydedilir, içerikleri teslimden sonra kendiniz güncellersiniz. İletişim formu bilerek az bilgi ister: ilk temasta uzun bir form doldurmak, danışanın vazgeçtiği yerdir. Meslek etiği gereği danışan yorumu yayınlanmaz.",
+      },
       benefitsTitle: "Psikolog web sitesi pratiğinize ne kazandırır?",
       benefits: [
         {
@@ -961,6 +999,10 @@ export const solutions: Solution[] = [
       h1: "Avukat Web Sitesi",
       intro:
         "Hukuki destek arayan biri güven ve yetkinlik arar. Kurumsal, ciddi ve mobil uyumlu bir web sitesi, büronuzun itibarını yansıtır ve doğru danışanı getirir. Forpus avukat ve hukuk bürolarına özel siteler tasarlıyor.",
+      shortAnswer: {
+        title: "Avukat web sitesi ne içerir, ne kadar tutar?",
+        body: "Avukat web sitesi, bir hukukçunun ya da büronun çalışma alanlarını ve deneyimini anlattığı, doğru müvekkilin kendisine ulaşmasını sağlayan kendi adresidir. Forpus'un kurduğu tipik bir büro sitesinde her çalışma alanı için ayrı bir sayfa, ekip ve özgeçmiş bölümü, makale yayınlanabilen bir bilgi bankası, randevu ve iletişim formu, kurumsal ve mobil uyumlu bir tasarım ile meslek dizinlerini de kapsayan SEO ayarları bulunur. Tek sayfalık bir tanıtım sitesi ₺50.000 bandında başlar ve içerikleriniz hazırsa yaklaşık bir hafta içinde yayına girer. Çalışma alanlarının ayrı ayrı sayfalandığı tam bir büro sitesi ₺100.000–170.000 aralığında ve iki ila dört haftada tamamlanır. Müvekkil portalı işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz. Avukatlık reklam yasağı gereği iş getirici ifade, başarı oranı ve müvekkil yorumu kullanılmaz. Alan adı ajansın değil sizin hesabınızda durur, içerikleri teslimden sonra kendiniz güncellersiniz. Makale yayınlamak, çalışma alanı aramalarında görünmenin reklam yasağına takılmayan tek yolu; bilgi bankası altyapısı bu yüzden standart gelir.",
+      },
       benefitsTitle: "Avukat web sitesi büronuza ne kazandırır?",
       benefits: [
         {
@@ -1176,6 +1218,10 @@ export const solutions: Solution[] = [
       h1: "Emlak Web Sitesi",
       intro:
         "Alıcı ve kiracılar portföyünüzü artık vitrinde değil, telefonlarında geziyor. İlanları düzenli, filtrelenebilir ve harita üzerinde sunan bir site, portföyünüzü satışa çevirir. Forpus emlak ofislerine özel portföy yönetimli siteler kuruyor.",
+      shortAnswer: {
+        title: "Emlak web sitesi ne içerir, ne kadar tutar?",
+        body: "Emlak web sitesi, bir ofisin portföyünü kendi adresinde, filtrelenebilir ve harita üzerinde gezilebilir biçimde sunduğu yerdir. Forpus'un kurduğu tipik bir emlak sitesinde ilanları kendiniz eklediğiniz bir portföy yönetim paneli, konum, fiyat ve tipe göre filtreleme, harita üzerinde ilan gösterimi, WhatsApp ile doğrudan iletişim, mobil uyumlu hızlı bir galeri ve arama motorları için SEO ayarları bulunur. Ofis tanıtımına odaklı bir site ₺60.000–100.000 aralığında ve bir ila iki haftada yayına girer. İlanların panelden yönetildiği, filtreli ve haritalı tam bir portföy sitesi ₺120.000–200.000 aralığında ve üç ila beş haftada tamamlanır. Danışmanların sahadan giriş yaptığı bir mobil uygulama işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz. Mevcut ilanlarınız varsa toplu aktarımla taşınır, tek tek yeniden girilmez. Alan adı ve site sizin adınıza kaydedilir. Satılan ilanlar silinmez, \"satıldı\" olarak arşivlenir; hem referans olur hem arama motorundaki sayfa boşa düşmez. Fotoğraflar yüklendiği boyutta değil, ekrana göre türetilmiş boyutta iner; portföy sayfası bu yüzden telefonda da hızlı açılır.",
+      },
       benefitsTitle: "Emlak web sitesi ofisinize ne kazandırır?",
       benefits: [
         {
@@ -1391,6 +1437,10 @@ export const solutions: Solution[] = [
       h1: "E-Ticaret Sitesi Kurma",
       intro:
         "Ürünlerinizi satmak için pazaryerlerinin komisyonuna mahkûm değilsiniz. Markanıza ait, hızlı ve satışa odaklı bir e-ticaret sitesi hem kârınızı hem müşteri sadakatinizi büyütür. Forpus, ödeme ve kargo entegrasyonuyla uçtan uca e-ticaret siteleri kuruyor.",
+      shortAnswer: {
+        title: "E-ticaret sitesi kurmak ne içerir, ne kadar tutar?",
+        body: "E-ticaret sitesi kurmak, ürünlerinizi pazaryeri komisyonu ödemeden kendi adresinizde sattığınız bir vitrin ve arka uç kurmak demektir. Forpus'un kurduğu tipik bir e-ticaret sitesinde varyantlı ürün kataloğu, sepet ve güvenli ödeme entegrasyonu, kargo ile fatura akışları, indirim ve kupon sistemi, mobil uyumlu hızlı bir vitrin ve Google Alışveriş'i de kapsayan SEO ayarları bulunur. Hazır bir altyapı üzerine kurulum ₺80.000–140.000 aralığında ve iki ila üç haftada yayına girer; ürün sayınız azsa ve akışınız standartsa genellikle doğru başlangıç budur. Markanıza özel tasarlanmış, kendi akışlarınıza göre kurgulanmış bir e-ticaret sitesi ₺150.000–280.000 aralığında ve dört ila yedi haftada tamamlanır. Özel yazılım, ERP ya da pazaryeri entegrasyonu gerekiyorsa ₺350.000'den başlayan bir projeden söz ediyoruz. Mevcut ürünleriniz toplu aktarımla taşınır. Ödeme altyapısı sizin şirketiniz adına açılır, para doğrudan sizin hesabınıza geçer. Mesafeli satış sözleşmesi, iptal-iade ve gizlilik metinleri teslimle birlikte hazır gelir. Reklam ölçümü kurulmadan yayına alınmaz: hangi ürünün hangi reklamdan satıldığını göremezseniz bütçe kör harcanır.",
+      },
       benefitsTitle: "Kendi e-ticaret siteniz markanıza ne kazandırır?",
       benefits: [
         {
@@ -1612,6 +1662,10 @@ export const solutions: Solution[] = [
       h1: "Restoran Web Sitesi",
       intro:
         "Misafirleriniz gelmeden önce menünüze ve mekânınıza telefonlarından bakıyor. İştah açan görseller, güncel bir dijital menü ve kolay rezervasyon, masalarınızı doldurur. Forpus restoran ve kafelere özel siteler tasarlıyor.",
+      shortAnswer: {
+        title: "Restoran web sitesi ne içerir, ne kadar tutar?",
+        body: "Restoran web sitesi, menünüzü güncel tuttuğunuz, mekânınızı gösterdiğiniz ve rezervasyon aldığınız kendi adresinizdir. Forpus'un kurduğu tipik bir restoran sitesinde kendiniz güncelleyebildiğiniz bir QR ve dijital menü, online rezervasyon formu, paket servis platformlarına yönlendirme, mekân ve yemek galerisi, harita ile çalışma saatleri ve mobil uyumlu hızlı bir tasarım bulunur. Dijital menü ve tanıtıma odaklı bir site ₺50.000–80.000 aralığında ve yaklaşık bir haftada yayına girer. Rezervasyon alan, kategorili menüsü panelden yönetilen tam bir site ₺80.000–140.000 aralığında ve iki ila üç haftada tamamlanır. Siparişin doğrudan sizden alındığı, komisyon ödemediğiniz kendi online sipariş sisteminiz işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz. Menü fiyatlarını değiştirmek için bize dönmenize gerek kalmaz. Alan adı ve site sizin adınıza kaydedilir. Menü PDF olarak değil gerçek sayfa olarak kurulur; PDF menü telefonda yavaş açılır ve Google içindeki yemek adlarını aramada kullanamaz. Birden fazla şubeniz varsa her şube kendi sayfasını, kendi haritasını ve kendi saatlerini alır. Google İşletme Profili bağlantısı teslimde kurulur.",
+      },
       benefitsTitle: "Restoran web sitesi işletmenize ne kazandırır?",
       benefits: [
         {
@@ -1827,6 +1881,10 @@ export const solutions: Solution[] = [
       h1: "Kişisel Marka Web Sitesi",
       intro:
         "Sosyal medya hesabınız sizin değil; algoritmanın. Kendi adınıza bir web sitesi, işinizi ve itibarınızı kalıcı bir yere taşır. Danışman, eğitmen, koç veya içerik üreticisi olun; Forpus size özel, sizi anlatan siteler tasarlıyor.",
+      shortAnswer: {
+        title: "Kişisel marka web sitesi ne içerir, ne kadar tutar?",
+        body: "Kişisel marka web sitesi, danışman, eğitmen, koç ya da içerik üreticisinin işini algoritmaya bağlı olmayan kendi adresine taşımasıdır. Forpus'un kurduğu tipik bir kişisel marka sitesinde hakkımda ve portfolyo bölümü, hizmet ile paket sayfaları, blog veya içerik altyapısı, bülten ve e-posta listesi toplama, sosyal medya entegrasyonu ve kişiye özel mobil uyumlu bir tasarım bulunur. Tek sayfalık bir kişisel site ₺50.000–80.000 aralığında ve yaklaşık bir haftada yayına girer. Hizmetlerin ayrı ayrı sayfalandığı, içerik üretimine hazır bir marka sitesi ₺80.000–130.000 aralığında ve iki ila üç haftada tamamlanır. Üyelik ya da kurs satışı işin içine girdiğinde ₺180.000'den başlayan bir projeden söz ediyoruz. En kritik parça bülten listesi: takipçi platformun, e-posta listesi sizindir. Alan adı kendi adınıza kaydedilir ve size ait olur; ajansın hesabında duran bir alan adı, ilişki bittiği gün sorun olur. İçerikleri teslimden sonra kendiniz eklersiniz. Blog yazmak zorunlu değil: yazmayacaksanız o bölüm hiç kurulmaz, sayfa boş bir bekleme alanıyla kalmaz.",
+      },
       benefitsTitle: "Kişisel marka siteniz size ne kazandırır?",
       benefits: [
         {
@@ -2042,6 +2100,10 @@ export const solutions: Solution[] = [
       h1: "Kuaför & Berber Web Sitesi",
       intro:
         "Müşteriniz yeni bir kuaför ararken telefonuna bakıyor: yorumlar, fotoğraflar ve 'randevu al'. Şık bir vitrin ve tek tıkla online randevu, koltuklarınızı boş bırakmaz. Forpus kuaför, berber ve güzellik salonlarına özel siteler tasarlıyor.",
+      shortAnswer: {
+        title: "Kuaför web sitesi ne içerir, ne kadar tutar?",
+        body: "Kuaför ve berber web sitesi, salonunuzu gösterdiğiniz, fiyat listenizi yayınladığınız ve tek tıkla randevu aldığınız kendi adresinizdir. Forpus'un kurduğu tipik bir salon sitesinde online randevu ile WhatsApp entegrasyonu, kendiniz güncelleyebildiğiniz hizmet ve fiyat listesi, model ile mekân galerisi, stilist tanıtımları, Google harita bağlantısı ve çalışma saatleri, mobil uyumlu hızlı bir tasarım bulunur. Salon tanıtımına odaklı bir site ₺50.000–80.000 aralığında ve yaklaşık bir haftada yayına girer. Randevunun siteden alındığı, hizmetlerin ayrı ayrı listelendiği tam bir site ₺80.000–130.000 aralığında ve iki ila üç haftada tamamlanır. Salon takvimine bağlı bir randevu sistemi ve mobil uygulama işin içine girdiğinde ₺180.000'den başlayan bir projeden söz ediyoruz. Instagram'ınız kalır; site aramadan gelen müşteriyi karşılar. Alan adı ve site sizin adınıza kaydedilir, fiyat listesini panelden kendiniz güncellersiniz. Galeriye stok fotoğraf konmaz, kendi işleriniz kullanılır; müşteri geldiğinde gördüğüyle karşılaştığının aynı olmasını ister. Google İşletme Profili bağlantısı teslimde kurulur — salon aramalarının çoğu haritadan geliyor.",
+      },
       benefitsTitle: "Kuaför web sitesi salonunuza ne kazandırır?",
       benefits: [
         {
@@ -2257,6 +2319,10 @@ export const solutions: Solution[] = [
       h1: "Güzellik & Estetik Merkezi Web Sitesi",
       intro:
         "Estetik ve bakım hizmetlerinde güven her şeydir. Sonuçlarınızı gösteren şık bir site ve kolay randevu, tereddüt eden müşteriyi karar aşamasına taşır. Forpus güzellik, cilt bakımı ve lazer merkezlerine özel siteler tasarlıyor.",
+      shortAnswer: {
+        title: "Güzellik merkezi web sitesi ne içerir, ne kadar tutar?",
+        body: "Güzellik ve estetik merkezi web sitesi, hizmetlerinizi anlattığınız, sonuçlarınızı gösterdiğiniz ve randevu aldığınız kendi adresinizdir. Forpus'un kurduğu tipik bir merkez sitesinde hizmet ve paket sayfaları, izne bağlı bir öncesi-sonrası galerisi, online randevu ile WhatsApp yönlendirmesi, kampanya bölümü, Google harita ve yorum bağlantıları, mobil uyumlu hızlı bir tasarım bulunur. Tanıtıma odaklı bir site ₺50.000–85.000 aralığında ve bir ila iki haftada yayına girer. Her hizmetin ayrı sayfalandığı, arama motorlarına hazırlanmış tam bir merkez sitesi ₺90.000–160.000 aralığında ve iki ila dört haftada tamamlanır. Randevu sistemi ve mobil uygulama işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz. Tıbbi işlem sunuyorsanız öncesi-sonrası görselleri yazılı rıza ve sağlıkta tanıtım mevzuatı çerçevesinde kurgulanır. Site ve alan adı mülkiyeti sizde kalır, kampanya ve içerikleri panelden kendiniz güncellersiniz. Her işlem için ayrı sayfa açılır: lazer epilasyon arayan biriyle cilt bakımı arayan biri aynı sayfaya inmemeli. Google İşletme Profili bağlantısı teslimde kurulur; merkez aramalarının çoğu haritadan geliyor.",
+      },
       benefitsTitle: "Güzellik merkezi web sitesi işletmenize ne kazandırır?",
       benefits: [
         {
@@ -2478,6 +2544,10 @@ export const solutions: Solution[] = [
       h1: "Veteriner Klinik Web Sitesi",
       intro:
         "Dostlarının sağlığı söz konusu olunca sahipler aceleyle en yakın ve en güvenilir kliniği arıyor. Sıcak, güven veren ve randevuya yönlendiren bir site, kliniğinizi öne çıkarır. Forpus veteriner kliniklerine özel siteler tasarlıyor.",
+      shortAnswer: {
+        title: "Veteriner klinik web sitesi ne içerir, ne kadar tutar?",
+        body: "Veteriner klinik web sitesi, hizmetlerinizi anlattığınız, nöbet ve acil bilgisini duyurduğunuz ve randevu aldığınız kendi adresinizdir. Forpus'un kurduğu tipik bir klinik sitesinde aşı, cerrahi ve check-up gibi hizmetler için ayrı sayfalar, online randevu ile WhatsApp yönlendirmesi, ilk ekranda görünen acil iletişim ve nöbet bilgisi, ekip ile klinik tanıtımı, Google harita bağlantısı ve çalışma saatleri, mobil uyumlu hızlı bir tasarım bulunur. Klinik tanıtımına odaklı bir site ₺50.000–85.000 aralığında ve bir ila iki haftada yayına girer. Randevunun siteden alındığı, hizmetlerin ayrı ayrı anlatıldığı tam bir klinik sitesi ₺90.000–150.000 aralığında ve iki ila dört haftada tamamlanır. Randevu ve hasta kayıt sistemi işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz. Acil arayan sahip için en kritik bilgi telefondur; ilk ekrana konur. Alan adı ve site sizin adınıza kaydedilir; çalışma saatlerini ve nöbet günlerini panelden kendiniz güncellersiniz. Google İşletme Profili bağlantısı teslimde kurulur — \"en yakın veteriner\" aramalarının neredeyse tamamı haritadan geliyor.",
+      },
       benefitsTitle: "Veteriner web sitesi kliniğinize ne kazandırır?",
       benefits: [
         {
@@ -2693,6 +2763,10 @@ export const solutions: Solution[] = [
       h1: "Mimar & İç Mimar Web Sitesi",
       intro:
         "Sizin işiniz görsel; siteniz de öyle olmalı. Projelerinizi büyük, etkileyici görsellerle sunan bir portfolyo sitesi, potansiyel müşteride 'bununla çalışmalıyım' hissi yaratır. Forpus mimar ve iç mimarlara özel portfolyo siteleri tasarlıyor.",
+      shortAnswer: {
+        title: "Mimar web sitesi ne içerir, ne kadar tutar?",
+        body: "Mimar ve iç mimar web sitesi, projelerinizi hak ettikleri ölçekte gösterdiğiniz ve teklif talebine dönüştürdüğünüz kendi adresinizdir. Forpus'un kurduğu tipik bir portfolyo sitesinde kendiniz proje ekleyebildiğiniz bir galeri, her proje için ayrı detay sayfası, hizmet ve çalışma süreci anlatımı, hakkımda ya da ekip bölümü, teklif formu ve mobil uyumlu hızlı bir galeri bulunur. Portfolyoya odaklı bir site ₺60.000–100.000 aralığında ve bir ila iki haftada yayına girer. Hizmetlerin ve sürecin ayrı ayrı anlatıldığı tam bir büro sitesi ₺110.000–190.000 aralığında ve üç ila beş haftada tamamlanır. Özel geçiş efektleri ya da 3D gezinme işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz. Yüksek çözünürlüklü render'lar siteyi yavaşlatmaz: her görselin ekran boyutuna göre türevleri üretilir. Alan adı ve site sizin adınıza kaydedilir, yeni projeleri panelden kendiniz eklersiniz. Her projenin ayrı bir detay sayfası olur; tek bir galeri ızgarası projenin hikâyesini ve ölçeğini anlatamaz. Tasarım bilerek sakin kalır, işin önüne geçmez.",
+      },
       benefitsTitle: "Portfolyo siteniz büronuza ne kazandırır?",
       benefits: [
         {
@@ -2908,6 +2982,10 @@ export const solutions: Solution[] = [
       h1: "Mali Müşavir Web Sitesi",
       intro:
         "İşletmeler muhasebelerini emanet edecekleri kişide güven ve ciddiyet arar. Kurumsal, net ve profesyonel bir web sitesi, ofisinizin güvenilirliğini yansıtır ve yeni mükellef getirir. Forpus mali müşavir ve muhasebe ofislerine özel siteler tasarlıyor.",
+      shortAnswer: {
+        title: "Mali müşavir web sitesi ne içerir, ne kadar tutar?",
+        body: "Mali müşavir web sitesi, ofisinizin hizmetlerini ve deneyimini anlattığınız, yeni mükellefin size ulaştığı kendi adresinizdir. Forpus'un kurduğu tipik bir ofis sitesinde kuruluş, danışmanlık ve beyanname gibi hizmetler için ayrı sayfalar, sektörel çözümler bölümü, ekip ve özgeçmiş sayfaları, randevu ile iletişim formu, kurumsal ve mobil uyumlu bir tasarım ile yerel aramaları kapsayan SEO ayarları bulunur. Tanıtıma odaklı bir site ₺50.000–85.000 aralığında ve bir ila iki haftada yayına girer. Hizmetlerin ayrı ayrı sayfalandığı, mevzuat yazıları yayınlanabilen kurumsal bir ofis sitesi ₺90.000–160.000 aralığında ve iki ila dört haftada tamamlanır. Mükellefin belge yüklediği bir portal işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz. Meslek mevzuatı gereği ücret ilanı ve iş getirici ifade kullanılmaz. Alan adı ajansın değil sizin hesabınızda durur, içerikleri teslimden sonra kendiniz güncellersiniz. Mükellef tipine göre ayrım yapılır: şahıs şirketi kuran biriyle e-dönüşüme geçen bir limited şirket aynı sayfaya inmemeli. Beyanname takvimi gibi tekrar eden içerikler, yılda birkaç kez aynı aramaları getirir.",
+      },
       benefitsTitle: "Mali müşavir web sitesi ofisinize ne kazandırır?",
       benefits: [
         {
@@ -3123,6 +3201,10 @@ export const solutions: Solution[] = [
       h1: "Fotoğrafçı Web Sitesi",
       intro:
         "İşiniz kareleri konuşuyor; siteniz de onları hak ettiği gibi göstermeli. Tam ekran, hızlı ve şık bir portfolyo, ziyaretçiyi hayran bırakır ve rezervasyona taşır. Forpus düğün, bebek ve etkinlik fotoğrafçılarına özel siteler tasarlıyor.",
+      shortAnswer: {
+        title: "Fotoğrafçı web sitesi ne içerir, ne kadar tutar?",
+        body: "Fotoğrafçı web sitesi, işlerinizi tam ekran gösterdiğiniz ve rezervasyona dönüştürdüğünüz kendi adresinizdir. Forpus'un kurduğu tipik bir fotoğrafçı sitesinde düğün, bebek ya da etkinlik gibi kategorilere ayrılmış galeriler, paket ve fiyat sayfaları, rezervasyon formu, müşteri yorumları, Instagram entegrasyonu ve mobil uyumlu hızlı bir galeri bulunur. Portfolyoya odaklı bir site ₺50.000–85.000 aralığında ve bir ila iki haftada yayına girer. Paketlerin anlatıldığı, rezervasyonun siteden alındığı tam bir site ₺85.000–150.000 aralığında ve iki ila dört haftada tamamlanır. Çekim sonrası müşterinin parolayla girip seçim yaptığı ve dosyaları indirdiği bir teslim sistemi işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz. Yüksek çözünürlüklü kareler siteyi yavaşlatmaz: her görselin ekran boyutuna göre türevleri üretilir. Alan adı ve site sizin adınıza kaydedilir, yeni serileri panelden kendiniz eklersiniz. Kareleriniz sağ tık ve sürüklemeye karşı korunur, istenirse filigranlı önizlemeyle sunulur. Fiyat ve müsaitlik yazıp yazmayacağınıza birlikte karar veririz: yazmak teklif trafiğini azaltır, gelen talebi niteliklendirir.",
+      },
       benefitsTitle: "Portfolyo siteniz işinize ne kazandırır?",
       benefits: [
         {
@@ -3338,6 +3420,10 @@ export const solutions: Solution[] = [
       h1: "Spor Salonu & PT Web Sitesi",
       intro:
         "Yeni üyeler bir salon seçmeden önce ortamı, hocaları ve fiyatları internetten inceliyor. Enerjik, net ve üyeliğe yönlendiren bir site, deneme dersini üyeliğe çevirir. Forpus spor salonları ve personal trainer'lara özel siteler tasarlıyor.",
+      shortAnswer: {
+        title: "Spor salonu web sitesi ne içerir, ne kadar tutar?",
+        body: "Spor salonu ve personal trainer web sitesi, ortamınızı, ders programınızı ve üyelik paketlerinizi gösterdiğiniz, deneme dersini üyeliğe çevirdiğiniz kendi adresinizdir. Forpus'un kurduğu tipik bir salon sitesinde üyelik ve paket sayfaları, haftalık ders programı ya da takvim, antrenör tanıtımları, deneme dersi formu, salon galerisi ile çalışma saatleri ve mobil uyumlu hızlı bir tasarım bulunur. Tanıtıma odaklı bir site ₺50.000–85.000 aralığında ve bir ila iki haftada yayına girer. Programın panelden güncellendiği, paketlerin ayrı ayrı anlatıldığı tam bir salon sitesi ₺90.000–150.000 aralığında ve iki ila dört haftada tamamlanır. Online üyelik satışı ve ders rezervasyonu işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz. Ders programını değiştirmek için bize dönmenize gerek kalmaz. Alan adı ve site sizin adınıza kaydedilir. Galeriye stok fotoğraf konmaz, kendi salonunuz çekilir; üye olacak kişi gerçekten gireceği yeri görmek ister. Deneme dersi daveti her sayfada tek ve net bir düğme olarak durur. Google İşletme Profili bağlantısı teslimde kurulur.",
+      },
       benefitsTitle: "Spor salonu web sitesi işletmenize ne kazandırır?",
       benefits: [
         {
@@ -3553,6 +3639,10 @@ export const solutions: Solution[] = [
       h1: "Mobil Uygulama Geliştirme",
       intro:
         "İyi bir fikir, kullanıcının cebinde yaşadığında değer kazanır. iOS ve Android için tek kod tabanıyla hızlı, akıcı uygulamalar geliştiriyoruz; tasarımdan mağaza yayınına kadar her adımı üstleniyoruz. DoldurKabı ve Temizlik Express gibi gerçek ürünleri hayata geçirdik.",
+      shortAnswer: {
+        title: "Mobil uygulama yaptırmak ne içerir, ne kadar tutar?",
+        body: "Mobil uygulama geliştirme, bir fikrin tasarımdan mağaza yayınına kadar iOS ve Android'de çalışır hale getirilmesidir. Forpus tek kod tabanıyla çalışır: iki platform için ayrı ekip kurulmaz, bu yüzden ayrı ayrı ödemezsiniz. Tipik bir projede UI/UX tasarımı ve tıklanabilir prototip, iOS ile Android geliştirme, içeriği yönettiğiniz bir panel ve kullanıcı sistemi, bildirim, ödeme ve harita entegrasyonları, App Store ile Google Play yayını, yayın sonrası bakım bulunur. İlk sürüm — yani fikri doğrulayacak kadar özellik taşıyan bir MVP — ₺250.000–400.000 aralığında ve altı ila on haftada mağazaya çıkar. Tam kapsamlı bir uygulama ₺450.000–800.000 aralığında ve üç ila beş ayda tamamlanır. Uzun soluklu bir platform kuruyorsanız ₺800.000'den başlayan bir projeden söz ediyoruz. Mağaza hesapları sizin adınıza açılır; uygulama sizin mülkünüz olur. Kaynak kod size teslim edilir; uygulamayı başka bir ekiple sürdürmek isterseniz elinizde her şey olur. İlk sürümde neyin OLMADIĞI da yazılı olarak kararlaştırılır — kapsamın yol boyunca büyümesi, mobil projelerde gecikmenin bir numaralı sebebidir.",
+      },
       benefitsTitle: "Mobil uygulama işinize ne kazandırır?",
       benefits: [
         {

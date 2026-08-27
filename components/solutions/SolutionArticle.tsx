@@ -68,7 +68,11 @@ export default function SolutionArticle({
         "@type": "Service",
         dateModified: SOLUTIONS_LASTMOD,
         name: c.h1,
-        description: c.metaDescription,
+        // `metaDescription` arama sonucunda görünsün diye 155 karaktere
+        // sığdırılmış bir davet cümlesi; hizmetin TARİFİ değil. Kısa cevap
+        // ise tam da o: kapsam, süre ve fiyat bandı tek pasajda. Varsa onu
+        // veriyoruz — makinenin okuduğu açıklama, insanın okuduğuyla aynı olsun.
+        description: c.shortAnswer?.body ?? c.metaDescription,
         url,
         serviceType: c.h1,
         areaServed: lang === "tr" ? "TR" : ["TR", "Worldwide"],
@@ -147,6 +151,42 @@ export default function SolutionArticle({
           </div>
         </div>
       </section>
+
+      {/* ── Kısa cevap ───────────────────────────────────── */}
+      {/*
+        Sayfanın ilk ekranından hemen sonra, her şeyden önce. Konum tesadüf
+        değil: yapay zekâ aramalarında alıntıların %44'ü sayfanın ilk %30'undan
+        çıkıyor, ve buradan aşağısı zaten uzun. Aramadan gelen kişi de kapsamı,
+        süreyi ve fiyatı ilk 20 saniyede görüyor.
+
+        Kutu değil: başlık bir SORU, altında tek bir paragraf. Etiketli bir
+        "özet kutusu" okuyucuya "burayı atla" der; sorusu sorulmuş bir cevap
+        okutur. Soldaki ince marka çizgisi, süreç zaman çizelgesindeki aynı
+        `--grad-brand` — yeni bir görsel dil değil, evin kendi dili.
+      */}
+      {c.shortAnswer && (
+        <section className="section !pb-0">
+          <div className="container-x">
+            <div className="mx-auto max-w-3xl">
+              <Reveal>
+                <div className="relative pl-6 sm:pl-8">
+                  <span
+                    aria-hidden
+                    className="absolute inset-y-1 left-0 w-[3px] rounded-full"
+                    style={{ background: "var(--grad-brand)" }}
+                  />
+                  <h2 className="font-display text-[1.35rem] font-bold tracking-tight text-balance text-ink sm:text-[1.5rem]">
+                    {c.shortAnswer.title}
+                  </h2>
+                  <p className="mt-4 text-[1.02rem] leading-[1.75] text-ink-2">
+                    {c.shortAnswer.body}
+                  </p>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── Problem ──────────────────────────────────────── */}
       {c.problem && (

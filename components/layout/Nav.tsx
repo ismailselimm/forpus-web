@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
@@ -37,35 +37,43 @@ export default function Nav() {
   const langSwitchCls =
     "flex h-9 items-center gap-1 rounded-full border border-line bg-white/60 px-1 text-xs font-semibold";
   /**
-   * "TR | EN" rozetleri — GÖRÜNÜR DURUM GÖSTERGESİ, okunacak metin değil.
+   * "TR EN" rozetleri ve denetimin erişilebilir adı.
    *
-   * `aria-hidden`: düğmenin erişilebilir adı "English" iken ekranda "TREN"
-   * yazıyordu. Lighthouse bunu `label-content-name-mismatch` diye işaretledi
-   * ve haklıydı — kural WCAG 2.5.3'ten geliyor, asıl mağduru da SESLE
-   * KOMUT VEREN kullanıcı: ekranda gördüğünü söylüyor ("TR EN'e bas"),
-   * tarayıcı o adda bir denetim bulamıyor.
+   * SORUN: ad "English" iken ekranda "TR EN" yazıyordu. WCAG 2.5.3 (Label in
+   * Name) bunu yasaklıyor ve kuralın asıl mağduru SESLE KOMUT VEREN kullanıcı:
+   * ekranda gördüğünü söylüyor ("TR EN'e bas"), tarayıcı o adda bir denetim
+   * bulamıyor ve hiçbir şey olmuyor.
    *
-   * Hangisinin etkin olduğu bilgisi kaybolmuyor: sayfanın dili zaten
-   * `<html lang>` üzerinden yardımcı teknolojiye bildiriliyor. Rozetler o
-   * bilginin yalnızca görsel kopyası; adı taşıyan `aria-label` kalıyor ve
-   * hedef dilin kendi dilinde yazılı ("English" / "Türkçe"), çünkü onu
-   * arayan kişi o dili arıyor.
+   * Denenip terk edilen yol: rozetleri `aria-hidden` yapmak. Lighthouse'a
+   * canlıda tekrar sordurunca denetim hâlâ düşüyordu — axe "görünür metin"i
+   * hesaplarken `aria-hidden`a bakmıyor, ekranda duran metni okuyor. Üstelik
+   * o yol, hangi dilin etkin olduğu bilgisini ekran okuyucudan gizliyordu.
+   *
+   * ÇÖZÜM: ad, ekranda yazanı KAPSIYOR — "TR EN — English". Rozetlerin arasına
+   * gerçek bir boşluk düğümü konuyor; `gap-1` yalnızca görsel aralık veriyor,
+   * metin düğümü üretmiyordu ve iki rozet "TREN" diye tek kelimeye yapışıyordu.
+   *
+   * Hedef dil kendi dilinde yazılı ("English" / "Türkçe") — çünkü onu arayan
+   * kişi o dili arıyor, Türkçe okuyamıyor olabilir.
    */
-  const langBadges = (
-    <span aria-hidden="true" className="contents">
-      {(["tr", "en"] as const).map((l) => (
-        <span
-          key={l}
-          className={clsx(
-            "rounded-full px-2 py-1 transition-all",
-            lang === l ? "bg-ink text-white" : "text-ink-3",
-          )}
-        >
-          {l.toUpperCase()}
-        </span>
-      ))}
-    </span>
-  );
+  const langLabel = `TR EN — ${t.langToggle.switchTo}`;
+  const langBadges = (["tr", "en"] as const).map((l, i) => (
+    // `Fragment` DOM'a düğüm eklemiyor: rozetler flex kabuğunun DOĞRUDAN
+    // çocuğu kalıyor. Aradaki boşluk düğümü CSS'te hiçbir şey yapmıyor —
+    // flex, yalnızca boşluktan oluşan metni öğe saymaz — ama metin
+    // çıkarımında "TREN"i "TR EN" yapıyor. Görünüm değişmiyor, ad eşleşiyor.
+    <Fragment key={l}>
+      {i > 0 && " "}
+      <span
+        className={clsx(
+          "rounded-full px-2 py-1 transition-all",
+          lang === l ? "bg-ink text-white" : "text-ink-3",
+        )}
+      >
+        {l.toUpperCase()}
+      </span>
+    </Fragment>
+  ));
   // "#services" gibi bölüm bağlantıları ana sayfa dışındayken "/#services" olmalı.
   // "/blog", "/isler" gibi gerçek yollar olduğu gibi kalır.
   const to = (href: string) =>
@@ -159,7 +167,7 @@ export default function Nav() {
                 (otherLangHref ? (
                   <Link
                     href={otherLangHref}
-                    aria-label={t.langToggle.switchTo}
+                    aria-label={langLabel}
                     className={langSwitchCls}
                   >
                     {langBadges}
@@ -167,7 +175,7 @@ export default function Nav() {
                 ) : (
                   <button
                     onClick={toggle}
-                    aria-label={t.langToggle.switchTo}
+                    aria-label={langLabel}
                     className={langSwitchCls}
                   >
                     {langBadges}
