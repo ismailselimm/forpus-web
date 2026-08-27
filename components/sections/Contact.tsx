@@ -3,7 +3,7 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import Link from "next/link";
 
-import { iziOzetle, kaynakIzi } from "@/lib/kaynak-izi";
+import { leadGonder } from "@/lib/lead-gonder";
 import {
   Mail,
   MapPin,
@@ -18,7 +18,11 @@ import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
-import { PRESET_SERVICE_EVENT, SERVICE_KEYS, type ServiceKey } from "@/lib/services";
+import {
+  PRESET_SERVICE_EVENT,
+  SERVICE_KEYS,
+  type ServiceKey,
+} from "@/lib/services";
 
 type InfoRow = {
   icon: LucideIcon;
@@ -30,58 +34,6 @@ type InfoRow = {
 const FIELD_CLASS =
   "w-full rounded-xl border border-line bg-white px-4 py-3 text-ink placeholder:text-ink-3 transition-shadow focus:outline-none focus:ring-2 focus:ring-cyan/40";
 
-// Web3Forms erişim anahtarı — GİZLİ DEĞİLDİR, istemci tarafında açık olması normaldir
-// (e-posta adresinin takma adı gibi çalışır). web3forms.com'dan ücretsiz alınır.
-const WEB3FORMS_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "162a3e34-5c74-4476-8ade-fd9e540e92fd";
-
-// Lead paneli — form buraya da kayıt düşer.
-//
-// Web3Forms BİRİNCİL kanal olarak kalıyor ve dokunulmadı: panel çökse, sunucu
-// yeniden başlasa veya DNS bir sorun yaşasa bile mesaj e-posta olarak ulaşır.
-// Panel çağrısı "gönder ve unut" — başarısız olursa kullanıcı hiçbir şey
-// görmez, form yine başarıyla tamamlanır. Lead kaybetmek, panele kaydetmemekten
-// çok daha pahalı.
-const PANEL_INTAKE_URL =
-  process.env.NEXT_PUBLIC_PANEL_INTAKE_URL ?? "https://panel.forpusyazilim.com/api/intake/site";
-
-/** Panele kaydı düşer. Hata fırlatmaz — form akışını hiçbir koşulda bozmaz. */
-function panelKaydiGonder(veri: {
-  name: string;
-  email: string;
-  company: string;
-  service: string;
-  message: string;
-}): void {
-  // Seçilen hizmet mesajın başına yazılıyor: panelde ilk bakışta hangi hattın
-  // sorulduğu görünsün (web mi, reklam mı) — triyajın en çok işe yarayan bilgisi.
-  const govde = veri.service ? `İlgilendiği hizmet: ${veri.service}\n\n${veri.message}` : veri.message;
-
-  // Ziyaretin kaynak izi. Panel bu alanları henüz tanımıyor olabilir —
-  // tanımıyorsa zod bilinmeyen anahtarları düşürüyor, istek yine geçiyor.
-  // Bu yüzden site tarafını önce yayına almak güvenli.
-  const iz = kaynakIzi();
-  const izOzeti = iziOzetle(iz);
-
-  void fetch(PANEL_INTAKE_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      name: veri.name,
-      email: veri.email,
-      company: veri.company || undefined,
-      // Özet mesaja da yazılıyor: yapısal alanlar bir yerde bozulsa bile
-      // atıf bilgisi lead'in gövdesinde kalıyor.
-      message: izOzeti ? `${govde}\n\n— geldiği yer: ${izOzeti}` : govde,
-      iz,
-    }),
-    // Sekme kapansa bile isteğin tamamlanma şansı olsun.
-    keepalive: true,
-  }).catch(() => {
-    /* panel erişilemezse sessiz geç — Web3Forms zaten mesajı iletti */
-  });
-}
-
 export default function Contact() {
   const { t } = useLang();
   const c = t.contact;
@@ -91,7 +43,9 @@ export default function Contact() {
   const [company, setCompany] = useState("");
   const [service, setService] = useState(c.form.serviceOptions[0]);
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
   // Persona cards deep-link here: preselect the matching "Hizmet" so the form arrives half-filled.
   useEffect(() => {
@@ -124,55 +78,32 @@ export default function Contact() {
     if (!name.trim() || !email.trim() || !message.trim()) return;
 
     // Honeypot: gerçek kullanıcı bu alanı görmez/doldurmaz; bot doldurursa sessizce iptal
-    const honeypot = (e.currentTarget.elements.namedItem("botcheck") as HTMLInputElement | null)?.checked;
+    const honeypot = (
+      e.currentTarget.elements.namedItem("botcheck") as HTMLInputElement | null
+    )?.checked;
     if (honeypot) return;
 
     setStatus("sending");
 
-    // Panele ÖNCE ve Web3Forms'tan BAĞIMSIZ gönderiyoruz. Başarı dalının içine
-    // koymak yanlıştı: Web3Forms bir sebeple hata verdiğinde (ağ, geçici kesinti,
-    // bot filtresi) lead panele hiç düşmüyordu — oysa panel bizim sistemimiz ve
-    // kaydı en çok orada tutmak istiyoruz. İkisi artık paralel gidiyor.
-    panelKaydiGonder({
-      name: name.trim(),
-      email: email.trim(),
-      company: company.trim(),
-      service,
-      message: message.trim(),
+    // Gönderim `lib/lead-gonder.ts`te: sektör brief formu da aynı iki kanala
+    // yazıyor ve ayrı ayrı yazıldığında birinde düzeltilenin diğerinde
+    // kalması an meselesiydi.
+    const basarili = await leadGonder({
+      ad: name.trim(),
+      eposta: email.trim(),
+      firma: company.trim(),
+      hizmet: service,
+      mesaj: message.trim(),
     });
 
-    try {
-      // FormData (multipart) → "basit istek", CORS preflight yok → en sağlam yöntem
-      const fd = new FormData();
-      fd.append("access_key", WEB3FORMS_KEY);
-      fd.append("subject", `Forpus — Yeni mesaj: ${name.trim()}`);
-      fd.append("from_name", name.trim());
-      fd.append("replyto", email.trim());
-      // Alan adları BİLEREK ASCII: Web3Forms multipart alan İSİMLERİNDEKİ Türkçe
-      // karakterleri bozuyor (ş→Åž). i18n etiketleriyle (c.form.*) değiştirmeyin —
-      // bunlar dilden bağımsız, sabit kalmalı. (Değerler UTF-8, sorunsuz.)
-      fd.append("Ad", name.trim());
-      fd.append("E-posta", email.trim());
-      fd.append("Firma / Marka", company.trim() || "-");
-      fd.append("Hizmet", service);
-      fd.append("Mesaj", message.trim());
-
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: fd,
-      });
-      const data = (await res.json()) as { success?: boolean };
-      if (res.ok && data.success) {
-        setStatus("success");
-        setName("");
-        setEmail("");
-        setCompany("");
-        setService(c.form.serviceOptions[0]);
-        setMessage("");
-      } else {
-        setStatus("error");
-      }
-    } catch {
+    if (basarili) {
+      setStatus("success");
+      setName("");
+      setEmail("");
+      setCompany("");
+      setService(c.form.serviceOptions[0]);
+      setMessage("");
+    } else {
       setStatus("error");
     }
   };
@@ -180,13 +111,26 @@ export default function Contact() {
   const SubmitIcon = status === "sending" ? Loader2 : ArrowUpRight;
   const notice =
     status === "success"
-      ? { role: "status" as const, Icon: CheckCircle2, cls: "border-green/30 bg-green/5 text-green-deep", msg: c.form.success }
+      ? {
+          role: "status" as const,
+          Icon: CheckCircle2,
+          cls: "border-green/30 bg-green/5 text-green-deep",
+          msg: c.form.success,
+        }
       : status === "error"
-        ? { role: "alert" as const, Icon: AlertCircle, cls: "border-red-400/40 bg-red-50 text-red-600", msg: c.form.error }
+        ? {
+            role: "alert" as const,
+            Icon: AlertCircle,
+            cls: "border-red-400/40 bg-red-50 text-red-600",
+            msg: c.form.error,
+          }
         : null;
 
   return (
-    <section id="contact" className="section relative overflow-hidden bg-bg-2/60">
+    <section
+      id="contact"
+      className="section relative overflow-hidden bg-bg-2/60"
+    >
       <Aurora className="opacity-50" />
 
       <div className="container-x relative z-10">
@@ -375,11 +319,17 @@ export default function Contact() {
                     metni hiç görmeden gönderiyordu. */}
                 <p className="text-[0.78rem] leading-relaxed text-ink-3">
                   {c.form.aydinlatmaOnce}{" "}
-                  <Link href="/kvkk" className="underline underline-offset-2 hover:text-ink-2">
+                  <Link
+                    href="/kvkk"
+                    className="underline underline-offset-2 hover:text-ink-2"
+                  >
                     {c.form.aydinlatmaKvkk}
                   </Link>{" "}
                   {c.form.aydinlatmaOrta}{" "}
-                  <Link href="/gizlilik" className="underline underline-offset-2 hover:text-ink-2">
+                  <Link
+                    href="/gizlilik"
+                    className="underline underline-offset-2 hover:text-ink-2"
+                  >
                     {c.form.aydinlatmaGizlilik}
                   </Link>{" "}
                   {c.form.aydinlatmaSonra}
@@ -390,7 +340,10 @@ export default function Contact() {
                     role={notice.role}
                     className={`flex items-start gap-2.5 rounded-xl border px-4 py-3 text-[0.92rem] font-medium ${notice.cls}`}
                   >
-                    <notice.Icon className="mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} />
+                    <notice.Icon
+                      className="mt-0.5 h-4 w-4 shrink-0"
+                      strokeWidth={2}
+                    />
                     {notice.msg}
                   </p>
                 )}

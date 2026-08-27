@@ -60,7 +60,22 @@ type Persona = {
   cta: string;
 };
 
-function PersonaCard({ persona, deliverLabel }: { persona: Persona; deliverLabel: string }) {
+const CTA_SINIFI =
+  "mt-5 inline-flex w-fit items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[0.86rem] font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-br hover:from-green hover:via-cyan hover:to-blue hover:text-white hover:shadow-[var(--shadow-glow)] motion-reduce:transform-none";
+
+function PersonaCard({
+  persona,
+  deliverLabel,
+  cozumHref,
+  inceleMetni,
+}: {
+  persona: Persona;
+  deliverLabel: string;
+  /** Bu persona'nın çözüm sayfası — yoksa undefined. */
+  cozumHref?: string;
+  inceleMetni: string;
+}) {
+  const ctaSinifi = CTA_SINIFI;
   const Icon = ICONS[persona.key] ?? Sparkles;
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-[var(--r-lg)] p-5 text-white shadow-[var(--shadow-card)] transition-transform duration-500 hover:-translate-y-1.5 motion-reduce:transform-none motion-reduce:transition-none sm:p-6">
@@ -74,7 +89,10 @@ function PersonaCard({ persona, deliverLabel }: { persona: Persona; deliverLabel
       />
       {/* light scrim so the photo stays visible; text legibility comes from the text-shadow */}
       <div aria-hidden className="absolute inset-0 bg-ink/25" />
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-ink/10" />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/40 to-ink/10"
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute -bottom-16 -left-10 h-48 w-48 rounded-full bg-cyan/15 blur-3xl"
@@ -93,12 +111,17 @@ function PersonaCard({ persona, deliverLabel }: { persona: Persona; deliverLabel
           {persona.headline}
         </h3>
 
-        <p className="mt-2.5 text-[0.92rem] font-medium leading-relaxed text-white">{persona.pitch}</p>
+        <p className="mt-2.5 text-[0.92rem] font-medium leading-relaxed text-white">
+          {persona.pitch}
+        </p>
 
         {/* deliver + CTA pinned to the bottom so equal-height cards align cleanly */}
         <div className="mt-auto">
           <div className="mt-5 flex items-center gap-2 text-[0.84rem] font-medium text-white">
-            <Check className="h-3.5 w-3.5 shrink-0 text-cyan" strokeWidth={2.5} />
+            <Check
+              className="h-3.5 w-3.5 shrink-0 text-cyan"
+              strokeWidth={2.5}
+            />
             <span>
               <span className="font-[family-name:var(--font-mono)] uppercase tracking-wide text-white/75">
                 {deliverLabel}{" "}
@@ -107,14 +130,29 @@ function PersonaCard({ persona, deliverLabel }: { persona: Persona; deliverLabel
             </span>
           </div>
 
-          <a
-            href="#contact"
-            onClick={() => presetService(SERVICE_FOR[persona.key] ?? "all")}
-            className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[0.86rem] font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-transparent hover:bg-gradient-to-br hover:from-green hover:via-cyan hover:to-blue hover:text-white hover:shadow-[var(--shadow-glow)] motion-reduce:transform-none"
-          >
-            {persona.cta}
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
+          {/* Kartın kendi çözüm sayfasına gidiyor.
+              Önce `#contact` çıpasıydı: tıklayınca sayfa AÇILMIYOR, ana
+              sayfanın altındaki genel forma kayıyor ve hizmeti seçiyordu.
+              Ziyaretçi "diş hekimi" kartına basıp diş hekimi sayfasını
+              bekliyor — hemen altındaki etiket şeridi zaten öyle çalışıyor,
+              yani aynı sayfada iki farklı davranış vardı.
+              Çözüm sayfası yoksa (her persona'nın sayfası yok) eski davranış
+              kalıyor: forma kaydır ve hizmeti seç. */}
+          {cozumHref ? (
+            <Link href={cozumHref} className={ctaSinifi}>
+              {inceleMetni}
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          ) : (
+            <a
+              href="#contact"
+              onClick={() => presetService(SERVICE_FOR[persona.key] ?? "all")}
+              className={ctaSinifi}
+            >
+              {persona.cta}
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          )}
         </div>
       </div>
     </article>
@@ -125,6 +163,13 @@ export default function Personas() {
   const { t, lang } = useLang();
   const p = t.personas;
   const solBase = lang === "tr" ? "/cozumler" : "/en/solutions";
+
+  /** Persona'nın çözüm sayfası. Her persona'nın sayfası YOK (ör. girişimci,
+      tekne) — o zaman undefined dönüyor ve kart eski davranışta kalıyor. */
+  const cozumHrefi = (anahtar: string) => {
+    const ref = solutionIndex.find((r) => r.key === anahtar);
+    return ref ? `${solBase}/${slugOfRef(ref, lang)}` : undefined;
+  };
 
   return (
     <section id="personas" className="section relative overflow-hidden">
@@ -146,13 +191,25 @@ export default function Personas() {
         {/* Equal-size cards, 1 → 2 → 3 columns. The wide catch-all fills the last row (no gaps). */}
         <div className="mt-12 grid grid-cols-1 gap-3 sm:mt-16 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {(p.items as Persona[]).map((persona, i) => (
-            <Reveal key={persona.key} delay={Math.min(i, 6) * 0.06} className="h-full">
-              <PersonaCard persona={persona} deliverLabel={p.deliverLabel} />
+            <Reveal
+              key={persona.key}
+              delay={Math.min(i, 6) * 0.06}
+              className="h-full"
+            >
+              <PersonaCard
+                persona={persona}
+                deliverLabel={p.deliverLabel}
+                cozumHref={cozumHrefi(persona.key)}
+                inceleMetni={t.brief.incele}
+              />
             </Reveal>
           ))}
 
           {/* Catch-all — spans the remaining columns so the grid always ends flush. */}
-          <Reveal delay={Math.min(p.items.length, 7) * 0.06} className="h-full sm:col-span-2">
+          <Reveal
+            delay={Math.min(p.items.length, 7) * 0.06}
+            className="h-full sm:col-span-2"
+          >
             <article className="group relative flex h-full flex-col items-start gap-4 overflow-hidden rounded-[var(--r-lg)] p-6 text-white shadow-[var(--shadow-card)] sm:flex-row sm:items-center sm:justify-between sm:p-8">
               <Image
                 src="/generated/personas/more.webp"
@@ -162,7 +219,10 @@ export default function Personas() {
                 className="absolute inset-0 object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105 motion-reduce:transform-none"
               />
               <div aria-hidden className="absolute inset-0 bg-ink/30" />
-              <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/40 to-ink/15" />
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/40 to-ink/15"
+              />
               <div className="relative [text-shadow:0_1px_14px_rgba(7,24,46,0.7)]">
                 <h3 className="font-[family-name:var(--font-display)] text-[1.3rem] font-bold tracking-tight !text-white sm:text-[1.5rem]">
                   {p.more.title}
@@ -172,7 +232,11 @@ export default function Personas() {
                 </p>
               </div>
               <Magnetic className="relative shrink-0" strength={0.25}>
-                <a href="#contact" onClick={() => presetService("all")} className="btn btn-primary">
+                <a
+                  href="#contact"
+                  onClick={() => presetService("all")}
+                  className="btn btn-primary"
+                >
                   {p.more.cta}
                   <ArrowUpRight className="h-[18px] w-[18px]" />
                 </a>
@@ -187,7 +251,9 @@ export default function Personas() {
             <h3 className="font-[family-name:var(--font-display)] text-[1.25rem] font-bold tracking-tight text-ink sm:text-[1.4rem]">
               {p.sectors.title}
             </h3>
-            <p className="mx-auto mt-2.5 max-w-lg text-[0.95rem] text-ink-2">{p.sectors.lead}</p>
+            <p className="mx-auto mt-2.5 max-w-lg text-[0.95rem] text-ink-2">
+              {p.sectors.lead}
+            </p>
           </div>
           <ul className="mx-auto mt-7 flex max-w-4xl flex-wrap justify-center gap-2.5">
             {solutionIndex.map((s) => (
@@ -197,7 +263,10 @@ export default function Personas() {
                   className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-4 py-2 text-[0.9rem] font-medium text-ink-2 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan/50 hover:bg-white hover:text-ink hover:shadow-[var(--shadow-soft)] motion-reduce:transform-none"
                 >
                   {s.label[lang]}
-                  <ArrowUpRight className="h-3.5 w-3.5 text-ink-3" strokeWidth={2} />
+                  <ArrowUpRight
+                    className="h-3.5 w-3.5 text-ink-3"
+                    strokeWidth={2}
+                  />
                 </Link>
               </li>
             ))}

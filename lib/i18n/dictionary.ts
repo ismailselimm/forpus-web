@@ -51,13 +51,23 @@ const tr = {
         key: "web",
         name: "Web Yazılım & Geliştirme",
         desc: "Kurumsal siteler, web uygulamaları ve e-ticaret. Hızlı, SEO uyumlu ve ölçeklenebilir altyapı.",
-        features: ["Kurumsal Web Sitesi", "Web Uygulaması", "E-Ticaret", "SEO & Performans"],
+        features: [
+          "Kurumsal Web Sitesi",
+          "Web Uygulaması",
+          "E-Ticaret",
+          "SEO & Performans",
+        ],
       },
       {
         key: "mobile",
         name: "Mobil Uygulama",
         desc: "iOS ve Android için akıcı, native hisli uygulamalar. App Store ve Google Play yayını dahil.",
-        features: ["iOS & Android", "Flutter", "Mağaza Yayını", "Bildirim & Analitik"],
+        features: [
+          "iOS & Android",
+          "Flutter",
+          "Mağaza Yayını",
+          "Bildirim & Analitik",
+        ],
       },
       {
         key: "ads",
@@ -69,7 +79,12 @@ const tr = {
         key: "design",
         name: "Sosyal Medya & Tasarım",
         desc: "Sosyal medya yönetimi, marka kimliği, UI/UX ve grafik tasarım. Yaratıcı ekibimizle.",
-        features: ["Sosyal Medya Yönetimi", "Marka Kimliği", "UI/UX Tasarım", "İçerik Üretimi"],
+        features: [
+          "Sosyal Medya Yönetimi",
+          "Marka Kimliği",
+          "UI/UX Tasarım",
+          "İçerik Üretimi",
+        ],
       },
     ],
   },
@@ -173,7 +188,8 @@ const tr = {
     ],
     more: {
       title: "Listede yok musunuz?",
-      pitch: "Sektörünüz ne olursa olsun, fikrinizi anlatın — size özel kuruyoruz.",
+      pitch:
+        "Sektörünüz ne olursa olsun, fikrinizi anlatın — size özel kuruyoruz.",
       cta: "Yine de konuşalım",
     },
     sectors: {
@@ -243,7 +259,8 @@ const tr = {
   process: {
     eyebrow: "Nasıl Çalışıyoruz",
     title: "Fikirden lansmana,\nşeffaf bir süreç.",
-    subtitle: "Her adımda yanınızdayız. Net iletişim, hızlı teslim, sürdürülebilir sonuç.",
+    subtitle:
+      "Her adımda yanınızdayız. Net iletişim, hızlı teslim, sürdürülebilir sonuç.",
     steps: [
       {
         no: "01",
@@ -286,7 +303,8 @@ const tr = {
   },
   stats: {
     eyebrow: "Rakamlarla Forpus",
-    title: "Sözden çok,\nteslim edilen iş.",    items: [
+    title: "Sözden çok,\nteslim edilen iş.",
+    items: [
       { value: 20, suffix: "+", label: "Tamamlanan Proje" },
       { value: 15, suffix: "+", label: "Mutlu Marka" },
       { value: 6, suffix: "+", label: "Yıl Deneyim" },
@@ -299,29 +317,68 @@ const tr = {
     subtitle:
       "Forpus'u iki mühendis kurdu. Tasarımcı, reklam ve geliştirici ekibimizle; fikirden lansmana kadar her aşamayı tek çatı altında yürütüyoruz.",
     founders: [
-      {        role: "Kurucu Ortak · Bilgisayar Mühendisi",
+      {
+        role: "Kurucu Ortak · Bilgisayar Mühendisi",
         focus: "Mobil Uygulama & Sistem",
         bio: "Mobil uygulama geliştirme ve ürün mimarisi. Fikri, mağazada yayınlanan akıcı bir uygulamaya dönüştürür.",
       },
-      {        role: "Kurucu Ortak · Yazılım Mühendisi",
+      {
+        role: "Kurucu Ortak · Yazılım Mühendisi",
         focus: "Web & Arayüz",
         bio: "Web yazılım ve modern arayüz geliştirme. Hızlı, ölçeklenebilir ve şık web deneyimleri kurar.",
       },
     ],
     extendedTitle: "Ve geniş ekibimiz",
-    extended: ["Tasarımcılar", "Reklam Uzmanları", "İçerik Üreticileri", "Geliştiriciler"],
+    extended: [
+      "Tasarımcılar",
+      "Reklam Uzmanları",
+      "İçerik Üreticileri",
+      "Geliştiriciler",
+    ],
   },
   testimonials: {
     eyebrow: "Ne Diyorlar",
     title: "Birlikte çalıştığımız\nmarkaların yorumları.",
     online: "çevrimiçi",
     messages: [
-      { from: "client", author: "Ahmet K.", company: "E-Ticaret", text: "Hocam siteyi gördüm, beklediğimden çok daha iyi olmuş 👏", time: "14:02" },
-      { from: "forpus", text: "Çok teşekkürler! 🙌 Mobil uygulamayı da bu hafta mağazaya yolluyoruz.", time: "14:03" },
-      { from: "client", author: "Ahmet K.", company: "E-Ticaret", text: "Web + uygulamayı tek ekipten almak her şeyi kolaylaştırdı 🔥", time: "14:04" },
-      { from: "client", author: "Zeynep A.", company: "Hizmet Sektörü", text: "Reklam tarafında fark belli, bu ay talepler ciddi arttı 📈", time: "16:20" },
-      { from: "forpus", text: "Harika 😊 Dönüşüm raporunu da sizinle paylaşacağız.", time: "16:21" },
-      { from: "client", author: "Mert D.", company: "Girişim", text: "Tasarımdan koda her detayı düşünmüşsünüz, gerçek bir ortak gibisiniz 💚", time: "19:45" },
+      {
+        from: "client",
+        author: "Ahmet K.",
+        company: "E-Ticaret",
+        text: "Hocam siteyi gördüm, beklediğimden çok daha iyi olmuş 👏",
+        time: "14:02",
+      },
+      {
+        from: "forpus",
+        text: "Çok teşekkürler! 🙌 Mobil uygulamayı da bu hafta mağazaya yolluyoruz.",
+        time: "14:03",
+      },
+      {
+        from: "client",
+        author: "Ahmet K.",
+        company: "E-Ticaret",
+        text: "Web + uygulamayı tek ekipten almak her şeyi kolaylaştırdı 🔥",
+        time: "14:04",
+      },
+      {
+        from: "client",
+        author: "Zeynep A.",
+        company: "Hizmet Sektörü",
+        text: "Reklam tarafında fark belli, bu ay talepler ciddi arttı 📈",
+        time: "16:20",
+      },
+      {
+        from: "forpus",
+        text: "Harika 😊 Dönüşüm raporunu da sizinle paylaşacağız.",
+        time: "16:21",
+      },
+      {
+        from: "client",
+        author: "Mert D.",
+        company: "Girişim",
+        text: "Tasarımdan koda her detayı düşünmüşsünüz, gerçek bir ortak gibisiniz 💚",
+        time: "19:45",
+      },
     ],
   },
   cta: {
@@ -334,18 +391,27 @@ const tr = {
   contact: {
     eyebrow: "İletişim",
     title: "Konuşalım.",
-    subtitle: "Formu doldurun ya da doğrudan bize ulaşın. En kısa sürede dönüş yapıyoruz.",
+    subtitle:
+      "Formu doldurun ya da doğrudan bize ulaşın. En kısa sürede dönüş yapıyoruz.",
     form: {
       name: "Adınız",
       email: "E-posta",
       company: "Şirket / Marka (opsiyonel)",
       service: "İlgilendiğiniz hizmet",
-      serviceOptions: ["Web Yazılım", "Mobil Uygulama", "Reklam & Performans", "Sosyal Medya & Tasarım", "Hepsi / Emin değilim"],
+      serviceOptions: [
+        "Web Yazılım",
+        "Mobil Uygulama",
+        "Reklam & Performans",
+        "Sosyal Medya & Tasarım",
+        "Hepsi / Emin değilim",
+      ],
       message: "Projenizden bahsedin",
       submit: "Gönder",
       sending: "Gönderiliyor…",
-      success: "Teşekkürler! Mesajınız bize ulaştı. En kısa sürede dönüş yapacağız.",
-      error: "Bir sorun oluştu. Lütfen tekrar deneyin ya da doğrudan e-posta gönderin.",
+      success:
+        "Teşekkürler! Mesajınız bize ulaştı. En kısa sürede dönüş yapacağız.",
+      error:
+        "Bir sorun oluştu. Lütfen tekrar deneyin ya da doğrudan e-posta gönderin.",
       // KVKK md.10 aydınlatmayı "verilerin elde edilmesi sırasında" şart
       // koşuyor; footer bağlantısı bunu karşılamıyor. Metin gönder düğmesinin
       // dibinde duruyor ki formu dolduran kişi göndermeden önce görsün.
@@ -358,12 +424,35 @@ const tr = {
     info: {
       emailLabel: "E-posta",
       email: EPOSTA,
-      phoneLabel: "Telefon / WhatsApp",
-      phone: "+90 5xx xxx xx xx",
       socialLabel: "Sosyal Medya",
       locationLabel: "Konum",
-      location: "Türkiye · Uzaktan çalışıyoruz",
+      location: "İstanbul, Türkiye",
     },
+  },
+  brief: {
+    eyebrow: "SİZE ÖZEL",
+    baslik: "Ne istediğinizi 30 saniyede anlatın",
+    altBaslik:
+      "Yazmanıza gerek yok — seçin. Seçtikleriniz aşağıda brief'e dönüşüyor ve bize aynen böyle ulaşıyor.",
+    ihtiyacBasligi: "Neye ihtiyacınız var?",
+    durumBasligi: "Şu an siteniz var mı?",
+    zamanBasligi: "Ne zaman başlamak istiyorsunuz?",
+    durumSecenekleri: [
+      "Sitem yok",
+      "Var, yenilemek istiyorum",
+      "Var, ekleme yapacağım",
+    ],
+    zamanSecenekleri: ["Bu ay", "1–3 ay içinde", "Araştırma aşamasındayım"],
+    briefBasligi: "Bize ulaşacak brief",
+    adEtiketi: "Adınız",
+    iletisimEtiketi: "Telefon veya e-posta",
+    gonder: "Brief'i gönder",
+    gonderiliyor: "Gönderiliyor",
+    basarili: "Brief gönderildi. En geç 48 saat içinde dönüyoruz.",
+    hata: "Gönderilemedi. Tekrar deneyin ya da doğrudan e-posta yazın.",
+    eksik: "Devam etmek için bir ihtiyaç seçin ve iletişim bilgisi bırakın.",
+    baslangic: "Yukarıdan seçim yapın, brief burada oluşsun.",
+    incele: "Çözümü incele",
   },
   footer: {
     tagline: "Fikrinizi büyüyen dijital ürünlere dönüştürüyoruz.",
@@ -430,25 +519,45 @@ const en: typeof tr = {
         key: "web",
         name: "Web Development",
         desc: "Corporate sites, web apps and e-commerce. Fast, SEO-friendly and scalable infrastructure.",
-        features: ["Corporate Website", "Web App", "E-Commerce", "SEO & Performance"],
+        features: [
+          "Corporate Website",
+          "Web App",
+          "E-Commerce",
+          "SEO & Performance",
+        ],
       },
       {
         key: "mobile",
         name: "Mobile Apps",
         desc: "Smooth, native-feeling apps for iOS and Android. App Store and Google Play launch included.",
-        features: ["iOS & Android", "Flutter", "Store Launch", "Push & Analytics"],
+        features: [
+          "iOS & Android",
+          "Flutter",
+          "Store Launch",
+          "Push & Analytics",
+        ],
       },
       {
         key: "ads",
         name: "Ads & Performance",
         desc: "Reach the right audience with Meta and Google ads. Measurable, conversion-focused campaigns.",
-        features: ["Meta Ads", "Google Ads", "Conversion Tracking", "A/B Testing"],
+        features: [
+          "Meta Ads",
+          "Google Ads",
+          "Conversion Tracking",
+          "A/B Testing",
+        ],
       },
       {
         key: "design",
         name: "Social & Design",
         desc: "Social media management, brand identity, UI/UX and graphic design. With our creative team.",
-        features: ["Social Media Management", "Brand Identity", "UI/UX Design", "Content Creation"],
+        features: [
+          "Social Media Management",
+          "Brand Identity",
+          "UI/UX Design",
+          "Content Creation",
+        ],
       },
     ],
   },
@@ -462,7 +571,8 @@ const en: typeof tr = {
       {
         key: "doktor",
         label: "For doctors",
-        headline: "Let patients find you\nin your clinic —\nnot lost on Google.",
+        headline:
+          "Let patients find you\nin your clinic —\nnot lost on Google.",
         pitch:
           "A clinic website, online booking and a patient panel. While you focus on care, the system handles scheduling, reminders and your digital visibility.",
         deliver: "Website + online booking system",
@@ -622,7 +732,8 @@ const en: typeof tr = {
   process: {
     eyebrow: "How We Work",
     title: "From idea to launch,\na transparent process.",
-    subtitle: "We're with you at every step. Clear communication, fast delivery, lasting results.",
+    subtitle:
+      "We're with you at every step. Clear communication, fast delivery, lasting results.",
     steps: [
       {
         no: "01",
@@ -665,7 +776,8 @@ const en: typeof tr = {
   },
   stats: {
     eyebrow: "Forpus in Numbers",
-    title: "Less talk,\nmore delivered work.",    items: [
+    title: "Less talk,\nmore delivered work.",
+    items: [
       { value: 20, suffix: "+", label: "Completed Projects" },
       { value: 15, suffix: "+", label: "Happy Brands" },
       { value: 6, suffix: "+", label: "Years of Experience" },
@@ -678,11 +790,13 @@ const en: typeof tr = {
     subtitle:
       "Forpus was founded by two engineers. With our designers, ad specialists and developers, we run every stage — from idea to launch — under one roof.",
     founders: [
-      {        role: "Co-Founder · Computer Engineer",
+      {
+        role: "Co-Founder · Computer Engineer",
         focus: "Mobile Apps & Systems",
         bio: "Mobile app development and product architecture. Turns an idea into a smooth app published on the stores.",
       },
-      {        role: "Co-Founder · Software Engineer",
+      {
+        role: "Co-Founder · Software Engineer",
         focus: "Web & Interfaces",
         bio: "Web software and modern interface development. Builds fast, scalable and elegant web experiences.",
       },
@@ -695,12 +809,44 @@ const en: typeof tr = {
     title: "Words from the\nbrands we work with.",
     online: "online",
     messages: [
-      { from: "client", author: "Ahmet K.", company: "E-Commerce", text: "Just saw the site — way better than I expected 👏", time: "14:02" },
-      { from: "forpus", text: "Thank you! 🙌 We're shipping the mobile app to the stores this week too.", time: "14:03" },
-      { from: "client", author: "Ahmet K.", company: "E-Commerce", text: "Getting web + app from one team made everything so much easier 🔥", time: "14:04" },
-      { from: "client", author: "Zeynep A.", company: "Services", text: "The ads are clearly working — requests jumped this month 📈", time: "16:20" },
-      { from: "forpus", text: "Great 😊 We'll share the conversion report with you as well.", time: "16:21" },
-      { from: "client", author: "Mert D.", company: "Startup", text: "You thought of every detail from design to code — feels like a real partner 💚", time: "19:45" },
+      {
+        from: "client",
+        author: "Ahmet K.",
+        company: "E-Commerce",
+        text: "Just saw the site — way better than I expected 👏",
+        time: "14:02",
+      },
+      {
+        from: "forpus",
+        text: "Thank you! 🙌 We're shipping the mobile app to the stores this week too.",
+        time: "14:03",
+      },
+      {
+        from: "client",
+        author: "Ahmet K.",
+        company: "E-Commerce",
+        text: "Getting web + app from one team made everything so much easier 🔥",
+        time: "14:04",
+      },
+      {
+        from: "client",
+        author: "Zeynep A.",
+        company: "Services",
+        text: "The ads are clearly working — requests jumped this month 📈",
+        time: "16:20",
+      },
+      {
+        from: "forpus",
+        text: "Great 😊 We'll share the conversion report with you as well.",
+        time: "16:21",
+      },
+      {
+        from: "client",
+        author: "Mert D.",
+        company: "Startup",
+        text: "You thought of every detail from design to code — feels like a real partner 💚",
+        time: "19:45",
+      },
     ],
   },
   cta: {
@@ -713,17 +859,25 @@ const en: typeof tr = {
   contact: {
     eyebrow: "Contact",
     title: "Let's talk.",
-    subtitle: "Fill in the form or reach us directly. We get back to you as soon as possible.",
+    subtitle:
+      "Fill in the form or reach us directly. We get back to you as soon as possible.",
     form: {
       name: "Your Name",
       email: "Email",
       company: "Company / Brand (optional)",
       service: "Service you're interested in",
-      serviceOptions: ["Web Development", "Mobile App", "Ads & Performance", "Social & Design", "All / Not sure"],
+      serviceOptions: [
+        "Web Development",
+        "Mobile App",
+        "Ads & Performance",
+        "Social & Design",
+        "All / Not sure",
+      ],
       message: "Tell us about your project",
       submit: "Send",
       sending: "Sending…",
-      success: "Thank you! Your message has reached us. We'll get back to you shortly.",
+      success:
+        "Thank you! Your message has reached us. We'll get back to you shortly.",
       error: "Something went wrong. Please try again or email us directly.",
       aydinlatmaOnce: "By submitting, your data is processed under our",
       aydinlatmaKvkk: "KVKK Disclosure Notice",
@@ -734,12 +888,35 @@ const en: typeof tr = {
     info: {
       emailLabel: "Email",
       email: EPOSTA,
-      phoneLabel: "Phone / WhatsApp",
-      phone: "+90 5xx xxx xx xx",
       socialLabel: "Social Media",
       locationLabel: "Location",
-      location: "Türkiye · We work remotely",
+      location: "İstanbul, Türkiye",
     },
+  },
+  brief: {
+    eyebrow: "BUILT FOR YOU",
+    baslik: "Tell us what you need in 30 seconds",
+    altBaslik:
+      "No writing required — just pick. Your choices become the brief below, and that is exactly what reaches us.",
+    ihtiyacBasligi: "What do you need?",
+    durumBasligi: "Do you have a website now?",
+    zamanBasligi: "When do you want to start?",
+    durumSecenekleri: [
+      "No website yet",
+      "Yes, I want it rebuilt",
+      "Yes, I want additions",
+    ],
+    zamanSecenekleri: ["This month", "Within 1–3 months", "Still researching"],
+    briefBasligi: "The brief we will receive",
+    adEtiketi: "Your name",
+    iletisimEtiketi: "Phone or email",
+    gonder: "Send the brief",
+    gonderiliyor: "Sending",
+    basarili: "Brief sent. We reply within 48 hours.",
+    hata: "Could not send. Try again or email us directly.",
+    eksik: "Pick at least one need and leave a contact detail.",
+    baslangic: "Make a selection above and the brief builds itself here.",
+    incele: "See the solution",
   },
   footer: {
     tagline: "We turn your ideas into digital products that grow.",

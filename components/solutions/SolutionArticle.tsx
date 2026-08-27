@@ -4,9 +4,17 @@ import { Check, ArrowUpRight, ArrowRight, ChevronDown } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
-import CtaBand from "@/components/ui/CtaBand";
+import SektorBrief from "@/components/solutions/SektorBrief";
 import Breadcrumb, { breadcrumbLd } from "@/components/ui/Breadcrumb";
-import { solutions, contentOf, slugOf, solutionUi, caseRefProject, type Solution } from "@/lib/solutions";
+import {
+  solutions,
+  contentOf,
+  slugOf,
+  solutionUi,
+  caseRefProject,
+  type Solution,
+} from "@/lib/solutions";
+import { solutionIndex } from "@/lib/solution-index";
 import { shotAt } from "@/lib/projects";
 import { SITE_URL as SITE } from "@/lib/site";
 
@@ -21,7 +29,15 @@ export default function SolutionArticle({
   const c = contentOf(solution, lang);
   const L = solutionUi[lang];
 
-  const contactHref = "/#contact";
+  // Sayfa içi brief formu. Eskiden ana sayfadaki genel iletişim çıpasına
+  // (`/#contact`) gidiyordu: ziyaretçi sayfadan ÇIKIP boş bir metin kutusuna
+  // düşüyordu. Artık aynı sayfada, kendi sektörünün formuna iniyor.
+  const contactHref = "#brief";
+
+  // Kısa sektör adı `solutionIndex`te kanonik ("Doktor", "Avukat"); burada
+  // yeniden yazmak ikinci bir isim kaynağı olurdu.
+  const sektorEtiketi =
+    solutionIndex.find((r) => r.key === solution.key)?.label[lang] ?? c.eyebrow;
   const homeHref = "/";
   const base = lang === "tr" ? "/cozumler" : "/en/solutions";
 
@@ -33,7 +49,10 @@ export default function SolutionArticle({
 
   // Sayfada fiyat bandı yazıyorsa aynı rakamı yapılandırılmış veriye de koyarız.
   // "₺50.000 – 90.000" → 50000 (TR binlik ayracı nokta olduğu için sadece rakamları alırız).
-  const lowPrice = Number(c.pricing?.tiers[0]?.price.match(/[\d.]+/)?.[0].replace(/\./g, "")) || undefined;
+  const lowPrice =
+    Number(
+      c.pricing?.tiers[0]?.price.match(/[\d.]+/)?.[0].replace(/\./g, ""),
+    ) || undefined;
 
   // Bölüm başlığı varsa fayda kartları onun altına iner; yoksa kartlar bölümün kendisidir.
   const CardHeading = c.benefitsTitle ? "h3" : "h2";
@@ -55,12 +74,16 @@ export default function SolutionArticle({
         offers: lowPrice
           ? {
               "@type": "AggregateOffer",
-              url: `${SITE}${contactHref}`,
+              url: `${url}${contactHref}`,
               availability: "https://schema.org/InStock",
               priceCurrency: "TRY",
               lowPrice,
             }
-          : { "@type": "Offer", url: `${SITE}${contactHref}`, availability: "https://schema.org/InStock" },
+          : {
+              "@type": "Offer",
+              url: `${url}${contactHref}`,
+              availability: "https://schema.org/InStock",
+            },
       },
       {
         "@type": "FAQPage",
@@ -76,7 +99,10 @@ export default function SolutionArticle({
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className="section relative overflow-hidden bg-bg-2/50 pt-32 sm:pt-40">
@@ -97,10 +123,7 @@ export default function SolutionArticle({
                       <ArrowUpRight className="h-[18px] w-[18px]" />
                     </a>
                   </Magnetic>
-                  <Link
-                    href={homeHref}
-                    className="pill-link pill-link-lg"
-                  >
+                  <Link href={homeHref} className="pill-link pill-link-lg">
                     {L.seeAll}
                   </Link>
                 </div>
@@ -118,7 +141,10 @@ export default function SolutionArticle({
                     sizes="(max-width: 1024px) 90vw, 440px"
                     className="object-cover"
                   />
-                  <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent" />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent"
+                  />
                 </div>
               </div>
             </Reveal>
@@ -139,7 +165,12 @@ export default function SolutionArticle({
               <Reveal>
                 <div className="mt-8 flex flex-col gap-5">
                   {c.problem.body.map((p, i) => (
-                    <p key={i} className="text-[1.03rem] leading-relaxed text-ink-2">{p}</p>
+                    <p
+                      key={i}
+                      className="text-[1.03rem] leading-relaxed text-ink-2"
+                    >
+                      {p}
+                    </p>
                   ))}
                 </div>
               </Reveal>
@@ -153,23 +184,27 @@ export default function SolutionArticle({
         <div className="container-x relative z-10">
           {c.benefitsTitle && (
             <Reveal>
-              <h2 className="h-section mb-12 text-center text-balance">{c.benefitsTitle}</h2>
+              <h2 className="h-section mb-12 text-center text-balance">
+                {c.benefitsTitle}
+              </h2>
             </Reveal>
           )}
           <div className="grid gap-5 md:grid-cols-3">
             {c.benefits.map((b, i) => (
-                <Reveal key={b.title} delay={i * 0.08} className="h-full">
-                  <article className="glass-card border-gradient flex h-full flex-col rounded-[var(--r-lg)] p-6 shadow-[var(--shadow-card)] sm:p-7">
-                    <span className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-green via-cyan to-blue text-white shadow-[var(--shadow-glow)]">
-                      <Check className="h-5 w-5" strokeWidth={2.6} />
-                    </span>
-                    <CardHeading className="font-[family-name:var(--font-display)] text-[1.2rem] font-bold tracking-tight text-ink">
-                      {b.title}
-                    </CardHeading>
-                    <p className="mt-2.5 text-[0.95rem] leading-relaxed text-ink-2">{b.body}</p>
-                  </article>
-                </Reveal>
-              ))}
+              <Reveal key={b.title} delay={i * 0.08} className="h-full">
+                <article className="glass-card border-gradient flex h-full flex-col rounded-[var(--r-lg)] p-6 shadow-[var(--shadow-card)] sm:p-7">
+                  <span className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-green via-cyan to-blue text-white shadow-[var(--shadow-glow)]">
+                    <Check className="h-5 w-5" strokeWidth={2.6} />
+                  </span>
+                  <CardHeading className="font-[family-name:var(--font-display)] text-[1.2rem] font-bold tracking-tight text-ink">
+                    {b.title}
+                  </CardHeading>
+                  <p className="mt-2.5 text-[0.95rem] leading-relaxed text-ink-2">
+                    {b.body}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -187,9 +222,14 @@ export default function SolutionArticle({
                 <Reveal key={f} delay={i * 0.05}>
                   <li className="flex items-start gap-3 soft-card p-4">
                     <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green/10">
-                      <Check className="h-3.5 w-3.5 text-green-deep" strokeWidth={3} />
+                      <Check
+                        className="h-3.5 w-3.5 text-green-deep"
+                        strokeWidth={3}
+                      />
                     </span>
-                    <span className="text-[0.95rem] font-medium text-ink">{f}</span>
+                    <span className="text-[0.95rem] font-medium text-ink">
+                      {f}
+                    </span>
                   </li>
                 </Reveal>
               ))}
@@ -204,8 +244,12 @@ export default function SolutionArticle({
           <div className="container-x relative z-10">
             <div className="mx-auto max-w-3xl">
               <Reveal>
-                <h2 className="h-section text-center text-balance">{c.pricing.title}</h2>
-                <p className="lead mx-auto mt-5 max-w-2xl text-center">{c.pricing.lead}</p>
+                <h2 className="h-section text-center text-balance">
+                  {c.pricing.title}
+                </h2>
+                <p className="lead mx-auto mt-5 max-w-2xl text-center">
+                  {c.pricing.lead}
+                </p>
               </Reveal>
 
               <div className="mt-12 flex flex-col gap-4">
@@ -225,14 +269,18 @@ export default function SolutionArticle({
                           </span>
                         </div>
                       </div>
-                      <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-2">{t.body}</p>
+                      <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-2">
+                        {t.body}
+                      </p>
                     </article>
                   </Reveal>
                 ))}
               </div>
 
               <Reveal delay={0.1}>
-                <p className="mt-7 text-center text-[0.9rem] leading-relaxed text-ink-3">{c.pricing.note}</p>
+                <p className="mt-7 text-center text-[0.9rem] leading-relaxed text-ink-3">
+                  {c.pricing.note}
+                </p>
               </Reveal>
             </div>
           </div>
@@ -264,8 +312,12 @@ export default function SolutionArticle({
               <Reveal delay={0.1}>
                 <div>
                   <span className="eyebrow">{caseProject.name}</span>
-                  <h2 className="h-section mt-5 text-balance">{c.caseRef.title}</h2>
-                  <p className="mt-6 text-[1.02rem] leading-relaxed text-ink-2">{c.caseRef.body}</p>
+                  <h2 className="h-section mt-5 text-balance">
+                    {c.caseRef.title}
+                  </h2>
+                  <p className="mt-6 text-[1.02rem] leading-relaxed text-ink-2">
+                    {c.caseRef.body}
+                  </p>
                   <Link
                     href={`${homeHref}#work`}
                     className="mt-7 pill-link pill-link-lg"
@@ -286,8 +338,12 @@ export default function SolutionArticle({
           <div className="container-x relative z-10">
             <div className="mx-auto max-w-3xl">
               <Reveal>
-                <h2 className="h-section text-center text-balance">{c.process.title}</h2>
-                <p className="lead mx-auto mt-5 max-w-2xl text-center">{c.process.lead}</p>
+                <h2 className="h-section text-center text-balance">
+                  {c.process.title}
+                </h2>
+                <p className="lead mx-auto mt-5 max-w-2xl text-center">
+                  {c.process.lead}
+                </p>
               </Reveal>
 
               {/* Numaralandırma burada bilgi taşıyor: adımlar gerçekten sıralı. */}
@@ -302,7 +358,9 @@ export default function SolutionArticle({
                         <h3 className="font-[family-name:var(--font-display)] text-[1.05rem] font-bold tracking-tight text-ink">
                           {s.name}
                         </h3>
-                        <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-2">{s.body}</p>
+                        <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-2">
+                          {s.body}
+                        </p>
                       </div>
                     </li>
                   </Reveal>
@@ -319,8 +377,12 @@ export default function SolutionArticle({
           <div className="container-x relative z-10">
             <div className="mx-auto max-w-3xl">
               <Reveal>
-                <h2 className="h-section text-center text-balance">{c.checklist.title}</h2>
-                <p className="lead mx-auto mt-5 max-w-2xl text-center">{c.checklist.lead}</p>
+                <h2 className="h-section text-center text-balance">
+                  {c.checklist.title}
+                </h2>
+                <p className="lead mx-auto mt-5 max-w-2xl text-center">
+                  {c.checklist.lead}
+                </p>
               </Reveal>
 
               <div className="mt-12 grid gap-4 sm:grid-cols-2">
@@ -330,7 +392,9 @@ export default function SolutionArticle({
                       <h3 className="font-[family-name:var(--font-display)] text-[1.02rem] font-bold tracking-tight text-ink">
                         {it.title}
                       </h3>
-                      <p className="mt-2 text-[0.93rem] leading-relaxed text-ink-2">{it.body}</p>
+                      <p className="mt-2 text-[0.93rem] leading-relaxed text-ink-2">
+                        {it.body}
+                      </p>
                     </article>
                   </Reveal>
                 ))}
@@ -355,7 +419,9 @@ export default function SolutionArticle({
                       {f.q}
                       <ChevronDown className="h-5 w-5 shrink-0 text-ink-3 transition-transform duration-300 group-open:rotate-180" />
                     </summary>
-                    <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-2">{f.a}</p>
+                    <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-2">
+                      {f.a}
+                    </p>
                   </details>
                 </Reveal>
               ))}
@@ -364,14 +430,23 @@ export default function SolutionArticle({
         </div>
       </section>
 
-      <CtaBand title={c.ctaTitle} text={c.ctaText} button={c.ctaButton} />
+      {/* Genel "konuşalım" bandı yerine sektöre özel brief formu. Bant,
+          ziyaretçiyi ana sayfadaki boş metin kutusuna gönderiyordu; arama
+          sonucundan gelen meşgul bir profesyonel orada yazmaya oturmuyor. */}
+      <SektorBrief
+        sektorAnahtari={solution.key}
+        sektorEtiketi={sektorEtiketi}
+        secenekler={c.features}
+      />
 
       {/* ── Related solutions (internal links) ───────────── */}
       <section className="section relative overflow-hidden bg-bg-2/50 !pt-0">
         <div className="container-x relative z-10">
           <Reveal>
             <div className="mx-auto mb-10 max-w-xl text-center">
-              <h2 className="font-[family-name:var(--font-display)] text-[1.5rem] font-bold tracking-tight text-ink sm:text-[1.9rem]">{L.more}</h2>
+              <h2 className="font-[family-name:var(--font-display)] text-[1.5rem] font-bold tracking-tight text-ink sm:text-[1.9rem]">
+                {L.more}
+              </h2>
               <p className="lead mt-3">{L.moreLead}</p>
             </div>
           </Reveal>
