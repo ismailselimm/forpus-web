@@ -886,6 +886,22 @@ export const blogUi = {
 };
 
 // ============================================================================
+/**
+ * Bir çözüm sayfasının gösterebileceği yazılar — `relatedSolutions`in TERSİ.
+ *
+ * `casesForSolution` ile aynı hikâye: eşleşme yazıların içinde zaten
+ * yazılıydı ama yalnız tek yönde okunuyordu. Ölçüldü: beş blog yazısının
+ * HER BİRİNE tek bir bağlantı geliyordu, o da /blog listesinden. Aynı
+ * ölçümde /isler ve /blog 56 bağlantı alıyor (footer sitenin her
+ * sayfasında). Yani sitenin uzun kuyruk için en değerli varlığı, iç
+ * bağlantı grafiğinin en zayıf ucundaydı.
+ *
+ * Ekranda da doğru: "avukat web sitesi" arayıp gelen biri için reklam
+ * yasağını anlatan yazı, o sayfadaki en yararlı ikinci adım.
+ */
+export const postsForSolution = (solutionKey: string) =>
+  postsByDate.filter((y) => y.relatedSolutions?.includes(solutionKey));
+
 // Build zamanı kontrol: relatedSolutions gerçek bir çözüm anahtarı olmalı.
 // Yanlış anahtar sessizce çiziliyor değil — hiç çizilmiyordu; bir çözüm
 // yeniden adlandırıldığında blogdan giden iç bağlantılar izsiz kaybolurdu.

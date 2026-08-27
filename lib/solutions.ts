@@ -3815,6 +3815,8 @@ export const solutionUi: Record<
     islerBaslik: string;
     islerLead: string;
     isiIncele: string;
+    yazilarBasligi: string;
+    yazilarLead: string;
   }
 > = {
   tr: {
@@ -3828,6 +3830,9 @@ export const solutionUi: Record<
     islerLead:
       "Ekran görüntüsü değil, canlı siteler. Her birinin neye ihtiyaç duyduğunu ve ne kurduğumuzu ayrı ayrı yazdık.",
     isiIncele: "İşi incele",
+    yazilarBasligi: "Karar vermeden önce",
+    yazilarLead:
+      "Bu alanda en çok sorulan şeyleri ayrı ayrı yazdık — fiyat, süreç ve dikkat edilecekler.",
   },
   en: {
     home: "Home",
@@ -3840,6 +3845,9 @@ export const solutionUi: Record<
     islerLead:
       "Live sites, not mockups. We wrote up what each one needed and what we built.",
     isiIncele: "See the project",
+    yazilarBasligi: "Before you decide",
+    yazilarLead:
+      "We wrote up the questions that come up most — pricing, process and what to watch for.",
   },
 };
 

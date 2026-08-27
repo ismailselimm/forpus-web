@@ -6,6 +6,7 @@ import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import SektorBrief from "@/components/solutions/SektorBrief";
 import YapilanIsler from "@/components/solutions/YapilanIsler";
+import IlgiliYazilar from "@/components/solutions/IlgiliYazilar";
 import Breadcrumb, { breadcrumbLd, faqLd } from "@/components/ui/Breadcrumb";
 import {
   solutions,
@@ -430,6 +431,10 @@ export default function SolutionArticle({
         sektorEtiketi={sektorEtiketi}
         lang={lang}
       />
+
+      {/* Blog'a köprü: bu sayfalar sitenin en çok bağlanan sayfaları, blog
+          yazıları ise en az bağlananıydı (her birine tek bağlantı). */}
+      <IlgiliYazilar sektorAnahtari={solution.key} lang={lang} />
 
       {/* Genel "konuşalım" bandı yerine sektöre özel brief formu. Bant,
           ziyaretçiyi ana sayfadaki boş metin kutusuna gönderiyordu; arama
