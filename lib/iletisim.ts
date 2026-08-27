@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 
-import type { Lang } from "./i18n/dictionary";
+import { dictionary, type Lang } from "./i18n/dictionary";
 import { CEVRILMIS_SAYFALAR, cevrilmisYol } from "./routes";
-import { CALISMA, EPOSTA, SEHIR, ULKE } from "./marka";
+import {
+  CALISMA,
+  EPOSTA,
+  SEHIR,
+  ULKE,
+  WHATSAPP_GORUNEN,
+  whatsappBaglantisi,
+} from "./marka";
 import { PRICE_FLOOR } from "./pricing";
 
 /**
@@ -72,6 +79,11 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
         deger: "Uzaktan — Türkiye geneli ve yurt dışı",
       },
       { etiket: "E-posta", deger: EPOSTA, href: `mailto:${EPOSTA}` },
+      {
+        etiket: "WhatsApp",
+        deger: WHATSAPP_GORUNEN,
+        href: whatsappBaglantisi(dictionary.tr.contact.info.whatsappMesaj),
+      },
       {
         etiket: "Çalışma saatleri",
         deger: "Pazartesi–Cuma, 09.00–18.00 (TSİ)",
@@ -164,6 +176,11 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
         deger: "Remote — across Türkiye and internationally",
       },
       { etiket: "Email", deger: EPOSTA, href: `mailto:${EPOSTA}` },
+      {
+        etiket: "WhatsApp",
+        deger: WHATSAPP_GORUNEN,
+        href: whatsappBaglantisi(dictionary.en.contact.info.whatsappMesaj),
+      },
       {
         etiket: "Hours",
         deger: `Monday–Friday, ${CALISMA.acilis}–${CALISMA.kapanis} (GMT+3)`,

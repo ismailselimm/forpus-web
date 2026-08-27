@@ -7,6 +7,7 @@ import { leadGonder, tuzakDolu } from "@/lib/lead-gonder";
 import {
   Mail,
   MapPin,
+  MessageCircle,
   ArrowUpRight,
   Loader2,
   CheckCircle2,
@@ -14,6 +15,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { SosyalIkonlar } from "@/components/ui/SosyalIkonlar";
+import { WHATSAPP_GORUNEN, whatsappBaglantisi } from "@/lib/marka";
 import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
@@ -61,6 +63,12 @@ export default function Contact() {
       label: c.info.emailLabel,
       value: c.info.email,
       href: `mailto:${c.info.email}`,
+    },
+    {
+      icon: MessageCircle,
+      label: "WhatsApp",
+      value: WHATSAPP_GORUNEN,
+      href: whatsappBaglantisi(c.info.whatsappMesaj),
     },
     {
       icon: MapPin,

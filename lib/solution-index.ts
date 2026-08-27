@@ -173,3 +173,12 @@ export function assertSolutionKeys(
 const ANAHTARA_GORE = new Map(solutionIndex.map((r) => [r.key, r]));
 
 export const refByKey = (key: string) => ANAHTARA_GORE.get(key);
+
+/**
+ * Öne çıkan sektörler — footer ve 404 sayfası bunu gösteriyor.
+ *
+ * İkisi de `slice(0, 8)`i ayrı ayrı yazıyordu; footer dokuza çıktığında
+ * 404 sekizde kalırdı ve kimse fark etmezdi. Sekiz sayısı bir tasarım
+ * kararı: footer sütununa sığan ve 404'te göz yormayan uzunluk.
+ */
+export const ONE_CIKAN_SEKTORLER = solutionIndex.slice(0, 8);

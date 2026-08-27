@@ -9,18 +9,6 @@
  */
 
 /**
- * SOSYAL PROFİLLER — hesabın KİMLİĞİ.
- *
- * "Profil" ile "iletişim kanalı" bilerek ayrı: bunlar kalıcı, herkese açık
- * `https://` adresleri ve schema.org'un `sameAs` alanına olduğu gibi
- * giriyorlar. WhatsApp bu listede DEĞİL ve olmamalı — o bir kanal, bir kimlik
- * değil; `sameAs`a bir `wa.me` bağlantısı koymak yapısal veriyi kirletir.
- *
- * WhatsApp geldiğinde buraya YAZILMAYACAK: adresi sayfadan sayfaya değişiyor
- * (ön doldurulmuş `?text=`), yani sabit bir dize değil bir fonksiyon olmak
- * zorunda. Geldiğinde kendi yardımcısıyla bu dosyaya eklenecek.
- */
-/**
  * İletişim adresi. Çevrilebilir bir içerik DEĞİL: sözlükte `emailLabel`
  * ("E-posta" / "Email") çevriliyor ama adresin kendisi iki dilde de aynı.
  * Yine de altı yerde ayrı ayrı yazılıydı — ikisi sözlüğün iki dilinde,
@@ -30,6 +18,38 @@
  * yükümlülük taşıyan kopya.
  */
 export const EPOSTA = "forpusyazilim@gmail.com";
+
+/**
+ * WHATSAPP — bir kanal. Neden `SOSYAL_PROFILLER`de olmadığı orada yazılı.
+ *
+ * NEDEN FONKSİYON: adres sayfadan sayfaya değişiyor. Diş hekimi sayfasından
+ * yazan biri "diş hekimi web sitesi için" diye başlamalı; hangi sayfadan
+ * geldiği mesajın İÇİNDE taşınıyor, çünkü WhatsApp tıklaması siteden
+ * çıkıyor ve `kaynak-izi` onu takip edemiyor. Atıf, mesajın kendisi.
+ */
+const WHATSAPP_NUMARA = "905016703494";
+
+/**
+ * İnsana gösterilen hâli — numaradan TÜRETİLİYOR.
+ *
+ * İkisi elle yazıldığında numara değişince birini güncelleyip diğerini
+ * unutmak sessizce yanlış numara gösterirdi; derleyici uyarmazdı.
+ */
+export const WHATSAPP_GORUNEN = WHATSAPP_NUMARA.replace(
+  /^90(\d{3})(\d{3})(\d{2})(\d{2})$/,
+  "0$1 $2 $3 $4",
+);
+
+/**
+ * Ön doldurulmuş WhatsApp adresi.
+ *
+ * `wa.me` bilerek: WhatsApp'ın kendi kısa adresi, hem uygulamayı hem
+ * WhatsApp Web'i doğru açıyor ve numara İşletme hesabına çevrilse de
+ * çalışmaya devam ediyor. `api.whatsapp.com` masaüstünde araya bir
+ * karşılama sayfası sokuyor.
+ */
+export const whatsappBaglantisi = (mesaj?: string) =>
+  `https://wa.me/${WHATSAPP_NUMARA}${mesaj ? `?text=${encodeURIComponent(mesaj)}` : ""}`;
 
 /**
  * KONUM — kimliğin, sitenin en uzun süre eksik kalan parçası.
@@ -84,6 +104,21 @@ export type SosyalProfil = {
   href: string;
 };
 
+/**
+ * SOSYAL PROFİLLER — hesabın KİMLİĞİ.
+ *
+ * "Profil" ile "iletişim kanalı" bilerek ayrı: bunlar kalıcı, herkese açık
+ * `https://` adresleri ve schema.org'un `sameAs` alanına olduğu gibi
+ * giriyorlar. WhatsApp burada DEĞİL — o bir kanal; `sameAs`a bir `wa.me`
+ * adresi koymak "bu hesap aynı varlığa ait" demek olurdu, oysa o bir
+ * tıklama hedefi.
+ *
+ * Bugün liste ile `sameAs` birebir aynı, o yüzden aşağıdaki türetme
+ * çalışıyor. Footer'a WhatsApp ikonu eklenmek istendiği gün liste GÖSTERİM
+ * için büyümek, `sameAs` için büyümemek zorunda kalacak; o gün kayda bir
+ * `kimlik: boolean` alanı gelmeli ve `sameAs` onu filtrelemeli — kural
+ * yorumdan tipe geçtiği anda aşınmayı bırakır.
+ */
 export const SOSYAL_PROFILLER: readonly SosyalProfil[] = [
   { ad: "Instagram", href: "https://www.instagram.com/forpusyazilim" },
   { ad: "Facebook", href: "https://www.facebook.com/1250844311452202" },

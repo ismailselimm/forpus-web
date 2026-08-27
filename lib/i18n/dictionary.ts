@@ -30,7 +30,6 @@ const tr = {
       "İstanbul merkezli yazılım şirketiyiz: web, mobil uygulama, reklam ve tasarım — tek çatı altında. İki mühendis kurucu ve uzman ekibimizle markanızı uçtan uca dijitale taşıyoruz.",
     ctaPrimary: "Projeni Başlat",
     ctaSecondary: "İşlerimizi Gör",
-    scroll: "Keşfet",
     chips: [
       { value: "Web + Mobil", label: "Tek ekipten" },
       { value: "App Store & Play", label: "Yayın dahil" },
@@ -423,6 +422,7 @@ const tr = {
       emailLabel: "E-posta",
       email: EPOSTA,
       socialLabel: "Sosyal Medya",
+      whatsappMesaj: "Merhaba, bir proje için bilgi almak istiyorum.",
       locationLabel: "Konum",
       // Şehir/ülke `lib/marka.ts`ten: footer ve iletişim bloğu sitenin HER
       // sayfasında bunu çiziyor, JSON-LD ile aynı kaynaktan gelmezse ofis
@@ -463,6 +463,13 @@ const tr = {
     eksik: "Devam etmek için bir ihtiyaç seçin ve iletişim bilgisi bırakın.",
     baslangic: "Yukarıdan seçim yapın, brief burada oluşsun.",
     incele: "Çözümü incele",
+    // Formu doldurmak istemeyene çıkış. Türkiye'de mobil ziyaretçi form
+    // doldurmak yerine yazmayı tercih ediyor; reklam trafiğinin neredeyse
+    // tamamı mobilden gelecek.
+    whatsapp: "WhatsApp'tan yazın",
+    whatsappAyrac: "ya da",
+    /** %s yerine sektör adı geçiyor. */
+    whatsappMesaj: "Merhaba, %s web sitesi için bilgi almak istiyorum.",
   },
   footer: {
     tagline: "Fikrinizi büyüyen dijital ürünlere dönüştürüyoruz.",
@@ -509,7 +516,6 @@ const en: typeof tr = {
       "We are a software company based in Istanbul: web, mobile apps, ads and design — under one roof. Two engineer founders and an expert team take your brand end-to-end into digital.",
     ctaPrimary: "Start a Project",
     ctaSecondary: "See Our Work",
-    scroll: "Explore",
     chips: [
       { value: "Web + Mobile", label: "One team" },
       { value: "App Store & Play", label: "Launch included" },
@@ -898,6 +904,7 @@ const en: typeof tr = {
       emailLabel: "Email",
       email: EPOSTA,
       socialLabel: "Social Media",
+      whatsappMesaj: "Hello, I'd like to know more about a project.",
       locationLabel: "Location",
       location: `${SEHIR.en}, ${ULKE.en}`,
     },
@@ -931,6 +938,9 @@ const en: typeof tr = {
     eksik: "Pick at least one need and leave a contact detail.",
     baslangic: "Make a selection above and the brief builds itself here.",
     incele: "See the solution",
+    whatsapp: "Message us on WhatsApp",
+    whatsappAyrac: "or",
+    whatsappMesaj: "Hello, I'd like to know more about a %s website.",
   },
   footer: {
     tagline: "We turn your ideas into digital products that grow.",

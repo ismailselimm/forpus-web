@@ -13,12 +13,21 @@ export default function SolutionChips({
   title,
   lang = "tr",
   className,
+  ikon = true,
 }: {
   keys: string[];
   title: string;
   /** Blog ve vakalar bugün yalnızca TR; parametre EN geldiğinde hazır olsun diye. */
   lang?: "tr" | "en";
   className?: string;
+  /**
+   * Ok işaretleri. 404 sayfasında KAPALI: Next, layout'un `notFound`
+   * slot'unu 64 sayfanın HEPSİNİN RSC yüküne gömüyor ve her lucide ikonu
+   * orada ~15 proplu bir eleman nesnesi olarak seri hâle geliyor. Ölçüldü:
+   * ikonlar 404 ağacının ~%45'i, blog sayfasında +%10,6 gzip. Bedeli 64
+   * sayfada ödeniyor, faydası tek sayfada görünüyor.
+   */
+  ikon?: boolean;
 }) {
   const items = solutionIndex.filter((s) => keys.includes(s.key));
   if (items.length === 0) return null;
@@ -37,7 +46,7 @@ export default function SolutionChips({
               className="pill-link"
             >
               {s.label[lang]}
-              <ArrowRight className="h-4 w-4" />
+              {ikon && <ArrowRight className="h-4 w-4" />}
             </Link>
           ))}
         </div>

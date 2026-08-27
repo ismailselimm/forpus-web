@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { ArrowUpRight, Check, Loader2 } from "lucide-react";
+import { ArrowUpRight, Check, Loader2, MessageCircle } from "lucide-react";
 
 import { useLang } from "@/components/providers/LanguageProvider";
 import { leadGonder, tuzakDolu } from "@/lib/lead-gonder";
+import { whatsappBaglantisi } from "@/lib/marka";
 
 /**
  * SEKTÖR BRIEF'İ — çözüm sayfasının dönüşüm motoru.
@@ -238,6 +239,27 @@ export default function SektorBrief({
               )}
               {hal === "eksik" && (
                 <p className="text-[0.92rem] text-ink-2">{b.eksik}</p>
+              )}
+
+              {/* Formu doldurmak istemeyene çıkış. Gönder butonuyla YARIŞMASIN
+                  diye ikincil görünümde: asıl istediğimiz brief, çünkü panele
+                  yapılandırılmış düşüyor. Ama mobil ziyaretçinin bir kısmı
+                  hiçbir formu doldurmuyor; onları da kaybetmeyelim.
+                  Hangi sayfadan yazdığı mesajın İÇİNDE: WhatsApp tıklaması
+                  siteden çıkıyor, `kaynak-izi` onu takip edemiyor. */}
+              {hal !== "basarili" && (
+                <a
+                  href={whatsappBaglantisi(
+                    b.whatsappMesaj.replace("%s", sektorEtiketi.toLowerCase()),
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[0.92rem] font-medium text-ink-2 transition-colors hover:text-green-deep"
+                >
+                  <span className="text-ink-3">{b.whatsappAyrac}</span>
+                  <MessageCircle className="h-4 w-4" />
+                  {b.whatsapp}
+                </a>
               )}
             </div>
           </form>

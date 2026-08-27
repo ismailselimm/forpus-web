@@ -9,7 +9,8 @@
     "lint": "next lint",
     "shots": "node scripts/capture-screenshots.mjs && python3 scripts/work_variants.py",
     "variants": "python3 scripts/work_variants.py",
-    "prebuild": "python3 scripts/work_variants.py"
+    "prebuild": "python3 scripts/work_variants.py",
+    "postbuild": "node scripts/egik-cizgi.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

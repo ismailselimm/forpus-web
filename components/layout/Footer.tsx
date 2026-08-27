@@ -6,7 +6,7 @@ import { CEVRILMIS_SAYFALAR, cevrilmisYol } from "@/lib/routes";
 import { ArrowUp } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import { useLang } from "@/components/providers/LanguageProvider";
-import { solutionIndex, slugOfRef } from "@/lib/solution-index";
+import { slugOfRef, ONE_CIKAN_SEKTORLER } from "@/lib/solution-index";
 import { SosyalIkonlar } from "@/components/ui/SosyalIkonlar";
 
 // Footer bağlantılarının ortak görünümü. Aynı 92 karakterlik sınıf dizisi
@@ -52,7 +52,7 @@ export default function Footer() {
               {t.footer.solutions}
             </h4>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
-              {solutionIndex.slice(0, 8).map((s) => (
+              {ONE_CIKAN_SEKTORLER.map((s) => (
                 <li key={s.key}>
                   <Link
                     href={`${solBase}/${slugOfRef(s, lang)}`}

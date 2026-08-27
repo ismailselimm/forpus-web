@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Home } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Reveal } from "@/components/fx/Reveal";
 import PageHero from "@/components/ui/PageHero";
 import SolutionChips from "@/components/ui/SolutionChips";
-import { solutionIndex } from "@/lib/solution-index";
+import { dictionary } from "@/lib/i18n/dictionary";
+import { CEVRILMIS_SAYFALAR, cevrilmisYol, homeFor } from "@/lib/routes";
+import { ONE_CIKAN_SEKTORLER } from "@/lib/solution-index";
+import { solutionUi } from "@/lib/solutions";
 
 /**
  * 404 SAYFASI.
@@ -43,34 +46,23 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-/** İlk sekiz sektör — 404'te uzun bir liste değil, bir kaç iyi yol yeter. */
-const ONERILEN = solutionIndex.slice(0, 8).map((s) => s.key);
+/** İletişim adresi tek kaynaktan: `lib/routes.ts` bu çifti tabloda tutuyor. */
+const ILETISIM = cevrilmisYol(CEVRILMIS_SAYFALAR[0], "tr");
+
+const CIKIS_SINIFI = "text-ink-2 transition-colors hover:text-ink";
+
+/** Ziyaretçiyi kaybetmemek için çıkış yolları. Etiketler sözlükten. */
+const CIKISLAR = [
+  { href: "/isler", etiket: "Yaptığımız işler" },
+  { href: "/blog", etiket: dictionary.tr.footer.blog },
+  { href: ILETISIM, etiket: dictionary.tr.nav.contact },
+];
 
 export default function NotFound() {
   return (
     <>
-      {/*
-        Boyamadan ÖNCE çalışıyor: düzeltme yapılacaksa ziyaretçi hata
-        sayfasını hiç görmesin. `location.replace` geçmişe kayıt bırakmıyor,
-        yani geri tuşu ziyaretçiyi kırık adrese geri atmıyor.
-      */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html:
-            `(function(){var p=location.pathname;` +
-            // Başta çift eğik çizgi olan yola DOKUNMA ve hedefi her zaman kendi
-            // kökenimizle kur. İkisi de aynı açığı kapatıyor: `//kotu-site.com/`
-            // adresinde `location.pathname` `//kotu-site.com/` döner, sondaki
-            // çizgi atılınca `//kotu-site.com` kalır ve bu protokol-göreli bir
-            // adrestir — `location.replace` onu D I Ş ağa götürür. Kendi alan
-            // adımıza güvenip tıklayan biri başka siteye düşerdi.
-            `if(p.length>1&&p.charAt(p.length-1)==="/"&&p.charAt(1)!=="/"){` +
-            `location.replace(location.origin+p.slice(0,-1)+location.search+location.hash)}})();`,
-        }}
-      />
-
       <PageHero
-        crumbs={[{ label: "Ana Sayfa", href: "/" }]}
+        crumbs={[{ label: solutionUi.tr.home, href: homeFor("tr") }]}
         eyebrow="404"
         title="Bu sayfayı bulamadık."
         lead="Adres değişmiş, yazım hatası olmuş ya da sayfa kaldırılmış olabilir. Aradığınız şey büyük ihtimalle aşağıda."
@@ -80,11 +72,10 @@ export default function NotFound() {
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/" className="btn btn-primary">
-            <Home className="h-[18px] w-[18px]" />
-            Ana sayfa
+          <Link href={homeFor("tr")} className="btn btn-primary">
+            {solutionUi.tr.home}
           </Link>
-          <Link href="/iletisim" className="pill-link pill-link-lg">
+          <Link href={ILETISIM} className="pill-link pill-link-lg">
             Bize yazın
             <ArrowRight className="h-4 w-4" />
           </Link>
@@ -95,31 +86,19 @@ export default function NotFound() {
         <div className="container-x">
           <div className="mx-auto max-w-3xl">
             <SolutionChips
-              keys={ONERILEN}
+              keys={ONE_CIKAN_SEKTORLER.map((s) => s.key)}
+              ikon={false}
               title="Belki bunlardan birini arıyordunuz"
               className="!mt-0"
             />
 
             <Reveal>
               <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t border-line pt-8 text-[0.95rem]">
-                <Link
-                  href="/isler"
-                  className="text-ink-2 transition-colors hover:text-ink"
-                >
-                  Yaptığımız işler →
-                </Link>
-                <Link
-                  href="/blog"
-                  className="text-ink-2 transition-colors hover:text-ink"
-                >
-                  Blog →
-                </Link>
-                <Link
-                  href="/iletisim"
-                  className="text-ink-2 transition-colors hover:text-ink"
-                >
-                  İletişim →
-                </Link>
+                {CIKISLAR.map(({ href, etiket }) => (
+                  <Link key={href} href={href} className={CIKIS_SINIFI}>
+                    {etiket} →
+                  </Link>
+                ))}
               </div>
             </Reveal>
           </div>
