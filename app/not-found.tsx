@@ -58,8 +58,14 @@ export default function NotFound() {
         dangerouslySetInnerHTML={{
           __html:
             `(function(){var p=location.pathname;` +
-            `if(p.length>1&&p.charAt(p.length-1)==="/"){` +
-            `location.replace(p.slice(0,-1)+location.search+location.hash)}})();`,
+            // Başta çift eğik çizgi olan yola DOKUNMA ve hedefi her zaman kendi
+            // kökenimizle kur. İkisi de aynı açığı kapatıyor: `//kotu-site.com/`
+            // adresinde `location.pathname` `//kotu-site.com/` döner, sondaki
+            // çizgi atılınca `//kotu-site.com` kalır ve bu protokol-göreli bir
+            // adrestir — `location.replace` onu D I Ş ağa götürür. Kendi alan
+            // adımıza güvenip tıklayan biri başka siteye düşerdi.
+            `if(p.length>1&&p.charAt(p.length-1)==="/"&&p.charAt(1)!=="/"){` +
+            `location.replace(location.origin+p.slice(0,-1)+location.search+location.hash)}})();`,
         }}
       />
 
