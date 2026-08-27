@@ -39,6 +39,9 @@ export default function CaseArticle({
         inLanguage: "tr",
         image: `${SITE}${project.shot}`,
         creator: { "@id": `${SITE}/#organization` },
+        // Veri `lib/cases.ts`te zaten vardı, şemaya hiç geçmiyordu.
+        datePublished: study.published,
+        dateModified: study.updated ?? study.published,
         about: { "@type": "WebSite", name: project.name, url: project.url },
       },
       breadcrumbLd(crumbs, SITE, url),

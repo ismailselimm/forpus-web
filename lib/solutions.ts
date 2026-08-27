@@ -3803,6 +3803,20 @@ export const slugOf = (s: Solution, lang: "tr" | "en") =>
   lang === "tr" ? s.slug.tr : s.slug.en;
 
 // Shared chrome strings for the solution pages (page content lives per-solution above).
+/**
+ * Sektör sayfalarının içeriği en son bu tarihte elden geçti.
+ *
+ * İki yer okuyor: `app/sitemap.ts` (lastmod) ve `SolutionArticle` (Service
+ * şemasındaki `dateModified`). Sitemap'te sabit olarak duruyordu, şema ise
+ * hiç tarih taşımıyordu — yapay zekâ aramalarında 3 aydan yeni içerik
+ * belirgin biçimde daha çok alıntılanıyor ve tarihsiz sayfa o yarışa hiç
+ * girmiyor.
+ *
+ * İÇERİĞİ GERÇEKTEN DEĞİŞTİRDİĞİNDE BU TARİHİ GÜNCELLE. Build zamanı
+ * kullanmak yanlış olur: her deploy "değişti" der, sinyal değersizleşir.
+ */
+export const SOLUTIONS_LASTMOD = "2026-08-27";
+
 export const solutionUi: Record<
   "tr" | "en",
   {

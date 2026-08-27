@@ -13,6 +13,7 @@ import {
   contentOf,
   slugOf,
   solutionUi,
+  SOLUTIONS_LASTMOD,
   caseRefProject,
   type Solution,
 } from "@/lib/solutions";
@@ -65,6 +66,7 @@ export default function SolutionArticle({
     "@graph": [
       {
         "@type": "Service",
+        dateModified: SOLUTIONS_LASTMOD,
         name: c.h1,
         description: c.metaDescription,
         url,

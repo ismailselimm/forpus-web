@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { solutions } from "@/lib/solutions";
+import { solutions, SOLUTIONS_LASTMOD } from "@/lib/solutions";
 import { postsByDate } from "@/lib/blog";
 import { cases } from "@/lib/cases";
 import { hukukiSayfalar } from "@/lib/hukuki";
@@ -12,7 +12,7 @@ export const dynamic = "force-static"; // statik export (GitHub Pages) için
 // Google yeniden taramayı lastmod'a bakarak önceliklendirdiği için, içeriği
 // gerçekten değiştirdiğimizde BU TARİHİ GÜNCELLEYİN. Build zamanı kullanmak
 // yanlış olur: her deploy "değişti" der, sinyal değersizleşir.
-const TR_LASTMOD = new Date("2026-08-25");
+const TR_LASTMOD = new Date(SOLUTIONS_LASTMOD);
 
 // EN sayfaları bu turda değişmedi; kendi tarihini koruyor.
 const EN_LASTMOD = new Date("2026-07-12");
