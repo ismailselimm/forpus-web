@@ -9,7 +9,7 @@ import Grain from "@/components/fx/Grain";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
 import { SITE_URL } from "@/lib/site";
-import { EPOSTA, sameAs } from "@/lib/marka";
+import { CALISMA, EPOSTA, SEHIR, sameAs } from "@/lib/marka";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext"],
@@ -40,18 +40,39 @@ export const metadata: Metadata = {
   title: {
     // Aranan ifade önce, marka sonra. Adımızı bilmeyen kimse "Forpus" aramıyor;
     // ana sayfanın hizmet aramalarında da yarışması için başlık böyle kuruldu.
-    default: "Web Sitesi ve Mobil Uygulama Ajansı | Forpus Yazılım",
+    // Şehir başlıkta: 90 günde coğrafi niyetli TEK bir sorgu gösterim
+    // almadı ve alması da beklenemezdi — "İstanbul" ana sayfanın başlığında,
+    // açıklamasında ve gövdesinde hiç geçmiyordu. Sayfada olmayan bir
+    // kelimeyle eşleşme olmaz.
+    default: "İstanbul Web Tasarım ve Mobil Uygulama | Forpus Yazılım",
     template: "%s | Forpus Yazılım",
   },
   // 155 karakterin altında: Google bu uzunlukta kesmeden gösteriyor.
   description:
-    "Kurumsal web sitesi, e-ticaret ve mobil uygulama geliştiriyoruz. Gerçek referanslar, ₺50.000'den başlayan paketler. Ücretsiz teklif alın.",
+    "İstanbul merkezli yazılım şirketi. Kurumsal web sitesi, e-ticaret ve mobil uygulama geliştiriyoruz. ₺50.000'den başlayan paketler, ücretsiz teklif.",
   applicationName: "Forpus Yazılım",
   keywords: [
-    "Forpus", "Forpus Yazılım", "yazılım stüdyosu", "dijital ajans", "web yazılım",
-    "web tasarım", "kurumsal web sitesi", "e-ticaret", "mobil uygulama", "uygulama geliştirme",
-    "iOS Android uygulama", "Flutter", "Next.js", "Meta reklam", "Google Ads",
-    "performans pazarlama", "sosyal medya yönetimi", "UI/UX tasarım", "SEO",
+    "Forpus",
+    "Forpus Yazılım",
+    "İstanbul yazılım şirketi",
+    "İstanbul web tasarım",
+    "yazılım stüdyosu",
+    "dijital ajans",
+    "web yazılım",
+    "web tasarım",
+    "kurumsal web sitesi",
+    "e-ticaret",
+    "mobil uygulama",
+    "uygulama geliştirme",
+    "iOS Android uygulama",
+    "Flutter",
+    "Next.js",
+    "Meta reklam",
+    "Google Ads",
+    "performans pazarlama",
+    "sosyal medya yönetimi",
+    "UI/UX tasarım",
+    "SEO",
   ],
   authors: [{ name: "Forpus Yazılım", url: SITE_URL }],
   creator: "Forpus Yazılım",
@@ -79,7 +100,12 @@ export const metadata: Metadata = {
     title: "Forpus Yazılım — Dijital Ürün Stüdyosu",
     description: OG_DESC,
     images: [
-      { url: "/og.png", width: 1200, height: 630, alt: "Forpus Yazılım — Web, Mobil, Reklam & Tasarım" },
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Forpus Yazılım — Web, Mobil, Reklam & Tasarım",
+      },
     ],
   },
   twitter: {
@@ -119,19 +145,79 @@ const jsonLd = {
       logo: `${SITE_URL}/brand/forpus-logo.png`,
       image: `${SITE_URL}/og.png`,
       email: EPOSTA,
+      // Adın kısa ve İngilizce biçimleri. "forpus" sorgusunda 16. sıradayız
+      // ama bu bir marka hatası DEĞİL: Forpus aynı zamanda bir papağan cinsi
+      // (Wikipedia'da dokuz tür sayfası) ve Letonya'da bir kırtasiye markası.
+      // 90 günde 3 gösterim aldı — kovalanacak bir sorgu değil. Bu alan o
+      // yüzden değil, varlığın adının tek biçimine bağlı kalmaması için var.
+      alternateName: ["Forpus", "Forpus Software"],
       description:
-        "Web, mobil uygulama, reklam ve tasarım sunan dijital ürün stüdyosu.",
-      areaServed: "TR",
+        "İstanbul merkezli web, mobil uygulama, reklam ve tasarım stüdyosu.",
+      /*
+       * KONUM. Sitenin her sayfasında, TEK düğümde.
+       *
+       * Önce yalnız iletişim sayfasında duruyordu ve aynı `@id`ye ikinci bir
+       * düğüm yazıyordu: aynı sayfada `areaServed` hem "TR" hem şehir listesi
+       * oluyordu. Bir varlığın yer beyanı sayfadan sayfaya değişemez — bu
+       * yüzden tarif buraya, kimliğin durduğu yere alındı.
+       *
+       * `address` yalnız il ve ülke. Sokak adresi ve telefon bilerek yok:
+       * gerekçesi `lib/marka.ts`te.
+       */
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: SEHIR.en,
+        addressRegion: SEHIR.en,
+        addressCountry: "TR",
+      },
+      areaServed: [
+        { "@type": "Country", name: "Türkiye" },
+        { "@type": "City", name: SEHIR.en },
+      ],
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: CALISMA.gunler,
+        opens: CALISMA.acilis,
+        closes: CALISMA.kapanis,
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        email: EPOSTA,
+        areaServed: "TR",
+        availableLanguage: ["Turkish", "English"],
+      },
       knowsLanguage: ["tr", "en"],
       priceRange: "₺₺",
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Hizmetler",
         itemListElement: [
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Yazılım & Geliştirme" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mobil Uygulama Geliştirme" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Reklam & Performans (Meta, Google)" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sosyal Medya & Tasarım" } },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Web Yazılım & Geliştirme",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Mobil Uygulama Geliştirme",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Reklam & Performans (Meta, Google)",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: "Sosyal Medya & Tasarım" },
+          },
         ],
       },
     },
@@ -152,7 +238,11 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="tr" suppressHydrationWarning>
       <head>
@@ -179,7 +269,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className={`${montserrat.variable} ${manrope.variable} ${jetbrains.variable}`}>
+      <body
+        className={`${montserrat.variable} ${manrope.variable} ${jetbrains.variable}`}
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

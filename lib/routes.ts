@@ -62,7 +62,8 @@ export function routeLang(pathname: string): Lang | null {
 }
 
 /** Dil değiştirici gösterilmeli mi? Tek dilli bölümlerde anlamsız. */
-export const isBilingualRoute = (pathname: string) => routeLang(pathname) !== "tr";
+export const isBilingualRoute = (pathname: string) =>
+  routeLang(pathname) !== "tr";
 
 /** O dilin ana sayfası. "Ana sayfa = /" varsayımı üç yerde sabit yazılıydı. */
 export const homeFor = (lang: Lang) => (lang === "en" ? "/en" : "/");
@@ -90,7 +91,14 @@ export function hrefForLang(pathname: string, next: Lang): string | null {
   const pair = solutionIndex.find(
     (s) => n === `/cozumler/${s.slug.tr}` || n === `/en/solutions/${s.slug.en}`,
   )?.slug;
-  if (pair) return next === "en" ? `/en/solutions/${pair.en}` : `/cozumler/${pair.tr}`;
+  if (pair)
+    return next === "en" ? `/en/solutions/${pair.en}` : `/cozumler/${pair.tr}`;
+
+  // Çözüm sayfaları dışında çevrilmiş TEK sayfa çifti bu. Kendi tablosunu
+  // hak edecek kadar çoğaldığında (blog, vakalar) buraya bir liste gelecek.
+  if (n === "/iletisim" || n === "/en/contact") {
+    return next === "en" ? "/en/contact" : "/iletisim";
+  }
 
   return null;
 }

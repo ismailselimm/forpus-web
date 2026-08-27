@@ -23,12 +23,12 @@ const tr = {
     cta: "Projeni Başlat",
   },
   hero: {
-    eyebrow: "Dijital Ürün Stüdyosu",
+    eyebrow: "İstanbul · Dijital Ürün Stüdyosu",
     titleLead: "Fikrinizi,",
     titleHighlight: "büyüyen dijital ürünlere",
     titleTail: "dönüştürüyoruz.",
     subtitle:
-      "Web, mobil uygulama, reklam ve tasarım — tek çatı altında. İki mühendis kurucu ve uzman ekibimizle markanızı uçtan uca dijitale taşıyoruz.",
+      "İstanbul merkezli yazılım şirketiyiz: web, mobil uygulama, reklam ve tasarım — tek çatı altında. İki mühendis kurucu ve uzman ekibimizle markanızı uçtan uca dijitale taşıyoruz.",
     ctaPrimary: "Projeni Başlat",
     ctaSecondary: "İşlerimizi Gör",
     scroll: "Keşfet",
@@ -469,6 +469,7 @@ const tr = {
     gizlilik: "Gizlilik Politikası",
     kvkk: "KVKK Aydınlatma Metni",
     kullanimSartlari: "Kullanım Şartları",
+    iletisimSayfasi: "Tüm iletişim bilgileri",
   },
   langToggle: { tr: "TR", en: "EN", switchTo: "English" },
 };
@@ -491,12 +492,12 @@ const en: typeof tr = {
     cta: "Start a Project",
   },
   hero: {
-    eyebrow: "Digital Product Studio",
+    eyebrow: "Istanbul · Digital Product Studio",
     titleLead: "We turn your ideas into",
     titleHighlight: "digital products that grow",
     titleTail: "",
     subtitle:
-      "Web, mobile apps, ads and design — under one roof. Two engineer founders and an expert team take your brand end-to-end into digital.",
+      "We are a software company based in Istanbul: web, mobile apps, ads and design — under one roof. Two engineer founders and an expert team take your brand end-to-end into digital.",
     ctaPrimary: "Start a Project",
     ctaSecondary: "See Our Work",
     scroll: "Explore",
@@ -934,6 +935,7 @@ const en: typeof tr = {
     gizlilik: "Privacy Policy",
     kvkk: "KVKK Notice",
     kullanimSartlari: "Terms of Use",
+    iletisimSayfasi: "All contact details",
   },
   langToggle: { tr: "TR", en: "EN", switchTo: "Türkçe" },
 };

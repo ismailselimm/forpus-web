@@ -31,6 +31,30 @@
  */
 export const EPOSTA = "forpusyazilim@gmail.com";
 
+/**
+ * KONUM — kimliğin, sitenin en uzun süre eksik kalan parçası.
+ *
+ * Site adresini hiçbir yerde yazmıyor, "Uzaktan çalışıyoruz" diyordu; bu bir
+ * yer değil bir çalışma biçimi. Google'ın bir işletmeyi yerel olarak
+ * tanıyabilmesi için beyan edilmiş bir ile ihtiyacı var ve o beyan sitenin
+ * her sayfasında aynı olmak zorunda.
+ *
+ * SOKAK ADRESİ VE TELEFON BİLEREK YOK: ikisi de doğrulanabilir olmalı.
+ * Yapısal veriye bugün doğrulanamayan bir adres yazmak, Google Business
+ * Profile açıldığı gün iki farklı adres beyanı demek olurdu — yerel aramada
+ * güveni bozan tam olarak bu tutarsızlık. Ofis kesinleşince buraya yazılacak
+ * ve sitenin tamamı tek seferde güncellenecek.
+ */
+export const SEHIR = { tr: "İstanbul", en: "Istanbul" } as const;
+export const ULKE = { tr: "Türkiye", en: "Türkiye" } as const;
+
+/** Çalışma saatleri — hem iletişim künyesinde hem yapısal veride. */
+export const CALISMA = {
+  gunler: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+  acilis: "09:00",
+  kapanis: "18:00",
+} as const;
+
 export type SosyalProfil = {
   ad: "Instagram" | "Facebook" | "LinkedIn";
   href: string;

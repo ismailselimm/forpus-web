@@ -1,7 +1,8 @@
 import { postsByDate } from "@/lib/blog";
 import { dictionary } from "@/lib/i18n/dictionary";
 import { cases } from "@/lib/cases";
-import { EPOSTA } from "@/lib/marka";
+import { YANIT_SURESI } from "@/lib/iletisim";
+import { EPOSTA, SEHIR, ULKE } from "@/lib/marka";
 import { SITE_URL as SITE } from "@/lib/site";
 import { solutions } from "@/lib/solutions";
 
@@ -25,7 +26,7 @@ export function GET() {
 
 > Forpus, fikirleri büyüyen dijital ürünlere dönüştüren bir yazılım stüdyosudur. Web, mobil uygulama, Meta & Google reklamları, sosyal medya ve tasarım — tek çatı altında. (Forpus is a software studio that turns ideas into digital products that grow: web, mobile apps, ads, social media and design — under one roof.)
 
-Forpus Yazılım, iki mühendis kurucu (biri mobil uygulama & sistem, diğeri web & arayüz odaklı) ve birlikte çalıştığı tasarımcı, reklam ve içerik ekibinden oluşur. Türkiye merkezlidir ve uzaktan çalışır. Markaları uçtan uca dijitale taşır: keşif/strateji, tasarım, geliştirme, lansman ve büyüme.
+Forpus Yazılım, iki mühendis kurucu (biri mobil uygulama & sistem, diğeri web & arayüz odaklı) ve birlikte çalıştığı tasarımcı, reklam ve içerik ekibinden oluşur. İstanbul, Türkiye merkezlidir ve Türkiye geneli ile yurt dışında uzaktan çalışır. Markaları uçtan uca dijitale taşır: keşif/strateji, tasarım, geliştirme, lansman ve büyüme.
 
 ## Hizmetler (Services)
 ${dictionary.tr.services.items
@@ -52,13 +53,14 @@ ${postsByDate.map((y) => `- ${y.title} (${y.published}): ${SITE}/blog/${y.slug}`
 
 ## İletişim (Contact)
 - E-posta: ${EPOSTA}
-- Konum: Türkiye (uzaktan çalışır)
+- Konum / Location: ${SEHIR.tr}, ${ULKE.tr} — Türkiye geneli ve yurt dışıyla uzaktan çalışır.
+- İletişim sayfası / Contact page: ${SITE}/iletisim (TR) · ${SITE}/en/contact (EN)
 - Web: ${SITE} (TR) · ${SITE}/en (EN)
 
 ## Notlar (Notes)
 - Diller: Türkçe (varsayılan) ve İngilizce.
 - Teknoloji: Next.js, React, Flutter; modern, hızlı ve ölçeklenebilir çözümler.
-- Yeni proje teklifi için 48 saat içinde dönüş yapılır.
+- ${YANIT_SURESI.tr} (${YANIT_SURESI.en})
 `;
 
   return new Response(govde, {

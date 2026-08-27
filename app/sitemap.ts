@@ -16,14 +16,29 @@ const TR_LASTMOD = new Date("2026-08-25");
 // EN sayfaları bu turda değişmedi; kendi tarihini koruyor.
 const EN_LASTMOD = new Date("2026-07-12");
 
+// İletişim sayfası bu tarihte yayına girdi.
+const ILETISIM_LASTMOD = new Date("2026-08-27");
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const solutionPages: MetadataRoute.Sitemap = solutions.flatMap((s) => {
     const tr = `${SITE}/cozumler/${s.slug.tr}`;
     const en = `${SITE}/en/solutions/${s.slug.en}`;
     const languages = { tr, en };
     return [
-      { url: tr, lastModified: TR_LASTMOD, changeFrequency: "monthly", priority: 0.8, alternates: { languages } },
-      { url: en, lastModified: EN_LASTMOD, changeFrequency: "monthly", priority: 0.7, alternates: { languages } },
+      {
+        url: tr,
+        lastModified: TR_LASTMOD,
+        changeFrequency: "monthly",
+        priority: 0.8,
+        alternates: { languages },
+      },
+      {
+        url: en,
+        lastModified: EN_LASTMOD,
+        changeFrequency: "monthly",
+        priority: 0.7,
+        alternates: { languages },
+      },
     ];
   });
 
@@ -72,9 +87,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       alternates: { languages: { tr: SITE, en: `${SITE}/en` } },
     },
-    { url: `${SITE}/isler`, lastModified: newest(cases.map((c) => c.updated ?? c.published)), changeFrequency: "monthly", priority: 0.8 },
+    // İletişim sayfası: sitenin kimlik çıpası. Öncelik yüksek — marka
+    // sorgularında ("forpus", "forpus yazılım") ana sayfadan sonra çıkması
+    // gereken sayfa bu.
+    {
+      url: `${SITE}/iletisim`,
+      lastModified: ILETISIM_LASTMOD,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      alternates: {
+        languages: { tr: `${SITE}/iletisim`, en: `${SITE}/en/contact` },
+      },
+    },
+    {
+      url: `${SITE}/en/contact`,
+      lastModified: ILETISIM_LASTMOD,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      alternates: {
+        languages: { tr: `${SITE}/iletisim`, en: `${SITE}/en/contact` },
+      },
+    },
+    {
+      url: `${SITE}/isler`,
+      lastModified: newest(cases.map((c) => c.updated ?? c.published)),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
     ...casePages,
-    { url: `${SITE}/blog`, lastModified: newest(postsByDate.map((p) => p.updated ?? p.published)), changeFrequency: "monthly", priority: 0.6 },
+    {
+      url: `${SITE}/blog`,
+      lastModified: newest(postsByDate.map((p) => p.updated ?? p.published)),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
     ...blogPages,
     ...solutionPages,
     ...hukukiPages,

@@ -11,8 +11,7 @@ export default function Footer() {
   const { t, lang } = useLang();
   const solBase = lang === "tr" ? "/cozumler" : "/en/solutions";
 
-  const scrollTop = () =>
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const yasalBaglantilar = [
     { href: "/gizlilik", label: t.footer.gizlilik },
@@ -73,11 +72,46 @@ export default function Footer() {
               {t.footer.nav}
             </h4>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
-              <li><a href="/#services" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.services}</a></li>
-              <li><a href="/isler" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.work}</a></li>
-              <li><a href="/blog" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.footer.blog}</a></li>
-              <li><a href="/#process" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.process}</a></li>
-              <li><a href="/#team" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">{t.nav.team}</a></li>
+              <li>
+                <a
+                  href="/#services"
+                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                >
+                  {t.nav.services}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/isler"
+                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                >
+                  {t.nav.work}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/blog"
+                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                >
+                  {t.footer.blog}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#process"
+                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                >
+                  {t.nav.process}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/#team"
+                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                >
+                  {t.nav.team}
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -89,7 +123,10 @@ export default function Footer() {
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
               {t.services.items.map((s) => (
                 <li key={s.key}>
-                  <a href="/#services" className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">
+                  <a
+                    href="/#services"
+                    className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                  >
                     {s.name}
                   </a>
                 </li>
@@ -104,11 +141,26 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-[0.95rem] text-ink-2">
               <li>
-                <a href={`mailto:${t.contact.info.email}`} className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink">
+                <a
+                  href={`mailto:${t.contact.info.email}`}
+                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                >
                   {t.contact.info.email}
                 </a>
               </li>
               <li>{t.contact.info.location}</li>
+              {/* Sitenin her sayfasından iletişim sayfasına giden tek bağlantı.
+                  Yeni bir sayfanın taranması ve sıralanması, siteden ona kaç
+                  yerden gidildiğine bağlı; menüye eklemek yerine footer, çünkü
+                  ana sayfada menüdeki "İletişim" formun kendisine kaymalı. */}
+              <li>
+                <Link
+                  href={lang === "tr" ? "/iletisim" : "/en/contact"}
+                  className="inline-block origin-left transition-transform duration-300 hover:scale-[1.06] hover:text-ink"
+                >
+                  {t.footer.iletisimSayfasi}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -123,7 +175,10 @@ export default function Footer() {
             aranınca bulunabilir olmaları yeterli. Meta uygulaması da yayın için
             gizlilik politikası adresini burada arıyor.
           */}
-          <nav aria-label={t.footer.yasal} className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+          <nav
+            aria-label={t.footer.yasal}
+            className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
+          >
             {yasalBaglantilar.map((y) => (
               <Link
                 key={y.href}
