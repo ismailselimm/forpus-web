@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Aurora from "@/components/fx/Aurora";
 import ParticleField from "@/components/fx/ParticleField";
 import Magnetic from "@/components/fx/Magnetic";
@@ -31,37 +31,30 @@ export default function Hero() {
       <div className="container-x relative z-10 grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr]">
         {/* Copy */}
         <div>
-          <div className="hero-in mb-7 inline-flex" style={stagger(0)}>
-            <span className="chip border-gradient relative">
-              <Sparkles className="h-3.5 w-3.5 text-cyan-deep" />
-              {t.hero.eyebrow}
-            </span>
-          </div>
-
           <h1 className="display text-balance">
-            <span className="hero-in block" style={stagger(1)}>
+            <span className="hero-in block" style={stagger(0)}>
               {t.hero.titleLead}
             </span>
             <span
               className="hero-in block text-gradient-anim"
-              style={stagger(2)}
+              style={stagger(1)}
             >
               {t.hero.titleHighlight}
             </span>
             {t.hero.titleTail ? (
-              <span className="hero-in block" style={stagger(3)}>
+              <span className="hero-in block" style={stagger(2)}>
                 {t.hero.titleTail}
               </span>
             ) : null}
           </h1>
 
-          <p className="hero-in lead mt-7 max-w-xl" style={stagger(4)}>
+          <p className="hero-in lead mt-7 max-w-xl" style={stagger(3)}>
             {t.hero.subtitle}
           </p>
 
           <div
             className="hero-in mt-9 flex flex-wrap items-center gap-3"
-            style={stagger(5)}
+            style={stagger(4)}
           >
             <Magnetic>
               <a href="#contact" className="btn btn-primary">
@@ -76,7 +69,7 @@ export default function Hero() {
 
           <div
             className="hero-in mt-10 flex flex-wrap gap-2.5"
-            style={stagger(6)}
+            style={stagger(5)}
           >
             {t.hero.chips.map((c) => (
               <div key={c.value} className="chip">

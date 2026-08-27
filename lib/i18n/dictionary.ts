@@ -23,7 +23,6 @@ const tr = {
     cta: "Projeni Başlat",
   },
   hero: {
-    eyebrow: "İstanbul · Dijital Ürün Stüdyosu",
     titleLead: "Fikrinizi,",
     titleHighlight: "büyüyen dijital ürünlere",
     titleTail: "dönüştürüyoruz.",
@@ -503,7 +502,6 @@ const en: typeof tr = {
     cta: "Start a Project",
   },
   hero: {
-    eyebrow: "Istanbul · Digital Product Studio",
     titleLead: "We turn your ideas into",
     titleHighlight: "digital products that grow",
     titleTail: "",
