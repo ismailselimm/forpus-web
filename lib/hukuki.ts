@@ -95,7 +95,7 @@ const gizlilik: HukukiSayfa = {
   kisaBaslik: "Gizlilik Politikası",
   metaBaslik: "Gizlilik Politikası",
   metaAciklama:
-    "Forpus Yazılım sitesinde hangi bilgileri topluyoruz, neyi toplamıyoruz ve topladığımız az sayıda bilgiye ne oluyor. Çerez yok, Google Analytics yok, reklam pikseli yok.",
+    "Forpus Yazılım sitesinde hangi bilgileri topluyoruz, neyi toplamıyoruz ve topladığımıza ne oluyor. Çerez yok, Google Analytics yok, reklam pikseli yok.",
   ozet: "Bu sitede ne topluyoruz, neyi toplamıyoruz ve topladığımız az sayıda bilgiye ne oluyor — hepsi tek sayfada, süslemesiz.",
   sonGuncelleme: SON_GUNCELLEME,
   bolumler: [
@@ -278,7 +278,7 @@ const kvkk: HukukiSayfa = {
   kisaBaslik: "KVKK Aydınlatma Metni",
   metaBaslik: "KVKK Aydınlatma Metni",
   metaAciklama:
-    "6698 sayılı Kanun kapsamında Forpus Yazılım aydınlatma metni: işlenen veri kategorileri, işleme amacı, hukuki sebep, aktarım, saklama süresi ve madde 11 hakları.",
+    "6698 sayılı Kanun kapsamında Forpus Yazılım aydınlatma metni: veri kategorileri, işleme amacı, hukuki sebep, aktarım, saklama süresi ve madde 11 hakları.",
   ozet: "6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 10. maddesi uyarınca, iletişim formuyla topladığımız kişisel verilere dair aydınlatma.",
   sonGuncelleme: SON_GUNCELLEME,
   bolumler: [

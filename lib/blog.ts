@@ -55,6 +55,7 @@ export const posts: BlogPost[] = [
     excerpt:
       "Ajansların çoğu fiyatı görüşmede söylüyor. Biz bandı baştan yazıyoruz: hangi site ne kadar tutar, maliyeti ne belirler ve nerede fazla ödersiniz.",
     published: "2026-08-25",
+    updated: "2026-08-27",
     tag: "Fiyat Rehberi",
     readingMinutes: 7,
     intro: [
@@ -216,6 +217,7 @@ export const posts: BlogPost[] = [
     excerpt:
       "Uygulama fikri olan çoğu kişi bütçeyi bilmediği için hiç başlamıyor. Gerçek rakamlar, süreler ve maliyeti şişiren en yaygın hata.",
     published: "2026-08-25",
+    updated: "2026-08-27",
     tag: "Fiyat Rehberi",
     readingMinutes: 6,
     intro: [
@@ -398,12 +400,13 @@ export const posts: BlogPost[] = [
   {
     slug: "avukat-web-sitesi-rehberi",
     title: "Avukat Web Sitesi: Reklam Yasağı ve Bilmeniz Gerekenler",
-    metaTitle: "Avukat Web Sitesi Rehberi — Reklam Yasağı ve İçerik",
+    metaTitle: "Avukat Web Sitesi Rehberi — Reklam Yasağı",
     metaDescription:
       "Avukat web sitesi yaptırırken reklam yasağı nasıl işliyor, sitede ne yazılabilir, ne yazılamaz? Meslek kurallarına uygun site kurmanın çerçevesi.",
     excerpt:
       "Hukuk bürolarının en çok takıldığı konu meslek kuralları. Sitede ne yazabilirsiniz, ne yazamazsınız ve ajansınızın bunu bilmemesi sizi nasıl zor durumda bırakır?",
     published: "2026-08-25",
+    updated: "2026-08-27",
     tag: "Rehber",
     readingMinutes: 8,
     intro: [
@@ -552,12 +555,13 @@ export const posts: BlogPost[] = [
   {
     slug: "web-sitesi-yenileme",
     title: "Web Sitesi Yenilerken Google Sıralamanızı Nasıl Korursunuz?",
-    metaTitle: "Web Sitesi Yenileme — Sıralama Kaybetmeden Nasıl Yapılır?",
+    metaTitle: "Web Sitesi Yenileme — Sıralama Kaybetmeden",
     metaDescription:
       "Site yenilerken trafik kaybetmenin en yaygın sebebi yönlendirme eksikliği. Yenileme öncesi kontrol listesi ve sıralamanızı koruma adımları.",
     excerpt:
       "Yenilenen sitelerin trafiği neden düşer? Sebep tasarım değil, atlanan tek bir teknik adım. Yenileme öncesi yapılması gerekenler.",
     published: "2026-08-25",
+    updated: "2026-08-27",
     tag: "Rehber",
     readingMinutes: 6,
     intro: [
@@ -695,12 +699,13 @@ export const posts: BlogPost[] = [
   {
     slug: "web-sitesi-yaptirirken-dikkat-edilecekler",
     title: "Web Sitesi Yaptırırken Nelere Dikkat Edilmeli?",
-    metaTitle: "Web Sitesi Yaptırırken Nelere Dikkat Edilmeli? 10 Madde",
+    metaTitle: "Web Sitesi Yaptırırken Nelere Dikkat Edilmeli?",
     metaDescription:
       "Web sitesi yaptırmadan önce sorulacak 10 soru: alan adı kime ait, kaynak kod sizin mi, teslim sonrası ne oluyor? Pahalıya patlayan hatalar ve nasıl önlenir.",
     excerpt:
       "Teklif aldığınız her ajansa sorabileceğiniz 10 soru. Çoğu ucuz, hepsi sonradan pahalıya patlayan hataları önlüyor.",
     published: "2026-08-25",
+    updated: "2026-08-27",
     tag: "Rehber",
     readingMinutes: 8,
     intro: [

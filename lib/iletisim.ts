@@ -62,7 +62,7 @@ const fiyat = new Intl.NumberFormat("tr-TR").format(PRICE_FLOOR);
 export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
   tr: {
     slug: "iletisim",
-    baslik: "İletişim — İstanbul'da Web ve Mobil Yazılım Stüdyosu",
+    baslik: "İletişim — İstanbul Yazılım Stüdyosu",
     aciklama: `Forpus Yazılım İstanbul merkezli bir web ve mobil yazılım stüdyosu. Projenizi konuşmak için yazın — aynı gün dönüş yapıyoruz. E-posta: ${EPOSTA}`,
     h1: "İletişim",
     ozet:
@@ -160,8 +160,8 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
   },
   en: {
     slug: "en/contact",
-    baslik: "Contact — Web & Mobile Software Studio in Istanbul",
-    aciklama: `Forpus Yazılım is a web and mobile software studio based in Istanbul, Türkiye. Tell us about your project — we reply the same day. Email: ${EPOSTA}`,
+    baslik: "Contact — Software Studio in Istanbul",
+    aciklama: `Web and mobile software studio in Istanbul, Türkiye. Tell us about your project — we reply the same day. Email: ${EPOSTA}`,
     h1: "Contact",
     ozet:
       "Forpus Yazılım is a web and mobile software studio based in Istanbul, Türkiye. " +

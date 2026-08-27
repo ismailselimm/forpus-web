@@ -48,10 +48,11 @@ export const cases: CaseStudy[] = [
   {
     slug: "doldurkabi",
     h1: "DoldurKabı — Hayvanseverler Platformu",
-    metaTitle: "DoldurKabı Vaka Çalışması — Platform ve Mobil Uygulama",
+    metaTitle: "Hayvansever Platformu Örneği — DoldurKabı",
     metaDescription:
       "Sahiplendirme, kayıp ilanı, veteriner rehberi ve haritayı tek platformda toplayan DoldurKabı'nın web ve mobil uygulamasını nasıl kurduk.",
     published: "2026-08-25",
+    updated: "2026-08-27",
     summary:
       "Sokak hayvanları için sahiplendirme, kayıp ilanları, veteriner rehberi ve topluluk forumunu tek çatı altında toplayan bir platform. Web ve mobil uygulamayı uçtan uca biz geliştirdik.",
     challenge: [
@@ -99,10 +100,11 @@ export const cases: CaseStudy[] = [
   {
     slug: "temizlikexpress",
     h1: "Temizlik Express — Hizmet Platformu",
-    metaTitle: "Temizlik Express Vaka Çalışması — Platform ve Mobil Uygulama",
+    metaTitle: "Temizlik Hizmeti Platformu — Temizlik Express",
     metaDescription:
       "Ev temizliği ve halı yıkama hizmetlerini firma karşılaştırma, randevu ve online ödemeyle birleştiren Temizlik Express platformunu nasıl kurduk.",
     published: "2026-08-25",
+    updated: "2026-08-27",
     summary:
       "Ev temizliği, halı yıkama ve benzeri hizmetler için firma karşılaştırma, randevu ve online ödemeyi birleştiren bir platform. Web sitesi, mobil uygulama ve reklam tarafını birlikte yürüttük.",
     challenge: [
@@ -150,10 +152,11 @@ export const cases: CaseStudy[] = [
   {
     slug: "seapleasure",
     h1: "Sea Pleasure — Tekne Kiralama Sitesi",
-    metaTitle: "Sea Pleasure Vaka Çalışması — Tekne Kiralama Web Sitesi",
+    metaTitle: "Tekne Kiralama Web Sitesi Örneği — Sea Pleasure",
     metaDescription:
       "İstanbul Boğazı'nda özel tekne kiralama için videolu, rezervasyon odaklı bir tanıtım sitesi. Turizm sektöründe görselin nasıl satış yaptığını anlatıyoruz.",
     published: "2026-08-25",
+    updated: "2026-08-27",
     summary:
       "İstanbul Boğazı'nda özel tekne ve yat kiralama hizmeti için sinematik bir tanıtım sitesi. Turlar, fiyata dahil olanlar ve tek tıkla WhatsApp rezervasyonu.",
     challenge: [
@@ -197,10 +200,11 @@ export const cases: CaseStudy[] = [
   {
     slug: "diyetisyenece",
     h1: "Dyt. Ece Öztürk — Diyetisyen Web Sitesi",
-    metaTitle: "Diyetisyen Web Sitesi Vaka Çalışması — Dyt. Ece Öztürk",
+    metaTitle: "Diyetisyen Web Sitesi Örneği — Dyt. Ece Öztürk",
     metaDescription:
       "Danışan getiren bir diyetisyen sitesi nasıl kurulur? Hesaplama araçları, hizmet sayfaları ve randevu akışıyla Dyt. Ece Öztürk sitesi.",
     published: "2026-08-25",
+    updated: "2026-08-27",
     summary:
       "Beslenme danışmanlığı için sıcak, yargılamayan ve randevuya yönlendiren bir tanıtım sitesi. Hizmet sayfaları, hesaplama araçları, blog ve WhatsApp randevu.",
     challenge: [
@@ -248,10 +252,11 @@ export const cases: CaseStudy[] = [
   {
     slug: "sagemakine",
     h1: "SAGE Makine — Endüstriyel Kurumsal Site",
-    metaTitle: "SAGE Makine Vaka Çalışması — Endüstriyel Web Sitesi",
+    metaTitle: "Endüstriyel Web Sitesi Örneği — SAGE Makine",
     metaDescription:
       "Renk ayırma ve X-Ray gıda kontrol makineleri için kurumsal site: ürün kataloğu, sektörel çözümler ve teklif akışı. B2B'de site nasıl satış yapar?",
     published: "2026-08-25",
+    updated: "2026-08-27",
     summary:
       "Renk ayırma ve X-Ray gıda kontrol makineleri üreten bir firma için kurumsal site. Makine kataloğu, sektörel çözümler, ürün bazlı anlatım ve teklif akışı.",
     challenge: [
@@ -300,10 +305,11 @@ export const cases: CaseStudy[] = [
   {
     slug: "merak",
     h1: "Merak Et Öğren — Uygulama Tanıtım Sitesi",
-    metaTitle: "Merak Et Öğren Vaka Çalışması — Uygulama Tanıtım Sitesi",
+    metaTitle: "Uygulama Tanıtım Sitesi Örneği — Merak Et Öğren",
     metaDescription:
       "Sesli mikro-öğrenme uygulaması için indirme odaklı tanıtım sitesi. Bir mobil uygulamanın web sitesi neyi başarmalı?",
     published: "2026-08-25",
+    updated: "2026-08-27",
     summary:
       "Günde beş dakikalık sesli öğrenme uygulaması için tanıtım sitesi. Kategoriler, premium üyelik, blog ve mağaza yönlendirmeleri.",
     challenge: [
@@ -351,10 +357,11 @@ export const cases: CaseStudy[] = [
   {
     slug: "dryasin",
     h1: "Dr. Yasin Kurtboğan — Medikal Estetik Sitesi",
-    metaTitle: "Doktor Web Sitesi Vaka Çalışması — Dr. Yasin Kurtboğan",
+    metaTitle: "Doktor Web Sitesi Örneği — Dr. Yasin Kurtboğan",
     metaDescription:
       "Medikal estetik hekimi için kurumsal tanıtım sitesi: uygulama sayfaları, galeri ve randevu talebi. Sağlıkta güven veren tasarım nasıl kurulur?",
     published: "2026-08-25",
+    updated: "2026-08-27",
     summary:
       "Medikal estetik hekimi için kurumsal tanıtım sitesi. Uygulamaların ayrı ayrı anlatıldığı, hekimi öne çıkaran ve randevu talebine yönlendiren bir yapı.",
     challenge: [
@@ -403,10 +410,11 @@ export const cases: CaseStudy[] = [
   {
     slug: "cekictrans",
     h1: "Çekiç Trans — Uluslararası Lojistik Sitesi",
-    metaTitle: "Çekiç Trans Vaka Çalışması — Lojistik Web Sitesi",
+    metaTitle: "Lojistik Web Sitesi Örneği — Çekiç Trans",
     metaDescription:
       "Türkiye'den Balkanlara uluslararası karayolu taşımacılığı için kurumsal site. B2B lojistikte deneyimin nasıl anlatıldığını gösteren bir vaka.",
     published: "2026-08-25",
+    updated: "2026-08-27",
     summary:
       "Türkiye'den Balkanlara uluslararası karayolu taşımacılığı yapan bir firma için kurumsal site. Hizmetler, rotalar, filo ve teklif akışı.",
     challenge: [
@@ -455,10 +463,11 @@ export const cases: CaseStudy[] = [
   {
     slug: "esenkuruyemis",
     h1: "Esen Kuruyemiş — E-Ticaret Sitesi",
-    metaTitle: "Kuruyemiş E-Ticaret Vaka Çalışması — Esen Kuruyemiş",
+    metaTitle: "E-Ticaret Sitesi Örneği — Esen Kuruyemiş",
     metaDescription:
       "Kuruyemiş markası için e-ticaret sitesi: ürün kataloğu, ağırlık bazlı varyantlar, sepet ve ödeme. Gıda e-ticaretinin kendine özgü sorunları.",
     published: "2026-08-25",
+    updated: "2026-08-27",
     summary:
       "Kuruyemiş markası için e-ticaret sitesi. Ürün kataloğu, ağırlık bazlı varyantlar, sepet ve ödeme akışı.",
     challenge: [
