@@ -42,3 +42,7 @@ next-env.d.ts
 # stray root copies (asset'ler public/brand içinde)
 /forpus-logo.png
 /forpus-yazi.png
+# Kökteki .html her zaman bir inceleme çıktısıdır: sayfalar app/ altında,
+# build çıktısı out/ altında. Bir kez 132 KB'lık sayfa dökümü `git add -A`
+# ile commit'e kaçtı.
+/*.html
