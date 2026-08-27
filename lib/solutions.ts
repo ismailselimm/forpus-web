@@ -287,6 +287,10 @@ export const solutions: Solution[] = [
       h1: "Doctor Website Design",
       intro:
         "Patients look you up on Google before they walk into your clinic. A fast, trustworthy, mobile-friendly website directly affects how many of them book. Forpus builds sites for physicians focused on appointments, services and clear information.",
+      shortAnswer: {
+        title: "What does a doctor's website include, and what does it cost?",
+        body: "A doctor's website is a physician's own address, where they describe their specialities in their own words and guide patients to an appointment. A typical site Forpus builds carries a separate page for each speciality, appointment routing through WhatsApp or a form, a blog for patient-education articles, a contact form compliant with Türkiye's KVKK data-protection law, a fast mobile-first design, and technical SEO prepared for Google Maps. A single-page brochure site starts around ₺50,000 and goes live in about a week once your content is ready. A full clinic site with each speciality on its own page runs ₺100,000–180,000 and takes two to four weeks. Add online booking and a patient portal and the project starts at ₺250,000. Health-advertising rules in Türkiye rule out price lists, campaign announcements and patient testimonials, so the site is built as information rather than promotion. The domain and the site are registered in your name.",
+      },
       benefits: [
         {
           title: "Trust on first sight",
@@ -506,6 +510,10 @@ export const solutions: Solution[] = [
       h1: "Dentist Website Design",
       intro:
         "Patients search on Google, read reviews and check the clinic's site before choosing a dentist. A trustworthy site that explains your treatments clearly and drives bookings fills your chair. Forpus builds dentist sites that highlight implants, orthodontics and aesthetic treatments.",
+      shortAnswer: {
+        title: "What does a dentist website include, and what does it cost?",
+        body: "A dentist website is the clinic's own address, where it explains treatments such as implants, orthodontics and cosmetic dentistry in its own words and guides patients to book. A typical clinic site Forpus builds carries a separate page per treatment, a before-and-after gallery published with written patient consent, appointment routing through WhatsApp or a form, an individual profile page for each dentist when the practice has several, a fast mobile-first design, and technical SEO prepared for Google Maps. A single-page brochure site starts around ₺50,000 and goes live in about a week once your content is ready. A full clinic site with each treatment on its own page runs ₺100,000–180,000 and takes two to four weeks. Add online booking and a patient portal and the project starts at ₺250,000. Health-advertising rules in Türkiye rule out price lists, campaign announcements and patient testimonials.",
+      },
       benefits: [
         {
           title: "Trust at first glance",
@@ -731,6 +739,10 @@ export const solutions: Solution[] = [
       h1: "Dietitian Website Design",
       intro:
         "People search online before choosing a dietitian. A warm, trustworthy site that drives bookings grows your client base. Forpus builds dietitian sites focused on packages, online booking and content.",
+      shortAnswer: {
+        title: "What does a dietitian website include, and what does it cost?",
+        body: "A dietitian website is a nutrition professional's own address, where they explain their approach and packages and turn a visitor into a booked client. A typical site Forpus builds carries service and package pages, online booking with payment, a blog for recipes and guidance articles, a client-testimonials section, social media links and a fast mobile-first design. A single-page brochure site starts around ₺50,000 and goes live in about a week once your content is ready. A site built to attract clients, with each package on its own page and prepared for search, runs ₺90,000–150,000 and takes two to four weeks. A mobile app where you track a client's measurements, plan and progress starts at ₺250,000. If you consult online, video sessions and payment flow are designed in from the start. The domain and the site stay in your name, and you update the content yourself after handover.",
+      },
       benefits: [
         {
           title: "A storefront that converts",
@@ -950,6 +962,11 @@ export const solutions: Solution[] = [
       h1: "Psychologist Website Design",
       intro:
         "Reaching out for therapy takes courage; your site should reassure at that moment. A calm, professional, privacy-respecting design makes it easier for clients to contact you. Forpus builds measured, trustworthy sites for psychologists.",
+      shortAnswer: {
+        title:
+          "What does a psychologist website include, and what does it cost?",
+        body: "A psychologist website is a therapist's own address, where they describe their fields of work and therapeutic approach and make the first step easier for the person reaching out. A typical site Forpus builds carries pages for each field and approach, routing for online or in-person sessions, a blog for informational writing, a contact form designed around privacy, a calm and restrained layout, and search-visibility settings. A single-page brochure site starts around ₺50,000 and goes live in about a week once your content is ready. A specialist site with each field on its own page runs ₺90,000–140,000 and takes two to four weeks. Add an appointment and session panel and the project starts at ₺200,000. The design deliberately stays quiet: for someone looking for therapy, calm is more persuasive than flourish. Professional ethics rule out publishing client testimonials.",
+      },
       benefits: [
         {
           title: "Trust and privacy",
@@ -1169,6 +1186,10 @@ export const solutions: Solution[] = [
       h1: "Lawyer Website Design",
       intro:
         "Someone seeking legal help looks for trust and competence. A corporate, serious, mobile-friendly website reflects your firm's reputation and brings the right clients. Forpus builds sites for lawyers and law firms.",
+      shortAnswer: {
+        title: "What does a lawyer website include, and what does it cost?",
+        body: "A lawyer website is a practitioner's or firm's own address, where they set out their practice areas and experience so the right client can find them. A typical firm site Forpus builds carries a separate page per practice area, a team and credentials section, a knowledge base you can publish articles into, an appointment and contact form, a corporate mobile-first design, and SEO that covers professional directories. A single-page brochure site starts around ₺50,000 and goes live in about a week once your content is ready. A full firm site with each practice area on its own page runs ₺100,000–170,000 and takes two to four weeks. Add a client portal and the project starts at ₺250,000. Turkish bar rules on legal advertising rule out solicitation language, success rates and client testimonials; publishing articles is the one route to visibility that stays inside those rules.",
+      },
       benefits: [
         {
           title: "Corporate reputation",
@@ -1388,6 +1409,11 @@ export const solutions: Solution[] = [
       h1: "Real Estate Website",
       intro:
         "Buyers and renters browse your portfolio on their phones, not in a window. A site that presents listings cleanly, filterable and on a map turns your portfolio into sales. Forpus builds real estate sites with listing management.",
+      shortAnswer: {
+        title:
+          "What does a real estate website include, and what does it cost?",
+        body: "A real estate website is an agency's own address, where its portfolio is browsed with filters and on a map. A typical site Forpus builds carries a listing management panel you add properties through yourself, filtering by location, price and type, map display for every listing, direct WhatsApp contact, a fast mobile-first gallery and SEO settings. An office brochure site runs ₺60,000–100,000 and goes live in one to two weeks. A full portfolio site with panel-managed, filterable, mapped listings runs ₺120,000–200,000 and takes three to five weeks. A mobile app your agents file listings from in the field starts at ₺250,000. Existing listings are migrated in bulk rather than re-entered one by one. Sold properties are archived rather than deleted, so they keep working as references and the indexed page does not go to waste.",
+      },
       benefits: [
         {
           title: "An organized portfolio",
@@ -1613,6 +1639,11 @@ export const solutions: Solution[] = [
       h1: "E-Commerce Website Development",
       intro:
         "You don't have to be locked into marketplace commissions to sell your products. A fast, sales-focused store under your own brand grows both your margin and customer loyalty. Forpus builds end-to-end e-commerce sites with payment and shipping integration.",
+      shortAnswer: {
+        title:
+          "What does building an e-commerce site involve, and what does it cost?",
+        body: "Building an e-commerce site means setting up a storefront and back end where you sell on your own address instead of paying marketplace commission. A typical site Forpus builds carries a product catalogue with variants, cart and secure payment integration, shipping and invoicing flows, a discount and coupon system, a fast mobile-first storefront, and SEO that covers Google Shopping. Setup on an off-the-shelf platform runs ₺80,000–140,000 and goes live in two to three weeks; with a small catalogue and standard flows this is usually the right starting point. A store designed for your brand and built around your own flows runs ₺150,000–280,000 and takes four to seven weeks. Custom software, ERP or marketplace integration starts at ₺350,000. The payment gateway is opened in your company's name and money lands in your account. Distance-selling, refund and privacy texts are delivered ready.",
+      },
       benefits: [
         {
           title: "Your own brand",
@@ -1832,6 +1863,10 @@ export const solutions: Solution[] = [
       h1: "Restaurant Website Design",
       intro:
         "Guests check your menu and space on their phones before they arrive. Appetizing photos, an up-to-date digital menu and easy reservations fill your tables. Forpus builds sites for restaurants and cafes.",
+      shortAnswer: {
+        title: "What does a restaurant website include, and what does it cost?",
+        body: "A restaurant website is your own address for keeping the menu current, showing the room and taking reservations. A typical site Forpus builds carries a QR and digital menu you update yourself, an online reservation form, routing to delivery platforms, a room and food gallery, a map with opening hours, and a fast mobile-first design. A site focused on the digital menu and introduction runs ₺50,000–80,000 and goes live in about a week. A full site that takes reservations and manages a categorised menu from a panel runs ₺80,000–140,000 and takes two to three weeks. Your own online ordering system, where orders come straight to you with no commission, starts at ₺200,000. The menu is built as real pages rather than a PDF: a PDF opens slowly on a phone and Google cannot use the dish names inside it.",
+      },
       benefits: [
         {
           title: "An appetizing storefront",
@@ -2051,6 +2086,11 @@ export const solutions: Solution[] = [
       h1: "Personal Brand Website",
       intro:
         "Your social account isn't yours; it's the algorithm's. A website under your own name moves your work and reputation somewhere permanent. Consultant, coach, educator or creator — Forpus builds sites that tell your story.",
+      shortAnswer: {
+        title:
+          "What does a personal brand website include, and what does it cost?",
+        body: "A personal brand website moves a consultant's, coach's, trainer's or creator's work onto an address that does not depend on an algorithm. A typical site Forpus builds carries an about and portfolio section, service and package pages, a blog or content system, newsletter and email-list capture, social media integration, and a mobile-first design made for you rather than picked from a shelf. A single-page personal site runs ₺50,000–80,000 and goes live in about a week. A brand site with each service on its own page and ready for regular publishing runs ₺80,000–130,000 and takes two to three weeks. Membership or course selling starts at ₺180,000. The domain is registered in your own name — a domain sitting in an agency's account becomes a problem the day the relationship ends. The email list is the piece that matters most: followers belong to the platform, the list belongs to you.",
+      },
       benefits: [
         {
           title: "You own it",
@@ -2270,6 +2310,10 @@ export const solutions: Solution[] = [
       h1: "Hair Salon & Barber Website",
       intro:
         "People check their phone when looking for a new salon: reviews, photos and 'book now'. A sharp storefront and one-tap online booking keep your chairs full. Forpus builds sites for hair salons, barbers and beauty studios.",
+      shortAnswer: {
+        title: "What does a hair salon website include, and what does it cost?",
+        body: "A hair salon or barbershop website is your own address for showing the space, publishing your price list and taking bookings in one tap. A typical salon site Forpus builds carries online booking and WhatsApp integration, a service and price list you update yourself, a gallery of work and the room, stylist profiles, a Google Maps link with opening hours, and a fast mobile-first design. A site focused on introducing the salon runs ₺50,000–80,000 and goes live in about a week. A full site that takes bookings and lists every service runs ₺80,000–130,000 and takes two to three weeks. A booking system tied to the salon calendar, plus a mobile app, starts at ₺180,000. No stock photography goes in the gallery — your own work is used, because a customer wants what they walk into to match what they saw.",
+      },
       benefits: [
         {
           title: "Online booking",
@@ -2495,6 +2539,11 @@ export const solutions: Solution[] = [
       h1: "Beauty & Aesthetics Clinic Website",
       intro:
         "In aesthetics and skincare, trust is everything. A sharp site that shows your results and easy booking moves a hesitant visitor toward a decision. Forpus builds sites for beauty, skincare and laser clinics.",
+      shortAnswer: {
+        title:
+          "What does a beauty clinic website include, and what does it cost?",
+        body: "A beauty and aesthetics clinic website is your own address for explaining treatments, showing results and taking bookings. A typical clinic site Forpus builds carries service and package pages, a before-and-after gallery published with consent, online booking and WhatsApp routing, a campaign section, Google Maps and review links, and a fast mobile-first design. A site focused on introducing the clinic runs ₺50,000–85,000 and goes live in one to two weeks. A full clinic site with each treatment on its own page and prepared for search runs ₺90,000–160,000 and takes two to four weeks. Add a booking system and a mobile app and the project starts at ₺250,000. Each treatment gets its own page: someone searching for laser hair removal should not land on the same page as someone searching for a facial. Where treatments are medical, health-advertising rules apply.",
+      },
       benefits: [
         {
           title: "A results-driven storefront",
@@ -2714,6 +2763,11 @@ export const solutions: Solution[] = [
       h1: "Veterinary Clinic Website",
       intro:
         "When a pet's health is on the line, owners urgently look for the nearest, most trustworthy clinic. A warm, reassuring site that drives bookings puts your clinic first. Forpus builds sites for veterinary clinics.",
+      shortAnswer: {
+        title:
+          "What does a veterinary clinic website include, and what does it cost?",
+        body: "A veterinary clinic website is your own address for explaining services, announcing emergency and on-call hours and taking appointments. A typical clinic site Forpus builds carries separate pages for services such as vaccination, surgery and check-ups, online booking and WhatsApp routing, emergency contact and on-call information visible on the first screen, a team and clinic introduction, a Google Maps link with opening hours, and a fast mobile-first design. A site focused on introducing the clinic runs ₺50,000–85,000 and goes live in one to two weeks. A full clinic site that takes bookings and describes each service runs ₺90,000–150,000 and takes two to four weeks. A booking and patient-record system starts at ₺220,000. You update opening hours and on-call days yourself. For an owner searching in an emergency the phone number is the critical piece, so it goes on the first screen.",
+      },
       benefits: [
         {
           title: "Reachable in an emergency",
@@ -2933,6 +2987,10 @@ export const solutions: Solution[] = [
       h1: "Architect & Interior Designer Website",
       intro:
         "Your work is visual; your site should be too. A portfolio site that presents projects with large, striking imagery makes prospects feel 'I have to work with them'. Forpus builds portfolio sites for architects and interior designers.",
+      shortAnswer: {
+        title: "What does an architect website include, and what does it cost?",
+        body: "An architect or interior designer website is your own address for showing projects at the scale they deserve and turning them into enquiries. A typical portfolio site Forpus builds carries a gallery you add projects to yourself, a detail page per project, a description of services and the working process, an about or team section, an enquiry form, and a fast mobile-first gallery. A site focused on the portfolio runs ₺60,000–100,000 and goes live in one to two weeks. A full studio site describing services and process runs ₺110,000–190,000 and takes three to five weeks. Custom transitions or 3D walkthroughs start at ₺250,000. High-resolution renders do not slow the site down: a set of derivatives is generated for each screen size. Every project gets its own detail page — a single gallery grid cannot carry a project's story or scale.",
+      },
       benefits: [
         {
           title: "A striking portfolio",
@@ -3152,6 +3210,11 @@ export const solutions: Solution[] = [
       h1: "Accountant Website Design",
       intro:
         "Businesses look for trust and seriousness in whoever they hand their books to. A corporate, clear, professional website reflects your firm's credibility and brings new clients. Forpus builds sites for accountants and bookkeeping firms.",
+      shortAnswer: {
+        title:
+          "What does an accountant website include, and what does it cost?",
+        body: "A certified public accountant's website is your firm's own address for setting out services and experience so new clients can reach you. A typical office site Forpus builds carries separate pages for services such as company formation, advisory and tax filing, a sector-solutions section, team and credentials pages, an appointment and contact form, a corporate mobile-first design, and SEO that covers local search. A site focused on introducing the office runs ₺50,000–85,000 and goes live in one to two weeks. A corporate site with each service on its own page and a place to publish regulatory articles runs ₺90,000–160,000 and takes two to four weeks. A client portal for document exchange starts at ₺250,000. Clients are separated by type: someone registering a sole proprietorship should not land on the same page as a limited company moving to e-invoicing.",
+      },
       benefits: [
         {
           title: "Corporate trust",
@@ -3371,6 +3434,11 @@ export const solutions: Solution[] = [
       h1: "Photographer Website",
       intro:
         "Your work speaks in frames; your site should show them as they deserve. A full-screen, fast, sharp portfolio wows visitors and moves them to book. Forpus builds sites for wedding, newborn and event photographers.",
+      shortAnswer: {
+        title:
+          "What does a photographer website include, and what does it cost?",
+        body: "A photographer's website is your own address for showing work full-screen and turning it into bookings. A typical site Forpus builds carries galleries split into categories such as weddings, newborn or events, package and pricing pages, a booking form, client testimonials, Instagram integration and a fast mobile-first gallery. A site focused on the portfolio runs ₺50,000–85,000 and goes live in one to two weeks. A full site that describes packages and takes bookings runs ₺85,000–150,000 and takes two to four weeks. A delivery system where clients log in with a password, make their selection and download files starts at ₺200,000. High-resolution frames do not slow the site down: a set of derivatives is generated for each screen size. Your images are protected against right-click and dragging, and can be shown as watermarked previews. Whether you publish prices and availability is a decision we make together: publishing them reduces enquiry volume and raises its quality.",
+      },
       benefits: [
         {
           title: "Let your frames shine",
@@ -3590,6 +3658,10 @@ export const solutions: Solution[] = [
       h1: "Gym & Personal Trainer Website",
       intro:
         "New members check the space, the trainers and the prices online before choosing a gym. An energetic, clear site that drives sign-ups turns a trial class into a membership. Forpus builds sites for gyms and personal trainers.",
+      shortAnswer: {
+        title: "What does a gym website include, and what does it cost?",
+        body: "A gym or personal trainer website is your own address for showing the space, the class schedule and the membership packages, and turning a trial session into a membership. A typical site Forpus builds carries membership and package pages, a weekly class schedule or calendar, trainer profiles, a trial-session form, a gallery with opening hours, and a fast mobile-first design. A site focused on introducing the gym runs ₺50,000–85,000 and goes live in one to two weeks. A full site where the schedule is updated from a panel and each package is described runs ₺90,000–150,000 and takes two to four weeks. Online membership sales and class booking start at ₺220,000. No stock photography goes in the gallery — your own gym is photographed, because someone about to join wants to see the room they will actually walk into.",
+      },
       benefits: [
         {
           title: "Drive sign-ups",
@@ -3819,6 +3891,11 @@ export const solutions: Solution[] = [
       h1: "Mobile App Development",
       intro:
         "A good idea gains value when it lives in the user's pocket. We build fast, smooth apps for iOS and Android from a single codebase, handling everything from design to store release. We've shipped real products like DoldurKabı and Temizlik Express.",
+      shortAnswer: {
+        title:
+          "What does mobile app development involve, and what does it cost?",
+        body: "Mobile app development takes an idea from design to store release on both iOS and Android. Forpus works from a single codebase, so you do not hire two teams and you do not pay twice. A typical project covers UI/UX design and a clickable prototype, iOS and Android development, an admin panel and user system, integrations for notifications, payment and maps, App Store and Google Play release, and post-launch maintenance. A first version — an MVP carrying just enough to prove the idea — runs ₺250,000–400,000 and reaches the stores in six to ten weeks. A full-scope app runs ₺450,000–800,000 and takes three to five months. A long-lived platform starts at ₺800,000. Store accounts are opened in your name and the source code is handed over, so the app is yours. What the first version will not include is agreed in writing.",
+      },
       benefits: [
         {
           title: "iOS + Android at once",
