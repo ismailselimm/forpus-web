@@ -40,11 +40,16 @@ export const metadata: Metadata = {
   title: {
     // Aranan ifade önce, marka sonra. Adımızı bilmeyen kimse "Forpus" aramıyor;
     // ana sayfanın hizmet aramalarında da yarışması için başlık böyle kuruldu.
-    // Şehir başlıkta: 90 günde coğrafi niyetli TEK bir sorgu gösterim
-    // almadı ve alması da beklenemezdi — "İstanbul" ana sayfanın başlığında,
-    // açıklamasında ve gövdesinde hiç geçmiyordu. Sayfada olmayan bir
-    // kelimeyle eşleşme olmaz.
-    default: "İstanbul Web Tasarım ve Mobil Uygulama | Forpus Yazılım",
+    //
+    // ŞEHİR BAŞLIKTA DEĞİL. Bir ara "İstanbul Web Tasarım ve Mobil Uygulama"
+    // yazıyordu, coğrafi sorgularda eşleşme olsun diye. Sekmede ve paylaşımda
+    // kötü duruyordu ve o gerekçe zaten başka yerlerden karşılanıyor:
+    // açıklamada "İstanbul merkezli" geçiyor, `Organization` şemasında
+    // `PostalAddress` var, iletişim sayfasının kendi başlığı "İletişim —
+    // İstanbul Yazılım Stüdyosu", llms.txt konum satırı ofisi söylüyor.
+    // Şehir sinyali beş yerde duruyor; sekmede altıncı kez tekrarlamak
+    // yalnızca başlığı uzatıyordu.
+    default: "Web Tasarım ve Mobil Uygulama Ajansı | Forpus Yazılım",
     template: "%s | Forpus Yazılım",
   },
   // 155 karakterin altında: Google bu uzunlukta kesmeden gösteriyor.

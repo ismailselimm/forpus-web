@@ -39,7 +39,8 @@ import { solutionUi } from "@/lib/solutions";
 
 export const metadata: Metadata = {
   // Başlıksız bırakılınca kök layout'un ana sayfa başlığı düşüyordu:
-  // sekmede ve paylaşımda "İstanbul Web Tasarım ve Mobil Uygulama" yazıyordu.
+  // sekmede ve paylaşımda ana sayfanın başlığı ("Web Tasarım ve Mobil
+  // Uygulama Ajansı") yazıyordu.
   title: "Sayfa bulunamadı",
   // Next.js 404 için zaten noindex basıyor; burada tekrarlamak layout'tan
   // gelen "index, follow" ile çakışan ikinci etiketi tek doğruya indiriyor.
