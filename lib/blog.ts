@@ -889,6 +889,646 @@ export const posts: BlogPost[] = [
     ],
     relatedSolutions: ["kisiselmarka", "eticaret", "doktor"],
   },
+  // ───────────────────────────────────────── HUKUK BÜROSU YAZILIMI
+  {
+    slug: "hukuk-burosu-yonetim-yazilimi",
+    title: "Hukuk Bürosu Yönetim Yazılımı: Hazır Program mı, Size Özel mi?",
+    metaTitle: "Hukuk Bürosu Yönetim Yazılımı — Hazır mı Özel mi?",
+    metaDescription:
+      "Hukuk bürosu için dosya, duruşma ve müvekkil takibi: hazır program ne zaman yeter, ne zaman size özel yazılım gerekir? Fiyat bandı, süre ve karar kriterleri.",
+    excerpt:
+      "Dosya ve duruşma takibi Excel'den taşınca akla iki yol geliyor: hazır bir program ya da size özel yazılım. İkisinin de doğru olduğu durumlar var; hangisinin sizin durumunuz olduğuna nasıl karar verilir?",
+    published: "2026-08-28",
+    tag: "Rehber",
+    readingMinutes: 9,
+    intro: [
+      "Bir hukuk bürosu belli bir dosya sayısını geçtiğinde Excel çöküyor. Duruşma tarihi kaçıyor, hangi müvekkile ne söylendiği hatırlanmıyor, ödeme takibi ayrı bir dosyada yürüyor. Bu noktada iki yol görünüyor: piyasadaki hazır programlardan birini almak ya da büroya özel bir sistem yaptırmak.",
+      "İkisi de doğru cevap olabilir ve yanlış seçim pahalı. Aşağıda ikisinin gerçekten neyi çözdüğünü, hangi eşikte hangisinin mantıklı olduğunu ve teklif alırken sorulması gereken soruları yazdık.",
+    ],
+    shortAnswer: {
+      title: "Kısa cevap: hangisi size uygun?",
+      body: "Hukuk bürosu yönetim yazılımı, dosya, duruşma, müvekkil ve tahsilat takibini tek yerde toplayan sistemdir. Karar aslında tek bir soruya bakıyor: sizin çalışma biçiminiz standart mı, değil mi? Dosya akışınız klasikse ve UYAP dışında özel bir entegrasyon beklemiyorsanız hazır bir program neredeyse her zaman doğru seçimdir — aylık abonelikle başlar, kurulum günler sürer ve bakımı sizin sorununuz olmaz. Size özel yazılım, ancak üç durumdan biri varsa mantıklı: büronuzun kendine has bir iş akışı var ve hazır programlar buna zorlanıyor, müvekkilin dosyasını çevrimiçi görebildiği bir portal istiyorsunuz, ya da mevcut muhasebe veya CRM sisteminizle veri alışverişi gerekiyor. Özel geliştirmede müvekkil portalı ₺250.000 bandından başlar ve kapsama göre süresi belirlenir. Üçünden hiçbiri sizde yoksa özel yazılım, hazır programın yapabildiğini daha pahalıya yapmak olur. Karşılaştırmayı ilk yıl maliyeti üzerinden değil, üç yıla yayılmış toplam sahip olma maliyeti üzerinden yapın: hazır programın aylık aboneliği birikir, özel yazılımın kurulum bedeli ise bir kezdir. Teklifte üç şey yazılı olsun: verinin hangi ülkede barındığı, kaynak kodun kime kalacağı ve yetkilendirme.",
+    },
+    sections: [
+      {
+        heading: "Önce şunu ayırın: takip mi, portal mı?",
+        body: [
+          "Bu başlık altında aslında iki ayrı ihtiyaç konuşuluyor ve karıştırılınca yanlış teklif alınıyor.",
+          "Birincisi büro içi takip: dosyalar, duruşma takvimi, süreler, görev dağılımı, tahsilat. Bunu kullanan sizsiniz ve ekibiniz. Piyasada bu işi yapan olgun programlar var; çoğu UYAP ile konuşuyor ve aylık abonelikle çalışıyor.",
+          "İkincisi müvekkil portalı: müvekkilin kendi dosyasının hangi aşamada olduğunu, hangi belgenin yüklendiğini ve yaklaşan duruşmayı kendi girip görebildiği bir alan. Bu, büro içi takipten farklı bir iştir; hazır programların çoğunda ya hiç yoktur ya da sınırlıdır. Aramaların çoğu birinci ihtiyaçla başlayıp ikincisine kayıyor.",
+        ],
+      },
+      {
+        heading: "Hazır program ne zaman yeter?",
+        bullets: [
+          {
+            title: "Dosya akışınız standart",
+            body: "İcra, ceza, iş hukuku gibi klasik akışlarla çalışıyorsanız hazır programlar bunları zaten modellemiş durumda. Kendi akışınızı sıfırdan kurdurmak, çözülmüş bir problemi yeniden çözmek olur.",
+          },
+          {
+            title: "Ekip küçük ve büyüme kademeli",
+            body: "Birkaç avukat ve bir sekreterle çalışan bir büroda kullanıcı başına abonelik, özel yazılımın kurulum maliyetinin çok altında kalır ve yıllarca öyle kalır.",
+          },
+          {
+            title: "Bakım derdi istemiyorsunuz",
+            body: "Hazır programda güncelleme, yedekleme ve mevzuat değişikliği sağlayıcının işidir. Özel yazılımda bu kalemler sizin bütçenizde durur.",
+          },
+        ],
+      },
+      {
+        heading: "Size özel yazılım ne zaman mantıklı?",
+        body: [
+          "Özel geliştirme, hazır programın yapamadığı bir şey varsa mantıklıdır. Pratikte üç durum görüyoruz:",
+        ],
+        bullets: [
+          {
+            title: "Müvekkil portalı istiyorsunuz",
+            body: "Müvekkilin telefondan girip dosyasının durumunu gördüğü, belge yüklediği ve bilgilendirme aldığı bir alan. Bunu isteyen büroların gerekçesi genellikle aynı: telefon trafiğinin yarısı durum sorusu ve bu trafik ücretlendirilemiyor.",
+          },
+          {
+            title: "İş akışınız kendine has",
+            body: "Belli bir alanda uzmanlaşmış, kendi süreç adımlarını kurmuş bürolarda hazır program zorlanır. Zorlama belirtisi şudur: ekip programı kullanmak yerine yanında Excel tutmaya başlar.",
+          },
+          {
+            title: "Başka bir sistemle konuşması gerekiyor",
+            body: "Muhasebe programı, e-fatura sağlayıcısı ya da mevcut bir CRM ile veri alışverişi gerekiyorsa entegrasyon çoğu hazır programda kapalıdır.",
+          },
+        ],
+        callout: {
+          title: "Üçünden hiçbiri yoksa",
+          body: "Özel yazılım, hazır programın yapabildiğini daha pahalıya yapmak olur. Bunu size satmayan bir ekiple çalışın.",
+        },
+      },
+      {
+        heading: "Fiyat ve süre bandı",
+        table: {
+          caption: "2026 başlangıç bandı — Türkiye, özel geliştirme",
+          head: ["Kapsam", "Fiyat bandı", "Süre", "Ne içerir"],
+          rows: [
+            [
+              "Büro sitesi + iletişim akışı",
+              "₺100.000 – 170.000",
+              "2–4 hafta",
+              "Çalışma alanları, ekip, makale altyapısı, randevu formu",
+            ],
+            [
+              "Müvekkil portalı",
+              "₺250.000'den başlayan",
+              "Projeye özel",
+              "Giriş, dosya durumu, belge yükleme, bilgilendirme",
+            ],
+            [
+              "Portal + entegrasyon",
+              "Projeye özel",
+              "Projeye özel",
+              "Muhasebe/CRM veri alışverişi, çok kullanıcılı yetkilendirme",
+            ],
+          ],
+        },
+        body: [
+          "Hazır programlar bu tablonun dışında: kullanıcı başına aylık abonelikle çalışıyorlar ve tek seferlik bir kurulum maliyeti taşımıyorlar. Karşılaştırmayı toplam sahip olma maliyeti üzerinden yapın — özel yazılımın kurulum bedeli ilk yıl ağır görünür, üç yıla yayıldığında tablo değişebilir.",
+        ],
+      },
+      {
+        heading: "Teklif alırken sorun",
+        bullets: [
+          {
+            title: "Veri kimin, nerede duruyor?",
+            body: "Müvekkil verisi kişisel veridir ve KVKK kapsamındadır. Verinin hangi ülkede barındığını, yedeklerin nerede tutulduğunu ve sözleşme bittiğinde verinin size hangi formatta teslim edileceğini yazılı isteyin.",
+          },
+          {
+            title: "Kaynak kod kime kalıyor?",
+            body: "Özel geliştirmede kaynak kodun size teslim edilip edilmeyeceği tek cümlelik bir sözleşme maddesidir ve olmadığında ekip değiştirmek imkânsız hale gelir.",
+          },
+          {
+            title: "Yetkilendirme nasıl çalışıyor?",
+            body: "Stajyerin, sekreterin ve avukatın aynı ekranı görmemesi gerekir. Rol bazlı yetkilendirme sonradan eklenen değil, baştan tasarlanan bir şeydir.",
+          },
+          {
+            title: "İlk sürümde ne yok?",
+            body: "Kapsamın yol boyunca büyümesi, yazılım projelerinde gecikmenin bir numaralı sebebi. İlk sürümde neyin olmayacağını da yazılı kararlaştırın.",
+          },
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "UYAP ile entegre olabilir mi?",
+        a: "Hazır programların çoğu bu entegrasyonu zaten sunuyor. Özel geliştirmede ise UYAP tarafındaki teknik imkânlara bağlı; teklif aşamasında bunu net bir soru olarak sorun ve varsayım üzerine ilerlemeyin.",
+      },
+      {
+        q: "Müvekkil portalı gerçekten gerekli mi?",
+        a: "Telefon trafiğinizin ne kadarının durum sorusu olduğuna bakın. Az sayıda dosyayla çalışıyorsanız gereksiz maliyettir; dürüst yanıt budur. Ama aynı soruya günde defalarca cevap veriliyorsa portal kendini kısa sürede amorti eder.",
+      },
+      {
+        q: "Mevcut verilerimizi aktarabilir misiniz?",
+        a: "Excel, hazır program çıktısı ya da veritabanı dökümü olarak elinizde ne varsa toplu aktarımla taşınır. Aktarım kapsamı ve veri temizliği teklifte ayrı bir kalem olarak yazılmalı; sonradan sürpriz çıkan kalemlerin başında bu geliyor.",
+      },
+      {
+        q: "Reklam yasağı bu yazılımı etkiler mi?",
+        a: "Hayır. Reklam yasağı tanıtımı düzenler; büro içi bir yönetim sistemi ya da yalnızca müvekkilin giriş yaptığı bir portal tanıtım değildir. Sınırlar sitenin herkese açık kısmı için geçerli.",
+      },
+    ],
+    relatedSolutions: ["avukat", "musavir"],
+  },
+  // ───────────────────────────────── HUKUK BÜROSU SİTE YAPISI
+  {
+    slug: "hukuk-burosu-web-sitesi-sayfalari",
+    title: "Hukuk Bürosu Web Sitesinde Hangi Sayfalar Olmalı?",
+    metaTitle: "Hukuk Bürosu Web Sitesi: Hangi Sayfalar Olmalı?",
+    metaDescription:
+      "Avukat ve hukuk bürosu sitesinde hangi sayfalar olmalı, çalışma alanları neden ayrı sayfalanmalı, hangi sayfa hangi aramayı karşılar? Yapı ve örnek site haritası.",
+    excerpt:
+      "Çoğu büro sitesi tek sayfada beş çalışma alanını birden sayıyor ve hiçbirinde bulunmuyor. Doğru yapı, arama yapan kişinin sorduğu soruya bir sayfa ayırmakla başlıyor.",
+    published: "2026-08-28",
+    tag: "Rehber",
+    readingMinutes: 8,
+    intro: [
+      "Hukuk bürolarının sitelerinde en sık gördüğümüz yapı şu: bir ana sayfa, bir hakkımızda, bir de içinde beş çalışma alanının alt alta sayıldığı tek bir hizmetler sayfası. Bu yapı reklam yasağına uygundur ama arama motorunda neredeyse hiçbir işe yaramaz.",
+      "Sebep basit: Google sıralamayı siteye değil sayfaya verir. Boşanma davası arayan biriyle iş kazası tazminatı arayan biri farklı şey arıyor; ikisini aynı sayfaya koyduğunuzda o sayfa ikisine de yarım cevap veriyor ve ikisinde de arkalarda kalıyor.",
+    ],
+    shortAnswer: {
+      title: "Kısa cevap: hangi sayfalar olmalı?",
+      body: "Bir hukuk bürosu sitesinin çekirdeği altı parçadan oluşur. Ana sayfa büronun ne yaptığını ve nerede olduğunu söyler. Her çalışma alanı için ayrı bir sayfa açılır — boşanma, iş hukuku, icra, ceza, ticaret ne ise, her biri kendi sayfasında ve kendi diliyle anlatılır; bu tek başına arama görünürlüğünü en çok etkileyen karardır. Ekip sayfasında her avukatın özgeçmişi, eğitimi ve ilgilendiği alanlar ayrı ayrı yer alır. Makale veya bilgi bankası bölümü, reklam yasağına takılmadan görünür olmanın tek sürdürülebilir yoludur. İletişim sayfası büro adresini, haritayı ve çalışma saatlerini taşır; yerel aramada bulunmanın koşulu budur. Son olarak KVKK aydınlatma metni ve gizlilik politikası: iletişim formu olan her sitede yasal zorunluluk. Müvekkil yorumu, başarı oranı ve dava sayısı sayfası bu listede yoktur; meslek kuralları izin vermez. Ölçüt basit: her çalışma alanı sayfası, o alanda gerçekten sorulan üç-beş soruyu cevaplayacak kadar dolu olmalı; doldurulamayacak bir alan için sayfa açmayın, çünkü boş sayfa yokluktan kötüdür. Ekip sayfalarının ayrı ayrı olması da önemli: müvekkillerin önemli bir kısmı büroyu değil, adını bir yerden duyduğu avukatı arıyor.",
+    },
+    sections: [
+      {
+        heading: "Çalışma alanlarını neden ayrı sayfalamalı?",
+        body: [
+          "Bir sayfa tek bir soruyu iyi cevaplayabilir. İçinde beş konu geçen sayfa, beşinde de yüzeysel kalır ve arama motoru o sayfanın asıl neyle ilgili olduğunu çıkaramaz.",
+          "Ayrı sayfaladığınızda her biri kendi arayanını bulur: boşanma sayfası nafaka ve velayet sorularını, iş hukuku sayfası kıdem ve ihbar tazminatını konuşur. Aynı zamanda müvekkil için de daha iyi olur — kendi meselesiyle ilgili bir sayfaya inen kişi, karma bir listeye inen kişiden çok daha hazır arar.",
+          "Ölçüt şu: her çalışma alanı sayfası, o alanda gerçekten sorulan üç-beş soruyu cevaplayacak kadar dolu olmalı. Doldurulamayacak bir alan için sayfa açmayın; boş bir sayfa yokluktan kötüdür.",
+        ],
+      },
+      {
+        heading: "Sayfa sayfa: ne olmalı, ne olmamalı",
+        table: {
+          caption: "Hukuk bürosu sitesi — çekirdek sayfalar",
+          head: ["Sayfa", "Ne yapar", "Dikkat"],
+          rows: [
+            [
+              "Ana sayfa",
+              "Büronun ne yaptığını ve nerede olduğunu söyler",
+              "Slogan değil, kapsam yazın",
+            ],
+            [
+              "Çalışma alanı (her biri ayrı)",
+              "O alandaki gerçek soruları cevaplar",
+              "Başarı vaadi ve sonuç garantisi yok",
+            ],
+            [
+              "Ekip",
+              "Her avukatın özgeçmişi ve ilgi alanları",
+              "Unvan ve eğitim serbest, üstünlük iddiası değil",
+            ],
+            [
+              "Makaleler",
+              "Bilgilendirme içeriği; görünürlüğün motoru",
+              "Bilgilendirme dili, iş getirici çağrı yok",
+            ],
+            [
+              "İletişim",
+              "Adres, harita, saatler, form",
+              "Yerel aramanın koşulu; adres gerçek olmalı",
+            ],
+            [
+              "KVKK ve gizlilik",
+              "Form varsa yasal zorunluluk",
+              "Şablon değil, gerçekten yaptığınızı yazın",
+            ],
+          ],
+        },
+      },
+      {
+        heading: "Ekip sayfası neden ayrı ayrı olmalı?",
+        body: [
+          "Müvekkillerin önemli bir kısmı büroyu değil kişiyi arar. Bir avukatın adı bir tanıdıktan duyulur, sonra internette aranır. Her avukatın kendi sayfası olduğunda o arama sizin sitenize düşer; olmadığında bir rehber sitesine ya da hiçbir yere.",
+          "Bu sayfada eğitim, baro kaydı, ilgilendiği alanlar ve varsa yayınlar yer alır. Hepsi meslek kuralları çerçevesinde serbesttir; sınırlanan şey başarı ve üstünlük iddiasıdır.",
+        ],
+      },
+      {
+        heading: "Makale bölümü: yasağa takılmadan görünmenin yolu",
+        body: [
+          "Reklam yasağı tanıtımı sınırlıyor ama bilgilendirmeyi serbest bırakıyor. Bu, arama motorunda görünmek isteyen bir büro için aslında iyi haber: çalışma alanınızla ilgili gerçek soruları cevaplayan yazılar hem yasağa takılmaz hem de tam olarak insanların aradığı şeydir.",
+          "Ölçülü bir başlangıç, ilk yılda alanınızla ilgili sekiz-on yazı. Sık sorulan soruları toplayın: müvekkillerinizin ilk görüşmede sorduğu şeyler, aranan şeylerle büyük ölçüde aynıdır.",
+        ],
+        callout: {
+          title: "Yazıyı kim yazacak?",
+          body: "Hukuki içeriği ajans yazamaz — hukuki doğruluk avukata aittir. Pratikte işleyen yol şu: siz sesli anlatın, ajans yazıya çevirsin, siz onaylayın. Yazının yayınlanması sizin onayınıza bağlı olmalı.",
+        },
+      },
+      {
+        heading: "İletişim sayfası ve yerel arama",
+        body: [
+          "Bulunduğunuz ilçe adıyla yapılan aramalar hukuk aramalarının önemli bir kısmını oluşturuyor. Bu aramalarda görünmenin iki şartı var: sitenin iletişim sayfasında gerçek bir adres ve harita bulunması, bir de Google İşletme Profili kaydınızın açık ve doğru olması.",
+          "Adres bilgisi sitede, işletme profilinde ve varsa dizin kayıtlarında birebir aynı yazılmalı. Farklı yazımlar aynı büroyu iki ayrı yer gibi gösteriyor ve ikisini de zayıflatıyor.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Kaç çalışma alanı sayfası açmalıyım?",
+        a: "Gerçekten iş aldığınız kadar. Doldurulabilecek üç sayfa, yüzeysel sekiz sayfadan iyidir. Zamanla yeni alan eklemek kolaydır; boş sayfayı kaldırmak ise indekse girdikten sonra zahmetli.",
+      },
+      {
+        q: "Müvekkil yorumu koyabilir miyim?",
+        a: "Hayır. Tanıklığa dayalı tanıtım reklam sayılıyor. Bunun yerine çalışma alanı anlatımını ve makaleleri güçlendirin; ikisi de serbest ve arama tarafında daha çok işe yarıyor.",
+      },
+      {
+        q: "Tek sayfalık bir site yeterli olur mu?",
+        a: "Yeni açılan ve tek alanda çalışan bir büro için başlangıç olarak olur; ₺50.000 bandında ve yaklaşık bir haftada yayına girer. Ama birden fazla çalışma alanınız varsa tek sayfa, arama tarafında baştan kayıp demektir.",
+      },
+      {
+        q: "Mevcut sitemin yapısını değiştirirsem sıralamam düşer mi?",
+        a: "Eski adresler yenilerine 301 ile yönlendirilmezse düşer. Yapı değişikliği doğru yapıldığında sıralama korunur, hatta ayrı sayfalanan alanlar zamanla daha iyi yerlere çıkar.",
+      },
+    ],
+    relatedSolutions: ["avukat", "musavir"],
+  },
+  // ─────────────────────────────── GOOGLE İŞLETME PROFİLİ
+  {
+    slug: "google-isletme-profili-rehberi",
+    title: "Google İşletme Profili: Haritalarda Nasıl Öne Çıkılır?",
+    metaTitle: "Google İşletme Profili — Haritalarda Öne Çıkma Rehberi",
+    metaDescription:
+      "Google İşletme Profili nasıl açılır, doğrulama nasıl yapılır ve haritalarda üst sıralara nasıl çıkılır? Sıralamayı belirleyen üç şey ve sık yapılan hatalar.",
+    excerpt:
+      "Kuaför, klinik, restoran, salon — yerel işletmeye gelen aramaların çoğu siteden değil haritadan geliyor. İşletme profili ücretsiz ve çoğu işletmede yarım bırakılmış durumda.",
+    published: "2026-08-28",
+    tag: "Rehber",
+    readingMinutes: 8,
+    intro: [
+      "Yakınındaki bir kuaförü, kliniği ya da restoranı arayan biri çoğu zaman bir web sitesine değil haritaya bakar. Telefonu açar, arar, çıkan kartlardan birine dokunur ve arar. Bu kartın adı Google İşletme Profili ve açması ücretsiz.",
+      "Buna rağmen çoğu işletmede profil ya hiç açılmamış ya da yarım kalmış oluyor: saatler eski, fotoğraf yok, hizmet listesi boş. Aşağıda profilin nasıl açıldığını, sıralamayı gerçekten neyin belirlediğini ve en çok yapılan hataları yazdık.",
+    ],
+    shortAnswer: {
+      title: "Kısa cevap: haritada sıralamayı ne belirliyor?",
+      body: "Google İşletme Profili, işletmenizin Google Haritalar ve arama sonuçlarında görünen ücretsiz kaydıdır. Açmak için google.com/business adresinden işletme adını, kategoriyi ve adresi girer, ardından doğrulama yaparsınız — genellikle adrese gönderilen kartpostal, telefon ya da video ile. Doğrulama tamamlanmadan profil aramada görünmez. Sıralamayı belirleyen üç şey var: yakınlık, yani arayan kişinin işletmeye uzaklığı — bunu değiştiremezsiniz; alaka, yani profilin ne kadar eksiksiz doldurulduğu ve kategorinin doğru seçilip seçilmediği; ve bilinirlik, yani yorum sayısı, yorum puanı ve internetin başka yerlerinde işletmenin ne kadar geçtiği. Değiştirebileceğiniz iki kalem alaka ve bilinirlik. Pratikte en çok fark yaratan üç iş şudur: doğru ana kategoriyi seçmek, gerçek fotoğraf yüklemek ve düzenli yorum toplamak. İşletme adına anahtar kelime eklemek ise ihlaldir ve profilin askıya alınmasına yol açar. Yorum toplarken de kural var: yorum satın almak, karşılığında indirim vermek ya da yalnızca memnun müşterilerden istemek Google politikalarına aykırı. İşleyen yol, hizmet biter bitmez doğrudan yorum sayfasına giden kısa bir bağlantı göndermek. Adres sitede, profilde ve dizinlerde birebir aynı yazılmalı; farklı yazımlar işletmeyi ikiye böler.",
+    },
+    sections: [
+      {
+        heading: "Profili açmak ve doğrulamak",
+        bullets: [
+          {
+            title: "1. Kaydı oluşturun",
+            body: "google.com/business adresinden işletme adı, kategori ve adresle başlayın. İşletme adını tabelanızda yazdığı gibi yazın; sonuna hizmet adı eklemek ihlaldir.",
+          },
+          {
+            title: "2. Doğrulamayı tamamlayın",
+            body: "Google adrese kartpostal gönderir, telefonla arar ya da video doğrulaması ister. Kartpostal genellikle birkaç hafta sürer. Doğrulama bitmeden profil aramada görünmez; en sık takılınan adım budur.",
+          },
+          {
+            title: "3. Kategoriyi doğru seçin",
+            body: "Ana kategori, hangi aramalarda görüneceğinizi belirleyen tek en önemli alan. Diş kliniği misiniz, ağız ve diş sağlığı polikliniği mi — rakiplerinizin ne seçtiğine bakın ve en dar doğru kategoriyi seçin.",
+          },
+          {
+            title: "4. Profili tamamen doldurun",
+            body: "Hizmetler, çalışma saatleri, tatil günleri, açıklama, web sitesi adresi, randevu bağlantısı. Boş bırakılan her alan, alaka puanından eksiltir.",
+          },
+        ],
+      },
+      {
+        heading: "Sıralamayı belirleyen üç şey",
+        table: {
+          caption: "Yerel sıralama sinyalleri",
+          head: ["Sinyal", "Ne demek", "Sizde ne kadar"],
+          rows: [
+            [
+              "Yakınlık",
+              "Arayan kişinin işletmeye uzaklığı",
+              "Değiştiremezsiniz",
+            ],
+            [
+              "Alaka",
+              "Profilin eksiksizliği ve kategori doğruluğu",
+              "Tamamen sizde",
+            ],
+            [
+              "Bilinirlik",
+              "Yorum sayısı ve puanı, internetteki diğer bahisler",
+              "Zamanla sizde",
+            ],
+          ],
+        },
+        body: [
+          "Yakınlık değiştirilemediği için rekabet aslında diğer ikisinde yaşanıyor. Aynı sokaktaki iki salondan biri haritada üstteyse sebep neredeyse her zaman profilin doluluğu ve yorumlardır.",
+        ],
+      },
+      {
+        heading: "Yorum toplamak: en çok işe yarayan ve en çok ihmal edilen",
+        body: [
+          "Yorum hem sıralamayı hem tıklamayı etkiliyor. Ama yorum istemenin de kuralları var: yorum satın almak, karşılığında indirim vermek ya da yalnızca memnun müşterilerden istemek Google politikalarına aykırı.",
+          "İşleyen yol sade: hizmet biter bitmez, müşteri hâlâ oradayken, doğrudan yorum sayfasına giden kısa bir bağlantı gönderin. İşletme profilinizde bu bağlantı hazır duruyor; QR koda çevirip kasaya koymak da işe yarıyor.",
+          "Olumsuz yoruma mutlaka cevap verin. Cevabınızı yorumu yazan kişiden çok, sonradan okuyacak yüzlerce kişi görüyor.",
+        ],
+      },
+      {
+        heading: "Sık yapılan hatalar",
+        bullets: [
+          {
+            title: "İşletme adına anahtar kelime eklemek",
+            body: "Kuaför Ayşe yerine Kuaför Ayşe Kadıköy Saç Kesimi yazmak ihlaldir. Kısa vadede işe yarıyor görünür, profilin askıya alınmasıyla biter.",
+          },
+          {
+            title: "Adresi farklı yazmak",
+            body: "Sitede, profilde ve dizinlerde adresin birebir aynı yazılması gerekir. Farklı yazımlar aynı işletmeyi iki ayrı yer gibi gösterir ve ikisini de zayıflatır.",
+          },
+          {
+            title: "Stok fotoğraf yüklemek",
+            body: "Kendi mekânınızın fotoğrafı yükleyin. Müşteri geldiğinde gördüğüyle karşılaştığının aynı olmasını ister; ayrıca gerçek fotoğraflar belirgin biçimde daha çok tıklanıyor.",
+          },
+          {
+            title: "Saatleri güncellememek",
+            body: "Kapalıyken açık görünmek, alınabilecek en pahalı olumsuz yorumu getiriyor. Resmî tatilleri de özel saat olarak girin.",
+          },
+        ],
+      },
+      {
+        heading: "Site ile profil birlikte çalışır",
+        body: [
+          "İşletme profili tek başına da iş getirir ama sitesi olan bir profil daha iyi çalışır. Profildeki web sitesi bağlantısı, hizmet sayfasına giden doğru bir adres olduğunda ziyaretçi aradığını hemen bulur.",
+          "Sitenizin iletişim sayfasındaki adres, saatler ve telefon profildekiyle aynı olmalı. Bu tutarlılık yerel aramada güven sinyali sayılıyor ve iki kaynak çeliştiğinde ikisi de zayıflıyor.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Ücretli mi?",
+        a: "Hayır, İşletme Profili tamamen ücretsiz. Ücretli olan tek şey Google Ads reklamları; profilin kendisi ve haritadaki organik görünürlük ücret istemiyor.",
+      },
+      {
+        q: "Adresim yok, evden çalışıyorum. Açabilir miyim?",
+        a: "Evet. Müşterinin adrese gelmediği işletmeler için hizmet alanı seçeneği var: adresinizi gizler, hizmet verdiğiniz bölgeleri gösterirsiniz. Doğrulama yine adres üzerinden yapılır.",
+      },
+      {
+        q: "Birden fazla şubem var, nasıl yapmalıyım?",
+        a: "Her şube için ayrı profil açılır; tek profile birden çok adres girilmez. Sitede de her şubenin kendi sayfası, kendi haritası ve kendi saatleri olmalı.",
+      },
+      {
+        q: "Profili sizin kurmanız mümkün mü?",
+        a: "Evet, site teslimiyle birlikte kurulum ve bağlantı işini yapıyoruz. Doğrulama adımında işletme sahibinin kendisinin onaylaması gerekiyor; o adımda size haber veriyoruz.",
+      },
+    ],
+    relatedSolutions: ["kuafor", "guzellik", "veteriner", "restoran", "spor"],
+  },
+  // ───────────────────────────── SAĞLIKTA TANITIM KURALLARI
+  {
+    slug: "saglikta-tanitim-kurallari",
+    title: "Doktor ve Klinik Sitelerinde Tanıtım Kuralları",
+    metaTitle: "Sağlıkta Tanıtım Kuralları — Klinik Web Siteleri",
+    metaDescription:
+      "Doktor, diş hekimi, güzellik merkezi ve veteriner sitelerinde ne yazılabilir, ne yazılamaz? Bilgilendirme ile reklam ayrımı, öncesi-sonrası görselleri ve hasta yorumu.",
+    excerpt:
+      "Sağlık hizmetlerinde reklam ile bilgilendirme mevzuatta ayrı şeyler. Bu ayrımı bilmeyen bir ajans, siteyi kurup teslim eder ve sorunu siz yaşarsınız.",
+    published: "2026-08-28",
+    tag: "Rehber",
+    readingMinutes: 8,
+    intro: [
+      "Sağlık alanında çalışan hekim ve kliniklerin web sitesi, diğer sektörlerden farklı bir iştir. Sebep teknik değil: Türkiye'de sağlık hizmetlerinde tanıtım mevzuatla sınırlanmış durumda ve sınırı bilmeyen bir ajans, farkında olmadan sizi idari yaptırımla karşı karşıya bırakabiliyor.",
+      "Aşağıda çerçeveyi, pratikte neyin yazılıp neyin yazılamadığını ve yine de görünür kalmanın yollarını yazdık. Baştan söyleyelim: bu bir hukuki görüş değil, işin yazılım tarafından gördüğümüz pratik. Kesin sınırlar için bağlı olduğunuz oda ya da mevzuat danışmanınızla teyitleşin.",
+    ],
+    shortAnswer: {
+      title: "Kısa cevap: sitede ne yazılabilir, ne yazılamaz?",
+      body: "Sağlık hizmetlerinde reklam ile bilgilendirme mevzuatta ayrı şeylerdir; sınır bilgilendirmeye değil reklama konur. Serbest olanlar: hangi branşta ve hangi işlemlerde hizmet verdiğinizi belirtmek, hekimin özgeçmişini, eğitimini, uzmanlık belgelerini ve yayınlarını paylaşmak, tedavi süreçlerini bilgilendirme amacıyla anlatmak, iletişim, adres ve çalışma saatlerini vermek. Sorunlu olanlar: fiyat ilanı ve kampanya duyurusu, indirim ve paket kampanyaları, hasta yorumu ve referansı — tanıklığa dayalı tanıtım reklam sayılıyor — başarı oranı ve garanti iddiası, karşılaştırmalı üstünlük ifadeleri, hastayı yönlendirmeye dönük çağrılar. Öncesi-sonrası görselleri teknik olarak mümkündür ama iki koşulla: hastadan yazılı açık rıza almanız ve görselin abartılı vaat içermeden, bilgilendirme çerçevesinde sunulması. Bu çerçevede görünür kalmanın yolu bilgilendirme içeriğinden geçer: tedavi süreçlerini anlatan yazılar hem mevzuata takılmaz hem de tam olarak insanların aradığı şeydir. Rıza geri alınabilir bir şeydir; geri alındığında görsel siteden kaldırılmalı, bu yüzden galeri tek tek görsel çıkarılabilecek şekilde kurulmalı. Sağlık verisi de özel nitelikli kişisel veridir: iletişim formundan gelen bilgiler ve randevu kayıtları KVKK kapsamındadır, aydınlatma metni ve saklama süreleri sitenin bir parçası olmalı.",
+    },
+    sections: [
+      {
+        heading: "Çerçeve: bilgilendirme serbest, reklam değil",
+        body: [
+          "Mevzuatın kurduğu ayrım şu: sağlık kuruluşu ve hekim, hangi hizmeti verdiğini ve bu hizmetin ne olduğunu anlatabilir; ama talep yaratmaya yönelik reklam yapamaz.",
+          "Pratikte ayrım şu soruyla test edilir: bu cümle hastayı bilgilendiriyor mu, yoksa ikna edip yönlendirmeye mi çalışıyor? Implant tedavisi kaç seansta tamamlanır sorusunun cevabı bilgilendirmedir. Kampanyalı implant fiyatı bir reklamdır.",
+          "Gri alanlar var ve mevzuat zaman zaman güncelleniyor. Bu yüzden net olan sınırları kurgulayıp, tartışmalı alanlarda ihtiyatlı davranmak en sağlıklısı.",
+        ],
+      },
+      {
+        heading: "Sayfada neye izin var, neye yok",
+        table: {
+          caption: "Sağlık sitelerinde sık karşılaşılan unsurlar",
+          head: ["Unsur", "Durum", "Neden"],
+          rows: [
+            [
+              "Branş ve işlem sayfaları",
+              "Serbest",
+              "Hangi hizmeti verdiğinizi belirtmek bilgilendirmedir",
+            ],
+            [
+              "Hekim özgeçmişi, eğitim, yayınlar",
+              "Serbest",
+              "Mesleki geçmişin paylaşılması tanıtımın sınırları içinde",
+            ],
+            [
+              "Tedavi süreci anlatımı",
+              "Serbest",
+              "Hastayı bilgilendirmeye yönelik içerik açıkça serbest",
+            ],
+            [
+              "Adres, harita, çalışma saatleri",
+              "Serbest",
+              "İletişim bilgisi tanıtım değil",
+            ],
+            [
+              "Fiyat ilanı ve kampanya",
+              "Sorunlu",
+              "Talep yaratmaya dönük; reklam kapsamında değerlendiriliyor",
+            ],
+            [
+              "Hasta yorumu ve referansı",
+              "Sorunlu",
+              "Tanıklığa dayalı tanıtım reklam sayılıyor",
+            ],
+            [
+              "Başarı oranı, garanti iddiası",
+              "Sorunlu",
+              "Sonuç vaadi mevzuatın açıkça sınırladığı alan",
+            ],
+            [
+              "Öncesi-sonrası görseli",
+              "Koşullu",
+              "Yazılı açık rıza ve abartısız, bilgilendirici sunum şartıyla",
+            ],
+          ],
+        },
+      },
+      {
+        heading: "Öncesi-sonrası görselleri: en çok sorulan konu",
+        body: [
+          "Diş hekimliği, estetik ve güzellik tarafında en çok sorulan soru bu. Teknik cevabı evet, ama iki koşulla.",
+          "Birincisi rıza: görseli yayınlamadan önce hastadan yazılı açık rıza almanız gerekiyor. Sözlü onay yeterli değil ve rızanın geri alınabileceğini unutmayın; geri alındığında görsel siteden kaldırılmalı. Bu yüzden galeriyi, tek tek görsel kaldırılabilecek şekilde kurmak gerekiyor.",
+          "İkincisi sunum: görsel bilgilendirme amacıyla ve abartılı vaat içermeden sunulmalı. Aynı hasta, aynı açı, aynı ışık. Sonuç garantisi ima eden başlıklar ve önce-sonra karşılaştırmasını bir vaade dönüştüren metinler sorun yaratıyor.",
+        ],
+        callout: {
+          title: "Galeriyi nasıl kuruyoruz",
+          body: "Her görsele bağlı bir rıza kaydı tutulabilecek, tek tek yayından kaldırılabilecek bir yapı kuruyoruz. Rıza belgelerinin toplanması ve saklanması hekime ait; biz yalnızca teknik tarafı bu çerçeveye uygun kuruyoruz.",
+        },
+      },
+      {
+        heading: "Peki nasıl görünür olacaksınız?",
+        body: [
+          "Kısıtlar tanıtımı sınırlıyor ama bilgilendirmeyi serbest bırakıyor. Bu, arama motorunda görünmek isteyen bir klinik için aslında iyi haber: hastaların gerçekten arattığı şeyler zaten bilgilendirme soruları.",
+          "İmplant kaç seansta biter, ortodonti tedavisi ne kadar sürer, lazer epilasyon kaç seans gerekir, aşı takvimi nasıl işler. Bunların hepsi serbest ve hepsi aranıyor. Bir klinik sitesinin en değerli bölümü bu yüzden bilgilendirme içeriğidir.",
+          "İkinci kanal Google İşletme Profili. Yerel aramada görünmenin koşulu ve mevzuat açısından sorunsuz: adres, saatler, branş ve gerçek fotoğraflar.",
+        ],
+      },
+      {
+        heading: "Ajansınıza sorun: bu çerçeveyi biliyor mu?",
+        bullets: [
+          {
+            title: "Fiyat ve kampanya bölümü teklif ediyor mu?",
+            body: "Sağlık sitesine kampanya bölümü teklif eden bir ekip, mevzuatı bilmiyor demektir. Bu tek soru çoğu zaman yeterli bir eleme yapıyor.",
+          },
+          {
+            title: "Hasta yorumu bölümü koyuyor mu?",
+            body: "Diğer sektörlerde standart olan yorum bölümü burada sorunludur. Otomatik olarak ekleniyorsa şablon kullanıyorlar demektir.",
+          },
+          {
+            title: "KVKK tarafını konuşuyor mu?",
+            body: "Sağlık verisi özel nitelikli kişisel veridir. İletişim formundan gelen bilgiler ve randevu kayıtları bu kapsamdadır; aydınlatma metni ve saklama süreleri sitenin bir parçası olmalı.",
+          },
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Sitede fiyat yazabilir miyim?",
+        a: "Sağlık hizmetlerinde fiyat ilanı sorunlu alandır. Fiyat bilgisini sitede yayınlamak yerine iletişim üzerinden vermek genel uygulamadır. Kesin sınır için bağlı olduğunuz odaya danışın.",
+      },
+      {
+        q: "Hasta yorumu yerine ne koyabilirim?",
+        a: "Bilgilendirme içeriği ve hekim özgeçmişi. İkisi de serbest ve arama tarafında yorumdan daha çok işe yarıyor. Güven, anlattığınız şeyin doğruluğundan doğuyor.",
+      },
+      {
+        q: "Birden fazla hekim varsa nasıl gösterilir?",
+        a: "Her hekim için ayrı profil sayfası kurulur: özgeçmiş, ilgilendiği işlemler ve doğrudan o hekime randevu yönlendirmesi. Hasta belirli bir hekimi arıyorsa doğrudan ona ulaşır.",
+      },
+      {
+        q: "Mevzuat değişirse site ne olacak?",
+        a: "Yapı buna göre kurulduğunda değişiklik metin düzeyinde kalır. Kampanya ve fiyat bölümü hiç kurulmadığı için, sonradan kaldırılması gereken bir yapı da olmaz.",
+      },
+    ],
+    relatedSolutions: ["doktor", "dishekimi", "guzellik", "veteriner"],
+  },
+  // ─────────────────────────── ALAN ADI VE HOSTING SAHİPLİĞİ
+  {
+    slug: "alan-adi-hosting-kime-ait",
+    title: "Alan Adı ve Hosting Kimin Adına Olmalı?",
+    metaTitle: "Alan Adı ve Hosting Kimin Adına Olmalı?",
+    metaDescription:
+      "Alan adı ajansın hesabındaysa ne olur, nasıl kontrol edilir, nasıl devralınır? Web sitesi sahipliğinde en pahalıya patlayan hata ve önlemenin yolu.",
+    excerpt:
+      "Web sitesi yaptıranların çoğu alan adının kimin adına kayıtlı olduğunu bilmiyor. Bunu öğrendikleri an genellikle ajansla yolları ayrıldığı an oluyor ve iş orada zorlaşıyor.",
+    published: "2026-08-28",
+    tag: "Rehber",
+    readingMinutes: 7,
+    intro: [
+      "Web sitesi projelerinde en pahalıya patlayan hata teknik değil. Tasarım beğenilmezse değiştirilir, site yavaşsa hızlandırılır. Ama alan adı başkasının hesabındaysa, bir gün onu geri almak için pazarlık etmeniz gerekir.",
+      "Bu yazı üç şeyi anlatıyor: alan adının kimin olduğunu nasıl kontrol edeceğinizi, ajansın hesabındaysa ne yapabileceğinizi ve yeni bir projeye başlarken bunu baştan nasıl doğru kuracağınızı.",
+    ],
+    shortAnswer: {
+      title: "Kısa cevap: kimin adına olmalı ve nasıl kontrol edilir?",
+      body: "Alan adı ve barındırma hesabı işletmenin kendi adına, işletmenin kendi e-postasıyla açılmış olmalıdır. Ajans yalnızca erişim yetkisi almalı, sahiplik değil. Mevcut durumunuzu kontrol etmek için whois sorgusu yapabilirsiniz — birçok ücretsiz araç alan adının kayıt sahibini ve kayıt tarihini gösterir; kayıt gizliyse tescil ettirdiğiniz firmadan bilgi isteyin. Barındırma tarafında kontrol daha basittir: hesabın giriş bilgileri sizde mi, fatura sizin adınıza mı geliyor. İkisinden biri hayırsa sahiplik sizde değil demektir. Bu bir kötü niyet meselesi değil; çoğu ajans işi hızlandırmak için kendi hesabından açar ve öyle kalır. Ama ilişki bittiğinde site, e-posta adresleri ve yıllarca biriken arama motoru değeri o hesapta kalır. Yeni projede tek şart yeterli: alan adı benim adıma kaydedilsin, hosting benim adıma açılsın, size yönetici erişimi vereyim. Bunu kabul etmeyen bir ekiple çalışmayın. Kaynak kod ayrı bir kalemdir ve karıştırılıyor: hazır bir altyapı kullanıldıysa kodun teslimi zaten anlamsızdır, ama site ya da uygulama size özel yazıldıysa kodun kime kalacağı sözleşmede yazmalı. Mobil uygulamalarda buna mağaza hesapları da ekleniyor; onlar da sizin adınıza açılmalı.",
+    },
+    sections: [
+      {
+        heading: "Neden bu kadar önemli?",
+        body: [
+          "Alan adı yalnızca sitenizin adresi değil. Kurumsal e-posta adresleriniz ona bağlı, Google İşletme Profiliniz ona bağlı, faturalarınızda yazan adres o. Yıllar içinde arama motorlarında biriken değer de alan adına ait, siteye değil.",
+          "Ajansın hesabındaki bir alan adında ilişki bittiğinde üç şey birden risk altına giriyor: siteye erişim, e-posta trafiği ve arama görünürlüğü. Yeni bir alan adıyla baştan başlamak, üçünü de sıfırlamak demek.",
+        ],
+      },
+      {
+        heading: "Nasıl kontrol edilir?",
+        bullets: [
+          {
+            title: "Alan adı: whois sorgusu",
+            body: "Ücretsiz whois araçlarına alan adınızı yazın. Kayıt sahibi, kayıt tarihi ve bitiş tarihi görünür. Kayıt gizlilik hizmetiyle gizlenmişse alan adını aldığınız firmadan kayıt sahibi bilgisini yazılı isteyin.",
+          },
+          {
+            title: "Barındırma: fatura ve giriş",
+            body: "Hosting faturası kimin adına geliyor ve kontrol paneline giriş bilgileri sizde mi? İkisi de sizdeyse sorun yok. Fatura ajansa geliyorsa hesap onların.",
+          },
+          {
+            title: "E-posta: yönetici hesabı",
+            body: "Kurumsal e-posta kullanıyorsanız yönetici hesabının kimde olduğunu kontrol edin. Kullanıcı olmak yeterli değil; yönetici olan kişi tüm kutuları kapatabilir.",
+          },
+          {
+            title: "Yenileme tarihi",
+            body: "Alan adının ne zaman biteceğini bilin ve takvime koyun. Süresi dolan alan adı kısa bir bekleme süresinden sonra serbest kalıyor ve bu süre içinde başkası tarafından alınabiliyor.",
+          },
+        ],
+      },
+      {
+        heading: "Ajansın hesabındaysa ne yapmalı?",
+        body: [
+          "Önce panik yok: bu çoğu zaman kötü niyet değil, alışkanlık. Talep etmek genellikle yeterli oluyor.",
+          "Alan adı devri, tescil firmaları arasında standart bir işlem. Mevcut kayıt sahibinden bir transfer kodu alınır ve alan adı sizin hesabınıza taşınır. İşlem çoğu uzantıda birkaç gün sürer ve ücreti yıllık kayıt bedeli düzeyindedir.",
+          "Barındırma devri daha kolay: dosyalar ve veritabanı yeni hesaba taşınır, alan adının yönlendirmesi değiştirilir. Doğru yapıldığında site kesintiye uğramaz.",
+        ],
+        callout: {
+          title: "Devir sırasında dikkat",
+          body: "Taşıma sırasında en sık kaybedilen şey e-posta trafiği. Yeni sunucuya geçmeden önce mevcut e-posta ayarlarının kaydını alın; bu adım atlandığında birkaç günlük gelen posta kaybı yaşanabiliyor.",
+        },
+      },
+      {
+        heading: "Yeni projeye başlarken doğru kurulum",
+        table: {
+          caption: "Kimde ne olmalı",
+          head: ["Varlık", "Kimin adına", "Ajansın rolü"],
+          rows: [
+            ["Alan adı", "İşletme, kendi e-postasıyla", "Yönetici erişimi"],
+            [
+              "Barındırma hesabı",
+              "İşletme, fatura işletmeye",
+              "Yönetici erişimi",
+            ],
+            [
+              "Kurumsal e-posta",
+              "İşletme, yönetici işletmede",
+              "Kullanıcı erişimi",
+            ],
+            [
+              "Google İşletme Profili",
+              "İşletme sahibi",
+              "Yönetici olarak davet",
+            ],
+            [
+              "Kaynak kod",
+              "Teslimde işletmeye",
+              "Geliştirme sırasında ortak erişim",
+            ],
+          ],
+        },
+        body: [
+          "Bu tablo teklif aşamasında konuşulacak bir konudur, teslimde değil. Teslimde konuşulduğunda pazarlık gücünüz kalmıyor.",
+        ],
+      },
+      {
+        heading: "Kaynak kod ayrı bir konu",
+        body: [
+          "Alan adı ve barındırma sahipliğiyle karıştırılan üçüncü kalem kaynak kod. Site hazır bir altyapı üzerine kurulduysa kodun size teslimi zaten anlamsızdır; siz altyapının lisansını kullanırsınız.",
+          "Ama site ya da uygulama size özel yazıldıysa kaynak kodun kime kaldığı sözleşmede yazmalı. Yazmıyorsa ekip değiştirmek pratikte imkânsız hale gelir. Mobil uygulamalarda buna mağaza hesapları da eklenir: hesaplar sizin adınıza açılmalı.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Ajans devretmek istemezse ne olur?",
+        a: "Alan adı sizin adınıza kayıtlıysa tescil firması üzerinden erişimi geri alabilirsiniz. Kayıt onların adınaysa hukuki bir mesele haline gelir ve süreç uzar. Bu yüzden kontrol, ilişki iyiyken yapılmalı.",
+      },
+      {
+        q: "Devir sırasında sitem kapanır mı?",
+        a: "Doğru planlandığında kapanmaz. Dosyalar yeni sunucuya kopyalanır, test edilir ve yönlendirme en son değiştirilir. Kesinti riski, yönlendirmenin dosyalar hazır olmadan değiştirilmesinden doğar.",
+      },
+      {
+        q: "Alan adını kendim mi almalıyım?",
+        a: "En temizi bu: kendi e-postanızla bir tescil firmasından alın, sonra ekibe yönetici erişimi verin. Almasını ekibe bırakacaksanız kayıt sahibi olarak sizin bilgilerinizin girilmesini yazılı isteyin.",
+      },
+      {
+        q: "Sizde nasıl yürüyor?",
+        a: "Her projede alan adı, barındırma hesabı ve kaynak kod müşterinin adına kayıtlıdır; biz yönetici erişimiyle çalışırız. Teslimden sonra içeriği kendiniz güncellersiniz.",
+      },
+    ],
+    relatedSolutions: ["kisiselmarka", "eticaret", "mobil"],
+  },
 ];
 
 export const postBySlug = (slug: string) => posts.find((p) => p.slug === slug);
