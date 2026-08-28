@@ -86,8 +86,14 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
       {/* Cevap önce, açıklama sonra. Sayfa şöyle okunuyor: başlık (soru) →
           özet (vaat) → kısa cevap (cevabın kendisi) → giriş (bağlam) →
           bölümler. Yazının ikisinde zaten "Kısa cevap" başlıklı bir bölüm
-          vardı ama içi tabloydu ve sayfanın ortasındaydı. */}
-      <KisaCevap icerik={post.shortAnswer} className="!pt-0 !pb-0" />
+          vardı ama içi tabloydu ve sayfanın ortasındaydı.
+
+          ÜST DOLGU SIFIRLANMAZ. Bir ara `!pt-0 !pb-0` verilmişti ve blok
+          kahraman bölümünün zemin geçişine YAPIŞIYORDU — renk değişimi
+          başlığın hemen üstünden geçiyor, sayfa sıkışık görünüyordu.
+          Alt dolgu sıfır kalıyor çünkü gövde (`article`) kendi `!pt-16`sını
+          zaten getiriyor; iki dolgu üst üste binmesin. */}
+      <KisaCevap icerik={post.shortAnswer} className="!pt-16 !pb-0" />
 
       {/* ── Gövde ────────────────────────────────────────── */}
       <article className="section relative overflow-hidden !pt-16">
