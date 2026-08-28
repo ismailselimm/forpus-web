@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/fx/Reveal";
+import { solutionUi } from "@/lib/solution-ui";
 import PageHero from "@/components/ui/PageHero";
 import { breadcrumbLd, faqLd, type Crumb } from "@/components/ui/Breadcrumb";
 import Contact from "@/components/sections/Contact";
@@ -7,7 +8,6 @@ import type { Lang } from "@/lib/i18n/dictionary";
 import { SEHIR, ULKE } from "@/lib/marka";
 import { homeFor } from "@/lib/routes";
 import { SITE_URL as SITE } from "@/lib/site";
-import { solutionUi } from "@/lib/solutions";
 
 /**
  * İLETİŞİM SAYFASI — sitenin kimlik çıpası.

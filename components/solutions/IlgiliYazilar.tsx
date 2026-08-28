@@ -1,5 +1,6 @@
 import { postsForSolution } from "@/lib/blog";
-import { solutionUi } from "@/lib/solutions";
+import { solutionUi } from "@/lib/solution-ui";
+
 import YaziListesi from "@/components/ui/YaziListesi";
 
 /**

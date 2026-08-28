@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { solutionUi } from "@/lib/solution-ui";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -8,7 +9,6 @@ import SolutionChips from "@/components/ui/SolutionChips";
 import { dictionary } from "@/lib/i18n/dictionary";
 import { CEVRILMIS_SAYFALAR, cevrilmisYol, homeFor } from "@/lib/routes";
 import { ONE_CIKAN_SEKTORLER } from "@/lib/solution-index";
-import { solutionUi } from "@/lib/solutions";
 
 /**
  * 404 SAYFASI.

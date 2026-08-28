@@ -13,7 +13,6 @@
 
 import { assertSolutionKeys } from "./solution-index";
 import type { KisaCevapIcerigi } from "./kisa-cevap";
-import { solutions } from "./solutions";
 
 export type BlogSection = {
   heading: string;
@@ -1644,67 +1643,3 @@ export const ilgiliYazilar = (yazi: BlogPost, adet = 3) => {
 // yeniden adlandırıldığında blogdan giden iç bağlantılar izsiz kaybolurdu.
 // ============================================================================
 assertSolutionKeys("blog", posts);
-
-/**
- * Blogda geçen her ₺ rakamı, sektör sayfalarında da yazan bir rakam olmalı.
- *
- * NEDEN: yazılar fiyat tablolarını ELLE taşıyor ve bu doğru — blog tablosu
- * (`caption/head/rows`, dört taranabilir sütun) ile satış kartı
- * (`{name, price, timeline, body}`) farklı şeyler, birini diğerinden
- * türetmek editoryal yapıyı bir bileşenin şekline büker. Ama `avukat`
- * sektörünün bandı şu an `solutions.ts` dışında ÜÇ yerde daha yazılı ve
- * sektör sayfasındaki rakamı değiştiren kişinin bir blog yazısının onu
- * alıntıladığını bilmesinin hiçbir yolu yok.
- *
- * Sitenin bütün iddiası "gerçek rakam yazıyoruz". Aynı sorguda çıkan iki
- * sayfanın aynı iş için farklı fiyat söylemesi, o iddiayı bozan tek şey.
- * Kontrol elle yazmayı serbest bırakıyor, sessizce ayrışmayı yasaklıyor.
- *
- * Kapsam: yalnızca sektör bandı biçimindeki rakamlar (₺50.000 ve üstü).
- * Rakip tekliflerinden söz eden "₺5.000'e web sitesi" gibi ifadeler
- * kasıtlı olarak sektör listesinde yok; eşik onları dışarıda bırakıyor.
- *
- * `lib/solutions.ts`e bağımlılık: bu kontrol onu DEĞER olarak içe aktarıyor.
- * Az önce buradan bir TİP bağı kaldırılmıştı, ama gerekçe farklıydı: o bağ
- * iki alanlık bir tipe ulaşmak içindi, karşılığı yoktu. Bu bağın karşılığı
- * iki dosya arasındaki bir değişmezi zorunlu kılmak — iki şeyi tutarlı
- * tutmanın yolu onları birbirine bakmaya zorlamaktan geçiyor. Maliyeti de
- * yok: statik export'ta sunucu paketi derlemeden sonra atılıyor ve blogu
- * çizen tek bileşen (`IlgiliYazilar`) zaten `solutionUi` için aynı dosyaya
- * bağlı.
- */
-{
-  const bandlar = new Set<string>();
-  for (const s of solutions) {
-    for (const c of [s.tr, s.en]) {
-      for (const t of c.pricing?.tiers ?? []) {
-        for (const m of t.price.matchAll(/[\d.]+/g)) bandlar.add(m[0]);
-      }
-    }
-  }
-  const metin = (y: BlogPost) =>
-    [
-      ...y.intro,
-      y.shortAnswer.body,
-      ...y.sections.flatMap((b) => [
-        ...(b.body ?? []),
-        ...(b.bullets ?? []).flatMap((m) => [m.title, m.body]),
-        ...(b.table ? b.table.rows.flat() : []),
-        ...(b.callout ? [b.callout.title, b.callout.body] : []),
-      ]),
-      ...(y.faq ?? []).flatMap((f) => [f.q, f.a]),
-    ].join(" ");
-
-  for (const y of posts) {
-    for (const m of metin(y).matchAll(/₺([\d.]+)/g)) {
-      const ham = m[1];
-      const sayi = Number(ham.replace(/\./g, ""));
-      if (!Number.isFinite(sayi) || sayi < 50000) continue;
-      if (!bandlar.has(ham)) {
-        throw new Error(
-          `blog: "${y.slug}" ₺${ham} diyor ama bu rakam hiçbir sektörün fiyat bandında yok — biri güncellenmiş, diğeri unutulmuş olabilir`,
-        );
-      }
-    }
-  }
-}

@@ -1,12 +1,18 @@
 import type { MetadataRoute } from "next";
 import { solutions, SOLUTIONS_LASTMOD } from "@/lib/solutions";
 import { postsByDate } from "@/lib/blog";
+import { assertBlogFiyatlari } from "@/lib/fiyat-tutarliligi";
 import { cases } from "@/lib/cases";
 import { hukukiSayfalar } from "@/lib/hukuki";
 import { CEVRILMIS_SAYFALAR } from "@/lib/routes";
 import { SITE_URL as SITE } from "@/lib/site";
 
 export const dynamic = "force-static"; // statik export (GitHub Pages) için
+
+// Derleme zamanı tutarlılık kontrolü. Burada çünkü sitemap zaten hem
+// çözümleri hem yazıları okuyor ve derleme sırasında bir kez çalışıyor;
+// gerekçesi kontrolün kendi dosyasında yazılı.
+assertBlogFiyatlari();
 
 // TR sayfalarının içeriği en son bu tarihte elden geçti (derinleştirme turu).
 // Google yeniden taramayı lastmod'a bakarak önceliklendirdiği için, içeriği

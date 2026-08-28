@@ -3996,54 +3996,6 @@ export const slugOf = (s: Solution, lang: "tr" | "en") =>
  */
 export const SOLUTIONS_LASTMOD = "2026-08-27";
 
-export const solutionUi: Record<
-  "tr" | "en",
-  {
-    home: string;
-    more: string;
-    moreLead: string;
-    seeAll: string;
-    islerEyebrow: string;
-    /** "%s" sektör etiketiyle değişiyor. */
-    islerBaslik: string;
-    islerLead: string;
-    isiIncele: string;
-    yazilarBasligi: string;
-    yazilarLead: string;
-  }
-> = {
-  tr: {
-    home: "Ana Sayfa",
-    more: "Diğer çözümler",
-    moreLead:
-      "Başka bir alanda mı çalışıyorsunuz? Size uygun çözümü birlikte bulalım.",
-    seeAll: "Tüm hizmetleri gör",
-    islerEyebrow: "Gerçek işler",
-    islerBaslik: "%s tarafında yaptığımız işler",
-    islerLead:
-      "Ekran görüntüsü değil, canlı siteler. Her birinin neye ihtiyaç duyduğunu ve ne kurduğumuzu ayrı ayrı yazdık.",
-    isiIncele: "İşi incele",
-    yazilarBasligi: "Karar vermeden önce",
-    yazilarLead:
-      "Bu alanda en çok sorulan şeyleri ayrı ayrı yazdık — fiyat, süreç ve dikkat edilecekler.",
-  },
-  en: {
-    home: "Home",
-    more: "Other solutions",
-    moreLead:
-      "Working in a different field? Let's find the right fit together.",
-    seeAll: "See all services",
-    islerEyebrow: "Real work",
-    islerBaslik: "What we built for %s clients",
-    islerLead:
-      "Live sites, not mockups. We wrote up what each one needed and what we built.",
-    isiIncele: "See the project",
-    yazilarBasligi: "Before you decide",
-    yazilarLead:
-      "We wrote up the questions that come up most — pricing, process and what to watch for.",
-  },
-};
-
 // ============================================================================
 // Build zamanı tutarlılık kontrolleri
 //

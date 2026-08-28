@@ -1,11 +1,11 @@
 import Image from "next/image";
+import { solutionUi } from "@/lib/solution-ui";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { Reveal } from "@/components/fx/Reveal";
 import { casesForSolution } from "@/lib/cases";
 import { shotAt } from "@/lib/projects";
-import { solutionUi } from "@/lib/solutions";
 
 /**
  * BU ALANDA YAPTIĞIMIZ İŞLER — brief formunun hemen üstündeki kanıt.

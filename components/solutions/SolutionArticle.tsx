@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { solutionUi } from "@/lib/solution-ui";
 import Link from "next/link";
 import { Check, ArrowUpRight, ArrowRight, ChevronDown } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
@@ -13,7 +14,6 @@ import {
   solutions,
   contentOf,
   slugOf,
-  solutionUi,
   SOLUTIONS_LASTMOD,
   caseRefProject,
   type Solution,
