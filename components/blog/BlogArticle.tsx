@@ -5,7 +5,13 @@ import Aurora from "@/components/fx/Aurora";
 import CtaBand from "@/components/ui/CtaBand";
 import Breadcrumb, { breadcrumbLd, faqLd } from "@/components/ui/Breadcrumb";
 import SolutionChips from "@/components/ui/SolutionChips";
-import { blogUi, type BlogPost, okumaDakikasi } from "@/lib/blog";
+import YaziListesi from "@/components/ui/YaziListesi";
+import {
+  blogUi,
+  type BlogPost,
+  okumaDakikasi,
+  ilgiliYazilar,
+} from "@/lib/blog";
 import { SITE_URL as SITE } from "@/lib/site";
 
 /** Sunucuda üretilen yazı gövdesi — içerik statik HTML, Google doğrudan okuyor. */
@@ -244,6 +250,18 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
           </div>
         </div>
       </article>
+
+      {/* ── Bunları da okuyun ────────────────────────────
+          Yazıdan yazıya köprü. Ölçüldü: blog yazılarına ortalama 3 bağlantı
+          geliyor, sektör sayfaları 30 alıyor — yazılar grafiğin en zayıf
+          ucu ve birbirlerine hiç bağlanmıyorlardı. Sıralama ve eşleşme
+          `lib/blog.ts`te; burası yalnızca çiziyor. */}
+      <YaziListesi
+        yazilar={ilgiliYazilar(post)}
+        baslik={blogUi.yazilarBasligi}
+        lead={blogUi.yazilarLead}
+        className="section !pt-0 !pb-4"
+      />
 
       <CtaBand
         title={blogUi.ctaTitle}

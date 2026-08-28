@@ -1582,6 +1582,8 @@ export const blogUi = {
   readingSuffix: "dk okuma",
   faqTitle: "Sık sorulan sorular",
   relatedTitle: "İlgili çözümler",
+  yazilarBasligi: "Bunları da okuyun",
+  yazilarLead: "Aynı kararın öbür tarafındaki sorular.",
   ctaTitle: "Projenizi konuşalım",
   ctaText:
     "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
@@ -1605,6 +1607,37 @@ export const blogUi = {
  */
 export const postsForSolution = (solutionKey: string) =>
   postsByDate.filter((y) => y.relatedSolutions?.includes(solutionKey));
+
+/**
+ * Bir yazıdan diğerlerine — YAZI ARASI köprü.
+ *
+ * ÖLÇÜLDÜ (63 sayfalık iç bağlantı grafiği): blog yazılarına ortalama 3
+ * bağlantı geliyor. Sektör sayfaları 30, vaka sayfaları 8 alıyor. Yazılar
+ * hâlâ grafiğin en zayıf ucu — `postsForSolution` sektörden bloga köprü
+ * kurdu ama yazılar birbirine hiç bağlanmıyordu.
+ *
+ * Beş yazıyken bunun anlamı yoktu: birbirine bağlanacak kadar konu yoktu.
+ * On yazıyla var, ve eşleşme zaten elimizde: iki yazı aynı çözüm
+ * anahtarını paylaşıyorsa aynı okur kitlesine yazılmış demektir.
+ *
+ * SIRALAMA: önce en çok ortak anahtar, sonra en yeni. Ortak anahtarı
+ * olmayan yazı hiç gelmiyor — "ilgili" başlığı altında ilgisiz yazı
+ * göstermek, listeyi bir kez tıklayıp bir daha bakmamaya yetiyor.
+ */
+export const ilgiliYazilar = (yazi: BlogPost, adet = 3) => {
+  const kendi = new Set(yazi.relatedSolutions ?? []);
+  if (kendi.size === 0) return [];
+  return postsByDate
+    .filter((y) => y.slug !== yazi.slug)
+    .map((y) => ({
+      y,
+      ortak: (y.relatedSolutions ?? []).filter((k) => kendi.has(k)).length,
+    }))
+    .filter((x) => x.ortak > 0)
+    .sort((a, b) => b.ortak - a.ortak)
+    .slice(0, adet)
+    .map((x) => x.y);
+};
 
 // Build zamanı kontrol: relatedSolutions gerçek bir çözüm anahtarı olmalı.
 // Yanlış anahtar sessizce çiziliyor değil — hiç çizilmiyordu; bir çözüm
