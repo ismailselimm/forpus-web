@@ -5,7 +5,7 @@ import Aurora from "@/components/fx/Aurora";
 import CtaBand from "@/components/ui/CtaBand";
 import Breadcrumb, { breadcrumbLd, faqLd } from "@/components/ui/Breadcrumb";
 import SolutionChips from "@/components/ui/SolutionChips";
-import { blogUi, type BlogPost } from "@/lib/blog";
+import { blogUi, type BlogPost, okumaDakikasi } from "@/lib/blog";
 import { SITE_URL as SITE } from "@/lib/site";
 
 /** Sunucuda üretilen yazı gövdesi — içerik statik HTML, Google doğrudan okuyor. */
@@ -23,12 +23,12 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
       {
         "@type": "BlogPosting",
         headline: post.title,
+        // Kısa `metaDescription`, `shortAnswer` değil. Bir ara `abstract`
+        // alanına kısa cevabın tamamı konmuştu; pasaj yazının ilk %5'inde
+        // zaten görünür metin olarak durduğu için o kopya sayfaya ~8 KB ham
+        // ekliyordu (RSC yükü onu ayrıca iki kez daha yazıyor) ve yeni
+        // hiçbir şey söylemiyordu.
         description: post.metaDescription,
-        // `abstract` (schema.org'da "bir eseri özetleyen kısa metin",
-        // yalnızca CreativeWork'lerde var) burada kısa cevabı taşıyordu.
-        // Kaldırıldı: pasaj yazının ilk %5'inde görünür metin olarak zaten
-        // duruyor, buradaki kopya sayfaya ~8 KB ham / ~2,3 KB gzip
-        // ekliyordu — RSC yükü onu ayrıca iki kez daha yazıyor.
         url,
         mainEntityOfPage: url,
         datePublished: post.published,
@@ -61,7 +61,7 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
               <div className="flex flex-wrap items-center gap-3">
                 <span className="eyebrow">{post.tag}</span>
                 <span className="font-[family-name:var(--font-mono)] text-[0.72rem] uppercase tracking-[0.14em] text-ink-3">
-                  {post.readingMinutes} {blogUi.readingSuffix}
+                  {okumaDakikasi(post)} {blogUi.readingSuffix}
                 </span>
               </div>
               <h1 className="h-section mt-5 text-balance">{post.title}</h1>

@@ -13,6 +13,7 @@
 
 import { assertSolutionKeys } from "./solution-index";
 import type { KisaCevapIcerigi } from "./kisa-cevap";
+import { solutions } from "./solutions";
 
 export type BlogSection = {
   heading: string;
@@ -25,6 +26,13 @@ export type BlogSection = {
   callout?: { title: string; body: string };
 };
 
+/**
+ * Yazı etiketi — kapalı küme. `string` iken hiçbir şey "rehber", "Rehberi"
+ * ya da sondaki boşluğu yakalamıyordu; rozet olarak ekrana basılan bir
+ * değerin sessizce ayrışmasının önünde tek engel dikkatti.
+ */
+export type BlogEtiketi = "Rehber" | "Fiyat Rehberi";
+
 export type BlogPost = {
   slug: string;
   /** Sayfadaki h1. */
@@ -36,8 +44,7 @@ export type BlogPost = {
   /** ISO tarih. Yapılandırılmış veride ve sitemap'te kullanılır. */
   published: string;
   updated?: string;
-  tag: string;
-  readingMinutes: number;
+  tag: BlogEtiketi;
   intro: string[];
   /**
    * Girişten hemen sonraki alıntılanabilir pasaj — sektör sayfalarındakiyle
@@ -65,7 +72,6 @@ export const posts: BlogPost[] = [
     published: "2026-08-25",
     updated: "2026-08-27",
     tag: "Fiyat Rehberi",
-    readingMinutes: 7,
     intro: [
       'Bu sorunun tek bir cevabı yok, ama "duruma göre değişir" demek de işe yaramıyor. Aşağıda 2026 için gerçek aralıkları, o aralıkları neyin belirlediğini ve hangi durumda fazla ödediğinizi yazdık.',
       "Rakamlar Türkiye piyasası için ve kurumsal iş yapan ekiplerin bandını yansıtıyor. Çok daha ucuz teklifler de göreceksiniz; onların neden ucuz olduğunu da açıklıyoruz — her zaman kötü değil, ama neyi almadığınızı bilmeniz gerekiyor.",
@@ -231,7 +237,6 @@ export const posts: BlogPost[] = [
     published: "2026-08-25",
     updated: "2026-08-27",
     tag: "Fiyat Rehberi",
-    readingMinutes: 6,
     intro: [
       "Uygulama fikri olan çoğu kişinin takıldığı yer teknik değil, belirsizlik. Ne kadar tutacağı bilinmediği için karar verilemiyor ve iyi fikirler yıllarca beklemede kalıyor.",
       "Aşağıda 2026 için gerçek bandları, o bandları neyin belirlediğini ve bütçeyi en çok şişiren hatayı yazdık.",
@@ -424,7 +429,6 @@ export const posts: BlogPost[] = [
     published: "2026-08-25",
     updated: "2026-08-27",
     tag: "Rehber",
-    readingMinutes: 8,
     intro: [
       "Avukatlar için web sitesi, diğer mesleklerden farklı bir iş. Sebep teknik değil: Avukatlık Kanunu ve meslek kuralları tanıtımı sınırlıyor ve bu sınırları bilmeyen bir ajans, farkında olmadan sizi baro nezdinde zor durumda bırakabiliyor.",
       "Aşağıda çerçeveyi, pratikte neyin yazılıp neyin yazılamadığını ve yine de rekabetçi kalmanın yollarını yazdık. Şunu baştan söyleyelim: bu bir hukuki görüş değil, işin yazılım tarafından gördüğümüz pratik. Kesin sınırlar için bağlı olduğunuz baronun güncel düzenlemesine bakın.",
@@ -583,7 +587,6 @@ export const posts: BlogPost[] = [
     published: "2026-08-25",
     updated: "2026-08-27",
     tag: "Rehber",
-    readingMinutes: 6,
     intro: [
       "Sitesini yenileten işletmelerin sık yaşadığı bir durum var: yeni site çok daha güzel ama Google'dan gelen ziyaretçi düşüyor. Bazen yarı yarıya.",
       "Sebep neredeyse her zaman aynı ve tasarımla ilgisi yok. Aşağıda ne olduğunu, nasıl önleneceğini ve yenileme öncesi yapılması gereken hazırlığı yazdık.",
@@ -731,7 +734,6 @@ export const posts: BlogPost[] = [
     published: "2026-08-25",
     updated: "2026-08-27",
     tag: "Rehber",
-    readingMinutes: 8,
     intro: [
       "Web sitesi yaptırmak çoğu işletme için birkaç yılda bir yapılan bir iş. Bu yüzden neyin sorulacağı bilinmiyor ve aynı hatalar tekrarlanıyor.",
       "Aşağıdaki maddeleri bizden iş almasanız da kullanabilirsiniz. Teklif aldığınız her ajansa aynı soruları sorun; cevapların netliği, ekibin ciddiyeti hakkında fiyattan daha çok şey söyler.",
@@ -893,14 +895,13 @@ export const posts: BlogPost[] = [
   {
     slug: "hukuk-burosu-yonetim-yazilimi",
     title: "Hukuk Bürosu Yönetim Yazılımı: Hazır Program mı, Size Özel mi?",
-    metaTitle: "Hukuk Bürosu Yönetim Yazılımı — Hazır mı Özel mi?",
+    metaTitle: "Hukuk Bürosu Yazılımı: Hazır mı, Size Özel mi?",
     metaDescription:
       "Hukuk bürosu için dosya, duruşma ve müvekkil takibi: hazır program ne zaman yeter, ne zaman size özel yazılım gerekir? Fiyat bandı, süre ve karar kriterleri.",
     excerpt:
       "Dosya ve duruşma takibi Excel'den taşınca akla iki yol geliyor: hazır bir program ya da size özel yazılım. İkisinin de doğru olduğu durumlar var; hangisinin sizin durumunuz olduğuna nasıl karar verilir?",
     published: "2026-08-28",
     tag: "Rehber",
-    readingMinutes: 9,
     intro: [
       "Bir hukuk bürosu belli bir dosya sayısını geçtiğinde Excel çöküyor. Duruşma tarihi kaçıyor, hangi müvekkile ne söylendiği hatırlanmıyor, ödeme takibi ayrı bir dosyada yürüyor. Bu noktada iki yol görünüyor: piyasadaki hazır programlardan birini almak ya da büroya özel bir sistem yaptırmak.",
       "İkisi de doğru cevap olabilir ve yanlış seçim pahalı. Aşağıda ikisinin gerçekten neyi çözdüğünü, hangi eşikte hangisinin mantıklı olduğunu ve teklif alırken sorulması gereken soruları yazdık.",
@@ -1037,12 +1038,11 @@ export const posts: BlogPost[] = [
     title: "Hukuk Bürosu Web Sitesinde Hangi Sayfalar Olmalı?",
     metaTitle: "Hukuk Bürosu Web Sitesi: Hangi Sayfalar Olmalı?",
     metaDescription:
-      "Avukat ve hukuk bürosu sitesinde hangi sayfalar olmalı, çalışma alanları neden ayrı sayfalanmalı, hangi sayfa hangi aramayı karşılar? Yapı ve örnek site haritası.",
+      "Hukuk bürosu sitesinde hangi sayfalar olmalı, çalışma alanları neden ayrı sayfalanmalı ve hangi sayfa hangi aramayı karşılar? Yapı ve site haritası.",
     excerpt:
       "Çoğu büro sitesi tek sayfada beş çalışma alanını birden sayıyor ve hiçbirinde bulunmuyor. Doğru yapı, arama yapan kişinin sorduğu soruya bir sayfa ayırmakla başlıyor.",
     published: "2026-08-28",
     tag: "Rehber",
-    readingMinutes: 8,
     intro: [
       "Hukuk bürolarının sitelerinde en sık gördüğümüz yapı şu: bir ana sayfa, bir hakkımızda, bir de içinde beş çalışma alanının alt alta sayıldığı tek bir hizmetler sayfası. Bu yapı reklam yasağına uygundur ama arama motorunda neredeyse hiçbir işe yaramaz.",
       "Sebep basit: Google sıralamayı siteye değil sayfaya verir. Boşanma davası arayan biriyle iş kazası tazminatı arayan biri farklı şey arıyor; ikisini aynı sayfaya koyduğunuzda o sayfa ikisine de yarım cevap veriyor ve ikisinde de arkalarda kalıyor.",
@@ -1132,7 +1132,7 @@ export const posts: BlogPost[] = [
       },
       {
         q: "Müvekkil yorumu koyabilir miyim?",
-        a: "Hayır. Tanıklığa dayalı tanıtım reklam sayılıyor. Bunun yerine çalışma alanı anlatımını ve makaleleri güçlendirin; ikisi de serbest ve arama tarafında daha çok işe yarıyor.",
+        a: "Önermiyoruz. Tanıklığa dayalı tanıtım reklam kapsamında değerlendirilebiliyor ve ayrıca müvekkil gizliliği açısından risk taşıyor. Bunun yerine çalışma alanı sayfalarını ve makaleleri güçlendirin; ikisi de serbest ve arama tarafında daha çok işe yarıyor.",
       },
       {
         q: "Tek sayfalık bir site yeterli olur mu?",
@@ -1149,14 +1149,13 @@ export const posts: BlogPost[] = [
   {
     slug: "google-isletme-profili-rehberi",
     title: "Google İşletme Profili: Haritalarda Nasıl Öne Çıkılır?",
-    metaTitle: "Google İşletme Profili — Haritalarda Öne Çıkma Rehberi",
+    metaTitle: "Google İşletme Profili: Haritalarda Öne Çıkma",
     metaDescription:
       "Google İşletme Profili nasıl açılır, doğrulama nasıl yapılır ve haritalarda üst sıralara nasıl çıkılır? Sıralamayı belirleyen üç şey ve sık yapılan hatalar.",
     excerpt:
       "Kuaför, klinik, restoran, salon — yerel işletmeye gelen aramaların çoğu siteden değil haritadan geliyor. İşletme profili ücretsiz ve çoğu işletmede yarım bırakılmış durumda.",
     published: "2026-08-28",
     tag: "Rehber",
-    readingMinutes: 8,
     intro: [
       "Yakınındaki bir kuaförü, kliniği ya da restoranı arayan biri çoğu zaman bir web sitesine değil haritaya bakar. Telefonu açar, arar, çıkan kartlardan birine dokunur ve arar. Bu kartın adı Google İşletme Profili ve açması ücretsiz.",
       "Buna rağmen çoğu işletmede profil ya hiç açılmamış ya da yarım kalmış oluyor: saatler eski, fotoğraf yok, hizmet listesi boş. Aşağıda profilin nasıl açıldığını, sıralamayı gerçekten neyin belirlediğini ve en çok yapılan hataları yazdık.",
@@ -1277,18 +1276,17 @@ export const posts: BlogPost[] = [
     title: "Doktor ve Klinik Sitelerinde Tanıtım Kuralları",
     metaTitle: "Sağlıkta Tanıtım Kuralları — Klinik Web Siteleri",
     metaDescription:
-      "Doktor, diş hekimi, güzellik merkezi ve veteriner sitelerinde ne yazılabilir, ne yazılamaz? Bilgilendirme ile reklam ayrımı, öncesi-sonrası görselleri ve hasta yorumu.",
+      "Doktor, diş hekimi ve klinik sitelerinde ne yazılabilir, ne yazılamaz? Bilgilendirme ile reklam ayrımı, öncesi-sonrası görselleri ve hasta yorumu.",
     excerpt:
       "Sağlık hizmetlerinde reklam ile bilgilendirme mevzuatta ayrı şeyler. Bu ayrımı bilmeyen bir ajans, siteyi kurup teslim eder ve sorunu siz yaşarsınız.",
     published: "2026-08-28",
     tag: "Rehber",
-    readingMinutes: 8,
     intro: [
-      "Sağlık alanında çalışan hekim ve kliniklerin web sitesi, diğer sektörlerden farklı bir iştir. Sebep teknik değil: Türkiye'de sağlık hizmetlerinde tanıtım mevzuatla sınırlanmış durumda ve sınırı bilmeyen bir ajans, farkında olmadan sizi idari yaptırımla karşı karşıya bırakabiliyor.",
-      "Aşağıda çerçeveyi, pratikte neyin yazılıp neyin yazılamadığını ve yine de görünür kalmanın yollarını yazdık. Baştan söyleyelim: bu bir hukuki görüş değil, işin yazılım tarafından gördüğümüz pratik. Kesin sınırlar için bağlı olduğunuz oda ya da mevzuat danışmanınızla teyitleşin.",
+      "Bir kliniğin sitesinde en çok tartışılan üç şey var: fiyat yazılabilir mi, öncesi-sonrası fotoğrafı konabilir mi, hasta yorumu yayınlanabilir mi. Üçünün de cevabı mevzuatta ve üçü de çoğu ajansın bakmadığı yerde duruyor.",
+      "Aşağıda o üç sorunun cevabını, arkasındaki bilgilendirme-reklam ayrımını ve kısıtlara rağmen aramada görünmenin yolunu yazdık. Yazdıklarımız hukuki görüş değil, siteyi kuran taraf olarak gördüğümüz uygulama; branşınıza özgü sınırlar için odanıza ya da mevzuat danışmanınıza sorun.",
     ],
     shortAnswer: {
-      title: "Kısa cevap: sitede ne yazılabilir, ne yazılamaz?",
+      title: "Kısa cevap: klinik sitesinde ne yazılabilir?",
       body: "Sağlık hizmetlerinde reklam ile bilgilendirme mevzuatta ayrı şeylerdir; sınır bilgilendirmeye değil reklama konur. Serbest olanlar: hangi branşta ve hangi işlemlerde hizmet verdiğinizi belirtmek, hekimin özgeçmişini, eğitimini, uzmanlık belgelerini ve yayınlarını paylaşmak, tedavi süreçlerini bilgilendirme amacıyla anlatmak, iletişim, adres ve çalışma saatlerini vermek. Sorunlu olanlar: fiyat ilanı ve kampanya duyurusu, indirim ve paket kampanyaları, hasta yorumu ve referansı — tanıklığa dayalı tanıtım reklam sayılıyor — başarı oranı ve garanti iddiası, karşılaştırmalı üstünlük ifadeleri, hastayı yönlendirmeye dönük çağrılar. Öncesi-sonrası görselleri teknik olarak mümkündür ama iki koşulla: hastadan yazılı açık rıza almanız ve görselin abartılı vaat içermeden, bilgilendirme çerçevesinde sunulması. Bu çerçevede görünür kalmanın yolu bilgilendirme içeriğinden geçer: tedavi süreçlerini anlatan yazılar hem mevzuata takılmaz hem de tam olarak insanların aradığı şeydir. Rıza geri alınabilir bir şeydir; geri alındığında görsel siteden kaldırılmalı, bu yüzden galeri tek tek görsel çıkarılabilecek şekilde kurulmalı. Sağlık verisi de özel nitelikli kişisel veridir: iletişim formundan gelen bilgiler ve randevu kayıtları KVKK kapsamındadır, aydınlatma metni ve saklama süreleri sitenin bir parçası olmalı.",
     },
     sections: [
@@ -1362,7 +1360,7 @@ export const posts: BlogPost[] = [
         },
       },
       {
-        heading: "Peki nasıl görünür olacaksınız?",
+        heading: "Kısıtlara rağmen aramada nasıl görünülür?",
         body: [
           "Kısıtlar tanıtımı sınırlıyor ama bilgilendirmeyi serbest bırakıyor. Bu, arama motorunda görünmek isteyen bir klinik için aslında iyi haber: hastaların gerçekten arattığı şeyler zaten bilgilendirme soruları.",
           "İmplant kaç seansta biter, ortodonti tedavisi ne kadar sürer, lazer epilasyon kaç seans gerekir, aşı takvimi nasıl işler. Bunların hepsi serbest ve hepsi aranıyor. Bir klinik sitesinin en değerli bölümü bu yüzden bilgilendirme içeriğidir.",
@@ -1418,7 +1416,6 @@ export const posts: BlogPost[] = [
       "Web sitesi yaptıranların çoğu alan adının kimin adına kayıtlı olduğunu bilmiyor. Bunu öğrendikleri an genellikle ajansla yolları ayrıldığı an oluyor ve iş orada zorlaşıyor.",
     published: "2026-08-28",
     tag: "Rehber",
-    readingMinutes: 7,
     intro: [
       "Web sitesi projelerinde en pahalıya patlayan hata teknik değil. Tasarım beğenilmezse değiştirilir, site yavaşsa hızlandırılır. Ama alan adı başkasının hesabındaysa, bir gün onu geri almak için pazarlık etmeniz gerekir.",
       "Bu yazı üç şeyi anlatıyor: alan adının kimin olduğunu nasıl kontrol edeceğinizi, ajansın hesabındaysa ne yapabileceğinizi ve yeni bir projeye başlarken bunu baştan nasıl doğru kuracağınızı.",
@@ -1533,6 +1530,45 @@ export const posts: BlogPost[] = [
 
 export const postBySlug = (slug: string) => posts.find((p) => p.slug === slug);
 
+/**
+ * OKUMA SÜRESİ — yazının kendisinden türetiliyor, elle yazılmıyor.
+ *
+ * Alan `readingMinutes: number` olarak her yazıda elle tutuluyordu ve
+ * ölçüldüğünde çoktan çürümüştü: on yazının ima ettiği okuma hızı 94 ile
+ * 168 kelime/dakika arasında geziniyordu, yani %79 fark. İki yazıda sıra
+ * bile ters dönmüştü — 751 kelimelik yazı "8 dk" derken, %34 daha uzun
+ * olan 1.010 kelimelik yazı "6 dk" diyordu.
+ *
+ * Alanın hiçbir editoryal yargı taşımadığı yer burası: sayı, metnin
+ * kendisinden çıkıyor. `updated` ise TAM TERSİ — bir düzenlemenin anlamlı
+ * olup olmadığına insan karar verir, o yüzden o elle kalıyor.
+ *
+ * 200 kelime/dakika, Türkçe düzyazı için makul bir orta değer.
+ */
+const KELIME = (metin: string) =>
+  metin.trim().split(/\s+/).filter(Boolean).length;
+
+export const okumaDakikasi = (y: BlogPost) => {
+  const parcalar: string[] = [
+    ...y.intro,
+    y.shortAnswer.body,
+    ...y.sections.flatMap((b) => [
+      b.heading,
+      ...(b.body ?? []),
+      ...(b.bullets ?? []).flatMap((m) => [m.title, m.body]),
+      ...(b.table
+        ? [b.table.caption ?? "", ...b.table.head, ...b.table.rows.flat()]
+        : []),
+      ...(b.callout ? [b.callout.title, b.callout.body] : []),
+    ]),
+    ...(y.faq ?? []).flatMap((f) => [f.q, f.a]),
+  ];
+  return Math.max(
+    1,
+    Math.round(parcalar.reduce((t, m) => t + KELIME(m), 0) / 200),
+  );
+};
+
 /** Yeniden en yeniye sıralı — liste sayfası ve sitemap için. */
 export const postsByDate = [...posts].sort((a, b) =>
   b.published.localeCompare(a.published),
@@ -1575,3 +1611,67 @@ export const postsForSolution = (solutionKey: string) =>
 // yeniden adlandırıldığında blogdan giden iç bağlantılar izsiz kaybolurdu.
 // ============================================================================
 assertSolutionKeys("blog", posts);
+
+/**
+ * Blogda geçen her ₺ rakamı, sektör sayfalarında da yazan bir rakam olmalı.
+ *
+ * NEDEN: yazılar fiyat tablolarını ELLE taşıyor ve bu doğru — blog tablosu
+ * (`caption/head/rows`, dört taranabilir sütun) ile satış kartı
+ * (`{name, price, timeline, body}`) farklı şeyler, birini diğerinden
+ * türetmek editoryal yapıyı bir bileşenin şekline büker. Ama `avukat`
+ * sektörünün bandı şu an `solutions.ts` dışında ÜÇ yerde daha yazılı ve
+ * sektör sayfasındaki rakamı değiştiren kişinin bir blog yazısının onu
+ * alıntıladığını bilmesinin hiçbir yolu yok.
+ *
+ * Sitenin bütün iddiası "gerçek rakam yazıyoruz". Aynı sorguda çıkan iki
+ * sayfanın aynı iş için farklı fiyat söylemesi, o iddiayı bozan tek şey.
+ * Kontrol elle yazmayı serbest bırakıyor, sessizce ayrışmayı yasaklıyor.
+ *
+ * Kapsam: yalnızca sektör bandı biçimindeki rakamlar (₺50.000 ve üstü).
+ * Rakip tekliflerinden söz eden "₺5.000'e web sitesi" gibi ifadeler
+ * kasıtlı olarak sektör listesinde yok; eşik onları dışarıda bırakıyor.
+ *
+ * `lib/solutions.ts`e bağımlılık: bu kontrol onu DEĞER olarak içe aktarıyor.
+ * Az önce buradan bir TİP bağı kaldırılmıştı, ama gerekçe farklıydı: o bağ
+ * iki alanlık bir tipe ulaşmak içindi, karşılığı yoktu. Bu bağın karşılığı
+ * iki dosya arasındaki bir değişmezi zorunlu kılmak — iki şeyi tutarlı
+ * tutmanın yolu onları birbirine bakmaya zorlamaktan geçiyor. Maliyeti de
+ * yok: statik export'ta sunucu paketi derlemeden sonra atılıyor ve blogu
+ * çizen tek bileşen (`IlgiliYazilar`) zaten `solutionUi` için aynı dosyaya
+ * bağlı.
+ */
+{
+  const bandlar = new Set<string>();
+  for (const s of solutions) {
+    for (const c of [s.tr, s.en]) {
+      for (const t of c.pricing?.tiers ?? []) {
+        for (const m of t.price.matchAll(/[\d.]+/g)) bandlar.add(m[0]);
+      }
+    }
+  }
+  const metin = (y: BlogPost) =>
+    [
+      ...y.intro,
+      y.shortAnswer.body,
+      ...y.sections.flatMap((b) => [
+        ...(b.body ?? []),
+        ...(b.bullets ?? []).flatMap((m) => [m.title, m.body]),
+        ...(b.table ? b.table.rows.flat() : []),
+        ...(b.callout ? [b.callout.title, b.callout.body] : []),
+      ]),
+      ...(y.faq ?? []).flatMap((f) => [f.q, f.a]),
+    ].join(" ");
+
+  for (const y of posts) {
+    for (const m of metin(y).matchAll(/₺([\d.]+)/g)) {
+      const ham = m[1];
+      const sayi = Number(ham.replace(/\./g, ""));
+      if (!Number.isFinite(sayi) || sayi < 50000) continue;
+      if (!bandlar.has(ham)) {
+        throw new Error(
+          `blog: "${y.slug}" ₺${ham} diyor ama bu rakam hiçbir sektörün fiyat bandında yok — biri güncellenmiş, diğeri unutulmuş olabilir`,
+        );
+      }
+    }
+  }
+}

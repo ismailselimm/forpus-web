@@ -40,15 +40,8 @@ export const metadata: Metadata = {
   title: {
     // Aranan ifade önce, marka sonra. Adımızı bilmeyen kimse "Forpus" aramıyor;
     // ana sayfanın hizmet aramalarında da yarışması için başlık böyle kuruldu.
-    //
-    // ŞEHİR BAŞLIKTA DEĞİL. Bir ara "İstanbul Web Tasarım ve Mobil Uygulama"
-    // yazıyordu, coğrafi sorgularda eşleşme olsun diye. Sekmede ve paylaşımda
-    // kötü duruyordu ve o gerekçe zaten başka yerlerden karşılanıyor:
-    // açıklamada "İstanbul merkezli" geçiyor, `Organization` şemasında
-    // `PostalAddress` var, iletişim sayfasının kendi başlığı "İletişim —
-    // İstanbul Yazılım Stüdyosu", llms.txt konum satırı ofisi söylüyor.
-    // Şehir sinyali beş yerde duruyor; sekmede altıncı kez tekrarlamak
-    // yalnızca başlığı uzatıyordu.
+    // Şehir bilerek yok: aşağıdaki açıklama ve `Organization` şemasındaki
+    // `PostalAddress` zaten söylüyor, sekmede tekrarı başlığı uzatıyordu.
     default: "Web Tasarım ve Mobil Uygulama Ajansı | Forpus Yazılım",
     template: "%s | Forpus Yazılım",
   },
@@ -56,29 +49,10 @@ export const metadata: Metadata = {
   description:
     "İstanbul merkezli yazılım şirketi. Kurumsal web sitesi, e-ticaret ve mobil uygulama geliştiriyoruz. ₺50.000'den başlayan paketler, ücretsiz teklif.",
   applicationName: "Forpus Yazılım",
-  keywords: [
-    "Forpus",
-    "Forpus Yazılım",
-    "İstanbul yazılım şirketi",
-    "İstanbul web tasarım",
-    "yazılım stüdyosu",
-    "dijital ajans",
-    "web yazılım",
-    "web tasarım",
-    "kurumsal web sitesi",
-    "e-ticaret",
-    "mobil uygulama",
-    "uygulama geliştirme",
-    "iOS Android uygulama",
-    "Flutter",
-    "Next.js",
-    "Meta reklam",
-    "Google Ads",
-    "performans pazarlama",
-    "sosyal medya yönetimi",
-    "UI/UX tasarım",
-    "SEO",
-  ],
+  // `keywords` YOK, bilerek. Google 2009'dan beri yok sayıyor, Bing sıralamada
+  // kullanmıyor. Burada 21 satırlık bir dizi duruyordu ve tek yaptığı, şehir
+  // ve hizmet adlarının site genelindeki konumlandırmayla senkron tutulması
+  // gereken altıncı bir yer olmaktı — hiçbir karşılığı olmadan.
   authors: [{ name: "Forpus Yazılım", url: SITE_URL }],
   creator: "Forpus Yazılım",
   publisher: "Forpus Yazılım",
@@ -159,7 +133,7 @@ const jsonLd = {
       // Burada dokuz kelimelik bir cümle duruyordu ve bir varlığın makineye
       // anlattığı şeyin TAMAMI oydu. Artık ana sayfada ekranda yazan paragrafın
       // aynısı: gerekçe `lib/marka.ts`te, TANIM'ın üstünde.
-      description: TANIM.ozet.tr,
+      description: TANIM.ozet,
       /*
        * KONUM. Sitenin her sayfasında, TEK düğümde.
        *

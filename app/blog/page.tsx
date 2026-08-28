@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
 import PageHero from "@/components/ui/PageHero";
-import { postsByDate, blogUi } from "@/lib/blog";
+import { postsByDate, blogUi, okumaDakikasi } from "@/lib/blog";
 import { SITE_URL as SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -60,7 +60,7 @@ export default function BlogIndex() {
                   <div className="flex flex-wrap items-center gap-3">
                     <span className="eyebrow">{p.tag}</span>
                     <span className="font-[family-name:var(--font-mono)] text-[0.7rem] uppercase tracking-[0.14em] text-ink-3">
-                      {p.readingMinutes} {blogUi.readingSuffix}
+                      {okumaDakikasi(p)} {blogUi.readingSuffix}
                     </span>
                   </div>
                   <h2 className="mt-4 font-[family-name:var(--font-display)] text-[1.28rem] font-bold tracking-tight text-ink text-balance">

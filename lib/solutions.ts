@@ -52,10 +52,13 @@ export type SolutionContent = {
    * ZORUNLU, opsiyonel değil. Kardeş derinlik blokları (`problem`, `pricing`,
    * `process`) gerçekten kısmi — 17'si var, 17'si yok. Bu değil: her sektörün
    * her dilde bir tane taşıması kuralın kendisi. Opsiyonel bırakılınca dört
-   * ayrı korunma dalı doğdu ve hiçbiri çalışmadı; `Service.description` için
-   * yazılan `?? metaDescription` yedeği, var olmamış bir duruma ait ikinci
-   * bir açıklamayı sessizce kodda tutuyordu. Yeni bir sektör pasajsız
+   * ayrı korunma dalı doğdu ve hiçbiri çalışmadı. Yeni bir sektör pasajsız
    * eklenirse derleyici söylesin.
+   *
+   * YAPISAL VERİYE GİRMİYOR. `Service.description` kısa `metaDescription`ı
+   * taşıyor; bu pasaj sayfanın ilk %5'inde zaten görünür metin olarak
+   * duruyor ve aynı 1,2 KB'ı JSON-LD'ye ikinci kez yazmak sayfa başına
+   * ~7,5 KB ham maliyet demekti (ölçüldü, geri alındı).
    */
   shortAnswer: KisaCevapIcerigi;
 

@@ -1,3 +1,5 @@
+import { PRICE_FLOOR } from "./pricing";
+
 /**
  * MARKA KİMLİĞİ — Forpus'un dışarıya görünen hesapları.
  *
@@ -59,11 +61,15 @@ export const whatsappBaglantisi = (mesaj?: string) =>
  * tanıyabilmesi için beyan edilmiş bir ile ihtiyacı var ve o beyan sitenin
  * her sayfasında aynı olmak zorunda.
  *
- * SOKAK ADRESİ VE TELEFON BİLEREK YOK: ikisi de doğrulanabilir olmalı.
- * Yapısal veriye bugün doğrulanamayan bir adres yazmak, Google Business
- * Profile açıldığı gün iki farklı adres beyanı demek olurdu — yerel aramada
- * güveni bozan tam olarak bu tutarsızlık. Ofis kesinleşince buraya yazılacak
- * ve sitenin tamamı tek seferde güncellenecek.
+ * SOKAK ADRESİ VE TELEFON HÂLÂ YOK: ikisi de doğrulanabilir olmalı. Yapısal
+ * veriye bugün doğrulanamayan bir adres yazmak, Google İşletme Profili
+ * açıldığı gün iki farklı adres beyanı demek olurdu — yerel aramada güveni
+ * bozan tam olarak bu tutarsızlık.
+ *
+ * OFİS ARTIK VAR ve site bunu söylüyor (`lib/iletisim.ts`). Değişmeyen şey
+ * adresin yayınlanması: o, Google İşletme Profili doğrulamasıyla birlikte
+ * buraya `ADRES` olarak girecek ve şemadaki `PostalAddress` ile aynı anda
+ * güncellenecek. O güne kadar beyan il düzeyinde kalıyor.
  */
 export const SEHIR = { tr: "İstanbul", en: "Istanbul" } as const;
 export const ULKE = { tr: "Türkiye", en: "Türkiye" } as const;
@@ -102,8 +108,9 @@ export const CALISMA = {
 /**
  * VARLIK TANIMI — "Forpus Yazılım ne yapar?" sorusunun tek pasajlık cevabı.
  *
- * NEREDE OKUNUYOR: yalnızca `app/layout.tsx`te, `Organization.description`
- * olarak. Orada daha önce dokuz kelimelik bir cümle duruyordu — "İstanbul
+ * NEREDE OKUNUYOR: `ozet` → `app/layout.tsx`, `Organization.description`.
+ * `govde` → `app/llms.txt`. Başka tüketicisi yok. Orada daha önce dokuz
+ * kelimelik bir cümle duruyordu — "İstanbul
  * merkezli web, mobil uygulama, reklam ve tasarım stüdyosu" — ve bir varlığın
  * makineye anlattığı şeyin tamamı oydu.
  *
@@ -128,29 +135,84 @@ export const CALISMA = {
  * bölümlerinin zaten söylediği şeyler. Buradaki rakam değişirse sözlükteki
  * `packages` da değişmeli — ikisi aynı beyanı veriyor.
  */
+/**
+ * Fiyat rakamları TEK KAYNAKTAN. `lib/pricing.ts` taban fiyatı tutuyor ve
+ * `lib/solutions.ts` sonundaki kontrol hiçbir sektör bandının onun altına
+ * düşmediğini derleme zamanında doğruluyor. Buraya elle "50.000" yazmak,
+ * o kontrolün göremediği dördüncü bir kopya üretirdi.
+ */
+const TL = (n: number) => `₺${new Intl.NumberFormat("tr-TR").format(n)}`;
+
+/**
+ * AÇILIŞ CÜMLELERİ — iki uzunluğun da paylaştığı kısım.
+ *
+ * `ozet` ile `govde` ayrı ayrı yazıldığında ilk 227 karakteri birebir aynıydı:
+ * aynı hizmet sayımı iki kez. Bir hizmet eklendiğinde ikisini birden
+ * güncellemek gerekiyordu ve biri unutulursa `Organization.description` ile
+ * llms.txt farklı bir şirketi tarif ediyordu — ikisi de aynı makineleri
+ * besliyor. Ortak açılış artık tek yerde.
+ */
+const ACILIS = {
+  tr:
+    "Forpus Yazılım, İstanbul merkezli bir yazılım stüdyosudur. Küçük ve orta " +
+    "ölçekli işletmeler için web sitesi ve e-ticaret altyapısı kurar, iOS ile " +
+    "Android için mobil uygulama geliştirir, marka tasarımı ve reklam yönetimi " +
+    "yapar.",
+  en:
+    "Forpus Yazılım is a software studio based in Istanbul, Türkiye. It builds " +
+    "websites and e-commerce platforms for small and mid-sized businesses, " +
+    "develops mobile apps for iOS and Android, and handles brand design and ad " +
+    "management.",
+} as const;
+
 export const TANIM = {
   /**
    * KISA HÂL — `Organization.description`.
    *
-   * Neden ayrı: o alan KÖK LAYOUT'ta, yani 114 sayfanın hepsinde. Bir ara
-   * tam pasaj oraya kondu ve ölçüldü: 1,2 KB × 114 sayfa × 2 (HTML + RSC
-   * yükü) ≈ 260 KB ham. Üstelik 35 İngilizce sayfa Türkçe metni taşıyordu ve
-   * hiçbiri onu göstermiyordu.
+   * Neden ayrı: o alan KÖK LAYOUT'ta, yani 114 sayfanın hepsinde. Bir ara tam
+   * pasaj oraya kondu ve ölçüldü: 1,2 KB × 114 sayfa × 2 (HTML + RSC yükü)
+   * ≈ 260 KB ham. Bir varlık açıklaması iki-üç cümledir; 158 kelimelik bir
+   * açıklama o alan için zaten alışılmadıktı.
    *
-   * Alanın işi yüzeye göre değişiyor: bir varlık açıklaması iki-üç cümledir,
-   * 158 kelimelik bir açıklama o alan için zaten alışılmadık. Uzun hâl
-   * llms.txt'te duruyor — orası tek dosya, bir kez okunuyor ve uzun bir
-   * tarifin gerçekten yeri.
+   * YALNIZCA TÜRKÇE, bilerek. İngilizcesi de yazılmıştı ama okuyanı yoktu:
+   * tek bir kök layout var, `Organization` düğümü tek `@id` taşıyor ve bir
+   * varlığın açıklaması sayfadan sayfaya değişemez. Sitenin birincil dili
+   * Türkçe olduğu için beyan Türkçe. İngilizce anlatım llms.txt'te duruyor.
    */
-  ozet: {
-    tr: "Forpus Yazılım, İstanbul merkezli bir yazılım stüdyosudur. Küçük ve orta ölçekli işletmeler için web sitesi ve e-ticaret altyapısı kurar, iOS ile Android için mobil uygulama geliştirir, marka tasarımı ve reklam yönetimi yapar. Tanıtım siteleri ₺50.000, mobil uygulamalar ₺250.000 bandından başlar. Şirketi iki mühendis kurdu.",
-    en: "Forpus Yazılım is a software studio based in Istanbul, Türkiye. It builds websites and e-commerce platforms for small and mid-sized businesses, develops mobile apps for iOS and Android, and handles brand design and ad management. Brochure sites start around ₺50,000 and mobile apps at ₺250,000. The company was founded by two engineers.",
-  },
+  ozet:
+    `${ACILIS.tr} Tanıtım siteleri ${TL(PRICE_FLOOR)}, mobil uygulamalar ` +
+    `${TL(PRICE_FLOOR * 5)} bandından başlar. Şirketi iki mühendis kurdu.`,
 
   /** TAM HÂL — yalnızca `app/llms.txt`. Sayfa başına maliyeti yok. */
   govde: {
-    tr: "Forpus Yazılım, İstanbul merkezli bir yazılım stüdyosudur. Küçük ve orta ölçekli işletmeler için web sitesi ve e-ticaret altyapısı kurar, iOS ile Android için mobil uygulama geliştirir, marka tasarımı ve reklam yönetimi yapar. Şirketi iki mühendis kurdu; tasarım, geliştirme ve reklam tarafı tek çatı altında yürütülüyor. Fiyatlar görüşmede değil baştan yazılı: tanıtım sitesi ₺50.000 bandında başlar ve içerikler hazırsa yaklaşık bir haftada yayına girer, hizmetlerin ayrı ayrı sayfalandığı kurumsal bir site ₺100.000'den başlar ve iki ila dört haftada tamamlanır, mobil uygulamanın ilk sürümü ₺250.000'den başlar ve altı ila on haftada mağazaya çıkar. Her projede alan adı, barındırma hesabı ve kaynak kod müşterinin adına kaydedilir; teslimden sonra içerikleri müşteri kendisi günceller. En sık çalışılan alanlar sağlık, hukuk, e-ticaret, lojistik ve yeme-içme; bu sektörlerin her biri için ayrı bir çözüm sayfası ve gerçek bir referans işi var. Sitede yazan her fiyat 2026 için geçerli başlangıç rakamıdır ve kapsam netleştikçe teklifte sabitlenir. Mesajlara aynı gün, en geç bir iş günü içinde dönülür.",
-    en: "Forpus Yazılım is a software studio based in Istanbul, Türkiye. It builds websites and e-commerce platforms for small and mid-sized businesses, develops mobile apps for iOS and Android, and handles brand design and ad management. The company was founded by two engineers, and design, development and advertising are run under one roof. Prices are published rather than saved for a call: a brochure site starts around ₺50,000 and goes live in about a week once content is ready, a corporate site with a separate page per service starts at ₺100,000 and takes two to four weeks, and the first version of a mobile app starts at ₺250,000 and reaches the stores in six to ten weeks. On every project the domain, the hosting account and the source code are registered in the client's name, and the client updates the content after handover. Most work comes from healthcare, law, e-commerce, logistics and hospitality. We reply the same day, within one business day at the latest.",
+    tr:
+      `${ACILIS.tr} Şirketi iki mühendis kurdu; tasarım, geliştirme ve reklam ` +
+      `tarafı tek çatı altında yürütülüyor. Fiyatlar görüşmede değil baştan ` +
+      `yazılı: tanıtım sitesi ${TL(PRICE_FLOOR)} bandında başlar ve içerikler ` +
+      `hazırsa yaklaşık bir haftada yayına girer, hizmetlerin ayrı ayrı ` +
+      `sayfalandığı kurumsal bir site ${TL(PRICE_FLOOR * 2)}'den başlar ve iki ` +
+      `ila dört haftada tamamlanır, mobil uygulamanın ilk sürümü ` +
+      `${TL(PRICE_FLOOR * 5)}'den başlar ve altı ila on haftada mağazaya çıkar. ` +
+      "Her projede alan adı, barındırma hesabı ve kaynak kod müşterinin adına " +
+      "kaydedilir; teslimden sonra içerikleri müşteri kendisi günceller. En sık " +
+      "çalışılan alanlar sağlık, hukuk, e-ticaret, lojistik ve yeme-içme; bu " +
+      "sektörlerin her biri için ayrı bir çözüm sayfası ve gerçek bir referans " +
+      "işi var. Sitede yazan her fiyat 2026 için geçerli başlangıç rakamıdır ve " +
+      "kapsam netleştikçe teklifte sabitlenir. " +
+      YANIT_SURESI.tam.tr,
+    en:
+      `${ACILIS.en} The company was founded by two engineers, and design, ` +
+      "development and advertising are run under one roof. Prices are published " +
+      `rather than saved for a call: a brochure site starts around ${TL(PRICE_FLOOR)} ` +
+      "and goes live in about a week once content is ready, a corporate site with " +
+      `a separate page per service starts at ${TL(PRICE_FLOOR * 2)} and takes two ` +
+      `to four weeks, and the first version of a mobile app starts at ` +
+      `${TL(PRICE_FLOOR * 5)} and reaches the stores in six to ten weeks. On every ` +
+      "project the domain, the hosting account and the source code are registered " +
+      "in the client's name, and the client updates the content after handover. " +
+      "Most work comes from healthcare, law, e-commerce, logistics and " +
+      "hospitality. " +
+      YANIT_SURESI.tam.en,
   },
 } as const;
 

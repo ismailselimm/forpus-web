@@ -59,15 +59,24 @@ type IletisimIcerigi = {
 
 const fiyat = new Intl.NumberFormat("tr-TR").format(PRICE_FLOOR);
 
+/*
+ * ŞEHİR ADI HİÇBİR YERDE ELLE YAZILMIYOR — hepsi `SEHIR`den geliyor.
+ *
+ * Bu sayfa şehri altı ayrı yerde söylüyor: sekme başlığı, meta açıklaması,
+ * özet, künye satırı, çalışma şekli satırı ve "nerede?" sorusunun cevabı.
+ * Aynı sayfanın `PostalAddress` yapısal verisi de `SEHIR`den besleniyor.
+ * Biri elle yazıldığında künye tablosu iki satır arayla iki farklı şehir
+ * gösterebiliyor ve yerel aramada güveni bozan tam olarak o tutarsızlık.
+ */
 export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
   tr: {
     slug: "iletisim",
-    baslik: "İletişim — İstanbul Yazılım Stüdyosu",
-    aciklama: `Forpus Yazılım İstanbul merkezli bir web ve mobil yazılım stüdyosu. Projenizi konuşmak için yazın — aynı gün dönüş yapıyoruz. E-posta: ${EPOSTA}`,
+    baslik: `İletişim — ${SEHIR.tr} Yazılım Stüdyosu`,
+    aciklama: `Forpus Yazılım ${SEHIR.tr} merkezli bir web ve mobil yazılım stüdyosu. Projenizi konuşmak için yazın — aynı gün dönüş yapıyoruz. E-posta: ${EPOSTA}`,
     h1: "İletişim",
     ozet:
-      "Forpus Yazılım, İstanbul merkezli bir web ve mobil yazılım stüdyosudur. " +
-      "İstanbul'daki ofisimizde çalışıyor, Türkiye'nin her ilinden ve yurt " +
+      `Forpus Yazılım, ${SEHIR.tr} merkezli bir web ve mobil yazılım stüdyosudur. ` +
+      `${SEHIR.tr}'daki ofisimizde çalışıyor, Türkiye'nin her ilinden ve yurt ` +
       "dışından gelen projeleri de aynı ekiple yürütüyoruz. " +
       "Aşağıdaki formu doldurun ya da doğrudan e-posta yazın; mesajlara aynı gün, " +
       "en geç bir iş günü içinde dönüş yapıyoruz.",
@@ -77,7 +86,7 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
       { etiket: "Konum", deger: `${SEHIR.tr}, ${ULKE.tr}` },
       {
         etiket: "Çalışma şekli",
-        deger: "İstanbul'daki ofisimizden — Türkiye geneli ve yurt dışı",
+        deger: `${SEHIR.tr}'daki ofisimizden — Türkiye geneli ve yurt dışı`,
       },
       { etiket: "E-posta", deger: EPOSTA, href: `mailto:${EPOSTA}` },
       {
@@ -96,8 +105,8 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
       {
         q: "Forpus Yazılım nerede?",
         a:
-          "Forpus Yazılım İstanbul, Türkiye merkezlidir ve ekip İstanbul'daki " +
-          "ofisinde çalışır. İstanbul dışındaki illerden ve yurt dışından gelen " +
+          `Forpus Yazılım ${SEHIR.tr}, ${ULKE.tr} merkezlidir ve ekip ${SEHIR.tr}'daki ` +
+          `ofisinde çalışır. ${SEHIR.tr} dışındaki illerden ve yurt dışından gelen ` +
           "projeler de aynı ekiple, aynı şekilde yürütülür. Görüşmeleri çevrimiçi " +
           "yapabiliyoruz; isterseniz ofisimizde yüz yüze de görüşüyoruz.",
       },
@@ -161,12 +170,12 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
   },
   en: {
     slug: "en/contact",
-    baslik: "Contact — Software Studio in Istanbul",
-    aciklama: `Web and mobile software studio in Istanbul, Türkiye. Tell us about your project — we reply the same day. Email: ${EPOSTA}`,
+    baslik: `Contact — Software Studio in ${SEHIR.en}`,
+    aciklama: `Web and mobile software studio in ${SEHIR.en}, ${ULKE.en}. Tell us about your project — we reply the same day. Email: ${EPOSTA}`,
     h1: "Contact",
     ozet:
-      "Forpus Yazılım is a web and mobile software studio based in Istanbul, Türkiye. " +
-      "We work from our office in Istanbul, and projects from other Turkish cities " +
+      `Forpus Yazılım is a web and mobile software studio based in ${SEHIR.en}, ${ULKE.en}. ` +
+      `We work from our office in ${SEHIR.en}, and projects from other Turkish cities ` +
       "and from abroad run with the same team. Use the form below or " +
       "email us directly; we reply the same day, and within one business day at the latest.",
     kunyeBasligi: "Details",
@@ -175,7 +184,7 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
       { etiket: "Location", deger: `${SEHIR.en}, ${ULKE.en}` },
       {
         etiket: "How we work",
-        deger: "From our Istanbul office — across Türkiye and internationally",
+        deger: `From our ${SEHIR.en} office — across Türkiye and internationally`,
       },
       { etiket: "Email", deger: EPOSTA, href: `mailto:${EPOSTA}` },
       {
@@ -194,7 +203,7 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
       {
         q: "Where is Forpus Yazılım based?",
         a:
-          "Forpus Yazılım is based in Istanbul, Türkiye, and the team works from " +
+          `Forpus Yazılım is based in ${SEHIR.en}, ${ULKE.en}, and the team works from ` +
           "its office there. Projects from other Turkish cities and from abroad run " +
           "with the same team, exactly the same way. Meetings can happen online, or " +
           "in person at our office if you prefer.",

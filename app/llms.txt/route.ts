@@ -63,7 +63,7 @@ ${postsByDate.map((y) => `- ${y.title} (${y.published}): ${SITE}/blog/${y.slug}`
 
 ## İletişim (Contact)
 - E-posta: ${EPOSTA}
-- Konum / Location: ${SEHIR.tr}, ${ULKE.tr} — ofis İstanbul'da; Türkiye geneline ve yurt dışına hizmet veriyor. (Office in ${SEHIR.en}; serving all of ${ULKE.en} and internationally.)
+- Konum / Location: ${SEHIR.tr}, ${ULKE.tr} — ofis ${SEHIR.tr}'da; Türkiye geneline ve yurt dışına hizmet veriyor. (Office in ${SEHIR.en}; serving all of ${ULKE.en} and internationally.)
 - İletişim sayfası / Contact page: ${SITE}/iletisim (TR) · ${SITE}/en/contact (EN)
 - Web: ${SITE} (TR) · ${SITE}/en (EN)
 
