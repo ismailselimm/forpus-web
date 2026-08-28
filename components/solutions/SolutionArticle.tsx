@@ -140,10 +140,19 @@ export default function SolutionArticle({
               <div className="relative mx-auto w-full max-w-[440px]">
                 <div className="absolute inset-[8%] rounded-[40px] bg-gradient-to-br from-cyan/20 to-blue/10 blur-2xl" />
                 <div className="relative aspect-square overflow-hidden rounded-[var(--r-lg)] shadow-[var(--shadow-card)] ring-1 ring-white/40">
+                  {/* `priority` ŞART: bu görsel LCP elemanı. Ölçüldü (PSI mobil,
+                      sektör sayfası) — `priority` yokken next/image
+                      `loading="lazy"` basıyor ve tarayıcı görseli ancak
+                      düzen hesaplandıktan sonra keşfediyor: 1.371 ms KEŞİF
+                      gecikmesi, LCP 3,6 sn. Vaka sayfaları (`CaseArticle`)
+                      bunu zaten doğru yapıyordu; 17 TR + 17 EN sektör
+                      sayfası atlanmıştı ve onlar sitenin en değerli
+                      sayfaları. */}
                   <Image
                     src={solution.image}
                     alt={c.h1}
                     fill
+                    priority
                     sizes="(max-width: 1024px) 90vw, 440px"
                     className="object-cover"
                   />
