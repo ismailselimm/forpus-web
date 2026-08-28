@@ -67,7 +67,8 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
     h1: "İletişim",
     ozet:
       "Forpus Yazılım, İstanbul merkezli bir web ve mobil yazılım stüdyosudur. " +
-      "Türkiye'nin her ilinden ve yurt dışından müşterilerle uzaktan çalışıyoruz. " +
+      "İstanbul'daki ofisimizde çalışıyor, Türkiye'nin her ilinden ve yurt " +
+      "dışından gelen projeleri de aynı ekiple yürütüyoruz. " +
       "Aşağıdaki formu doldurun ya da doğrudan e-posta yazın; mesajlara aynı gün, " +
       "en geç bir iş günü içinde dönüş yapıyoruz.",
     kunyeBasligi: "Künye",
@@ -76,7 +77,7 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
       { etiket: "Konum", deger: `${SEHIR.tr}, ${ULKE.tr}` },
       {
         etiket: "Çalışma şekli",
-        deger: "Uzaktan — Türkiye geneli ve yurt dışı",
+        deger: "İstanbul'daki ofisimizden — Türkiye geneli ve yurt dışı",
       },
       { etiket: "E-posta", deger: EPOSTA, href: `mailto:${EPOSTA}` },
       {
@@ -95,10 +96,10 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
       {
         q: "Forpus Yazılım nerede?",
         a:
-          "Forpus Yazılım İstanbul, Türkiye merkezlidir. Ekip uzaktan çalışıyor; " +
-          "bu yüzden İstanbul dışındaki illerden ve yurt dışından gelen projeler de " +
-          "aynı şekilde yürütülüyor. Görüşmeler çevrimiçi yapılıyor, İstanbul içinde " +
-          "istenirse yüz yüze de buluşuyoruz.",
+          "Forpus Yazılım İstanbul, Türkiye merkezlidir ve ekip İstanbul'daki " +
+          "ofisinde çalışır. İstanbul dışındaki illerden ve yurt dışından gelen " +
+          "projeler de aynı ekiple, aynı şekilde yürütülür. Görüşmeleri çevrimiçi " +
+          "yapabiliyoruz; isterseniz ofisimizde yüz yüze de görüşüyoruz.",
       },
       {
         q: "Ne kadar sürede dönüş yapıyorsunuz?",
@@ -165,7 +166,8 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
     h1: "Contact",
     ozet:
       "Forpus Yazılım is a web and mobile software studio based in Istanbul, Türkiye. " +
-      "We work remotely with clients across Türkiye and abroad. Use the form below or " +
+      "We work from our office in Istanbul, and projects from other Turkish cities " +
+      "and from abroad run with the same team. Use the form below or " +
       "email us directly; we reply the same day, and within one business day at the latest.",
     kunyeBasligi: "Details",
     satirlar: [
@@ -173,7 +175,7 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
       { etiket: "Location", deger: `${SEHIR.en}, ${ULKE.en}` },
       {
         etiket: "How we work",
-        deger: "Remote — across Türkiye and internationally",
+        deger: "From our Istanbul office — across Türkiye and internationally",
       },
       { etiket: "Email", deger: EPOSTA, href: `mailto:${EPOSTA}` },
       {
@@ -192,10 +194,10 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
       {
         q: "Where is Forpus Yazılım based?",
         a:
-          "Forpus Yazılım is based in Istanbul, Türkiye. The team works remotely, so " +
-          "projects from other Turkish cities and from abroad run exactly the same way. " +
-          "Meetings happen online, and we can meet in person within Istanbul if you " +
-          "prefer.",
+          "Forpus Yazılım is based in Istanbul, Türkiye, and the team works from " +
+          "its office there. Projects from other Turkish cities and from abroad run " +
+          "with the same team, exactly the same way. Meetings can happen online, or " +
+          "in person at our office if you prefer.",
       },
       {
         q: "How quickly do you reply?",
