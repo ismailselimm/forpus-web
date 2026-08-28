@@ -45,16 +45,29 @@ function BrowserBar({ host }: { host: string }) {
   );
 }
 
-/** Browser-framed screenshot. `priority` only for the featured (above-the-fold) shot. */
+/**
+ * Tarayıcı çerçeveli ekran görüntüsü.
+ *
+ * `buyuk` YALNIZCA BOYUT SEÇER, öncelik değil. Eskiden tek bir `priority`
+ * bayrağı iki işi birden yapıyordu: hem 1120px varyantı seçiyor hem
+ * next/image'a `priority` geçiyordu. İkincisi hataydı — ölçüldü: ana sayfa
+ * 273 KB preload ediyordu ve bunun 70 KB'ı bu görseldi. Oysa Work, ana
+ * sayfanın ALTINCI bölümü; mobilde ilk ekrandan yaklaşık beş ekran aşağıda.
+ * Yani hiç görünmeyecek bir görsel, yazı tipleriyle aynı dar bant için
+ * yarışıp ilk boyamayı geciktiriyordu.
+ *
+ * Öne çıkan kart hâlâ 1120px varyantı alıyor (gerçekten büyük gösteriliyor),
+ * ama artık tembel yükleniyor — kaydırılıp görünür olduğunda.
+ */
 function BrowserFrame({
   project,
   sizes,
-  priority = false,
+  buyuk = false,
   className,
 }: {
   project: WebProject;
   sizes: string;
-  priority?: boolean;
+  buyuk?: boolean;
   className?: string;
 }) {
   return (
@@ -78,11 +91,10 @@ function BrowserFrame({
             // `images.unoptimized` yüzünden srcset üretilmiyor ve `sizes` ölü;
             // doğru boyutu elle seçiyoruz. Öne çıkan kart daha büyük gösterildiği
             // için 1120, grid kartları 640.
-            src={shotAt(project.shot, priority ? 1120 : 640)}
+            src={shotAt(project.shot, buyuk ? 1120 : 640)}
             alt={project.name}
             fill
             sizes={sizes}
-            priority={priority}
             className="object-cover object-top transition-transform duration-[1.1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
           />
         )}
@@ -249,7 +261,7 @@ export default function Work() {
   );
 }
 
-/** Featured screenshot frame — full bleed inside the card, larger sizes hint + priority load. */
+/** Öne çıkan çerçeve — kartın içinde tam genişlik, büyük varyant. */
 function FeaturedFrame({ project }: { project: WebProject }) {
   return (
     <div className="relative">
@@ -262,7 +274,7 @@ function FeaturedFrame({ project }: { project: WebProject }) {
       />
       <BrowserFrame
         project={project}
-        priority
+        buyuk
         sizes="(max-width: 1024px) 92vw, 680px"
       />
     </div>
