@@ -11,9 +11,24 @@ import Footer from "@/components/layout/Footer";
 import { SITE_URL } from "@/lib/site";
 import { CALISMA, EPOSTA, SEHIR, sameAs, TANIM } from "@/lib/marka";
 
+/*
+ * YAZI TİPLERİ — kaç ağırlık preload edildiği LCP'yi doğrudan belirliyor.
+ *
+ * ÖLÇÜLDÜ (PSI mobil): üç sayfa tipinde de LCP elemanı bir METİN ve hepsinde
+ * ~2,3 sn "element render delay" var — ana sayfa 2350 ms, blog 2309 ms.
+ * Sebep `display: swap` zinciri: metin önce yedek fontla boyanıyor, gerçek
+ * font gelince YENİDEN boyanıyor ve Chrome LCP'yi o ikinci boyamaya
+ * kaydırıyor. Yani LCP, fontun inme süresine bağlı.
+ *
+ * Önce 12 ağırlık vardı; head'e 6 dosya / 179 KB preload giriyordu. Slow 4G'de
+ * bu tek başına saniyeler demek. Sayım yapıldı, kullanılmayanlar atıldı.
+ */
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext"],
-  weight: ["500", "600", "700", "800", "900"],
+  // 500 ATILDI: display fontuyla birlikte hiçbir yerde `font-medium`
+  // kullanılmıyor (sayıldı: 0). globals.css'teki tek `font-weight: 500`
+  // gövde fontunu kullanan bir pill bileşenine ait.
+  weight: ["600", "700", "800", "900"],
   variable: "--font-montserrat",
   display: "swap",
 });
@@ -22,14 +37,48 @@ const manrope = Manrope({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-manrope",
-  display: "swap",
+  /*
+   * `optional`, `swap` DEĞİL — ve yalnızca gövde fontunda.
+   *
+   * NEDEN BURADA: ölçülen üç sayfa tipinin de metin LCP elemanı gövde
+   * fontunu kullanıyor. Ana sayfada `<p class="lead">`, blogda sınıfsız bir
+   * paragraf; ikisi de font-family belirtmiyor, `body`den miras alıyor.
+   *
+   * `swap` NE YAPIYORDU: metin önce yedek fontla boyanıyor, Manrope gelince
+   * YENİDEN boyanıyor. Chrome ikinci boyamayı yeni bir LCP adayı sayıyor,
+   * yani LCP fontun inme süresine bağlanıyordu — ölçüm: 2350 ms (ana sayfa),
+   * 2309 ms (blog) "element render delay".
+   *
+   * `optional` NE YAPIYOR: tarayıcı fonta ~100 ms tanıyor. Yetişirse gerçek
+   * fontla boyanıyor; yetişmezse O SAYFA YÜKLEMESİ boyunca yedekte kalıyor
+   * ve ikinci boyama HİÇ olmuyor. LCP ilk boyamada kapanıyor. Font arka
+   * planda inip önbelleğe giriyor, sonraki her sayfada gerçek font.
+   *
+   * KAYIP NEDİR: yavaş bağlantıdaki ilk ziyarette gövde metni yedek fontla
+   * görünüyor. Ama `swap`te de zaten 2,3 saniye boyunca yedek font
+   * görünüyordu — fark, metnin okuma sırasında yerinden zıplamaması.
+   * Düzen kaymıyor: next/font metrik uyumlu yedek üretiyor, ölçülen CLS 0.
+   *
+   * BAŞLIKLAR ETKİLENMİYOR: Montserrat `swap`te kaldı. Markanın sesi olan
+   * tipografi gecikmeli de olsa geliyor; LCP'yi belirleyen o değil.
+   */
+  display: "optional",
 });
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
+  // 400 ATILDI: mono ile `font-normal` hiçbir yerde kullanılmıyor (sayıldı: 0).
+  weight: ["500", "600"],
   variable: "--font-mono-jb",
   display: "swap",
+  // PRELOAD KAPALI, bilerek. Mono yalnızca küçük etiketlerde geçiyor —
+  // eyebrow'lar, breadcrumb, footer sütun başlıkları. Hiçbir sayfada LCP
+  // elemanı DEĞİL. Preload edildiğinde ilk boyamanın kritik bandını, LCP'yi
+  // belirleyen display ve gövde fontlarıyla paylaşıyordu. Artık CSS
+  // üzerinden normal öncelikle iniyor; küçük etiketler bir an yedek fontla
+  // görünüp yerine oturuyor, düzen kaymıyor (next/font metrik uyumlu yedek
+  // üretiyor, ölçülen CLS 0).
+  preload: false,
 });
 
 const OG_DESC =
