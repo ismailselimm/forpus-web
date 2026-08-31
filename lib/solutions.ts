@@ -219,7 +219,7 @@ export const solutions: Solution[] = [
             body: "Takvimli online randevu, çakışma kontrolü, otomatik SMS hatırlatma, hasta kayıt paneli ve gerekirse mobil uygulama. Sekreterlik yükünü yazılıma devretmek isteyen çok hekimli klinikler için.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; sayfa sayısı, içerik üretimi ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; sayfa sayısı, içerik üretimi ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
 
       caseRef: {
@@ -451,7 +451,7 @@ export const solutions: Solution[] = [
             body: "Takvimli online randevu, çakışma kontrolü, otomatik hatırlatma ve hasta kayıt paneli. Çok koltuklu, birden fazla hekimin çalıştığı klinikler için.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       process: {
         title: "Nasıl ilerliyoruz?",
@@ -674,7 +674,7 @@ export const solutions: Solution[] = [
             body: "Danışanın ölçümlerini, planını ve ilerlemesini cebinden gördüğü mobil uygulama; sizin için yönetim paneli ve mesajlaşma. Danışan sayısı tabloyla yönetilemeyecek kadar artmışsa.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       caseRef: {
         title: "Diyetisyen alanında yaptığımız iş",
@@ -903,7 +903,7 @@ export const solutions: Solution[] = [
             body: "Takvimli online randevu, otomatik hatırlatma, seans notu ve danışan kaydı için panel. Birden fazla uzmanın çalıştığı merkezler için.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       process: {
         title: "Nasıl ilerliyoruz?",
@@ -1127,7 +1127,7 @@ export const solutions: Solution[] = [
             body: "Müvekkilin dosya durumunu takip ettiği, belge paylaştığı güvenli bir portal ve büro içi yönetim paneli. Dosya sayısı telefonla yönetilemeyecek düzeydeyse.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       process: {
         title: "Nasıl ilerliyoruz?",
@@ -1350,7 +1350,7 @@ export const solutions: Solution[] = [
             body: "Danışman bazlı yetkilendirme, müşteri talep eşleştirme, ilan sitelerine aktarım ve mobil uygulama. Birden fazla danışmanla çalışan ofisler için.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       process: {
         title: "Nasıl ilerliyoruz?",
@@ -1477,7 +1477,7 @@ export const solutions: Solution[] = [
         "Ürünlerinizi satmak için pazaryerlerinin komisyonuna mahkûm değilsiniz. Markanıza ait, hızlı ve satışa odaklı bir e-ticaret sitesi hem kârınızı hem müşteri sadakatinizi büyütür. Forpus, ödeme ve kargo entegrasyonuyla uçtan uca e-ticaret siteleri kuruyor.",
       shortAnswer: {
         title: "E-ticaret sitesi kurmak ne içerir, ne kadar tutar?",
-        body: "E-ticaret sitesi kurmak, ürünlerinizi pazaryeri komisyonu ödemeden kendi adresinizde sattığınız bir vitrin ve arka uç kurmak demektir. Forpus'un kurduğu tipik bir e-ticaret sitesinde varyantlı ürün kataloğu, sepet ve güvenli ödeme entegrasyonu, kargo ile fatura akışları, indirim ve kupon sistemi, mobil uyumlu hızlı bir vitrin ve Google Alışveriş'i de kapsayan SEO ayarları bulunur. Hazır bir altyapı üzerine kurulum ₺80.000–140.000 aralığında ve iki ila üç haftada yayına girer; ürün sayınız azsa ve akışınız standartsa genellikle doğru başlangıç budur. Markanıza özel tasarlanmış, kendi akışlarınıza göre kurgulanmış bir e-ticaret sitesi ₺150.000–280.000 aralığında ve dört ila yedi haftada tamamlanır. Özel yazılım, ERP ya da pazaryeri entegrasyonu gerekiyorsa ₺350.000'den başlayan bir projeden söz ediyoruz. Mevcut ürünleriniz toplu aktarımla taşınır. Ödeme altyapısı sizin şirketiniz adına açılır, para doğrudan sizin hesabınıza geçer. Mesafeli satış sözleşmesi, iptal-iade ve gizlilik metinleri teslimle birlikte hazır gelir. Reklam ölçümü kurulmadan yayına alınmaz: hangi ürünün hangi reklamdan satıldığını göremezseniz bütçe kör harcanır.",
+        body: "E-ticaret sitesi kurmak, ürünlerinizi pazaryeri komisyonu ödemeden kendi adresinizde sattığınız bir vitrin ve arka uç kurmak demektir. Forpus'un kurduğu tipik bir e-ticaret sitesinde varyantlı ürün kataloğu, sepet ve güvenli ödeme entegrasyonu, kargo ile fatura akışları, indirim ve kupon sistemi, mobil uyumlu hızlı bir vitrin ve Google Alışveriş'i de kapsayan SEO ayarları bulunur. Hazır bir altyapı üzerine kurulum ₺80.000–140.000 aralığında ve iki ila üç haftada yayına girer; ürün sayınız azsa ve akışınız standartsa genellikle doğru başlangıç budur. Markanıza özel tasarlanmış, kendi akışlarınıza göre kurgulanmış bir e-ticaret sitesi ₺150.000–280.000 aralığında ve dört ila yedi haftada tamamlanır. Özel yazılım, ERP ya da pazaryeri entegrasyonu gerekiyorsa ₺250.000'den başlayan bir projeden söz ediyoruz. Mevcut ürünleriniz toplu aktarımla taşınır. Ödeme altyapısı sizin şirketiniz adına açılır, para doğrudan sizin hesabınıza geçer. Mesafeli satış sözleşmesi, iptal-iade ve gizlilik metinleri teslimle birlikte hazır gelir. Reklam ölçümü kurulmadan yayına alınmaz: hangi ürünün hangi reklamdan satıldığını göremezseniz bütçe kör harcanır.",
       },
       benefitsTitle: "Kendi e-ticaret siteniz markanıza ne kazandırır?",
       benefits: [
@@ -1519,7 +1519,7 @@ export const solutions: Solution[] = [
         },
         {
           q: "E-ticaret sitesi kurmak ne kadar tutar?",
-          a: "Yaygın bir altyapı üzerine markanıza uyarlanmış bir mağaza ₺80.000 bandında başlar. Tamamen size özel tasarlanmış, kampanya ve varyant yapısı kurgulanmış bir e-ticaret sitesi ₺150.000–280.000 aralığındadır. ERP entegrasyonu, bayi fiyatlandırması veya mobil uygulama işin içine girdiğinde ₺350.000'den başlayan bir projeden söz ediyoruz.",
+          a: "Yaygın bir altyapı üzerine markanıza uyarlanmış bir mağaza ₺80.000 bandında başlar. Tamamen size özel tasarlanmış, kampanya ve varyant yapısı kurgulanmış bir e-ticaret sitesi ₺150.000–280.000 aralığındadır. ERP entegrasyonu, bayi fiyatlandırması veya mobil uygulama işin içine girdiğinde ₺250.000'den başlayan bir projeden söz ediyoruz.",
         },
         {
           q: "Hazır altyapı mı özel yazılım mı önerirsiniz?",
@@ -1569,12 +1569,12 @@ export const solutions: Solution[] = [
           },
           {
             name: "Özel yazılım & entegrasyon",
-            price: "₺350.000'den başlayan",
+            price: "₺250.000'den başlayan",
             timeline: "Projeye özel",
             body: "ERP veya muhasebe entegrasyonu, bayi ve toptan fiyatlandırma, abonelik satışı, mobil uygulama. Standart altyapıların yetmediği operasyonlar için.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       caseRef: {
         title: "E-ticarette yaptığımız iş",
@@ -1646,7 +1646,7 @@ export const solutions: Solution[] = [
       shortAnswer: {
         title:
           "What does building an e-commerce site involve, and what does it cost?",
-        body: "Building an e-commerce site means setting up a storefront and back end where you sell on your own address instead of paying marketplace commission. A typical site Forpus builds carries a product catalogue with variants, cart and secure payment integration, shipping and invoicing flows, a discount and coupon system, a fast mobile-first storefront, and SEO that covers Google Shopping. Setup on an off-the-shelf platform runs ₺80,000–140,000 and goes live in two to three weeks; with a small catalogue and standard flows this is usually the right starting point. A store designed for your brand and built around your own flows runs ₺150,000–280,000 and takes four to seven weeks. Custom software, ERP or marketplace integration starts at ₺350,000. The payment gateway is opened in your company's name and money lands in your account. Distance-selling, refund and privacy texts are delivered ready.",
+        body: "Building an e-commerce site means setting up a storefront and back end where you sell on your own address instead of paying marketplace commission. A typical site Forpus builds carries a product catalogue with variants, cart and secure payment integration, shipping and invoicing flows, a discount and coupon system, a fast mobile-first storefront, and SEO that covers Google Shopping. Setup on an off-the-shelf platform runs ₺80,000–140,000 and goes live in two to three weeks; with a small catalogue and standard flows this is usually the right starting point. A store designed for your brand and built around your own flows runs ₺150,000–280,000 and takes four to seven weeks. Custom software, ERP or marketplace integration starts at ₺250,000. The payment gateway is opened in your company's name and money lands in your account. Distance-selling, refund and privacy texts are delivered ready.",
       },
       benefits: [
         {
@@ -1804,7 +1804,7 @@ export const solutions: Solution[] = [
             body: "Kendi sipariş altyapınız: sepet, ödeme, teslimat bölgesi ve mutfak paneli. Paket servis hacmi platform komisyonlarını sorun haline getirdiyse.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       process: {
         title: "Nasıl ilerliyoruz?",
@@ -2027,7 +2027,7 @@ export const solutions: Solution[] = [
             body: "Kurs satışı, üyelik girişi, video içerik ve ödeme sistemi. İçeriğinizi doğrudan satmaya geçtiğinizde.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       process: {
         title: "Nasıl ilerliyoruz?",
@@ -2251,7 +2251,7 @@ export const solutions: Solution[] = [
             body: "Takvimli randevu yönetimi, otomatik hatırlatma, müşteri kaydı ve mobil uygulama. Çok koltuklu, birden fazla stilistin çalıştığı salonlar için.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       process: {
         title: "Nasıl ilerliyoruz?",
@@ -2474,7 +2474,7 @@ export const solutions: Solution[] = [
             body: "Takvimli randevu, seans takibi, müşteri kaydı, paket kullanım yönetimi ve mobil uygulama. Çok kabinli, seans bazlı çalışan merkezler için.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       caseRef: {
         title: "Estetik alanında yaptığımız iş",
@@ -2704,7 +2704,7 @@ export const solutions: Solution[] = [
             body: "Takvimli randevu, hayvan kayıt geçmişi, aşı hatırlatma bildirimleri ve sahip paneli. Hasta hacmi defterle yönetilemeyecek düzeydeyse.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       process: {
         title: "Nasıl ilerliyoruz?",
@@ -2928,7 +2928,7 @@ export const solutions: Solution[] = [
             body: "Sanal tur, 3D gezinme, etkileşimli proje sunumu ve müşteri onay portalı. Sunumun işin kendisi kadar önemli olduğu bürolar için.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       process: {
         title: "Nasıl ilerliyoruz?",
@@ -3151,7 +3151,7 @@ export const solutions: Solution[] = [
             body: "Mükellefin belge yüklediği, beyanname ve tahakkuklarını gördüğü güvenli portal; ofis içi takip paneli. Belge trafiği e-postayla yönetilemeyecek düzeydeyse.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       process: {
         title: "Nasıl ilerliyoruz?",
@@ -3375,7 +3375,7 @@ export const solutions: Solution[] = [
             body: "Müşterinin şifreyle girip fotoğraflarını seçtiği ve indirdiği özel galeri, seçim onayı ve baskı siparişi akışı. Teslim süreci WeTransfer'le yönetilemeyecek hacimdeyse.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       process: {
         title: "Nasıl ilerliyoruz?",
@@ -3599,7 +3599,7 @@ export const solutions: Solution[] = [
             body: "Online üyelik satışı, ders rezervasyonu, kontenjan yönetimi, üye paneli ve mobil uygulama. Ders bazlı çalışan stüdyolar için.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       process: {
         title: "Nasıl ilerliyoruz?",
@@ -3826,7 +3826,7 @@ export const solutions: Solution[] = [
             body: "Çok taraflı pazaryeri, karmaşık iş akışları, dış sistem entegrasyonları ve sürekli geliştirme. Uygulamanın işin kendisi olduğu projeler için.",
           },
         ],
-        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur.",
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
       },
       caseRef: {
         title: "Yaptığımız uygulama",

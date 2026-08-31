@@ -199,7 +199,7 @@ const tr = {
     eyebrow: "Paketler",
     title: "Size uygun bir\nbaşlangıç.",
     subtitle:
-      "Net kapsam, şeffaf süreç. Kesin fiyatı ihtiyacınıza göre kısa bir görüşmede netleştiriyoruz — gizli kalem yok.",
+      "Net kapsam, şeffaf süreç. Kesin fiyatı ihtiyacınıza göre kısa bir görüşmede netleştiriyoruz — gizli kalem yok. Fiyatlar KDV hariçtir.",
     badge: "En Popüler",
     items: [
       {
@@ -690,7 +690,7 @@ const en: typeof tr = {
     eyebrow: "Packages",
     title: "A starting point\nthat fits you.",
     subtitle:
-      "Clear scope, transparent process. We settle the exact price to your needs on a quick call — no hidden line items.",
+      "Clear scope, transparent process. We settle the exact price to your needs on a quick call — no hidden line items. Prices exclude VAT.",
     badge: "Most Popular",
     items: [
       {
