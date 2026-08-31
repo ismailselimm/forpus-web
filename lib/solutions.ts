@@ -376,7 +376,7 @@ export const solutions: Solution[] = [
         "Tedavi sayfaları (implant, ortodonti, estetik)",
         "Online randevu / WhatsApp entegrasyonu",
         "Öncesi-sonrası galerisi",
-        "Hasta yorumları ve bilgilendirme blogu",
+        "Tedavi rehberleri ve bilgilendirme blogu",
         "Mobil uyumlu, hızlı yüklenen tasarım",
         "Google ve harita için SEO ayarları",
       ],
@@ -537,7 +537,7 @@ export const solutions: Solution[] = [
         "Treatment pages (implants, orthodontics, aesthetics)",
         "Online booking / WhatsApp integration",
         "Before-and-after gallery",
-        "Patient reviews and info blog",
+        "Treatment guides and info blog",
         "Fast, mobile-friendly design",
         "SEO setup for Google and Maps",
       ],
@@ -570,7 +570,7 @@ export const solutions: Solution[] = [
     tr: {
       metaTitle: "Diyetisyen Web Sitesi Tasarımı",
       metaDescription:
-        "Diyetisyenlere özel web sitesi ve online randevu. Danışan çeken, mobil uyumlu, Google'da bulunan bir dijital vitrin. Ücretsiz teklif alın.",
+        "Diyetisyenlere özel web sitesi ve online randevu. Çalışma yönteminizi ve hizmetlerinizi anlatan, mobil uyumlu, Google'da bulunan bir site. Ücretsiz teklif alın.",
       eyebrow: "Diyetisyene Özel",
       h1: "Diyetisyen Web Sitesi",
       intro:
@@ -582,8 +582,8 @@ export const solutions: Solution[] = [
       benefitsTitle: "Diyetisyen web sitesi pratiğinize ne kazandırır?",
       benefits: [
         {
-          title: "Danışan çeken vitrin",
-          body: "Yaklaşımınızı ve sonuçlarınızı öne çıkaran bir tasarımla ilk izlenimi kazanın.",
+          title: "Yönteminiz anlaşılsın",
+          body: "Nasıl çalıştığınızı ve görüşmenin nasıl ilerlediğini sade bir dille anlatın.",
         },
         {
           title: "Online randevu & ödeme",
@@ -599,12 +599,16 @@ export const solutions: Solution[] = [
         "Hizmet ve paket sayfaları",
         "Online randevu / ödeme entegrasyonu",
         "Blog ve tarif altyapısı",
-        "Danışan yorumları bölümü",
+        "Sık sorulan sorular bölümü",
         "Mobil uyumlu, hızlı tasarım",
         "Google ve sosyal medya bağlantıları",
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
+        {
+          q: "Sağlıkta tanıtım kuralları sitemi nasıl etkiliyor?",
+          a: "Türkiye'de sağlık alanında reklam ile bilgilendirme mevzuatta ayrı şeylerdir ve diyetisyenlik de bu çerçevenin içindedir; site içeriği bilgilendirme tarafında kalmalıdır. Pratikte şu demek: kampanya ve indirim duyurusu, ücret ilanı, karşılaştırmalı üstünlük iddiası, danışan yorumu ve öncesi-sonrası görseli sorun yaratır. Kilo vaadi veren ifadeler de aynı kapsamda. Yerine çalışma yönteminizi, görüşmenin nasıl ilerlediğini ve hizmet kapsamınızı tarafsız bir dille anlatırız. Sınırda gördüğümüz başlıkları size ayrıca söyleriz; kesin yorum için bağlı olduğunuz meslek kuruluşuyla teyitleşmenizi öneririz.",
+        },
         {
           q: "Online danışmanlık için altyapı kurar mısınız?",
           a: "Evet. Randevu, online görüşme yönlendirmesi ve ödeme akışını ihtiyacınıza göre kurarız.",
@@ -659,7 +663,7 @@ export const solutions: Solution[] = [
             name: "Tanıtım sitesi",
             price: "₺50.000 – 80.000",
             timeline: "~1–2 hafta",
-            body: "Tek veya az sayfalı, sıcak bir dijital vitrin. Hakkınızda, çalışma yönteminiz, paketler ve WhatsApp yönlendirmesi. Yeni başlayan diyetisyenler için yeterli.",
+            body: "Tek veya az sayfalı, sıcak bir tanışma sayfası. Hakkınızda, çalışma yönteminiz, paketler ve WhatsApp yönlendirmesi. Yeni başlayan diyetisyenler için yeterli.",
           },
           {
             name: "Danışan çeken site",
@@ -749,8 +753,8 @@ export const solutions: Solution[] = [
       },
       benefits: [
         {
-          title: "A storefront that converts",
-          body: "Win the first impression with a design that highlights your approach and results.",
+          title: "Make your method clear",
+          body: "Explain how you work and how a consultation unfolds, in plain terms.",
         },
         {
           title: "Online booking & payments",
@@ -766,7 +770,7 @@ export const solutions: Solution[] = [
         "Service and package pages",
         "Online booking / payment integration",
         "Blog and recipe foundation",
-        "Client testimonials section",
+        "Frequently asked questions section",
         "Fast, mobile-friendly design",
         "Google and social media links",
       ],
@@ -2604,10 +2608,10 @@ export const solutions: Solution[] = [
       eyebrow: "Veterinere Özel",
       h1: "Veteriner Klinik Web Sitesi",
       intro:
-        "Dostlarının sağlığı söz konusu olunca sahipler aceleyle en yakın ve en güvenilir kliniği arıyor. Sıcak, güven veren ve randevuya yönlendiren bir site, kliniğinizi öne çıkarır. Forpus veteriner kliniklerine özel siteler tasarlıyor.",
+        "Dostları rahatsızlanınca sahipler önce en yakın açık kliniği arıyor. Adresin, telefonun, muayene saatlerinin ve nöbet bilgisinin net göründüğü bir site, size ulaşmayı kolaylaştırır. Forpus veteriner klinikleri için, hekimin tabi olduğu tanıtım sınırlarını gözeterek site kuruyor.",
       shortAnswer: {
         title: "Veteriner klinik web sitesi ne içerir, ne kadar tutar?",
-        body: "Veteriner klinik web sitesi, hizmetlerinizi anlattığınız, nöbet ve acil bilgisini duyurduğunuz ve randevu aldığınız kendi adresinizdir. Forpus'un kurduğu tipik bir klinik sitesinde aşı, cerrahi ve check-up gibi hizmetler için ayrı sayfalar, online randevu ile WhatsApp yönlendirmesi, ilk ekranda görünen acil iletişim ve nöbet bilgisi, ekip ile klinik tanıtımı, Google harita bağlantısı ve çalışma saatleri, mobil uyumlu hızlı bir tasarım bulunur. Klinik tanıtımına odaklı bir site ₺50.000–85.000 aralığında ve bir ila iki haftada yayına girer. Randevunun siteden alındığı, hizmetlerin ayrı ayrı anlatıldığı tam bir klinik sitesi ₺90.000–150.000 aralığında ve iki ila dört haftada tamamlanır. Randevu ve hasta kayıt sistemi işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz. Acil arayan sahip için en kritik bilgi telefondur; ilk ekrana konur. Alan adı ve site sizin adınıza kaydedilir; çalışma saatlerini ve nöbet günlerini panelden kendiniz güncellersiniz. Google İşletme Profili bağlantısı teslimde kurulur — \"en yakın veteriner\" aramalarının neredeyse tamamı haritadan geliyor.",
+        body: "Veteriner klinik web sitesi, hizmetlerinizi anlattığınız, nöbet ve acil bilgisini duyurduğunuz ve randevu aldığınız kendi adresinizdir. Forpus'un kurduğu tipik bir klinik sitesinde aşı, cerrahi ve check-up gibi hizmetler için ayrı sayfalar, online randevu ile WhatsApp yönlendirmesi, ilk ekranda görünen acil iletişim ve nöbet bilgisi, ekip ile klinik bilgileri, Google harita bağlantısı ve çalışma saatleri, mobil uyumlu hızlı bir tasarım bulunur. Klinik bilgilerine odaklı bir site ₺50.000–85.000 aralığında ve bir ila iki haftada yayına girer. Randevunun siteden alındığı, hizmetlerin ayrı ayrı anlatıldığı tam bir klinik sitesi ₺90.000–150.000 aralığında ve iki ila dört haftada tamamlanır. Randevu ve hasta kayıt sistemi işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz. Acil arayan sahip için en kritik bilgi telefondur; ilk ekrana konur. Alan adı ve site sizin adınıza kaydedilir; çalışma saatlerini ve nöbet günlerini panelden kendiniz güncellersiniz. Google İşletme Profili bağlantısı teslimde kurulur — \"en yakın veteriner\" aramalarının neredeyse tamamı haritadan geliyor.",
       },
       benefitsTitle: "Veteriner web sitesi kliniğinize ne kazandırır?",
       benefits: [
@@ -2616,12 +2620,12 @@ export const solutions: Solution[] = [
           body: "Adres, telefon ve nöbet bilgisi tek dokunuşta; sahip vakit kaybetmeden ulaşsın.",
         },
         {
-          title: "Güven veren vitrin",
-          body: "Ekip, hizmet ve klinik tanıtımıyla sahibin içini rahatlatın.",
+          title: "Kliniğiniz anlaşılır olsun",
+          body: "Hizmetleriniz ve çalışma düzeniniz tarafsız bir dille, olduğu gibi anlatılsın.",
         },
         {
           title: "Google'da bulunun",
-          body: "'Yakınımdaki veteriner' aramalarında ve haritada öne çıkın.",
+          body: "'Yakınımdaki veteriner' aramalarında ve haritada bulunun.",
         },
       ],
       featuresTitle: "Veteriner sitenizde neler olur?",
@@ -2629,12 +2633,16 @@ export const solutions: Solution[] = [
         "Hizmet sayfaları (aşı, cerrahi, check-up)",
         "Online randevu / WhatsApp",
         "Acil iletişim ve nöbet bilgisi",
-        "Ekip ve klinik tanıtımı",
+        "Ekip ve klinik bilgileri",
         "Google harita ve çalışma saatleri",
         "Mobil uyumlu, hızlı tasarım",
       ],
       faqTitle: "Sık sorulan sorular",
       faq: [
+        {
+          q: "Veteriner hekim reklam yasağı sitemi nasıl etkiliyor?",
+          a: "Bu sektörde en çok gözden kaçan konu bu. 6343 sayılı Kanun veteriner hekimlerin reklamını yasaklıyor; 20 Haziran 2026'da yürürlüğe giren 7584 sayılı Kanun'la yasağın kapsamına internet ve sosyal medya açıkça eklendi. Site açmak yasak değil — Kanun hekime çalışma yerini ve ihtisasını bildirir ilan verme hakkı tanıyor; sınır, içeriğin reklam ya da propaganda mahiyetine geçmemesi. Pratikte şu demek: hasta yorumu, yıldız ve puan, teşekkür ilanı, kampanya ve indirim duyurusu, fiyat listesi, öncesi-sonrası görseli, karşılaştırmalı üstünlük iddiası ve belgeye dayanmayan uzmanlık ibaresi siteye konmaz. Yerine adres, telefon, muayene gün ve saatleri, nöbet bilgisi, kazanılmış unvan ve hizmetlerin tarafsız teknik açıklaması konur. Siteyi bu çerçeveye göre kurgularız. Cezanın muhatabı hekim olduğu için sınırda gördüğümüz her başlığı size ayrıca söyleriz; kesin yorum için bağlı olduğunuz veteriner hekimler odasıyla teyitleşmenizi öneririz.",
+        },
         {
           q: "Online randevu kurar mısınız?",
           a: "Evet. WhatsApp veya saat seçmeli randevu akışını ihtiyacınıza göre kurarız.",
@@ -2649,14 +2657,14 @@ export const solutions: Solution[] = [
         },
         {
           q: "Veteriner web sitesi ne kadar tutar?",
-          a: "Hizmet, ekip ve acil iletişim odaklı bir tanıtım sitesi ₺50.000 bandında başlar. Her hizmetin ayrı sayfalandığı, bilgilendirme blogu ve randevu yönlendirmeli bir klinik sitesi ₺90.000–150.000 aralığındadır. Takvimli randevu ve hasta kayıt sistemi işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz.",
+          a: "Hizmet, ekip ve acil iletişim odaklı bir bilgi sitesi ₺50.000 bandında başlar. Her hizmetin ayrı sayfalandığı, bilgilendirme blogu ve randevu yönlendirmeli bir klinik sitesi ₺90.000–150.000 aralığındadır. Takvimli randevu ve hasta kayıt sistemi işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz.",
         },
         {
           q: "Aşı hatırlatma sistemi kurabilir misiniz?",
-          a: "Evet, kliniklerin en çok fayda gördüğü özelliklerden biri. Hayvanın aşı tarihini sisteme girdiğinizde, zamanı geldiğinde sahibe otomatik SMS veya e-posta gider. Bu hem hayvan sağlığı için iyi hem de kliniğe düzenli hasta dönüşü sağlar. Hasta kayıt sistemi kapsamında kurulur.",
+          a: "Evet. Hayvanın aşı tarihini sisteme girdiğinizde, zamanı geldiğinde sahibe otomatik SMS veya e-posta gider. Bu bir koruyucu hekimlik hatırlatmasıdır; mesajı kampanya ya da çağrı metnine dönüştürmeden, yalnızca tarih bilgisi verecek biçimde kurarız. Gönderim için sahibin açık rızasını alan bir onay adımı da eklenir. Hasta kayıt sistemi kapsamında kurulur.",
         },
         {
-          q: "Google Haritalar'da öne çıkmama yardım eder misiniz?",
+          q: "Google Haritalar'da bulunmama yardım eder misiniz?",
           a: "Evet, bu sektörde en çok işe yarayan iş bu. İşletme Profilinizi kurar veya düzenler, kategori ve hizmet bilgilerini doğru girer, siteyle bağlantısını sağlarız. Profil sizin sahipliğinizde kalır; doğrulama kodu adresinize geldiği için o adımı sizin tamamlamanız gerekir.",
         },
         {
@@ -2678,7 +2686,7 @@ export const solutions: Solution[] = [
         body: [
           "Hayvanı rahatsızlanan biri panik halinde telefonunu açar ve 'yakınımdaki veteriner' arar. O anda baktığı üç şey vardır: açık mı, nerede, nasıl ulaşırım. Bu bilgiler net değilse bir sonraki kliniğe geçer.",
           "Acil olmayan durumlarda ise karar farklı verilir. Aşı, kısırlaştırma veya kontrol için sahip, kliniği önceden araştırır: ekip kim, ortam nasıl, hangi hizmetler var. Burada güven kuran şey kliniğin kendini anlatabilmesidir.",
-          "Kendi siteniz olmadığında bu iki senaryoda da haritadaki kısa bilgiye ve yorumlara mahkûm kalırsınız. Nöbet saatleriniz, uzmanlık alanlarınız ve kliniğin sıcaklığı hiçbir yerde görünmez.",
+          "Kendi siteniz olmadığında bu iki senaryoda da haritadaki kısa bilgiye mahkûm kalırsınız. Nöbet saatleriniz, çalışma düzeniniz ve hangi hizmetleri verdiğiniz hiçbir yerde net görünmez.",
         ],
       },
       pricing: {
@@ -2686,7 +2694,7 @@ export const solutions: Solution[] = [
         lead: "Fiyatı görüşmede söyleyen ajanslara alışkınsınız. Biz bandı baştan yazıyoruz ki vaktinizi boşa harcamayalım. Aşağıdaki aralıklar 2026 için geçerli başlangıç rakamlarıdır.",
         tiers: [
           {
-            name: "Klinik tanıtım sitesi",
+            name: "Klinik bilgi sitesi",
             price: "₺50.000 – 85.000",
             timeline: "~1–2 hafta",
             body: "Hizmetler, ekip, acil iletişim, harita ve çalışma saatleri. Tek tık arama ve WhatsApp. Tek şubeli klinikler için yeterli.",
@@ -2733,6 +2741,10 @@ export const solutions: Solution[] = [
         lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
         items: [
           {
+            title: "Ajans veteriner reklam yasağını biliyor mu?",
+            body: "Bu sektörde en pahalı hata burada yapılıyor. Diğer sektörlerde satan her şey — hasta yorumu, Google puanı, kampanya duyurusu, öncesi-sonrası görseli, 'en iyi klinik' ifadeleri — burada yasak ve cezayı ajans değil hekim ödüyor. Teklif aldığınız ajansa doğrudan sorun: 6343 ve 7584 sayılı Kanunları biliyor mu, siteye yorum modülü koymayı teklif ediyor mu? Teklifinde bunlar varsa o ajans sizi odaya karşı zor durumda bırakır.",
+          },
+          {
             title: "Acil iletişim ilk ekranda mı?",
             body: "Panik halindeki sahip menüde gezinmez. Telefon numarası ve nöbet bilgisi ilk ekranda, tıklanınca doğrudan arama başlatacak şekilde olmalı.",
           },
@@ -2762,15 +2774,15 @@ export const solutions: Solution[] = [
     en: {
       metaTitle: "Veterinary Clinic Website Design",
       metaDescription:
-        "Website and online booking for veterinary clinics and pet health. Trustworthy, mobile-friendly design that ranks on Google. Get a free quote.",
+        "Website for veterinary clinics: address, phone, consultation hours and on-call information, clearly set out. Mobile-friendly and built within the advertising rules that bind vets. Get a free quote.",
       eyebrow: "For Vets",
       h1: "Veterinary Clinic Website",
       intro:
-        "When a pet's health is on the line, owners urgently look for the nearest, most trustworthy clinic. A warm, reassuring site that drives bookings puts your clinic first. Forpus builds sites for veterinary clinics.",
+        "When a pet falls ill, owners look for the nearest clinic that is open. A site where the address, phone number, consultation hours and on-call information are plain to see makes you easy to reach. Forpus builds sites for veterinary clinics within the promotional limits that apply to the profession.",
       shortAnswer: {
         title:
           "What does a veterinary clinic website include, and what does it cost?",
-        body: "A veterinary clinic website is your own address for explaining services, announcing emergency and on-call hours and taking appointments. A typical clinic site Forpus builds carries separate pages for services such as vaccination, surgery and check-ups, online booking and WhatsApp routing, emergency contact and on-call information visible on the first screen, a team and clinic introduction, a Google Maps link with opening hours, and a fast mobile-first design. A site focused on introducing the clinic runs ₺50,000–85,000 and goes live in one to two weeks. A full clinic site that takes bookings and describes each service runs ₺90,000–150,000 and takes two to four weeks. A booking and patient-record system starts at ₺220,000. You update opening hours and on-call days yourself. For an owner searching in an emergency the phone number is the critical piece, so it goes on the first screen.",
+        body: "A veterinary clinic website is your own address for explaining services, announcing emergency and on-call hours and taking appointments. A typical clinic site Forpus builds carries separate pages for services such as vaccination, surgery and check-ups, online booking and WhatsApp routing, emergency contact and on-call information visible on the first screen, team and clinic information, a Google Maps link with opening hours, and a fast mobile-first design. A site focused on clinic information runs ₺50,000–85,000 and goes live in one to two weeks. A full clinic site that takes bookings and describes each service runs ₺90,000–150,000 and takes two to four weeks. A booking and patient-record system starts at ₺220,000. You update opening hours and on-call days yourself. For an owner searching in an emergency the phone number is the critical piece, so it goes on the first screen.",
       },
       benefits: [
         {
@@ -2778,12 +2790,12 @@ export const solutions: Solution[] = [
           body: "Address, phone and on-call info in one tap so owners reach you without losing time.",
         },
         {
-          title: "A reassuring storefront",
-          body: "Put owners at ease with your team, services and clinic showcase.",
+          title: "Make your clinic legible",
+          body: "Set out your services and working hours plainly, so owners know what to expect.",
         },
         {
           title: "Get found on Google",
-          body: "Stand out in 'vet near me' searches and on the map.",
+          body: "Be found in 'vet near me' searches and on the map.",
         },
       ],
       featuresTitle: "What's included?",
@@ -2791,12 +2803,16 @@ export const solutions: Solution[] = [
         "Service pages (vaccines, surgery, check-ups)",
         "Online booking / WhatsApp",
         "Emergency contact and on-call info",
-        "Team and clinic showcase",
+        "Team and clinic information",
         "Google map and opening hours",
         "Fast, mobile-friendly design",
       ],
       faqTitle: "Frequently asked questions",
       faq: [
+        {
+          q: "How do advertising restrictions for vets affect the site?",
+          a: "In Turkey, advertising by veterinary surgeons is restricted by law, and a 2026 amendment added the internet and social media to that scope explicitly. Having a website is not banned: a vet may publish notices stating their practice location and qualifications. What the content must avoid is anything promotional — client reviews, star ratings, thank-you notices, campaigns and discounts, price lists, before-and-after images, comparative superiority claims, and any specialist title not backed by a certificate. What belongs there instead is the address, phone number, consultation days and hours, on-call information, earned titles, and neutral technical descriptions of the services. We build the site within that frame. Since the penalty falls on the vet, not on us, we flag anything borderline; for a binding view, check with your chamber.",
+        },
         {
           q: "Can you set up online booking?",
           a: "Yes. We build a WhatsApp or time-slot booking flow around your needs.",
@@ -3711,6 +3727,482 @@ export const solutions: Solution[] = [
     },
   },
   {
+    key: "petotel",
+    image: "/generated/personas/petotel.webp",
+    service: "web",
+    slug: { tr: "pet-otel-web-sitesi", en: "pet-boarding-website" },
+    tr: {
+      metaTitle: "Pet Otel & Hayvan Pansiyonu Web Sitesi",
+      metaDescription:
+        "Pet otel, kedi pansiyonu ve köpek oteli için web sitesi ve tarihli rezervasyon. Odaları gösteren, güven veren, mobil uyumlu tasarım. Ücretsiz teklif alın.",
+      eyebrow: "Pet Otele Özel",
+      h1: "Pet Otel & Hayvan Pansiyonu Web Sitesi",
+      intro:
+        "Tatile çıkan sahip, dostunu bırakacağı yeri gözüyle görmek ister. Odaları, günlük düzeni ve kabul şartlarını gösteren, tarih verip rezervasyon alabildiğiniz bir site, o kararı sizin lehinize çevirir. Forpus pet oteller ve hayvan pansiyonları için site kuruyor.",
+      shortAnswer: {
+        title: "Pet otel web sitesi ne içerir, ne kadar tutar?",
+        body: "Pet otel web sitesi, odalarınızı ve günlük düzeninizi gösterdiğiniz, tarih vererek rezervasyon aldığınız kendi adresinizdir. Forpus'un kurduğu tipik bir pet otel sitesinde kedi ve köpek için ayrı konaklama sayfaları, giriş-çıkış tarihi seçilen bir rezervasyon formu, dolu ve kapalı tarih yönetimi, hayvanın mamasını, ilaçlarını ve alışkanlıklarını topladığınız ön bilgi formu, gerçek oda ve bahçe fotoğrafları, günlük fotoğraf paylaşımının nasıl işlediğini anlatan bir bölüm, aşı ve kabul şartları, Google harita bağlantısı ve mobil uyumlu hızlı bir tasarım bulunur. Odaları ve şartları anlatan bir tanıtım sitesi ₺50.000–85.000 aralığında ve bir ila iki haftada yayına girer. Tarihli rezervasyon formunun ve ön bilgi formunun çalıştığı tam bir site ₺90.000–150.000 aralığında ve iki ila dört haftada tamamlanır. Doluluk takvimi ve sahip paneli işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz. Bayram ve okul tatillerinde talep birkaç haftaya sıkıştığı için erken rezervasyon çağrısı ilk ekrana konur. Galeriye stok fotoğraf konmaz; sahip, dostunu bırakacağı odanın gerçeğini görmek ister. Alan adı ve site sizin adınıza kaydedilir; kapasitenizi ve kapalı tarihleri panelden kendiniz güncellersiniz.",
+      },
+      benefitsTitle: "Pet otel web sitesi işletmenize ne kazandırır?",
+      benefits: [
+        {
+          title: "Tarihli rezervasyon",
+          body: "Sahip giriş-çıkış tarihini kendi seçsin; bayram doluluğunuz telefon başında değil, siteden dolsun.",
+        },
+        {
+          title: "Görünce güvenen sahip",
+          body: "Odaları, bahçeyi ve günlük düzeni gösterin; 'burada bırakırım' kararı sitede verilsin.",
+        },
+        {
+          title: "Google'da bulunun",
+          body: "'Yakınımdaki pet otel' ve 'kedi pansiyonu' aramalarında haritada görünün.",
+        },
+      ],
+      featuresTitle: "Pet otel sitenizde neler olur?",
+      features: [
+        "Kedi ve köpek konaklama sayfaları",
+        "Tarihli rezervasyon formu ve müsaitlik",
+        "Oda, bahçe ve oyun alanı galerisi",
+        "Ön bilgi formu (mama, ilaç, aşı)",
+        "Günlük fotoğraf ve video paylaşımı",
+        "Google harita, çalışma saatleri, WhatsApp",
+      ],
+      faqTitle: "Sık sorulan sorular",
+      faq: [
+        {
+          q: "Tarihli rezervasyon sistemi kurar mısınız?",
+          a: "Evet. Basit bir tarih seçmeli talep formundan, kapasiteyi takip eden ve dolu günleri kapatan bir rezervasyon takvimine kadar ihtiyacınıza göre kurarız. Küçük pansiyonların çoğunda tarih ve hayvan bilgisi formu artı WhatsApp yönlendirmesi yetiyor; oda sayısı arttıkça takvimli yapı kendini gerektiriyor.",
+        },
+        {
+          q: "Sahiplere günlük fotoğraf ve videoyu siteden gönderebilir miyiz?",
+          a: "Evet. Her konaklama için sahibe özel bir bağlantı üretiriz; o günün fotoğraflarını panelden yüklersiniz, sahip bağlantıdan görür. Bu hem WhatsApp'ta dağılan görüntüleri tek yerde toplar hem de konaklama bitince sahibe hoş bir özet bırakır.",
+        },
+        {
+          q: "Canlı kamera yayını koyabilir miyiz?",
+          a: "Evet, teknik olarak zor değil; kameraların yayınını siteye gömer ya da sahibe özel bir bağlantıyla açarız. Dürüst uyarı: kamera sürekli açık kaldığında her hareket bir soru doğuruyor ve sizi gün boyu telefonda tutabiliyor. Otellerin çoğu bunun yerine günde bir iki kez gönderilen fotoğraf ve kısa videoyla daha rahat ediyor. İkisini de kurabiliriz, kararı işleyişinize bakarak birlikte veririz.",
+        },
+        {
+          q: "Bayram ve yaz doluluğunu sitede nasıl yönetiyoruz?",
+          a: "İki şeyle: dolu tarihleri kapatabildiğiniz bir takvim ve öne çıkan bir erken rezervasyon çağrısı. Talebin toplandığı haftalar belli olduğu için o dönemlerde siteyi 'yer var mı' sorusuna değil, 'hangi tarihler için ayırayım' sorusuna göre kurgularız. Dolan tarihler için bekleme listesi formu da ekleyebiliriz.",
+        },
+        {
+          q: "Kedi ve köpek için ayrı sayfa şart mı?",
+          a: "Şart değil ama kazandırıyor. 'Kedi pansiyonu' arayanla 'köpek oteli' arayan farklı şeyler merak ediyor: biri kedinin köpekten ayrı bir bölümde kalıp kalmadığını, diğeri bahçeyi ve günlük yürüyüşü. Ayrı sayfalarda hem sahip aradığını bulur hem Google iki aramada da sizi gösterebilir.",
+        },
+        {
+          q: "Aşı ve kabul şartlarını sitede yazmak zorunda mıyım?",
+          a: "Zorunlu değil ama en çok işe yarayan sayfalardan biri. Aşı ve parazit koşullarını, kabul ettiğiniz yaş ve ırkları, teslim ile alma saatlerini ve ücrete dahil olmayan kalemleri yazdığınızda uygun olmayan talep baştan eleniyor, kapıda tartışma çıkmıyor. Bu işletmeler ruhsatla çalışıp sorumlu yönetici bulundurduğu için ruhsat ve sorumlu yönetici bilgisini de aynı sayfada göstermenizi öneriyoruz; sahibin en çok tereddüt ettiği yer burası.",
+        },
+        {
+          q: "Otelim bir veteriner kliniğinin içinde, tanıtımda sınır var mı?",
+          a: "Pet otel işletmek veteriner hekimlik icrası değil; konaklama tarafında yorum yayınlamak, kampanya duyurmak ve fiyat yazmak serbest. Ancak işletme bir kliniğin içindeyse ya da sahibi veteriner hekimse, hekimlik için geçerli tanıtım kuralları peşinden geliyor. Bu durumda klinik hizmetlerini ayrı bir bölümde ve o çerçevede kurgular, otel içeriğiyle karıştırmayız. Sınırda gördüğümüz başlıkları size ayrıca söyleriz.",
+        },
+        {
+          q: "Google Haritalar'da bulunmama yardım eder misiniz?",
+          a: "Evet, bu sektörde en çok işe yarayan iş bu. Google İşletme Profilinizi kurar veya düzenler, kategori ve hizmet bilgilerini doğru girer, siteyle bağlantısını sağlarız. Profil sizin sahipliğinizde kalır; doğrulama kodu adresinize geldiği için o adımı sizin tamamlamanız gerekir.",
+        },
+        {
+          q: "Mevcut sitemi yenileyebilir misiniz?",
+          a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurar, eski adresleri yenilerine yönlendiririz. Elinizde bir rezervasyon geçmişi varsa yeni yapıya taşınıp taşınamayacağını başta netleştiririz.",
+        },
+      ],
+      ctaTitle: "Oteliniz için bir site kuralım",
+      ctaText:
+        "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaButton: "Ücretsiz Teklif Al",
+
+      problem: {
+        title: "Tatile çıkan sahip neye bakıyor?",
+        body: [
+          "Pet otel araması, otel araması gibi başlamaz; endişeyle başlar. Sahip önce 'burada ne oluyor' sorusunun cevabını arar: odalar nasıl, kedi köpekten ayrı mı, gün içinde ne yapılıyor, ben nasıl haber alacağım. Bu dördü net değilse fiyat sormaya bile gelmez.",
+          "İkinci kırılma tarihte olur. Sahip belirli bir hafta için yer arıyordur; sitenizde tarih verip talep bırakacağı bir yer yoksa aynı soruyu yazmak için mesaj kutusuna geçmesi gerekir. Bayram haftasında aynı soruyu yüz kişiye yazmak da, yüz kişiye tek tek cevap vermek de kimsenin işine gelmiyor.",
+          "Üçüncüsü, bu işte talebin yılın birkaç haftasına sıkışmasıdır. Bayram ve okul tatili yaklaşırken arama patlar, sonra düşer. O haftalarda haritada ve aramada görünmüyorsanız yılın en dolu döneminin çoğunu kaçırırsınız. Kendi siteniz olmadığında elinizde bir Instagram profili ve haritadaki birkaç yorum kalır; odalarınızı, kabul şartlarınızı ve sahibe nasıl haber verdiğinizi anlatacak yer hiçbir yerde yoktur.",
+        ],
+      },
+      pricing: {
+        title: "Pet otel web sitesi fiyatları",
+        lead: "Fiyatı görüşmede söyleyen ajanslara alışkınsınız. Biz bandı baştan yazıyoruz ki vaktinizi boşa harcamayalım. Aşağıdaki aralıklar 2026 için geçerli başlangıç rakamlarıdır.",
+        tiers: [
+          {
+            name: "Tanıtım sitesi",
+            price: "₺50.000 – 85.000",
+            timeline: "~1–2 hafta",
+            body: "Konaklama sayfaları, oda ve bahçe galerisi, kabul şartları, harita ve çalışma saatleri. Tek tık arama ve WhatsApp. Tek şubeli pansiyonlar için yeterli.",
+          },
+          {
+            name: "Rezervasyonlu site",
+            price: "₺90.000 – 150.000",
+            timeline: "~2–4 hafta",
+            body: "Giriş-çıkış tarihi seçilen rezervasyon formu, hayvan ön bilgi formu, kedi ve köpek için ayrı sayfalar, dolu tarih yönetimi. Bayram doluluğunu siteden toplamak isteyenler için.",
+          },
+          {
+            name: "Doluluk takvimi & sahip paneli",
+            price: "₺220.000'den başlayan",
+            timeline: "Projeye özel",
+            body: "Kapasite takibi, oda bazlı takvim, konaklama geçmişi ve sahibe özel günlük fotoğraf bağlantısı. Oda sayısı defterle yönetilemeyecek düzeydeyse.",
+          },
+        ],
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
+      },
+      process: {
+        title: "Nasıl ilerliyoruz?",
+        lead: "Günlük işleyişinizi aksatmayan bir akış kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
+        steps: [
+          {
+            name: "Tanışma görüşmesi",
+            body: "Kapasitenizi, kedi ve köpek düzeninizi, kabul şartlarınızı ve yoğun dönemlerinizi konuşuruz. Sekiz odalı bir pansiyonla iki odalı bir ev pansiyonunun sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "Fotoğraf ve içerik",
+            body: "Bu sektörde site fotoğrafla ayakta duruyor, o yüzden en çok emek buraya gidiyor. Odaları, bahçeyi ve günlük düzeni nasıl çekeceğinizi anlatan bir çekim listesi gönderiyoruz; elinizde uygun kare yoksa birlikte plan yaparız.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfayı görürsünüz. Tasarımın işi, sahibin odayı görüp içinin rahatlaması. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası ve Google İşletme Profili bağlantısı dahil yayına alırız. Kapalı tarihleri ve kapasiteyi kendiniz güncelleyebilmeniz için kısa bir kullanım kaydı bırakırız.",
+          },
+        ],
+      },
+      checklist: {
+        title: "Pet otel web sitesi yaptırırken nelere dikkat etmeli?",
+        lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
+        items: [
+          {
+            title: "Gerçek oda fotoğrafı var mı?",
+            body: "Bu sektörde stok fotoğraf ters teper. Sahip, dostunun kalacağı odayı görmek ister; internetten alınmış kusursuz bir kedi fotoğrafı güven değil şüphe üretir. Ajans size 'görsel bizde' diyorsa neyi kastettiğini sorun.",
+          },
+          {
+            title: "Tarih verilebiliyor mu?",
+            body: "Rezervasyon formu tarih almıyorsa form değil, sadece bir iletişim kutusudur. Sahibin giriş ve çıkış tarihini seçebildiğinden emin olun.",
+          },
+          {
+            title: "Kapalı tarihleri kendiniz kapatabiliyor musunuz?",
+            body: "Doluluk haftadan haftaya değişir. Her kapalı gün için ajansa haber vermek zorundaysanız takvim yanlış kalır ve boşa rezervasyon alırsınız.",
+          },
+          {
+            title: "Kabul şartları sayfası var mı?",
+            body: "Aşı koşulları, kabul edilen yaş ve ırklar, teslim saatleri ve ücrete dahil olmayan kalemler yazılı değilse aynı tartışma kapıda tekrar eder.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Rezervasyon aramalarının neredeyse tamamı telefondan yapılıyor. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının işletmeniz adına kayıtlı olduğundan emin olun ve sözleşmeye yazdırın.",
+          },
+        ],
+      },
+    },
+    en: {
+      metaTitle: "Pet Boarding & Hotel Website Design",
+      metaDescription:
+        "Websites for pet hotels, cat boarding and dog boarding, with date-based booking. Show your rooms, build trust, work on mobile. Get a free quote.",
+      eyebrow: "For Pet Boarding",
+      h1: "Pet Boarding & Hotel Website",
+      intro:
+        "An owner going away wants to see where their dog or cat will stay. A site that shows the rooms, the daily routine and the house rules — and takes a booking with real dates — turns that decision your way. Forpus builds sites for pet hotels and boarding facilities.",
+      shortAnswer: {
+        title:
+          "What does a pet boarding website include, and what does it cost?",
+        body: "A pet boarding website is your own address for showing the rooms, explaining the daily routine and taking bookings with dates. A typical site we build has separate pages for cat and dog boarding, a booking form with check-in and check-out dates, closed-date management, an intake form for food, medication and habits, real photos of the rooms and garden, a section explaining how daily photo updates work, vaccination and admission rules, a Google Maps link and a fast, mobile-friendly design. A presentation site covering rooms and rules starts in the ₺50,000–85,000 band and goes live in one to two weeks. A full site with a working booking form and intake form sits in the ₺90,000–150,000 band over two to four weeks. Once an occupancy calendar and owner panel are involved, you are looking at a project starting from ₺220,000. Demand compresses into a few holiday weeks, so an early-booking call sits on the first screen. We do not use stock photography here: owners want to see the actual room.",
+      },
+      benefits: [
+        {
+          title: "Bookings with real dates",
+          body: "Let owners pick their own check-in and check-out; fill holiday weeks from the site instead of the phone.",
+        },
+        {
+          title: "Trust through seeing",
+          body: "Show the rooms, the garden and the daily routine so the decision is made on your site.",
+        },
+        {
+          title: "Be found on Google",
+          body: "Show up on the map for 'pet boarding near me' and 'cat boarding' searches.",
+        },
+      ],
+      featuresTitle: "What's included?",
+      features: [
+        "Separate cat and dog boarding pages",
+        "Date-based booking form and availability",
+        "Room, garden and play area gallery",
+        "Intake form (food, medication, vaccines)",
+        "Daily photo and video updates",
+        "Google Maps, opening hours, WhatsApp",
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        {
+          q: "Can you build a booking system with dates?",
+          a: "Yes. From a simple date-picker request form up to a booking calendar that tracks capacity and closes full days. Most small facilities do fine with a date and pet-details form plus WhatsApp; as the room count grows, a calendar starts to pay for itself.",
+        },
+        {
+          q: "Can we send owners daily photos through the site?",
+          a: "Yes. We create a private link for each stay; you upload that day's photos from the panel and the owner opens the link. It keeps updates in one place instead of scattered across WhatsApp, and leaves the owner a nice summary at the end.",
+        },
+        {
+          q: "Can we add a live camera feed?",
+          a: "Yes, it is not technically hard: we embed the stream or open it behind a private link. An honest warning, though — a permanently open camera turns every movement into a question and can keep you on the phone all day. Most facilities are happier sending photos and short clips once or twice a day. We can build either; we decide together based on how you actually work.",
+        },
+        {
+          q: "Do we need separate pages for cats and dogs?",
+          a: "Not required, but it pays off. Someone searching for cat boarding and someone searching for a dog hotel want different answers: one wants to know cats are housed away from dogs, the other wants the garden and the daily walk. Separate pages let owners find what they came for and let Google show you for both searches.",
+        },
+        {
+          q: "My facility is inside a veterinary clinic. Are there limits on promotion?",
+          a: "Running a boarding facility is not the practice of veterinary medicine, so publishing reviews, running campaigns and listing prices are all fine on the boarding side. But if the business sits inside a clinic or is owned by a vet, the advertising rules that bind vets follow along. In that case we set the clinical services out in a separate section under those rules and keep them apart from the boarding content.",
+        },
+        {
+          q: "Can you refresh my existing site?",
+          a: "Yes. We rebuild while keeping your content and your search-engine history, and redirect the old URLs to the new ones.",
+        },
+      ],
+      ctaTitle: "Let's build a site for your facility",
+      ctaText:
+        "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaButton: "Get a Free Quote",
+    },
+  },
+  {
+    key: "petkuafor",
+    image: "/generated/personas/petkuafor.webp",
+    service: "web",
+    slug: { tr: "pet-kuaforu-web-sitesi", en: "pet-grooming-website" },
+    tr: {
+      metaTitle: "Pet Kuaförü & Pet Bakım Salonu Web Sitesi",
+      metaDescription:
+        "Pet kuaförü ve evcil hayvan bakım salonlarına özel web sitesi. Öncesi-sonrası galerisi, ırk bazlı fiyat listesi ve online randevu. Ücretsiz teklif alın.",
+      eyebrow: "Pet Kuaförüne Özel",
+      h1: "Pet Kuaförü Web Sitesi",
+      intro:
+        "Bu işte satışı yapan şey galeridir: sahibi ikna eden, kendi köpeğine benzeyen bir hayvanın önce ve sonra karesidir. Kendi çalışmalarınızı ırka göre süzülebilir biçimde gösteren ve randevuyu oracıkta alan bir site, o kareyi işe çevirir. Forpus pet kuaförleri için site kuruyor.",
+      shortAnswer: {
+        title: "Pet kuaförü web sitesi ne içerir, ne kadar tutar?",
+        body: "Pet kuaförü web sitesi, hizmetlerinizi anlattığınız, tıraş ve bakım sonuçlarınızı gösterdiğiniz ve randevu aldığınız kendi adresinizdir. Forpus'un kurduğu tipik bir pet salonu sitesinde ırk ve tüy yapısına göre ayrılmış hizmet sayfaları, ırk filtresiyle gezilen bir öncesi-sonrası galerisi, online randevu ile WhatsApp yönlendirmesi, boy ve tüy durumuna göre değişen bakım paketleri, müşteri yorumları, kampanya bölümü, Google harita bağlantısı ve mobil uyumlu hızlı bir tasarım bulunur. Galeri ve fiyat listesi odaklı bir site ₺50.000–85.000 aralığında ve bir ila iki haftada yayına girer. Irk filtreli galerinin ve online randevunun çalıştığı tam bir site ₺90.000–150.000 aralığında ve iki ila dört haftada tamamlanır. Hizmete göre farklı uzunlukta slot ayıran takvimli randevu sistemi işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz. Galeri stok fotoğrafla değil, kendi çalışmalarınızla kurulur. Veteriner hekimlik yapılmadığı için metinlerde tıbbi iddia kullanılmaz; anlatım bakım, hijyen ve hayvanın salonda geçirdiği konfor üzerinden kurulur. Alan adı ve site sizin adınıza kaydedilir; fiyat listesini ve galeriyi panelden kendiniz güncellersiniz.",
+      },
+      benefitsTitle: "Pet kuaförü web sitesi salonunuza ne kazandırır?",
+      benefits: [
+        {
+          title: "Öncesi-sonrası kanıtı",
+          body: "Kendi çalışmalarınızın önce-sonra karesi, sahibin 'buraya bırakırım' demesini sağlayan en güçlü argüman.",
+        },
+        {
+          title: "Online randevu",
+          body: "Sahip ırkı, hizmeti ve saati telefondan seçsin; siz masadayken takviminiz kendiliğinden dolsun.",
+        },
+        {
+          title: "Google'da bulunun",
+          body: "'Yakınımdaki pet kuaförü' aramalarında haritada, yorumlarla ve galeriyle görünün.",
+        },
+      ],
+      featuresTitle: "Pet kuaförü sitenizde neler olur?",
+      features: [
+        "Hizmet ve fiyat listesi (ırk / boy bazlı)",
+        "Irk filtreli öncesi-sonrası galerisi",
+        "Online randevu / WhatsApp entegrasyonu",
+        "Müşteri yorumları ve kampanya bölümü",
+        "Google harita ve çalışma saatleri",
+        "Mobil uyumlu, hızlı tasarım",
+      ],
+      faqTitle: "Sık sorulan sorular",
+      faq: [
+        {
+          q: "Öncesi-sonrası fotoğraflarını siteye koyabilir miyim?",
+          a: "Evet, bu sektörde satışı yapan bölüm burasıdır ve önünde bir engel yok — veteriner hekimlik icrası söz konusu olmadığı için sağlıkta tanıtım kısıtları sizi bağlamıyor. Galeriyi ırka ve hizmete göre süzülebilir kurarız. Karede müşterinin kendisi ya da evi görünüyorsa yayınlamadan önce onayını almanızı öneririz; bu hukuki bir zorunluluk değil, ilişki gereğidir.",
+        },
+        {
+          q: "Fiyat listesini ırka ve boya göre gösterebilir miyiz?",
+          a: "Evet, doğru kurgu da budur. Tek bir 'tıraş' fiyatı yazan salonlar telefonda sürekli aynı pazarlığı yapıyor. Irk, boy ve tüy durumuna göre bantlar tanımlar, keçeleşme gibi ek kalemleri not olarak gösteririz. Böylece sahip kapıdan doğru beklentiyle geliyor.",
+        },
+        {
+          q: "Online randevu sistemi kurar mısınız?",
+          a: "Evet. Basit WhatsApp yönlendirmesinden hizmet ve saat seçmeli online takvime kadar ihtiyacınıza göre kurarız. Pet kuaförlerinde işin süresi ırka göre değiştiği için takvimi, seçilen hizmete göre farklı uzunlukta slot ayıracak biçimde kurgularız; yoksa günün ortası boşa çıkıyor.",
+        },
+        {
+          q: "Müşteri yorumlarını siteye koyabilir miyiz?",
+          a: "Evet, serbest. Bu sektör sağlık mevzuatına tabi olmadığı için yorum, puan ve Google değerlendirmelerini sitede gösterebilirsiniz. Google İşletme Profilinizdeki yorumları siteye taşıyan bir bölüm kurarız; yorum sayısı arttıkça kendiliğinden güncellenir.",
+        },
+        {
+          q: "Kampanya ve paket duyurusu yapabilir miyiz?",
+          a: "Evet. Panelden güncelleyebileceğiniz bir kampanya alanı kurarız; bayram paketi, ilk gelişe özel bakım ya da abonelik gibi duyuruları kendiniz yayına alırsınız. Bu sektörde bunun önünde mevzuat engeli yok.",
+        },
+        {
+          q: "Salonumun tüy alerjisi ve hijyen düzenini nasıl anlatalım?",
+          a: "Bu, sahiplerin sorup da sitelerde cevabını bulamadığı konuların başında geliyor. Makas ve tarakların her hayvandan sonra nasıl temizlendiğini, küvet düzenini ve kullandığınız ürünleri sade bir sayfada anlatırız. Tıbbi iddia kurmadan, sadece işleyişi anlatarak; çünkü burada veteriner hekimlik yapılmıyor ve tedavi vaadi verilmemeli.",
+        },
+        {
+          q: "Google Haritalar'da bulunmama yardım eder misiniz?",
+          a: "Evet, bu sektörde en çok işe yarayan iş bu. Google İşletme Profilinizi kurar veya düzenler, kategori ve hizmet bilgilerini doğru girer, siteyle bağlantısını sağlarız. Profil sizin sahipliğinizde kalır; doğrulama kodu adresinize geldiği için o adımı sizin tamamlamanız gerekir.",
+        },
+        {
+          q: "Instagram'daki fotoğraflarımı siteye taşıyabilir miyiz?",
+          a: "Evet, taşırız. Ama sitedeki galeriyi Instagram akışının kopyası olarak kurmayı önermiyoruz: akış eskidikçe kare kayboluyor, ırka göre süzülemiyor ve fiyat listesiyle bağlanamıyor. En iyi işlerinizi seçip ırk ve hizmet etiketiyle sitede kalıcı hale getiririz.",
+        },
+        {
+          q: "Mevcut sitemi yenileyebilir misiniz?",
+          a: "Evet. Mevcut adresinizdeki içerikleri ve arama motorlarındaki birikiminizi koruyarak yeniden kurar, eski adresleri yenilerine yönlendiririz.",
+        },
+      ],
+      ctaTitle: "Salonunuz için bir site kuralım",
+      ctaText:
+        "Ücretsiz bir görüşmede ihtiyacınızı netleştirip net bir teklif sunalım.",
+      ctaButton: "Ücretsiz Teklif Al",
+
+      problem: {
+        title: "Sahip köpeğini kime bırakacağına nasıl karar veriyor?",
+        body: [
+          "Evcil hayvanını ilk kez bir salona bırakacak kişi için bu, tedirgin edilerek verilen bir karardır. Hayvan orada yalnız kalacak, makasla ve suyla iş görülecek, kendisi yanında olmayacak. Bu yüzden fiyat listesinden önce başka bir şeye bakar: daha önce hangi hayvanlar bu masadan nasıl kalkmış.",
+          "Bu sorunun cevabı yalnızca fotoğrafta var. Bir pomeranian sahibi, başka bir pomeranian'ın önce-sonra karesini görmeden ikna olmuyor; kendi ırkını, kendi tüy tipini görmek istiyor. Instagram bunu kısmen gösterir ama akış eskidikçe kare kaybolur, ırka göre süzülemez, fiyat listesi taşımaz ve haritada çıkmaz.",
+          "İkinci kayıp randevu anında yaşanıyor. Sahip karar verdiği anda saat seçebileceği ya da tek tıkla WhatsApp'a düşebileceği bir yer bulamazsa o an geçiyor ve arama sonuçlarındaki bir sonraki salona geçiliyor. Sitenin bu sektördeki asıl işi ikisidir: kanıtı göstermek ve kararı harekete çevirmek.",
+        ],
+      },
+      pricing: {
+        title: "Pet kuaförü web sitesi fiyatları",
+        lead: "Fiyatı görüşmede söyleyen ajanslara alışkınsınız. Biz bandı baştan yazıyoruz ki vaktinizi boşa harcamayalım. Aşağıdaki aralıklar 2026 için geçerli başlangıç rakamlarıdır.",
+        tiers: [
+          {
+            name: "Galeri ve fiyat sitesi",
+            price: "₺50.000 – 85.000",
+            timeline: "~1–2 hafta",
+            body: "Hizmet ve fiyat listesi, öncesi-sonrası galerisi, harita ve çalışma saatleri. Tek tık arama ve WhatsApp. Tek salonlu işletmeler için yeterli.",
+          },
+          {
+            name: "Randevulu salon sitesi",
+            price: "₺90.000 – 150.000",
+            timeline: "~2–4 hafta",
+            body: "Irk filtreli galeri, ırk ve boya göre fiyat bantları, online randevu yönlendirmesi, yorum ve kampanya bölümü. Takvimini siteden doldurmak isteyen salonlar için.",
+          },
+          {
+            name: "Takvimli randevu sistemi",
+            price: "₺220.000'den başlayan",
+            timeline: "Projeye özel",
+            body: "Hizmete göre farklı uzunlukta slot ayıran takvim, müşteri ve hayvan kayıt geçmişi, hatırlatma bildirimleri. Birden fazla masayla çalışıyorsanız.",
+          },
+        ],
+        note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
+      },
+      process: {
+        title: "Nasıl ilerliyoruz?",
+        lead: "Salon düzeninizi aksatmayan bir akış kurduk. Sizden toplam birkaç saatlik katılım yetiyor.",
+        steps: [
+          {
+            name: "Tanışma görüşmesi",
+            body: "Hangi ırklarla çalıştığınızı, hizmet sürelerinizi ve fiyat bantlarınızı konuşuruz. Yalnız küçük ırk alan bir salonla her boydan hayvan kabul eden bir salonun sitesi aynı olmaz. Buradan net bir kapsam ve sabit fiyat çıkar.",
+          },
+          {
+            name: "Galeri ve içerik",
+            body: "Bu sektörde satışı galeri yapıyor, o yüzden en çok emek buraya gidiyor. Mevcut önce-sonra karelerinizi birlikte ayıklar, ırk ve hizmet etiketlerini kurar, eksik kalan ırklar için çekim listesi bırakırız.",
+          },
+          {
+            name: "Tasarım ve onay",
+            body: "Önce ana sayfayı görürsünüz. Tasarımın işi, galeriyi öne çıkarıp randevuyu bir tık uzakta tutmak. Değişiklikler bu aşamada ücretsizdir.",
+          },
+          {
+            name: "Yayın ve teslim",
+            body: "Alan adı, güvenlik sertifikası ve Google İşletme Profili bağlantısı dahil yayına alırız. Galeriyi ve fiyat listesini kendiniz güncelleyebilmeniz için kısa bir kullanım kaydı bırakırız.",
+          },
+        ],
+      },
+      checklist: {
+        title: "Pet kuaförü web sitesi yaptırırken nelere dikkat etmeli?",
+        lead: "Bu maddeler bizden iş almasanız da işinize yarar. Teklif aldığınız her ajansa aynı soruları sorun.",
+        items: [
+          {
+            title: "Galeriyi kendiniz güncelleyebiliyor musunuz?",
+            body: "Bu sektörde galeri haftalık büyür. Her yeni önce-sonra karesi için ajansa e-posta atmak zorundaysanız galeri altı ayda ölür. Panelden yükleyip etiketleyebildiğinizden emin olun.",
+          },
+          {
+            title: "Galeri ırka göre süzülüyor mu?",
+            body: "Sahip kendi ırkını arıyor. Yüz karelik tek bir yığın, ikna etmek yerine yorar. Irk ve hizmet filtresi olup olmadığını sorun.",
+          },
+          {
+            title: "Fiyat bantlı mı, tek rakam mı?",
+            body: "Tek 'tıraş' fiyatı yazan site telefonda pazarlığı bitirmez. Irk, boy ve tüy durumuna göre bant tanımlanabildiğinden emin olun.",
+          },
+          {
+            title: "Randevu süresi hizmete göre değişiyor mu?",
+            body: "Bir yorkshire ile bir golden aynı sürede bitmez. Takvim her randevuya aynı süreyi ayırıyorsa günün ortası ya boş kalır ya taşar.",
+          },
+          {
+            title: "Mobilde gerçekten hızlı mı?",
+            body: "Galeri ağır fotoğraf demektir ve bu siteleri en çok yavaşlatan şeydir. Teklif verenden mevcut işlerinden birinin adresini isteyin ve kendi telefonunuzdan açın.",
+          },
+          {
+            title: "Alan adı ve site kime ait?",
+            body: "Alan adının işletmeniz adına kayıtlı olduğundan emin olun ve sözleşmeye yazdırın.",
+          },
+        ],
+      },
+    },
+    en: {
+      metaTitle: "Pet Grooming Salon Website Design",
+      metaDescription:
+        "Websites for pet grooming salons: before-and-after gallery, breed-based price list and online booking. Get a free quote.",
+      eyebrow: "For Pet Grooming",
+      h1: "Pet Grooming Salon Website",
+      intro:
+        "In this trade the gallery does the selling: the before-and-after shot of a dog that looks like theirs. A site that shows your own work, filterable by breed, and takes the booking on the spot turns that shot into work. Forpus builds sites for pet grooming salons.",
+      shortAnswer: {
+        title:
+          "What does a pet grooming website include, and what does it cost?",
+        body: "A pet grooming website is your own address for setting out your services, showing your results and taking bookings. A typical salon site we build has service pages split by breed and coat type, a before-and-after gallery you can filter by breed, online booking with WhatsApp, grooming packages that vary by size and coat, customer reviews, a promotions section, a Google Maps link and a fast, mobile-friendly design. A gallery-and-price-list site starts in the ₺50,000–85,000 band and goes live in one to two weeks. A full site with a filterable gallery and working online booking sits in the ₺90,000–150,000 band over two to four weeks. Once a calendar that allocates different slot lengths per service is involved, you are looking at a project starting from ₺220,000. The gallery is built from your own work, never stock photography. No veterinary medicine is practised here, so the copy carries no medical claims: it talks about grooming, hygiene and the animal's comfort in the salon.",
+      },
+      benefits: [
+        {
+          title: "Before-and-after proof",
+          body: "Your own before-and-after shots are the strongest argument for an owner deciding to leave their dog with you.",
+        },
+        {
+          title: "Online booking",
+          body: "Let owners pick breed, service and time from their phone while you are at the table.",
+        },
+        {
+          title: "Be found on Google",
+          body: "Show up on the map for 'pet grooming near me', with your reviews and your gallery.",
+        },
+      ],
+      featuresTitle: "What's included?",
+      features: [
+        "Service and price list (by breed / size)",
+        "Before-and-after gallery with breed filter",
+        "Online booking / WhatsApp integration",
+        "Customer reviews and promotions section",
+        "Google Maps and opening hours",
+        "Fast, mobile-friendly design",
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        {
+          q: "Can I put before-and-after photos on the site?",
+          a: "Yes — this is the section that does the selling, and nothing stands in the way. No veterinary medicine is being practised, so the promotional restrictions that apply in healthcare do not bind you. We make the gallery filterable by breed and service. Where the customer or their home is visible in a shot, we suggest asking permission before publishing; that is courtesy rather than a legal requirement.",
+        },
+        {
+          q: "Can we show prices by breed and size?",
+          a: "Yes, and that is the right way to set it up. Salons that publish a single 'grooming' price end up having the same negotiation on the phone every time. We define bands by breed, size and coat condition, and note extras such as matting separately, so owners arrive with the right expectation.",
+        },
+        {
+          q: "Can you build an online booking system?",
+          a: "Yes. From a simple WhatsApp hand-off up to an online calendar with service and time selection. Because grooming time varies by breed, we set the calendar to allocate different slot lengths per service; otherwise the middle of the day goes to waste.",
+        },
+        {
+          q: "Can we publish customer reviews?",
+          a: "Yes, freely. This sector is not covered by healthcare advertising rules, so reviews, ratings and Google feedback can all appear on the site. We build a section that pulls the reviews from your Google Business Profile and keeps itself up to date.",
+        },
+        {
+          q: "Can you refresh my existing site?",
+          a: "Yes. We rebuild while keeping your content and your search-engine history, and redirect the old URLs to the new ones.",
+        },
+      ],
+      ctaTitle: "Let's build a site for your salon",
+      ctaText:
+        "In a free call we'll clarify what you need and give you a clear quote.",
+      ctaButton: "Get a Free Quote",
+    },
+  },
+  {
     key: "mobil",
     image: "/generated/hero-device.webp",
     service: "mobile",
@@ -3953,28 +4445,6 @@ export function solutionByEnSlug(slug: string): Solution | undefined {
   return solutions.find((s) => s.slug.en === slug);
 }
 
-// Short sector labels for the compact link index (pills on the homepage). Keyed by
-// solution.key; falls back to the page h1 when a key is missing.
-export const sectorName: Record<string, { tr: string; en: string }> = {
-  doktor: { tr: "Doktor", en: "Doctor" },
-  dishekimi: { tr: "Diş Hekimi", en: "Dentist" },
-  diyetisyen: { tr: "Diyetisyen", en: "Dietitian" },
-  psikolog: { tr: "Psikolog", en: "Psychologist" },
-  avukat: { tr: "Avukat", en: "Lawyer" },
-  emlak: { tr: "Emlak", en: "Real Estate" },
-  eticaret: { tr: "E-Ticaret", en: "E-Commerce" },
-  restoran: { tr: "Restoran & Kafe", en: "Restaurant & Cafe" },
-  kisiselmarka: { tr: "Kişisel Marka", en: "Personal Brand" },
-  kuafor: { tr: "Kuaför & Berber", en: "Hair & Barber" },
-  guzellik: { tr: "Güzellik & Estetik", en: "Beauty & Aesthetics" },
-  veteriner: { tr: "Veteriner", en: "Veterinary" },
-  mimar: { tr: "Mimar & İç Mimar", en: "Architect" },
-  musavir: { tr: "Mali Müşavir", en: "Accountant" },
-  fotografci: { tr: "Fotoğrafçı", en: "Photographer" },
-  spor: { tr: "Spor Salonu", en: "Gym & Trainer" },
-  mobil: { tr: "Mobil Uygulama", en: "Mobile App" },
-};
-
 // Language pickers shared by the landing pages, footer and SEO helpers.
 export const contentOf = (s: Solution, lang: "tr" | "en") =>
   lang === "tr" ? s.tr : s.en;
@@ -3994,7 +4464,7 @@ export const slugOf = (s: Solution, lang: "tr" | "en") =>
  * İÇERİĞİ GERÇEKTEN DEĞİŞTİRDİĞİNDE BU TARİHİ GÜNCELLE. Build zamanı
  * kullanmak yanlış olur: her deploy "değişti" der, sinyal değersizleşir.
  */
-export const SOLUTIONS_LASTMOD = "2026-08-27";
+export const SOLUTIONS_LASTMOD = "2026-08-31";
 
 // ============================================================================
 // Build zamanı tutarlılık kontrolleri
@@ -4020,6 +4490,12 @@ export const SOLUTIONS_LASTMOD = "2026-08-27";
     const s = solutions.find((x) => x.key === r.key)!;
     if (s.slug.tr !== r.slug.tr || s.slug.en !== r.slug.en) {
       throw new Error(`solutions: "${r.key}" slug'ı indeksle uyuşmuyor`);
+    }
+    // `image` iki dosyada da elle yazılıyor ve İKİSİ de okunuyor: sayfa hero'su
+    // içerikteki değeri (SolutionArticle), pill şeridi indekstekini. Ayrışırsa
+    // sayfa ile şerit farklı görsel gösterir ve hiçbir şey uyarmazdı.
+    if (s.image !== r.image) {
+      throw new Error(`solutions: "${r.key}" görseli indeksle uyuşmuyor`);
     }
   }
 }
@@ -4068,3 +4544,73 @@ export const caseRefProject = (c: SolutionContent) =>
   c.caseRef
     ? webProjects.find((p) => p.slug === c.caseRef!.projectSlug)!
     : undefined;
+
+// 4) Mevzuat kısıtı olan sektörlerde yasaklı vaatler.
+//
+// NEDEN BURADA: Bu, depodaki tek "doğruluk kuralı"ydı ki derleyicisi yoktu, ve
+// elle tarama iki kez üst üste yarım kaldı — veteriner girdisinin Türkçesi
+// düzeltilip İngilizcesi atlandı, sonra aynı şey diş hekimi ve diyetisyende
+// tekrarlandı. Kural insanın gözünde kalınca sektör başına iki dil taramak
+// gerekiyor ve biri mutlaka kaçıyor.
+//
+// NEDEN ÖZELLİKLE `features` VE fayda başlıkları: `features` süs değil.
+// SolutionArticle onu SektorBrief'e geçiriyor, orada teklif formunda
+// KUTUCUĞA dönüşüyor ve seçilen metin panele yazılı talep olarak düşüyor.
+// Yani "Hasta yorumları" bir kutucukken, hekime yasak olan modülü sipariş
+// listesinde sunmuş oluyorduk.
+//
+// CEZANIN MUHATABI MÜŞTERİDİR, biz değiliz — bu yüzden kontrol uyarı değil,
+// build'i durduran bir hata.
+const MEVZUAT_SEKTORLERI: Record<string, "saglik" | "veteriner" | "meslek"> = {
+  doktor: "saglik",
+  dishekimi: "saglik",
+  diyetisyen: "saglik",
+  psikolog: "saglik",
+  veteriner: "veteriner",
+  avukat: "meslek",
+  musavir: "meslek",
+};
+
+// Güzellik bilerek DIŞARIDA: kozmetik bakım tarafında kampanya ve yorum
+// serbest, yalnız medikal estetik işlemleri kısıt altında. İkisi tek girdide
+// olduğu için kaba bir kalıp yanlış yakalar; nüans o sayfanın SSS'inde duruyor.
+
+{
+  const YASAK =
+    /yorum|puan|review|rating|testimonial|kampanya|indirim|campaign|discount|vitrin|storefront|showcase/i;
+  const MEVZUAT_SSS =
+    /mevzuat|reklam yasa|tanıtım kural|meslek etiği|etik kural|advertis|restriction/i;
+
+  for (const s of solutions) {
+    if (!(s.key in MEVZUAT_SEKTORLERI)) continue;
+
+    for (const [dil, c] of [
+      ["tr", s.tr],
+      ["en", s.en],
+    ] as const) {
+      for (const f of c.features) {
+        if (YASAK.test(f)) {
+          throw new Error(
+            `solutions: "${s.key}" (${dil}) mevzuat kısıtlı bir sektör ama features içinde "${f}" var. ` +
+              `Bu metin teklif formunda kutucuğa dönüşüyor; müşteriye yasak olan bir modülü sipariş edilebilir kılma.`,
+          );
+        }
+      }
+      for (const b of c.benefits) {
+        if (YASAK.test(b.title)) {
+          throw new Error(
+            `solutions: "${s.key}" (${dil}) fayda başlığı "${b.title}" mevzuat kısıtlı sektörde vaat edilemez.`,
+          );
+        }
+      }
+    }
+
+    // Kısıtlı her sektör, kısıtın ne olduğunu Türkçe sayfasında söylemek
+    // zorunda. Müşteri kuralı bizden öğrenmezse rakip ajanstan hiç öğrenmiyor.
+    if (!s.tr.faq.some((f) => MEVZUAT_SSS.test(f.q) || MEVZUAT_SSS.test(f.a))) {
+      throw new Error(
+        `solutions: "${s.key}" mevzuat kısıtlı bir sektör ama Türkçe SSS'inde kısıtı anlatan bir soru yok.`,
+      );
+    }
+  }
+}

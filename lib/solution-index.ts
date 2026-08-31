@@ -134,6 +134,20 @@ export const solutionIndex: SolutionRef[] = [
     label: { tr: "Spor Salonu", en: "Gym & Trainer" },
   },
   {
+    key: "petotel",
+    image: "/generated/personas/petotel.webp",
+    service: "web",
+    slug: { tr: "pet-otel-web-sitesi", en: "pet-boarding-website" },
+    label: { tr: "Pet Otel", en: "Pet Boarding" },
+  },
+  {
+    key: "petkuafor",
+    image: "/generated/personas/petkuafor.webp",
+    service: "web",
+    slug: { tr: "pet-kuaforu-web-sitesi", en: "pet-grooming-website" },
+    label: { tr: "Pet Kuaförü", en: "Pet Grooming" },
+  },
+  {
     key: "mobil",
     image: "/generated/hero-device.webp",
     service: "mobile",

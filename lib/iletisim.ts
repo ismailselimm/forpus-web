@@ -147,8 +147,9 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
         a:
           "Ağırlıklı olarak doktor, diş hekimi, diyetisyen, psikolog, avukat, mali " +
           "müşavir, mimar, veteriner gibi serbest meslek grupları ile restoran, " +
-          "kuaför, güzellik merkezi, spor salonu, emlak ve e-ticaret işletmeleriyle " +
-          "çalışıyoruz. Her biri için hazırlanmış ayrı bir çözüm sayfası var.",
+          "kuaför, güzellik merkezi, spor salonu, emlak, e-ticaret, pet otel ve " +
+          "pet kuaförü işletmeleriyle çalışıyoruz. Her biri için hazırlanmış ayrı " +
+          "bir çözüm sayfası var.",
       },
       {
         q: "Siteyi sonradan kendim güncelleyebilir miyim?",

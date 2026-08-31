@@ -1402,7 +1402,7 @@ export const posts: BlogPost[] = [
         a: "Yapı buna göre kurulduğunda değişiklik metin düzeyinde kalır. Kampanya ve fiyat bölümü hiç kurulmadığı için, sonradan kaldırılması gereken bir yapı da olmaz.",
       },
     ],
-    relatedSolutions: ["doktor", "dishekimi", "guzellik", "veteriner"],
+    relatedSolutions: ["doktor", "dishekimi", "guzellik"],
   },
   // ─────────────────────────── ALAN ADI VE HOSTING SAHİPLİĞİ
   {
