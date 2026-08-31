@@ -2774,7 +2774,7 @@ export const solutions: Solution[] = [
     en: {
       metaTitle: "Veterinary Clinic Website Design",
       metaDescription:
-        "Website for veterinary clinics: address, phone, consultation hours and on-call information, clearly set out. Mobile-friendly and built within the advertising rules that bind vets. Get a free quote.",
+        "Websites for veterinary clinics: address, phone, consultation hours and on-call details, clearly set out — and within the advertising rules that bind vets.",
       eyebrow: "For Vets",
       h1: "Veterinary Clinic Website",
       intro:
@@ -4210,7 +4210,7 @@ export const solutions: Solution[] = [
     tr: {
       metaTitle: "Sanayi & Makine İmalatçısı Web Sitesi",
       metaDescription:
-        "Makine imalatçıları ve sanayi firmalarına özel web sitesi: makine kataloğu, teknik veri tabloları, ihracat için İngilizce sürüm ve teklif akışı. Ücretsiz teklif alın.",
+        "Makine imalatçıları ve sanayi firmalarına özel web sitesi: makine kataloğu, teknik veri tabloları, ihracat için İngilizce sürüm ve teklif akışı.",
       eyebrow: "Makine İmalatçısına Özel",
       h1: "Sanayi & Makine İmalatçısı Web Sitesi",
       intro:
@@ -4377,7 +4377,7 @@ export const solutions: Solution[] = [
     en: {
       metaTitle: "Industrial & Machinery Manufacturer Website",
       metaDescription:
-        "Websites for machine builders and industrial manufacturers: product catalog, technical data tables, an English version built for export, and a quote flow. Get a free quote.",
+        "Websites for machine builders and industrial manufacturers: product catalog, technical data tables, an English version for export, and a quote flow.",
       eyebrow: "For Manufacturers",
       h1: "Industrial & Machinery Company Website",
       intro:
@@ -4454,7 +4454,7 @@ export const solutions: Solution[] = [
     tr: {
       metaTitle: "Lojistik & Uluslararası Nakliyat Web Sitesi",
       metaDescription:
-        "Uluslararası nakliyat, komple ve parsiyel taşıma firmalarına özel web sitesi. Çok dilli yapı, doğru soruları soran teklif formu ve sevkiyat takibi. Ücretsiz teklif alın.",
+        "Uluslararası nakliyat, komple ve parsiyel taşıma firmalarına özel web sitesi: çok dilli yapı, doğru soruları soran teklif formu ve sevkiyat takibi.",
       eyebrow: "Lojistiğe Özel",
       h1: "Lojistik & Uluslararası Nakliyat Web Sitesi",
       intro:
@@ -4933,7 +4933,7 @@ export const solutions: Solution[] = [
     tr: {
       metaTitle: "Temizlik Şirketi & Ev Hizmetleri Web Sitesi",
       metaDescription:
-        "Ev, ofis ve inşaat sonrası temizlik firmalarına özel web sitesi. Metrekare bazlı teklif formu, hizmet bölgesi sayfaları ve Google görünürlüğü. Ücretsiz teklif alın.",
+        "Ev, ofis ve inşaat sonrası temizlik firmalarına özel web sitesi: metrekare bazlı teklif formu, hizmet bölgesi sayfaları ve Google görünürlüğü.",
       eyebrow: "Temizlik Şirketine Özel",
       h1: "Temizlik Şirketi Web Sitesi",
       intro:
@@ -5341,7 +5341,7 @@ export const solutions: Solution[] = [
     en: {
       metaTitle: "Construction Company & Urban Renewal Website",
       metaDescription:
-        "Websites for construction firms and urban renewal contractors. Completed project pages, site progress tracking and forms that collect real building details. Get a free quote.",
+        "Websites for construction firms and urban renewal contractors: completed project pages, site progress tracking and forms that collect real building details.",
       eyebrow: "For Construction Firms",
       h1: "Construction Company Website",
       intro:
@@ -5581,7 +5581,7 @@ export const solutions: Solution[] = [
     en: {
       metaTitle: "Solar Energy & Rooftop PV Company Website",
       metaDescription:
-        "Websites for solar energy and rooftop PV companies. Reference plant archive, payback calculator and a survey form that asks about the bill and the roof. Get a free quote.",
+        "Websites for solar energy and rooftop PV companies: reference plant archive, payback calculator and a survey form that asks about the bill and the roof.",
       eyebrow: "For Solar Companies",
       h1: "Solar Energy & Rooftop PV Company Website",
       intro:
@@ -5896,7 +5896,7 @@ export const solutions: Solution[] = [
     tr: {
       metaTitle: "Saç Ekimi Merkezi Web Sitesi Tasarımı",
       metaDescription:
-        "Saç ekimi merkezlerine özel çok dilli web sitesi. Yöntem sayfaları, fotoğraflı ön değerlendirme formu ve sağlıkta tanıtım mevzuatına uygun kurgu. Ücretsiz teklif alın.",
+        "Saç ekimi merkezlerine özel çok dilli web sitesi: yöntem sayfaları, fotoğraflı ön değerlendirme formu ve tanıtım mevzuatına uygun kurgu.",
       eyebrow: "Saç Ekimi Merkezine Özel",
       h1: "Saç Ekimi Merkezi Web Sitesi",
       intro:
@@ -6061,7 +6061,7 @@ export const solutions: Solution[] = [
     en: {
       metaTitle: "Hair Transplant Clinic Website",
       metaDescription:
-        "Multilingual websites for hair transplant clinics and health tourism practices. Method pages, photo-based pre-assessment forms and compliant copy. Get a free quote.",
+        "Multilingual websites for hair transplant clinics and health tourism practices: method pages, photo-based pre-assessment forms and compliant copy.",
       eyebrow: "For Hair Transplant Clinics",
       h1: "Hair Transplant Clinic Website",
       intro:
@@ -6616,7 +6616,7 @@ export const solutions: Solution[] = [
     tr: {
       metaTitle: "Özel Güvenlik Şirketi Web Sitesi",
       metaDescription:
-        "Özel güvenlik şirketlerine özel kurumsal web sitesi: tesis bilgisi alan teklif formu, güvenlik görevlisi başvurusu, referans ve belge bölümü. Ücretsiz teklif alın.",
+        "Özel güvenlik şirketlerine özel kurumsal web sitesi: tesis bilgisi alan teklif formu, güvenlik görevlisi başvurusu, referans ve belge bölümü.",
       eyebrow: "Özel Güvenlik Şirketine Özel",
       h1: "Özel Güvenlik Şirketi Web Sitesi",
       intro:
@@ -6782,7 +6782,7 @@ export const solutions: Solution[] = [
     en: {
       metaTitle: "Private Security Company Website",
       metaDescription:
-        "Corporate websites for private security firms: a quote form that captures site and shift details, guard application forms, references and licence sections. Get a free quote.",
+        "Corporate websites for private security firms: a quote form that captures site and shift details, guard applications, references and licence sections.",
       eyebrow: "For Security Firms",
       h1: "Private Security Company Website",
       intro:
@@ -8464,7 +8464,7 @@ export const solutions: Solution[] = [
     en: {
       metaTitle: "Physiotherapy & Rehabilitation Centre Website",
       metaDescription:
-        "Website design for physiotherapy and rehabilitation centres. Treatment areas, clinical team, equipment and appointment requests, built mobile-first. Get a free quote.",
+        "Websites for physiotherapy and rehabilitation centres: treatment areas, clinical team, equipment and appointment requests, built mobile-first.",
       eyebrow: "For Physiotherapy Centres",
       h1: "Physiotherapy & Rehabilitation Website",
       intro:
@@ -8778,7 +8778,7 @@ export const solutions: Solution[] = [
     tr: {
       metaTitle: "Gümrük Müşavirliği Web Sitesi",
       metaDescription:
-        "Gümrük müşavirliği ve dış ticaret firmalarına özel kurumsal web sitesi. Rejim sayfaları, yetki alanı, evrak listeleri ve dosya takip portalı. Ücretsiz teklif alın.",
+        "Gümrük müşavirliği ve dış ticaret firmalarına özel kurumsal web sitesi: rejim sayfaları, yetki alanı, evrak listeleri ve dosya takip portalı.",
       eyebrow: "Gümrük Müşavirliğine Özel",
       h1: "Gümrük Müşavirliği Web Sitesi",
       intro:
@@ -8944,7 +8944,7 @@ export const solutions: Solution[] = [
     en: {
       metaTitle: "Customs Broker Website",
       metaDescription:
-        "Corporate websites for customs brokerage and foreign trade firms. Service pages, customs offices covered, document checklists and a client file portal. Get a free quote.",
+        "Corporate websites for customs brokerage and foreign trade firms: service pages, customs offices covered, document checklists and a file portal.",
       eyebrow: "For Customs Brokers",
       h1: "Customs Broker Website",
       intro:
@@ -9911,6 +9911,33 @@ const MEVZUAT_SEKTORLERI: Record<string, "saglik" | "veteriner" | "meslek"> = {
       throw new Error(
         `solutions: "${s.key}" mevzuat kısıtlı bir sektör ama Türkçe SSS'inde kısıtı anlatan bir soru yok.`,
       );
+    }
+  }
+}
+
+// 5) Meta açıklaması arama sonucunda kesilmemeli.
+//
+// Google açıklamayı ~160 karakterde kesiyor. Ölçtük: 82 açıklamanın 14'ü
+// bunu aşıyordu ve hepsinde kesilen kısım aynı şeydi — sondaki "Ücretsiz
+// teklif alın." / "Get a free quote." çağrısı. Yani tıklamayı isteyen cümle,
+// tam da tıklanacak yerde görünmüyordu.
+//
+// Kontrol burada, çünkü sınır bir yazım tercihi değil ölçülebilir bir eşik ve
+// sektör eklerken kimse karakter saymıyor. 41 sektöre çıkarken 22 açıklama
+// tek turda yazıldı; gözle tutulabilecek bir kural değil.
+{
+  const SINIR = 160;
+  for (const s of solutions) {
+    for (const [dil, c] of [
+      ["tr", s.tr],
+      ["en", s.en],
+    ] as const) {
+      if (c.metaDescription.length > SINIR) {
+        throw new Error(
+          `solutions: "${s.key}" (${dil}) meta açıklaması ${c.metaDescription.length} karakter — ` +
+            `arama sonucunda ${SINIR}'ta kesilir, sondaki çağrı görünmez.`,
+        );
+      }
     }
   }
 }
