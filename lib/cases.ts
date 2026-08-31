@@ -94,7 +94,7 @@ export const cases: CaseStudy[] = [
         "Üçüncüsü kapsam. Sahiplendirme, kayıp ilanı, veteriner rehberi, forum ve sağlık takibi aynı anda yapılmadı. Böyle bir projede her şeyi ilk sürüme koymak hem maliyeti katlar hem de hangi bölümün gerçekten kullanılacağını görmenizi engeller.",
       ],
     },
-    relatedSolutions: ["mobil", "veteriner"],
+    relatedSolutions: ["mobil", "veteriner", "petotel", "petkuafor"],
   },
 
   {
@@ -146,7 +146,7 @@ export const cases: CaseStudy[] = [
         "Üçüncüsü, ürünü kuran ekiple reklamı yürüten ekibin aynı olmasının pratik faydası. Reklamdan gelen kullanıcı akışın üçüncü adımında düşüyorsa, bunu görmek ve düzeltmek iki ayrı firmayla haftalar sürebilecek bir iş; aynı ekipteyken aynı gün çözülüyor.",
       ],
     },
-    relatedSolutions: ["mobil", "eticaret"],
+    relatedSolutions: ["mobil", "eticaret", "temizlik"],
   },
 
   {
@@ -194,7 +194,9 @@ export const cases: CaseStudy[] = [
         "İkinci ders rezervasyon yolunun kısalığı. Duygusal kararla alınan hizmetlerde karar hızlı verilir ve hızlı geçer. Form doldurtmak yerine tek tıkla WhatsApp'a yönlendirmek, bu tür işlerde ölçülebilir fark yaratıyor.",
       ],
     },
-    relatedSolutions: ["restoran", "kisiselmarka"],
+    // Kiralanan şey tekne ama sitenin iskeleti ilan listesi + detay +
+    // talep formu; emlak ve oto galeri aynı iskeleti arıyor.
+    relatedSolutions: ["tekne", "otel", "rentacar", "emlak", "otogaleri"],
   },
 
   {
@@ -246,7 +248,7 @@ export const cases: CaseStudy[] = [
         'Üçüncüsü uzmanlık alanlarını ayırmak. Tek bir "hizmetler" listesi hem ziyaretçiyi kaybettiriyor hem de arama motorlarının hangi konuda uzman olduğunuzu anlamasını engelliyor. Her alanın kendi sayfası olması, bu iki sorunu birden çözüyor.',
       ],
     },
-    relatedSolutions: ["diyetisyen", "psikolog"],
+    relatedSolutions: ["diyetisyen", "psikolog", "fizyoterapi"],
   },
 
   {
@@ -299,7 +301,7 @@ export const cases: CaseStudy[] = [
         "Üçüncüsü satış sonrası. Pahalı ekipman alan kişinin en büyük endişesi arıza anında yalnız kalmak. Bu endişeyi sitede açıkça karşılamak, teklif alma kararını doğrudan etkiliyor.",
       ],
     },
-    relatedSolutions: ["eticaret", "musavir"],
+    relatedSolutions: ["sanayi", "tekstil", "insaat"],
   },
 
   {
@@ -351,7 +353,7 @@ export const cases: CaseStudy[] = [
         'İkinci ders anlatım biçimi. "Sesli öğrenme uygulaması" cümlesi kimseyi ikna etmiyor. Somut bir içerik başlığı göstermek veya "sohbette anlatacak şeyler" gibi kullanım anını tarif etmek, özellik listesinden çok daha iyi çalışıyor. İnsanlar özellik değil, kendi hayatlarında bir an satın alıyor.',
       ],
     },
-    relatedSolutions: ["mobil", "kisiselmarka"],
+    relatedSolutions: ["mobil", "kisiselmarka", "okul", "anaokulu"],
   },
 
   {
@@ -404,7 +406,7 @@ export const cases: CaseStudy[] = [
         "Üçüncüsü: bu alanda hasta kliniği değil hekimi seçiyor. Özgeçmiş ve yaklaşımın sitenin merkezinde olması, kurumsal bir vitrin kurmaktan daha çok işe yarıyor.",
       ],
     },
-    relatedSolutions: ["doktor", "guzellik"],
+    relatedSolutions: ["doktor", "guzellik", "dishekimi", "sacekimi"],
   },
 
   {
@@ -457,7 +459,7 @@ export const cases: CaseStudy[] = [
         'Üçüncüsü akışın doğru kurgulanması. Lojistikte fiyat yüke göre değişir; "fiyat listesi" göstermeye çalışmak yanlış olur. Akış "teklif al" üzerine kurulmalı ve her sayfadan ulaşılabilmeli.',
       ],
     },
-    relatedSolutions: ["musavir", "emlak"],
+    relatedSolutions: ["lojistik", "gumruk", "musavir"],
   },
 
   {
@@ -506,7 +508,7 @@ export const cases: CaseStudy[] = [
         "Son olarak ödeme altyapısı: sanal POS başvurusu sizin şirketiniz adına yapılır ve komisyon oranları doğrudan sizinle banka arasındadır. Ajansın kendi hesabı üzerinden tahsilat önermesi ciddi bir uyarı işareti.",
       ],
     },
-    relatedSolutions: ["eticaret", "restoran"],
+    relatedSolutions: ["eticaret", "restoran", "catering"],
   },
 ];
 
