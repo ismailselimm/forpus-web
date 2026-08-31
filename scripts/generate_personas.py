@@ -37,6 +37,28 @@ JOBS = {
     "kisiselmarka":("minimalist creative desk, a laptop, notebook and a small plant, soft window light, elegant personal workspace", 88108),
     "avukat":      ("elegant classic law office, rows of leather-bound law books on warm wooden shelves, soft lamp light", 88109),
     "emlak":       ("modern luxury house exterior with large glass windows at dusk, contemporary architecture, warm interior glow", 88110),
+    # 31.08.2026 — 22 yeni sektör sayfası eklendi, görselleri buradan üretildi.
+    "sanayi":      ("industrial machine hall at dusk, a precision CNC machine and polished steel parts, warm overhead work light, blurred factory depth", 88111),
+    "lojistik":    ("long haul truck cab on an empty highway at dawn, misty road stretching to the horizon, cool blue light", 88112),
+    "temizlik":    ("professional cleaning trolley with neatly stacked white towels, spray bottles and a mop in a bright hotel corridor, clean and orderly", 88213),
+    "insaat":      ("modern residential construction site at golden hour, clean concrete structure and scaffolding silhouette, calm", 88114),
+    "ges":         ("rows of solar panels on a rooftop at sunset, reflective glass surfaces, warm sky, clean geometry", 88115),
+    "otel":        ("boutique hotel room at dusk, made bed with linen throw and a bedside lamp, blurred window with sea beyond", 88116),
+    "sacekimi":    ("modern medical procedure room, an adjustable treatment chair under a surgical light, stainless instrument tray, clean clinical setting", 88217),
+    "okul":        ("empty modern classroom in soft afternoon light, wooden desks in rows, blurred bookshelf behind", 88118),
+    "catering":    ("professional stainless steel kitchen at rest, plated dishes on a pass, warm overhead light, blurred depth", 88119),
+    "guvenlik":    ("security control room at night, a wall of dim monitors, soft blue glow, quiet and orderly", 88120),
+    "rentacar":    ("a row of clean white and grey family sedans parked in an outdoor rental lot at dusk, orderly, soft even light, no sports car", 88221),
+    "otogaleri":   ("indoor used car dealership showroom at evening, a row of ordinary family hatchbacks and sedans under soft ceiling lights, glossy floor, no sports car, no supercar", 88222),
+    "dugunsalonu": ("elegant wedding reception hall before guests arrive, set round tables and warm string lights, dusk", 88123),
+    "tekstil":     ("textile workshop at dusk, rolls of fabric stacked on shelves and an industrial sewing machine, warm lamp", 88124),
+    "kuyumcu":     ("elegant jewellery shop display case, gold rings and bracelets arranged on dark velvet under warm focused light, plain unbranded velvet, luxurious", 88225),
+    "yurt":        ("student dormitory room with a bunk bed, a study desk with an open notebook and a desk lamp, bookshelf and backpack, institutional but tidy, soft window light", 88226),
+    "fizyoterapi": ("calm physiotherapy room, a treatment table and exercise equipment, soft daylight, muted tones", 88127),
+    "huzurevi":    ("warm quiet care home lounge, comfortable armchairs by a large window, soft afternoon light, serene", 88128),
+    "gumruk":      ("container terminal at dawn, stacked shipping containers in soft mist, cool blue light, orderly", 88129),
+    "anaokulu":    ("bright tidy preschool classroom, small wooden chairs and soft toys on low shelves, gentle morning light", 88130),
+    "siteyonetim": ("modern apartment complex courtyard at dusk, clean landscaping and lit entrance lobby, calm", 88131),
 }
 W, H = 832, 1216
 
