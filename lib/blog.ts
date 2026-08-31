@@ -1267,7 +1267,24 @@ export const posts: BlogPost[] = [
         a: "Evet, site teslimiyle birlikte kurulum ve bağlantı işini yapıyoruz. Doğrulama adımında işletme sahibinin kendisinin onaylaması gerekiyor; o adımda size haber veriyoruz.",
       },
     ],
-    relatedSolutions: ["kuafor", "guzellik", "veteriner", "restoran", "spor"],
+    // Haritadan müşteri gelen işletmeler. Temizlik burada, çünkü yazıdaki
+    // "adresim yok, evden çalışıyorum" sorusu tam onların durumu.
+    relatedSolutions: [
+      "kuafor",
+      "guzellik",
+      "veteriner",
+      "restoran",
+      "spor",
+      "petotel",
+      "petkuafor",
+      "otel",
+      "dugunsalonu",
+      "catering",
+      "otogaleri",
+      "rentacar",
+      "kuyumcu",
+      "temizlik",
+    ],
   },
   // ───────────────────────────── SAĞLIKTA TANITIM KURALLARI
   {
@@ -1402,7 +1419,18 @@ export const posts: BlogPost[] = [
         a: "Yapı buna göre kurulduğunda değişiklik metin düzeyinde kalır. Kampanya ve fiyat bölümü hiç kurulmadığı için, sonradan kaldırılması gereken bir yapı da olmaz.",
       },
     ],
-    relatedSolutions: ["doktor", "dishekimi", "guzellik"],
+    // Aynı çerçeveye giren sağlık kuruluşları. Veteriner bilerek yok:
+    // 6343'ün kapalı listesi bu yazının anlattığından çok daha dar,
+    // yazı hekimi yanıltırdı. Diyetisyen de yok — serbest çalışan
+    // diyetisyen sağlık kuruluşu değil, öncesi-sonrası izni ona geçmiyor.
+    relatedSolutions: [
+      "doktor",
+      "dishekimi",
+      "guzellik",
+      "psikolog",
+      "fizyoterapi",
+      "sacekimi",
+    ],
   },
   // ─────────────────────────── ALAN ADI VE HOSTING SAHİPLİĞİ
   {
@@ -1604,8 +1632,44 @@ export const blogUi = {
  * Ekranda da doğru: "avukat web sitesi" arayıp gelen biri için reklam
  * yasağını anlatan yazı, o sayfadaki en yararlı ikinci adım.
  */
-export const postsForSolution = (solutionKey: string) =>
-  postsByDate.filter((y) => y.relatedSolutions?.includes(solutionKey));
+/**
+ * Hiçbir nişe değil, hepsine yazılmış yazılar.
+ *
+ * `relatedSolutions` bir yazının hangi mesleğe yazıldığını söylüyor:
+ * avukatın reklam yasağı avukatın derdi, kimsenin değil. Ama fiyat, nelere
+ * dikkat edileceği ve alan adının kimin üstüne olacağı, sektörden bağımsız
+ * olarak siteyi yaptıran herkesin sorduğu üç şey.
+ *
+ * NEDEN GEREKTİ: sektör sayısı 19'dan 41'e çıkınca 29 sayfada "Karar
+ * vermeden önce" bölümü boş kaldı — o sayfalardan bloga hiç bağlantı
+ * gitmiyordu, ki yazılar zaten grafiğin en zayıf ucu. Alternatif, otuz
+ * yazının üçüne 29 sektör anahtarı yazmaktı; o da anahtarın anlamını
+ * ("bu yazı bu meslek için") bozardı ve yazı-yazı eşleşmesini çöpe
+ * çevirirdi: her yazı her yazıyla ortak anahtar taşımaya başlardı.
+ */
+const HER_SEKTOR_ICIN = [
+  "web-sitesi-fiyatlari",
+  "web-sitesi-yaptirirken-dikkat-edilecekler",
+  "alan-adi-hosting-kime-ait",
+];
+
+/** Sektör sayfasında gösterilecek yazı sayısı hedefi. */
+const SEKTOR_YAZI_HEDEFI = 3;
+
+export const postsForSolution = (solutionKey: string) => {
+  const ozel = postsByDate.filter((y) =>
+    y.relatedSolutions?.includes(solutionKey),
+  );
+  if (ozel.length >= SEKTOR_YAZI_HEDEFI) return ozel;
+
+  // Mesleğe özel yazı önce; kalanı genel yazılarla tamamlanıyor. Sırayı
+  // korumak önemli: sayfaya gelen kişi önce kendi mesleğinin yazısını
+  // görmeli, "web sitesi ne kadar tutar"ı sonra.
+  const genel = postsByDate.filter(
+    (y) => HER_SEKTOR_ICIN.includes(y.slug) && !ozel.includes(y),
+  );
+  return [...ozel, ...genel].slice(0, SEKTOR_YAZI_HEDEFI);
+};
 
 /**
  * Bir yazıdan diğerlerine — YAZI ARASI köprü.
@@ -1643,3 +1707,10 @@ export const ilgiliYazilar = (yazi: BlogPost, adet = 3) => {
 // yeniden adlandırıldığında blogdan giden iç bağlantılar izsiz kaybolurdu.
 // ============================================================================
 assertSolutionKeys("blog", posts);
+
+// Genel yazı listesi slug tutuyor, referans değil: yazı yeniden
+// adlandırıldığında sektör sayfalarının blog köprüsü sessizce boşalırdı.
+for (const slug of HER_SEKTOR_ICIN) {
+  if (!posts.some((y) => y.slug === slug))
+    throw new Error(`blog: HER_SEKTOR_ICIN içinde olmayan yazı — "${slug}"`);
+}
