@@ -14,14 +14,21 @@ export const dynamic = "force-static"; // statik export (GitHub Pages) için
 // gerekçesi kontrolün kendi dosyasında yazılı.
 assertBlogFiyatlari();
 
-// TR sayfalarının içeriği en son bu tarihte elden geçti (derinleştirme turu).
-// Google yeniden taramayı lastmod'a bakarak önceliklendirdiği için, içeriği
-// gerçekten değiştirdiğimizde BU TARİHİ GÜNCELLEYİN. Build zamanı kullanmak
-// yanlış olur: her deploy "değişti" der, sinyal değersizleşir.
-const TR_LASTMOD = new Date(SOLUTIONS_LASTMOD);
+// Sektör sayfalarının içeriği en son bu tarihte elden geçti. Google yeniden
+// taramayı lastmod'a bakarak önceliklendirdiği için, içeriği gerçekten
+// değiştirdiğimizde BU TARİHİ GÜNCELLEYİN. Build zamanı kullanmak yanlış
+// olur: her deploy "değişti" der, sinyal değersizleşir.
+const ICERIK_LASTMOD = new Date(SOLUTIONS_LASTMOD);
 
-// EN sayfaları bu turda değişmedi; kendi tarihini koruyor.
-const EN_LASTMOD = new Date("2026-07-12");
+// EN'in ayrı bir tarihi vardı ve o tarih artık yalan söylüyordu: 22 yeni
+// sektör eklendiğinde Türkçesiyle birlikte İngilizcesi de yazıldı, ama
+// sitemap onların "12 Temmuz'da güncellendi" olduğunu bildiriyordu — yani
+// sayfanın var olmadığı bir tarihi. Google için bu, tarama önceliğini
+// bilerek yanlış yönlendirmek demek.
+//
+// İki dil aynı nesnenin içinde ve aynı turda elden geçiyor; ayrı iki tarih
+// tutmanın gerçek bir karşılığı yok. Öncelik farkı (0.8 / 0.7) duruyor, o
+// ayrı bir karar ve gerekçesi aşağıda.
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const solutionPages: MetadataRoute.Sitemap = solutions.flatMap((s) => {
@@ -31,14 +38,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return [
       {
         url: tr,
-        lastModified: TR_LASTMOD,
+        lastModified: ICERIK_LASTMOD,
         changeFrequency: "monthly",
         priority: 0.8,
         alternates: { languages },
       },
       {
         url: en,
-        lastModified: EN_LASTMOD,
+        lastModified: ICERIK_LASTMOD,
         changeFrequency: "monthly",
         priority: 0.7,
         alternates: { languages },
@@ -100,14 +107,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: SITE,
-      lastModified: TR_LASTMOD,
+      lastModified: ICERIK_LASTMOD,
       changeFrequency: "monthly",
       priority: 1,
       alternates: { languages: { tr: SITE, en: `${SITE}/en` } },
     },
     {
       url: `${SITE}/en`,
-      lastModified: TR_LASTMOD,
+      lastModified: ICERIK_LASTMOD,
       changeFrequency: "monthly",
       priority: 0.8,
       alternates: { languages: { tr: SITE, en: `${SITE}/en` } },
