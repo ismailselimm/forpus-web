@@ -11,8 +11,26 @@
 
 import type { ServiceKey } from "./services";
 
+/**
+ * Sektörün konu ailesi. Sayfa altındaki "ilgili sektörler" şeridi buna göre
+ * seçiliyor: diş hekimi sayfasından doktora, psikoloğa, diyetisyene gitmek
+ * anlamlı; kaynak makinesi satan bir siteye gitmek değil.
+ */
+export type Aile =
+  | "saglik"
+  | "pet"
+  | "guzellik"
+  | "danismanlik"
+  | "yapi"
+  | "ticaret"
+  | "agirlama"
+  | "egitim"
+  | "operasyon"
+  | "kisisel";
+
 export type SolutionRef = {
   key: string;
+  aile: Aile;
   image: string;
   service: ServiceKey;
   slug: { tr: string; en: string };
@@ -23,6 +41,7 @@ export type SolutionRef = {
 export const solutionIndex: SolutionRef[] = [
   {
     key: "doktor",
+    aile: "saglik",
     image: "/generated/personas/doktor.webp",
     service: "web",
     slug: { tr: "doktor-web-sitesi", en: "doctor-website" },
@@ -30,6 +49,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "dishekimi",
+    aile: "saglik",
     image: "/generated/personas/dishekimi.webp",
     service: "web",
     slug: { tr: "dis-hekimi-web-sitesi", en: "dentist-website" },
@@ -37,6 +57,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "diyetisyen",
+    aile: "saglik",
     image: "/generated/personas/diyetisyen.webp",
     service: "web",
     slug: { tr: "diyetisyen-web-sitesi", en: "dietitian-website" },
@@ -44,6 +65,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "psikolog",
+    aile: "saglik",
     image: "/generated/personas/psikolog.webp",
     service: "web",
     slug: { tr: "psikolog-web-sitesi", en: "psychologist-website" },
@@ -51,6 +73,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "avukat",
+    aile: "danismanlik",
     image: "/generated/personas/avukat.webp",
     service: "web",
     slug: { tr: "avukat-web-sitesi", en: "lawyer-website" },
@@ -58,6 +81,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "emlak",
+    aile: "yapi",
     image: "/generated/personas/emlak.webp",
     service: "web",
     slug: { tr: "emlak-web-sitesi", en: "real-estate-website" },
@@ -65,6 +89,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "eticaret",
+    aile: "ticaret",
     image: "/generated/personas/eticaret.webp",
     service: "web",
     slug: { tr: "e-ticaret-sitesi", en: "ecommerce-website" },
@@ -72,6 +97,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "restoran",
+    aile: "agirlama",
     image: "/generated/personas/restoran.webp",
     service: "web",
     slug: { tr: "restoran-web-sitesi", en: "restaurant-website" },
@@ -79,6 +105,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "kisiselmarka",
+    aile: "kisisel",
     image: "/generated/personas/kisiselmarka.webp",
     service: "web",
     slug: { tr: "kisisel-marka-web-sitesi", en: "personal-brand-website" },
@@ -86,6 +113,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "kuafor",
+    aile: "guzellik",
     image: "/generated/personas/kuafor.webp",
     service: "web",
     slug: { tr: "kuafor-web-sitesi", en: "hair-salon-website" },
@@ -93,6 +121,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "guzellik",
+    aile: "guzellik",
     image: "/generated/personas/guzellik.webp",
     service: "web",
     slug: { tr: "guzellik-merkezi-web-sitesi", en: "beauty-clinic-website" },
@@ -100,6 +129,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "veteriner",
+    aile: "pet",
     image: "/generated/personas/veteriner.webp",
     service: "web",
     slug: { tr: "veteriner-web-sitesi", en: "veterinary-website" },
@@ -107,6 +137,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "mimar",
+    aile: "yapi",
     image: "/generated/personas/mimar.webp",
     service: "web",
     slug: { tr: "mimar-web-sitesi", en: "architect-website" },
@@ -114,6 +145,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "musavir",
+    aile: "danismanlik",
     image: "/generated/personas/musavir.webp",
     service: "web",
     slug: { tr: "mali-musavir-web-sitesi", en: "accountant-website" },
@@ -121,6 +153,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "fotografci",
+    aile: "kisisel",
     image: "/generated/personas/fotografci.webp",
     service: "web",
     slug: { tr: "fotografci-web-sitesi", en: "photographer-website" },
@@ -128,6 +161,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "spor",
+    aile: "guzellik",
     image: "/generated/personas/spor.webp",
     service: "web",
     slug: { tr: "spor-salonu-web-sitesi", en: "gym-website" },
@@ -135,6 +169,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "petotel",
+    aile: "pet",
     image: "/generated/personas/petotel.webp",
     service: "web",
     slug: { tr: "pet-otel-web-sitesi", en: "pet-boarding-website" },
@@ -142,6 +177,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "petkuafor",
+    aile: "pet",
     image: "/generated/personas/petkuafor.webp",
     service: "web",
     slug: { tr: "pet-kuaforu-web-sitesi", en: "pet-grooming-website" },
@@ -149,6 +185,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "sanayi",
+    aile: "operasyon",
     image: "/generated/personas/sanayi.webp",
     service: "web",
     slug: { tr: "sanayi-firmasi-web-sitesi", en: "industrial-company-website" },
@@ -156,6 +193,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "lojistik",
+    aile: "operasyon",
     image: "/generated/personas/lojistik.webp",
     service: "web",
     slug: {
@@ -166,6 +204,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "tekne",
+    aile: "agirlama",
     image: "/generated/personas/tekne.webp",
     service: "web",
     slug: { tr: "tekne-kiralama-web-sitesi", en: "boat-charter-website" },
@@ -173,6 +212,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "temizlik",
+    aile: "operasyon",
     image: "/generated/personas/temizlik.webp",
     service: "web",
     slug: { tr: "temizlik-sirketi-web-sitesi", en: "cleaning-company-website" },
@@ -180,6 +220,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "insaat",
+    aile: "yapi",
     image: "/generated/personas/insaat.webp",
     service: "web",
     slug: {
@@ -190,6 +231,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "ges",
+    aile: "yapi",
     image: "/generated/personas/ges.webp",
     service: "web",
     slug: { tr: "gunes-enerjisi-web-sitesi", en: "solar-energy-website" },
@@ -197,6 +239,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "otel",
+    aile: "agirlama",
     image: "/generated/personas/otel.webp",
     service: "web",
     slug: { tr: "otel-web-sitesi", en: "hotel-website" },
@@ -204,6 +247,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "sacekimi",
+    aile: "saglik",
     image: "/generated/personas/sacekimi.webp",
     service: "web",
     slug: { tr: "sac-ekimi-web-sitesi", en: "hair-transplant-website" },
@@ -211,6 +255,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "okul",
+    aile: "egitim",
     image: "/generated/personas/okul.webp",
     service: "web",
     slug: { tr: "ozel-okul-web-sitesi", en: "private-school-website" },
@@ -218,6 +263,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "catering",
+    aile: "agirlama",
     image: "/generated/personas/catering.webp",
     service: "web",
     slug: { tr: "catering-firmasi-web-sitesi", en: "catering-company-website" },
@@ -225,6 +271,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "guvenlik",
+    aile: "operasyon",
     image: "/generated/personas/guvenlik.webp",
     service: "web",
     slug: { tr: "ozel-guvenlik-web-sitesi", en: "security-company-website" },
@@ -232,6 +279,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "rentacar",
+    aile: "operasyon",
     image: "/generated/personas/rentacar.webp",
     service: "web",
     slug: { tr: "arac-kiralama-web-sitesi", en: "car-rental-website" },
@@ -239,6 +287,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "otogaleri",
+    aile: "ticaret",
     image: "/generated/personas/otogaleri.webp",
     service: "web",
     slug: { tr: "oto-galeri-web-sitesi", en: "car-dealership-website" },
@@ -246,6 +295,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "dugunsalonu",
+    aile: "agirlama",
     image: "/generated/personas/dugunsalonu.webp",
     service: "web",
     slug: { tr: "dugun-salonu-web-sitesi", en: "wedding-venue-website" },
@@ -253,6 +303,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "tekstil",
+    aile: "ticaret",
     image: "/generated/personas/tekstil.webp",
     service: "web",
     slug: {
@@ -263,6 +314,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "kuyumcu",
+    aile: "ticaret",
     image: "/generated/personas/kuyumcu.webp",
     service: "web",
     slug: { tr: "kuyumcu-web-sitesi", en: "jewelry-store-website" },
@@ -270,6 +322,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "yurt",
+    aile: "egitim",
     image: "/generated/personas/yurt.webp",
     service: "web",
     slug: { tr: "ogrenci-yurdu-web-sitesi", en: "student-dormitory-website" },
@@ -277,6 +330,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "fizyoterapi",
+    aile: "saglik",
     image: "/generated/personas/fizyoterapi.webp",
     service: "web",
     slug: { tr: "fizik-tedavi-web-sitesi", en: "physiotherapy-website" },
@@ -284,6 +338,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "huzurevi",
+    aile: "saglik",
     image: "/generated/personas/huzurevi.webp",
     service: "web",
     slug: { tr: "huzurevi-web-sitesi", en: "nursing-home-website" },
@@ -291,6 +346,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "gumruk",
+    aile: "danismanlik",
     image: "/generated/personas/gumruk.webp",
     service: "web",
     slug: { tr: "gumruk-musavirligi-web-sitesi", en: "customs-broker-website" },
@@ -298,6 +354,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "anaokulu",
+    aile: "egitim",
     image: "/generated/personas/anaokulu.webp",
     service: "web",
     slug: { tr: "anaokulu-web-sitesi", en: "preschool-website" },
@@ -305,6 +362,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "siteyonetim",
+    aile: "danismanlik",
     image: "/generated/personas/siteyonetim.webp",
     service: "web",
     slug: { tr: "site-yonetimi-web-sitesi", en: "property-management-website" },
@@ -312,6 +370,7 @@ export const solutionIndex: SolutionRef[] = [
   },
   {
     key: "mobil",
+    aile: "kisisel",
     image: "/generated/hero-device.webp",
     service: "mobile",
     slug: { tr: "mobil-uygulama-gelistirme", en: "mobile-app-development" },
@@ -359,3 +418,42 @@ export const refByKey = (key: string) => ANAHTARA_GORE.get(key);
  * kararı: footer sütununa sığan ve 404'te göz yormayan uzunluk.
  */
 export const ONE_CIKAN_SEKTORLER = solutionIndex.slice(0, 8);
+
+/** Sayfa altındaki şeritte kaç sektör gösterilecek. */
+const ILGILI_SAYISI = 8;
+
+/**
+ * Sayfa altındaki "ilgili sektörler" şeridi.
+ *
+ * Eskiden diğer sektörlerin HEPSİ listeleniyordu. On dokuz sayfayken bu
+ * savunulabilirdi; kırk bir sayfayken her sayfanın altına kırk bağlantılık
+ * bir blok koyuyor. İki maliyeti var: her sayfada fazladan HTML (kırk başlık
+ * metni, hem HTML hem RSC yükünde), ve ziyaretçiye "restoran sitesi mi
+ * istiyordun, buyur gümrük müşaviri" demek.
+ *
+ * Artık önce kendi ailesi geliyor. Aile sekizi doldurmuyorsa kalanı indeksin
+ * geri kalanından tamamlıyoruz — ama sabit baştan değil, sektörün kendi
+ * sırasından döndürerek. Sabit baştan doldursaydık indeksin sonundaki
+ * sektörler yalnızca kendi ailelerinden bağlantı alırdı; döndürmeyle gelen
+ * bağlantı sayısı sektörler arasında dengeli dağılıyor.
+ *
+ * Her sektöre ana sayfadaki tam liste zaten bağlanıyor, sitemap'te de duruyor;
+ * yani buradaki kısaltma hiçbir sayfayı keşfedilmez yapmıyor.
+ */
+export function ilgiliRefler(key: string): SolutionRef[] {
+  const bu = ANAHTARA_GORE.get(key);
+  if (!bu) return [];
+
+  const digerleri = solutionIndex.filter((r) => r.key !== key);
+  const ayniAile = digerleri.filter((r) => r.aile === bu.aile);
+  if (ayniAile.length >= ILGILI_SAYISI) return ayniAile.slice(0, ILGILI_SAYISI);
+
+  const baskaAile = digerleri.filter((r) => r.aile !== bu.aile);
+  const kaydir = solutionIndex.indexOf(bu) % baskaAile.length;
+  const dondurulmus = [
+    ...baskaAile.slice(kaydir),
+    ...baskaAile.slice(0, kaydir),
+  ];
+
+  return [...ayniAile, ...dondurulmus].slice(0, ILGILI_SAYISI);
+}

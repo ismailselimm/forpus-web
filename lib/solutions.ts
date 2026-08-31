@@ -9726,6 +9726,14 @@ export const solutions: Solution[] = [
   },
 ];
 
+/**
+ * Anahtardan çözüme. `solutionIndex` ile eşleşme dosyanın sonundaki derleme
+ * kontrolüyle garanti; çağıranlar bulunamama hâlini ele almak zorunda değil.
+ */
+const ANAHTARA_GORE = new Map(solutions.map((s) => [s.key, s]));
+
+export const solutionByKey = (key: string) => ANAHTARA_GORE.get(key);
+
 export function solutionByTrSlug(slug: string): Solution | undefined {
   return solutions.find((s) => s.slug.tr === slug);
 }

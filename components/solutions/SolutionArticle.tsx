@@ -11,14 +11,14 @@ import IlgiliYazilar from "@/components/solutions/IlgiliYazilar";
 import Breadcrumb, { breadcrumbLd, faqLd } from "@/components/ui/Breadcrumb";
 import KisaCevap from "@/components/ui/KisaCevap";
 import {
-  solutions,
+  solutionByKey,
   contentOf,
   slugOf,
   SOLUTIONS_LASTMOD,
   caseRefProject,
   type Solution,
 } from "@/lib/solutions";
-import { refByKey } from "@/lib/solution-index";
+import { ilgiliRefler, refByKey } from "@/lib/solution-index";
 import { shotAt } from "@/lib/projects";
 import { SITE_URL as SITE } from "@/lib/site";
 
@@ -44,7 +44,9 @@ export default function SolutionArticle({
   const homeHref = "/";
   const base = lang === "tr" ? "/cozumler" : "/en/solutions";
 
-  const related = solutions.filter((s) => s.key !== solution.key);
+  // Şerit artık tüm sektörleri değil, aynı konu ailesini gösteriyor —
+  // gerekçesi `ilgiliRefler`in başında. Eşleşme derleme zamanı garanti.
+  const related = ilgiliRefler(solution.key).map((r) => solutionByKey(r.key)!);
   const url = `${SITE}${base}/${slugOf(solution, lang)}`;
 
   // Eşleşme lib/solutions.ts'te build zamanı garanti altında; burada arama yok.
@@ -498,6 +500,12 @@ export default function SolutionArticle({
                 <ArrowRight className="h-4 w-4" />
               </Link>
             ))}
+            {/* Şerit artık kısaltılmış bir seçki; tam liste bir tık uzakta
+                dursun ki "benimki listede yok mu" diye çıkan olmasın. */}
+            <Link href={`${homeHref}#personas`} className="pill-link">
+              {L.seeAll}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
