@@ -18,13 +18,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
-import Katlanir from "@/components/ui/Katlanir";
-import { solutionIndex, slugOfRef as slugu } from "@/lib/solution-index";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
+import Katlanir from "@/components/ui/Katlanir";
 import { useLang } from "@/components/providers/LanguageProvider";
 import { presetService, type ServiceKey } from "@/lib/services";
-import { refByKey, slugOfRef } from "@/lib/solution-index";
+import { refByKey, slugOfRef, solutionIndex } from "@/lib/solution-index";
 
 const ICONS: Record<string, LucideIcon> = {
   doktor: Stethoscope,
@@ -159,6 +158,9 @@ export default function Personas() {
   const { t, lang } = useLang();
   const p = t.personas;
   const solBase = lang === "tr" ? "/cozumler" : "/en/solutions";
+  // Izgarada persona kartları var, sonunda da "sektörünüz listede yok mu"
+  // kartı — düğmedeki sayı ikisini birden sayıyor.
+  const kartSayisi = p.items.length + 1;
 
   /** Persona'nın çözüm sayfası. Her persona'nın sayfası YOK (ör. girişimci,
       tekne) — o zaman undefined dönüyor ve kart eski davranışta kalıyor. */
@@ -185,69 +187,71 @@ export default function Personas() {
         </div>
 
         {/* Equal-size cards, 1 → 2 → 3 columns. The wide catch-all fills the last row (no gaps). */}
-        {/* Kapalıyken iki kart görünüyor, üçüncüsü solmanın altından
-            sızıyor — listenin devamı olduğu belli oluyor. Kartın kendisine
-            dokunulmuyor: tam genişlikte ve bugünkü gibi okunur kalıyor. */}
+        {/* Kart ~398 piksel, aralık 12: 1180'de iki kart tam görünüyor ve
+            üçüncüsü solmanın altından sızıyor — devamı olduğu belli oluyor.
+            Kartın kendisine dokunulmuyor: tam genişlikte ve bugünkü gibi
+            okunur kalıyor. */}
         <Katlanir
           className="mt-12 sm:mt-16"
-          kapaliSinif="max-h-[760px] overflow-hidden [mask-image:linear-gradient(to_bottom,#000_600px,transparent)] sm:max-h-none sm:overflow-visible sm:[mask-image:none]"
-          butonMetni={`${p.tumOrnekler} (${p.items.length + 1})`}
+          boy={1180}
+          solma={1000}
+          butonMetni={`${p.tumOrnekler} (${kartSayisi})`}
         >
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-          {(p.items as Persona[]).map((persona, i) => (
-            <Reveal
-              key={persona.key}
-              delay={Math.min(i, 6) * 0.06}
-              className="h-full"
-            >
-              <PersonaCard
-                persona={persona}
-                deliverLabel={p.deliverLabel}
-                cozumHref={cozumHrefi(persona.key)}
-                inceleMetni={t.brief.incele}
-              />
-            </Reveal>
-          ))}
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+            {(p.items as Persona[]).map((persona, i) => (
+              <Reveal
+                key={persona.key}
+                delay={Math.min(i, 6) * 0.06}
+                className="h-full"
+              >
+                <PersonaCard
+                  persona={persona}
+                  deliverLabel={p.deliverLabel}
+                  cozumHref={cozumHrefi(persona.key)}
+                  inceleMetni={t.brief.incele}
+                />
+              </Reveal>
+            ))}
 
-          {/* Catch-all — spans the remaining columns so the grid always ends flush. */}
-          <Reveal
-            delay={Math.min(p.items.length, 7) * 0.06}
-            className="h-full sm:col-span-2"
-          >
-            <article className="group relative flex h-full flex-col items-start gap-4 overflow-hidden rounded-[var(--r-lg)] p-6 text-white shadow-[var(--shadow-card)] sm:flex-row sm:items-center sm:justify-between sm:p-8">
-              <Image
-                src="/generated/personas/more.webp"
-                alt=""
-                fill
-                sizes="(max-width: 640px) 100vw, 760px"
-                className="absolute inset-0 object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105 motion-reduce:transform-none"
-              />
-              <div aria-hidden className="absolute inset-0 bg-ink/30" />
-              <div
-                aria-hidden
-                className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/40 to-ink/15"
-              />
-              <div className="relative [text-shadow:0_1px_14px_rgba(7,24,46,0.7)]">
-                <h3 className="font-[family-name:var(--font-display)] text-[1.3rem] font-bold tracking-tight !text-white sm:text-[1.5rem]">
-                  {p.more.title}
-                </h3>
-                <p className="mt-2 max-w-md text-[0.95rem] font-medium leading-relaxed text-white/90">
-                  {p.more.pitch}
-                </p>
-              </div>
-              <Magnetic className="relative shrink-0" strength={0.25}>
-                <a
-                  href="#contact"
-                  onClick={() => presetService("all")}
-                  className="btn btn-primary"
-                >
-                  {p.more.cta}
-                  <ArrowUpRight className="h-[18px] w-[18px]" />
-                </a>
-              </Magnetic>
-            </article>
-          </Reveal>
-        </div>
+            {/* Catch-all — spans the remaining columns so the grid always ends flush. */}
+            <Reveal
+              delay={Math.min(p.items.length, 7) * 0.06}
+              className="h-full sm:col-span-2"
+            >
+              <article className="group relative flex h-full flex-col items-start gap-4 overflow-hidden rounded-[var(--r-lg)] p-6 text-white shadow-[var(--shadow-card)] sm:flex-row sm:items-center sm:justify-between sm:p-8">
+                <Image
+                  src="/generated/personas/more.webp"
+                  alt=""
+                  fill
+                  sizes="(max-width: 640px) 100vw, 760px"
+                  className="absolute inset-0 object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105 motion-reduce:transform-none"
+                />
+                <div aria-hidden className="absolute inset-0 bg-ink/30" />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/40 to-ink/15"
+                />
+                <div className="relative [text-shadow:0_1px_14px_rgba(7,24,46,0.7)]">
+                  <h3 className="font-[family-name:var(--font-display)] text-[1.3rem] font-bold tracking-tight !text-white sm:text-[1.5rem]">
+                    {p.more.title}
+                  </h3>
+                  <p className="mt-2 max-w-md text-[0.95rem] font-medium leading-relaxed text-white/90">
+                    {p.more.pitch}
+                  </p>
+                </div>
+                <Magnetic className="relative shrink-0" strength={0.25}>
+                  <a
+                    href="#contact"
+                    onClick={() => presetService("all")}
+                    className="btn btn-primary"
+                  >
+                    {p.more.cta}
+                    <ArrowUpRight className="h-[18px] w-[18px]" />
+                  </a>
+                </Magnetic>
+              </article>
+            </Reveal>
+          </div>
         </Katlanir>
 
         {/* Compact sector index — links to every SEO solution page without bloating the grid */}
@@ -260,19 +264,26 @@ export default function Personas() {
               {p.sectors.lead}
             </p>
           </div>
+          {/* mt-7 kırpmanın DIŞINDA: içeride kalsaydı 236 pikselin 28'i üst
+              boşluk olurdu ve sayı "listenin yüksekliği" anlamına gelmezdi. */}
           <Katlanir
-            kapaliSinif="max-h-[264px] overflow-hidden [mask-image:linear-gradient(to_bottom,#000_190px,transparent)] sm:max-h-none sm:overflow-visible sm:[mask-image:none]"
+            className="mt-7"
+            boy={236}
+            solma={162}
             butonMetni={`${p.sectors.tumu} (${solutionIndex.length})`}
           >
-            <ul className="mx-auto mt-7 flex max-w-4xl flex-wrap justify-center gap-2.5">
+            <ul className="mx-auto flex max-w-4xl flex-wrap justify-center gap-2.5">
               {solutionIndex.map((s) => (
                 <li key={s.key}>
                   <Link
-                    href={`${solBase}/${slugu(s, lang)}`}
+                    href={`${solBase}/${slugOfRef(s, lang)}`}
                     className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-4 py-2 text-[0.9rem] font-medium text-ink-2 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan/50 hover:bg-white hover:text-ink hover:shadow-[var(--shadow-soft)] motion-reduce:transform-none"
                   >
                     {s.label[lang]}
-                    <ArrowUpRight className="h-3.5 w-3.5 text-ink-3" strokeWidth={2} />
+                    <ArrowUpRight
+                      className="h-3.5 w-3.5 text-ink-3"
+                      strokeWidth={2}
+                    />
                   </Link>
                 </li>
               ))}
