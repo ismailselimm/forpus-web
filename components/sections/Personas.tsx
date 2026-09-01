@@ -18,11 +18,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
+import SektorIndeksi from "@/components/sections/SektorIndeksi";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
 import { presetService, type ServiceKey } from "@/lib/services";
-import { refByKey, slugOfRef, solutionIndex } from "@/lib/solution-index";
+import { refByKey, slugOfRef } from "@/lib/solution-index";
 
 const ICONS: Record<string, LucideIcon> = {
   doktor: Stethoscope,
@@ -249,22 +250,7 @@ export default function Personas() {
               {p.sectors.lead}
             </p>
           </div>
-          <ul className="mx-auto mt-7 flex max-w-4xl flex-wrap justify-center gap-2.5">
-            {solutionIndex.map((s) => (
-              <li key={s.key}>
-                <Link
-                  href={`${solBase}/${slugOfRef(s, lang)}`}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-4 py-2 text-[0.9rem] font-medium text-ink-2 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan/50 hover:bg-white hover:text-ink hover:shadow-[var(--shadow-soft)] motion-reduce:transform-none"
-                >
-                  {s.label[lang]}
-                  <ArrowUpRight
-                    className="h-3.5 w-3.5 text-ink-3"
-                    strokeWidth={2}
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <SektorIndeksi lang={lang} base={solBase} />
         </Reveal>
       </div>
     </section>
