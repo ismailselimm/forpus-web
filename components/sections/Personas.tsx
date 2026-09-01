@@ -18,7 +18,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
-import SektorIndeksi from "@/components/sections/SektorIndeksi";
+import Katlanir from "@/components/ui/Katlanir";
+import { solutionIndex, slugOfRef as slugu } from "@/lib/solution-index";
 import Aurora from "@/components/fx/Aurora";
 import Magnetic from "@/components/fx/Magnetic";
 import { useLang } from "@/components/providers/LanguageProvider";
@@ -184,7 +185,15 @@ export default function Personas() {
         </div>
 
         {/* Equal-size cards, 1 → 2 → 3 columns. The wide catch-all fills the last row (no gaps). */}
-        <div className="mt-12 grid grid-cols-1 gap-3 sm:mt-16 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        {/* Kapalıyken iki kart görünüyor, üçüncüsü solmanın altından
+            sızıyor — listenin devamı olduğu belli oluyor. Kartın kendisine
+            dokunulmuyor: tam genişlikte ve bugünkü gibi okunur kalıyor. */}
+        <Katlanir
+          className="mt-12 sm:mt-16"
+          kapaliSinif="max-h-[760px] overflow-hidden [mask-image:linear-gradient(to_bottom,#000_600px,transparent)] sm:max-h-none sm:overflow-visible sm:[mask-image:none]"
+          butonMetni={`${p.tumOrnekler} (${p.items.length + 1})`}
+        >
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {(p.items as Persona[]).map((persona, i) => (
             <Reveal
               key={persona.key}
@@ -239,6 +248,7 @@ export default function Personas() {
             </article>
           </Reveal>
         </div>
+        </Katlanir>
 
         {/* Compact sector index — links to every SEO solution page without bloating the grid */}
         <Reveal delay={0.1} className="mt-14 sm:mt-20">
@@ -250,7 +260,24 @@ export default function Personas() {
               {p.sectors.lead}
             </p>
           </div>
-          <SektorIndeksi lang={lang} base={solBase} />
+          <Katlanir
+            kapaliSinif="max-h-[264px] overflow-hidden [mask-image:linear-gradient(to_bottom,#000_190px,transparent)] sm:max-h-none sm:overflow-visible sm:[mask-image:none]"
+            butonMetni={`${p.sectors.tumu} (${solutionIndex.length})`}
+          >
+            <ul className="mx-auto mt-7 flex max-w-4xl flex-wrap justify-center gap-2.5">
+              {solutionIndex.map((s) => (
+                <li key={s.key}>
+                  <Link
+                    href={`${solBase}/${slugu(s, lang)}`}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white/70 px-4 py-2 text-[0.9rem] font-medium text-ink-2 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan/50 hover:bg-white hover:text-ink hover:shadow-[var(--shadow-soft)] motion-reduce:transform-none"
+                  >
+                    {s.label[lang]}
+                    <ArrowUpRight className="h-3.5 w-3.5 text-ink-3" strokeWidth={2} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Katlanir>
         </Reveal>
       </div>
     </section>

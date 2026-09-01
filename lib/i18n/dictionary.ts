@@ -193,7 +193,9 @@ const tr = {
     sectors: {
       title: "Sektörünüze özel bir sayfa",
       lead: "Aşağıdan alanınıza dokunun — her meslek için hazırladığımız çözümü görün.",
+      tumu: "Tüm sektörler",
     },
+    tumOrnekler: "Tüm örnekleri gör",
   },
   packages: {
     eyebrow: "Paketler",
@@ -684,7 +686,9 @@ const en: typeof tr = {
     sectors: {
       title: "A page tailored to your field",
       lead: "Tap your field below to see the solution we've prepared for it.",
+      tumu: "All sectors",
     },
+    tumOrnekler: "See all examples",
   },
   packages: {
     eyebrow: "Packages",
