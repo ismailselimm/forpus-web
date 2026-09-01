@@ -56,11 +56,29 @@ export type BlogPost = {
   faq?: { q: string; a: string }[];
   /** İlgili çözüm sayfalarının anahtarları — iç bağlantı için. */
   relatedSolutions?: string[];
+  /**
+   * Hiçbir mesleğe değil, hepsine yazılmış yazı.
+   *
+   * `relatedSolutions` yazının HANGİ mesleğe yazıldığını söylüyor: avukatın
+   * reklam yasağı avukatın derdi. Ama fiyat, nelere dikkat edileceği ve alan
+   * adının kimin üstüne olacağı, sektörden bağımsız olarak herkesin sorduğu
+   * üç şey. Sektör sayfası mesleğe özel yazı bulamazsa bunlarla tamamlıyor.
+   *
+   * Bayrak yazının kendi kaydında, çünkü ilk hâli dosyanın sonunda ayrı bir
+   * slug dizisiydi: yazı yeniden adlandırılınca sessizce kopuyordu ve onu
+   * yakalamak için üçüncü bir derleme kontrolü gerekiyordu. Alan olarak
+   * durduğunda kopma yapısal olarak imkânsız.
+   *
+   * `relatedSolutions`ın YERİNE geçmiyor, yanında duruyor: bu üç yazı hâlâ
+   * kendi anahtarlarını taşıyor, yani yazı-yazı eşleşmesinden düşmüyorlar.
+   */
+  herSektor?: boolean;
 };
 
 export const posts: BlogPost[] = [
   // ───────────────────────────────────────────────────────── FİYAT
   {
+    herSektor: true,
     slug: "web-sitesi-fiyatlari",
     title: "Web Sitesi Fiyatları: 2026'da Ne Kadar Tutar?",
     metaTitle: "Web Sitesi Fiyatları 2026 — Ne Kadar Tutar?",
@@ -723,6 +741,7 @@ export const posts: BlogPost[] = [
 
   // ───────────────────────────────────────────────────────── DİKKAT
   {
+    herSektor: true,
     slug: "web-sitesi-yaptirirken-dikkat-edilecekler",
     title: "Web Sitesi Yaptırırken Nelere Dikkat Edilmeli?",
     metaTitle: "Web Sitesi Yaptırırken Nelere Dikkat Edilmeli?",
@@ -1434,6 +1453,7 @@ export const posts: BlogPost[] = [
   },
   // ─────────────────────────── ALAN ADI VE HOSTING SAHİPLİĞİ
   {
+    herSektor: true,
     slug: "alan-adi-hosting-kime-ait",
     title: "Alan Adı ve Hosting Kimin Adına Olmalı?",
     metaTitle: "Alan Adı ve Hosting Kimin Adına Olmalı?",
@@ -1631,46 +1651,25 @@ export const blogUi = {
  *
  * Ekranda da doğru: "avukat web sitesi" arayıp gelen biri için reklam
  * yasağını anlatan yazı, o sayfadaki en yararlı ikinci adım.
- */
-/**
- * Hiçbir nişe değil, hepsine yazılmış yazılar.
  *
- * `relatedSolutions` bir yazının hangi mesleğe yazıldığını söylüyor:
- * avukatın reklam yasağı avukatın derdi, kimsenin değil. Ama fiyat, nelere
- * dikkat edileceği ve alan adının kimin üstüne olacağı, sektörden bağımsız
- * olarak siteyi yaptıran herkesin sorduğu üç şey.
- *
- * NEDEN GEREKTİ: sektör sayısı 19'dan 41'e çıkınca 29 sayfada "Karar
- * vermeden önce" bölümü boş kaldı — o sayfalardan bloga hiç bağlantı
- * gitmiyordu, ki yazılar zaten grafiğin en zayıf ucu. Alternatif, otuz
- * yazının üçüne 29 sektör anahtarı yazmaktı; o da anahtarın anlamını
- * ("bu yazı bu meslek için") bozardı ve yazı-yazı eşleşmesini çöpe
- * çevirirdi: her yazı her yazıyla ortak anahtar taşımaya başlardı.
+ * NEDEN GENEL YAZILAR DA GİRİYOR: sektör sayısı 19'dan 42'ye çıkınca 29
+ * sayfada bu bölüm boş kaldı — o sayfalardan bloga hiç bağlantı gitmiyordu,
+ * ki yazılar zaten grafiğin en zayıf ucu. `herSektor` bayrağı taşıyan üç
+ * yazı boşluğu dolduruyor.
  */
-const HER_SEKTOR_ICIN = [
-  "web-sitesi-fiyatlari",
-  "web-sitesi-yaptirirken-dikkat-edilecekler",
-  "alan-adi-hosting-kime-ait",
-];
-
-/** Sektör sayfasında gösterilecek yazı sayısı hedefi. */
-const SEKTOR_YAZI_HEDEFI = 3;
+/** Sektör sayfasında gösterilecek yazı sayısı. */
+const SEKTOR_YAZI_SAYISI = 3;
 
 export const postsForSolution = (solutionKey: string) => {
   const ozel = postsByDate.filter((y) =>
     y.relatedSolutions?.includes(solutionKey),
   );
-  if (ozel.length >= SEKTOR_YAZI_HEDEFI) return ozel;
-
-  // Mesleğe özel yazı önce; kalanı genel yazılarla tamamlanıyor. Sırayı
-  // korumak önemli: sayfaya gelen kişi önce kendi mesleğinin yazısını
-  // görmeli, "web sitesi ne kadar tutar"ı sonra.
-  const genel = postsByDate.filter(
-    (y) => HER_SEKTOR_ICIN.includes(y.slug) && !ozel.includes(y),
-  );
-  return [...ozel, ...genel].slice(0, SEKTOR_YAZI_HEDEFI);
+  // Mesleğe özel yazı önce, kalanı genel yazılarla tamamlanıyor. Sıra
+  // önemli: sayfaya gelen kişi önce kendi mesleğinin yazısını görmeli,
+  // "web sitesi ne kadar tutar"ı sonra.
+  const genel = postsByDate.filter((y) => y.herSektor && !ozel.includes(y));
+  return [...ozel, ...genel].slice(0, SEKTOR_YAZI_SAYISI);
 };
-
 /**
  * Bir yazıdan diğerlerine — YAZI ARASI köprü.
  *
@@ -1707,10 +1706,3 @@ export const ilgiliYazilar = (yazi: BlogPost, adet = 3) => {
 // yeniden adlandırıldığında blogdan giden iç bağlantılar izsiz kaybolurdu.
 // ============================================================================
 assertSolutionKeys("blog", posts);
-
-// Genel yazı listesi slug tutuyor, referans değil: yazı yeniden
-// adlandırıldığında sektör sayfalarının blog köprüsü sessizce boşalırdı.
-for (const slug of HER_SEKTOR_ICIN) {
-  if (!posts.some((y) => y.slug === slug))
-    throw new Error(`blog: HER_SEKTOR_ICIN içinde olmayan yazı — "${slug}"`);
-}

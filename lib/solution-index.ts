@@ -21,7 +21,7 @@ import type { ServiceKey } from "./services";
  * marka ve fotoğrafçının yanında — ki yanlıştı. İkisi birbirinin en doğru
  * ilgili bağlantısı: özel yazılım isteyen çoğu zaman mobil de istiyor.
  */
-export type Aile =
+type Aile =
   | "saglik"
   | "pet"
   | "guzellik"
@@ -440,16 +440,19 @@ const ILGILI_SAYISI = 8;
  * Sayfa altındaki "ilgili sektörler" şeridi.
  *
  * Eskiden diğer sektörlerin HEPSİ listeleniyordu. On dokuz sayfayken bu
- * savunulabilirdi; kırk bir sayfayken her sayfanın altına kırk bağlantılık
+ * savunulabilirdi; kırk iki sayfayken her sayfanın altına kırk bağlantılık
  * bir blok koyuyor. İki maliyeti var: her sayfada fazladan HTML (kırk başlık
  * metni, hem HTML hem RSC yükünde), ve ziyaretçiye "restoran sitesi mi
  * istiyordun, buyur gümrük müşaviri" demek.
  *
- * Artık önce kendi ailesi geliyor. Aile sekizi doldurmuyorsa kalanı indeksin
- * geri kalanından tamamlıyoruz — ama sabit baştan değil, sektörün kendi
+ * Artık önce kendi ailesi geliyor, kalanı indeksin geri kalanından
+ * tamamlanıyor. Bugün hiçbir aile sekizi doldurmuyor — en büyüğü yedi
+ * kayıtlı `saglik` — yani dolgu her sayfada devreye giriyor; şeridin başı
+ * konuya yakın, sonu değil. Başlık da onu vaat ediyor ("Diğer çözümler"),
+ * konu yakınlığı değil. Dolgu bilerek duruyor — ama sabit baştan değil, sektörün kendi
  * sırasından döndürerek. Sabit baştan doldursaydık indeksin sonundaki
- * sektörler yalnızca kendi ailelerinden bağlantı alırdı; döndürmeyle gelen
- * bağlantı sayısı sektörler arasında dengeli dağılıyor.
+ * sektörler yalnızca kendi ailelerinden bağlantı alırdı. Ölçüldü: döndürmeyle
+ * her sayfaya 4-12 bağlantı geliyor, sabit baştan doldurulsa 1-41 olurdu.
  *
  * Her sektöre ana sayfadaki tam liste zaten bağlanıyor, sitemap'te de duruyor;
  * yani buradaki kısaltma hiçbir sayfayı keşfedilmez yapmıyor.
@@ -458,16 +461,15 @@ export function ilgiliRefler(key: string): SolutionRef[] {
   const bu = ANAHTARA_GORE.get(key);
   if (!bu) return [];
 
-  const digerleri = solutionIndex.filter((r) => r.key !== key);
-  const ayniAile = digerleri.filter((r) => r.aile === bu.aile);
-  if (ayniAile.length >= ILGILI_SAYISI) return ayniAile.slice(0, ILGILI_SAYISI);
-
-  const baskaAile = digerleri.filter((r) => r.aile !== bu.aile);
+  const ayniAile = solutionIndex.filter(
+    (r) => r.aile === bu.aile && r.key !== key,
+  );
+  const baskaAile = solutionIndex.filter((r) => r.aile !== bu.aile);
   const kaydir = solutionIndex.indexOf(bu) % baskaAile.length;
-  const dondurulmus = [
+
+  return [
+    ...ayniAile,
     ...baskaAile.slice(kaydir),
     ...baskaAile.slice(0, kaydir),
-  ];
-
-  return [...ayniAile, ...dondurulmus].slice(0, ILGILI_SAYISI);
+  ].slice(0, ILGILI_SAYISI);
 }

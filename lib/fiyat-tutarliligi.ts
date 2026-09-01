@@ -1,5 +1,6 @@
 import { posts, type BlogPost } from "./blog";
 import { solutions } from "./solutions";
+import { PRICE_FLOOR, bantRakamlari, fiyatlariOku } from "./pricing";
 
 /**
  * BLOG FİYATLARI SEKTÖR BANTLARIYLA TUTUYOR MU — derleme zamanı kontrolü.
@@ -24,16 +25,16 @@ import { solutions } from "./solutions";
  * grafiği temiz tutuyor. `app/sitemap.ts` zaten ikisini de okuyor ve
  * derleme zamanında çalışıyor, çağıran orası.
  *
- * Kapsam: yalnızca sektör bandı biçimindeki rakamlar (₺50.000 ve üstü).
+ * Kapsam: yalnızca sektör bandı biçimindeki rakamlar (`PRICE_FLOOR` ve üstü).
  * Rakip tekliflerinden söz eden "₺5.000'e web sitesi" gibi ifadeler
  * kasıtlı olarak sektör listesinde yok; eşik onları dışarıda bırakıyor.
  */
 export function assertBlogFiyatlari() {
-  const bandlar = new Set<string>();
+  const bandlar = new Set<number>();
   for (const s of solutions) {
     for (const c of [s.tr, s.en]) {
       for (const t of c.pricing?.tiers ?? []) {
-        for (const m of t.price.matchAll(/[\d.]+/g)) bandlar.add(m[0]);
+        for (const n of bantRakamlari(t.price)) bandlar.add(n);
       }
     }
   }
@@ -51,13 +52,11 @@ export function assertBlogFiyatlari() {
     ].join(" ");
 
   for (const y of posts) {
-    for (const m of metin(y).matchAll(/₺([\d.]+)/g)) {
-      const ham = m[1];
-      const sayi = Number(ham.replace(/\./g, ""));
-      if (!Number.isFinite(sayi) || sayi < 50000) continue;
-      if (!bandlar.has(ham)) {
+    for (const sayi of fiyatlariOku(metin(y))) {
+      if (sayi < PRICE_FLOOR) continue;
+      if (!bandlar.has(sayi)) {
         throw new Error(
-          `blog: "${y.slug}" ₺${ham} diyor ama bu rakam hiçbir sektörün fiyat bandında yok — biri güncellenmiş, diğeri unutulmuş olabilir`,
+          `blog: "${y.slug}" ₺${sayi.toLocaleString("tr-TR")} diyor ama bu rakam hiçbir sektörün fiyat bandında yok — biri güncellenmiş, diğeri unutulmuş olabilir`,
         );
       }
     }

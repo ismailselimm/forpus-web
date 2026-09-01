@@ -14,21 +14,10 @@ export const dynamic = "force-static"; // statik export (GitHub Pages) için
 // gerekçesi kontrolün kendi dosyasında yazılı.
 assertBlogFiyatlari();
 
-// Sektör sayfalarının içeriği en son bu tarihte elden geçti. Google yeniden
-// taramayı lastmod'a bakarak önceliklendirdiği için, içeriği gerçekten
-// değiştirdiğimizde BU TARİHİ GÜNCELLEYİN. Build zamanı kullanmak yanlış
-// olur: her deploy "değişti" der, sinyal değersizleşir.
+// Tarih ve neden build zamanı kullanılmadığı lib/solutions.ts'te, sabitin
+// kendi yanında yazılı. İki dil aynı nesnede, aynı turda elden geçiyor:
+// tek tarih.
 const ICERIK_LASTMOD = new Date(SOLUTIONS_LASTMOD);
-
-// EN'in ayrı bir tarihi vardı ve o tarih artık yalan söylüyordu: 22 yeni
-// sektör eklendiğinde Türkçesiyle birlikte İngilizcesi de yazıldı, ama
-// sitemap onların "12 Temmuz'da güncellendi" olduğunu bildiriyordu — yani
-// sayfanın var olmadığı bir tarihi. Google için bu, tarama önceliğini
-// bilerek yanlış yönlendirmek demek.
-//
-// İki dil aynı nesnenin içinde ve aynı turda elden geçiyor; ayrı iki tarih
-// tutmanın gerçek bir karşılığı yok. Öncelik farkı (0.8 / 0.7) duruyor, o
-// ayrı bir karar ve gerekçesi aşağıda.
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const solutionPages: MetadataRoute.Sitemap = solutions.flatMap((s) => {
@@ -47,6 +36,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: en,
         lastModified: ICERIK_LASTMOD,
         changeFrequency: "monthly",
+        // Bir tık altta: Türkiye odaklı bir işletmenin İngilizce sayfası,
+        // Türkçesinin önüne geçmemeli. Çevrilmiş sayfalarda da aynı karar.
         priority: 0.7,
         alternates: { languages },
       },

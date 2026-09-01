@@ -20,6 +20,7 @@ import {
 } from "@/lib/solutions";
 import { ilgiliRefler, refByKey } from "@/lib/solution-index";
 import { shotAt } from "@/lib/projects";
+import { ilkFiyat } from "@/lib/pricing";
 import { SITE_URL as SITE } from "@/lib/site";
 
 /** Server-rendered SEO landing page body (content is static HTML so Google indexes it). */
@@ -41,7 +42,13 @@ export default function SolutionArticle({
   // Kısa sektör adı `solutionIndex`te kanonik ("Doktor", "Avukat"); burada
   // yeniden yazmak ikinci bir isim kaynağı olurdu.
   const sektorEtiketi = refByKey(solution.key)?.label[lang] ?? c.eyebrow;
-  const homeHref = "/";
+  // Dile duyarlı: İngilizce sayfadaki "See all services" Türkçe ana sayfaya
+  // gitmemeli. `/en` var ve `base` zaten dile göre seçiliyor.
+  const homeHref = lang === "tr" ? "/" : "/en";
+  // "Tüm hizmetleri gör" iki yerde çıkıyor: hero'da ve şeridin sonunda.
+  // Aynı etiketin iki farklı yere gitmesi kafa karıştırıyordu; ikisi de
+  // sektör indeksine gidiyor, çünkü etiketin söz verdiği şey orası.
+  const tumHizmetlerHref = `${homeHref}#personas`;
   const base = lang === "tr" ? "/cozumler" : "/en/solutions";
 
   // Şerit artık tüm sektörleri değil, aynı konu ailesini gösteriyor —
@@ -49,15 +56,12 @@ export default function SolutionArticle({
   const related = ilgiliRefler(solution.key).map((r) => solutionByKey(r.key)!);
   const url = `${SITE}${base}/${slugOf(solution, lang)}`;
 
-  // Eşleşme lib/solutions.ts'te build zamanı garanti altında; burada arama yok.
   const caseProject = caseRefProject(c);
 
   // Sayfada fiyat bandı yazıyorsa aynı rakamı yapılandırılmış veriye de koyarız.
-  // "₺50.000 – 90.000" → 50000 (TR binlik ayracı nokta olduğu için sadece rakamları alırız).
-  const lowPrice =
-    Number(
-      c.pricing?.tiers[0]?.price.match(/[\d.]+/)?.[0].replace(/\./g, ""),
-    ) || undefined;
+  // Ayrıştırma `lib/pricing.ts`te: burada elle yazılmışken İngilizce virgüllü
+  // bandı ("₺250,000 – 400,000") virgülde kesip 250 okuyordu.
+  const lowPrice = ilkFiyat(c.pricing?.tiers[0]?.price);
 
   // Bölüm başlığı varsa fayda kartları onun altına iner; yoksa kartlar bölümün kendisidir.
   const CardHeading = c.benefitsTitle ? "h3" : "h2";
@@ -131,7 +135,10 @@ export default function SolutionArticle({
                       <ArrowUpRight className="h-[18px] w-[18px]" />
                     </a>
                   </Magnetic>
-                  <Link href={homeHref} className="pill-link pill-link-lg">
+                  <Link
+                    href={tumHizmetlerHref}
+                    className="pill-link pill-link-lg"
+                  >
                     {L.seeAll}
                   </Link>
                 </div>
@@ -502,7 +509,7 @@ export default function SolutionArticle({
             ))}
             {/* Şerit artık kısaltılmış bir seçki; tam liste bir tık uzakta
                 dursun ki "benimki listede yok mu" diye çıkan olmasın. */}
-            <Link href={`${homeHref}#personas`} className="pill-link">
+            <Link href={tumHizmetlerHref} className="pill-link">
               {L.seeAll}
               <ArrowRight className="h-4 w-4" />
             </Link>

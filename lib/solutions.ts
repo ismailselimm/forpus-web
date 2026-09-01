@@ -5,7 +5,7 @@ import type { ServiceKey } from "./services";
 import type { KisaCevapIcerigi } from "./kisa-cevap";
 import { solutionIndex } from "./solution-index";
 import { webProjects } from "./projects";
-import { PRICE_FLOOR } from "./pricing";
+import { PRICE_FLOOR, fiyatlariOku } from "./pricing";
 
 export type SolutionContent = {
   metaTitle: string;
@@ -10133,6 +10133,18 @@ export const SOLUTIONS_LASTMOD = "2026-08-31";
 // bir sayfa yayına çıkmaz.
 // ============================================================================
 
+/**
+ * Her sektörün her dili. Aşağıdaki kontroller bunun üstünde geziyor.
+ *
+ * Aynı iki dilli döngü dört kontrolde ayrı ayrı yazılmıştı ve varyantları
+ * ayrışmıştı — biri hata mesajına dili yazıyor, biri yazmıyordu. Yeni kontrol
+ * eklerken kopyalanacak bir kalıp kalmasın diye tek yere alındı.
+ */
+const HER_DIL = solutions.flatMap((s) => [
+  { s, dil: "tr" as const, c: s.tr },
+  { s, dil: "en" as const, c: s.en },
+]);
+
 // 1) Hafif indeks (istemci tarafı) ile içerik burada senkron kalmalı.
 {
   const idx = new Set(solutionIndex.map((r) => r.key));
@@ -10146,7 +10158,7 @@ export const SOLUTIONS_LASTMOD = "2026-08-31";
       throw new Error(`solution-index: "${k}" lib/solutions.ts içinde yok`);
   }
   for (const r of solutionIndex) {
-    const s = solutions.find((x) => x.key === r.key)!;
+    const s = solutionByKey(r.key)!;
     if (s.slug.tr !== r.slug.tr || s.slug.en !== r.slug.en) {
       throw new Error(`solutions: "${r.key}" slug'ı indeksle uyuşmuyor`);
     }
@@ -10163,13 +10175,11 @@ export const SOLUTIONS_LASTMOD = "2026-08-31";
 //    olduğu gibi) ilgili bölüm sessizce kaybolmasın, build uyarsın.
 {
   const known = new Set(webProjects.map((p) => p.slug));
-  for (const s of solutions) {
-    for (const c of [s.tr, s.en]) {
-      if (c.caseRef && !known.has(c.caseRef.projectSlug)) {
-        throw new Error(
-          `solutions: "${s.key}" → bilinmeyen proje "${c.caseRef.projectSlug}"`,
-        );
-      }
+  for (const { s, dil, c } of HER_DIL) {
+    if (c.caseRef && !known.has(c.caseRef.projectSlug)) {
+      throw new Error(
+        `solutions: "${s.key}" (${dil}) → bilinmeyen proje "${c.caseRef.projectSlug}"`,
+      );
     }
   }
 }
@@ -10188,24 +10198,18 @@ export const SOLUTIONS_LASTMOD = "2026-08-31";
 //    süreç, kontrol listesi ve fiyat bantları. Türkçe binlik ayracı nokta,
 //    İngilizce virgül; ikisi de yakalanıyor.
 {
-  const RAKAM = /₺(\d{1,3}(?:[.,]\d{3})+)/g;
-
-  for (const s of solutions) {
-    for (const [dil, c] of [
-      ["tr", s.tr],
-      ["en", s.en],
-    ] as const) {
-      // Sayfada görünen her metni tek bir dizede topla; hangi alanda olduğu
-      // hata mesajı için değil, rakamın kendisi için önemli.
-      const metin = JSON.stringify(c);
-      for (const m of metin.matchAll(RAKAM)) {
-        const n = Number(m[1].replace(/[.,]/g, ""));
-        if (Number.isFinite(n) && n < PRICE_FLOOR) {
-          throw new Error(
-            `solutions: "${s.key}" (${dil}) metninde ₺${m[1]} geçiyor — ` +
-              `ilan edilen taban ₺${PRICE_FLOOR} altında. Site "₺${PRICE_FLOOR}'den başlayan" diyor.`,
-          );
-        }
+  for (const { s, dil, c } of HER_DIL) {
+    // Alan alan gezmek yerine tüm içeriği tek dizede tarıyoruz: `SolutionContent`
+    // on ikiden fazla alan taşıyor ve elle yazılan bir alan listesi her yeni
+    // alanda sessizce eksik kalırdı — kontrolün ilk hâlinin hatası tam buydu,
+    // yalnız `pricing.tiers[0]`a bakıyordu.
+    for (const n of fiyatlariOku(JSON.stringify(c))) {
+      if (n < PRICE_FLOOR) {
+        throw new Error(
+          `solutions: "${s.key}" (${dil}) metninde ₺${n.toLocaleString("tr-TR")} geçiyor. ` +
+            `Site "₺${PRICE_FLOOR.toLocaleString("tr-TR")}'den başlayan" diyor; bu rakam onun altında. ` +
+            `Gerçekten proje fiyatı değilse (aylık bakım, reklam bütçesi gibi) ₺ işaretsiz yazın.`,
+        );
       }
     }
   }
@@ -10264,32 +10268,33 @@ const MEVZUAT_SEKTORLERI: Record<string, "saglik" | "veteriner" | "meslek"> = {
   const MEVZUAT_SSS =
     /mevzuat|reklam yasa|tanıtım kural|meslek etiği|etik kural|advertis|restriction/i;
 
-  for (const s of solutions) {
+  // Yasak modül ve vaat taraması: her dilde ayrı ayrı, çünkü kusur iki kez
+  // yalnız bir dilde düzeltilip diğeri atlanarak oluştu.
+  for (const { s, dil, c } of HER_DIL) {
     if (!(s.key in MEVZUAT_SEKTORLERI)) continue;
 
-    for (const [dil, c] of [
-      ["tr", s.tr],
-      ["en", s.en],
-    ] as const) {
-      for (const f of c.features) {
-        if (YASAK.test(f)) {
-          throw new Error(
-            `solutions: "${s.key}" (${dil}) mevzuat kısıtlı bir sektör ama features içinde "${f}" var. ` +
-              `Bu metin teklif formunda kutucuğa dönüşüyor; müşteriye yasak olan bir modülü sipariş edilebilir kılma.`,
-          );
-        }
-      }
-      for (const b of c.benefits) {
-        if (YASAK.test(b.title)) {
-          throw new Error(
-            `solutions: "${s.key}" (${dil}) fayda başlığı "${b.title}" mevzuat kısıtlı sektörde vaat edilemez.`,
-          );
-        }
+    for (const f of c.features) {
+      if (YASAK.test(f)) {
+        throw new Error(
+          `solutions: "${s.key}" (${dil}) mevzuat kısıtlı bir sektör ama features içinde "${f}" var. ` +
+            `Bu metin teklif formunda kutucuğa dönüşüyor; müşteriye yasak olan bir modülü sipariş edilebilir kılma.`,
+        );
       }
     }
+    for (const b of c.benefits) {
+      if (YASAK.test(b.title)) {
+        throw new Error(
+          `solutions: "${s.key}" (${dil}) fayda başlığı "${b.title}" mevzuat kısıtlı sektörde vaat edilemez.`,
+        );
+      }
+    }
+  }
 
-    // Kısıtlı her sektör, kısıtın ne olduğunu Türkçe sayfasında söylemek
-    // zorunda. Müşteri kuralı bizden öğrenmezse rakip ajanstan hiç öğrenmiyor.
+  // Kısıtın ANLATILDIĞI yer yalnız Türkçe sayfa; bu yüzden dil döngüsünün
+  // içinde değil, sektör başına bir kez. Müşteri kuralı bizden öğrenmezse
+  // rakip ajanstan hiç öğrenmiyor.
+  for (const s of solutions) {
+    if (!(s.key in MEVZUAT_SEKTORLERI)) continue;
     if (!s.tr.faq.some((f) => MEVZUAT_SSS.test(f.q) || MEVZUAT_SSS.test(f.a))) {
       throw new Error(
         `solutions: "${s.key}" mevzuat kısıtlı bir sektör ama Türkçe SSS'inde kısıtı anlatan bir soru yok.`,
@@ -10306,21 +10311,16 @@ const MEVZUAT_SEKTORLERI: Record<string, "saglik" | "veteriner" | "meslek"> = {
 // tam da tıklanacak yerde görünmüyordu.
 //
 // Kontrol burada, çünkü sınır bir yazım tercihi değil ölçülebilir bir eşik ve
-// sektör eklerken kimse karakter saymıyor. 41 sektöre çıkarken 22 açıklama
+// sektör eklerken kimse karakter saymıyor. 42 sektöre çıkarken 22 açıklama
 // tek turda yazıldı; gözle tutulabilecek bir kural değil.
 {
   const SINIR = 160;
-  for (const s of solutions) {
-    for (const [dil, c] of [
-      ["tr", s.tr],
-      ["en", s.en],
-    ] as const) {
-      if (c.metaDescription.length > SINIR) {
-        throw new Error(
-          `solutions: "${s.key}" (${dil}) meta açıklaması ${c.metaDescription.length} karakter — ` +
-            `arama sonucunda ${SINIR}'ta kesilir, sondaki çağrı görünmez.`,
-        );
-      }
+  for (const { s, dil, c } of HER_DIL) {
+    if (c.metaDescription.length > SINIR) {
+      throw new Error(
+        `solutions: "${s.key}" (${dil}) meta açıklaması ${c.metaDescription.length} karakter — ` +
+          `arama sonucunda ${SINIR}'ta kesilir, sondaki çağrı görünmez.`,
+      );
     }
   }
 }

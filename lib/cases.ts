@@ -94,7 +94,13 @@ export const cases: CaseStudy[] = [
         "Üçüncüsü kapsam. Sahiplendirme, kayıp ilanı, veteriner rehberi, forum ve sağlık takibi aynı anda yapılmadı. Böyle bir projede her şeyi ilk sürüme koymak hem maliyeti katlar hem de hangi bölümün gerçekten kullanılacağını görmenizi engeller.",
       ],
     },
-    relatedSolutions: ["mobil", "veteriner", "petotel", "petkuafor", "ozelyazilim"],
+    relatedSolutions: [
+      "mobil",
+      "veteriner",
+      "petotel",
+      "petkuafor",
+      "ozelyazilim",
+    ],
   },
 
   {
