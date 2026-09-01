@@ -9499,8 +9499,8 @@ export const solutions: Solution[] = [
       metaTitle: "Özel Yazılım Geliştirme — Panel, CRM, ERP",
       metaDescription:
         "Panel, CRM ve ERP için özel yazılım geliştirme. Sipariş, müşteri, stok ve ödeme tek sistemde. Kapsam baştan yazılı, kaynak kod sizin. Ücretsiz teklif alın.",
-      eyebrow: "Özel Yazılım Geliştirme",
-      h1: "Özel Yazılım Geliştirme — Panel, CRM, ERP",
+      eyebrow: "Panel, CRM ve ERP",
+      h1: "Özel Yazılım Geliştirme",
       intro:
         "Hazır programlar işi bir yere kadar taşır. Kendi akışınız hazır bir şablona sığmadığında sistemi işe değil, işi sisteme uydurmaya başlarsınız; özel yazılım bu noktada gerekir. Siparişten ekip atamasına, müşteri takibinden (CRM) stok ve maliyet planlamasına (ERP) kadar süreci kendi çalışma biçiminize göre kuran paneller geliştiriyoruz. Temizlik Express'in sipariş, ekip ataması, ödeme ve yönetim panelinden oluşan canlı operasyon sistemini; DoldurKabı'nın platform, panel ve mobil uygulamasını bu şekilde kurduk.",
       shortAnswer: {
@@ -9677,8 +9677,8 @@ export const solutions: Solution[] = [
       metaTitle: "Custom Software Development — Panels, CRM, ERP",
       metaDescription:
         "Custom software for panels, CRM and ERP. Orders, customers, stock and payments in one system. Scope in writing, source code yours. Get a free quote.",
-      eyebrow: "Custom Software Development",
-      h1: "Custom Software Development — Panels, CRM, ERP",
+      eyebrow: "Panels, CRM and ERP",
+      h1: "Custom Software Development",
       intro:
         "Off-the-shelf software carries a business up to a point. Once your own workflow no longer fits the template, you stop shaping the software around the work and start shaping the work around the software. That is where custom software earns its cost. We build panels that follow how you already operate — from orders and team assignment to customer tracking (CRM) and stock and cost planning (ERP). Temizlik Express runs on a live operations system we built this way: orders, team assignment, payment and an admin panel. DoldurKabı runs on a platform with its own panel and mobile app.",
       shortAnswer: {
