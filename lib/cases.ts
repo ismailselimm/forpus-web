@@ -94,7 +94,7 @@ export const cases: CaseStudy[] = [
         "Üçüncüsü kapsam. Sahiplendirme, kayıp ilanı, veteriner rehberi, forum ve sağlık takibi aynı anda yapılmadı. Böyle bir projede her şeyi ilk sürüme koymak hem maliyeti katlar hem de hangi bölümün gerçekten kullanılacağını görmenizi engeller.",
       ],
     },
-    relatedSolutions: ["mobil", "veteriner", "petotel", "petkuafor"],
+    relatedSolutions: ["mobil", "veteriner", "petotel", "petkuafor", "ozelyazilim"],
   },
 
   {
@@ -146,7 +146,7 @@ export const cases: CaseStudy[] = [
         "Üçüncüsü, ürünü kuran ekiple reklamı yürüten ekibin aynı olmasının pratik faydası. Reklamdan gelen kullanıcı akışın üçüncü adımında düşüyorsa, bunu görmek ve düzeltmek iki ayrı firmayla haftalar sürebilecek bir iş; aynı ekipteyken aynı gün çözülüyor.",
       ],
     },
-    relatedSolutions: ["mobil", "eticaret", "temizlik"],
+    relatedSolutions: ["mobil", "eticaret", "temizlik", "ozelyazilim"],
   },
 
   {

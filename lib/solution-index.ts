@@ -15,6 +15,11 @@ import type { ServiceKey } from "./services";
  * Sektörün konu ailesi. Sayfa altındaki "ilgili sektörler" şeridi buna göre
  * seçiliyor: diş hekimi sayfasından doktora, psikoloğa, diyetisyene gitmek
  * anlamlı; kaynak makinesi satan bir siteye gitmek değil.
+ *
+ * "yazilim" ailesi bir sektör değil: mobil uygulama ve özel yazılım, sektör
+ * değil HİZMET sayfaları. Mobil daha önce "kisisel"de duruyordu — kişisel
+ * marka ve fotoğrafçının yanında — ki yanlıştı. İkisi birbirinin en doğru
+ * ilgili bağlantısı: özel yazılım isteyen çoğu zaman mobil de istiyor.
  */
 export type Aile =
   | "saglik"
@@ -26,7 +31,8 @@ export type Aile =
   | "agirlama"
   | "egitim"
   | "operasyon"
-  | "kisisel";
+  | "kisisel"
+  | "yazilim";
 
 export type SolutionRef = {
   key: string;
@@ -369,8 +375,16 @@ export const solutionIndex: SolutionRef[] = [
     label: { tr: "Site Yönetimi", en: "Property Management" },
   },
   {
+    key: "ozelyazilim",
+    aile: "yazilim",
+    image: "/generated/personas/ozelyazilim.webp",
+    service: "web",
+    slug: { tr: "ozel-yazilim-gelistirme", en: "custom-software-development" },
+    label: { tr: "Özel Yazılım", en: "Custom Software" },
+  },
+  {
     key: "mobil",
-    aile: "kisisel",
+    aile: "yazilim",
     image: "/generated/hero-device.webp",
     service: "mobile",
     slug: { tr: "mobil-uygulama-gelistirme", en: "mobile-app-development" },

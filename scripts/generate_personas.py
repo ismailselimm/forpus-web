@@ -59,6 +59,9 @@ JOBS = {
     "gumruk":      ("container terminal at dawn, stacked shipping containers in soft mist, cool blue light, orderly", 88129),
     "anaokulu":    ("bright tidy preschool classroom, small wooden chairs and soft toys on low shelves, gentle morning light", 88130),
     "siteyonetim": ("modern apartment complex courtyard at dusk, clean landscaping and lit entrance lobby, calm", 88131),
+    # 01.09.2026 — özel yazılım hizmet sayfası. Sektör değil hizmet sayfası;
+    # görsel de bir mekân değil, ekranların olduğu sakin bir çalışma anı.
+    "ozelyazilim": ("quiet modern office at night, two softly glowing monitors on a wooden desk, abstract out-of-focus interface light reflecting on the surface, warm desk lamp, calm and orderly", 88232),
 }
 W, H = 832, 1216
 

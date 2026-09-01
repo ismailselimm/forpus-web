@@ -1753,7 +1753,7 @@ export const solutions: Solution[] = [
         },
         {
           q: "Restoran web sitesi ne kadar tutar?",
-          a: "Dijital menü ve mekân tanıtımı odaklı bir site ₺40.000 bandında başlar. Online rezervasyon, çok dilli menü ve kampanya bölümü olan bir site ₺80.000–140.000 aralığındadır. Kendi sipariş ve teslimat sisteminiz işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz.",
+          a: "Dijital menü ve mekân tanıtımı odaklı bir site ₺50.000 bandında başlar. Online rezervasyon, çok dilli menü ve kampanya bölümü olan bir site ₺80.000–140.000 aralığındadır. Kendi sipariş ve teslimat sisteminiz işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz.",
         },
         {
           q: "QR menü de yapıyor musunuz?",
@@ -1976,7 +1976,7 @@ export const solutions: Solution[] = [
         },
         {
           q: "Kişisel marka web sitesi ne kadar tutar?",
-          a: "Tek sayfalık, sizi anlatan güçlü bir site ₺40.000 bandında başlar. Hizmetlerin ayrı sayfalandığı, blog ve bülten altyapılı bir marka sitesi ₺80.000–130.000 aralığındadır. Kurs veya üyelik satışı işin içine girdiğinde ₺180.000'den başlayan bir projeden söz ediyoruz.",
+          a: "Tek sayfalık, sizi anlatan güçlü bir site ₺50.000 bandında başlar. Hizmetlerin ayrı sayfalandığı, blog ve bülten altyapılı bir marka sitesi ₺80.000–130.000 aralığındadır. Kurs veya üyelik satışı işin içine girdiğinde ₺180.000'den başlayan bir projeden söz ediyoruz.",
         },
         {
           q: "Sosyal medyam varken siteye gerek var mı?",
@@ -2200,7 +2200,7 @@ export const solutions: Solution[] = [
         },
         {
           q: "Kuaför web sitesi ne kadar tutar?",
-          a: "Hizmet listesi, galeri ve WhatsApp yönlendirmeli bir tanıtım sitesi ₺40.000 bandında başlar. Online randevu formu ve stilist yönlendirmeli bir site ₺80.000–130.000 aralığındadır. Takvimli randevu yönetimi ve mobil uygulama işin içine girdiğinde ₺180.000'den başlayan bir projeden söz ediyoruz.",
+          a: "Hizmet listesi, galeri ve WhatsApp yönlendirmeli bir tanıtım sitesi ₺50.000 bandında başlar. Online randevu formu ve stilist yönlendirmeli bir site ₺80.000–130.000 aralığındadır. Takvimli randevu yönetimi ve mobil uygulama işin içine girdiğinde ₺180.000'den başlayan bir projeden söz ediyoruz.",
         },
         {
           q: "Instagram'ım var, siteye gerek var mı?",
@@ -3336,7 +3336,7 @@ export const solutions: Solution[] = [
         },
         {
           q: "Fotoğrafçı web sitesi ne kadar tutar?",
-          a: "Kategorili galeriler ve iletişim odaklı bir portfolyo sitesi ₺45.000 bandında başlar. Her çekimin kendi seri sayfası olduğu, paket ve rezervasyon formu bulunan bir site ₺85.000–150.000 aralığındadır. Müşteri galerisi ve teslim sistemi işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz.",
+          a: "Kategorili galeriler ve iletişim odaklı bir portfolyo sitesi ₺50.000 bandında başlar. Her çekimin kendi seri sayfası olduğu, paket ve rezervasyon formu bulunan bir site ₺85.000–150.000 aralığındadır. Müşteri galerisi ve teslim sistemi işin içine girdiğinde ₺200.000'den başlayan bir projeden söz ediyoruz.",
         },
         {
           q: "Müşteri galerisi de yapıyor musunuz?",
@@ -3560,7 +3560,7 @@ export const solutions: Solution[] = [
         },
         {
           q: "Spor salonu web sitesi ne kadar tutar?",
-          a: "Paket, galeri ve deneme dersi formu olan bir tanıtım sitesi ₺45.000 bandında başlar. Ders programı takvimi ve antrenör profilleri bulunan bir site ₺90.000–150.000 aralığındadır. Online üyelik satışı, ders rezervasyonu ve mobil uygulama işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz.",
+          a: "Paket, galeri ve deneme dersi formu olan bir tanıtım sitesi ₺50.000 bandında başlar. Ders programı takvimi ve antrenör profilleri bulunan bir site ₺90.000–150.000 aralığındadır. Online üyelik satışı, ders rezervasyonu ve mobil uygulama işin içine girdiğinde ₺220.000'den başlayan bir projeden söz ediyoruz.",
         },
         {
           q: "Online üyelik satışı kurabilir misiniz?",
@@ -9491,6 +9491,369 @@ export const solutions: Solution[] = [
     },
   },
   {
+    key: "ozelyazilim",
+    image: "/generated/personas/ozelyazilim.webp",
+    service: "web",
+    slug: { tr: "ozel-yazilim-gelistirme", en: "custom-software-development" },
+    tr: {
+      metaTitle: "Özel Yazılım Geliştirme — Panel, CRM, ERP",
+      metaDescription:
+        "Panel, CRM ve ERP için özel yazılım geliştirme. Sipariş, müşteri, stok ve ödeme tek sistemde. Kapsam baştan yazılı, kaynak kod sizin. Ücretsiz teklif alın.",
+      eyebrow: "Özel Yazılım Geliştirme",
+      h1: "Özel Yazılım Geliştirme — Panel, CRM, ERP",
+      intro:
+        "Hazır programlar işi bir yere kadar taşır. Kendi akışınız hazır bir şablona sığmadığında sistemi işe değil, işi sisteme uydurmaya başlarsınız; özel yazılım bu noktada gerekir. Siparişten ekip atamasına, müşteri takibinden (CRM) stok ve maliyet planlamasına (ERP) kadar süreci kendi çalışma biçiminize göre kuran paneller geliştiriyoruz. Temizlik Express'in sipariş, ekip ataması, ödeme ve yönetim panelinden oluşan canlı operasyon sistemini; DoldurKabı'nın platform, panel ve mobil uygulamasını bu şekilde kurduk.",
+      shortAnswer: {
+        title: "Özel yazılım ne demek, ne kadar tutar?",
+        body: "Özel yazılım, işletmenin kendi çalışma biçimine göre sıfırdan yazılan bir panel, CRM veya ERP sistemidir. CRM müşteri ve satış kayıtlarının tutulduğu, ERP ise stok, sipariş, üretim ve muhasebenin tek yerde birleştiği sistemin adıdır. Hazır programda süreç yazılıma uydurulur; özel yazılımda yazılım sürece uydurulur. Fark pratikte şurada görünür: hazır programın kullanmadığınız bölümü için de ödersiniz, ihtiyacınız olan tek ekranı ise hiç ekleyemezsiniz. Forpus'un yazdığı sistemler arasında Temizlik Express'in siparişi, ekip atamasını ve ödemeyi yürüten operasyon sistemi ile DoldurKabı'nın platformu ve yönetim paneli var. Fiyat üç bantta toplanıyor. Tek bir işi baştan sona yürüten bir panel — teklif takibi, saha ekibi ataması, stok — ₺250.000–400.000 aralığındadır ve dört ila altı haftada teslim edilir. Sipariş, müşteri, ödeme ve raporlamanın tek yerde toplandığı bir işletme sistemi ₺450.000–700.000 aralığındadır ve iki ila dört ayda kurulur. Birden çok tarafın kullandığı, dış sistemlerle konuşan bir platform ₺800.000'den başlar; süresi kapsama göre belirlenir. Kaynak kod müşteriye teslim edilir: sistemi başka bir ekiple sürdürmek isterseniz elinizde her şey olur. Kapsam işe başlamadan yazılır; ilk sürümde neyin olmayacağı da aynı belgede yer alır. Tüm fiyatlar KDV hariçtir.",
+      },
+      benefitsTitle: "Özel yazılım işinize ne kazandırır?",
+      benefits: [
+        {
+          title: "İş akışınıza göre",
+          body: "Sistem sizin çalışma biçiminize uyar; süreci hazır bir programın kabul ettiği şekle sokmak zorunda kalmazsınız.",
+        },
+        {
+          title: "Tek yerde toplanır",
+          body: "Sipariş, müşteri, ekip ve ödeme aynı panelde durur; Excel dosyaları ile WhatsApp grupları arasında veri taşımak biter.",
+        },
+        {
+          title: "Kaynak kod sizin",
+          body: "Sistem sizin mülkünüz olur; yarın başka bir ekiple sürdürmek isterseniz elinizde her şey bulunur.",
+        },
+      ],
+      featuresTitle: "Özel yazılımda neler geliştiriyoruz?",
+      features: [
+        "Yönetim paneli ve raporlama ekranları",
+        "Müşteri ve satış takibi (CRM)",
+        "Sipariş, iş emri ve ekip atama akışı",
+        "Stok, satın alma ve maliyet takibi (ERP)",
+        "Rol bazlı kullanıcı ve yetki yönetimi",
+        "Ödeme, e-fatura ve muhasebe entegrasyonu",
+        "Mevcut sistemlerle entegrasyon (API, veri aktarımı)",
+        "Saha ekibi için mobil uygulama",
+      ],
+      faqTitle: "Sık sorulan sorular",
+      faq: [
+        {
+          q: "Özel yazılım yaptırmak ne kadar tutar?",
+          a: "Tek bir işi çözen bir panel — sipariş takibi, saha ekibi yönetimi, üretim kaydı gibi — ₺250.000–400.000 aralığında başlar. Birden fazla bölümün aynı sistemde çalıştığı bir işletme sistemi ₺450.000–700.000 bandındadır. Dış sistemlerle konuşan, çok taraflı bir platform ₺800.000'den başlar. Sitedeki ₺50.000'lik taban fiyat web sitesi işleri içindir; özel yazılım onun üstünde bir kademedir ve tüm fiyatlar KDV hariçtir.",
+        },
+        {
+          q: "Ne kadar sürede kullanmaya başlarız?",
+          a: "Tek işlevli bir panel 4–6 haftada devreye girer. İşletme sistemi 2–4 ay sürer, ama bu sürenin sonunu beklemezsiniz: ilk çalışan bölüm erken elinize geçer ve kullanmaya oradan başlarsınız. Süreyi en çok uzatan şey teknik zorluk değil, yol ortasında değişen kapsamdır; bu yüzden ilk sürümde neyin olmayacağını da baştan yazıya dökeriz.",
+        },
+        {
+          q: "Hazır bir program almak yerine neden özel yazılım?",
+          a: "Hazır program çoğu iş için doğru tercihtir; işiniz standart yürüyorsa ona para verin, bunu söylemekten çekinmeyiz. Özel yazılım, işin akışını programa uydurmak zorunda kaldığınızda ya da üç ayrı programın arasında veriyi elle taşıdığınızda anlam kazanır. Temizlik Express'te sipariş alma, ekip atama, ödeme ve yönetim tek sistemde birleşti; o akışın karşılığı hazır bir üründe yoktu. Ayrıca kullanıcı başına aylık ödeme yapmazsınız, ekip büyüdükçe maliyet artmaz.",
+        },
+        {
+          q: "Kaynak kod bende mi kalır?",
+          a: "Evet. Kaynak kod, veri tabanı ve teknik dokümantasyon size teslim edilir; sunucu ve hesaplar sizin adınıza açılır. Sistemi başka bir ekiple sürdürmek isterseniz elinizde eksik bir parça olmaz. Bu, sözleşmede yazılı olarak yer alır.",
+        },
+        {
+          q: "Mevcut verilerimiz taşınır mı?",
+          a: "Taşınır. Excel dosyaları, kullandığınız programın dışa aktarımı ya da eski veri tabanı — hangisi varsa oradan aktarılır. Taşımadan önce hangi alanların geleceğini, hangilerinin geride kalacağını birlikte kararlaştırırız; yıllardır biriken kayıtların bir kısmı çoğu zaman zaten kullanılmıyordur. Aktarımdan sonra kayıtları örnekleyerek kontrol eder, eski sistemi bir süre yedekte tutarız.",
+        },
+        {
+          q: "Muhasebe ve e-fatura sistemimize bağlanır mı?",
+          a: "Kullandığınız muhasebe programının veya e-fatura sağlayıcısının dışarıya açtığı bir bağlantı varsa bağlanır; fatura ve cari bilgisi iki sistem arasında elle girilmeden akar. Bazı programlar böyle bir bağlantı vermez, o zaman dosya üzerinden aktarım kurar ya da sınırın nerede olduğunu baştan söyleriz. Hangi programı kullandığınızı ilk görüşmede sorarız, çünkü bu cevabı tahminle vermeyiz.",
+        },
+        {
+          q: "Mobil uygulaması da olur mu?",
+          a: "Olur. Sahada çalışan ekibiniz varsa genellikle de gerekir: iş emrini telefonda görmek, fotoğraf eklemek ve işi kapatmak masaüstünden yürümez. DoldurKabı'nda platform, yönetim paneli ve mobil uygulama aynı sistem üzerinde çalışıyor. Mobil tarafı ilk sürüme koymak da sonraya bırakmak da mümkün; kararı, kimin nerede çalıştığına bakarak veririz.",
+        },
+        {
+          q: "Ekibimiz kullanmayı öğrenebilir mi?",
+          a: "Sistemi kullanacak kişiyi tasarım aşamasında görmeye çalışırız; ekranlar, o kişinin işi bugün nasıl yaptığına göre kurulur. Teslimde eğitim yapar, sık kullanılan işlerin kısa bir kullanım kaydını bırakırız. İlk haftalarda takıldığınız yerler olur; bunlar çoğunlukla ekranda yapılan küçük düzeltmelerle çözülür ve devreye alma sürecinin normal bir parçasıdır.",
+        },
+        {
+          q: "Siz bırakırsanız ne olur?",
+          a: "Yazılımı yaptırdığınız yere bağımlı kalmak gerçek bir risktir; sorulmasını doğru buluyoruz. Kaynak kod, veri tabanı ve teknik dokümantasyon sizde durur; sunucu ve hesaplar sizin adınıza açılır, yani sistem bizden bağımsız çalışmaya devam eder. Başka bir ekip devraldığında kodu okuyup sürdürebilir — dokümantasyonu teslimin bir parçası saymamızın sebebi bu. Ayrılma noktasında bir devir toplantısı yapar, elimizde ne varsa aktarırız.",
+        },
+      ],
+      ctaTitle: "Kendi sisteminizi konuşalım",
+      ctaText:
+        "Mevcut akışınızı kısa bir görüşmede birlikte çıkaralım; kapsamı, süreyi ve sabit fiyatı yazılı olarak verelim.",
+      ctaButton: "Ücretsiz Teklif Al",
+
+      problem: {
+        title: "İşiniz büyüdü, sisteminiz büyümedi",
+        body: [
+          "Her işletme aynı yerden başlar: birkaç Excel dosyası, bir WhatsApp grubu ve işi bilen birkaç kişi. Bu düzen belli bir büyüklüğe kadar çalışır. Sonra iş hacmi artar, ekip büyür ve bilginin tamamı artık tek bir yerde durmaz; bir işin nerede kaldığını öğrenmek için birini aramak gerekir. Kritik bilgi kimin aklındaysa, o kişi izne çıktığında iş de onunla birlikte durur.",
+          "Bunun üzerine çoğu işletme hazır bir program dener. Hazır programlar ortalama bir işletme düşünülerek yazılır; sizin işinizi ayıran şey — fiyatlama biçiminiz, onay sıranız, sahadaki o fazladan adım — genelde o ortalamanın dışında kalır. Ekip bir süre sonra programın yarısını boş bırakır, gerçek takibi yine kenarda tuttuğu bir dosyadan yapar. İşleyiş programa uydurulmaya çalışıldıkça ikisi de yarım kalır.",
+          "Üçüncü aşamada her yeni ihtiyaç için ayrı bir araç alınır: teklif için biri, saha takibi için biri, muhasebe için bir başkası. Hiçbiri diğerini görmediğinden aynı bilgi üç ayrı yere elle girilir ve üçünde farklı kalır. Ay sonunda ne satıldığını, hangi işin kâr ettiğini görmek isteyen kişi, tabloyu yine elle birleştirir. Buradaki asıl maliyet aboneliklerin toplamı değil, o birleştirmeye giden zaman ve orada yapılan hatadır.",
+        ],
+      },
+      pricing: {
+        title: "Özel yazılım geliştirme fiyatları",
+        lead: 'Özel yazılımın fiyatı sorulduğunda alışılmış cevap "projeye göre değişir" olur; doğrudur ama karar vermenize yaramaz. Aşağıdaki üç bant 2026 için geçerli başlangıç rakamlarıdır ve işinizin hangi büyüklükte olduğunu görüşmeden önce görmeniz için yazılmıştır.',
+        tiers: [
+          {
+            name: "Tek işlevli panel",
+            price: "₺250.000 – 400.000",
+            timeline: "~4–6 hafta",
+            body: "Tek bir işi baştan sona yürüten panel: teklif takibi, randevu ve iş emri, stok hareketi ya da müşteri kaydı. Kullanıcı rolleri, yetki ayrımı, listeleme, arama ve temel raporlarla gelir. Bir sürecin Excel dosyalarıyla yürütüldüğü ve dosyanın artık yetmediği işletmeler için.",
+          },
+          {
+            name: "İşletme sistemi",
+            price: "₺450.000 – 700.000",
+            timeline: "~2–4 ay",
+            body: "Birbirine bağlı birkaç sürecin tek sistemde toplanması: müşteri ve satış takibi, operasyon, faturalama, personel ve yönetim raporları. Verinin bir kez girildiği, her rolün kendi ekranını gördüğü ve yöneticinin durumu tek yerden okuduğu bir yapı kurulur. Bölümlerin ayrı dosyalarla çalıştığı, aynı bilgiyi birkaç yere ikinci kez girdiği şirketler için.",
+          },
+          {
+            name: "Platform ve entegrasyon",
+            price: "₺800.000'den başlayan",
+            timeline: "Projeye özel",
+            body: "Dışarıya açılan sistemler: müşterinin veya bayinin kendi hesabıyla girdiği platform, aynı veriyi paylaşan mobil uygulama ile panel; muhasebe, e-fatura, kargo ya da banka tarafıyla veri alışverişi. Bu kademedeki işler tek teslimde bitmez; yayına girdikten sonra da geliştirilmeye devam eder. Yazılımın işin yardımcısı değil kendisi olduğu şirketler için.",
+          },
+        ],
+        note: "Bu rakamlar başlangıç bandıdır; kapsama, rol ve ekran sayısına, bağlanacak dış sistemlere göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — teklifteki kapsam değişmedikçe faturaya sonradan kalem eklenmez, kapsam değişirse yeni fiyatı önce yazılı veririz. Tüm fiyatlar KDV hariçtir.",
+      },
+      caseRef: {
+        title: "Temizlik Express: sipariş, ekip ve ödeme tek sistemde",
+        body: "Temizlik Express'in müşteriden gelen siparişi alması, ekibi atayıp yönlendirmesi, ödemeyi tahsil etmesi ve tüm işi yönetim panelinden takip etmesi aynı sistemin içinde yürüyor. Hazır bir programla kurulamayacak bir akış olduğu için sıfırdan yazıldı.",
+        projectSlug: "temizlikexpress",
+        linkLabel: "İşi incele",
+      },
+      process: {
+        title: "Nasıl ilerliyoruz?",
+        lead: "Bu tür projelerde işi zora sokan şey teknik zorluk değil, işin nasıl yürüdüğünün eksik anlaşılmasıdır. Bu yüzden süreç boyunca sizden düzenli ama kısa katılım isteriz; her aşamanın sonunda elinizde deneyebileceğiniz bir şey olur.",
+        steps: [
+          {
+            name: "Keşif ve kapsam yazımı",
+            body: "İşin bugün nasıl yürüdüğünü konuşuruz: hangi bilgi nereye giriliyor, hangi dosya kimde duruyor, hangi adımda tıkanıyor. Buradaki en değerli iş, ilk sürüme neyin girmeyeceğine karar vermektir; kapsamın yol boyunca büyümesi bu projelerde gecikmenin bir numaralı sebebidir. Çıktı: yazılı kapsam, ekran listesi ve sabit fiyat.",
+          },
+          {
+            name: "Akış ve ekran tasarımı",
+            body: "Hangi rolün hangi ekranı göreceğini ve veriyi hangi sırayla gireceğini tasarlarız. Tıklanabilir bir taslak veririz; sistemi, kod yazılmadan önce işi fiilen yapan kişi dener. Değişiklik yapmanın en ucuz olduğu an burasıdır.",
+          },
+          {
+            name: "Geliştirme ve ara teslimler",
+            body: "Sistemi bölüm bölüm geliştirir, düzenli aralıklarla çalışan bir sürüm açarız. Test hesabınızla kendi tarayıcınızdan girer, biten bölümü kendi verinizin bir kopyasıyla denersiniz. Yanlış anlaşılmış bir akış teslimde değil, o hafta ortaya çıkar.",
+          },
+          {
+            name: "Veri göçü ve eğitim",
+            body: "Excel dosyalarında veya eski programda duran müşteri, stok ve geçmiş kayıtlar yeni sisteme aktarılır; aktarımdan önce hangi alanın nereye gideceğini birlikte kontrol ederiz. Ardından ekibe kendi ekranları üzerinden kısa bir eğitim verir, eğitimin kaydını bırakırız — sonradan işe giren personel aynı kaydı izler.",
+          },
+          {
+            name: "Yayın ve bakım",
+            body: "İlk dönemde eski yöntem ile yeni sistem bir süre birlikte yürür; sistem oturmadan kimseyi arada bırakmayız. Yayınla birlikte kaynak kod size teslim edilir, sunucu ve yedekleme kurulur. Sonrasında hata takibi, güncelleme ve yeni bölüm geliştirme, sözleşmede yazılı koşullarla sürer.",
+          },
+        ],
+      },
+      checklist: {
+        title: "Özel yazılım yaptırırken nelere dikkat etmeli?",
+        lead: "Bu maddeler bizden iş almasanız da işinize yarar. Bu bütçedeki bir işte yanlış kararın bedeli yüksek; teklif aldığınız her firmaya aynı soruları sorun.",
+        items: [
+          {
+            title: "Bu işi hazır bir program çözer mi?",
+            body: "Bazen çözer; o zaman doğrusu hazır programdır. Ön muhasebe, e-fatura, standart stok takibi ve klasik satış takibi için olgun paketler var; abonelikle bugün kullanmaya başlarsınız ve maliyeti bu sayfadaki ₺250.000'lik alt kademenin çok altında kalır. Özel yazılım, süreciniz hiçbir pakete oturmuyorsa, iki programın arasını Excel'le elle kapatıyorsanız ya da o süreç işinizin ayırt edici tarafıysa anlamlı olur. Teklif aldığınız firmaya hangi hazır programa baktığını ve neden yetmediğini sorun; cevabı yoksa bakmamıştır.",
+          },
+          {
+            title: "Kaynak kod ve hesaplar kimin adına?",
+            body: "Sözleşmede kaynak kodun size teslim edileceği yazmalı. Sunucu, veritabanı ve alan adı hesapları da doğrudan şirketiniz adına açılmalı; başka bir firmanın hesabında duran sisteme yıllar sonra erişmek zahmetli olur. Günlük işinizi yürüten bir panelde bu madde bir web sitesindekinden çok daha ağır basar: sistem durduğunda iş durur.",
+          },
+          {
+            title: "Kapsam yazılı mı, ilk sürümde ne yok?",
+            body: 'İyi bir teklif neyin yapılacağı kadar neyin yapılmayacağını da yazar. Panel ve ERP işlerinde kapsam sessizce büyür; her "bir de şu olsa" ya bütçeye ya takvime yazılır. İlk sürümde olmayan maddeleri baştan listeletin, sonraki sürüme bırakılanları da yazdırın — böylece ne aldığınız ve neyi ne zaman alacağınız ortada olur.',
+          },
+          {
+            title: "Mevcut veriniz nasıl taşınacak?",
+            body: "Yıllardır Excel'de, eski bir programda ya da defterde duran kayıtlarınız var. Bu verinin aktarılması ayrı bir iştir: fiyata dahil mi, veriyi kim temizleyecek, hangi alanlar taşınmayacak — üçü de baştan konuşulmalı. Canlıya geçmeden önce deneme aktarımı yapılmasını ve bir süre eski sistemle birlikte çalışılmasını isteyin; veri kaybı en çok bu geçişte olur.",
+          },
+          {
+            title: "Bir yıl sonra sistemi kim sürdürecek?",
+            body: "Her gün kullanılan bir panel canlı bir şeydir: yeni rapor istenir, vergi oranı değişir, yeni bir rol eklenir. Bakım koşulları, dönüş süresi ve değişiklik taleplerinin nasıl fiyatlanacağı sözleşmede yazılı olsun. Bir de şunu sorun: kodu başka bir ekip devralabilir mi? Bunun karşılığı kaynak kodun yanında kurulum ve yapı belgelerinin de teslim edilmesidir.",
+          },
+          {
+            title: "Veri nerede duruyor, kim görebiliyor?",
+            body: "Müşteri ve çalışan bilgisi tutan her sistem KVKK kapsamındadır; verinin sorumlusu sizsiniz, yazılımı yapan firma veri işleyen tarafta kalır ve aranızda yazılı bir sözleşme bulunması kanunun aradığı bir zorunluluktur. Sunucunun nerede olduğunu, yedeğin hangi sıklıkta alındığını ve yedekten geri dönüşün hiç denenip denenmediğini sorun. Panelin içinde de her kullanıcı her şeyi görmemeli; rol bazlı yetki ve kimin neye baktığının kaydı baştan istenmeli.",
+          },
+        ],
+      },
+    },
+    en: {
+      metaTitle: "Custom Software Development — Panels, CRM, ERP",
+      metaDescription:
+        "Custom software for panels, CRM and ERP. Orders, customers, stock and payments in one system. Scope in writing, source code yours. Get a free quote.",
+      eyebrow: "Custom Software Development",
+      h1: "Custom Software Development — Panels, CRM, ERP",
+      intro:
+        "Off-the-shelf software carries a business up to a point. Once your own workflow no longer fits the template, you stop shaping the software around the work and start shaping the work around the software. That is where custom software earns its cost. We build panels that follow how you already operate — from orders and team assignment to customer tracking (CRM) and stock and cost planning (ERP). Temizlik Express runs on a live operations system we built this way: orders, team assignment, payment and an admin panel. DoldurKabı runs on a platform with its own panel and mobile app.",
+      shortAnswer: {
+        title: "What is custom software, and what does it cost?",
+        body: "Custom software is a panel, CRM or ERP written from scratch around the way a business actually works. CRM is the system that holds customer and sales records; ERP is the one that brings stock, orders, production and accounting together in a single place. With an off-the-shelf product the process is bent to fit the software; with custom software the software is written to fit the process. The difference shows up like this: you pay for the parts of the package you never use, and the one screen you do need cannot be added at all. Among the systems Forpus has built are the operations system that runs orders, team assignment and payment for Temizlik Express, and the platform and admin panel behind DoldurKabı. Pricing falls into three bands. A panel that runs one job end to end — quote tracking, field team assignment, stock — costs ₺250,000 – 400,000 and is delivered in four to six weeks. A business system that brings orders, customers, payments and reporting into one place costs ₺450,000 – 700,000 and takes two to four months. A platform that several parties use and that talks to outside systems starts from ₺800,000, with the timeline set by scope. The source code is handed over: if you decide to carry the system on with another team, you have everything you need. Scope is written down before work begins, and what the first version will not include is set out in the same document. All prices exclude VAT.",
+      },
+      benefitsTitle: "What does custom software give you?",
+      benefits: [
+        {
+          title: "Built around your workflow",
+          body: "The system follows how you work. You are not forced to bend your process into the shape an off-the-shelf tool accepts.",
+        },
+        {
+          title: "Everything in one place",
+          body: "Orders, customers, teams and payments sit in the same panel. Carrying data between spreadsheets and WhatsApp groups stops.",
+        },
+        {
+          title: "The source code is yours",
+          body: "The system is your property. If you carry on with another team tomorrow, everything they need is already in your hands — the code, the database and the documentation.",
+        },
+      ],
+      featuresTitle: "What we build",
+      features: [
+        "Admin panel and reporting screens",
+        "Customer and sales tracking (CRM)",
+        "Orders, work orders and team assignment",
+        "Stock, purchasing and cost tracking (ERP)",
+        "Role-based users and permissions",
+        "Payment, e-invoice and accounting integrations",
+        "Integration with your existing systems (API, data transfer)",
+        "Mobile app for field teams",
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        {
+          q: "What does custom software cost?",
+          a: "A panel that solves one job — order tracking, field team management, production records — starts in the ₺250,000 – 400,000 range. A business system, where several parts of the company work inside the same system, sits at ₺450,000 – 700,000. A multi-sided platform that talks to outside systems starts at ₺800,000. The ₺50,000 floor quoted elsewhere on this site is for website work; custom software is a step above it. All prices exclude VAT.",
+        },
+        {
+          q: "How soon can we start using it?",
+          a: "A single-purpose panel goes live in four to six weeks. A business system takes two to four months, but you do not wait for the end of that: the first working section reaches you early and you can start using it right away. What stretches a timeline is rarely technical difficulty — it is scope that changes halfway through. That is why what the first version will not include is put in writing at the start.",
+        },
+        {
+          q: "Why build custom software instead of buying an off-the-shelf program?",
+          a: "For most businesses an off-the-shelf program is the right choice; if your work runs the standard way, pay for that, and we will say so. Custom software earns its cost when you have to bend the way you work to fit the program, or when you are moving data by hand between three separate programs. At Temizlik Express, order intake, team assignment, payment and management came together in one system; no off-the-shelf product covered that flow. You also do not pay per user per month, so the cost does not climb as the team grows.",
+        },
+        {
+          q: "Do we own the source code?",
+          a: "Yes. The source code, the database and the technical documentation are handed over to you, and the servers and accounts are opened in your name. If you decide to continue with another team, nothing is missing on your side. This is written into the contract.",
+        },
+        {
+          q: "Can our existing data be moved over?",
+          a: "It can. Excel files, an export from the program you use today, or an old database — whichever you have is where it comes from. Before the move we decide together which fields come across and which stay behind; a good part of the records built up over the years is usually no longer in use. After the transfer we sample the records and check them, and the old system stays in reserve for a while.",
+        },
+        {
+          q: "Will it connect to our accounting and e-invoice system?",
+          a: "If the accounting program or e-invoice provider you use exposes a connection, it will; invoice and account data then moves between the two systems without being typed in twice. Some programs offer no such connection. In that case we set up a file-based transfer, or tell you at the start where the limit is. We ask which program you use in the first conversation, because it is not an answer we are willing to guess at.",
+        },
+        {
+          q: "Can it have a mobile app as well?",
+          a: "It can, and if you have a team in the field it usually needs one: seeing the work order on a phone, adding a photo and closing the job do not work from a desktop. At DoldurKabı the platform, the admin panel and the mobile app run on the same system. Mobile can go into the first version or come later; the decision follows from who works where.",
+        },
+        {
+          q: "Can our team learn to use it?",
+          a: "We try to meet the person who will actually use the system while it is still being designed; the screens are built around how that person does the job today. At handover we run training and leave a short recording of the tasks used most often. There will be points where you get stuck in the first weeks. Those are usually solved with small corrections on the screen and are a normal part of going live.",
+        },
+        {
+          q: "What happens if you stop working with us?",
+          a: "Being dependent on whoever built your software is a real risk, and it is fair to ask about it. The source code, the database and the technical documentation stay with you; the servers and accounts are opened in your name, so the system keeps running without us. Another team can read the code and carry it on — that is why documentation counts as part of the handover, not an extra. At the point of separation we hold a handover meeting and hand over everything we have.",
+        },
+      ],
+      ctaTitle: "Let's talk about your own system",
+      ctaText:
+        "In a short call we'll map your current workflow together, then give you the scope, the timeline and a fixed price in writing.",
+      ctaButton: "Get a Free Quote",
+
+      problem: {
+        title: "Your business grew, your systems didn't",
+        body: [
+          "Every business starts the same way: a few spreadsheets, a WhatsApp group and a handful of people who know how the work runs. That setup holds up to a certain size. Then volume rises, the team grows, and no single place holds the whole picture any more; to find out where a job stands, someone has to make a call. When a critical detail lives only in one person's head, the work goes on leave with them.",
+          "The usual next step is off-the-shelf software. Off-the-shelf tools are written for an average company, and the things that make your work yours — how you price, the order your approvals follow, that extra step out in the field — tend to fall outside that average. After a while the team leaves half the fields empty and keeps the real tracking in a file off to the side. The more the work is bent to fit the software, the less either one does its job.",
+          "The third stage is a separate tool for every new need: one for quotes, one for field tracking, another for accounting. None of them can see the others, so the same record is typed in three places and ends up different in all three. At month end, whoever wants to know what was sold and which jobs made money merges the numbers by hand. The real cost is not the subscriptions added up. It is the hours that merge takes and the mistakes made inside it.",
+        ],
+      },
+      pricing: {
+        title: "Custom software development pricing",
+        lead: 'Ask what custom software costs and the usual answer is "it depends on the project". That is true, and it helps you decide nothing. The three bands below are starting figures for 2026, written so you can place your own job on the scale before we ever speak.',
+        tiers: [
+          {
+            name: "Single-purpose panel",
+            price: "₺250,000 – 400,000",
+            timeline: "~4–6 weeks",
+            body: "One job handled end to end in a single panel: quote tracking, appointments and work orders, stock movements, or a customer register. It comes with user roles, permission levels, listing, search and basic reports. The right size when a process still runs on Excel files and the file has stopped keeping up.",
+          },
+          {
+            name: "Business system",
+            price: "₺450,000 – 700,000",
+            timeline: "~2–4 months",
+            body: "Several connected processes brought into one system: customers and sales, operations, invoicing, staff and management reports. Data is entered once, each role sees its own screens, and the manager reads the current state from one place. For companies where departments work from separate files and the same information gets typed in a second time somewhere else.",
+          },
+          {
+            name: "Platform and integrations",
+            price: "From ₺800,000",
+            timeline: "Project-specific",
+            body: "Systems that open outward: a platform your customers or dealers log into with their own accounts, a mobile app and an admin panel sharing the same data, and data exchange with accounting, e-invoicing, shipping or banking. Work at this level does not finish at a single handover; it keeps being developed after it goes live. For companies where the software is the business, not an aid to it.",
+          },
+        ],
+        note: "These are starting bands. The figure moves with scope, with the number of roles and screens, and with the outside systems you connect to. At the end of the call you get a fixed-price quote broken down line by line — as long as the agreed scope does not change, nothing is added to the bill later; if the scope changes we put the new price in writing first. All prices exclude VAT.",
+      },
+      caseRef: {
+        title: "Temizlik Express: orders, teams and payment in one system",
+        body: "Temizlik Express takes the customer's order, assigns and dispatches the team, collects payment and tracks the whole job from an admin panel — all inside the same system. The flow could not be built on an off-the-shelf product, so it was written from scratch.",
+        projectSlug: "temizlikexpress",
+        linkLabel: "See the project",
+      },
+      process: {
+        title: "How we work",
+        lead: "What makes these projects hard is rarely the technical side; it is an incomplete picture of how the work actually runs today. So we ask for regular but short involvement from you throughout, and at the end of every stage there is something you can try yourself.",
+        steps: [
+          {
+            name: "Discovery and written scope",
+            body: "We go through how the work runs now: where each piece of information gets entered, who holds which file, and at which step things jam. The most valuable decision made here is what stays out of the first version; scope growing along the way is the number one cause of delay in these projects. Output: a written scope, a screen list and a fixed price.",
+          },
+          {
+            name: "Flows and screen design",
+            body: "We design which role sees which screen and in what order data gets entered. You get a clickable draft, and the person who actually does the job tries the system before any code is written. This is the cheapest point at which to change something.",
+          },
+          {
+            name: "Development and interim releases",
+            body: "We build the system section by section and open a working version at regular intervals. You log in from your own browser with a test account and try the finished part against a copy of your own data. A flow we got wrong surfaces that week, not at handover.",
+          },
+          {
+            name: "Data migration and training",
+            body: "Customer, stock and historical records sitting in Excel files or an old program are moved into the new system; before the transfer we check together which field goes where. Then we run a short training session for your team on their own screens and leave the recording behind — anyone who joins later watches the same recording.",
+          },
+          {
+            name: "Launch and maintenance",
+            body: "For the first stretch the old method and the new system run side by side; nobody is left in between while the system settles. At launch the source code is handed over to you, and the server and backups are set up. After that, bug tracking, updates and new sections continue on terms written into the contract.",
+          },
+        ],
+      },
+      checklist: {
+        title: "What should you check before commissioning custom software?",
+        lead: "These points are worth knowing whether or not you work with us. At this budget the wrong decision is expensive, so ask every firm you get a quote from the same questions.",
+        items: [
+          {
+            title: "Would an off-the-shelf product solve this?",
+            body: "Sometimes it would, and then off-the-shelf is the right answer. Bookkeeping, e-invoicing, standard stock control and ordinary sales tracking are covered by mature packages you can subscribe to and start using today, at a cost well below the ₺250,000 entry tier on this page. Custom software earns its price when your process fits no package, when you are bridging two programs by hand in Excel, or when that process is the part of the business that sets you apart. Ask the firm quoting you which packaged product they looked at and why it fell short. If there is no answer, they never looked.",
+          },
+          {
+            title: "Whose name are the source code and the accounts in?",
+            body: "The contract should state that the source code is handed over to you. The server, database and domain accounts should be opened directly in your company's name; reaching a system that sits in another firm's account becomes difficult years later. On a panel that runs your daily work this weighs far more than it does on a website: when the system stops, the work stops.",
+          },
+          {
+            title:
+              "Is the scope written down, and what is missing from the first version?",
+            body: 'A good quote states what will not be built as plainly as what will. Scope grows quietly on panel and ERP work; every "and could it also do this" lands on either the budget or the calendar. Have the items left out of the first version listed at the start, and have anything deferred written down as belonging to a later release. Then you know what you are buying, and what arrives when.',
+          },
+          {
+            title: "How does your existing data get moved?",
+            body: "Your records sit in Excel, in an old program, or in a ledger. Moving them is a job of its own: is it included in the price, who cleans the data, which fields will not come across — settle all three up front. Ask for a trial migration before go-live and for a period of running the old system alongside the new one. Data goes missing in this handover more than anywhere else.",
+          },
+          {
+            title: "Who keeps the system running a year from now?",
+            body: "A panel used every day is a living thing: a new report gets asked for, a tax rate changes, a new role is added. Put maintenance terms, response times and the pricing of change requests in the contract. Then ask one more question: could another team take the code over? Answering yes means the setup and architecture documentation is handed over alongside the source code.",
+          },
+          {
+            title: "Where does the data sit, and who can see it?",
+            body: "Any system holding customer and employee records falls under KVKK, Turkey's data protection law. You are the data controller; the firm building the software sits on the processor side, and a written agreement between the two of you is something the law asks for. Ask where the server is, how often backups are taken, and whether restoring from a backup has ever been tested. Inside the panel, not every user should see everything either — ask for role-based permissions and a record of who looked at what from the start.",
+          },
+        ],
+      },
+    },
+  },
+  {
     key: "mobil",
     image: "/generated/hero-device.webp",
     service: "mobile",
@@ -9811,18 +10174,38 @@ export const SOLUTIONS_LASTMOD = "2026-08-31";
   }
 }
 
-// 3) Sektör fiyat bantları, sitede ilan edilen taban fiyatın altına düşmemeli.
+// 3) Sitede ilan edilen taban fiyatın altında HİÇBİR rakam geçmemeli.
 //    Ana sayfa meta açıklaması ve Paketler bölümü "₺50.000'den başlayan" diyor.
+//
+//    Kontrol önce yalnızca `pricing.tiers[0]`a bakıyordu ve düz metni hiç
+//    okumuyordu. Ölçüldü: beş SSS cevabı tabanın altında rakam veriyordu —
+//    üçü ₺40.000, ikisi ₺45.000. Restoran sayfası kendi içinde çelişiyordu:
+//    kısa cevabı ₺50.000–80.000 derken SSS'i aynı iş için ₺40.000 diyordu.
+//    Fiyat sorusuna iki farklı cevap veren bir sayfa, güveni fiyattan önce
+//    kaybediyor.
+//
+//    Artık sayfanın TÜM metni taranıyor: kısa cevap, SSS, faydalar, problem,
+//    süreç, kontrol listesi ve fiyat bantları. Türkçe binlik ayracı nokta,
+//    İngilizce virgül; ikisi de yakalanıyor.
 {
+  const RAKAM = /₺(\d{1,3}(?:[.,]\d{3})+)/g;
+
   for (const s of solutions) {
-    for (const c of [s.tr, s.en]) {
-      const first = c.pricing?.tiers[0]?.price;
-      if (!first) continue;
-      const n = Number(first.match(/[\d.]+/)?.[0].replace(/\./g, ""));
-      if (Number.isFinite(n) && n < PRICE_FLOOR) {
-        throw new Error(
-          `solutions: "${s.key}" fiyat bandı ₺${n} — ilan edilen taban ₺${PRICE_FLOOR} altında`,
-        );
+    for (const [dil, c] of [
+      ["tr", s.tr],
+      ["en", s.en],
+    ] as const) {
+      // Sayfada görünen her metni tek bir dizede topla; hangi alanda olduğu
+      // hata mesajı için değil, rakamın kendisi için önemli.
+      const metin = JSON.stringify(c);
+      for (const m of metin.matchAll(RAKAM)) {
+        const n = Number(m[1].replace(/[.,]/g, ""));
+        if (Number.isFinite(n) && n < PRICE_FLOOR) {
+          throw new Error(
+            `solutions: "${s.key}" (${dil}) metninde ₺${m[1]} geçiyor — ` +
+              `ilan edilen taban ₺${PRICE_FLOOR} altında. Site "₺${PRICE_FLOOR}'den başlayan" diyor.`,
+          );
+        }
       }
     }
   }
