@@ -9867,7 +9867,7 @@ export const solutions: Solution[] = [
       intro:
         "İyi bir fikir, kullanıcının cebinde yaşadığında değer kazanır. iOS ve Android için tek kod tabanıyla hızlı, akıcı uygulamalar geliştiriyoruz; tasarımdan mağaza yayınına kadar her adımı üstleniyoruz. DoldurKabı ve Temizlik Express gibi gerçek ürünleri hayata geçirdik.",
       shortAnswer: {
-        title: "Mobil uygulama yaptırmak ne içerir, ne kadar tutar?",
+        title: "Mobil uygulama yaptırmak ne içerir?",
         body: "Mobil uygulama geliştirme, bir fikrin tasarımdan mağaza yayınına kadar iOS ve Android'de çalışır hale getirilmesidir. Forpus tek kod tabanıyla çalışır: iki platform için ayrı ekip kurulmaz, bu yüzden ayrı ayrı ödemezsiniz. Tipik bir projede UI/UX tasarımı ve tıklanabilir prototip, iOS ile Android geliştirme, içeriği yönettiğiniz bir panel ve kullanıcı sistemi, bildirim, ödeme ve harita entegrasyonları, App Store ile Google Play yayını, yayın sonrası bakım bulunur. İlk sürüm — yani fikri doğrulayacak kadar özellik taşıyan bir MVP — ₺250.000–400.000 aralığında ve altı ila on haftada mağazaya çıkar. Tam kapsamlı bir uygulama ₺450.000–800.000 aralığında ve üç ila beş ayda tamamlanır. Uzun soluklu bir platform kuruyorsanız ₺800.000'den başlayan bir projeden söz ediyoruz. Mağaza hesapları sizin adınıza açılır; uygulama sizin mülkünüz olur. Kaynak kod size teslim edilir; uygulamayı başka bir ekiple sürdürmek isterseniz elinizde her şey olur. İlk sürümde neyin OLMADIĞI da yazılı olarak kararlaştırılır — kapsamın yol boyunca büyümesi, mobil projelerde gecikmenin bir numaralı sebebidir.",
       },
       benefitsTitle: "Mobil uygulama işinize ne kazandırır?",

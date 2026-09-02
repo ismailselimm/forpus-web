@@ -37,10 +37,24 @@ export function bantRakamlari(metin: string): number[] {
   return [...metin.matchAll(new RegExp(BINLIK, "g"))].map((m) => sayiya(m[0]));
 }
 
-/** Düz metindeki ₺ rakamları — ₺ işareti şart. */
+/**
+ * Düz metindeki ₺ rakamları — ₺ işareti şart, bandın İKİ ucu da okunur.
+ *
+ * NEDEN BANDI DA TANIYOR: ilk hâli yalnız "₺" ile başlayan sayıyı
+ * yakalıyordu. Metinde bant "₺100.000 – 180.000" diye yazılıyor, yani ₺
+ * yalnız ilk rakamda duruyor; üst uç HİÇ denetlenmiyordu. Ölçüldü:
+ * "₺100.000 – 180.000" ifadesinden yalnız 100.000 dönüyordu. Sonucu şuydu —
+ * bandın üst ucuna hiçbir sektörde geçmeyen bir rakam yazılsa build sessizce
+ * geçerdi, oysa `assertBlogFiyatlari`ın var olma sebebi tam olarak bu.
+ */
+const BANT = new RegExp(
+  "₺(" + BINLIK + ")(?:\\s*[–—-]\\s*(" + BINLIK + "))?",
+  "g",
+);
+
 export function fiyatlariOku(metin: string): number[] {
-  return [...metin.matchAll(new RegExp("₺(" + BINLIK + ")", "g"))].map((m) =>
-    sayiya(m[1]),
+  return [...metin.matchAll(BANT)].flatMap((m) =>
+    m[2] ? [sayiya(m[1]), sayiya(m[2])] : [sayiya(m[1])],
   );
 }
 
