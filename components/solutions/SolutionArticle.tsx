@@ -19,6 +19,8 @@ import {
   type Solution,
 } from "@/lib/solutions";
 import { ilgiliRefler, refByKey } from "@/lib/solution-index";
+import { cevrilmisSayfa, cevrilmisYol, homeFor } from "@/lib/routes";
+import { hubIcerigi } from "@/lib/cozumler-hub";
 import { shotAt } from "@/lib/projects";
 import { ilkFiyat } from "@/lib/pricing";
 import { SITE_URL as SITE } from "@/lib/site";
@@ -44,11 +46,11 @@ export default function SolutionArticle({
   const sektorEtiketi = refByKey(solution.key)?.label[lang] ?? c.eyebrow;
   // Dile duyarlı: İngilizce sayfadaki "See all services" Türkçe ana sayfaya
   // gitmemeli. `/en` var ve `base` zaten dile göre seçiliyor.
-  const homeHref = lang === "tr" ? "/" : "/en";
+  const homeHref = homeFor(lang);
   // "Tüm hizmetleri gör" iki yerde çıkıyor: hero'da ve şeridin sonunda.
   // Aynı etiketin iki farklı yere gitmesi kafa karıştırıyordu; ikisi de
   // sektör indeksine gidiyor, çünkü etiketin söz verdiği şey orası.
-  const tumHizmetlerHref = `${homeHref}#personas`;
+  const tumHizmetlerHref = cevrilmisYol(cevrilmisSayfa("cozumler"), lang);
   const base = lang === "tr" ? "/cozumler" : "/en/solutions";
 
   // Şerit artık tüm sektörleri değil, aynı konu ailesini gösteriyor —
@@ -66,7 +68,17 @@ export default function SolutionArticle({
   // Bölüm başlığı varsa fayda kartları onun altına iner; yoksa kartlar bölümün kendisidir.
   const CardHeading = c.benefitsTitle ? "h3" : "h2";
 
-  const crumbs = [{ label: L.home, href: "/" }, { label: c.h1 }];
+  // Ara halka 2 Eylül'de eklendi: hub açılana kadar 42 sayfanın kırıntısı
+  // doğrudan ana sayfaya bağlanıyordu, yani hiyerarşide bir kat eksikti.
+  // Ebeveynlik sitemap'te değil, kırıntıda ve bağlantıda okunuyor.
+  const crumbs = [
+    { label: L.home, href: homeHref },
+    {
+      label: hubIcerigi[lang].eyebrow,
+      href: cevrilmisYol(cevrilmisSayfa("cozumler"), lang),
+    },
+    { label: c.h1 },
+  ];
 
   const jsonLd = {
     "@context": "https://schema.org",

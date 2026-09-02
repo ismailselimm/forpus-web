@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { CEVRILMIS_SAYFALAR, cevrilmisYol } from "@/lib/routes";
+import { cevrilmisSayfa, cevrilmisYol } from "@/lib/routes";
 import { ArrowUp } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import { useLang } from "@/components/providers/LanguageProvider";
@@ -82,7 +82,7 @@ export default function Footer() {
               ))}
               <li>
                 <a
-                  href="/#personas"
+                  href={cevrilmisYol(cevrilmisSayfa("cozumler"), lang)}
                   className={`${BAG} font-medium text-ink-3`}
                 >
                   {t.personas.sectors.title} →
@@ -153,7 +153,7 @@ export default function Footer() {
                   ana sayfada menüdeki "İletişim" formun kendisine kaymalı. */}
               <li>
                 <Link
-                  href={cevrilmisYol(CEVRILMIS_SAYFALAR[0], lang)}
+                  href={cevrilmisYol(cevrilmisSayfa("iletisim"), lang)}
                   className={BAG}
                 >
                   {t.footer.iletisimSayfasi}

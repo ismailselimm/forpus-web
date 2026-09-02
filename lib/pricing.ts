@@ -17,25 +17,26 @@ export const PRICE_FLOOR = 50000;
  * ifadesi virgülde kesilip "250" okunuyordu. Google için bu, ₺250.000'lik
  * bir hizmetin 250 TRY olduğu anlamına gelir.
  *
- * İKİ AYRI İŞ, İKİ AYRI FONKSİYON:
- * - `bantRakamlari` bir fiyat bandını okur ("₺50.000 – 85.000"). Bantta ₺
- *   yalnız ilk rakamda durduğu için ₺ aranmaz; bandın iki ucu da lazım.
- * - `fiyatlariOku` düz metni tarar. Orada ₺ ŞART: sayfa metnindeki her sayı
- *   fiyat değil, yalnız ₺'li olan fiyattır.
+ * TEK FONKSİYON, ÇÜNKÜ İKİNCİSİ GEREKSİZLEŞTİ: bir zamanlar `bantRakamlari`
+ * (₺ aramayan, bandı okuyan) ile `fiyatlariOku` (₺ arayan, düz metni tarayan)
+ * ayrı ayrı vardı. `fiyatlariOku` bandın ikinci ucunu da okumaya başlayınca
+ * ikisi aynı işi yapar oldu — ölçüldü: 129 fiyat bandının hepsinde iki
+ * fonksiyon birebir aynı diziyi döndürüyordu. `bantRakamlari` silindi.
  *
- * İkisinde de en az bir binlik grubu aranıyor: "₺250" ayraçsız bir yazım
- * olarak fiyat sayılmaz, cümle içindeki bir sayıdır.
+ * ₺ ŞARTININ KALMASI BİLİNÇLİ: sayfa metnindeki her sayı fiyat değil, yalnız
+ * ₺'li olan fiyattır. Bandın ikinci ucunda ₺ tekrarlanmadığı için o, ilk
+ * ucun devamı olarak okunuyor. Bir gün ₺'siz bir bant yazılırsa `ilkFiyat`
+ * yanlış bir rakam basmak yerine `undefined` döner ve `lowPrice` düşer —
+ * yukarıdaki hatanın tekrarına karşı doğru yön bu.
+ *
+ * En az bir binlik grubu aranıyor: "₺250" ayraçsız bir yazım olarak fiyat
+ * sayılmaz, cümle içindeki bir sayıdır.
  */
 const BINLIK = String.raw`\d{1,3}(?:[.,]\d{3})+`;
 
 // Regex yalnız rakam ve ayraç yakalıyor; ayraçlar silinince saf rakam kalıyor,
 // yani sonuç her zaman sonlu. `Number.isFinite` kontrolüne gerek yok.
 const sayiya = (ham: string) => Number(ham.replace(/[.,]/g, ""));
-
-/** Bir fiyat bandındaki tüm rakamlar: "₺50.000 – 85.000" → [50000, 85000]. */
-export function bantRakamlari(metin: string): number[] {
-  return [...metin.matchAll(new RegExp(BINLIK, "g"))].map((m) => sayiya(m[0]));
-}
 
 /**
  * Düz metindeki ₺ rakamları — ₺ işareti şart, bandın İKİ ucu da okunur.
@@ -60,5 +61,5 @@ export function fiyatlariOku(metin: string): number[] {
 
 /** Bir fiyat bandının alt ucu — yapısal verideki `lowPrice` bu. */
 export function ilkFiyat(metin: string | undefined): number | undefined {
-  return metin ? bantRakamlari(metin)[0] : undefined;
+  return metin ? fiyatlariOku(metin)[0] : undefined;
 }

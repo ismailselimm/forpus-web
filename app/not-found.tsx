@@ -7,7 +7,7 @@ import { Reveal } from "@/components/fx/Reveal";
 import PageHero from "@/components/ui/PageHero";
 import SolutionChips from "@/components/ui/SolutionChips";
 import { dictionary } from "@/lib/i18n/dictionary";
-import { CEVRILMIS_SAYFALAR, cevrilmisYol, homeFor } from "@/lib/routes";
+import { cevrilmisSayfa, cevrilmisYol, homeFor } from "@/lib/routes";
 import { ONE_CIKAN_SEKTORLER } from "@/lib/solution-index";
 
 /**
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 };
 
 /** İletişim adresi tek kaynaktan: `lib/routes.ts` bu çifti tabloda tutuyor. */
-const ILETISIM = cevrilmisYol(CEVRILMIS_SAYFALAR[0], "tr");
+const ILETISIM = cevrilmisYol(cevrilmisSayfa("iletisim"), "tr");
 
 const CIKIS_SINIFI = "text-ink-2 transition-colors hover:text-ink";
 

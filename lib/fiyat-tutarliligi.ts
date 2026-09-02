@@ -1,6 +1,6 @@
 import { posts, type BlogPost } from "./blog";
 import { solutions } from "./solutions";
-import { PRICE_FLOOR, bantRakamlari, fiyatlariOku } from "./pricing";
+import { PRICE_FLOOR, fiyatlariOku } from "./pricing";
 
 /**
  * BLOG FİYATLARI SEKTÖR BANTLARIYLA TUTUYOR MU — derleme zamanı kontrolü.
@@ -34,7 +34,7 @@ export function assertBlogFiyatlari() {
   for (const s of solutions) {
     for (const c of [s.tr, s.en]) {
       for (const t of c.pricing?.tiers ?? []) {
-        for (const n of bantRakamlari(t.price)) bandlar.add(n);
+        for (const n of fiyatlariOku(t.price)) bandlar.add(n);
       }
     }
   }

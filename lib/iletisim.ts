@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { dictionary, type Lang } from "./i18n/dictionary";
-import { CEVRILMIS_SAYFALAR, cevrilmisYol } from "./routes";
+import { cevrilmisSayfa, cevrilmisYol } from "./routes";
 import {
   CALISMA,
   EPOSTA,
@@ -276,7 +276,7 @@ export const iletisimIcerigi: Record<Lang, IletisimIcerigi> = {
  */
 export function iletisimMetadata(lang: Lang): Metadata {
   const c = iletisimIcerigi[lang];
-  const cift = CEVRILMIS_SAYFALAR[0];
+  const cift = cevrilmisSayfa("iletisim");
   const canonical = cevrilmisYol(cift, lang);
 
   return {

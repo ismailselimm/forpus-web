@@ -52,6 +52,13 @@ const EN_PREFIX = "/en";
  * yalnız adres ve yayın tarihi var — sayfa metni değil.
  */
 export type CevrilmisSayfa = {
+  /**
+   * Kayıt kimliği. NEDEN VAR: koleksiyon tek elemanlıyken üç çağrı yeri
+   * `CEVRILMIS_SAYFALAR[0]` yazıyordu (footer, 404, iletişim metadata) —
+   * yani "ilk kayıt iletişimdir" varsayımı koda gömülüydü. İkinci kayıt
+   * eklendiğinde o üç bağlantı sessizce başka sayfaya dönerdi.
+   */
+  id: "iletisim" | "cozumler";
   tr: string;
   en: string;
   /** Sitemap `lastModified`i. */
@@ -63,8 +70,35 @@ export type CevrilmisSayfa = {
 export const CEVRILMIS_SAYFALAR: readonly CevrilmisSayfa[] = [
   // Sitenin kimlik çıpası: marka sorgularında ana sayfadan sonra çıkması
   // gereken sayfa bu, o yüzden önceliği yüksek.
-  { tr: "/iletisim", en: "/en/contact", yayin: "2026-08-27", oncelik: 0.9 },
+  {
+    id: "iletisim",
+    tr: "/iletisim",
+    en: "/en/contact",
+    yayin: "2026-08-27",
+    oncelik: 0.9,
+  },
+  // Çözüm hub'ı. Tarih elle: SOLUTIONS_LASTMOD `lib/solutions.ts`te ve o
+  // dosya 809 KB — hafif bir rota modülünün onu içe aktarması, ağır dosyayı
+  // istemci sınırına bir adım daha yaklaştırırdı.
+  // Buraya kaydedilmeden önce sitemap'e elle iki giriş
+  // yazılmıştı ve sonucu ölçüldü: `hrefForLang("/cozumler", "en")` null
+  // dönüyordu, yani dil değiştirici bu sayfada çalışmıyordu — EN'e basan
+  // ziyaretçi Türkçe sayfada menüsü İngilizceye dönmüş hâlde kalıyordu.
+  {
+    id: "cozumler",
+    tr: "/cozumler",
+    en: "/en/solutions",
+    yayin: "2026-09-02",
+    oncelik: 0.9,
+  },
 ];
+
+/** Kimliğe göre kayıt — çağrı yerleri diziyi indeksle aramasın diye. */
+export const cevrilmisSayfa = (id: CevrilmisSayfa["id"]): CevrilmisSayfa => {
+  const bulunan = CEVRILMIS_SAYFALAR.find((c) => c.id === id);
+  if (!bulunan) throw new Error(`CEVRILMIS_SAYFALAR: "${id}" kaydı yok.`);
+  return bulunan;
+};
 
 /** Bir dilin adresini verir. Footer ve metadata bunu çağırıyor. */
 export const cevrilmisYol = (sayfa: CevrilmisSayfa, lang: Lang) =>

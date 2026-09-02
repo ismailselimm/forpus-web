@@ -111,32 +111,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: { languages: { tr: SITE, en: `${SITE}/en` } },
     },
     {
-      // Çözüm hub'ı — 42 çözüm sayfasının ebeveyni. Sayfa 2 Eylül'de
-      // açıldı; öncesinde `/cozumler` 404 dönüyordu ve 42 sayfa öksüzdü.
-      url: `${SITE}/cozumler`,
-      lastModified: ICERIK_LASTMOD,
-      changeFrequency: "monthly",
-      priority: 0.9,
-      alternates: {
-        languages: {
-          tr: `${SITE}/cozumler`,
-          en: `${SITE}/en/solutions`,
-        },
-      },
-    },
-    {
-      url: `${SITE}/en/solutions`,
-      lastModified: ICERIK_LASTMOD,
-      changeFrequency: "monthly",
-      priority: 0.7,
-      alternates: {
-        languages: {
-          tr: `${SITE}/cozumler`,
-          en: `${SITE}/en/solutions`,
-        },
-      },
-    },
-    {
       url: `${SITE}/isler`,
       lastModified: newest(cases.map((c) => c.updated ?? c.published)),
       changeFrequency: "monthly",

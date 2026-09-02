@@ -2876,10 +2876,6 @@ export const solutions: Solution[] = [
       faqTitle: "Sık sorulan sorular",
       faq: [
         {
-          q: "Projelerimi kendim ekleyebilir miyim?",
-          a: "Evet. Yeni projeleri görsel ve detaylarıyla kolayca ekleyebileceğiniz bir yapı kurarız.",
-        },
-        {
           q: "Yüksek kaliteli görseller siteyi yavaşlatır mı?",
           a: "Hayır. Görselleri optimize ederek kaliteden ödün vermeden hızlı bir galeri kurarız.",
         },
@@ -10306,5 +10302,29 @@ const MEVZUAT_SEKTORLERI: Record<string, "saglik" | "veteriner" | "meslek"> = {
           `arama sonucunda ${SINIR}'ta kesilir, sondaki çağrı görünmez.`,
       );
     }
+  }
+}
+
+// Aynı SSS listesinde aynı soru iki kez sorulamaz.
+//
+// NEDEN VAR: elle tarama iki kez üst üste yarım kaldı. 2 Eylül'de mobil
+// sayfasında iki çift yinelenen soru elle silindi ve aynı taramada `mimar`
+// sayfası atlandı — o sayfa "Projelerimi kendim ekleyebilir miyim?" sorusunu
+// İKİ FARKLI CEVAPLA soruyordu ve ikisi de FAQPage şemasına basılıyordu.
+//
+// NEDEN YALNIZ LİSTE İÇİ: "aynı soru iki SAYFADA olamaz" kuralı yanlış
+// olurdu. Ölçüldü: "Mevcut sitemi yenileyebilir misiniz?" 42 sayfanın
+// 18'inde birebir aynı, ve bu kasıtlı — her sektör kendi cevabını veriyor.
+// Böyle bir kural 40+ yanlış pozitif üretir ve ilk gün kapatılır.
+for (const { s, dil, c } of HER_DIL) {
+  const gorulen = new Set<string>();
+  for (const { q } of c.faq ?? []) {
+    const anahtar = q.trim().toLocaleLowerCase("tr");
+    if (gorulen.has(anahtar)) {
+      throw new Error(
+        `${s.key} (${dil}): "${q}" sorusu SSS listesinde iki kez var.`,
+      );
+    }
+    gorulen.add(anahtar);
   }
 }
