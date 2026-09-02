@@ -76,6 +76,147 @@ export type BlogPost = {
 };
 
 export const posts: BlogPost[] = [
+  {
+    slug: "e-ticaret-sitesi-yaptirmak",
+    title: "E-Ticaret Sitesi Yaptırmak İstiyorum: Nereden Başlamalı?",
+    metaTitle: "E-Ticaret Sitesi Yaptırmak — Nereden Başlanır?",
+    metaDescription:
+      "E-ticaret sitesi yaptırmadan önce verilecek altı karar: hazır altyapı mı özel yazılım mı, ödeme, kargo, e-fatura, ETBİS ve kaynak kodun kime ait olduğu.",
+    excerpt:
+      "E-ticarette asıl karar tasarım değil, altyapı. Hazır sistemle özel yazılım arasındaki farkı, hangi durumda hangisinin doğru olduğunu ve yayına çıkmadan önce halledilmesi gereken yasal asgarileri yazdık.",
+    published: "2026-09-02",
+    tag: "Rehber",
+    intro: [
+      "E-ticaret sitesi yaptırmak, kurumsal site yaptırmaktan farklı bir iş. Kurumsal sitede en büyük risk kötü görünmek; e-ticarette en büyük risk para almanın durması. O yüzden ilk konuşulması gereken şey tasarım değil, altında ne çalışacağı.",
+      "Aşağıda yayına çıkmadan önce verilmesi gereken altı kararı, her birinin sizi neye bağladığını ve teklif alırken hangi soruyu sormanız gerektiğini yazdık. Fiyat bandları için ayrı bir yazımız var; burada para değil, karar konuşuluyor.",
+    ],
+    shortAnswer: {
+      title: "Kısa cevap: e-ticaret sitesi yaptırırken neye karar verilir?",
+      body: "E-ticaret sitesi yaptırmadan önce altı karar veriliyor ve bunların beşi tasarımla ilgili değil. Birincisi altyapı: olgun bir açık kaynak ticaret altyapısı üzerine mi kurulacak, yoksa sepet ve sipariş dahil her şey sıfırdan mı yazılacak. Ürün sayısı birkaç yüzü geçmeyen ve satış akışı standart olan işletmelerin çoğunda hazır altyapı doğru cevap; sıfırdan yazmak, ürün mekaniği gerçekten farklı olan markalar için anlamlı. İkincisi ödeme: her satıcı kendi sanal POS'unu kendi adına açar, bu hem yasal olarak doğru olan hem de paranın araya kimse girmeden hesabınıza geçtiği kurgudur. Üçüncüsü fatura, dördüncüsü kargo; ikisi de başlangıçta elle yürütülebilir, sipariş sayısı günde otuzu geçtiğinde otomatikleşmesi gerekir. Beşincisi yasal asgariler: mesafeli satış sözleşmesi, iptal ve iade koşulları, KVKK aydınlatma metni ve ETBİS kaydı olmadan mağaza yayına alınmamalı, çünkü bunların sorumlusu yazılımcı değil satıcıdır. Altıncısı ve en çok atlanansa kaynak kodun kime ait olduğu: sözleşmede yazmıyorsa, mağazanızı büyütmek istediğinizde onu yapan ekibe bağlı kalırsınız.",
+    },
+    sections: [
+      {
+        heading: "Önce altyapı: hazır sistem mi, sıfırdan yazmak mı?",
+        body: [
+          "E-ticarette sepet, varyant, stok, sipariş durumları, kısmi iade ve ödeme onayı gibi parçalar her mağazada aynı işi yapar. Bunları sıfırdan yazmak, çözülmüş bir problemi yeniden çözmek demek — ve her satırın bakımını da üstlenmek demek.",
+          "Olgun bir açık kaynak ticaret altyapısı üzerine kurmak, o standart parçaları hazır getirir; geliştirme eforu markaya özel olan kısma ayrılır. Bu, ucuza kaçmak değil: aynı bütçeyle daha fazla özel işlev almak demek.",
+          "Sıfırdan yazmanın anlamlı olduğu durum da var: ürün mekaniğiniz gerçekten standart dışıysa. Kullanıcının kendi koleksiyonunu kurduğu, birden fazla ürünü tek tıkla sepete atan, ölçüye göre üretim yapan mağazalarda hazır sistemlerin veri modeli yetmiyor.",
+        ],
+        table: {
+          caption: "Hangi durumda hangisi",
+          head: ["Durum", "Doğru yaklaşım", "Neden"],
+          rows: [
+            [
+              "Standart ürün satışı, birkaç yüz ürün",
+              "Hazır altyapı üzerine kurulum",
+              "Sepetten ödemeye kadar akış hazır; efor tasarıma ve içeriğe gider",
+            ],
+            [
+              "Özel ürün mekaniği (koleksiyon, kombin, ölçüye göre)",
+              "Hazır altyapı + kendi modülünüz",
+              "Çekirdek hazır kalır, yalnız sizi ayıran kısım yazılır",
+            ],
+            [
+              "Kurumsal entegrasyon ağırlıklı (ERP, bayi, cari)",
+              "Özel yazılım",
+              "Veri modeli hazır sistemlerin dışına çıkıyor",
+            ],
+            [
+              "Ayda birkaç sipariş, denemek istiyorsunuz",
+              "Hazır kiralık platform",
+              "Bu bandda özel geliştirme kendini amorti etmiyor",
+            ],
+          ],
+        },
+      },
+      {
+        heading: "Ödeme: sanal POS kimin adına açılıyor?",
+        body: [
+          "Türkiye'de e-ticaret ödemesi sanal POS üzerinden alınır ve bu POS satıcının kendi adına açılır. Yazılımı yapan ekip kurulumu yapar, entegrasyonu yazar, testini geçirir; ama hesabın sahibi siz olursunuz ve para doğrudan sizin hesabınıza geçer.",
+          "Aracı bir yapıya, yani ödemenin önce yazılımcının hesabına düşüp sonra size aktarıldığı bir kurguya girmeyin. Hem iade ve itiraz süreçlerinde muhatap karışır, hem de bu yapı ödeme mevzuatı açısından ayrı bir izne tabidir.",
+          "Teklif alırken sorun: sanal POS başvurusunu kim yapıyor, hesap kimin adına açılıyor, 3D Secure varsayılan olarak açık mı, iade ve kısmi iade akışı yazılı mı?",
+        ],
+      },
+      {
+        heading: "Fatura ve kargo: başlangıçta elle, sonra otomatik",
+        body: [
+          "e-Arşiv fatura ve kargo etiketi, ilk günden otomatik olmak zorunda değil. Günde birkaç sipariş alan bir mağazada bu ikisi elle yürütülebilir ve bu, yayına çıkma süresini gözle görülür şekilde kısaltır.",
+          "Eşiği baştan konuşun: sipariş sayısı günde otuzu geçtiğinde elle işlem hem yorucu hem hatalı olmaya başlar. O noktada e-fatura entegratörü ve kargo entegrasyonu ayrı bir iş kalemi olarak devreye girer.",
+          "Bu kararın avantajı şu: ilk sürümde ödediğiniz para satış yapan bir mağazaya gider, henüz olmayan siparişleri otomatikleştirmeye değil.",
+        ],
+      },
+      {
+        heading: "Yayına çıkmadan önce yasal asgariler",
+        body: [
+          "Bunların hiçbiri tasarım tercihi değil; eksikse mağaza yayına alınmamalı. Sorumlusu da yazılımı yapan ekip değil, satıcı sıfatıyla sizsiniz.",
+        ],
+        table: {
+          caption: "Yayın öncesi kontrol listesi",
+          head: ["Ne", "Neden gerekli"],
+          rows: [
+            [
+              "Mesafeli satış sözleşmesi",
+              "Her siparişte müşterinin onayladığı metin; sipariş anındaki hâli saklanmalı",
+            ],
+            [
+              "İptal ve iade koşulları",
+              "Cayma hakkı süresi ve istisnaları açıkça yazılı olmalı",
+            ],
+            [
+              "KVKK aydınlatma metni ve çerez bildirimi",
+              "Müşteri verisi işleniyor; aydınlatma yükümlülüğü satıcıda",
+            ],
+            [
+              "ETBİS kaydı",
+              "Elektronik ticaret bilgi sistemine kayıt ve site altbilgisinde numara",
+            ],
+            [
+              "İletişim ve işletme bilgileri",
+              "Unvan, adres, vergi bilgisi ve ulaşılabilir bir iletişim kanalı",
+            ],
+          ],
+        },
+      },
+      {
+        heading: "Kaynak kod kimin? — en çok atlanan madde",
+        body: [
+          "Mağaza büyüdükçe yeni bir şey istersiniz: farklı bir kampanya kurgusu, bayi fiyatı, bir pazaryeri entegrasyonu. O gün kaynak kodun kimde olduğu, ne kadar hızlı ilerleyebileceğinizi belirler.",
+          "Kaynak kodun ve tasarım dosyalarının proje sonunda size geçtiği sözleşmede yazılı olsun. Aynı şekilde alan adı ve sunucu da kendi adınıza açılsın; ilk günden sahibi siz olun. Bu, çalıştığınız ekipten memnun olmamanızla ilgili değil — devamlılıkla ilgili.",
+          "Sunucu bedelinin kimin aboneliğinden çıktığı da yazılı olsun. Yazılımcının üzerinden geçen bir sunucu aboneliği, ilişki bittiğinde mağazanın kapanmasına kadar giden bir bağımlılık yaratıyor.",
+        ],
+      },
+      {
+        heading: "Teklif alırken sorulacak yedi soru",
+        body: [
+          "Hangi altyapı üzerine kuruluyor ve neden o seçildi? Sanal POS kimin adına açılıyor? Ürün girişini kim yapıyor, kaç ürünle yayına çıkıyoruz? e-Fatura ve kargo ilk sürümde otomatik mi, elle mi? Mesafeli satış, iptal-iade, KVKK ve ETBİS kalemleri teklife dahil mi? Kaynak kod ve tasarım dosyaları proje sonunda kime geçiyor? Yayından sonra bir sorun çıkarsa kaç saat içinde dönülüyor ve bu neye tabi?",
+          "Bu yedi sorunun cevabı yazılı olarak alınıyorsa, geri kalanı konuşulabilir. Alınmıyorsa fiyat karşılaştırması yapmanın bir anlamı yok, çünkü aynı işi karşılaştırmıyorsunuz.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Hazır platform mu kiralasam, kendi sitemi mi yaptırsam?",
+        a: "Ayda birkaç sipariş bekliyorsanız ve satış akışınız standartsa kiralık platform mantıklı: kurulum hızlı, başlangıç maliyeti düşük. Kendi sitenizi yaptırmak, tasarımın markanıza özel olmasını, veri modelinin size uymasını ve kodun sizde kalmasını istediğinizde anlam kazanıyor. Ara bir yol da var: olgun bir açık kaynak altyapı üzerine markaya özel bir vitrin kurmak.",
+      },
+      {
+        q: "Ürünleri siteye kim giriyor?",
+        a: "Genelde satıcı giriyor, çünkü ürün açıklaması, fiyat ve stok bilgisi işi bilen kişide. Yazılımı yapan ekip yönetim panelini teslim eder, birkaç örnek ürünle kullanımı gösterir. Toplu ürün aktarımı gerekiyorsa (mevcut bir listeden içe aktarma) bu ayrı bir kalem olarak konuşulur.",
+      },
+      {
+        q: "E-ticaret sitesi kaç haftada yayına çıkar?",
+        a: "Hazır altyapı üzerine kurulan, standart akışlı bir mağaza iki ila dört haftada yayına çıkabilir. Markaya özel tasarım ve kendi ürün mekaniğiniz varsa süre dört ila yedi haftaya uzuyor. Süreyi en çok uzatan iki şey yazılım değil: ürün içeriklerinin hazır olmaması ve sanal POS başvurusunun sonuçlanmasını beklemek. İkisi de en baştan başlatılmalı.",
+      },
+      {
+        q: "Sanal POS başvurusu ne kadar sürer?",
+        a: "Bankaya ve evrakların eksiksizliğine göre değişiyor, birkaç günden birkaç haftaya kadar uzayabiliyor. Bu süreç yazılımı yapan ekibin kontrolünde olmadığı için projenin ilk gününde başlatılması gerekiyor; sona bırakılırsa hazır bir mağazayla ödeme onayını bekler hâle geliyorsunuz.",
+      },
+      {
+        q: "Pazaryerlerinde satıyorum, kendi siteme ihtiyacım var mı?",
+        a: "Pazaryeri müşteriyi getiriyor ama her satıştan komisyon alıyor ve o müşteri sizin müşteriniz olmuyor; bir sonraki alışverişinde de komisyonu ödüyorsunuz. Kendi siteniz, pazaryerinden gelen müşteriyi ikinci kez doğrudan almanızı sağlıyor. İkisi birbirinin alternatifi değil; çoğu marka ikisini birlikte yürütüyor.",
+      },
+    ],
+    relatedSolutions: ["eticaret"],
+  },
   // ───────────────────────────────────────────────────────── FİYAT
   {
     herSektor: true,
