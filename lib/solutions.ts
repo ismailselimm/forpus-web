@@ -9902,35 +9902,19 @@ export const solutions: Solution[] = [
         },
         {
           q: "Uygulamayı mağazada siz mi yayınlıyorsunuz?",
-          a: "Evet. App Store ve Google Play hesap kurulumundan yayına kadar süreci biz yönetiriz.",
-        },
-        {
-          q: "Fikrim var ama teknik bilmiyorum, olur mu?",
-          a: "Tam da bunun için varız. Fikri birlikte netleştirir, uçtan uca hayata geçiririz.",
-        },
-        {
-          q: "Mobil uygulama yaptırmak ne kadar tutar?",
-          a: "Fikrin en sade çalışan hali olan bir ilk sürüm ₺250.000–400.000 aralığında, yaklaşık 6–10 haftada yayına çıkar. Ödeme, harita, bildirim ve çok rollü kullanıcı sistemi olan tam kapsamlı bir uygulama ₺450.000–800.000 bandındadır. Pazaryeri gibi karmaşık platformlar ₺800.000'den başlar. Kesin rakam özellik listesi netleştiğinde belli olur.",
-        },
-        {
-          q: "iOS ve Android için ayrı ayrı mı ödeyeceğim?",
-          a: "Hayır. Tek kod tabanıyla geliştiriyoruz; aynı geliştirmeden iki platform da çıkıyor. Bu yaklaşım maliyeti neredeyse yarıya indiriyor ve iki platformun aynı anda güncellenmesini sağlıyor. Yalnızca çok özel donanım gereksinimleri olan projelerde ayrı geliştirme gerekir.",
-        },
-        {
-          q: "Uygulamayı mağazada yayınlamayı da siz mi yapıyorsunuz?",
           a: "Evet, uçtan uca. Mağaza metinleri, ekran görüntüleri, gizlilik formları ve başvuru sürecinin tamamını biz yürütürüz. Apple veya Google ret verirse gerekçeyi çözer, düzeltip yeniden göndeririz. Hesaplar sizin adınıza açılır, sahiplik her zaman sizde kalır.",
         },
         {
-          q: "Ne kadar sürede yayına çıkarım?",
-          a: "İlk sürüm için 6–10 hafta gerçekçi bir süredir. Kapsam büyüdükçe bu 3–5 aya çıkar. Süreyi en çok uzatan şey teknik zorluk değil, karar değişiklikleridir; bu yüzden kapsamı baştan netleştirmeye bu kadar önem veriyoruz.",
+          q: "Fikrim var ama teknik bilmiyorum, olur mu?",
+          a: "Tam da bunun için varız. Fikri birlikte netleştirir, uçtan uca hayata geçiririz. Teknik terimlerle konuşmuyoruz; her aşamada telefonunuzda gezebileceğiniz somut bir çıktı veriyoruz.",
+        },
+        {
+          q: "Uygulamanın kaynak kodu bizde mi kalıyor?",
+          a: "Evet. Kaynak kod ve tasarım dosyaları proje sonunda size geçer, mağaza hesapları da sizin adınıza açılır. İleride başka bir ekiple devam etmek isterseniz devir diye bir iş kalmaz; zaten sizindir.",
         },
         {
           q: "Yayından sonra destek veriyor musunuz?",
           a: "Evet. İşletim sistemi güncellemeleri ve mağaza kuralları değiştikçe uygulamanın bakımı gerekir; bakımsız bir uygulama bir yıl içinde çalışmaz hale gelebilir. Bakım ve destek koşullarını sözleşmede net yazarız.",
-        },
-        {
-          q: "Yazılım bilmiyorum, süreci takip edebilir miyim?",
-          a: "Evet, müşterilerimizin çoğu yazılımcı değil. Teknik terimlerle konuşmuyoruz; her aşamada telefonunuzda gezebileceğiniz somut bir çıktı veriyoruz. Prototipi ilk haftalarda elinize alıyorsunuz.",
         },
       ],
       ctaTitle: "Uygulama fikrinizi konuşalım",

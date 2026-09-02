@@ -21,7 +21,7 @@ import type { ServiceKey } from "./services";
  * marka ve fotoğrafçının yanında — ki yanlıştı. İkisi birbirinin en doğru
  * ilgili bağlantısı: özel yazılım isteyen çoğu zaman mobil de istiyor.
  */
-type Aile =
+export type Aile =
   | "saglik"
   | "pet"
   | "guzellik"
@@ -472,4 +472,72 @@ export function ilgiliRefler(key: string): SolutionRef[] {
     ...baskaAile.slice(kaydir),
     ...baskaAile.slice(0, kaydir),
   ].slice(0, ILGILI_SAYISI);
+}
+
+/**
+ * Ailelerin gösterim adı ve sırası — çözüm hub'ı (`/cozumler`) bunu kullanıyor.
+ *
+ * NEDEN VAR: 42 çözüm sayfasının ebeveyni yoktu, `/cozumler` 404 dönüyordu
+ * (ölçüldü, 2 Eylül 2026) ve tek toplayıcı footer'dı. Hub kurulurken 42
+ * bağlantıyı düz bir liste hâlinde basmak yerine `aile` alanına göre
+ * gruplandı: alan zaten veride duruyordu ve okuyanın kendi mesleğini
+ * bulmasını kolaylaştıran tek yapı o.
+ *
+ * SIRA ANLAM TAŞIYOR: "yazilim" başta, çünkü o iki sayfa sektör değil hizmet
+ * — mobil uygulama ve özel yazılım herkese satılıyor. Sonrası sektörler,
+ * sayfa sayısına göre azalan.
+ */
+export const AILE_SIRASI = [
+  "yazilim",
+  "saglik",
+  "operasyon",
+  "agirlama",
+  "danismanlik",
+  "yapi",
+  "ticaret",
+  "guzellik",
+  "pet",
+  "egitim",
+  "kisisel",
+] as const satisfies readonly Aile[];
+
+export const AILE_ETIKETLERI: Record<Aile, { tr: string; en: string }> = {
+  yazilim: { tr: "Yazılım hizmetleri", en: "Software services" },
+  saglik: { tr: "Sağlık", en: "Healthcare" },
+  operasyon: { tr: "Operasyon ve saha", en: "Operations & field" },
+  agirlama: { tr: "Ağırlama ve turizm", en: "Hospitality & tourism" },
+  danismanlik: { tr: "Danışmanlık ve finans", en: "Consulting & finance" },
+  yapi: { tr: "Yapı ve emlak", en: "Construction & real estate" },
+  ticaret: { tr: "Ticaret", en: "Commerce" },
+  guzellik: { tr: "Güzellik ve bakım", en: "Beauty & care" },
+  pet: { tr: "Evcil hayvan", en: "Pets" },
+  egitim: { tr: "Eğitim", en: "Education" },
+  kisisel: { tr: "Kişisel marka", en: "Personal brand" },
+};
+
+/** Ailesine göre gruplanmış çözümler — hub sayfasının çizdiği sıra. */
+export const aileyeGore = AILE_SIRASI.map((aile) => ({
+  aile,
+  etiket: AILE_ETIKETLERI[aile],
+  refler: solutionIndex.filter((s) => s.aile === aile),
+}));
+
+// Sırada eksik ya da boş aile kalmasın: yeni bir aile eklenip buraya
+// yazılmazsa o çözümler hub'da HİÇ görünmezdi ve kimse fark etmezdi.
+{
+  const sirada = new Set<string>(AILE_SIRASI);
+  for (const s of solutionIndex) {
+    if (!sirada.has(s.aile)) {
+      throw new Error(
+        `AILE_SIRASI eksik: "${s.aile}" ailesi hub'da çizilmiyor.`,
+      );
+    }
+  }
+  for (const g of aileyeGore) {
+    if (g.refler.length === 0) {
+      throw new Error(
+        `AILE_SIRASI fazla: "${g.aile}" ailesinde hiç çözüm yok.`,
+      );
+    }
+  }
 }
