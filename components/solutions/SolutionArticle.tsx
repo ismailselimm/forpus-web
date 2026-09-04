@@ -324,6 +324,13 @@ export default function SolutionArticle({
                 <p className="mt-7 text-center text-[0.9rem] leading-relaxed text-ink-3">
                   {c.pricing.note}
                 </p>
+                {c.pricing.link && (
+                  <p className="mt-5 text-center">
+                    <Link href={c.pricing.link.href} className="pill-link">
+                      {c.pricing.link.label}
+                    </Link>
+                  </p>
+                )}
               </Reveal>
             </div>
           </div>

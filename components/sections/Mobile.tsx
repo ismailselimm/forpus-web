@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { clsx } from "clsx";
 import { Reveal } from "@/components/fx/Reveal";
 import Aurora from "@/components/fx/Aurora";
@@ -146,7 +147,7 @@ function PhoneCard({ app, index }: { app: MobileApp; index: number }) {
 }
 
 export default function Mobile() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   return (
     <section
@@ -167,6 +168,17 @@ export default function Mobile() {
           <Reveal delay={0.1}>
             <p className="lead mx-auto mt-5 max-w-xl">{t.mobile.subtitle}</p>
           </Reveal>
+          {/* Blog yalnızca Türkçe; İngilizce ziyaretçiye Türkçe yazıya giden
+              bağlantı gösterilmiyor. Bu yüzden sözlükte değil, dil koşuluyla. */}
+          {lang === "tr" && (
+            <Reveal delay={0.15}>
+              <p className="mt-6">
+                <Link href="/blog/mobil-uygulama-maliyeti" className="pill-link">
+                  Mobil uygulama fiyatları 2026
+                </Link>
+              </p>
+            </Reveal>
+          )}
         </div>
 
         <div className="group/grid mt-20 flex flex-wrap justify-center gap-x-8 gap-y-20 sm:gap-y-16">

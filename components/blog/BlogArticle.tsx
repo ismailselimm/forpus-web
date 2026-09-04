@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ChevronDown, Info } from "lucide-react";
 import { Reveal } from "@/components/fx/Reveal";
 import KisaCevap from "@/components/ui/KisaCevap";
@@ -216,6 +217,16 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
                         </p>
                       </div>
                     </aside>
+                  </Reveal>
+                )}
+
+                {s.link && (
+                  <Reveal>
+                    <p className="mt-8">
+                      <Link href={s.link.href} className="pill-link">
+                        {s.link.label}
+                      </Link>
+                    </p>
                   </Reveal>
                 )}
               </section>

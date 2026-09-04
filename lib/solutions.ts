@@ -71,6 +71,8 @@ export type SolutionContent = {
     lead: string;
     tiers: { name: string; price: string; timeline: string; body: string }[];
     note: string;
+    /** Notun altında tek bağlamlı bağlantı — örn. aynı bandları açan fiyat rehberi. */
+    link?: { label: string; href: string };
   };
 
   /** Gerçek referans işimiz. Yalnızca o sektörde GERÇEKTEN iş yaptıysak. */
@@ -9950,6 +9952,10 @@ export const solutions: Solution[] = [
           },
         ],
         note: "Bu rakamlar başlangıç bandıdır; kapsam ve entegrasyonlara göre değişir. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız — sonradan eklenen sürpriz kalem yoktur. Tüm fiyatlar KDV hariçtir.",
+        link: {
+          label: "Bu bandları neyin belirlediği: mobil uygulama fiyatları 2026 rehberi",
+          href: "/blog/mobil-uygulama-maliyeti",
+        },
       },
       caseRef: {
         title: "Yaptığımız uygulama",

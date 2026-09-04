@@ -23,6 +23,13 @@ export type BlogSection = {
   table?: { caption?: string; head: string[]; rows: string[][] };
   /** Vurgulanan not — uyarı veya dürüst tavsiye. */
   callout?: { title: string; body: string };
+  /**
+   * Bölümün sonunda tek bir bağlamlı iç bağlantı. Gövde serbest HTML
+   * taşımadığı için yazıdan yazıya köprü ancak buradan kurulabiliyor;
+   * "Bunları da okuyun" listesi otomatik, bu ise editörün elle koyduğu
+   * "şunu da okuyun" cümlesi.
+   */
+  link?: { label: string; href: string };
 };
 
 /**
@@ -241,6 +248,10 @@ export const posts: BlogPost[] = [
     sections: [
       {
         heading: "Site tipine göre fiyat bandları",
+        link: {
+          label: "Uygulama yaptıracaksanız: mobil uygulama fiyatları 2026",
+          href: "/blog/mobil-uygulama-maliyeti",
+        },
         body: [
           "Web sitesi denince çok farklı işler kastediliyor. Tek sayfalık bir tanıtım sitesiyle ödeme alan bir e-ticaret mağazası arasında on kat fark olması normal. Aşağıdaki tablo en yaygın dört tipi ve 2026 başlangıç bandlarını gösteriyor.",
         ],
@@ -386,26 +397,29 @@ export const posts: BlogPost[] = [
   // ───────────────────────────────────────────────────────── MOBİL
   {
     slug: "mobil-uygulama-maliyeti",
-    title: "Mobil Uygulama Yaptırmak Ne Kadar Tutar?",
-    metaTitle: "Mobil Uygulama Fiyatları 2026 — Maliyet Rehberi",
+    title: "Mobil Uygulama Fiyatları 2026: Yaptırmak Ne Kadar Tutar?",
+    metaTitle: "Mobil Uygulama Fiyatları 2026: Ne Kadar Tutar?",
     metaDescription:
-      "Mobil uygulama yaptırmak ne kadar tutar? 2026 fiyat aralıkları, maliyeti neyin belirlediği ve bütçeyi ikiye katlayan yaygın hatalar.",
+      "Mobil uygulama fiyatları 2026: ilk sürüm ₺250.000'den, tam kapsamlı uygulama ₺450.000'den başlıyor. Fiyatı ne belirler, iOS ve Android'e ayrı ödenir mi?",
     excerpt:
       "Uygulama fikri olan çoğu kişi bütçeyi bilmediği için hiç başlamıyor. Gerçek rakamlar, süreler ve maliyeti şişiren en yaygın hata.",
     published: "2026-08-25",
-    updated: "2026-08-27",
+    updated: "2026-09-04",
     tag: "Fiyat Rehberi",
     intro: [
       "Uygulama fikri olan çoğu kişinin takıldığı yer teknik değil, belirsizlik. Ne kadar tutacağı bilinmediği için karar verilemiyor ve iyi fikirler yıllarca beklemede kalıyor.",
-      "Aşağıda 2026 için gerçek bandları, o bandları neyin belirlediğini ve bütçeyi en çok şişiren hatayı yazdık.",
+      "Aşağıda 2026 için gerçek mobil uygulama fiyatlarını, o fiyat aralıklarını neyin belirlediğini ve bütçeyi en çok şişiren hatayı yazdık.",
     ],
     shortAnswer: {
       title: "Kısa cevap: mobil uygulama ne kadar tutar?",
-      body: "Türkiye'de 2026 için mobil uygulama maliyeti, kapsama göre üç banda ayrılıyor. Fikri doğrulayacak kadar özellik taşıyan bir ilk sürüm — MVP — ₺250.000–400.000 arasında ve altı ila on haftada mağazaya çıkar. Ödeme, harita ve bildirim gibi entegrasyonların bulunduğu tam kapsamlı bir uygulama ₺450.000–800.000 arasında ve üç ila beş ay sürer. Çok taraflı bir pazaryeri ya da uzun soluklu bir platform ₺800.000'den başlar ve süresi kapsama göre belirlenir. Bütçeyi ikiye katlayan en yaygın hata, her özelliği ilk sürüme koymaya çalışmak: kapsam yol boyunca büyüdükçe hem maliyet hem takvim katlanıyor. iOS ve Android için ayrı ayrı ödeme yapmanız gerekmez; tek kod tabanıyla çalışan ekipler iki platformu birlikte çıkarır. Fiyata mağaza yayını, yönetim paneli ve yayın sonrası bakımın dahil olup olmadığını mutlaka yazılı olarak sorun. Uygulama mağazaya çıktığında iş bitmiyor: işletim sistemi güncellemeleri, değişen mağaza kuralları ve hata düzeltmeleri için yıllık bir bakım kalemi ayırmanız gerekiyor. Mağaza hesaplarının ve kaynak kodun kime ait olacağını da sözleşmede yazılı isteyin.",
+      body: "Türkiye'de 2026 için mobil uygulama fiyatları, kapsama göre üç banda ayrılıyor. Fikri doğrulayacak kadar özellik taşıyan bir ilk sürüm — MVP — ₺250.000–400.000 arasında ve altı ila on haftada mağazaya çıkar. Ödeme, harita ve bildirim gibi entegrasyonların bulunduğu tam kapsamlı bir uygulama ₺450.000–800.000 arasında ve üç ila beş ay sürer. Çok taraflı bir pazaryeri ya da uzun soluklu bir platform ₺800.000'den başlar ve süresi kapsama göre belirlenir. Bütçeyi ikiye katlayan en yaygın hata, her özelliği ilk sürüme koymaya çalışmak: kapsam yol boyunca büyüdükçe hem maliyet hem takvim katlanıyor. iOS ve Android için ayrı ayrı ödeme yapmanız gerekmez; tek kod tabanıyla çalışan ekipler iki platformu birlikte çıkarır. Fiyata mağaza yayını, yönetim paneli ve yayın sonrası bakımın dahil olup olmadığını mutlaka yazılı olarak sorun. Uygulama mağazaya çıktığında iş bitmiyor: işletim sistemi güncellemeleri, değişen mağaza kuralları ve hata düzeltmeleri için yıllık bir bakım kalemi ayırmanız gerekiyor. Mağaza hesaplarının ve kaynak kodun kime ait olacağını da sözleşmede yazılı isteyin.",
     },
     sections: [
       {
-        heading: "Kapsama göre fiyat bandları",
+        heading: "Mobil uygulama fiyatları 2026: kapsama göre bandlar",
+        body: [
+          "Mobil uygulama fiyatlarını belirleyen şey teknoloji değil, kapsam: uygulamanın kaç iş yaptığı, kaç rolün kullandığı ve kaç dış sisteme bağlandığı. Aşağıdaki fiyat aralıkları, mobil uygulama geliştirme sayfamızda yayınladığımız paket bandlarının aynısıdır; görüşmede farklı bir rakam duymazsınız.",
+        ],
         table: {
           caption: "2026 başlangıç fiyatları — iOS + Android, tek kod tabanı",
           head: ["Kapsam", "Fiyat bandı", "Süre", "Ne içerir"],
@@ -513,7 +527,7 @@ export const posts: BlogPost[] = [
       {
         heading: "iOS ve Android için ayrı ayrı mı ödenir?",
         body: [
-          "Hayır — en azından artık gerekmiyor. Tek kod tabanıyla geliştirme yapıldığında aynı çalışmadan iki platform da çıkıyor. Bu yaklaşım maliyeti neredeyse yarıya indiriyor ve iki platformun aynı anda güncellenmesini sağlıyor.",
+          "Hayır — en azından artık gerekmiyor. Tek kod tabanıyla geliştirme yapıldığında aynı çalışmadan iki platform da çıkıyor. Bu yaklaşım uygulama ücretini neredeyse yarıya indiriyor ve iki platformun aynı anda güncellenmesini sağlıyor.",
           "Ayrı ayrı geliştirme yalnızca çok özel donanım gereksinimleri olan projelerde mantıklı. Size iki ayrı fiyat veriliyorsa neden gerektiğini sorun; ikna edici bir cevap yoksa gereksiz ödüyorsunuz demektir.",
         ],
       },
@@ -555,6 +569,18 @@ export const posts: BlogPost[] = [
       },
     ],
     faq: [
+      {
+        q: "2026'da bir mobil uygulama ne kadar tutar?",
+        a: "Fikri doğrulayacak bir ilk sürüm ₺250.000–400.000, ödeme ve harita gibi entegrasyonları olan tam kapsamlı bir uygulama ₺450.000–800.000 bandında. Çok taraflı bir platform ₺800.000'den başlıyor. Rakamlar iOS ve Android'i birlikte kapsar.",
+      },
+      {
+        q: "Mobil uygulama fiyatları neye göre değişir?",
+        a: "Üç şeye göre: uygulamanın kaç iş yaptığı, kaç farklı rolün kullandığı (müşteri, kurye, yönetici gibi) ve kaç dış sisteme bağlandığı (ödeme, harita, muhasebe). Sohbet, çevrimdışı çalışma ve çok rollü panel fiyatı en çok büyüten özelliklerdir; kullanıcı girişi ve bildirim ise düşük maliyetlidir.",
+      },
+      {
+        q: "Mobil uygulama fiyatlarına KDV dahil mi?",
+        a: "Yukarıdaki bandlar KDV hariç başlangıç rakamlarıdır. Görüşmenin sonunda kalem kalem, sabit fiyatlı bir teklif alırsınız; sonradan eklenen sürpriz kalem olmaz.",
+      },
       {
         q: "Uygulama fikrimi kimseyle paylaşmadan fiyat alabilir miyim?",
         a: "Fiyat kapsama bağlı olduğu için fikri en azından genel hatlarıyla anlatmanız gerekir. Ciddi ekipler gizlilik sözleşmesi imzalamaktan çekinmez; talep etmekten çekinmeyin.",
