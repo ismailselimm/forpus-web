@@ -46,3 +46,6 @@ next-env.d.ts
 # build çıktısı out/ altında. Bir kez 132 KB'lık sayfa dökümü `git add -A`
 # ile commit'e kaçtı.
 /*.html
+
+# Tarayıcı otomasyonu artığı
+.playwright-mcp/
