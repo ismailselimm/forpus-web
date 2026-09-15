@@ -77,7 +77,7 @@ function BrowserFrame({
         className,
       )}
     >
-      <BrowserBar host={hostOf(project.url)} />
+      <BrowserBar host={project.url ? hostOf(project.url) : project.name} />
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-bg-2">
         {project.video ? (
           <WorkVideo
@@ -175,15 +175,17 @@ export default function Work() {
                       <ArrowRight className="h-[18px] w-[18px]" />
                     </Link>
                   </Magnetic>
-                  <a
-                    href={featured.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-ink-2 transition-colors hover:text-cyan-deep"
-                  >
-                    {t.work.visit}
-                    <ArrowUpRight className="h-[17px] w-[17px]" />
-                  </a>
+                  {featured.url && (
+                    <a
+                      href={featured.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-[0.92rem] font-semibold text-ink-2 transition-colors hover:text-cyan-deep"
+                    >
+                      {t.work.visit}
+                      <ArrowUpRight className="h-[17px] w-[17px]" />
+                    </a>
+                  )}
                 </div>
               </div>
             </article>

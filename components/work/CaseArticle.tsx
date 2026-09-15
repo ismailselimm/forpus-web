@@ -77,39 +77,48 @@ export default function CaseArticle({
                     </span>
                   ))}
                 </div>
-                <div className="mt-8">
-                  <Magnetic>
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary"
-                    >
-                      {caseUi.visit}
-                      <ArrowUpRight className="h-[18px] w-[18px]" />
-                    </a>
-                  </Magnetic>
-                </div>
+                {project.url && (
+                  <div className="mt-8">
+                    <Magnetic>
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary"
+                      >
+                        {caseUi.visit}
+                        <ArrowUpRight className="h-[18px] w-[18px]" />
+                      </a>
+                    </Magnetic>
+                  </div>
+                )}
               </div>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block overflow-hidden rounded-[var(--r-lg)] shadow-[var(--shadow-card)] ring-1 ring-white/40"
-              >
-                <Image
-                  src={shotAt(project.shot, 1120)}
-                  alt={`${project.name} web sitesi`}
-                  width={1120}
-                  height={700}
-                  priority
-                  fetchPriority="high"
-                  className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transform-none"
-                />
-              </a>
+              {(() => {
+                const gorsel = (
+                  <Image
+                    src={shotAt(project.shot, 1120)}
+                    alt={`${project.name} web sitesi`}
+                    width={1120}
+                    height={700}
+                    priority
+                    fetchPriority="high"
+                    className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transform-none"
+                  />
+                );
+                const cls =
+                  "group block overflow-hidden rounded-[var(--r-lg)] shadow-[var(--shadow-card)] ring-1 ring-white/40";
+                // Canlı site kapalıysa görsel tıklanmaz; kırık bir adrese göndermez.
+                return project.url ? (
+                  <a href={project.url} target="_blank" rel="noopener noreferrer" className={cls}>
+                    {gorsel}
+                  </a>
+                ) : (
+                  <div className={cls}>{gorsel}</div>
+                );
+              })()}
             </Reveal>
           </div>
         </div>

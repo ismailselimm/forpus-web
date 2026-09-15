@@ -8,7 +8,9 @@ export type LocalizedText = Record<Lang, string>;
 export type WebProject = {
   slug: string;
   name: string;
-  url: string;
+  /** Canlı site. Site kapalıyken (ör. müşteri barındırmayı yenilemediğinde) boş
+   *  bırakılır: proje referans olarak kalır, dışarı giden bağlantılar gizlenir. */
+  url?: string;
   shot: string; // desktop screenshot (also the video poster when `video` is set)
   video?: string; // optional autoplay-muted-loop clip shown in the frame instead of the shot
   category: LocalizedText;
@@ -167,7 +169,8 @@ export const webProjects: WebProject[] = [
   {
     slug: "esenkuruyemis",
     name: "Esen Kuruyemiş",
-    url: "https://esenkuruyemis.com/",
+    // Site kapalı: müşteri barındırma ücretini ödemedi. Referans olarak duruyor,
+    // bağlantı yok. Site geri gelince url eklenmesi yeterli.
     shot: "/work/esenkuruyemis.webp",
     category: { tr: "E-Ticaret", en: "E-Commerce" },
     desc: {
@@ -261,7 +264,6 @@ export const brandLogos: { name: string; src: string; url?: string }[] = [
   {
     name: "Esen Kuruyemiş",
     src: "/logos/esen.webp",
-    url: "https://esenkuruyemis.com/",
   },
   {
     name: "Çekiç Trans",

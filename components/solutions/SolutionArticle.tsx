@@ -343,10 +343,12 @@ export default function SolutionArticle({
           <div className="container-x relative z-10">
             <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
               <Reveal>
+                {/* Canlı site kapalıysa görsel vaka sayfasına gider. */}
                 <a
-                  href={caseProject.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={caseProject.url ?? `/isler/${caseProject.slug}`}
+                  {...(caseProject.url
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className="group relative block overflow-hidden rounded-[var(--r-lg)] shadow-[var(--shadow-card)] ring-1 ring-white/40"
                 >
                   <Image
