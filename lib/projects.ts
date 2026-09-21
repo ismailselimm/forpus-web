@@ -106,19 +106,6 @@ export const webProjects: WebProject[] = [
     accent: "green",
   },
   {
-    slug: "vetopia",
-    name: "Vetopia Veteriner Kliniği",
-    url: "https://vetopiaveterinerklinigi.com.tr/",
-    shot: "/work/vetopia.webp",
-    category: { tr: "Kurumsal · Veteriner Kliniği", en: "Corporate · Veterinary Clinic" },
-    desc: {
-      tr: "Ordu Altınordu'da kedi, köpek ve kuşlara bakan iki hekimli klinik için site: klinikteki cihazların dökümü, acil durum rehberi ve DoldurKabı uygulamasından randevu.",
-      en: "A site for a two vet clinic caring for cats, dogs and birds in Altınordu, Ordu: the clinic's equipment list, an emergency guide and appointments through the DoldurKabı app.",
-    },
-    tags: ["Web", "Kurumsal", "SEO", "UI/UX"],
-    accent: "cyan",
-  },
-  {
     slug: "diyetisyenece",
     name: "Dyt. Ece Öztürk",
     url: "https://diyetisyeneceozturk.com/",
@@ -175,6 +162,19 @@ export const webProjects: WebProject[] = [
     },
     tags: ["Web", "Kurumsal"],
     accent: "blue",
+  },
+  {
+    slug: "vetopia",
+    name: "Vetopia Veteriner Kliniği",
+    url: "https://vetopiaveterinerklinigi.com.tr/",
+    shot: "/work/vetopia.webp",
+    category: { tr: "Kurumsal · Veteriner Kliniği", en: "Corporate · Veterinary Clinic" },
+    desc: {
+      tr: "Ordu Altınordu'da kedi, köpek ve kuşlara bakan iki hekimli klinik için site: klinikteki cihazların dökümü, acil durum rehberi ve DoldurKabı uygulamasından randevu.",
+      en: "A site for a two vet clinic caring for cats, dogs and birds in Altınordu, Ordu: the clinic's equipment list, an emergency guide and appointments through the DoldurKabı app.",
+    },
+    tags: ["Web", "Kurumsal", "SEO", "UI/UX"],
+    accent: "cyan",
   },
   {
     slug: "cekictrans",

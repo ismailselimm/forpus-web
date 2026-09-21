@@ -163,65 +163,6 @@ export const cases: CaseStudy[] = [
   },
 
   {
-    slug: "vetopia",
-    h1: "Vetopia — Ordu'da Veteriner Kliniği Sitesi",
-    metaTitle: "Veteriner Kliniği Web Sitesi Örneği — Vetopia, Ordu",
-    metaDescription:
-      "Ordu Altınordu'da iki hekimin yürüttüğü Vetopia Veteriner Kliniği için kurduğumuz site: klinikteki cihazların dökümü, acil durum rehberi ve DoldurKabı uygulamasından randevu.",
-    published: "2026-09-21",
-    summary:
-      "Ordu Altınordu'da kedi, köpek ve kuşlara bakan, iki veteriner hekimin birlikte yürüttüğü bir klinik için kurumsal site. Klinik kayıtlarını zaten DoldurKabı'da tuttuğu için site ile uygulamayı aynı akışta birleştirdik.",
-    challenge: [
-      "Vetopia'yı iki hekim birlikte yürütüyor ve klinik haftanın yedi günü açık. İnternette ise kliniği anlatan tek yer bir sosyal medya hesabıydı; çalışma saatlerini, adresi ve hangi işlemlerin klinikte yapıldığını arayan kişi bunları bir arada bulamıyordu.",
-      "Şehir dışından bakıldığında bir kliniğin neyi yapıp neyi yapamadığı belirsizdir. Röntgen çekiliyor mu, kan sonucu aynı gün çıkıyor mu, operasyon yapılıyor mu? Bu soruların cevabı kliniğin içinde duruyordu: cihazlar. Ama dışarıdan görünmüyordu.",
-      "Klinik kayıtlarını ve randevularını DoldurKabı üzerinden tutuyor. Sitenin bu düzeni bozmaması, hasta sahibini de aynı yere yönlendirmesi gerekiyordu.",
-    ],
-    built: [
-      {
-        title: "Klinikteki cihazların dökümü",
-        body: "Görüntüleme, laboratuvar, anestezi ve cerrahi, yatış ve yoğun bakım, muayene ve bakım başlıkları altında kliniğin yirmi sekiz cihazı tek tek yazılı. Hasta sahibi yola çıkmadan önce aradığı işlemin klinikte yapılıp yapılmadığını görüyor.",
-      },
-      {
-        title: "Randevu gerekmeyen işlemlerin işaretlenmesi",
-        body: "On bir işlemin her birinde randevu gerekip gerekmediği kartın üstünde yazıyor. Muayene, aşı ve parazit uygulaması için gelinebiliyor; operasyon ve diş işlemleri randevuyla yapılıyor. Telefonda en çok sorulan soru sayfada cevaplanmış oluyor.",
-      },
-      {
-        title: "DoldurKabı ile randevu",
-        body: "Klinik kayıtlarını DoldurKabı'da tuttuğu için site, randevu isteyen hasta sahibini aynı uygulamaya yönlendiriyor. Kliniğin ikinci bir sisteme geçmesi ya da iki ayrı yerde takvim tutması gerekmiyor.",
-      },
-      {
-        title: "Hekimlerin kendi tanıtımı",
-        body: "İki hekimin eğitimi ve klinik öncesi çalıştığı yerler kendi bölümlerinde yazılı. Kliniği kimin yürüttüğü, övgü cümleleriyle değil doğrulanabilir bilgiyle anlatılıyor.",
-      },
-      {
-        title: "Acil durum rehberi",
-        body: "Hangi belirtide beklenmeden yola çıkılmalı, klinik kapalıyken ne yapılmalı, evde neler yapılmamalı. Telaşlı bir gecede okunacak kadar kısa tutuldu.",
-      },
-      {
-        title: "Aşı takvimi ve yaşa göre bakım",
-        body: "Kedi, köpek ve kuşta hangi yaşta hangi uygulama yapılır, iç ve dış parazit hangi aralıkla tekrarlanır, yavru, yetişkin ve yaşlı dönemde nelere dikkat edilir.",
-      },
-      {
-        title: "Her gün açık bilgisi ve yapısal veri",
-        body: "Üstteki rozet çalışma saatlerinden hesaplanıyor ve kapalıyken bir sonraki açılış saatini yazıyor. Aynı saatler Google'ın okuduğu veteriner kliniği yapısal verisinde de adresle birlikte duruyor.",
-      },
-    ],
-    highlight: {
-      title: "Güveni cihaz listesiyle kurmak",
-      body: "Bir kliniğin \"iyi\" olduğunu söylemek kolay, göstermek zordur. Üstelik veteriner hekim tanıtımında övgü ve iddia içeren dil mevzuatla sınırlı. Bu yüzden sitenin güven kuran bölümünü iddia üzerine değil envanter üzerine kurduk: hangi cihaz var, hangi işlem klinikte yapılıyor, hangi tetkik aynı gün sonuçlanıyor. Okuyan kişi kendi kararını veriyor.",
-    },
-    takeaway: {
-      title: "İkinci bir klinik sitesinden çıkan ders",
-      body: [
-        "Aynı sektörde ikinci bir iş, birincinin kopyası olmak zorunda değil. Cadde Veteriner'de yılların birikimi öne çıkıyordu; Vetopia'da kliniğin donanımı ve hekimlerin eğitimi. İskelet ortak, öne çıkan bilgi kliniğe göre değişiyor.",
-        "Hasta sahibinin telefonda sorduğu sorular sitenin içeriğini belirler. \"Randevu gerekiyor mu\", \"röntgen çekiliyor mu\", \"aç mı getireyim\" sorularının cevabı sayfada hazır durduğunda hem klinik hem hasta sahibi vakit kazanıyor.",
-        "Kliniğin kullandığı yazılım zaten varsa site ona bağlanmalı, onun yerine geçmemeli. Randevu tek bir yerde toplandığı sürece kayıt karışmıyor.",
-      ],
-    },
-    relatedSolutions: ["veteriner", "petotel", "petkuafor"],
-  },
-
-  {
     slug: "temizlikexpress",
     h1: "Temizlik Express — Hizmet Platformu",
     metaTitle: "Temizlik Hizmeti Platformu — Temizlik Express",
@@ -531,6 +472,65 @@ export const cases: CaseStudy[] = [
       ],
     },
     relatedSolutions: ["doktor", "guzellik", "dishekimi", "sacekimi"],
+  },
+
+  {
+    slug: "vetopia",
+    h1: "Vetopia — Ordu'da Veteriner Kliniği Sitesi",
+    metaTitle: "Veteriner Kliniği Web Sitesi Örneği — Vetopia, Ordu",
+    metaDescription:
+      "Ordu Altınordu'da iki hekimin yürüttüğü Vetopia Veteriner Kliniği için kurduğumuz site: klinikteki cihazların dökümü, acil durum rehberi ve DoldurKabı uygulamasından randevu.",
+    published: "2026-09-21",
+    summary:
+      "Ordu Altınordu'da kedi, köpek ve kuşlara bakan, iki veteriner hekimin birlikte yürüttüğü bir klinik için kurumsal site. Klinik kayıtlarını zaten DoldurKabı'da tuttuğu için site ile uygulamayı aynı akışta birleştirdik.",
+    challenge: [
+      "Vetopia'yı iki hekim birlikte yürütüyor ve klinik haftanın yedi günü açık. İnternette ise kliniği anlatan tek yer bir sosyal medya hesabıydı; çalışma saatlerini, adresi ve hangi işlemlerin klinikte yapıldığını arayan kişi bunları bir arada bulamıyordu.",
+      "Şehir dışından bakıldığında bir kliniğin neyi yapıp neyi yapamadığı belirsizdir. Röntgen çekiliyor mu, kan sonucu aynı gün çıkıyor mu, operasyon yapılıyor mu? Bu soruların cevabı kliniğin içinde duruyordu: cihazlar. Ama dışarıdan görünmüyordu.",
+      "Klinik kayıtlarını ve randevularını DoldurKabı üzerinden tutuyor. Sitenin bu düzeni bozmaması, hasta sahibini de aynı yere yönlendirmesi gerekiyordu.",
+    ],
+    built: [
+      {
+        title: "Klinikteki cihazların dökümü",
+        body: "Görüntüleme, laboratuvar, anestezi ve cerrahi, yatış ve yoğun bakım, muayene ve bakım başlıkları altında kliniğin yirmi sekiz cihazı tek tek yazılı. Hasta sahibi yola çıkmadan önce aradığı işlemin klinikte yapılıp yapılmadığını görüyor.",
+      },
+      {
+        title: "Randevu gerekmeyen işlemlerin işaretlenmesi",
+        body: "On bir işlemin her birinde randevu gerekip gerekmediği kartın üstünde yazıyor. Muayene, aşı ve parazit uygulaması için gelinebiliyor; operasyon ve diş işlemleri randevuyla yapılıyor. Telefonda en çok sorulan soru sayfada cevaplanmış oluyor.",
+      },
+      {
+        title: "DoldurKabı ile randevu",
+        body: "Klinik kayıtlarını DoldurKabı'da tuttuğu için site, randevu isteyen hasta sahibini aynı uygulamaya yönlendiriyor. Kliniğin ikinci bir sisteme geçmesi ya da iki ayrı yerde takvim tutması gerekmiyor.",
+      },
+      {
+        title: "Hekimlerin kendi tanıtımı",
+        body: "İki hekimin eğitimi ve klinik öncesi çalıştığı yerler kendi bölümlerinde yazılı. Kliniği kimin yürüttüğü, övgü cümleleriyle değil doğrulanabilir bilgiyle anlatılıyor.",
+      },
+      {
+        title: "Acil durum rehberi",
+        body: "Hangi belirtide beklenmeden yola çıkılmalı, klinik kapalıyken ne yapılmalı, evde neler yapılmamalı. Telaşlı bir gecede okunacak kadar kısa tutuldu.",
+      },
+      {
+        title: "Aşı takvimi ve yaşa göre bakım",
+        body: "Kedi, köpek ve kuşta hangi yaşta hangi uygulama yapılır, iç ve dış parazit hangi aralıkla tekrarlanır, yavru, yetişkin ve yaşlı dönemde nelere dikkat edilir.",
+      },
+      {
+        title: "Her gün açık bilgisi ve yapısal veri",
+        body: "Üstteki rozet çalışma saatlerinden hesaplanıyor ve kapalıyken bir sonraki açılış saatini yazıyor. Aynı saatler Google'ın okuduğu veteriner kliniği yapısal verisinde de adresle birlikte duruyor.",
+      },
+    ],
+    highlight: {
+      title: "Güveni cihaz listesiyle kurmak",
+      body: "Bir kliniğin \"iyi\" olduğunu söylemek kolay, göstermek zordur. Üstelik veteriner hekim tanıtımında övgü ve iddia içeren dil mevzuatla sınırlı. Bu yüzden sitenin güven kuran bölümünü iddia üzerine değil envanter üzerine kurduk: hangi cihaz var, hangi işlem klinikte yapılıyor, hangi tetkik aynı gün sonuçlanıyor. Okuyan kişi kendi kararını veriyor.",
+    },
+    takeaway: {
+      title: "İkinci bir klinik sitesinden çıkan ders",
+      body: [
+        "Aynı sektörde ikinci bir iş, birincinin kopyası olmak zorunda değil. Cadde Veteriner'de yılların birikimi öne çıkıyordu; Vetopia'da kliniğin donanımı ve hekimlerin eğitimi. İskelet ortak, öne çıkan bilgi kliniğe göre değişiyor.",
+        "Hasta sahibinin telefonda sorduğu sorular sitenin içeriğini belirler. \"Randevu gerekiyor mu\", \"röntgen çekiliyor mu\", \"aç mı getireyim\" sorularının cevabı sayfada hazır durduğunda hem klinik hem hasta sahibi vakit kazanıyor.",
+        "Kliniğin kullandığı yazılım zaten varsa site ona bağlanmalı, onun yerine geçmemeli. Randevu tek bir yerde toplandığı sürece kayıt karışmıyor.",
+      ],
+    },
+    relatedSolutions: ["veteriner", "petotel", "petkuafor"],
   },
 
   {
