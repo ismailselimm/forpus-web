@@ -18,6 +18,7 @@ const SITES = [
   { slug: "merak", url: "http://meraketogren.com/" },
   { slug: "cekictrans", url: "https://cekictrans.com/" },
   { slug: "caddeveteriner", url: "https://caddeveterinerklinigi.com/" },
+  { slug: "vetopia", url: "https://vetopiaveterinerklinigi.com.tr/" },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
