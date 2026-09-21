@@ -17,6 +17,7 @@ const SITES = [
   { slug: "dryasin", url: "https://dryasinkurtbogan.com.tr/" },
   { slug: "merak", url: "http://meraketogren.com/" },
   { slug: "cekictrans", url: "https://cekictrans.com/" },
+  { slug: "caddeveteriner", url: "https://caddeveterinerklinigi.com/" },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

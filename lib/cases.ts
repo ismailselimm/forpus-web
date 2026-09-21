@@ -104,6 +104,65 @@ export const cases: CaseStudy[] = [
   },
 
   {
+    slug: "caddeveteriner",
+    h1: "Cadde Veteriner — Veteriner Kliniği Sitesi",
+    metaTitle: "Veteriner Kliniği Web Sitesi Örneği — Cadde Veteriner",
+    metaDescription:
+      "Büyükçekmece'de 2003'ten beri hizmet veren bir veteriner kliniği için kurduğumuz site: tek dokunuşla arama, canlı açık/kapalı bilgisi, acil durum rehberi ve aşı takvimi.",
+    published: "2026-09-21",
+    summary:
+      "Büyükçekmece Kamiloba'da 2003'ten beri kedi ve köpeklere bakan bir veteriner kliniği için kurumsal site. Hasta sahibini telefona, yol tarifine ve aklındaki soruya en kısa yoldan ulaştıran bir yapı kurduk.",
+    challenge: [
+      "Veteriner kliniğinin sitesine gelen ziyaretçi çoğu zaman tanıtım okumak için gelmiyor. Hayvanı hasta ve üç şeyi hemen öğrenmek istiyor: şu an açık mısınız, size nasıl ulaşırım, bu durum bekleyebilir mi?",
+      "Kliniğin asıl gücü yılların birikimiydi: 2003'ten beri aynı cadde üzerinde, aynı sorumlu hekimle. Bu birikimi süslü cümlelerle değil, somut bilgiyle göstermek gerekiyordu: kuruluş yılı, hekimin mezuniyeti, açık adres, kliniğin kendi tabelası.",
+      "Hasta sahiplerinin sorduğu sorular da belliydi: randevu gerekiyor mu, yanımda ne getireyim, yavruma ilk aşı ne zaman yapılır, gece kapalıyken ne yapmalıyım. Bu cevaplar sitede hazır durunca hem hasta sahibi hem klinik zaman kazanıyor.",
+    ],
+    built: [
+      {
+        title: "Önce iletişim",
+        body: "İlk ekranda tek dokunuşla arama, WhatsApp ve yol tarifi. Mobilde başlıkta ayrı bir arama düğmesi var; hasta sahibi numarayı bulmak için sayfada gezinmek zorunda kalmıyor.",
+      },
+      {
+        title: "Canlı açık/kapalı bilgisi",
+        body: '"Şu an açık, 19:00\'a kadar" rozeti çalışma saatlerinden hesaplanıyor ve en üstte duruyor. Kapalı bir kliniğe yola çıkan olmasın diye.',
+      },
+      {
+        title: "Acil durum rehberi",
+        body: "Hangi belirtide vakit kaybetmeden yola çıkılmalı (nefes darlığı, nöbet, zehir yutma, araç çarpması ve diğerleri), klinik kapalıyken ne yapılmalı, evde neler yapılmamalı. Panik anında okunacak kadar kısa ve net.",
+      },
+      {
+        title: "Her hizmetin kendi rehberi",
+        body: "Klinikte yapılan on bir işlemin her biri için ne yapıldığı, gelmeden önce bilinmesi gerekenler, işlem sonrası ve sık sorulanlar. Muayeneden tırnak kesimine kadar.",
+      },
+      {
+        title: "Aşı takvimi ve yaşa göre bakım",
+        body: "Kedi ve köpekte hangi yaşta hangi aşı, iç ve dış parazit aralıkları; yavru, yetişkin ve yaşlı dönemde hangi kontrolün yapılacağı ve evde nelere dikkat edileceği.",
+      },
+      {
+        title: "Güven veren gerçek bilgiler",
+        body: "Sorumlu hekim ve mezuniyeti, ekip üyelerinin kendi sayfaları, kliniğin gerçek tabela fotoğrafı ve Google'daki değerlendirmeler. Hepsi doğrulanabilir bilgiler.",
+      },
+      {
+        title: "Arama motoru için yapısal veri",
+        body: "Google'ın kliniği doğru tanıması için veteriner kliniği türünde yapısal veri: adres ve her günün çalışma saatleri.",
+      },
+    ],
+    highlight: {
+      title: "Hasta sahibinin sorusunu merkeze koymak",
+      body: 'Bu sitenin en önemli bölümü bir tanıtım yazısı değil, acil durum rehberi. Gece kusan bir kedinin sahibi "beklesem mi, yola mı çıksam" diye düşünürken ne okuması gerektiğini planladık. Sayfanın merkezinde kliniğin anlatmak istediği değil, hasta sahibinin sorduğu şey duruyor.',
+    },
+    takeaway: {
+      title: "Veteriner klinikleri için",
+      body: [
+        "Veteriner sitesinin ilk işi telefonu çaldırmak. Ziyaretçilerin çoğu telefondan ve acele içinde geliyor; numara, WhatsApp ve yol tarifi ilk ekranda, tek dokunuş uzaklığında olmalı.",
+        '"Açık mısınız?" sorusu küçük görünür ama önemlidir: yanlış saatte yola çıkan hasta sahibi hem vakit hem güven kaybeder. Çalışma saatlerinin hem sayfada hem Google\'ın okuduğu yapısal veride doğru durması bu yüzden gerekli.',
+        "Bilgi içeriği tanıtımdan önce gelir. Aşı takvimi, acil belirtiler, \"yanımda ne getireyim\" gibi sorulara verilen net cevaplar hasta sahibinin işini kolaylaştırır ve kliniği aramalarda bulunur kılar. Abartısız, bilgilendirici bir dil de en çok güveni bu sektörde verir.",
+      ],
+    },
+    relatedSolutions: ["veteriner", "petotel", "petkuafor"],
+  },
+
+  {
     slug: "temizlikexpress",
     h1: "Temizlik Express — Hizmet Platformu",
     metaTitle: "Temizlik Hizmeti Platformu — Temizlik Express",

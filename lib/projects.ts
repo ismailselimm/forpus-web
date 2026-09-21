@@ -63,6 +63,19 @@ export const webProjects: WebProject[] = [
     featured: true,
   },
   {
+    slug: "caddeveteriner",
+    name: "Cadde Veteriner Kliniği",
+    url: "https://caddeveterinerklinigi.com/",
+    shot: "/work/caddeveteriner.webp",
+    category: { tr: "Kurumsal · Veteriner Kliniği", en: "Corporate · Veterinary Clinic" },
+    desc: {
+      tr: "Büyükçekmece'de 2003'ten beri kedi ve köpeklere bakan bir klinik için site: tek dokunuşla arama, canlı açık/kapalı bilgisi, acil durum rehberi ve aşı takvimi.",
+      en: "A site for a clinic caring for cats and dogs in Büyükçekmece since 2003: one-tap calling, live open/closed status, an emergency guide and a vaccination schedule.",
+    },
+    tags: ["Web", "Kurumsal", "SEO", "UI/UX"],
+    accent: "green",
+  },
+  {
     slug: "temizlikexpress",
     name: "Temizlik Express",
     url: "https://temizlikexpress.com/",
@@ -227,6 +240,7 @@ export const brandNames = [
   "Merak Et Öğren",
   "Esen Kuruyemiş",
   "Çekiç Trans",
+  "Cadde Veteriner",
 ];
 
 // Brand logos for the trust marquee. `url` links to the brand's live site when available.
@@ -269,6 +283,11 @@ export const brandLogos: { name: string; src: string; url?: string }[] = [
     name: "Çekiç Trans",
     src: "/logos/cekictrans.webp",
     url: "https://cekictrans.com/",
+  },
+  {
+    name: "Cadde Veteriner",
+    src: "/logos/caddeveteriner.webp",
+    url: "https://caddeveterinerklinigi.com/",
   },
 ];
 
