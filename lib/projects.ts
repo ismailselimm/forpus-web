@@ -230,19 +230,6 @@ export const mobileApps: MobileApp[] = [
   },
 ];
 
-// Brand names for the trust marquee (includes brands whose live sites are temporarily offline).
-export const brandNames = [
-  "DoldurKabı",
-  "Temizlik Express",
-  "Sea Pleasure",
-  "SAGE Makine",
-  "Dr. Yasin Kurtboğan",
-  "Merak Et Öğren",
-  "Esen Kuruyemiş",
-  "Çekiç Trans",
-  "Cadde Veteriner",
-];
-
 // Brand logos for the trust marquee. `url` links to the brand's live site when available.
 export const brandLogos: { name: string; src: string; url?: string }[] = [
   {
