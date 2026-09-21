@@ -140,7 +140,7 @@ export const cases: CaseStudy[] = [
       },
       {
         title: "Güven veren gerçek bilgiler",
-        body: "Sorumlu hekim ve mezuniyeti, ekip üyelerinin kendi sayfaları, kliniğin gerçek tabela fotoğrafı ve Google'daki değerlendirmeler. Hepsi doğrulanabilir bilgiler.",
+        body: "Sorumlu hekim ve mezuniyeti, ekip üyelerinin kendi sayfaları, açık adres ve kliniğin gerçek tabela fotoğrafı. Övgü yerine doğrulanabilir bilgi.",
       },
       {
         title: "Arama motoru için yapısal veri",
@@ -156,7 +156,7 @@ export const cases: CaseStudy[] = [
       body: [
         "Veteriner sitesinin ilk işi telefonu çaldırmak. Ziyaretçilerin çoğu telefondan ve acele içinde geliyor; numara, WhatsApp ve yol tarifi ilk ekranda, tek dokunuş uzaklığında olmalı.",
         '"Açık mısınız?" sorusu küçük görünür ama önemlidir: yanlış saatte yola çıkan hasta sahibi hem vakit hem güven kaybeder. Çalışma saatlerinin hem sayfada hem Google\'ın okuduğu yapısal veride doğru durması bu yüzden gerekli.',
-        "Bilgi içeriği tanıtımdan önce gelir. Aşı takvimi, acil belirtiler, \"yanımda ne getireyim\" gibi sorulara verilen net cevaplar hasta sahibinin işini kolaylaştırır ve kliniği aramalarda bulunur kılar. Abartısız, bilgilendirici bir dil de en çok güveni bu sektörde verir.",
+        "Bilgi içeriği tanıtımdan önce gelir. Aşı takvimi, acil belirtiler, \"yanımda ne getireyim\" gibi sorulara verilen net cevaplar hasta sahibinin işini kolaylaştırır ve kliniği aramalarda bulunur kılar. Veteriner hekim tanıtımında yorum, puan ve övgü içeren içerik mevzuatla sınırlı; bu yüzden abartısız, bilgilendirici dil burada bir tercih değil, gereklilik.",
       ],
     },
     relatedSolutions: ["veteriner", "petotel", "petkuafor"],
