@@ -239,7 +239,8 @@ export const mobileApps: MobileApp[] = [
       tr: "Merak ettiğin her konuda podcast",
       en: "Podcasts on everything you're curious about",
     },
-    comingSoon: true,
+    appStore: "https://apps.apple.com/tr/app/merak-dinleyerek-%C3%B6%C4%9Fren/id6802829963",
+    googlePlay: "https://play.google.com/store/apps/details?id=com.ismailselim.merak",
   },
 ];
 
